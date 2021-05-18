@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Partner Web Services API Version 51.0
+Salesforce.com Partner Web Services API Version 52.0
 Generated on (Used notimestamp option).
 
-Copyright 1999-2020 salesforce.com, inc.
+Copyright 1999-2021 salesforce.com, inc.
 All Rights Reserved
 -->
 
@@ -340,6 +340,7 @@ All Rights Reserved
             <complexType name="NavigateFlowInterviewResult">
                 <sequence>
                     <element name="activeStages" type="tns:FlowInterviewStage" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="apiVersionRuntime" type="xsd:double" minOccurs="0" nillable="true" />
                     <element name="availableActions" type="tns:FlowInterviewAction" minOccurs="0" maxOccurs="unbounded" />
                     <element name="currentStage" type="tns:FlowInterviewStage" minOccurs="0" nillable="true" />
                     <element name="debug" type="tns:FlowInterviewDebugOutput" minOccurs="0" nillable="true" />
@@ -379,6 +380,7 @@ All Rights Reserved
                     <element name="metadataValues" type="tns:FlowInterviewMetadataValue" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="name" type="xsd:string" />
                     <element name="outputs" type="tns:FlowInterviewScreenFieldOutput" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="scale" type="xsd:int" minOccurs="0" nillable="true"/>
                     <element name="triggersUpdate" type="xsd:boolean" />
                     <element name="value" type="xsd:anyType" nillable="true" />
                     <element name="visibilityRule" type="xsd:string" />
@@ -476,6 +478,8 @@ All Rights Reserved
                 <sequence>
                     <element name="collectApexLimitUsage" type="xsd:boolean" minOccurs="0"/>
                     <element name="debugAsUserId" type="xsd:string" minOccurs="0"/>
+                    <element name="debugWaitInput" type="tns:FlowInterviewDebugWaitInput" minOccurs="0"/>
+                    <element name="debugWaits" type="xsd:boolean" minOccurs="0"/>
                     <element name="enableRollbackMode" type="xsd:boolean" minOccurs="0"/>
                     <element name="enableTrace" type="xsd:boolean" minOccurs="0"/>
                     <element name="isForNewDebugging" type="xsd:boolean" minOccurs="0"/>
@@ -483,9 +487,24 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
+            <complexType name="FlowInterviewDebugWaitInput">
+                <sequence>
+                    <element name="eventOutputs" type="tns:NameObjectValuePair" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="waitEventName" type="xsd:string" minOccurs="0"/>
+                </sequence>
+            </complexType>
+
             <complexType name="FlowInterviewDebugOutput">
                 <sequence>
                     <element name="trace" type="xsd:string" minOccurs="0"/>
+                    <element name="waitDebugOutput" type="tns:FlowInterviewDebugWaitOutput" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </complexType>
+
+            <complexType name="FlowInterviewDebugWaitOutput">
+                <sequence>
+                    <element name="eventOutputs" type="tns:NameObjectValuePair" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="waitEventName" type="xsd:string" minOccurs="0"/>
                 </sequence>
             </complexType>
 
@@ -690,6 +709,8 @@ All Rights Reserved
                     <enumeration value="COMMUNITY_NOT_ACCESSIBLE"/>
                     <enumeration value="CONFLICTING_ENVIRONMENT_HUB_MEMBER"/>
                     <enumeration value="CONFLICTING_SSO_USER_MAPPING"/>
+                    <enumeration value="CONTENT_NOT_FOUND"/>
+                    <enumeration value="CONTENT_SEARCH_NOT_ENABLED"/>
                     <enumeration value="CONTENT_TYPE_NOT_FOUND"/>
                     <enumeration value="CUSTOM_APEX_ERROR"/>
                     <enumeration value="CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED"/>
@@ -727,6 +748,7 @@ All Rights Reserved
                     <enumeration value="EMAIL_EXTERNAL_TRANSPORT_CONNECTION_ERROR"/>
                     <enumeration value="EMAIL_EXTERNAL_TRANSPORT_PERMISSION_ERROR"/>
                     <enumeration value="EMAIL_EXTERNAL_TRANSPORT_TOKEN_ERROR"/>
+                    <enumeration value="EMAIL_EXTERNAL_TRANSPORT_TOO_LARGE_ERROR"/>
                     <enumeration value="EMAIL_EXTERNAL_TRANSPORT_TOO_MANY_REQUESTS_ERROR"/>
                     <enumeration value="EMAIL_EXTERNAL_TRANSPORT_UNKNOWN_ERROR"/>
                     <enumeration value="EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR"/>
@@ -935,6 +957,7 @@ All Rights Reserved
                     <enumeration value="OP_WITH_INVALID_USER_TYPE_EXCEPTION"/>
                     <enumeration value="ORCHESTRATION_INVALID"/>
                     <enumeration value="ORDER_MANAGEMENT_ACTION_NOT_ALLOWED"/>
+                    <enumeration value="ORDER_MANAGEMENT_INVALID_RECORD"/>
                     <enumeration value="ORDER_MANAGEMENT_RECORD_EXISTS"/>
                     <enumeration value="ORDER_MANAGEMENT_RECORD_NOT_FOUND"/>
                     <enumeration value="PACKAGE_DISABLED"/>
@@ -1016,6 +1039,7 @@ All Rights Reserved
                     <enumeration value="TERMS_OF_SERVICE_UNREAD"/>
                     <enumeration value="TERRITORY_REALIGN_IN_PROGRESS"/>
                     <enumeration value="TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET"/>
+                    <enumeration value="TEXT_TO_PICKLIST_VALUES_EXCEEDED"/>
                     <enumeration value="TOO_MANY_APEX_REQUESTS"/>
                     <enumeration value="TOO_MANY_ENUM_VALUE"/>
                     <enumeration value="TOO_MANY_JOBS"/>
@@ -1031,6 +1055,7 @@ All Rights Reserved
                     <enumeration value="UNSAFE_HTML_CONTENT"/>
                     <enumeration value="UNSPECIFIED_EMAIL_ADDRESS"/>
                     <enumeration value="UNSUPPORTED_APEX_TRIGGER_OPERATON"/>
+                    <enumeration value="UNSUPPORTED_SITE"/>
                     <enumeration value="UNSUPPORTED_SITE_FILE_IMPORTED_EXCEPTION"/>
                     <enumeration value="UNSUPPORTED_SOCIAL_PROVIDER"/>
                     <enumeration value="UNVERIFIED_SENDER_ADDRESS"/>
@@ -1040,6 +1065,7 @@ All Rights Reserved
                     <enumeration value="VF_COMPILE_ERROR"/>
                     <enumeration value="WEBLINK_SIZE_LIMIT_EXCEEDED"/>
                     <enumeration value="WEBLINK_URL_INVALID"/>
+                    <enumeration value="WORKSPACE_NOT_FOUND"/>
                     <enumeration value="WRONG_CONTROLLER_TYPE"/>
                     <enumeration value="XCLEAN_DJ_MATCH_IGNORABLE_ERROR"/>
                     <enumeration value="XCLEAN_DJ_MATCH_INTERNAL_DJ_ERROR"/>
@@ -1093,6 +1119,9 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="ACTION_CALL_INVALID_OUTPUT_PARAM">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, actionCallName, parameterName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="ADDING_ATTACHMENT_QUESTIONS_ADDITION_TO_EXISTING_SURVEY">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="APEXCALLOUT_INPUT_DUPLICATE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, apexClassName, parameterName</xsd:documentation></xsd:annotation>
@@ -1195,6 +1224,15 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="AUTOLAUNCHED_WAIT_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="BEFORE_SAVE_FLOW_RECORD_UPDATE_CANNOT_HAVE_FAULT_CONNECTOR">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="BEFORE_SAVE_FLOW_RECORD_UPDATE_INVALID_REFERENCE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="BEFORE_SAVE_FLOW_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="BOTH_START_NODE_AND_REFERENCE_FOUND">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
@@ -1439,6 +1477,18 @@ All Rights Reserved
                     <enumeration value="FLEXIPAGE_COMPONENT_DESIGN_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: componentName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="FLEXIPAGE_COMPONENT_EVENT_DUPLICATE_TARGET_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, sourceName, targetName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLEXIPAGE_COMPONENT_EVENT_EMPTY_TARGET_MAPPING_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, sourceName, targetName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLEXIPAGE_COMPONENT_EVENT_INVALID_FORMFACTOR_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, sourceName, targetName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLEXIPAGE_COMPONENT_EVENT_SOURCE_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, sourceName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="FLEXIPAGE_COMPONENT_MAX_LIMIT_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: componentCount, maxComponentLimit</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -1448,14 +1498,23 @@ All Rights Reserved
                     <enumeration value="FLEXIPAGE_DUPLICATE_PROPERTY_COMPONENT_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: componentName, propertyName, propertyType</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="FLEXIPAGE_EVENT_ATTRIBUTE_GENERIC_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, propertyName, propertyType, sourceName, targetName, errorIdentifier, errorParams</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="FLEXIPAGE_INVALID_ITEM_INSTANCE_TYPE_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: regionName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="FLEXIPAGE_INVALID_PROPERTY_TYPE_COMPONENT_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: componentName, propertyName, propertyType</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="FLEXIPAGE_INVALID_PROPERTY_TYPE_EVENT_TARGET_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: eventName, propertyName, propertyType, sourceName, targetName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="FLEXIPAGE_ITEM_INSTANCE_CUSTOM_VALIDATION_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: instanceName, pageType, templateName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLEXIPAGE_MAX_INTERACTIONS_EXCEPTION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: maxInteractionLimit</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="FLEXIPAGE_PICKLIST_INVALID_VALUE_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: componentName, propertyName, propertyType, invalidValue</xsd:documentation></xsd:annotation>
@@ -1844,6 +1903,9 @@ All Rights Reserved
                     <enumeration value="SCREENFIELD_BOOLEAN_ISREQUIRED_IS_FALSE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, fieldName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SCREENFIELD_CANNOT_HAVE_BOTH_DEFAULTVALUE_AND_DEFAULTSELECTEDCHOICEREFERENCE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SCREENFIELD_DEFAULTVALUE_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -1888,6 +1950,12 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="SCREENFIELD_OBJECTFIELDREFERENCE_INVALID_FORMAT">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, fieldName, objectFieldReference</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_DEFAULTVALUE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_HELPTEXT">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="SCREENFIELD_OBJECTPROVIDED_MISSING_OBJECTFIELDREFERENCE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, fieldName</xsd:documentation></xsd:annotation>
@@ -1969,6 +2037,9 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="SCREEN_CONTAINS_LIGHTNING_COMPONENT">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREEN_CONTAINS_REGION_CONTAINER_COMPONENT">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="SCREEN_MISSING_FOOTER_AND_LIGHTNING_COMPONENT">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
@@ -2147,6 +2218,9 @@ All Rights Reserved
                     <enumeration value="SURVEY_INACTIVE_SUBFLOWS">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, subflowName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SURVEY_INVALID_ATTACHMENT_QUESTION_CONFIGURATION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SURVEY_INVALID_CMT_CONFIGURED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2192,6 +2266,9 @@ All Rights Reserved
                     <enumeration value="TRIGGERED_FLOW_REDUNDANT_QUERY">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="TRIGGERING_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="TRIGGER_TYPE_CONTEXT_OBJECT_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName, triggerType</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2226,7 +2303,7 @@ All Rights Reserved
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="VALIDATION_EXCEPTION">
-                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: field, message, parentResourceName, resourceName, resourceType</xsd:documentation></xsd:annotation>
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: field, message, parentResourceName, resourceName, resourceType, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="VALUE_CHAR_LIMIT_EXCEEDED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName, characterLimit</xsd:documentation></xsd:annotation>
@@ -6942,6 +7019,7 @@ All Rights Reserved
                     <enumeration value="ASYNC_QUERY_UNSUPPORTED_QUERY"/>
                     <enumeration value="BATCH_PROCESSING_HALTED"/>
                     <enumeration value="BIG_OBJECT_UNSUPPORTED_OPERATION"/>
+                    <enumeration value="BILLING_ENTITIES_NO_ACCESS"/>
                     <enumeration value="CANNOT_DELETE_ENTITY"/>
                     <enumeration value="CANNOT_DELETE_OWNER"/>
                     <enumeration value="CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY"/>
@@ -7163,6 +7241,7 @@ All Rights Reserved
                     <enumeration value="fns:ASYNC_QUERY_UNSUPPORTED_QUERY"/>
                     <enumeration value="fns:BATCH_PROCESSING_HALTED"/>
                     <enumeration value="fns:BIG_OBJECT_UNSUPPORTED_OPERATION"/>
+                    <enumeration value="fns:BILLING_ENTITIES_NO_ACCESS"/>
                     <enumeration value="fns:CANNOT_DELETE_ENTITY"/>
                     <enumeration value="fns:CANNOT_DELETE_OWNER"/>
                     <enumeration value="fns:CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY"/>
@@ -10949,7 +11028,7 @@ All Rights Reserved
     <service name="SforceService">
         <documentation>Sforce SOAP API</documentation>
         <port binding="tns:SoapBinding" name="Soap">
-            <soap:address location="http://localhost:8080/services/Soap/u/51.0"/>
+            <soap:address location="http://localhost:8080/services/Soap/u/52.0"/>
         </port>
     </service>
 </definitions>
