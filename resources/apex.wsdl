@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 50.0
+Salesforce.com Apex API version 51.0
 
 Copyright 2006-2020 Salesforce.com, inc. All Rights Reserved
 -->
@@ -163,10 +163,12 @@ Copyright 2006-2020 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="CheckoutFlow"/>
      <xsd:enumeration value="CartAsyncFlow"/>
      <xsd:enumeration value="SalesEntryExperienceFlow"/>
+     <xsd:enumeration value="OfflineFlow"/>
      <xsd:enumeration value="CustomerLifecycle"/>
      <xsd:enumeration value="Journey"/>
      <xsd:enumeration value="RecommendationStrategy"/>
      <xsd:enumeration value="AppProcess"/>
+     <xsd:enumeration value="RoutingFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -593,7 +595,7 @@ Copyright 2006-2020 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/50.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/51.0"/>
   </port>
  </service>
 </definitions>
