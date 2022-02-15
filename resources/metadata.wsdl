@@ -10415,6 +10415,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="SlackAppHome"/>
      <xsd:enumeration value="SlackMessage"/>
      <xsd:enumeration value="SlackModal"/>
+     <xsd:enumeration value="SlackNotification"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="UserAuthCertificate">
@@ -11241,6 +11242,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="LwcServices"/>
      <xsd:enumeration value="InvocableApexServices"/>
      <xsd:enumeration value="InvocableExternalServices"/>
+     <xsd:enumeration value="ActionServices"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlexiPageRegion">
@@ -11314,6 +11316,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
    </xsd:complexType>
    <xsd:complexType name="FlexipageDataSource">
     <xsd:sequence>
+     <xsd:element name="definition" minOccurs="0" type="xsd:string"/>
      <xsd:element name="flexipageDataSourceProperties" minOccurs="0" maxOccurs="unbounded" type="tns:FlexipageDataSourceProperty"/>
      <xsd:element name="mode" minOccurs="0" type="tns:FlexipageDataSourceModeEnum"/>
      <xsd:element name="name" type="xsd:string"/>
@@ -11336,6 +11339,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
    <xsd:simpleType name="FlexipageDataSourceTypeEnum">
     <xsd:restriction base="xsd:string">
      <xsd:enumeration value="Record"/>
+     <xsd:enumeration value="Apex"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FieldInstance">
