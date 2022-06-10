@@ -33509,6 +33509,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
        <xsd:element name="CreatedById" minOccurs="0" type="tns:ID" nillable="true"/>
        <xsd:element name="CreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
        <xsd:element name="DeveloperName" minOccurs="0" type="xsd:string" nillable="true"/>
+       <xsd:element name="ForecastingItemCategory" minOccurs="0" type="xsd:string" nillable="true"/>
        <xsd:element name="IsCumulative" minOccurs="0" type="xsd:boolean" nillable="true"/>
        <xsd:element name="IsDeleted" minOccurs="0" type="xsd:boolean" nillable="true"/>
        <xsd:element name="Language" minOccurs="0" type="xsd:string" nillable="true"/>
