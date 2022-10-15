@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 55.0
+Salesforce.com Apex API version 56.0
 
 Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
 -->
@@ -172,6 +172,8 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="EvaluationFlow"/>
      <xsd:enumeration value="LoyaltyManagementFlow"/>
      <xsd:enumeration value="CMSOrchestrator"/>
+     <xsd:enumeration value="ActionCadenceAutolaunchedFlow"/>
+     <xsd:enumeration value="ActionCadenceStepFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -598,7 +600,7 @@ Copyright 2006-2022 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/55.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/56.0"/>
   </port>
  </service>
 </definitions>
