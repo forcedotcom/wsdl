@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Partner Web Services API Version 57.0
+Salesforce.com Partner Web Services API Version 58.0
 Generated on (Used notimestamp option).
 
-Copyright 1999-2022 salesforce.com, inc.
+Copyright 1999-2023 salesforce.com, inc.
 All Rights Reserved
 -->
 
@@ -75,7 +75,7 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
-            
+
             <simpleType name="QueryLocator">
                 <restriction base="xsd:string"/>
             </simpleType>
@@ -110,34 +110,34 @@ All Rights Reserved
             <!-- Search Result -->
             <complexType name="SearchResult">
                 <sequence>
-                    
+
                         <element name="queryId" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1"/>
-                    
+
                     <element name="searchRecords" minOccurs="0" maxOccurs="unbounded" type="tns:SearchRecord"/>
-                    
+
                         <element name="searchResultsMetadata" type="tns:SearchResultsMetadata" nillable="true" minOccurs="0" maxOccurs="1"/>
-                    
-                    
+
+
                 </sequence>
             </complexType>
 
             <complexType name="SearchRecord">
                 <sequence>
                     <element name="record" type="ens:sObject"/>
-                    
+
                     <element name="searchRecordMetadata" nillable="false" minOccurs="0" maxOccurs="1" type="tns:SearchRecordMetadata"/>
-                    
-                    
+
+
                     <element name="snippet" nillable="true" minOccurs="0" maxOccurs="1" type="tns:SearchSnippet"/>
-                    
+
                 </sequence>
             </complexType>
 
             <complexType name="SearchRecordMetadata">
                 <sequence>
-                    
+
                         <element name="searchPromoted" minOccurs="1" maxOccurs="1" type="xsd:boolean"/>
-                    
+
                     <element name="spellCorrected" minOccurs="1" maxOccurs="1" type="xsd:boolean"/>
                 </sequence>
             </complexType>
@@ -153,12 +153,12 @@ All Rights Reserved
 
             <complexType name="SearchResultsMetadata">
                 <sequence>
-                	
+
                 		<element name="entityLabelMetadata" nillable="false" minOccurs="0" maxOccurs="unbounded" type="tns:LabelsSearchMetadata"/>
-              		
-              		
+
+
               			<element name="entityMetadata" nillable="false" minOccurs="0" maxOccurs="unbounded" type="tns:EntitySearchMetadata"/>
-           			
+
        			</sequence>
    			</complexType>
 
@@ -174,19 +174,19 @@ All Rights Reserved
             <complexType name="EntitySearchMetadata">
                 <sequence>
                 	<element name="entityName" nillable="false" minOccurs="1" maxOccurs="1" type="xsd:string"/>
-                    
+
                     <element name="errorMetadata" nillable="false" minOccurs="0" maxOccurs="1" type="tns:EntityErrorMetadata"/>
-                    
+
                 	<element name="fieldMetadata" nillable="false" minOccurs="0" maxOccurs="unbounded" type="tns:FieldLevelSearchMetadata"/>
-                    
+
                     <element name="intentQueryMetadata" nillable="false" minOccurs="0" maxOccurs="1" type="tns:EntityIntentQueryMetadata"/>
-                    
-                    
+
+
                     <element name="searchPromotionMetadata" nillable="false" minOccurs="0" maxOccurs="1" type="tns:EntitySearchPromotionMetadata"/>
-                    
-                    
+
+
                     <element name="spellCorrectionMetadata" nillable="false" minOccurs="0" maxOccurs="1" type="tns:EntitySpellCorrectionMetadata"/>
-                    
+
                 </sequence>
             </complexType>
 
@@ -307,14 +307,14 @@ All Rights Reserved
 
 
 
-        
+
             <complexType name="FlowInterviewWrapperContext">
                 <sequence>
                     <element name="inputs" type="tns:SimpleNameObjectValuePair" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="wrapperContextType" type="xsd:string"/>
                 </sequence>
             </complexType>
-        
+
 
             <complexType name="StartFlowInterviewRequest">
                 <sequence>
@@ -322,9 +322,9 @@ All Rights Reserved
                     <element name="inputs" type="tns:NameObjectValuePair" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="versionId" type="xsd:string"/>
                     <element name="debug" type="tns:FlowInterviewDebugInput" minOccurs="0"/>
-                    
+
                     <element name="wrapperContext" type="tns:FlowInterviewWrapperContext" minOccurs="0"/>
-                    
+
                 </sequence>
             </complexType>
 
@@ -661,7 +661,7 @@ All Rights Reserved
                 <sequence>
                     <element name="ids" minOccurs="0" maxOccurs="unbounded" type="tns:ID"/>
                     <element name="latestDateCovered" type="xsd:dateTime"/>
-                    
+
                 </sequence>
             </complexType>
 
@@ -671,7 +671,7 @@ All Rights Reserved
                     <element name="deletedRecords" minOccurs="0" maxOccurs="unbounded" type="tns:DeletedRecord"/>
                     <element name="earliestDateAvailable" type="xsd:dateTime"/>
                     <element name="latestDateCovered" type="xsd:dateTime"/>
-                    
+
                 </sequence>
             </complexType>
 
@@ -840,8 +840,10 @@ All Rights Reserved
                     <enumeration value="CANNOT_REPARENT_RECORD"/>
                     <enumeration value="CANNOT_UPDATE_CONVERTED_LEAD"/>
                     <enumeration value="CANNOT_UPDATE_IS_THIRD_PARTY"/>
+                    <enumeration value="CANNOT_UPDATE_PAYMENT_METHOD_SET"/>
                     <enumeration value="CANT_DISABLE_CORP_CURRENCY"/>
                     <enumeration value="CANT_UNSET_CORP_CURRENCY"/>
+                    <enumeration value="CART_ITEM_NOT_FOUND"/>
                     <enumeration value="CART_NOT_FOUND"/>
                     <enumeration value="CHECKOUT_CONFLICT"/>
                     <enumeration value="CHECKOUT_EXPIRED"/>
@@ -867,6 +869,7 @@ All Rights Reserved
                     <enumeration value="CONFLICTING_SSO_USER_MAPPING"/>
                     <enumeration value="CONTENT_NOT_FOUND"/>
                     <enumeration value="CONTENT_SEARCH_NOT_ENABLED"/>
+                    <enumeration value="CONTENT_TYPE_DISABLED_FOR_API"/>
                     <enumeration value="CONTENT_TYPE_NOT_FOUND"/>
                     <enumeration value="COUPON_REDEMPTION_LIMIT_EXCEEDED"/>
                     <enumeration value="CUSTOM_APEX_ERROR"/>
@@ -956,6 +959,7 @@ All Rights Reserved
                     <enumeration value="FLOW_EXCEPTION"/>
                     <enumeration value="FUNCTIONALITY_NOT_ENABLED"/>
                     <enumeration value="GET_EINSTEIN_TENANT_ERROR"/>
+                    <enumeration value="GUEST_INSUFFICIENT_ACCESS"/>
                     <enumeration value="HAS_PUBLIC_REFERENCES"/>
                     <enumeration value="HTML_FILE_UPLOAD_NOT_ALLOWED"/>
                     <enumeration value="IAS_AM_AUTH_BAD_REQUEST"/>
@@ -986,6 +990,7 @@ All Rights Reserved
                     <enumeration value="INVALID_ACCESS_LEVEL"/>
                     <enumeration value="INVALID_ACCESS_TOKEN"/>
                     <enumeration value="INVALID_ACCOUNT"/>
+                    <enumeration value="INVALID_ACTION_VERSION"/>
                     <enumeration value="INVALID_API_INPUT"/>
                     <enumeration value="INVALID_ARGUMENT_TYPE"/>
                     <enumeration value="INVALID_ASSIGNEE_TYPE"/>
@@ -1004,6 +1009,7 @@ All Rights Reserved
                     <enumeration value="INVALID_DATASET_REFERENCE_INPUT"/>
                     <enumeration value="INVALID_DATA_CATEGORY_GROUP_REFERENCE"/>
                     <enumeration value="INVALID_DATA_URI"/>
+                    <enumeration value="INVALID_EBV_OPERATION"/>
                     <enumeration value="INVALID_EMAIL_ADDRESS"/>
                     <enumeration value="INVALID_EMPTY_KEY_OWNER"/>
                     <enumeration value="INVALID_ENTITY_FOR_MATCH_ENGINE_ERROR"/>
@@ -1132,6 +1138,7 @@ All Rights Reserved
                     <enumeration value="MISSING_RECEIVEDDOCUMENTID_ATTACHMENT"/>
                     <enumeration value="MISSING_RECORD"/>
                     <enumeration value="MIXED_DML_OPERATION"/>
+                    <enumeration value="MODEL_NOT_ACTIVE"/>
                     <enumeration value="MULTIPLE_CONTENT_FOUND"/>
                     <enumeration value="MULTIPLE_VOUCHERS"/>
                     <enumeration value="NONUNIQUE_SHIPPING_ADDRESS"/>
@@ -1155,6 +1162,7 @@ All Rights Reserved
                     <enumeration value="NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED"/>
                     <enumeration value="OCR_INVALID_REQUEST"/>
                     <enumeration value="OPERATION_ENQUEUED"/>
+                    <enumeration value="OPERATION_WITH_CALLBACK_ENQUEUED"/>
                     <enumeration value="OPTED_OUT_OF_MASS_MAIL"/>
                     <enumeration value="OP_WITH_INVALID_USER_TYPE_EXCEPTION"/>
                     <enumeration value="ORCHESTRATION_INVALID"/>
@@ -1206,6 +1214,7 @@ All Rights Reserved
                     <enumeration value="RECORD_IN_USE_BY_WORKFLOW"/>
                     <enumeration value="RECORD_UPDATE_FAILED"/>
                     <enumeration value="RECOVERABLE_SEARCH_PROVIDER_ERROR"/>
+                    <enumeration value="REFRESH_FAILED"/>
                     <enumeration value="RELATED_ENTITY_FILTER_VALIDATION_EXCEPTION"/>
                     <enumeration value="REL_FIELD_BAD_ACCESSIBILITY"/>
                     <enumeration value="REPUTATION_MINIMUM_NUMBER_NOT_REACHED"/>
@@ -1260,6 +1269,7 @@ All Rights Reserved
                     <enumeration value="TOO_MANY_JOBS"/>
                     <enumeration value="TOO_MANY_POSSIBLE_USERS_EXIST"/>
                     <enumeration value="TRANSFER_REQUIRES_READ"/>
+                    <enumeration value="TXN_SECURITY_NO_ACCESS"/>
                     <enumeration value="UISF_ENTITY_QUERY_FAILED"/>
                     <enumeration value="UISF_NO_MAPPINGS_FOUND"/>
                     <enumeration value="UISF_TOKEN_NOT_FOUND"/>
@@ -1290,6 +1300,7 @@ All Rights Reserved
                     <enumeration value="USER_WITH_APEX_SHARES_EXCEPTION"/>
                     <enumeration value="VARIANT_NOT_FOUND"/>
                     <enumeration value="VF_COMPILE_ERROR"/>
+                    <enumeration value="VOICE_CAPACITY_ERROR"/>
                     <enumeration value="WEBLINK_SIZE_LIMIT_EXCEEDED"/>
                     <enumeration value="WEBLINK_URL_INVALID"/>
                     <enumeration value="WEM_SEGMENTS_CAN_NOT_HAVE_NON_ACTIVE_SEGMENT_TYPE"/>
@@ -1347,6 +1358,9 @@ All Rights Reserved
                     <enumeration value="ACTIONCALL_TRIGGERING_RECORD_MISMATCHED_OBJECTTYPE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, actionObjectType, flowObjectType</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="ACTION_CALL_INPUT_SETUPREFTYPE_REQUIRES_SETUPREFVALUE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="ACTION_CALL_INVALID_CONFIGURATION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, cause</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -1355,6 +1369,12 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="ACTION_CALL_INVALID_OUTPUT_PARAM">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, actionCallName, parameterName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="ACTION_INPUT_PARAMETER_REQUIRES_ID_TYPE_FOR_SETUP_REFERENCE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="ACTION_INPUT_PARAMETER_TYPE_AND_SETUP_REFERENCE_TYPE_DO_NOT_MATCH">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="ACTION_TYPE_REQUIRED_FOR_STEP">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
@@ -2136,6 +2156,12 @@ All Rights Reserved
                     <enumeration value="FORMULA_EXPRESSION_INVALID">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, formulaExpression</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="FORMULA_REFERENCE_ALLOWED_ONLY_IN_TRANSFORM">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FORMULA_REFERENCE_REQUIRES_FORMULA_DATA_TYPE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="FTEST_EXTENSION_CODE_FOR_TEST">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: FTestName, ftestClass</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2145,11 +2171,17 @@ All Rights Reserved
                     <enumeration value="HTTP_METHOD_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: currentRequestHttpMethod, supportedHttpMethods</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="INCONSISTENT_ACTION_VERSIONS">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="INCONSISTENT_DYNAMIC_TYPE_MAPPING">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="INCONSISTENT_VALUE_FOR_DYNAMIC_VALUE_FIELD">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName, extensionName, parameterName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="INDIVIDUAL_NOT_FOUND">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: </xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="INPUTPARAM_CONFIGURATION_NOT_FOUND">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, parameterName</xsd:documentation></xsd:annotation>
@@ -2208,8 +2240,14 @@ All Rights Reserved
                     <enumeration value="INVALID_REGEX_IN_SURVEY_QUESTIONS">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="INVALID_SEGMENT_STATUS_FOR_ACTIVATION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="INVALID_SENDER_TYPE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, actionCallName, parameterName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="INVALID_SETUP_REFERENCE_TYPE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="INVALID_SURVEY_VARIABLE_NAME_OR_TYPE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, surveyName</xsd:documentation></xsd:annotation>
@@ -2310,6 +2348,9 @@ All Rights Reserved
                     <enumeration value="ORCHESTRATION_REQUIRESASYNCPROCESSING_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="ORCHESTRATION_REQUIRESASYNCPROCESSING_REQUIRED">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="ORG_WIDE_EMAIL_INVALID">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, orgWideEmailAddress</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2379,6 +2420,9 @@ All Rights Reserved
                     <enumeration value="QUERY_LOCATOR_EXPIRED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: message</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="QUERY_LOCATOR_NOT_FOUND">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: </xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="RECOMMENDATION_STRATEGY_EXCEPTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: errorArguments, errorCode</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2417,6 +2461,9 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="RECORDUPDATE_MISSING_FILTERS">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="RECORD_PRIOR_VALUE_REMAIN_SAME_BEFORE_TRIGGER">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="REFERENCED_ELEMENT_NOT_FOUND">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName, mergeFieldReference</xsd:documentation></xsd:annotation>
@@ -2640,6 +2687,15 @@ All Rights Reserved
                     <enumeration value="SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_VALUE_UNSUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, fieldName, fieldValue, otherFieldName, otherFieldValue</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SETUP_REFERENCE_ALLOWED_ONLY_IN_ACTION_INPUT">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SETUP_REFERENCE_TYPE_NOT_PACKAGEABLE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SETUP_REFERENCE_VALUE_REQUIRES_DEVELOPER_NAMES">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SLACK_API_EXCEPTION_EXTENSION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: slackErrorCode</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2814,6 +2870,9 @@ All Rights Reserved
                     <enumeration value="SURVEY_NONSURVEY_SUBFLOWS">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, subflowName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SURVEY_RULE_INVALID_LEFT_OPERAND">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementReference, operatorName, ruleName, screenFieldName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SURVEY_RULE_INVALID_RIGHT_OPERAND">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2834,6 +2893,21 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="TEMPORARY_QUERY_MORE_FAILURE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: message</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="TRANSFORM_INVALID_OUTPUT_FIELD_API_NAME">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="TRANSFORM_MISSING_PARAMETER">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="TRANSFORM_VALUE_ACTION_INVALID_ELEMENT_REFERENCE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="TRANSFORM_VALUE_ACTION_INVALID_REFERENCE_DETAIL">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="TRANSFORM_VALUE_ACTION_INVALID_VALUE_DETAIL">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="TRIGGERED_FLOW_REDUNDANT_QUERY">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
@@ -2939,6 +3013,9 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="WAITEVENT_INVALID_CONDITION_LOGIC">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, waitEventName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="WAITEVENT_INVALID_VALUE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="WAITEVENT_MISSING">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
@@ -3151,7 +3228,7 @@ All Rights Reserved
 
             <complexType name="DescribeAvailableQuickActionResult">
                 <sequence>
-                    <element name="actionEnumOrId" type="xsd:string"/> 
+                    <element name="actionEnumOrId" type="xsd:string"/>
                     <element name="label"          type="xsd:string"/>
                     <element name="name"           type="xsd:string"/>
                     <element name="type"           type="xsd:string"/>
@@ -3161,12 +3238,12 @@ All Rights Reserved
 
             <complexType name="DescribeQuickActionResult">
                 <sequence>
-                    <element name="accessLevelRequired" type="tns:ShareAccessLevel" nillable="true"/> 
-                    <element name="actionEnumOrId" type="xsd:string"/> 
+                    <element name="accessLevelRequired" type="tns:ShareAccessLevel" nillable="true"/>
+                    <element name="actionEnumOrId" type="xsd:string"/>
                     <element name="canvasApplicationId"    type="tns:ID" nillable="true"/>
                     <element name="canvasApplicationName"    type="xsd:string" nillable="true"/>
-                    <element name="colors" type="tns:DescribeColor" minOccurs="0" maxOccurs="unbounded"/> 
-                    <element name="contextSobjectType"    type="xsd:string" nillable="true"/> 
+                    <element name="colors" type="tns:DescribeColor" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="contextSobjectType"    type="xsd:string" nillable="true"/>
                     <element name="defaultValues" type="tns:DescribeQuickActionDefaultValue" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="flowDevName" type="xsd:string" nillable="true"/>
                     <element name="flowRecordIdVar" type="xsd:string" nillable="true"/>
@@ -3185,14 +3262,14 @@ All Rights Reserved
                     <element name="miniIconUrl"      type="xsd:string" nillable="true"/>
                     <element name="mobileExtensionId" type="xsd:string" nillable="true"/>
                     <element name="name"         type="xsd:string"/>
-                    <element name="showQuickActionLcHeader" type="xsd:boolean"/> 
-                    <element name="showQuickActionVfHeader" type="xsd:boolean"/> 
+                    <element name="showQuickActionLcHeader" type="xsd:boolean"/>
+                    <element name="showQuickActionVfHeader" type="xsd:boolean"/>
                                         <element name="targetParentField"    type="xsd:string" nillable="true"/>
                     <element name="targetRecordTypeId"   type="tns:ID" nillable="true"/>
                     <element name="targetSobjectType"    type="xsd:string" nillable="true"/>
                     <element name="type"         type="xsd:string"/>
                     <element name="visualforcePageName"    type="xsd:string" nillable="true"/>
-                    <element name="visualforcePageUrl" type="xsd:string" nillable="true"/> 
+                    <element name="visualforcePageUrl" type="xsd:string" nillable="true"/>
                     <element name="width"         type="xsd:int" nillable="true"/>
                 </sequence>
             </complexType>
@@ -3308,7 +3385,7 @@ All Rights Reserved
                     <element name="accountId"              type="tns:ID" nillable="true"/>
                     <element name="accountRecord" type="ens:sObject" nillable="true"/>
                     <element name="bypassAccountDedupeCheck" type="xsd:boolean" nillable="true"/>
-                    <element name="bypassContactDedupeCheck" type="xsd:boolean" nillable="true"/> 
+                    <element name="bypassContactDedupeCheck" type="xsd:boolean" nillable="true"/>
                     <element name="contactId"              type="tns:ID" nillable="true"/>
                     <element name="contactRecord" type="ens:sObject" nillable="true"/>
                     <element name="convertedStatus"        type="xsd:string"/>
@@ -3485,14 +3562,47 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
-
             <complexType name="DescribeGlobalTheme">
                 <sequence>
-                    <element name="global"       type="tns:DescribeGlobalResult"/>
-                    <element name="theme"       type="tns:DescribeThemeResult"/>
+                    <element name="global"         type="tns:DescribeGlobalResult"/>
+                    <element name="theme"          type="tns:DescribeThemeResult"/>
                 </sequence>
             </complexType>
 
+
+            <complexType name="DiscoverSchemasResult">
+                <sequence>
+                    <element name="schemas"                type="tns:Schema" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+            </complexType>
+
+            <complexType name="Schema">
+                <sequence>
+                    <element name="name"                   type="xsd:string"/>
+                </sequence>
+            </complexType>
+
+
+            <complexType name="DescribeSchemaResult">
+                <sequence>
+                    <element name="fields"                 type="tns:SchemaField" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="keyPrefix"              type="xsd:string" nillable="true"/>
+                    <element name="name"                   type="xsd:string"/>
+                </sequence>
+            </complexType>
+
+            <complexType name="SchemaField">
+                <sequence>
+                    <element name="digits"                 type="xsd:int"/>
+                    <element name="length"                 type="xsd:int"/>
+                    <element name="name"                   type="xsd:string"/>
+                    <element name="nillable"               type="xsd:boolean"/>
+                    <element name="precision"              type="xsd:int"/>
+                    <element name="scale"                  type="xsd:int"/>
+                    <element name="type"                   type="tns:fieldType"/>
+                    <element name="unique"                 type="xsd:boolean"/>
+                </sequence>
+            </complexType>
 
 
             <complexType name="ScopeInfo">
@@ -3592,9 +3702,9 @@ All Rights Reserved
                     <enumeration value="xsd:boolean"/>
                     <enumeration value="xsd:double"/>
                     <enumeration value="xsd:int"/>
-                    
+
                     <enumeration value="xsd:long"/>
-                    
+
                     <enumeration value="xsd:string"/>
                     <enumeration value="xsd:date"/>
                     <enumeration value="xsd:dateTime"/>
@@ -4132,7 +4242,7 @@ All Rights Reserved
                 </restriction>
             </simpleType>
 
-     
+
             <complexType name="FlexipageContext">
                 <sequence>
                     <element name="type"            type="tns:FlexipageContextTypeEnum"/>
@@ -4146,7 +4256,7 @@ All Rights Reserved
                 </restriction>
             </simpleType>
 
-     
+
 
 
 
@@ -4246,7 +4356,7 @@ All Rights Reserved
                     <element name="imageItems" type="tns:DescribeLayoutItem" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="label" type="xsd:string"/>
                     <element name="name" type="xsd:string"/>
-                    <element name="objectType" type="xsd:string"/> 
+                    <element name="objectType" type="xsd:string"/>
                 </sequence>
             </complexType>
 
@@ -4270,7 +4380,7 @@ All Rights Reserved
             <complexType name="DescribePathAssistant">
                 <sequence>
                     <element name="active" type="xsd:boolean"/>
-                                        <element name="animationRule" type="tns:DescribeAnimationRule" nillable="true" minOccurs="0" maxOccurs="unbounded"/> 
+                                        <element name="animationRule" type="tns:DescribeAnimationRule" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="apiName" type="xsd:string"/>
                     <element name="label" type="xsd:string"/>
                     <element name="pathPicklistField" type="xsd:string"/>
@@ -4302,7 +4412,7 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
-            
+
             <complexType name="DescribeAnimationRule">
                 <sequence>
                     <element name="animationFrequency" type="xsd:string"/>
@@ -4313,7 +4423,7 @@ All Rights Reserved
                     <element name="targetFieldChangeToValues" type="xsd:string"/>
                 </sequence>
             </complexType>
-            
+
 
 
             <complexType name="DescribeApprovalLayoutResult">
@@ -4388,8 +4498,8 @@ All Rights Reserved
 
             <complexType name="DescribeQuickActionListItemResult">
                 <sequence>
-                    <element name="accessLevelRequired"    type="tns:ShareAccessLevel" nillable="true"/> 
-                    <element name="colors" type="tns:DescribeColor" minOccurs="0" maxOccurs="unbounded"/> 
+                    <element name="accessLevelRequired"    type="tns:ShareAccessLevel" nillable="true"/>
+                    <element name="colors" type="tns:DescribeColor" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="iconUrl"       type="xsd:string" nillable="true"/>
                     <element name="icons" type="tns:DescribeIcon" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="label"        type="xsd:string"/>
@@ -4511,31 +4621,31 @@ All Rights Reserved
 
             <complexType name="DescribeLayoutButton">
                 <sequence>
-                 
+
                     <element name="behavior"       type="tns:WebLinkWindowType" nillable="true" minOccurs="0"/>
-                    
-                    
+
+
                     <element name="colors"            type="tns:DescribeColor" minOccurs="0" maxOccurs="unbounded"/>
-                    
-                 
+
+
                     <element name="content"        type="xsd:string" nillable="true" minOccurs="0"/>
                     <element name="contentSource"        type="tns:WebLinkType" nillable="true" minOccurs="0"/>
-                  
+
                     <element name="custom"           type="xsd:boolean"/>
-                   
+
                     <element name="encoding"        type="xsd:string" nillable="true" minOccurs="0"/>
                     <element name="height"        type="xsd:int" nillable="true" minOccurs="0"/>
-                   
-                    
+
+
                     <element name="icons"            type="tns:DescribeIcon" minOccurs="0" maxOccurs="unbounded"/>
-                    
+
                     <element name="label"            type="xsd:string" nillable="true"/>
-                    
+
                     <element name="menubar"        type="xsd:boolean" nillable="true"/>
-                   
+
                     <element name="name"             type="xsd:string" nillable="true"/>
 
-                    
+
                     <element name="overridden"        type="xsd:boolean"/>
                     <element name="resizeable"        type="xsd:boolean" nillable="true"/>
                     <element name="scrollbars"        type="xsd:boolean" nillable="true"/>
@@ -4545,7 +4655,7 @@ All Rights Reserved
                     <element name="url"        type="xsd:string" nillable="true" minOccurs="0"/>
                     <element name="width"        type="xsd:int" nillable="true" minOccurs="0"/>
                     <element name="windowPosition"        type="tns:WebLinkPosition" nillable="true" minOccurs="0"/>
-                    
+
                 </sequence>
             </complexType>
 
@@ -4617,9 +4727,9 @@ All Rights Reserved
                 <complexContent>
                     <extension base="tns:DescribeLayoutComponent">
                         <sequence>
-                            
+
                                 <element name="showLabel"              type="xsd:boolean"/>
-                            
+
                             <element name="showScrollbars"              type="xsd:boolean"/>
                             <element name="suggestedHeight"              type="xsd:string"/>
                             <element name="suggestedWidth"              type="xsd:string"/>
@@ -4781,8 +4891,8 @@ All Rights Reserved
 
             <complexType name="RelatedList">
                 <sequence>
-                    <element name="accessLevelRequiredForCreate"    type="tns:ShareAccessLevel" nillable="true"/> 
- <element name="buttons"    type="tns:DescribeLayoutButton"  maxOccurs="unbounded" minOccurs="0" nillable="true"/> 
+                    <element name="accessLevelRequiredForCreate"    type="tns:ShareAccessLevel" nillable="true"/>
+ <element name="buttons"    type="tns:DescribeLayoutButton"  maxOccurs="unbounded" minOccurs="0" nillable="true"/>
                     <element name="columns"         type="tns:RelatedListColumn" minOccurs="1" maxOccurs="unbounded"/>
                     <element name="custom"          type="xsd:boolean"/>
                     <element name="field"           type="xsd:string" nillable="true"/>
@@ -4830,9 +4940,9 @@ All Rights Reserved
             <complexType name="EmailAttachment">
                 <sequence>
                     <element name="body"                nillable="true" minOccurs="0" type="xsd:base64Binary"/>
-                    
+
                     <element name="contentId"           minOccurs="0" type="xsd:string" />
-                    
+
                     <element name="contentType"         type="xsd:string" />
                     <element name="fileName"            type="xsd:string" />
                 </sequence>
@@ -4853,9 +4963,9 @@ All Rights Reserved
                     <element name="body"                nillable="true" minOccurs="0" type="xsd:base64Binary"/>
                     <element name="contentType"         nillable="true" minOccurs="0" type="xsd:string" />
                     <element name="fileName"            type="xsd:string" />
-                    
+
                     <element name="id"                  nillable="true" minOccurs="0" type="tns:ID"/>
-                    
+
                     <element name="inline"				type="xsd:boolean" minOccurs="0"/>
                 </sequence>
             </complexType>
@@ -4929,9 +5039,9 @@ All Rights Reserved
                             <element name="references"          minOccurs="0" type="xsd:string" nillable="true"/>
                             <element name="targetObjectId"      type="tns:ID" nillable="true"/>
                             <element name="templateId"          type="tns:ID" nillable="true"/>
-                            
+
                             <element name="templateName"        minOccurs="0" type="xsd:string" nillable="true"/>
-                            
+
                             <element name="toAddresses"         minOccurs="0" maxOccurs="100" type="xsd:string" nillable="true"/>
                             <element name="treatBodiesAsTemplate" type="xsd:boolean" nillable="true" />
                             <element name="treatTargetObjectAsRecipient" type="xsd:boolean" nillable="true" />
@@ -4951,7 +5061,7 @@ All Rights Reserved
 
             <complexType name="DescribeListViewResult">
                 <sequence>
-                    
+
                     <element name="listViews"      type="tns:DescribeListView" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
             </complexType>
@@ -5137,9 +5247,9 @@ All Rights Reserved
                     <enumeration value="notEquals"/>
                     <enumeration value="notIn"/>
                     <enumeration value="within"/>
-            
+
                     <enumeration value="notLike"/>
-            
+
                 </restriction>
             </simpleType>
 
@@ -5200,10 +5310,10 @@ All Rights Reserved
             </complexType>
 
 
-        
+
             <complexType name="DescribeSearchLayoutResult">
                 <sequence>
-                    
+
                     <element name="errorMsg" type="xsd:string" nillable="true"/>
                     <element name="label" type="xsd:string" nillable="true"/>
                     <element name="limitRows" type="xsd:int" nillable="true"/>
@@ -5211,7 +5321,7 @@ All Rights Reserved
                     <element name="searchColumns" type="tns:DescribeColumn" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
                 </sequence>
             </complexType>
-        
+
 
 
 
@@ -5663,6 +5773,56 @@ All Rights Reserved
                 </complexType>
             </element>
 
+            <element name="discoverSchemas">
+                <complexType>
+                    <sequence>
+                        <element name="scope"      type="tns:SchemaScope"/>
+                        <element name="typeFilter" type="tns:SchemaType"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <xsd:simpleType name="SchemaScope">
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Salesforce"/>
+                    <xsd:enumeration value="Organization"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+
+            <xsd:simpleType name="SchemaType">
+                <xsd:restriction base="xsd:string">
+
+                    <xsd:enumeration value="All"/>
+
+                    <xsd:enumeration value="Custom"/>
+
+                </xsd:restriction>
+            </xsd:simpleType>
+
+            <element name="discoverSchemasResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="tns:DiscoverSchemasResult" nillable="true"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+
+            <element name="describeSchema">
+                <complexType>
+                    <sequence>
+                        <element name="type" type="xsd:string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="describeSchemaResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="tns:DescribeSchemaResult" nillable="true"/>
+                    </sequence>
+                </complexType>
+            </element>
+
 
             <element name="describePicklists">
                 <complexType>
@@ -5934,7 +6094,7 @@ All Rights Reserved
                 </complexType>
             </element>
 
-            
+
             <element name="describeLayoutByUiType">
                 <complexType>
                     <sequence>
@@ -5958,7 +6118,7 @@ All Rights Reserved
                     <enumeration value="Lightning"/>
                 </restriction>
             </simpleType>
- 
+
 
             <element name="describeLayoutResponse">
                 <complexType>
@@ -6269,24 +6429,6 @@ All Rights Reserved
                 </complexType>
             </element>
 
-
-            <!-- Email Message Types -->
-            <element name="handleEmailMessage">
-                <complexType>
-                    <sequence>
-                        <element name="messages" type="tns:HandledEmailMessage" minOccurs="0" maxOccurs="10"/>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="handleEmailMessageResponse">
-                <complexType>
-                    <sequence>
-                        <element name="result" type="tns:SaveResult" minOccurs="0" maxOccurs="10"/>
-                    </sequence>
-                </complexType>
-            </element>
-
-
             <!-- Send Email Types -->
             <element name="sendEmail">
                 <complexType>
@@ -6481,7 +6623,7 @@ All Rights Reserved
             </element>
 
             <!-- DeleteByExample Message Types -->
-            
+
             <element name="deleteByExample">
                 <complexType>
                     <sequence>
@@ -6496,7 +6638,7 @@ All Rights Reserved
                     </sequence>
                 </complexType>
             </element>
-            
+
 
             <!-- Undelete Message Types -->
             <element name="undelete">
@@ -6715,7 +6857,7 @@ All Rights Reserved
                 </complexType>
             </element>
 
-      
+
             <!-- RetrieveDefaultValues Message Types -->
             <element name="retrieveDefaultValues">
                 <complexType>
@@ -6734,7 +6876,7 @@ All Rights Reserved
                     </sequence>
                 </complexType>
             </element>
-      
+
 
             <!-- Convert Lead Message Types -->
             <element name="convertLead">
@@ -7237,7 +7379,7 @@ All Rights Reserved
                     </sequence>
                 </complexType>
             </element>
- 
+
             <xsd:simpleType name="PerfOption">
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="NONE" />
@@ -7656,6 +7798,7 @@ All Rights Reserved
                     <enumeration value="BATCH_PROCESSING_HALTED"/>
                     <enumeration value="BIG_OBJECT_UNSUPPORTED_OPERATION"/>
                     <enumeration value="BILLING_ENTITIES_NO_ACCESS"/>
+                    <enumeration value="BUYER_ACCOUNT_NOT_FOUND"/>
                     <enumeration value="CANNOT_DELETE_ENTITY"/>
                     <enumeration value="CANNOT_DELETE_OWNER"/>
                     <enumeration value="CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY"/>
@@ -7761,7 +7904,6 @@ All Rights Reserved
                     <enumeration value="INTERNAL_CANVAS_ERROR"/>
                     <enumeration value="INTERNAL_ERROR"/>
                     <enumeration value="INTERNAL_SERVER_ERROR"/>
-                    <enumeration value="INVAID_RECORD_ATTRIBUTE_VALUE"/>
                     <enumeration value="INVALID_ACCOUNTING_SET"/>
                     <enumeration value="INVALID_ASSIGNMENT_RULE"/>
                     <enumeration value="INVALID_AUTH_HEADER"/>
@@ -7772,6 +7914,7 @@ All Rights Reserved
                     <enumeration value="INVALID_DATE_FORMAT"/>
                     <enumeration value="INVALID_DEFINITION"/>
                     <enumeration value="INVALID_FIELD"/>
+                    <enumeration value="INVALID_FIELD_ACCESS_RULE"/>
                     <enumeration value="INVALID_FILTER_LANGUAGE"/>
                     <enumeration value="INVALID_FILTER_VALUE"/>
                     <enumeration value="INVALID_IDEMPOTENCY_KEY"/>
@@ -7792,6 +7935,7 @@ All Rights Reserved
                     <enumeration value="INVALID_QUERY_LOCATOR"/>
                     <enumeration value="INVALID_QUERY_SCOPE"/>
                     <enumeration value="INVALID_QUERY_VALUE"/>
+                    <enumeration value="INVALID_RECORD_ACCESS_RULE"/>
                     <enumeration value="INVALID_REPLICATION_DATE"/>
                     <enumeration value="INVALID_SEARCH"/>
                     <enumeration value="INVALID_SEARCH_SCOPE"/>
@@ -7860,9 +8004,11 @@ All Rights Reserved
                     <enumeration value="SERVICE_DESK_NOT_ENABLED"/>
                     <enumeration value="SITE_PUBLISH_FAILED"/>
                     <enumeration value="SLACK_SERVICE_ALREADY_REACTED"/>
+                    <enumeration value="SLACK_SERVICE_INVALID_REACTION"/>
                     <enumeration value="SLACK_SERVICE_INVALID_REQUEST"/>
                     <enumeration value="SLACK_SERVICE_MISSING_DATA"/>
                     <enumeration value="SLACK_SERVICE_NO_REACTION"/>
+                    <enumeration value="SLACK_SERVICE_REACTION_LIMIT_REACHED"/>
                     <enumeration value="SLACK_SERVICE_RESOURCE_NOT_FOUND"/>
                     <enumeration value="SLACK_SERVICE_SLACK_USER_SCOPES_NOT_FOUND"/>
                     <enumeration value="SLACK_SERVICE_SLACK_USER_TOKEN_NOT_FOUND"/>
@@ -7920,6 +8066,7 @@ All Rights Reserved
                     <enumeration value="fns:BATCH_PROCESSING_HALTED"/>
                     <enumeration value="fns:BIG_OBJECT_UNSUPPORTED_OPERATION"/>
                     <enumeration value="fns:BILLING_ENTITIES_NO_ACCESS"/>
+                    <enumeration value="fns:BUYER_ACCOUNT_NOT_FOUND"/>
                     <enumeration value="fns:CANNOT_DELETE_ENTITY"/>
                     <enumeration value="fns:CANNOT_DELETE_OWNER"/>
                     <enumeration value="fns:CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY"/>
@@ -8025,7 +8172,6 @@ All Rights Reserved
                     <enumeration value="fns:INTERNAL_CANVAS_ERROR"/>
                     <enumeration value="fns:INTERNAL_ERROR"/>
                     <enumeration value="fns:INTERNAL_SERVER_ERROR"/>
-                    <enumeration value="fns:INVAID_RECORD_ATTRIBUTE_VALUE"/>
                     <enumeration value="fns:INVALID_ACCOUNTING_SET"/>
                     <enumeration value="fns:INVALID_ASSIGNMENT_RULE"/>
                     <enumeration value="fns:INVALID_AUTH_HEADER"/>
@@ -8036,6 +8182,7 @@ All Rights Reserved
                     <enumeration value="fns:INVALID_DATE_FORMAT"/>
                     <enumeration value="fns:INVALID_DEFINITION"/>
                     <enumeration value="fns:INVALID_FIELD"/>
+                    <enumeration value="fns:INVALID_FIELD_ACCESS_RULE"/>
                     <enumeration value="fns:INVALID_FILTER_LANGUAGE"/>
                     <enumeration value="fns:INVALID_FILTER_VALUE"/>
                     <enumeration value="fns:INVALID_IDEMPOTENCY_KEY"/>
@@ -8056,6 +8203,7 @@ All Rights Reserved
                     <enumeration value="fns:INVALID_QUERY_LOCATOR"/>
                     <enumeration value="fns:INVALID_QUERY_SCOPE"/>
                     <enumeration value="fns:INVALID_QUERY_VALUE"/>
+                    <enumeration value="fns:INVALID_RECORD_ACCESS_RULE"/>
                     <enumeration value="fns:INVALID_REPLICATION_DATE"/>
                     <enumeration value="fns:INVALID_SEARCH"/>
                     <enumeration value="fns:INVALID_SEARCH_SCOPE"/>
@@ -8124,9 +8272,11 @@ All Rights Reserved
                     <enumeration value="fns:SERVICE_DESK_NOT_ENABLED"/>
                     <enumeration value="fns:SITE_PUBLISH_FAILED"/>
                     <enumeration value="fns:SLACK_SERVICE_ALREADY_REACTED"/>
+                    <enumeration value="fns:SLACK_SERVICE_INVALID_REACTION"/>
                     <enumeration value="fns:SLACK_SERVICE_INVALID_REQUEST"/>
                     <enumeration value="fns:SLACK_SERVICE_MISSING_DATA"/>
                     <enumeration value="fns:SLACK_SERVICE_NO_REACTION"/>
+                    <enumeration value="fns:SLACK_SERVICE_REACTION_LIMIT_REACHED"/>
                     <enumeration value="fns:SLACK_SERVICE_RESOURCE_NOT_FOUND"/>
                     <enumeration value="fns:SLACK_SERVICE_SLACK_USER_SCOPES_NOT_FOUND"/>
                     <enumeration value="fns:SLACK_SERVICE_SLACK_USER_TOKEN_NOT_FOUND"/>
@@ -8808,13 +8958,6 @@ All Rights Reserved
         <part element="tns:activateResponse" name="parameters"/>
     </message>
 
-    <message name="handleEmailMessageRequest">
-        <part element="tns:handleEmailMessage" name="parameters"/>
-    </message>
-    <message name="handleEmailMessageResponse">
-        <part element="tns:handleEmailMessageResponse" name="parameters"/>
-    </message>
-
     <message name="updateSettingsRequest">
         <part element="tns:updateSettings" name="parameters"/>
     </message>
@@ -9072,6 +9215,20 @@ All Rights Reserved
     </message>
     <message name="runFlowTestResponse">
         <part element="tns:runFlowTestResponse" name="parameters"/>
+    </message>
+
+    <message name="describeSchemaRequest">
+        <part element="tns:describeSchema" name="parameters"/>
+    </message>
+    <message name="describeSchemaResponse">
+        <part element="tns:describeSchemaResponse" name="parameters"/>
+    </message>
+
+    <message name="discoverSchemasRequest">
+        <part element="tns:discoverSchemas" name="parameters"/>
+    </message>
+    <message name="discoverSchemasResponse">
+        <part element="tns:discoverSchemasResponse" name="parameters"/>
     </message>
 
 
@@ -9574,13 +9731,6 @@ All Rights Reserved
             <fault  message="tns:UnexpectedErrorFault" name="UnexpectedErrorFault"/>
         </operation>
 
-        <operation name="handleEmailMessage">
-            <documentation>Handle incoming email messages</documentation>
-            <input  message="tns:handleEmailMessageRequest"/>
-            <output message="tns:handleEmailMessageResponse"/>
-            <fault  message="tns:UnexpectedErrorFault" name="UnexpectedErrorFault"/>
-        </operation>
-
         <operation name="updateSettings">
             <documentation>Update organization preferences</documentation>
             <input  message="tns:updateSettingsRequest"/>
@@ -9828,6 +9978,20 @@ All Rights Reserved
             <documentation>Run flow test</documentation>
             <input  message="tns:runFlowTestRequest"/>
             <output message="tns:runFlowTestResponse"/>
+        </operation>
+
+        <operation name="describeSchema">
+            <documentation>Describe a platform schema</documentation>
+            <input  message="tns:describeSchemaRequest"/>
+            <output message="tns:describeSchemaResponse"/>
+            <fault  message="tns:UnexpectedErrorFault" name="UnexpectedErrorFault"/>
+        </operation>
+
+        <operation name="discoverSchemas">
+            <documentation>Discover platform schemas</documentation>
+            <input  message="tns:discoverSchemasRequest"/>
+            <output message="tns:discoverSchemasResponse"/>
+            <fault  message="tns:UnexpectedErrorFault" name="UnexpectedErrorFault"/>
         </operation>
 
     </portType>
@@ -11195,24 +11359,6 @@ All Rights Reserved
                 <soap:fault name="UnexpectedErrorFault" use="literal"/>
             </fault>
         </operation>
-        <operation name="handleEmailMessage">
-            <soap:operation soapAction=""/>
-            <input>
-                <soap:header use="literal" message="tns:Header" part="SessionHeader"/>
-                <soap:header use="literal" message="tns:Header" part="CallOptions"/>
-                <soap:header use="literal" message="tns:Header" part="AssignmentRuleHeader"/>
-                <soap:header use="literal" message="tns:Header" part="EmailHeader"/>
-                <soap:body parts="parameters" use="literal"/>
-            </input>
-            <output>
-                <soap:header use="literal" message="tns:Header" part="LimitInfoHeader"/>
-                <soap:header use="literal" message="tns:Header" part="APIPerformanceInfo"/>
-                <soap:body use="literal"/>
-            </output>
-            <fault name="UnexpectedErrorFault">
-                <soap:fault name="UnexpectedErrorFault" use="literal"/>
-            </fault>
-        </operation>
         <operation name="updateSettings">
             <soap:operation soapAction=""/>
             <input>
@@ -11812,6 +11958,40 @@ All Rights Reserved
                 <soap:body use="literal"/>
             </output>
         </operation>
+        <operation name="describeSchema">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:header use="literal" message="tns:Header" part="SessionHeader"/>
+                <soap:header use="literal" message="tns:Header" part="CallOptions"/>
+                <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
+                <soap:body parts="parameters" use="literal"/>
+            </input>
+            <output>
+                <soap:header use="literal" message="tns:Header" part="LimitInfoHeader"/>
+                <soap:header use="literal" message="tns:Header" part="APIPerformanceInfo"/>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="UnexpectedErrorFault">
+                <soap:fault name="UnexpectedErrorFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="discoverSchemas">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:header use="literal" message="tns:Header" part="SessionHeader"/>
+                <soap:header use="literal" message="tns:Header" part="CallOptions"/>
+                <soap:header use="literal" message="tns:Header" part="PackageVersionHeader"/>
+                <soap:body parts="parameters" use="literal"/>
+            </input>
+            <output>
+                <soap:header use="literal" message="tns:Header" part="LimitInfoHeader"/>
+                <soap:header use="literal" message="tns:Header" part="APIPerformanceInfo"/>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="UnexpectedErrorFault">
+                <soap:fault name="UnexpectedErrorFault" use="literal"/>
+            </fault>
+        </operation>
 
     </binding>
 
@@ -11819,7 +11999,7 @@ All Rights Reserved
     <service name="SforceService">
         <documentation>Sforce SOAP API</documentation>
         <port binding="tns:SoapBinding" name="Soap">
-            <soap:address location="http://localhost:8080/services/Soap/u/57.0"/>
+            <soap:address location="http://localhost:8080/services/Soap/u/58.0"/>
         </port>
     </service>
 </definitions>
