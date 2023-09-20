@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 58.0
+Salesforce.com Apex API version 59.0
 
 Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
 -->
@@ -175,6 +175,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="ActionCadenceAutolaunchedFlow"/>
      <xsd:enumeration value="ActionCadenceStepFlow"/>
      <xsd:enumeration value="IndividualObjectLinkingFlow"/>
+     <xsd:enumeration value="PromptFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -601,7 +602,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/58.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/59.0"/>
   </port>
  </service>
 </definitions>
