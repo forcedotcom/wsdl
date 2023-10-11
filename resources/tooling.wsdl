@@ -27805,6 +27805,8 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
        <xsd:element name="CreatedBy" minOccurs="0" type="ens:User" nillable="true"/>
        <xsd:element name="CreatedById" minOccurs="0" type="tns:ID" nillable="true"/>
        <xsd:element name="CreatedDate" minOccurs="0" type="xsd:dateTime" nillable="true"/>
+       <xsd:element name="DoesAllowInbdFiles" minOccurs="0" type="xsd:boolean" nillable="true"/>
+       <xsd:element name="DoesAllowInbdFilesDerived" minOccurs="0" type="xsd:boolean" nillable="true"/>
        <xsd:element name="IsDeleted" minOccurs="0" type="xsd:boolean" nillable="true"/>
        <xsd:element name="IsEstimatedWaitTimeEnabled" minOccurs="0" type="xsd:boolean" nillable="true"/>
        <xsd:element name="LastModifiedBy" minOccurs="0" type="ens:User" nillable="true"/>
@@ -52664,6 +52666,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
     <xsd:restriction base="xsd:string">
      <xsd:enumeration value="LowVolume"/>
      <xsd:enumeration value="HighVolume"/>
+     <xsd:enumeration value="Advanced"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DecisionTableUsageType">
@@ -55673,6 +55676,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="initiateNaturalLangProcessing"/>
      <xsd:enumeration value="fetchBoostBuryRuleRecommendation"/>
      <xsd:enumeration value="captureUserFeedback"/>
+     <xsd:enumeration value="createSearchBoostBuryRule"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ItemActionType">

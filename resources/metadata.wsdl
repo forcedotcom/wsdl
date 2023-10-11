@@ -8887,6 +8887,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
     <xsd:restriction base="xsd:string">
      <xsd:enumeration value="LowVolume"/>
      <xsd:enumeration value="HighVolume"/>
+     <xsd:enumeration value="Advanced"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DecisionTableUsageType">
@@ -15275,6 +15276,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="initiateNaturalLangProcessing"/>
      <xsd:enumeration value="fetchBoostBuryRuleRecommendation"/>
      <xsd:enumeration value="captureUserFeedback"/>
+     <xsd:enumeration value="createSearchBoostBuryRule"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowScreenField">
@@ -18705,6 +18707,7 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="DBT"/>
      <xsd:enumeration value="Lookalike"/>
      <xsd:enumeration value="EinsteinGptSegmentsUI"/>
+     <xsd:enumeration value="Waterfall"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="MarketingAppExtActivity">
@@ -19118,6 +19121,182 @@ Copyright 2006-2023 Salesforce.com, inc. All Rights Reserved
      </xsd:extension>
     </xsd:complexContent>
    </xsd:complexType>
+   <xsd:complexType name="MlModelArtifact">
+    <xsd:complexContent>
+     <xsd:extension base="tns:Metadata">
+      <xsd:sequence>
+       <xsd:element name="algorithmType" minOccurs="0" type="tns:MlAIModelAlgorithmType"/>
+       <xsd:element name="description" minOccurs="0" type="xsd:string"/>
+       <xsd:element name="generativeModelType" minOccurs="0" type="tns:MlGenerativeModelType"/>
+       <xsd:element name="inputFeatures" minOccurs="0" maxOccurs="unbounded" type="tns:MlModelInput"/>
+       <xsd:element name="label" type="xsd:string"/>
+       <xsd:element name="modelType" type="tns:MlModelType"/>
+       <xsd:element name="outputFeatures" minOccurs="0" maxOccurs="unbounded" type="tns:MlModelOutput"/>
+       <xsd:element name="parameters" minOccurs="0" maxOccurs="unbounded" type="tns:MlParameterDefinition"/>
+       <xsd:element name="predictionType" minOccurs="0" type="tns:MlModelPredictionType"/>
+       <xsd:element name="runtimeType" minOccurs="0" type="tns:MlRuntimeType"/>
+       <xsd:element name="sourceContainer" minOccurs="0" type="xsd:string"/>
+       <xsd:element name="sourceType" type="tns:MlModelSourceType"/>
+       <xsd:element name="status" type="tns:MlModelArtifactStatus"/>
+       <xsd:element name="trainingMetrics" minOccurs="0" type="xsd:string"/>
+       <xsd:element name="modelCapabilities" minOccurs="0" maxOccurs="unbounded" type="tns:MlGenerativeModelCapability"/>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:simpleType name="MlAIModelAlgorithmType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Unknown"/>
+     <xsd:enumeration value="Glm"/>
+     <xsd:enumeration value="Gbm"/>
+     <xsd:enumeration value="Xgboost"/>
+     <xsd:enumeration value="RandomForest"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlGenerativeModelType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Text"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:complexType name="MlModelInput">
+    <xsd:sequence>
+     <xsd:element name="isDisparateImpact" minOccurs="0" type="xsd:boolean"/>
+     <xsd:element name="label" type="xsd:string"/>
+     <xsd:element name="name" type="xsd:string"/>
+     <xsd:element name="position" minOccurs="0" type="xsd:int"/>
+     <xsd:element name="isSegmentField" minOccurs="0" type="xsd:boolean"/>
+     <xsd:element name="isSensitive" minOccurs="0" type="xsd:boolean"/>
+     <xsd:element name="type" type="xsd:string"/>
+     <xsd:element name="values" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:simpleType name="MlModelType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Predictive"/>
+     <xsd:enumeration value="Generative"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:complexType name="MlModelOutput">
+    <xsd:sequence>
+     <xsd:element name="label" type="xsd:string"/>
+     <xsd:element name="name" type="xsd:string"/>
+     <xsd:element name="type" type="xsd:string"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="MlParameterDefinition">
+    <xsd:sequence>
+     <xsd:element name="continuousDefault" minOccurs="0" type="xsd:double"/>
+     <xsd:element name="continuousMaximum" minOccurs="0" type="xsd:double"/>
+     <xsd:element name="continuousMinimum" minOccurs="0" type="xsd:double"/>
+     <xsd:element name="description" type="xsd:string"/>
+     <xsd:element name="discreteDefault" minOccurs="0" type="xsd:string"/>
+     <xsd:element name="discreteValues" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+     <xsd:element name="name" type="xsd:string"/>
+     <xsd:element name="type" type="tns:MlParameterType"/>
+     <xsd:element name="modelCapabilities" minOccurs="0" maxOccurs="unbounded" type="tns:MlGenerativeModelCapability"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:simpleType name="MlParameterType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Discrete"/>
+     <xsd:enumeration value="Continuous"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlModelPredictionType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Regression"/>
+     <xsd:enumeration value="BinaryClassification"/>
+     <xsd:enumeration value="MulticlassClassification"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlRuntimeType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="External"/>
+     <xsd:enumeration value="Internal"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlModelSourceType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="ModelConnector"/>
+     <xsd:enumeration value="EdcNoCode"/>
+     <xsd:enumeration value="LLMGateway"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlModelArtifactStatus">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Enabled"/>
+     <xsd:enumeration value="Disabled"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:complexType name="MlModelKit">
+    <xsd:complexContent>
+     <xsd:extension base="tns:Metadata">
+      <xsd:sequence>
+       <xsd:element name="activatedModels" minOccurs="0" maxOccurs="unbounded" type="tns:MlActivatedModel"/>
+       <xsd:element name="description" minOccurs="0" type="xsd:string"/>
+       <xsd:element name="label" type="xsd:string"/>
+       <xsd:element name="objectiveType" minOccurs="0" type="tns:MlObjectiveType"/>
+       <xsd:element name="outcomeGoal" type="tns:MlOutcomeGoalType"/>
+       <xsd:element name="outputFeatures" minOccurs="0" maxOccurs="unbounded" type="tns:MlModelOutput"/>
+       <xsd:element name="predictionType" minOccurs="0" type="tns:MlModelPredictionType"/>
+       <xsd:element name="status" type="tns:MlModelKitStatus"/>
+      </xsd:sequence>
+     </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="MlActivatedModel">
+    <xsd:sequence>
+     <xsd:element name="model" type="xsd:string"/>
+     <xsd:element name="label" type="xsd:string"/>
+     <xsd:element name="name" type="xsd:string"/>
+     <xsd:element name="parameterOverrides" minOccurs="0" maxOccurs="unbounded" type="tns:MlParameterOverride"/>
+     <xsd:element name="position" type="xsd:int"/>
+     <xsd:element name="status" type="tns:MlActivatedModelStatus"/>
+     <xsd:element name="refreshEnabled" minOccurs="0" type="xsd:boolean"/>
+     <xsd:element name="modelCapability" minOccurs="0" type="tns:MlGenerativeModelCapability"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="MlParameterOverride">
+    <xsd:sequence>
+     <xsd:element name="continuousValue" minOccurs="0" type="xsd:double"/>
+     <xsd:element name="discreteValue" minOccurs="0" type="xsd:string"/>
+     <xsd:element name="parameter" type="xsd:string"/>
+    </xsd:sequence>
+   </xsd:complexType>
+   <xsd:simpleType name="MlObjectiveType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Predictive"/>
+     <xsd:enumeration value="Generative"/>
+     <xsd:enumeration value="Mixed"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlOutcomeGoalType">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="None"/>
+     <xsd:enumeration value="Minimize"/>
+     <xsd:enumeration value="Maximize"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlModelKitStatus">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="Disabled"/>
+     <xsd:enumeration value="Enabled"/>
+     <xsd:enumeration value="Draft"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlGenerativeModelCapability">
+    <xsd:restriction base="xsd:string">
+     <xsd:enumeration value="COMPLETION"/>
+     <xsd:enumeration value="CHAT_COMPLETION"/>
+     <xsd:enumeration value="EMBEDDING"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="MlActivatedModelStatus">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Disabled"/>
+      <xsd:enumeration value="Enabled"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:complexType name="MobileApplicationDetail">
     <xsd:complexContent>
      <xsd:extension base="tns:Metadata">
