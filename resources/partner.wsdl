@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Partner Web Services API Version 59.0
+Salesforce.com Partner Web Services API Version 60.0
 Generated on (Used notimestamp option).
 
 Copyright 1999-2023 salesforce.com, inc.
@@ -489,6 +489,10 @@ All Rights Reserved
                     <element name="locationName" type="xsd:string" minOccurs="0" nillable="true" />
                     <element name="outputVariables" type="tns:FlowInterviewOutputVariable" minOccurs="0" maxOccurs="unbounded" />
                     <element name="pausedText" type="xsd:string"  nillable="true" />
+                    <element name="reactiveActions" type="tns:FlowInterviewReactiveAction" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="reactiveAssignments" type="tns:FlowInterviewReactiveAssignment" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="reactiveDataProviders" type="tns:FlowInterviewReactiveDataProvider" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="reactiveTriggers" type="tns:FlowInterviewReactiveTrigger" minOccurs="0" maxOccurs="unbounded" />
                     <element name="screenFields" type="tns:FlowInterviewScreenField" minOccurs="0" maxOccurs="unbounded" />
                     <element name="showFooter" type="xsd:boolean" />
                     <element name="showHeader" type="xsd:boolean" />
@@ -508,7 +512,9 @@ All Rights Reserved
                     <element name="fieldType" type="xsd:string" />
                     <element name="helpText" type="xsd:string" nillable="true" />
                     <element name="inputs" type="tns:FlowInterviewScreenFieldInput" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="isDisabled" type="xsd:boolean" />
                     <element name="isReactiveOnInit" type="xsd:boolean" />
+                    <element name="isReadOnly" type="xsd:boolean" />
                     <element name="isRequired" type="xsd:boolean" />
                     <element name="isValidValue" type="xsd:boolean" />
                     <element name="label" type="xsd:string" />
@@ -518,6 +524,7 @@ All Rights Reserved
                     <element name="outputs" type="tns:FlowInterviewScreenFieldOutput" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="regionContainerType" type="xsd:string" nillable="true" />
                     <element name="scale" type="xsd:int" minOccurs="0" nillable="true"/>
+                    <element name="templateField" type="tns:FlowInterviewScreenField" nillable="true"/>
                     <element name="triggersUpdate" type="xsd:boolean" />
                     <element name="value" type="xsd:anyType" nillable="true" />
                     <element name="valueSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
@@ -525,26 +532,93 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
-             <complexType name="FlowInterviewScreenFieldInput">
+            <complexType name="FlowInterviewReactiveTrigger">
                 <sequence>
-                    <element name="dataType" type="xsd:string" />
-                    <element name="isCollection" type="xsd:boolean" />
+                    <element name="eventHandlers" type="tns:FlowInterviewReactiveHandler" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="eventName" type="xsd:string" />
+                    <element name="eventSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                </sequence>
+            </complexType>
+
+            <complexType name="FlowInterviewReactiveHandler">
+                <sequence>
+                    <element name="actionName" type="xsd:string" />
+                    <element name="actionType" type="xsd:string" />
+                    <element name="conditionContextMap" type="tns:NameValueTypeTriple" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="conditionExpression" type="xsd:string" />
+                    <element name="conditionSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="initBehavior" type="xsd:string" />
+                    <element name="lockLevel" type="xsd:string" />
+                </sequence>
+            </complexType>
+
+            <complexType name="FlowInterviewReactiveAction">
+                <sequence>
+                    <element name="actionName" type="xsd:string" />
+                    <element name="actionType" type="xsd:string" />
+                    <element name="inputs" type="tns:FlowInterviewScreenFieldInput" minOccurs="0" maxOccurs="unbounded" />
                     <element name="name" type="xsd:string" />
+                    <element name="outputs" type="tns:FlowInterviewScreenFieldOutput" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="prefillValues" type="tns:FlowInterviewScreenFieldInput" minOccurs="0" maxOccurs="unbounded" />
+                </sequence>
+            </complexType>
+
+            <complexType name="FlowInterviewReactiveAssignment">
+                <sequence>
+                    <element name="assigmentType" type="xsd:string" />
+                    <element name="name" type="xsd:string" />
+                    <element name="source" type="xsd:string" />
+                    <element name="target" type="xsd:string" />
+                </sequence>
+            </complexType>
+
+            <complexType name="FlowInterviewReactiveDataProvider">
+                <sequence>
+                    <element name="filterLogic" type="xsd:string" />
+                    <element name="filters" type="tns:FlowInterviewReactiveDataProviderFilter" minOccurs="0" maxOccurs="unbounded" />
+                    <element name="initBehavior" type="xsd:string" />
+                    <element name="limit" type="xsd:int" />
+                    <element name="name" type="xsd:string" />
+                    <element name="objectSuperType" type="xsd:string" nillable="true" />
                     <element name="objectType" type="xsd:string" nillable="true" />
-                    <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="unbounded"/>
-                    <element name="valueSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="prefillValue" type="xsd:anyType" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="sortFieldName" type="xsd:string" />
+                    <element name="sortOrder" type="xsd:string" />
                 </sequence>
             </complexType>
             
+            <complexType name="FlowInterviewReactiveDataProviderFilter">
+                <sequence>
+                    <element name="isRhsReference" type="xsd:boolean" />
+                    <element name="lhsFieldName" type="xsd:string" />
+                    <element name="operator" type="xsd:string" />
+                    <element name="rhsDataType" type="xsd:string" />
+                    <element name="rhsValue" type="xsd:string" nillable="true" />
+                </sequence>
+            </complexType>
+
             <complexType name="FlowInterviewReactiveFormula">
                 <sequence>
                     <element name="contextMap" type="tns:NameValueTypeTriple" minOccurs="0" maxOccurs="unbounded"/>
                     <element name="expression" type="xsd:string" />
+                    <element name="formulaType" type="xsd:string" />
                     <element name="name" type="xsd:string" />
                     <element name="outputType" type="xsd:string" />
+                    <element name="scale" type="xsd:int" minOccurs="0" nillable="true"/>
                     <element name="valueSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
             </complexType>
+
+            <complexType name="FlowInterviewScreenFieldInput">
+               <sequence>
+                   <element name="dataType" type="xsd:string" />
+                   <element name="isCollection" type="xsd:boolean" />
+                   <element name="name" type="xsd:string" />
+                   <element name="objectType" type="xsd:string" nillable="true" />
+                   <element name="value" type="xsd:anyType" minOccurs="1" maxOccurs="unbounded" />
+                   <element name="valueSources" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+               </sequence>
+           </complexType>
 
             <complexType name="FlowInterviewScreenFieldOutput">
                 <sequence>
@@ -581,8 +655,18 @@ All Rights Reserved
                 </sequence>
             </complexType>
 
+            <complexType name="FlowInterviewReactiveChoiceSource">
+                <sequence>
+                    <element name="dataType" type="xsd:string" />
+                    <element name="labelFieldName" type="xsd:string" />
+                    <element name="sourceElement" type="xsd:string" />
+                    <element name="valueFieldName" type="xsd:string" />
+                </sequence>
+            </complexType>
+
             <complexType name="FlowInterviewChoice">
                 <sequence>
+                    <element name="choiceSource" type="tns:FlowInterviewReactiveChoiceSource" nillable="true"/>
                     <element name="choiceValue" type="xsd:string"  nillable="true"/>
                     <element name="isSelected" type="xsd:boolean" />
                     <element name="label" type="xsd:string" />
@@ -1160,6 +1244,7 @@ All Rights Reserved
                     <enumeration value="MISMATCHING_TYPES"/>
                     <enumeration value="MISSING_ARGUMENT"/>
                     <enumeration value="MISSING_OMNI_PROCESS_ID"/>
+                    <enumeration value="MISSING_PAY_NOW_SITE_URL_ORG_VALUE"/>
                     <enumeration value="MISSING_RECEIVEDDOCUMENTID_ATTACHMENT"/>
                     <enumeration value="MISSING_RECORD"/>
                     <enumeration value="MIXED_DML_OPERATION"/>
@@ -1237,6 +1322,7 @@ All Rights Reserved
                     <enumeration value="QA_INVALID_SUCCESS_MESSAGE"/>
                     <enumeration value="QUERY_REFINEMENT_VALUE_LIMIT_EXCEEDED"/>
                     <enumeration value="QUERY_TIMEOUT"/>
+                    <enumeration value="QUERY_TOKEN_COUNT_LIMIT_EXCEEDED"/>
                     <enumeration value="QUICK_ACTION_LIST_ITEM_NOT_ALLOWED"/>
                     <enumeration value="QUICK_ACTION_LIST_NOT_ALLOWED"/>
                     <enumeration value="RECORD_CREATION_FAILED"/>
@@ -1318,6 +1404,7 @@ All Rights Reserved
                     <enumeration value="UNKNOWN_TOKEN_ERROR"/>
                     <enumeration value="UNPROCESSABLE_REQUEST"/>
                     <enumeration value="UNQUALIFIED_CART"/>
+                    <enumeration value="UNRESOLVABLE_PAY_NOW_WEBSTORE"/>
                     <enumeration value="UNSAFE_HTML_CONTENT"/>
                     <enumeration value="UNSPECIFIED_EMAIL_ADDRESS"/>
                     <enumeration value="UNSUPPORTED_APEX_TRIGGER_OPERATON"/>
@@ -1899,6 +1986,21 @@ All Rights Reserved
                     <enumeration value="FLOW_ALREADY_OVERRIDDEN">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, flowName, existingOverrideName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="FLOW_CAPABILITY_INPUT_DATA_TYPE_INVALID">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLOW_CAPABILITY_INPUT_INVALID">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLOW_CAPABILITY_INPUT_MISSING">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLOW_CAPABILITY_INVALID">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FLOW_CAPABILITY_MISSING">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="FLOW_COMPLEX_VALUE_COLLECTION_TYPE_EXPECTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2232,9 +2334,6 @@ All Rights Reserved
                     <enumeration value="FLOW_TRANSFORM_MAP_COL_PRIMITIVE_INCOMPA">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
-                    <enumeration value="FLOW_TRANSFORM_MAP_MULTIPLE_RESOURCES">
-                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
-                    </enumeration>
                     <enumeration value="FLOW_TRANSFORM_MAP_RSRC_TYPE_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2265,8 +2364,11 @@ All Rights Reserved
                     <enumeration value="FORMULA_EXPRESSION_INVALID">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, formulaExpression</xsd:documentation></xsd:annotation>
                     </enumeration>
-                    <enumeration value="FORM_NOT_REFERENCED_BY_LANDING_PAGE">
-                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    <enumeration value="FORM_ALREADY_IN_USE_BY_DRAFT_VERSION">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="FORM_ALREADY_IN_USE_BY_FLOW">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, objectName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="FTEST_EXTENSION_CODE_FOR_TEST">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: FTestName, ftestClass</xsd:documentation></xsd:annotation>
@@ -2415,6 +2517,9 @@ All Rights Reserved
                     <enumeration value="MESSAGING_API_ENTITLEMENT_REACHED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: </xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="MESSAGING_INACTIVE_CHANNEL">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: </xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="MISSING_ASSIGNEE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2501,6 +2606,9 @@ All Rights Reserved
                     </enumeration>
                     <enumeration value="PAST_SCHEDULE_FLOW_WILL_NOT_RUN">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, processType</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="PLATFORM_EVENT_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="PRICE_ADJUSTMENT_TIER_VALIDATION_ERROR">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: currentLowerBound, currentUpperBound, errorScenario, nextLowerBound, nextUpperBound</xsd:documentation></xsd:annotation>
@@ -2613,10 +2721,25 @@ All Rights Reserved
                     <enumeration value="RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="RUN_AS_USER_NOT_SUPPORTED">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="RUN_AS_USER_REQUIRED_WHEN_SPECIFYING_ASSIGNEE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SCHEDULE_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SCREENACTIONTYPE_NOT_SUPPORTED_IN_ORG">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SCREENACTION_NOT_SUPPORTED_IN_ORG">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREENACTION_TRIGGER_EVENT_SOURCE_NOT_ON_SAME_SCREEN">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREENACTION_TRIGGER_HANDLER_NOT_VALID_SCREEN_ACTION">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="SCREENCOMPONENT_CONTAINS_VISIBILITY_RULE">
@@ -2736,6 +2859,9 @@ All Rights Reserved
                     <enumeration value="SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_ENVIRONMENT">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, environment</xsd:documentation></xsd:annotation>
                     </enumeration>
+                    <enumeration value="SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_EXTENSIONS_WITHOUT_OUTPUTS">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, elementName</xsd:documentation></xsd:annotation>
+                    </enumeration>
                     <enumeration value="SCREENFOOTER_MERGEFIELD_NOT_SUPPORTED">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
@@ -2773,6 +2899,15 @@ All Rights Reserved
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity, fieldName</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="SCREENRULE_VISIBILITY_NOT_SUPPORTED_IN_ORG">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREEN_ACTION_MISSING_REQUIRED_NAME">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREEN_ACTION_MISSING_REQUIRED_TYPE">
+                        <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
+                    </enumeration>
+                    <enumeration value="SCREEN_ACTION_NOT_FOUND_WITH_NAME_AND_TYPE">
                         <xsd:annotation><xsd:documentation>Errors with this extended error code have the following properties: erroneousElementApiName, erroneousElementType, erroneousFields, severity</xsd:documentation></xsd:annotation>
                     </enumeration>
                     <enumeration value="SCREEN_ALLOWBACK_ALLOWFINISH_BOTH_FALSE">
@@ -3810,12 +3945,9 @@ All Rights Reserved
                     <enumeration value="address"/>
                     <enumeration value="anyType"/> <!-- can be string, picklist, reference, boolean, currency, int, double, percent, id, date, datetime, url, email -->
                     <enumeration value="json"/>
-
                     <enumeration value="complexvalue"/>
-
-
                     <enumeration value="long"/>
-
+                    <enumeration value="floatarray"/>
                 </restriction>
             </simpleType>
 
@@ -7718,8 +7850,8 @@ All Rights Reserved
         <complexType name="LimitInfo">
             <sequence>
                 <element name="appName" type="xsd:string" nillable="true" minOccurs="0"/>
-                <element name="current" type="xsd:int"/>
-                <element name="limit" type="xsd:int"/>
+                <element name="current" type="xsd:long"/>
+                <element name="limit" type="xsd:long"/>
                 <element name="type" type="xsd:string"/>
             </sequence>
         </complexType>
@@ -12123,7 +12255,7 @@ All Rights Reserved
     <service name="SforceService">
         <documentation>Sforce SOAP API</documentation>
         <port binding="tns:SoapBinding" name="Soap">
-            <soap:address location="http://localhost:8080/services/Soap/u/59.0"/>
+            <soap:address location="http://localhost:8080/services/Soap/u/60.0"/>
         </port>
     </service>
 </definitions>
