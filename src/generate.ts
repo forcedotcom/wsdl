@@ -174,8 +174,8 @@ function convertWsdlToTypescript(wsdl: string): string {
 function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
     let simpleNodeOutput = '';
 
-    const typeName: string = treatTypeName(simpleTypeNode.$.name || '');
-    const typePrimitive: string = simpleTypeNode.restriction.$.base || '';
+    const typeName = treatTypeName(simpleTypeNode.$.name );
+    const typePrimitive = simpleTypeNode.restriction.$.base ;
 
     if (typePrimitive === 'string') {
         simpleNodeOutput += 'export type ' + typeName + ' = ';
@@ -253,7 +253,7 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
         case 'complexContent': {
             const updatedComplexTypeNode: ComplexTypeNodeWithComplexContent = complexTypeNode as ComplexTypeNodeWithComplexContent;
             const parentType = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
-            complexNodeOutput += parentType ? ' & = ' + treatTypeName(parentType) : '';
+            complexNodeOutput += parentType ? treatTypeName(parentType) + ' & ' : '';
             sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
             break;
         }

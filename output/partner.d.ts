@@ -1516,7 +1516,7 @@ export type OwnerChangeOptionType = 'EnforceNewOwnerHasReadAccess'
 export type RequestOrigin = 'ListViewMetadata' 
       | 'ListViewRecords';
 
-export type address =  & = location {
+export type address = location &  {
     city?: string;
     country?: string;
     countryCode?: string;
@@ -2196,14 +2196,14 @@ export type ProcessRequest =  {
     nextApproverIds?: ID | ID[];
 }
 
-export type ProcessSubmitRequest =  & = ProcessRequest {
+export type ProcessSubmitRequest = ProcessRequest &  {
     objectId: ID;
     submitterId?: ID;
     processDefinitionNameOrId?: string;
     skipEntryCriteria?: boolean;
 }
 
-export type ProcessWorkitemRequest =  & = ProcessRequest {
+export type ProcessWorkitemRequest = ProcessRequest &  {
     action: string;
     workitemId: ID;
 }
@@ -2266,7 +2266,7 @@ export type DescribeVisualForceResult =  {
     domain: string;
 }
 
-export type ProcessArticleRequest =  & = ProcessWorkitemRequest {
+export type ProcessArticleRequest = ProcessWorkitemRequest &  {
     version: string;
 }
 
@@ -2701,7 +2701,7 @@ export type DuplicateResult =  {
     matchResults?: MatchResult | MatchResult[];
 }
 
-export type DuplicateError =  & = Error {
+export type DuplicateError = Error &  {
     duplicateResult: DuplicateResult;
 }
 
@@ -3069,16 +3069,16 @@ export type DescribeLayoutComponent =  {
     value?: string;
 }
 
-export type FieldComponent =  & = DescribeLayoutComponent {
+export type FieldComponent = DescribeLayoutComponent &  {
     field: Field;
 }
 
-export type FieldLayoutComponent =  & = DescribeLayoutComponent {
+export type FieldLayoutComponent = DescribeLayoutComponent &  {
     components?: DescribeLayoutComponent | DescribeLayoutComponent[];
     fieldType: fieldType;
 }
 
-export type VisualforcePage =  & = DescribeLayoutComponent {
+export type VisualforcePage = DescribeLayoutComponent &  {
     showLabel: boolean;
     showScrollbars: boolean;
     suggestedHeight: string;
@@ -3086,7 +3086,7 @@ export type VisualforcePage =  & = DescribeLayoutComponent {
     url: string;
 }
 
-export type Canvas =  & = DescribeLayoutComponent {
+export type Canvas = DescribeLayoutComponent &  {
     displayLocation: string;
     referenceId: string;
     showLabel: boolean;
@@ -3095,7 +3095,7 @@ export type Canvas =  & = DescribeLayoutComponent {
     suggestedWidth: string;
 }
 
-export type ReportChartComponent =  & = DescribeLayoutComponent {
+export type ReportChartComponent = DescribeLayoutComponent &  {
     cacheData: boolean;
     contextFilterableField: string;
     error: string;
@@ -3105,7 +3105,7 @@ export type ReportChartComponent =  & = DescribeLayoutComponent {
     size: ReportChartSize;
 }
 
-export type AnalyticsCloudComponent =  & = DescribeLayoutComponent {
+export type AnalyticsCloudComponent = DescribeLayoutComponent &  {
     error: string;
     filter: string;
     height: string;
@@ -3125,7 +3125,7 @@ export type FieldCriterion =  {
     operator: string;
 }
 
-export type CustomLinkComponent =  & = DescribeLayoutComponent {
+export type CustomLinkComponent = DescribeLayoutComponent &  {
     customLink: DescribeLayoutButton;
 }
 
@@ -3239,14 +3239,14 @@ export type Email =  {
     useSignature?: boolean;
 }
 
-export type MassEmailMessage =  & = Email {
+export type MassEmailMessage = Email &  {
     description?: string;
     targetObjectIds?: ID;
     templateId: ID;
     whatIds?: ID;
 }
 
-export type SingleEmailMessage =  & = Email {
+export type SingleEmailMessage = Email &  {
     bccAddresses?: string;
     ccAddresses?: string;
     charset?: string;
@@ -3393,22 +3393,22 @@ export type ListViewRecordColumn =  {
 export type SoqlWhereCondition =  {
 }
 
-export type SoqlCondition =  & = SoqlWhereCondition {
+export type SoqlCondition = SoqlWhereCondition &  {
     field: string;
     operator: soqlOperator;
     values: string | string[];
 }
 
-export type SoqlNotCondition =  & = SoqlWhereCondition {
+export type SoqlNotCondition = SoqlWhereCondition &  {
     condition: SoqlWhereCondition;
 }
 
-export type SoqlConditionGroup =  & = SoqlWhereCondition {
+export type SoqlConditionGroup = SoqlWhereCondition &  {
     conditions?: SoqlWhereCondition | SoqlWhereCondition[];
     conjunction: soqlConjunction;
 }
 
-export type SoqlSubQueryCondition =  & = SoqlWhereCondition {
+export type SoqlSubQueryCondition = SoqlWhereCondition &  {
     field: string;
     operator: soqlOperator;
     subQuery: string;
@@ -4949,39 +4949,39 @@ export type ApiFault =  {
     upgradeMessage?: string;
 }
 
-export type ApiQueryFault =  & = fns_ApiFault {
+export type ApiQueryFault = fns_ApiFault &  {
     row: number;
     column: number;
 }
 
-export type LoginFault =  & = fns_ApiFault {
+export type LoginFault = fns_ApiFault &  {
 }
 
-export type InvalidQueryLocatorFault =  & = fns_ApiFault {
+export type InvalidQueryLocatorFault = fns_ApiFault &  {
 }
 
-export type InvalidNewPasswordFault =  & = fns_ApiFault {
+export type InvalidNewPasswordFault = fns_ApiFault &  {
 }
 
-export type InvalidOldPasswordFault =  & = fns_ApiFault {
+export type InvalidOldPasswordFault = fns_ApiFault &  {
 }
 
-export type InvalidIdFault =  & = fns_ApiFault {
+export type InvalidIdFault = fns_ApiFault &  {
 }
 
-export type UnexpectedErrorFault =  & = fns_ApiFault {
+export type UnexpectedErrorFault = fns_ApiFault &  {
 }
 
-export type InvalidFieldFault =  & = fns_ApiQueryFault {
+export type InvalidFieldFault = fns_ApiQueryFault &  {
 }
 
-export type InvalidSObjectFault =  & = fns_ApiQueryFault {
+export type InvalidSObjectFault = fns_ApiQueryFault &  {
 }
 
-export type MalformedQueryFault =  & = fns_ApiQueryFault {
+export type MalformedQueryFault = fns_ApiQueryFault &  {
 }
 
-export type MalformedSearchFault =  & = fns_ApiQueryFault {
+export type MalformedSearchFault = fns_ApiQueryFault &  {
 }
 
 export type fault =  {
