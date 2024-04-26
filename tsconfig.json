@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "outDir": "lib",
+    "declaration": true,
+    "skipLibCheck": true,
+    "lib": ["es2022"],
+    "module": "commonjs",
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ]
+  },
+  "include": ["./src/**/*.ts"]
+}
+

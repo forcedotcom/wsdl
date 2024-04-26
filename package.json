@@ -1,0 +1,39 @@
+{
+  "name": "@salesforce/types",
+  "version": "1.0.0",
+  "description": "contains typescript types for salesforce objets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forcedotcom/wsdl"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "generate": "ts-node src/generate.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "salesforce",
+    "sf",
+    "metadata"
+  ],
+  "author": "Salesforce",
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/jsforce/jsforce/raw/master/LICENSE"
+    }
+  ],
+  "files": [
+    "output"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/xml2js": "^0.4.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "xml2js": "^0.6.2"
+  }
+}
