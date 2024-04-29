@@ -48114,9 +48114,6 @@ export type deleteResponse= {
     result?: DeleteResult | DeleteResult[];
 }
 
-export type describeGlobal= {
-}
-
 export type describeGlobalResponse= {
     result: DescribeGlobalResult;
 }
@@ -48197,9 +48194,6 @@ export type getDeletedResponse= {
     result: GetDeletedResult;
 }
 
-export type getServerTimestamp= {
-}
-
 export type getServerTimestampResponse= {
     result: GetServerTimestampResult;
 }
@@ -48212,9 +48206,6 @@ export type getUpdated= {
 
 export type getUpdatedResponse= {
     result: GetUpdatedResult;
-}
-
-export type getUserInfo= {
 }
 
 export type getUserInfoResponse= {
@@ -48236,12 +48227,6 @@ export type login= {
 
 export type loginResponse= {
     result: LoginResult;
-}
-
-export type logout= {
-}
-
-export type logoutResponse= {
 }
 
 export type query= {
@@ -48647,41 +48632,5 @@ export type MalformedQueryFault = ApiQueryFault & {
 }
 
 export type MalformedSearchFault = ApiQueryFault & {
-}
-
-export type ApiFault= {
-}
-
-export type ApiQueryFault= {
-}
-
-export type LoginFault= {
-}
-
-export type InvalidQueryLocatorFault= {
-}
-
-export type InvalidNewPasswordFault= {
-}
-
-export type InvalidOldPasswordFault= {
-}
-
-export type InvalidIdFault= {
-}
-
-export type UnexpectedErrorFault= {
-}
-
-export type InvalidFieldFault= {
-}
-
-export type InvalidSObjectFault= {
-}
-
-export type MalformedQueryFault= {
-}
-
-export type MalformedSearchFault= {
 }
 

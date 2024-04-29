@@ -289,22 +289,19 @@ function treatElementNode(elementNode: ElementNode): string {
     let elementNodeOutput = '';
 
     const typeName = treatTypeName(elementNode.$?.name || '');
-    const sequenceNode: SequenceNode | string = elementNode.complexType?.sequence ?? '';
+    const sequenceNode = elementNode.complexType?.sequence;
+    if (sequenceNode) {
+    elementNodeOutput += 'export type ' + typeName + '= {\n';
 
-    elementNodeOutput += 'export type ' + typeName;
-
-    elementNodeOutput += '= {\n';
-
-    if (sequenceNode && sequenceNode !== '') {
         toArray((sequenceNode as SequenceNode).element).forEach(
             subElementNode => {
                 elementNodeOutput += treatAttribute(subElementNode);
             },
         );
-    }
+
 
     elementNodeOutput += '}\n\n';
-
+    }
     return elementNodeOutput;
 }
 

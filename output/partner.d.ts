@@ -3756,9 +3756,6 @@ export type ackSyncOfflineData= {
     syncStateId: string;
 }
 
-export type ackSyncOfflineDataResponse= {
-}
-
 export type describeMobile= {
 }
 
@@ -3834,14 +3831,8 @@ export type describeSObjectsResponse= {
     result?: DescribeSObjectResult;
 }
 
-export type describeGlobal= {
-}
-
 export type describeGlobalResponse= {
     result: DescribeGlobalResult;
-}
-
-export type describeGlobalTheme= {
 }
 
 export type describeGlobalThemeResponse= {
@@ -3873,14 +3864,8 @@ export type describeDataCategoryGroupStructuresResponse= {
     result?: DescribeDataCategoryGroupStructureResult;
 }
 
-export type describeDataCategoryMappings= {
-}
-
 export type describeDataCategoryMappingsResponse= {
     result?: DescribeDataCategoryMappingResult;
-}
-
-export type describeKnowledgeSettings= {
 }
 
 export type describeKnowledgeSettingsResponse= {
@@ -3895,14 +3880,8 @@ export type describeDuplicateRulesResponse= {
     result?: DescribeDuplicateRuleResult | DescribeDuplicateRuleResult[];
 }
 
-export type ftestPatch= {
-}
-
 export type ftestPatchResponse= {
     result: SaveResult;
-}
-
-export type ftestPatchPreviousVersion= {
 }
 
 export type ftestPatchPreviousVersionResponse= {
@@ -3994,9 +3973,6 @@ export type describeApprovalLayoutResponse= {
     result?: DescribeApprovalLayoutResult;
 }
 
-export type describeSoftphoneLayout= {
-}
-
 export type describeSoftphoneLayoutResponse= {
     result?: DescribeSoftphoneLayoutResult;
 }
@@ -4069,14 +4045,8 @@ export type describeSearchableEntitiesResponse= {
     result?: DescribeSearchableEntityResult | DescribeSearchableEntityResult[];
 }
 
-export type describeTabs= {
-}
-
 export type describeTabsResponse= {
     result?: DescribeTabSetResult | DescribeTabSetResult[];
-}
-
-export type describeAllTabs= {
 }
 
 export type describeAllTabsResponse= {
@@ -4348,12 +4318,6 @@ export type impersonateUserResponse= {
     result?: ImpersonateUserResult | ImpersonateUserResult[];
 }
 
-export type logout= {
-}
-
-export type logoutResponse= {
-}
-
 export type invalidateSessions= {
     sessionIds?: string | string[];
 }
@@ -4442,9 +4406,6 @@ export type queryMoreResponse= {
     result: QueryResult;
 }
 
-export type setupBriefcase= {
-}
-
 export type setupBriefcaseResponse= {
     result: SetupBriefcaseResult;
 }
@@ -4466,14 +4427,8 @@ export type outlookSearchResponse= {
     result: OutlookSearchResult;
 }
 
-export type outlookDescribe= {
-}
-
 export type outlookDescribeResponse= {
     result: OutlookDescribeResult;
-}
-
-export type getServerTimestamp= {
 }
 
 export type getServerTimestampResponse= {
@@ -4506,14 +4461,8 @@ export type resetPasswordResponse= {
     result: ResetPasswordResult;
 }
 
-export type getAccessInfo= {
-}
-
 export type getAccessInfoResponse= {
     result: GetAccessInfoResult;
-}
-
-export type getUserInfo= {
 }
 
 export type getUserInfoResponse= {
@@ -4982,38 +4931,5 @@ export type MalformedQueryFault = ApiQueryFault & {
 }
 
 export type MalformedSearchFault = ApiQueryFault & {
-}
-
-export type fault= {
-}
-
-export type LoginFault= {
-}
-
-export type InvalidQueryLocatorFault= {
-}
-
-export type InvalidNewPasswordFault= {
-}
-
-export type InvalidOldPasswordFault= {
-}
-
-export type InvalidIdFault= {
-}
-
-export type UnexpectedErrorFault= {
-}
-
-export type InvalidFieldFault= {
-}
-
-export type InvalidSObjectFault= {
-}
-
-export type MalformedQueryFault= {
-}
-
-export type MalformedSearchFault= {
 }
 
