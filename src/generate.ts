@@ -9,7 +9,6 @@ import type {
     ComplexTypeNodeWithSequence,
     ElementNode,
     DefinitionsNode,
-    SchemaNode,
 } from './types';
 
 const wsdlFolder = './resources';
@@ -181,7 +180,7 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
     if (typePrimitive === 'string') {
         simpleNodeOutput += 'export type ' + typeName + ' = ';
 
-        const enumerations: NodeWithAttributes[] = simpleTypeNode.restriction.enumeration as NodeWithAttributes[];
+        const enumerations = simpleTypeNode.restriction.enumeration as NodeWithAttributes[];
 
         if (enumerations && enumerations.length > 0) {
             const enumerationValues= enumerations.map(
@@ -189,7 +188,8 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
             );
 
             simpleNodeOutput += '\'' + enumerationValues.join('\' \n      | \'') + '\'';
-        } else { // Not an enumeration
+        } else {
+            // Not an enumeration
             simpleNodeOutput += 'string';
         }
     } else {
@@ -239,21 +239,15 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
     let complexNodeOutput = '';
 
     const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
-    let sequenceNode: SequenceNode | string | undefined;
-    let typeStructure: string;
-
-    if ((complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent) {
-        typeStructure = 'complexContent';
-    } else {
-        typeStructure = 'sequence';
-    }
+    let sequenceNode: SequenceNode | undefined;
+    let typeStructure= (complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent ? 'complexContent' : 'sequence'
 
     complexNodeOutput += 'export type ' + typeName;
 
     switch (typeStructure) {
         case 'complexContent': {
             const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
-            const parentType: string | undefined = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
+            const parentType = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
             complexNodeOutput += parentType ? ' = ' + treatTypeName(parentType) + ' & {\n' : '';
             sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
             break;
@@ -270,10 +264,8 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
             complexNodeOutput += ' = {\n';
     }
 
-
-
-    if (sequenceNode && sequenceNode !== '') {
-        toArray((sequenceNode as SequenceNode).element).forEach(
+    if (sequenceNode) {
+        toArray(sequenceNode.element).forEach(
             elementNode => {
                 complexNodeOutput += treatAttribute(elementNode);
             },
@@ -291,7 +283,7 @@ function treatElementNode(elementNode: ElementNode): string {
     const typeName = treatTypeName(elementNode.$?.name || '');
     const sequenceNode = elementNode.complexType?.sequence;
     if (sequenceNode) {
-    elementNodeOutput += 'export type ' + typeName + '= {\n';
+        elementNodeOutput += 'export type ' + typeName + ' = {\n';
 
         toArray((sequenceNode as SequenceNode).element).forEach(
             subElementNode => {
@@ -299,8 +291,7 @@ function treatElementNode(elementNode: ElementNode): string {
             },
         );
 
-
-    elementNodeOutput += '}\n\n';
+        elementNodeOutput += '}\n\n';
     }
     return elementNodeOutput;
 }

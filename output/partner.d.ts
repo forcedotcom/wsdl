@@ -3697,47 +3697,47 @@ export type OwnerChangeOption = {
     execute: boolean;
 }
 
-export type findDuplicates= {
+export type findDuplicates = {
     sObjects?: sObject | sObject[];
 }
 
-export type findDuplicatesByIds= {
+export type findDuplicatesByIds = {
     ids: ID | ID[];
 }
 
-export type findDuplicatesByIdsResponse= {
+export type findDuplicatesByIdsResponse = {
     result?: FindDuplicatesResult | FindDuplicatesResult[];
 }
 
-export type findDuplicatesResponse= {
+export type findDuplicatesResponse = {
     result?: FindDuplicatesResult | FindDuplicatesResult[];
 }
 
-export type createSnapshot= {
+export type createSnapshot = {
     sObject: string;
     forceFullSnapshot: boolean;
 }
 
-export type createSnapshotResponse= {
+export type createSnapshotResponse = {
     result: SnapshotResult;
 }
 
-export type moreSnapshot= {
+export type moreSnapshot = {
     snapshotLocator: string;
 }
 
-export type moreSnapshotResponse= {
+export type moreSnapshotResponse = {
     result: SnapshotResult;
 }
 
-export type ackSnapshot= {
+export type ackSnapshot = {
     snapshotId: ID;
 }
 
-export type ackSnapshotResponse= {
+export type ackSnapshotResponse = {
 }
 
-export type syncOfflineData= {
+export type syncOfflineData = {
     reset: boolean;
     userRequested: boolean;
     syncStateId: string;
@@ -3747,269 +3747,269 @@ export type syncOfflineData= {
     entitiesToSync?: string | string[];
 }
 
-export type syncOfflineDataResponse= {
+export type syncOfflineDataResponse = {
     result: SyncOfflineDataResult;
 }
 
-export type ackSyncOfflineData= {
+export type ackSyncOfflineData = {
     token: string;
     syncStateId: string;
 }
 
-export type describeMobile= {
+export type describeMobile = {
 }
 
-export type describeMobileResponse= {
+export type describeMobileResponse = {
     result: DescribeMobileResult;
 }
 
-export type loginXi= {
+export type loginXi = {
     username: string;
 }
 
-export type loginXiResponse= {
+export type loginXiResponse = {
     result: LoginResult;
 }
 
-export type login= {
+export type login = {
     username: string;
     password: string;
 }
 
-export type loginResponse= {
+export type loginResponse = {
     result: LoginResult;
 }
 
-export type describeSObject= {
+export type describeSObject = {
     sObjectType: string;
 }
 
-export type describeSObjectResponse= {
+export type describeSObjectResponse = {
     result?: DescribeSObjectResult;
 }
 
-export type discoverSchemas= {
+export type discoverSchemas = {
     scope: SchemaScope;
     typeFilter: SchemaType;
 }
 
-export type discoverSchemasResponse= {
+export type discoverSchemasResponse = {
     result?: DiscoverSchemasResult;
 }
 
-export type describeSchema= {
+export type describeSchema = {
     type: string;
 }
 
-export type describeSchemaResponse= {
+export type describeSchemaResponse = {
     result?: DescribeSchemaResult;
 }
 
-export type describePicklists= {
+export type describePicklists = {
     param: DescribePicklistsParam;
 }
 
-export type describePicklistsResponse= {
+export type describePicklistsResponse = {
     result?: DescribePicklistResult;
 }
 
-export type captureCommonEvent= {
+export type captureCommonEvent = {
     appName: string;
     eventValues: string;
     eventName: EventName;
 }
 
-export type captureCommonEventResponse= {
+export type captureCommonEventResponse = {
     result?: CommonEventResult;
 }
 
-export type describeSObjects= {
+export type describeSObjects = {
     sObjectType?: string;
 }
 
-export type describeSObjectsResponse= {
+export type describeSObjectsResponse = {
     result?: DescribeSObjectResult;
 }
 
-export type describeGlobalResponse= {
+export type describeGlobalResponse = {
     result: DescribeGlobalResult;
 }
 
-export type describeGlobalThemeResponse= {
+export type describeGlobalThemeResponse = {
     result: DescribeGlobalTheme;
 }
 
-export type describeTheme= {
+export type describeTheme = {
     sobjectType?: string | string[];
 }
 
-export type describeThemeResponse= {
+export type describeThemeResponse = {
     result: DescribeThemeResult;
 }
 
-export type describeDataCategoryGroups= {
+export type describeDataCategoryGroups = {
     sObjectType?: string;
 }
 
-export type describeDataCategoryGroupsResponse= {
+export type describeDataCategoryGroupsResponse = {
     result?: DescribeDataCategoryGroupResult;
 }
 
-export type describeDataCategoryGroupStructures= {
+export type describeDataCategoryGroupStructures = {
     pairs?: DataCategoryGroupSobjectTypePair;
     topCategoriesOnly: boolean;
 }
 
-export type describeDataCategoryGroupStructuresResponse= {
+export type describeDataCategoryGroupStructuresResponse = {
     result?: DescribeDataCategoryGroupStructureResult;
 }
 
-export type describeDataCategoryMappingsResponse= {
+export type describeDataCategoryMappingsResponse = {
     result?: DescribeDataCategoryMappingResult;
 }
 
-export type describeKnowledgeSettingsResponse= {
+export type describeKnowledgeSettingsResponse = {
     result: KnowledgeSettings;
 }
 
-export type describeDuplicateRules= {
+export type describeDuplicateRules = {
     sObjectType: string;
 }
 
-export type describeDuplicateRulesResponse= {
+export type describeDuplicateRulesResponse = {
     result?: DescribeDuplicateRuleResult | DescribeDuplicateRuleResult[];
 }
 
-export type ftestPatchResponse= {
+export type ftestPatchResponse = {
     result: SaveResult;
 }
 
-export type ftestPatchPreviousVersionResponse= {
+export type ftestPatchPreviousVersionResponse = {
     result: SaveResult;
 }
 
-export type describeFlexiPages= {
+export type describeFlexiPages = {
     flexiPages: string | string[];
     contexts?: FlexipageContext | FlexipageContext[];
 }
 
-export type describeFlexiPagesResponse= {
+export type describeFlexiPagesResponse = {
     result?: DescribeFlexiPageResult | DescribeFlexiPageResult[];
 }
 
-export type describeAppMenu= {
+export type describeAppMenu = {
     appMenuType: AppMenuType;
     networkId?: ID;
 }
 
-export type describeAppMenuResponse= {
+export type describeAppMenuResponse = {
     result?: DescribeAppMenuResult;
 }
 
-export type describeLayout= {
+export type describeLayout = {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeLayoutByUiType= {
+export type describeLayoutByUiType = {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
     uiType?: UiType;
 }
 
-export type describeLayoutByUiTypeResponse= {
+export type describeLayoutByUiTypeResponse = {
     result?: DescribeLayoutResult;
 }
 
-export type describeLayoutResponse= {
+export type describeLayoutResponse = {
     result?: DescribeLayoutResult;
 }
 
-export type describeMiniLayout= {
+export type describeMiniLayout = {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeMiniLayoutResponse= {
+export type describeMiniLayoutResponse = {
     result?: DescribeMiniLayoutResult;
 }
 
-export type describeCompactLayouts= {
+export type describeCompactLayouts = {
     sObjectType: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeCompactLayoutsResponse= {
+export type describeCompactLayoutsResponse = {
     result?: DescribeCompactLayoutsResult;
 }
 
-export type describePrimaryCompactLayouts= {
+export type describePrimaryCompactLayouts = {
     sObjectTypes: string | string[];
 }
 
-export type describePrimaryCompactLayoutsResponse= {
+export type describePrimaryCompactLayoutsResponse = {
     result?: DescribeCompactLayout | DescribeCompactLayout[];
 }
 
-export type describePathAssistants= {
+export type describePathAssistants = {
     sObjectType: string;
     picklistValue?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describePathAssistantsResponse= {
+export type describePathAssistantsResponse = {
     result?: DescribePathAssistantsResult;
 }
 
-export type describeApprovalLayout= {
+export type describeApprovalLayout = {
     sObjectType: string;
     approvalProcessNames?: string | string[];
 }
 
-export type describeApprovalLayoutResponse= {
+export type describeApprovalLayoutResponse = {
     result?: DescribeApprovalLayoutResult;
 }
 
-export type describeSoftphoneLayoutResponse= {
+export type describeSoftphoneLayoutResponse = {
     result?: DescribeSoftphoneLayoutResult;
 }
 
-export type describeListViews= {
+export type describeListViews = {
     sObjectType?: string | string[];
 }
 
-export type describeListViewsResponse= {
+export type describeListViewsResponse = {
     result?: DescribeListViewResult | DescribeListViewResult[];
 }
 
-export type describeLookupLayouts= {
+export type describeLookupLayouts = {
     sObjectType?: string | string[];
 }
 
-export type describeLookupLayoutsResponse= {
+export type describeLookupLayoutsResponse = {
     result?: DescribeLookupLayoutResult | DescribeLookupLayoutResult[];
 }
 
-export type describeSoqlListViews= {
+export type describeSoqlListViews = {
     request: DescribeSoqlListViewsRequest;
 }
 
-export type describeSoqlListViewsResponse= {
+export type describeSoqlListViewsResponse = {
     result: DescribeSoqlListViewResult;
 }
 
-export type executeListView= {
+export type executeListView = {
     request: ExecuteListViewRequest;
 }
 
-export type executeListViewResponse= {
+export type executeListViewResponse = {
     result?: ExecuteListViewResult;
 }
 
-export type describeSObjectListViews= {
+export type describeSObjectListViews = {
     sObjectType: string;
     recentsOnly: boolean;
     isSoqlCompatible: listViewIsSoqlCompatible;
@@ -4017,484 +4017,484 @@ export type describeSObjectListViews= {
     offset: number;
 }
 
-export type describeSObjectListViewsResponse= {
+export type describeSObjectListViewsResponse = {
     result: DescribeSoqlListViewResult;
 }
 
-export type describeSearchLayouts= {
+export type describeSearchLayouts = {
     sObjectType?: string | string[];
 }
 
-export type describeSearchLayoutsResponse= {
+export type describeSearchLayoutsResponse = {
     result?: DescribeSearchLayoutResult | DescribeSearchLayoutResult[];
 }
 
-export type describeSearchScopeOrder= {
+export type describeSearchScopeOrder = {
     includeRealTimeEntities?: boolean;
 }
 
-export type describeSearchScopeOrderResponse= {
+export type describeSearchScopeOrderResponse = {
     result?: DescribeSearchScopeOrderResult | DescribeSearchScopeOrderResult[];
 }
 
-export type describeSearchableEntities= {
+export type describeSearchableEntities = {
     includeOnlyEntitiesWithTabs: boolean;
 }
 
-export type describeSearchableEntitiesResponse= {
+export type describeSearchableEntitiesResponse = {
     result?: DescribeSearchableEntityResult | DescribeSearchableEntityResult[];
 }
 
-export type describeTabsResponse= {
+export type describeTabsResponse = {
     result?: DescribeTabSetResult | DescribeTabSetResult[];
 }
 
-export type describeAllTabsResponse= {
+export type describeAllTabsResponse = {
     result?: DescribeTab | DescribeTab[];
 }
 
-export type describeNouns= {
+export type describeNouns = {
     nouns?: string;
     onlyRenamed: boolean;
     includeFields: boolean;
 }
 
-export type describeNounsResponse= {
+export type describeNounsResponse = {
     result?: DescribeNounResult | DescribeNounResult[];
 }
 
-export type create= {
+export type create = {
     sObjects?: sObject | sObject[];
 }
 
-export type createResponse= {
+export type createResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type sendEmail= {
+export type sendEmail = {
     messages?: Email;
 }
 
-export type sendEmailResponse= {
+export type sendEmailResponse = {
     result?: SendEmailResult;
 }
 
-export type renderEmailTemplate= {
+export type renderEmailTemplate = {
     renderRequests?: RenderEmailTemplateRequest;
 }
 
-export type renderEmailTemplateResponse= {
+export type renderEmailTemplateResponse = {
     result?: RenderEmailTemplateResult;
 }
 
-export type renderStoredEmailTemplate= {
+export type renderStoredEmailTemplate = {
     request: RenderStoredEmailTemplateRequest;
 }
 
-export type renderStoredEmailTemplateResponse= {
+export type renderStoredEmailTemplateResponse = {
     result: RenderStoredEmailTemplateResult;
 }
 
-export type sendEmailMessage= {
+export type sendEmailMessage = {
     ids?: ID;
 }
 
-export type sendEmailMessageResponse= {
+export type sendEmailMessageResponse = {
     result?: SendEmailResult;
 }
 
-export type emailMerge= {
+export type emailMerge = {
     template: ID;
     id: ID | ID[];
 }
 
-export type emailMergeResponse= {
+export type emailMergeResponse = {
     result?: string | string[];
 }
 
-export type update= {
+export type update = {
     sObjects?: sObject | sObject[];
 }
 
-export type updateResponse= {
+export type updateResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type upsert= {
+export type upsert = {
     externalIDFieldName: string;
     sObjects?: sObject | sObject[];
 }
 
-export type upsertResponse= {
+export type upsertResponse = {
     result?: UpsertResult | UpsertResult[];
 }
 
-export type merge= {
+export type merge = {
     request?: MergeRequest | MergeRequest[];
 }
 
-export type mergeResponse= {
+export type mergeResponse = {
     result?: MergeResult | MergeResult[];
 }
 
-export type delete_= {
+export type delete_ = {
     ids?: ID | ID[];
 }
 
-export type deleteResponse= {
+export type deleteResponse = {
     result?: DeleteResult | DeleteResult[];
 }
 
-export type deleteByExample= {
+export type deleteByExample = {
     sObjects?: sObject | sObject[];
 }
 
-export type deleteByExampleResponse= {
+export type deleteByExampleResponse = {
     result?: DeleteByExampleResult | DeleteByExampleResult[];
 }
 
-export type undelete= {
+export type undelete = {
     ids: ID | ID[];
 }
 
-export type undeleteResponse= {
+export type undeleteResponse = {
     result: UndeleteResult | UndeleteResult[];
 }
 
-export type updateSettings= {
+export type updateSettings = {
     settingNames: string | string[];
     settingValues: string | string[];
 }
 
-export type updateSettingsResponse= {
+export type updateSettingsResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type emptyRecycleBin= {
+export type emptyRecycleBin = {
     ids: ID | ID[];
 }
 
-export type emptyRecycleBinResponse= {
+export type emptyRecycleBinResponse = {
     result: EmptyRecycleBinResult | EmptyRecycleBinResult[];
 }
 
-export type process= {
+export type process = {
     actions?: ProcessRequest | ProcessRequest[];
 }
 
-export type processResponse= {
+export type processResponse = {
     result?: ProcessResult | ProcessResult[];
 }
 
-export type performQuickActions= {
+export type performQuickActions = {
     quickActions?: PerformQuickActionRequest | PerformQuickActionRequest[];
 }
 
-export type performQuickActionsResponse= {
+export type performQuickActionsResponse = {
     result?: PerformQuickActionResult | PerformQuickActionResult[];
 }
 
-export type retrieveMassQuickActionTemplates= {
+export type retrieveMassQuickActionTemplates = {
     quickActionName: string;
     contextIds?: ID | ID[];
 }
 
-export type retrieveMassQuickActionTemplatesResponse= {
+export type retrieveMassQuickActionTemplatesResponse = {
     result?: QuickActionTemplateResult | QuickActionTemplateResult[];
 }
 
-export type retrieveQuickActionTemplates= {
+export type retrieveQuickActionTemplates = {
     quickActionNames?: string | string[];
     contextId?: ID;
 }
 
-export type retrieveQuickActionTemplatesResponse= {
+export type retrieveQuickActionTemplatesResponse = {
     result?: QuickActionTemplateResult | QuickActionTemplateResult[];
 }
 
-export type describeQuickActions= {
+export type describeQuickActions = {
     quickActions?: string | string[];
 }
 
-export type describeQuickActionsResponse= {
+export type describeQuickActionsResponse = {
     result?: DescribeQuickActionResult | DescribeQuickActionResult[];
 }
 
-export type describeQuickActionsForRecordType= {
+export type describeQuickActionsForRecordType = {
     quickActions?: string | string[];
     recordTypeId: string;
 }
 
-export type describeQuickActionsForRecordTypeResponse= {
+export type describeQuickActionsForRecordTypeResponse = {
     result?: DescribeQuickActionResult | DescribeQuickActionResult[];
 }
 
-export type describeAvailableQuickActions= {
+export type describeAvailableQuickActions = {
     contextType?: string;
 }
 
-export type describeAvailableQuickActionsResponse= {
+export type describeAvailableQuickActionsResponse = {
     result?: DescribeAvailableQuickActionResult | DescribeAvailableQuickActionResult[];
 }
 
-export type describeVisualForce= {
+export type describeVisualForce = {
     includeAllDetails: boolean;
     namespacePrefix?: string;
 }
 
-export type describeVisualForceResponse= {
+export type describeVisualForceResponse = {
     result: DescribeVisualForceResult;
 }
 
-export type describeWorkitemActions= {
+export type describeWorkitemActions = {
     workitemIds?: ID | ID[];
 }
 
-export type describeWorkitemActionsResponse= {
+export type describeWorkitemActionsResponse = {
     result?: DescribeWorkitemActionResult | DescribeWorkitemActionResult[];
 }
 
-export type retrieve= {
+export type retrieve = {
     fieldList: string;
     sObjectType: string;
     ids?: ID | ID[];
 }
 
-export type retrieveResponse= {
+export type retrieveResponse = {
     result?: sObject | sObject[];
 }
 
-export type retrieveDefaultValues= {
+export type retrieveDefaultValues = {
     sObjectType: string;
     recordTypeId?: ID;
     fieldList?: string;
 }
 
-export type retrieveDefaultValuesResponse= {
+export type retrieveDefaultValuesResponse = {
     result?: sObject;
 }
 
-export type convertLead= {
+export type convertLead = {
     leadConverts?: LeadConvert | LeadConvert[];
 }
 
-export type convertLeadResponse= {
+export type convertLeadResponse = {
     result?: LeadConvertResult | LeadConvertResult[];
 }
 
-export type addCampaignMember= {
+export type addCampaignMember = {
     AddCampaignMemberOptions: AddCampaignMemberOptions;
 }
 
-export type addCampaignMemberResponse= {
+export type addCampaignMemberResponse = {
     result: AddCampaignMemberResult;
 }
 
-export type getUpdated= {
+export type getUpdated = {
     sObjectType: string;
     startDate: Date;
     endDate: Date;
 }
 
-export type getUpdatedResponse= {
+export type getUpdatedResponse = {
     result: GetUpdatedResult;
 }
 
-export type getDeleted= {
+export type getDeleted = {
     sObjectType: string;
     startDate: Date;
     endDate: Date;
 }
 
-export type getDeletedResponse= {
+export type getDeletedResponse = {
     result: GetDeletedResult;
 }
 
-export type impersonateUser= {
+export type impersonateUser = {
     userIds?: ID | ID[];
 }
 
-export type impersonateUserResponse= {
+export type impersonateUserResponse = {
     result?: ImpersonateUserResult | ImpersonateUserResult[];
 }
 
-export type invalidateSessions= {
+export type invalidateSessions = {
     sessionIds?: string | string[];
 }
 
-export type invalidateSessionsResponse= {
+export type invalidateSessionsResponse = {
     result?: InvalidateSessionsResult | InvalidateSessionsResult[];
 }
 
-export type canViewFlow= {
+export type canViewFlow = {
     input: FlowAccessInput;
 }
 
-export type canViewFlowResponse= {
+export type canViewFlowResponse = {
     result: CanViewFlowResult;
 }
 
-export type startFlowInterview= {
+export type startFlowInterview = {
     request: StartFlowInterviewRequest;
 }
 
-export type startFlowInterviewResponse= {
+export type startFlowInterviewResponse = {
     result: NavigateFlowInterviewResult;
 }
 
-export type resumeFlowInterview= {
+export type resumeFlowInterview = {
     request: ResumeFlowInterviewRequest;
 }
 
-export type resumeFlowInterviewResponse= {
+export type resumeFlowInterviewResponse = {
     result: NavigateFlowInterviewResult;
 }
 
-export type runFlowTest= {
+export type runFlowTest = {
     request: RunFlowTestInput;
 }
 
-export type runFlowTestResponse= {
+export type runFlowTestResponse = {
     result?: RunFlowTestResult | RunFlowTestResult[];
 }
 
-export type generateFlowTest= {
+export type generateFlowTest = {
     request: string;
 }
 
-export type generateFlowTestResponse= {
+export type generateFlowTestResponse = {
     result: GenerateFlowTestResult;
 }
 
-export type getFlowInterviewHistory= {
+export type getFlowInterviewHistory = {
     request: GetFlowInterviewHistoryRequest;
 }
 
-export type getFlowInterviewHistoryResponse= {
+export type getFlowInterviewHistoryResponse = {
     result: NavigateFlowInterviewResult;
 }
 
-export type navigateFlowInterview= {
+export type navigateFlowInterview = {
     request: NavigateFlowInterviewRequest;
 }
 
-export type navigateFlowInterviewResponse= {
+export type navigateFlowInterviewResponse = {
     result: NavigateFlowInterviewResult;
 }
 
-export type query= {
+export type query = {
     queryString: string;
 }
 
-export type queryResponse= {
+export type queryResponse = {
     result: QueryResult;
 }
 
-export type queryAll= {
+export type queryAll = {
     queryString: string;
 }
 
-export type queryAllResponse= {
+export type queryAllResponse = {
     result: QueryResult;
 }
 
-export type queryMore= {
+export type queryMore = {
     queryLocator: QueryLocator;
 }
 
-export type queryMoreResponse= {
+export type queryMoreResponse = {
     result: QueryResult;
 }
 
-export type setupBriefcaseResponse= {
+export type setupBriefcaseResponse = {
     result: SetupBriefcaseResult;
 }
 
-export type search= {
+export type search = {
     searchString: string;
 }
 
-export type searchResponse= {
+export type searchResponse = {
     result: SearchResult;
 }
 
-export type outlookSearch= {
+export type outlookSearch = {
     searchExpr: string;
     contextString: string;
 }
 
-export type outlookSearchResponse= {
+export type outlookSearchResponse = {
     result: OutlookSearchResult;
 }
 
-export type outlookDescribeResponse= {
+export type outlookDescribeResponse = {
     result: OutlookDescribeResult;
 }
 
-export type getServerTimestampResponse= {
+export type getServerTimestampResponse = {
     result: GetServerTimestampResult;
 }
 
-export type setPassword= {
+export type setPassword = {
     userId: ID;
     password: string;
 }
 
-export type setPasswordResponse= {
+export type setPasswordResponse = {
     result: SetPasswordResult;
 }
 
-export type changeOwnPassword= {
+export type changeOwnPassword = {
     oldPassword: string;
     newPassword: string;
 }
 
-export type changeOwnPasswordResponse= {
+export type changeOwnPasswordResponse = {
     result: ChangeOwnPasswordResult;
 }
 
-export type resetPassword= {
+export type resetPassword = {
     userId: ID;
 }
 
-export type resetPasswordResponse= {
+export type resetPasswordResponse = {
     result: ResetPasswordResult;
 }
 
-export type getAccessInfoResponse= {
+export type getAccessInfoResponse = {
     result: GetAccessInfoResult;
 }
 
-export type getUserInfoResponse= {
+export type getUserInfoResponse = {
     result: GetUserInfoResult;
 }
 
-export type activate= {
+export type activate = {
     ids?: ID | ID[];
 }
 
-export type activateResponse= {
+export type activateResponse = {
     result?: ActivateResult | ActivateResult[];
 }
 
-export type generateJwtToken= {
+export type generateJwtToken = {
     claims?: ClaimsMapping | ClaimsMapping[];
 }
 
-export type generateJwtTokenResponse= {
+export type generateJwtTokenResponse = {
     result: string;
 }
 
-export type SessionHeader= {
+export type SessionHeader = {
     sessionId: string;
 }
 
-export type LoginScopeHeader= {
+export type LoginScopeHeader = {
     organizationId: ID;
     portalId?: ID;
 }
 
-export type CallOptions= {
+export type CallOptions = {
     client?: string;
     defaultNamespace?: string;
     returnFieldDataTypes?: boolean;
@@ -4506,119 +4506,119 @@ export type CallOptions= {
     perfOption: PerfOption;
 }
 
-export type QueryOptions= {
+export type QueryOptions = {
     batchSize?: number;
     filterLanguage?: string;
     scope: queryOptionsScope;
 }
 
-export type APIPerformanceInfo= {
+export type APIPerformanceInfo = {
     encodedIntervalTimerTree?: string;
     handlerMetrics?: NameValuePair | NameValuePair[];
 }
 
-export type MetadataVersionCheck= {
+export type MetadataVersionCheck = {
     facts?: Fact | Fact[];
     operation: Operation;
 }
 
-export type DebuggingHeader= {
+export type DebuggingHeader = {
     categories?: LogInfo | LogInfo[];
     debugLevel: DebugLevel;
 }
 
-export type DebuggingInfo= {
+export type DebuggingInfo = {
     debugLog: string;
 }
 
-export type PackageVersionHeader= {
+export type PackageVersionHeader = {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type AllowFieldTruncationHeader= {
+export type AllowFieldTruncationHeader = {
     allowFieldTruncation: boolean;
 }
 
-export type DisableFeedTrackingHeader= {
+export type DisableFeedTrackingHeader = {
     disableFeedTracking: boolean;
 }
 
-export type StreamingEnabledHeader= {
+export type StreamingEnabledHeader = {
     streamingEnabled: boolean;
 }
 
-export type AllOrNoneHeader= {
+export type AllOrNoneHeader = {
     allOrNone: boolean;
 }
 
-export type CurrencyConversionHeader= {
+export type CurrencyConversionHeader = {
     skipCurrencyConversion: boolean;
 }
 
-export type DuplicateRuleHeader= {
+export type DuplicateRuleHeader = {
     allowSave: boolean;
     includeRecordDetails: boolean;
     runAsCurrentUser: boolean;
 }
 
-export type LimitInfoHeader= {
+export type LimitInfoHeader = {
     limitInfo?: LimitInfo | LimitInfo[];
 }
 
-export type PatchHeader= {
+export type PatchHeader = {
     patch: boolean;
 }
 
-export type match= {
+export type match = {
     sObjects?: sObject | sObject[];
     matchOptions: MatchOptions;
 }
 
-export type matchResponse= {
+export type matchResponse = {
     result?: MatchResult | MatchResult[];
 }
 
-export type MruHeader= {
+export type MruHeader = {
     updateMru: boolean;
 }
 
-export type EmailHeader= {
+export type EmailHeader = {
     triggerAutoResponseEmail: boolean;
     triggerOtherEmail: boolean;
     triggerUserEmail: boolean;
 }
 
-export type AssignmentRuleHeader= {
+export type AssignmentRuleHeader = {
     assignmentRuleId?: ID;
     useDefaultRule?: boolean;
 }
 
-export type ConditionalRequestHeader= {
+export type ConditionalRequestHeader = {
     ifModifiedBefore?: Date;
     ifModifiedSince?: Date;
     ifModifiedBeforeArray?: Date | Date[];
 }
 
-export type UserTerritoryDeleteHeader= {
+export type UserTerritoryDeleteHeader = {
     transferToUserId?: ID;
 }
 
-export type PartnerNetworkHeader= {
+export type PartnerNetworkHeader = {
     connectionId?: ID;
     partnerEntityIds?: ID | ID[];
     parentEntityIds?: ID | ID[];
 }
 
-export type LocaleOptions= {
+export type LocaleOptions = {
     language?: string;
     localizeErrors?: boolean;
 }
 
-export type OwnerChangeOptions= {
+export type OwnerChangeOptions = {
     options?: OwnerChangeOption | OwnerChangeOption[];
 }
 
-export type CommonEventRequestInformation= {
+export type CommonEventRequestInformation = {
     appName: string;
     entityId: string;
     requestOrigin: RequestOrigin;

@@ -48040,238 +48040,238 @@ export type SingleRelatedListInfo = {
     name: string;
 }
 
-export type APIPerformanceInfo= {
+export type APIPerformanceInfo = {
     encodedIntervalTimerTree: string;
     handlerMetrics?: NameValuePair | NameValuePair[];
 }
 
-export type AllOrNoneHeader= {
+export type AllOrNoneHeader = {
     allOrNone: boolean;
 }
 
-export type AllowFieldTruncationHeader= {
+export type AllowFieldTruncationHeader = {
     allowFieldTruncation: boolean;
 }
 
-export type CallOptions= {
+export type CallOptions = {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader= {
+export type DebuggingHeader = {
     categories?: LogInfo | LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo= {
+export type DebuggingInfo = {
     debugLog: string;
 }
 
-export type DisableFeedTrackingHeader= {
+export type DisableFeedTrackingHeader = {
     disableFeedTracking: boolean;
 }
 
-export type MetadataVersionCheck= {
+export type MetadataVersionCheck = {
     facts?: Fact | Fact[];
     operation: Operation;
 }
 
-export type MetadataWarningsHeader= {
+export type MetadataWarningsHeader = {
     ignoreSaveWarnings: boolean;
 }
 
-export type PackageVersionHeader= {
+export type PackageVersionHeader = {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type SessionHeader= {
+export type SessionHeader = {
     sessionId: string;
 }
 
-export type changeOwnPassword= {
+export type changeOwnPassword = {
     oldPassword: string;
     newPassword: string;
 }
 
-export type changeOwnPasswordResponse= {
+export type changeOwnPasswordResponse = {
     result: ChangeOwnPasswordResult;
 }
 
-export type create= {
+export type create = {
     sObjects?: sObject | sObject[];
 }
 
-export type createResponse= {
+export type createResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type delete_= {
+export type delete_ = {
     ids?: ID | ID[];
 }
 
-export type deleteResponse= {
+export type deleteResponse = {
     result?: DeleteResult | DeleteResult[];
 }
 
-export type describeGlobalResponse= {
+export type describeGlobalResponse = {
     result: DescribeGlobalResult;
 }
 
-export type describeLayout= {
+export type describeLayout = {
     type: string;
     layoutName: string;
     recordTypeIds?: string | string[];
 }
 
-export type describeLayoutResponse= {
+export type describeLayoutResponse = {
     result: DescribeLayoutResult;
 }
 
-export type describeSObject= {
+export type describeSObject = {
     type: string;
 }
 
-export type describeSObjectResponse= {
+export type describeSObjectResponse = {
     result: DescribeSObjectResult;
 }
 
-export type describeSObjects= {
+export type describeSObjects = {
     types?: string | string[];
 }
 
-export type describeSObjectsResponse= {
+export type describeSObjectsResponse = {
     result?: DescribeSObjectResult | DescribeSObjectResult[];
 }
 
-export type describeSchema= {
+export type describeSchema = {
     type: string;
 }
 
-export type describeSchemaResponse= {
+export type describeSchemaResponse = {
     result: DescribeSchemaResult;
 }
 
-export type describeSoqlListViews= {
+export type describeSoqlListViews = {
     request: DescribeSoqlListViewsRequest;
 }
 
-export type describeSoqlListViewsResponse= {
+export type describeSoqlListViewsResponse = {
     result: DescribeSoqlListViewResult;
 }
 
-export type describeValueType= {
+export type describeValueType = {
     type: string;
 }
 
-export type describeValueTypeResponse= {
+export type describeValueTypeResponse = {
     result: DescribeValueTypeResult;
 }
 
-export type describeWorkitemActions= {
+export type describeWorkitemActions = {
     workitemIds?: ID | ID[];
 }
 
-export type describeWorkitemActionsResponse= {
+export type describeWorkitemActionsResponse = {
     result?: DescribeWorkitemActionResult | DescribeWorkitemActionResult[];
 }
 
-export type executeAnonymous= {
+export type executeAnonymous = {
     String: string;
 }
 
-export type executeAnonymousResponse= {
+export type executeAnonymousResponse = {
     result: ExecuteAnonymousResult;
 }
 
-export type getDeleted= {
+export type getDeleted = {
     sObjectType: string;
     start: Date;
     end: Date;
 }
 
-export type getDeletedResponse= {
+export type getDeletedResponse = {
     result: GetDeletedResult;
 }
 
-export type getServerTimestampResponse= {
+export type getServerTimestampResponse = {
     result: GetServerTimestampResult;
 }
 
-export type getUpdated= {
+export type getUpdated = {
     sObjectType: string;
     start: Date;
     end: Date;
 }
 
-export type getUpdatedResponse= {
+export type getUpdatedResponse = {
     result: GetUpdatedResult;
 }
 
-export type getUserInfoResponse= {
+export type getUserInfoResponse = {
     result: GetUserInfoResult;
 }
 
-export type invalidateSessions= {
+export type invalidateSessions = {
     ArrayList?: string | string[];
 }
 
-export type invalidateSessionsResponse= {
+export type invalidateSessionsResponse = {
     result?: InvalidateSessionsResult | InvalidateSessionsResult[];
 }
 
-export type login= {
+export type login = {
     username: string;
     password: string;
 }
 
-export type loginResponse= {
+export type loginResponse = {
     result: LoginResult;
 }
 
-export type query= {
+export type query = {
     queryString: string;
 }
 
-export type queryResponse= {
+export type queryResponse = {
     result: QueryResult;
 }
 
-export type queryAll= {
+export type queryAll = {
     queryString: string;
 }
 
-export type queryAllResponse= {
+export type queryAllResponse = {
     result: QueryResult;
 }
 
-export type queryMore= {
+export type queryMore = {
     queryLocator: string;
 }
 
-export type queryMoreResponse= {
+export type queryMoreResponse = {
     result: QueryResult;
 }
 
-export type retrieve= {
+export type retrieve = {
     select: string;
     type: string;
     ids?: ID | ID[];
 }
 
-export type retrieveResponse= {
+export type retrieveResponse = {
     result?: sObject | sObject[];
 }
 
-export type runTests= {
+export type runTests = {
     RunTestsRequest: RunTestsRequest;
 }
 
-export type runTestsResponse= {
+export type runTestsResponse = {
     result: RunTestsResult;
 }
 
-export type runTestsAsynchronous= {
+export type runTestsAsynchronous = {
     classids: string;
     suiteids: string;
     maxFailedTests: number;
@@ -48282,41 +48282,41 @@ export type runTestsAsynchronous= {
     skipCodeCoverage: boolean;
 }
 
-export type runTestsAsynchronousResponse= {
+export type runTestsAsynchronousResponse = {
     result: string;
 }
 
-export type search= {
+export type search = {
     searchString: string;
 }
 
-export type searchResponse= {
+export type searchResponse = {
     result: SearchResult;
 }
 
-export type setPassword= {
+export type setPassword = {
     userId: string;
     password: string;
 }
 
-export type setPasswordResponse= {
+export type setPasswordResponse = {
     result: SetPasswordResult;
 }
 
-export type update= {
+export type update = {
     sObjects?: sObject | sObject[];
 }
 
-export type updateResponse= {
+export type updateResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type upsert= {
+export type upsert = {
     fieldName: string;
     entities?: sObject | sObject[];
 }
 
-export type upsertResponse= {
+export type upsertResponse = {
     result?: UpsertResult | UpsertResult[];
 }
 

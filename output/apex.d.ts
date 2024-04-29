@@ -252,82 +252,82 @@ export type PackageVersion = {
     namespace: string;
 }
 
-export type AllowFieldTruncationHeader= {
+export type AllowFieldTruncationHeader = {
     allowFieldTruncation: boolean;
 }
 
-export type CallOptions= {
+export type CallOptions = {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader= {
+export type DebuggingHeader = {
     categories?: LogInfo | LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo= {
+export type DebuggingInfo = {
     debugLog: string;
 }
 
-export type DisableFeedTrackingHeader= {
+export type DisableFeedTrackingHeader = {
     disableFeedTracking: boolean;
 }
 
-export type PackageVersionHeader= {
+export type PackageVersionHeader = {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type SessionHeader= {
+export type SessionHeader = {
     sessionId: string;
 }
 
-export type compileAndTest= {
+export type compileAndTest = {
     CompileAndTestRequest: CompileAndTestRequest;
 }
 
-export type compileAndTestResponse= {
+export type compileAndTestResponse = {
     result: CompileAndTestResult;
 }
 
-export type compileClasses= {
+export type compileClasses = {
     scripts?: string | string[];
 }
 
-export type compileClassesResponse= {
+export type compileClassesResponse = {
     result?: CompileClassResult | CompileClassResult[];
 }
 
-export type compileTriggers= {
+export type compileTriggers = {
     scripts?: string | string[];
 }
 
-export type compileTriggersResponse= {
+export type compileTriggersResponse = {
     result?: CompileTriggerResult | CompileTriggerResult[];
 }
 
-export type executeAnonymous= {
+export type executeAnonymous = {
     String: string;
 }
 
-export type executeAnonymousResponse= {
+export type executeAnonymousResponse = {
     result: ExecuteAnonymousResult;
 }
 
-export type runTests= {
+export type runTests = {
     RunTestsRequest: RunTestsRequest;
 }
 
-export type runTestsResponse= {
+export type runTestsResponse = {
     result: RunTestsResult;
 }
 
-export type wsdlToApex= {
+export type wsdlToApex = {
     info: WsdlToApexInfo;
 }
 
-export type wsdlToApexResponse= {
+export type wsdlToApexResponse = {
     result: WsdlToApexResult;
 }
 

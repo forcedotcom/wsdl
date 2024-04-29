@@ -21911,186 +21911,186 @@ export type LogInfo = {
     level: LogCategoryLevel;
 }
 
-export type AllOrNoneHeader= {
+export type AllOrNoneHeader = {
     allOrNone: boolean;
 }
 
-export type CallOptions= {
+export type CallOptions = {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader= {
+export type DebuggingHeader = {
     categories?: LogInfo | LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo= {
+export type DebuggingInfo = {
     debugLog: string;
 }
 
-export type SessionHeader= {
+export type SessionHeader = {
     sessionId: string;
 }
 
-export type cancelDeploy= {
+export type cancelDeploy = {
     String: ID;
 }
 
-export type cancelDeployResponse= {
+export type cancelDeployResponse = {
     result: CancelDeployResult;
 }
 
-export type checkDeployStatus= {
+export type checkDeployStatus = {
     asyncProcessId: ID;
     includeDetails: boolean;
 }
 
-export type checkDeployStatusResponse= {
+export type checkDeployStatusResponse = {
     result: DeployResult;
 }
 
-export type checkRetrieveStatus= {
+export type checkRetrieveStatus = {
     asyncProcessId: ID;
     includeZip: boolean;
 }
 
-export type checkRetrieveStatusResponse= {
+export type checkRetrieveStatusResponse = {
     result: RetrieveResult;
 }
 
-export type checkStatus= {
+export type checkStatus = {
     asyncProcessId?: ID | ID[];
 }
 
-export type checkStatusResponse= {
+export type checkStatusResponse = {
     result?: AsyncResult | AsyncResult[];
 }
 
-export type create= {
+export type create = {
     metadata?: Metadata | Metadata[];
 }
 
-export type createResponse= {
+export type createResponse = {
     result?: AsyncResult | AsyncResult[];
 }
 
-export type createMetadata= {
+export type createMetadata = {
     metadata?: Metadata | Metadata[];
 }
 
-export type createMetadataResponse= {
+export type createMetadataResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type delete_= {
+export type delete_ = {
     metadata?: Metadata | Metadata[];
 }
 
-export type deleteResponse= {
+export type deleteResponse = {
     result?: AsyncResult | AsyncResult[];
 }
 
-export type deleteMetadata= {
+export type deleteMetadata = {
     type: string;
     fullNames?: string | string[];
 }
 
-export type deleteMetadataResponse= {
+export type deleteMetadataResponse = {
     result?: DeleteResult | DeleteResult[];
 }
 
-export type deploy= {
+export type deploy = {
     ZipFile: string;
     DeployOptions: DeployOptions;
 }
 
-export type deployResponse= {
+export type deployResponse = {
     result: AsyncResult;
 }
 
-export type deployRecentValidation= {
+export type deployRecentValidation = {
     validationId: ID;
 }
 
-export type deployRecentValidationResponse= {
+export type deployRecentValidationResponse = {
     result: string;
 }
 
-export type describeMetadata= {
+export type describeMetadata = {
     asOfVersion: number;
 }
 
-export type describeMetadataResponse= {
+export type describeMetadataResponse = {
     result: DescribeMetadataResult;
 }
 
-export type describeValueType= {
+export type describeValueType = {
     type: string;
 }
 
-export type describeValueTypeResponse= {
+export type describeValueTypeResponse = {
     result: DescribeValueTypeResult;
 }
 
-export type listMetadata= {
+export type listMetadata = {
     queries?: ListMetadataQuery | ListMetadataQuery[];
     asOfVersion: number;
 }
 
-export type listMetadataResponse= {
+export type listMetadataResponse = {
     result?: FileProperties | FileProperties[];
 }
 
-export type readMetadata= {
+export type readMetadata = {
     type: string;
     fullNames?: string | string[];
 }
 
-export type readMetadataResponse= {
+export type readMetadataResponse = {
     result: ReadResult;
 }
 
-export type renameMetadata= {
+export type renameMetadata = {
     type: string;
     oldFullName: string;
     newFullName: string;
 }
 
-export type renameMetadataResponse= {
+export type renameMetadataResponse = {
     result: SaveResult;
 }
 
-export type retrieve= {
+export type retrieve = {
     retrieveRequest: RetrieveRequest;
 }
 
-export type retrieveResponse= {
+export type retrieveResponse = {
     result: AsyncResult;
 }
 
-export type update= {
+export type update = {
     UpdateMetadata?: UpdateMetadata | UpdateMetadata[];
 }
 
-export type updateResponse= {
+export type updateResponse = {
     result?: AsyncResult | AsyncResult[];
 }
 
-export type updateMetadata= {
+export type updateMetadata = {
     metadata?: Metadata | Metadata[];
 }
 
-export type updateMetadataResponse= {
+export type updateMetadataResponse = {
     result?: SaveResult | SaveResult[];
 }
 
-export type upsertMetadata= {
+export type upsertMetadata = {
     metadata?: Metadata | Metadata[];
 }
 
-export type upsertMetadataResponse= {
+export type upsertMetadataResponse = {
     result?: UpsertResult | UpsertResult[];
 }
 
