@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-empty-interface */
-
 export type sObject = {
     type: string;
     fieldsToNull?: string | string[];
@@ -4952,39 +4949,39 @@ export type ApiFault = {
     upgradeMessage?: string;
 }
 
-export type ApiQueryFault = fns_ApiFault & {
+export type ApiQueryFault = ApiFault & {
     row: number;
     column: number;
 }
 
-export type LoginFault = fns_ApiFault & {
+export type LoginFault = ApiFault & {
 }
 
-export type InvalidQueryLocatorFault = fns_ApiFault & {
+export type InvalidQueryLocatorFault = ApiFault & {
 }
 
-export type InvalidNewPasswordFault = fns_ApiFault & {
+export type InvalidNewPasswordFault = ApiFault & {
 }
 
-export type InvalidOldPasswordFault = fns_ApiFault & {
+export type InvalidOldPasswordFault = ApiFault & {
 }
 
-export type InvalidIdFault = fns_ApiFault & {
+export type InvalidIdFault = ApiFault & {
 }
 
-export type UnexpectedErrorFault = fns_ApiFault & {
+export type UnexpectedErrorFault = ApiFault & {
 }
 
-export type InvalidFieldFault = fns_ApiQueryFault & {
+export type InvalidFieldFault = ApiQueryFault & {
 }
 
-export type InvalidSObjectFault = fns_ApiQueryFault & {
+export type InvalidSObjectFault = ApiQueryFault & {
 }
 
-export type MalformedQueryFault = fns_ApiQueryFault & {
+export type MalformedQueryFault = ApiQueryFault & {
 }
 
-export type MalformedSearchFault = fns_ApiQueryFault & {
+export type MalformedSearchFault = ApiQueryFault & {
 }
 
 export type fault= {

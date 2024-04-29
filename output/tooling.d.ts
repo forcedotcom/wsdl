@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-empty-interface */
-
 export type EmailToCaseRoutingAddressType = 'EmailToCase' 
       | 'Outlook' 
       | 'GmailOAuth' 
@@ -591,7 +588,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       | 'XCLEAN_DJ_MATCH_UNKNOWN_ERROR' 
       | 'XCLEAN_UNEXPECTED_ERROR';
 
-export type AIApplication = mns_Metadata & {
+export type AIApplication = Metadata & {
     developerName: string;
     masterLabel?: string;
     predictionDefinitions?: AIPredictionDefinition | AIPredictionDefinition[];
@@ -602,7 +599,7 @@ export type AIApplication = mns_Metadata & {
 export type Metadata = {
 }
 
-export type AIApplicationConfig = mns_Metadata & {
+export type AIApplicationConfig = Metadata & {
     aiApplicationDeveloperName: string;
     applicationId?: string;
     developerName: string;
@@ -612,7 +609,7 @@ export type AIApplicationConfig = mns_Metadata & {
     scoringMode?: AIScoringMode;
 }
 
-export type AIConvSummarizationConfig = mns_Metadata & {
+export type AIConvSummarizationConfig = Metadata & {
     fieldName: string;
     lookUpRelatedRecordField?: string;
     name: string;
@@ -622,7 +619,7 @@ export type AIConvSummarizationConfig = mns_Metadata & {
     status: ConfigStatus;
 }
 
-export type AIModel = mns_Metadata & {
+export type AIModel = Metadata & {
     approvalStatus: AIModelApproval;
     contentVersion?: string;
     dataset?: string;
@@ -675,7 +672,7 @@ export type AIModelMetric = {
     metricValue: number;
 }
 
-export type AIScoringModelDefVersion = mns_Metadata & {
+export type AIScoringModelDefVersion = Metadata & {
     aiScoringModelDefinition: string;
     aiScoringSteps?: AIScoringStep | AIScoringStep[];
     developerName: string;
@@ -688,13 +685,13 @@ export type AIScoringStep = {
     stepDetail?: string;
 }
 
-export type AIScoringModelDefinition = mns_Metadata & {
+export type AIScoringModelDefinition = Metadata & {
     aiModelConfig: string;
     description?: string;
     masterLabel: string;
 }
 
-export type AIUsecaseDefinition = mns_Metadata & {
+export type AIUsecaseDefinition = Metadata & {
     aiUsecaseFieldMappings?: AIUsecaseFieldMapping | AIUsecaseFieldMapping[];
     aiUsecaseModels?: AIUsecaseModel | AIUsecaseModel[];
     creatorType: CreatorType;
@@ -748,31 +745,31 @@ export type AIFeatureExtractor = {
     masterLabel: string;
 }
 
-export type AbstractPlaceholderMetadata = mns_Metadata & {
+export type AbstractPlaceholderMetadata = Metadata & {
 }
 
-export type CaseTeam = mns_AbstractPlaceholderMetadata & {
+export type CaseTeam = AbstractPlaceholderMetadata & {
 }
 
-export type CaseTeamRole = mns_AbstractPlaceholderMetadata & {
+export type CaseTeamRole = AbstractPlaceholderMetadata & {
 }
 
-export type Division = mns_AbstractPlaceholderMetadata & {
+export type Division = AbstractPlaceholderMetadata & {
 }
 
-export type PermissionSetLicense = mns_AbstractPlaceholderMetadata & {
+export type PermissionSetLicense = AbstractPlaceholderMetadata & {
 }
 
-export type User = mns_AbstractPlaceholderMetadata & {
+export type User = AbstractPlaceholderMetadata & {
 }
 
-export type UserMapped = mns_User & {
+export type UserMapped = User & {
 }
 
-export type UserLicense = mns_AbstractPlaceholderMetadata & {
+export type UserLicense = AbstractPlaceholderMetadata & {
 }
 
-export type AccessControlPolicy = mns_Metadata & {
+export type AccessControlPolicy = Metadata & {
     active: boolean;
     deploymentStatus: ACPStatus;
     description?: string;
@@ -781,7 +778,7 @@ export type AccessControlPolicy = mns_Metadata & {
     version: number;
 }
 
-export type AccountForecastSettings = mns_Metadata & {
+export type AccountForecastSettings = Metadata & {
     accountFilterId?: string;
     accountForecastFormulas?: AccountForecastFormula | AccountForecastFormula[];
     acctPrdctPrdFrcstVolCnt?: number;
@@ -822,7 +819,7 @@ export type ObjectMappingField = {
     outputField: string;
 }
 
-export type AccountRelationshipShareRule = mns_Metadata & {
+export type AccountRelationshipShareRule = Metadata & {
     accessLevel: string;
     accountToCriteriaField: string;
     description?: string;
@@ -832,7 +829,7 @@ export type AccountRelationshipShareRule = mns_Metadata & {
     type: string;
 }
 
-export type AccountingModelConfig = mns_Metadata & {
+export type AccountingModelConfig = Metadata & {
     accountingType: AccountingType;
     defaultAccrualAccountCode?: string;
     defaultWriteOffAccountCode?: string;
@@ -850,14 +847,14 @@ export type AccountingModelConfig = mns_Metadata & {
     runOrder?: number;
 }
 
-export type AcctMgrTargetSettings = mns_Metadata & {
+export type AcctMgrTargetSettings = Metadata & {
     acctMgrPeriodicTargetDstrCnt?: number;
     periodType: PeriodTypes;
     pricebookId?: string;
     teamMemberHierarchyType: TeamMemberHierarchyType;
 }
 
-export type ActionLauncherItemDef = mns_Metadata & {
+export type ActionLauncherItemDef = Metadata & {
     identifier: string;
     itemActionType: ItemActionType;
     itemCategory: ItemCategory;
@@ -868,7 +865,7 @@ export type ActionLauncherItemDef = mns_Metadata & {
     versionNumber?: string;
 }
 
-export type ActionLinkGroupTemplate = mns_Metadata & {
+export type ActionLinkGroupTemplate = Metadata & {
     actionLinkTemplates?: ActionLinkTemplate | ActionLinkTemplate[];
     category: PlatformActionGroupCategory;
     executionsAllowed: ActionLinkExecutionsAllowed;
@@ -892,7 +889,7 @@ export type ActionLinkTemplate = {
     userVisibility: ActionLinkUserVisibility;
 }
 
-export type ActionPlanTemplate = mns_Metadata & {
+export type ActionPlanTemplate = Metadata & {
     actionPlanTemplateItem?: ActionPlanTemplateItem | ActionPlanTemplateItem[];
     actionPlanTemplateItemDependencies?: ActionPlanTemplateItemDependency | ActionPlanTemplateItemDependency[];
     description?: string;
@@ -925,7 +922,7 @@ export type ActionPlanTemplateItemDependency = {
     templateItem: ActionPlanTemplateItem;
 }
 
-export type ActionableEventOrchDef = mns_Metadata & {
+export type ActionableEventOrchDef = Metadata & {
     actionableEventUsageType?: string;
     apiName: string;
     contextDefinitionDeveloperName?: string;
@@ -939,14 +936,14 @@ export type ActionableEventOrchDef = mns_Metadata & {
     label: string;
 }
 
-export type ActionableEventTypeDef = mns_Metadata & {
+export type ActionableEventTypeDef = Metadata & {
     apiName: string;
     label: string;
     listOfSubtypeApiNames?: string | string[];
     listOfSubtypeNames?: string | string[];
 }
 
-export type ActivationPlatform = mns_Metadata & {
+export type ActivationPlatform = Metadata & {
     activationPlatformAdditionalMetadata?: string;
     activationPlatformConnectorType?: ActivationPlatformConnectorType;
     dataConnector?: string;
@@ -964,7 +961,7 @@ export type ActivationPlatform = mns_Metadata & {
     refreshMode: ActivationPlatformRefreshMode;
 }
 
-export type ActivationPlatformActvAttr = mns_Metadata & {
+export type ActivationPlatformActvAttr = Metadata & {
     activationPlatform: string;
     fieldName?: string;
     isRequired: boolean;
@@ -972,7 +969,7 @@ export type ActivationPlatformActvAttr = mns_Metadata & {
     objectName?: string;
 }
 
-export type ActivationPlatformField = mns_Metadata & {
+export type ActivationPlatformField = Metadata & {
     activationPlatform: string;
     helpText?: string;
     isHidden: boolean;
@@ -981,7 +978,7 @@ export type ActivationPlatformField = mns_Metadata & {
     type?: ActivationPlatformFieldDataType;
 }
 
-export type ActnblListKeyPrfmIndDef = mns_Metadata & {
+export type ActnblListKeyPrfmIndDef = Metadata & {
     aggregateOperationName: ActionableListKPIAggType;
     description?: string;
     fieldName: string;
@@ -991,33 +988,33 @@ export type ActnblListKeyPrfmIndDef = mns_Metadata & {
     status: ActionableListKPIStType;
 }
 
-export type ActvPfrmDataConnectorS3 = mns_Metadata & {
+export type ActvPfrmDataConnectorS3 = Metadata & {
     bucketName: string;
     exportDirectory: string;
     masterLabel: string;
 }
 
-export type ActvPlatformAdncIdentifier = mns_Metadata & {
+export type ActvPlatformAdncIdentifier = Metadata & {
     activationPlatform: string;
     identifierHashMethod?: ActivationPlatformIdentifierHashMethod;
     identifierType: ActivationPlatformIdentifierType;
     masterLabel: string;
 }
 
-export type ActvPlatformFieldValue = mns_Metadata & {
+export type ActvPlatformFieldValue = Metadata & {
     activationPlatformField: string;
     isDefault: boolean;
     masterLabel: string;
     value?: string;
 }
 
-export type ActvPlatformOAuthConnector = mns_Metadata & {
+export type ActvPlatformOAuthConnector = Metadata & {
     masterLabel: string;
     oauthProvider: OAuthProviderType;
     oauthUrl: string;
 }
 
-export type AddOnDefinition = mns_Metadata & {
+export type AddOnDefinition = Metadata & {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -1042,7 +1039,7 @@ export type IncludedUserLicenseDefinition = {
     quantity?: number;
 }
 
-export type AdvAccountForecastSet = mns_Metadata & {
+export type AdvAccountForecastSet = Metadata & {
     accountFieldName?: string;
     calculationFrequency?: AdvAcctFcstCalcFrequency;
     description?: string;
@@ -1112,12 +1109,12 @@ export type AdvAcctForecastMeasureDef = {
     isAdjustmentTracked?: boolean;
 }
 
-export type AdvAcctForecastDimSource = mns_Metadata & {
+export type AdvAcctForecastDimSource = Metadata & {
     advAcctForecastDimSrcName: string;
     sourceObjectName: string;
 }
 
-export type AdvAcctForecastPeriodGroup = mns_Metadata & {
+export type AdvAcctForecastPeriodGroup = Metadata & {
     forecastPeriodGroupName: string;
     forecastPeriods?: AdvAccountForecastPeriod | AdvAccountForecastPeriod[];
     startPeriod: number;
@@ -1130,7 +1127,7 @@ export type AdvAccountForecastPeriod = {
     type: PeriodTypes;
 }
 
-export type AdvancedObjectMapping = mns_Metadata & {
+export type AdvancedObjectMapping = Metadata & {
     client: FieldMappingClient;
     description?: string;
     label: string;
@@ -1146,7 +1143,7 @@ export type AdvancedFieldMapping = {
     targetObject: string;
 }
 
-export type AnalyticSnapshot = mns_Metadata & {
+export type AnalyticSnapshot = Metadata & {
     description?: string;
     groupColumn?: string;
     mappings?: AnalyticSnapshotMapping | AnalyticSnapshotMapping[];
@@ -1163,13 +1160,13 @@ export type AnalyticSnapshotMapping = {
     targetField: string;
 }
 
-export type AndroidPushApplicationSetup = mns_Metadata & {
+export type AndroidPushApplicationSetup = Metadata & {
     fcmProject?: string;
     serverKey?: string;
     serviceAccount?: string;
 }
 
-export type AnimationRule = mns_Metadata & {
+export type AnimationRule = Metadata & {
     animationFrequency: string;
     developerName: string;
     isActive: boolean;
@@ -1181,7 +1178,7 @@ export type AnimationRule = mns_Metadata & {
     targetFieldChangeToValues: string;
 }
 
-export type ApexClass = mns_Metadata & {
+export type ApexClass = Metadata & {
     apiVersion: number;
     packageVersions?: PackageVersion | PackageVersion[];
     status: ApexCodeUnitStatus;
@@ -1193,14 +1190,14 @@ export type PackageVersion = {
     namespace: string;
 }
 
-export type ApexComponent = mns_Metadata & {
+export type ApexComponent = Metadata & {
     apiVersion?: number;
     description?: string;
     label: string;
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type ApexPage = mns_Metadata & {
+export type ApexPage = Metadata & {
     apiVersion: number;
     availableInTouch?: boolean;
     confirmationTokenRequired?: boolean;
@@ -1209,23 +1206,23 @@ export type ApexPage = mns_Metadata & {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type ApexTestSuite = mns_Metadata & {
+export type ApexTestSuite = Metadata & {
     testClassName?: string | string[];
 }
 
-export type ApexTrigger = mns_Metadata & {
+export type ApexTrigger = Metadata & {
     apiVersion: number;
     packageVersions?: PackageVersion | PackageVersion[];
     status: ApexCodeUnitStatus;
 }
 
-export type AppNotificationType = mns_Metadata & {
+export type AppNotificationType = Metadata & {
     notificationType: string;
     pushByDefault: boolean;
     subscribed: boolean;
 }
 
-export type ApplePushApplicationSetup = mns_Metadata & {
+export type ApplePushApplicationSetup = Metadata & {
     applicationBundle?: string;
     certificate?: string;
     environment: string;
@@ -1235,7 +1232,7 @@ export type ApplePushApplicationSetup = mns_Metadata & {
     teamIdentifier?: string;
 }
 
-export type Application = mns_Metadata & {
+export type Application = Metadata & {
     contactEmail?: string;
     contactPhone?: string;
     description?: string;
@@ -1258,26 +1255,26 @@ export type ModuleRef = {
     version?: string;
 }
 
-export type ApplicationRecordTypeConfig = mns_Metadata & {
+export type ApplicationRecordTypeConfig = Metadata & {
     applicationObjectName: ApplicationObjectName;
     applicationUsageType: ApplicationUsageType;
     recordTypeName: string;
 }
 
-export type ApplicationSubtypeDefinition = mns_Metadata & {
+export type ApplicationSubtypeDefinition = Metadata & {
     applicationUsageType: AppDomainUsageType;
     description?: string;
     masterLabel: string;
 }
 
-export type AppointmentAssignmentPolicy = mns_Metadata & {
+export type AppointmentAssignmentPolicy = Metadata & {
     masterLabel: string;
     policyApplicableDuration: PolicyApplicableDuration;
     policyType: AssignmentPolicyType;
     utilizationFactor: UtilizationFactor;
 }
 
-export type AppointmentSchedulingPolicy = mns_Metadata & {
+export type AppointmentSchedulingPolicy = Metadata & {
     appointmentAssignmentPolicy?: string;
     appointmentStartTimeInterval: string;
     extCalEventHandler?: string;
@@ -1295,7 +1292,7 @@ export type AppointmentSchedulingPolicy = mns_Metadata & {
     shouldUseSecondaryMembers: boolean;
 }
 
-export type ApprovalProcess = mns_Metadata & {
+export type ApprovalProcess = Metadata & {
     active: boolean;
     allowRecall?: boolean;
     allowedSubmitters?: ApprovalSubmitter | ApprovalSubmitter[];
@@ -1373,7 +1370,7 @@ export type FilterItem = {
     valueField?: string;
 }
 
-export type DuplicateRuleFilterItem = mns_FilterItem & {
+export type DuplicateRuleFilterItem = FilterItem & {
     sortOrder: number;
     table: string;
 }
@@ -1387,7 +1384,7 @@ export type NextAutomatedApprover = {
     userHierarchyField: string;
 }
 
-export type AssessmentQuestion = mns_Metadata & {
+export type AssessmentQuestion = Metadata & {
     assessmentQuestionVersion?: AssessmentQuestionVersion;
     dataType: string;
     developerName: string;
@@ -1410,13 +1407,13 @@ export type AssessmentQuestionVersion = {
     versionNumber: number;
 }
 
-export type AssessmentQuestionSet = mns_Metadata & {
+export type AssessmentQuestionSet = Metadata & {
     assessmentQuestionDeveloperNames?: string | string[];
     developerName: string;
     name: string;
 }
 
-export type AssignmentRule = mns_Metadata & {
+export type AssignmentRule = Metadata & {
     active?: boolean;
     ruleEntry?: RuleEntry | RuleEntry[];
 }
@@ -1452,10 +1449,10 @@ export type EscalationAction = {
     notifyToTemplate?: string;
 }
 
-export type AssignmentRules = mns_Metadata & {
+export type AssignmentRules = Metadata & {
 }
 
-export type AssistantContextItem = mns_Metadata & {
+export type AssistantContextItem = Metadata & {
     assistantVersionId: string;
     description?: string;
     developerName: string;
@@ -1469,7 +1466,7 @@ export type AssistantContextItem = mns_Metadata & {
     whereClause?: string;
 }
 
-export type AssistantDefinition = mns_Metadata & {
+export type AssistantDefinition = Metadata & {
     appVersionNumber?: number;
     assistantDefinitionProfiles?: AssistantDefinitionProfile | AssistantDefinitionProfile[];
     description?: string;
@@ -1482,7 +1479,7 @@ export type AssistantDefinitionProfile = {
     profile?: string;
 }
 
-export type AssistantSkillQuickAction = mns_Metadata & {
+export type AssistantSkillQuickAction = Metadata & {
     assistantSkillQuickActionParams?: AssistantSkillQuickActionParam | AssistantSkillQuickActionParam[];
     description?: string;
     developerName: string;
@@ -1500,7 +1497,7 @@ export type AssistantSkillQuickActionParam = {
     slotClass?: string;
 }
 
-export type AssistantSkillSobjectAction = mns_Metadata & {
+export type AssistantSkillSobjectAction = Metadata & {
     assistantSkillSobjectParams?: AssistantSkillSobjectParam | AssistantSkillSobjectParam[];
     description?: string;
     developerName: string;
@@ -1521,7 +1518,7 @@ export type AssistantSkillSobjectParam = {
     slotClass?: string;
 }
 
-export type AssistantVersion = mns_Metadata & {
+export type AssistantVersion = Metadata & {
     assistantDefinitionId: string;
     assistantSkills?: AssistantSkill | AssistantSkill[];
     assistantVersionActions?: AssistantVersionAction | AssistantVersionAction[];
@@ -1556,7 +1553,7 @@ export type AssistantVersionAction = {
     action?: string;
 }
 
-export type Audience = mns_Metadata & {
+export type Audience = Metadata & {
     audienceName: string;
     container: string;
     criteria: AudienceCriteria;
@@ -1604,7 +1601,7 @@ export type PersonalizationTargetInfo = {
     targetValue: string;
 }
 
-export type AuraDefinitionBundle = mns_Metadata & {
+export type AuraDefinitionBundle = Metadata & {
     SVGContent?: string;
     apiVersion?: number;
     auraDefinitions?: AuraDefinitions;
@@ -1631,7 +1628,7 @@ export type AuraDefinition = {
     source: string;
 }
 
-export type AuthProvider = mns_Metadata & {
+export type AuthProvider = Metadata & {
     appleTeam?: string;
     authorizeUrl?: string;
     consumerKey?: string;
@@ -1663,15 +1660,15 @@ export type AuthProvider = mns_Metadata & {
     userInfoUrl?: string;
 }
 
-export type AutoResponseRule = mns_Metadata & {
+export type AutoResponseRule = Metadata & {
     active?: boolean;
     ruleEntry?: RuleEntry | RuleEntry[];
 }
 
-export type AutoResponseRules = mns_Metadata & {
+export type AutoResponseRules = Metadata & {
 }
 
-export type BatchCalcJobDefinition = mns_Metadata & {
+export type BatchCalcJobDefinition = Metadata & {
     aggregates?: BatchCalcJobAggregate | BatchCalcJobAggregate[];
     appends?: BatchCalcJobUnion | BatchCalcJobUnion[];
     customNodes?: BatchCalcJobCustomNode | BatchCalcJobCustomNode[];
@@ -1692,7 +1689,7 @@ export type BatchCalcJobDefinition = mns_Metadata & {
     writebacks?: BatchCalcJobWritebackObject | BatchCalcJobWritebackObject[];
 }
 
-export type BatchCalcJobAggregate = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobAggregate = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     fields?: BatchCalcJobAggregateField | BatchCalcJobAggregateField[];
     groupBy?: string | string[];
@@ -1701,13 +1698,13 @@ export type BatchCalcJobAggregate = mns_BatchCalcJobAbstractMetadataValue & {
     sourceName: string;
 }
 
-export type BatchCalcJobAbstractMetadataValue = mns_DpeToRecipeTranslateAbstractMetadataValue & {
+export type BatchCalcJobAbstractMetadataValue = DpeToRecipeTranslateAbstractMetadataValue & {
 }
 
 export type DpeToRecipeTranslateAbstractMetadataValue = {
 }
 
-export type BatchCalcJobCustomNode = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     extensionName: string;
     extensionNamespace: string;
@@ -1724,7 +1721,7 @@ export type BatchCalcJobCustomNodeParameter = {
     value?: string;
 }
 
-export type BatchCalcJobDatasource = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     fields?: BatchCalcJobDatasourceField | BatchCalcJobDatasourceField[];
     label: string;
@@ -1741,7 +1738,7 @@ export type BatchCalcJobDatasourceField = {
     name: string;
 }
 
-export type BatchCalcJobFilter = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobFilter = BatchCalcJobAbstractMetadataValue & {
     criteria?: BatchCalcJobFilterCriteria | BatchCalcJobFilterCriteria[];
     description?: string;
     filterCondition?: string;
@@ -1760,7 +1757,7 @@ export type BatchCalcJobFilterCriteria = {
     value?: string;
 }
 
-export type BatchCalcJobForecast = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobForecast = BatchCalcJobAbstractMetadataValue & {
     accuracyPercent?: BatchCalcJobFrcstAccuracy;
     aggregationFields?: BtchCalcJobFrcstAggrFld | BtchCalcJobFrcstAggrFld[];
     dateFieldName: string;
@@ -1788,7 +1785,7 @@ export type BatchCalcJobFrcstGrpFld = {
     groupBy?: string;
 }
 
-export type BatchCalcJobHierarchyPath = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobHierarchyPath = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     hierarchyFieldName: string;
     isSelfFieldValueIncluded?: boolean;
@@ -1799,7 +1796,7 @@ export type BatchCalcJobHierarchyPath = mns_BatchCalcJobAbstractMetadataValue & 
     sourceName: string;
 }
 
-export type BatchCalcJobParameter = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobParameter = BatchCalcJobAbstractMetadataValue & {
     dataType: BatchCalcJobParameterDataType;
     defaultValue?: string;
     description?: string;
@@ -1808,7 +1805,7 @@ export type BatchCalcJobParameter = mns_BatchCalcJobAbstractMetadataValue & {
     name: string;
 }
 
-export type BatchCalcJobSourceJoin = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobSourceJoin = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     fields?: BatchCalcJobJoinResultField | BatchCalcJobJoinResultField[];
     joinKeys?: BatchCalcJobJoinKey | BatchCalcJobJoinKey[];
@@ -1830,7 +1827,7 @@ export type BatchCalcJobJoinKey = {
     secondarySourceFieldName: string;
 }
 
-export type BatchCalcJobTransform = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobTransform = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     droppedFields?: BatchCalcJobTransformDroppedField | BatchCalcJobTransformDroppedField[];
     expressionFields?: BatchCalcJobTransformAddedField | BatchCalcJobTransformAddedField[];
@@ -1859,7 +1856,7 @@ export type BatchCalcJobOrderByField = {
     orderType: BatchCalcJobOrderType;
 }
 
-export type BatchCalcJobUnion = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     isDisjointedSchema?: boolean;
     label: string;
@@ -1867,7 +1864,7 @@ export type BatchCalcJobUnion = mns_BatchCalcJobAbstractMetadataValue & {
     sources?: string | string[];
 }
 
-export type BatchCalcJobWritebackObject = mns_BatchCalcJobAbstractMetadataValue & {
+export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     externalIdFieldName?: string;
     fields?: BatchCalcJobWritebackMapping | BatchCalcJobWritebackMapping[];
@@ -1900,7 +1897,7 @@ export type BatchCalcJobAggregateField = {
     sourceFieldName: string;
 }
 
-export type BatchCalcJobProcessType = mns_Metadata & {
+export type BatchCalcJobProcessType = Metadata & {
     customNodeConfigs?: CustomNodeConfig | CustomNodeConfig[];
     expressionFunctions?: TransformExpressionFunction | TransformExpressionFunction[];
     isInternal: boolean;
@@ -1939,7 +1936,7 @@ export type TransformExpressionFunction = {
     name: string;
 }
 
-export type BatchProcessJobDefinition = mns_Metadata & {
+export type BatchProcessJobDefinition = Metadata & {
     batchSize: number;
     dataSource: BatchDataSource;
     description?: string;
@@ -1971,7 +1968,7 @@ export type BatchDataSrcFilterCriteria = {
     sequenceNo: number;
 }
 
-export type BenefitAction = mns_Metadata & {
+export type BenefitAction = Metadata & {
     benefitActionParameters?: BenefitActionParameter | BenefitActionParameter[];
     description?: string;
     flowDefinition?: string;
@@ -1997,19 +1994,19 @@ export type BenefitActionParameterValue = {
     parameterValue: string;
 }
 
-export type BlacklistedConsumer = mns_Metadata & {
+export type BlacklistedConsumer = Metadata & {
     blockedByApiWhitelisting: boolean;
     consumerKey: string;
     consumerName: string;
     masterLabel: string;
 }
 
-export type BldgEnrgyIntensityCnfg = mns_Metadata & {
+export type BldgEnrgyIntensityCnfg = Metadata & {
     buildingEnergyIntensityType: BuildingEnergyIntensityType;
     recordType: string;
 }
 
-export type Bot = mns_Metadata & {
+export type Bot = Metadata & {
     botMlDomain?: LocalMlDomain;
     botUser?: string;
     botVersions?: BotVersion | BotVersion[];
@@ -2071,7 +2068,7 @@ export type SynonymGroup = {
     terms?: string | string[];
 }
 
-export type BotVersion = mns_Metadata & {
+export type BotVersion = Metadata & {
     articleAnswersGPTEnabled?: boolean;
     botDialogGroups?: BotDialogGroup | BotDialogGroup[];
     botDialogs?: BotDialog | BotDialog[];
@@ -2305,7 +2302,7 @@ export type PageContextVariable = {
     label: string;
 }
 
-export type BotBlock = mns_Metadata & {
+export type BotBlock = Metadata & {
     botBlockVersions?: BotBlockVersion | BotBlockVersion[];
     description?: string;
     icon?: string;
@@ -2313,7 +2310,7 @@ export type BotBlock = mns_Metadata & {
     richContentEnabled?: boolean;
 }
 
-export type BotBlockVersion = mns_Metadata & {
+export type BotBlockVersion = Metadata & {
     botDialogs?: BotDialog | BotDialog[];
     conversationGoals?: ConversationDefinitionGoal | ConversationDefinitionGoal[];
     conversationLanguages: string;
@@ -2324,7 +2321,7 @@ export type BotBlockVersion = mns_Metadata & {
     status: ConvDefBlockVersionStatus;
 }
 
-export type BotTemplate = mns_Metadata & {
+export type BotTemplate = Metadata & {
     botDialogGroups?: BotDialogGroup | BotDialogGroup[];
     botDialogs?: BotDialog | BotDialog[];
     contextVariables?: ConversationContextVariable | ConversationContextVariable[];
@@ -2343,7 +2340,7 @@ export type BotTemplate = mns_Metadata & {
     type?: BotType;
 }
 
-export type BrandingSet = mns_Metadata & {
+export type BrandingSet = Metadata & {
     brandingSetProperty?: BrandingSetProperty | BrandingSetProperty[];
     description?: string;
     masterLabel: string;
@@ -2355,7 +2352,7 @@ export type BrandingSetProperty = {
     propertyValue?: string;
 }
 
-export type BriefcaseDefinition = mns_Metadata & {
+export type BriefcaseDefinition = Metadata & {
     briefcaseRules?: BriefcaseRule | BriefcaseRule[];
     description?: string;
     isActive: boolean;
@@ -2383,7 +2380,7 @@ export type BriefcaseRuleFilter = {
     targetEntityField: string;
 }
 
-export type BusinessHoursEntry = mns_Metadata & {
+export type BusinessHoursEntry = Metadata & {
     active?: boolean;
     default: boolean;
     fridayEndTime?: Date;
@@ -2404,13 +2401,13 @@ export type BusinessHoursEntry = mns_Metadata & {
     wednesdayStartTime?: Date;
 }
 
-export type BusinessProcess = mns_Metadata & {
+export type BusinessProcess = Metadata & {
     description?: string;
     isActive?: boolean;
     values?: PicklistValue | PicklistValue[];
 }
 
-export type PicklistValue = mns_Metadata & {
+export type PicklistValue = Metadata & {
     color?: string;
     default: boolean;
     description?: string;
@@ -2429,7 +2426,7 @@ export type PicklistValue = mns_Metadata & {
     won?: boolean;
 }
 
-export type GlobalPicklistValue = mns_Metadata & {
+export type GlobalPicklistValue = Metadata & {
     color?: string;
     default: boolean;
     description?: string;
@@ -2437,7 +2434,7 @@ export type GlobalPicklistValue = mns_Metadata & {
     valueName: string;
 }
 
-export type BusinessProcessGroup = mns_Metadata & {
+export type BusinessProcessGroup = Metadata & {
     businessProcessDefinitions?: BusinessProcessDefinition | BusinessProcessDefinition[];
     customerSatisfactionMetric: SurveyQuestionType;
     description?: string;
@@ -2458,13 +2455,13 @@ export type BusinessProcessFeedback = {
     actionType: ExpFeedbackCollType;
 }
 
-export type BusinessProcessTypeDefinition = mns_Metadata & {
+export type BusinessProcessTypeDefinition = Metadata & {
     applicationUsageType: AppDomainUsageType;
     description?: string;
     masterLabel: string;
 }
 
-export type CMSConnectSource = mns_Metadata & {
+export type CMSConnectSource = Metadata & {
     cmsConnectAsset?: CMSConnectAsset | CMSConnectAsset[];
     cmsConnectLanguage?: CMSConnectLanguage | CMSConnectLanguage[];
     cmsConnectPersonalization?: CMSConnectPersonalization;
@@ -2517,7 +2514,7 @@ export type CMSConnectResourceDefinition = {
     rootNodePath?: string;
 }
 
-export type CallCenter = mns_Metadata & {
+export type CallCenter = Metadata & {
     adapterUrl?: string;
     contactCenterChannels?: ContactCenterChannel | ContactCenterChannel[];
     customSettings?: string;
@@ -2553,7 +2550,7 @@ export type VendorCallCenterStatusMap = {
     servicePresenceStatus: string;
 }
 
-export type CallCenterRoutingMap = mns_Metadata & {
+export type CallCenterRoutingMap = Metadata & {
     callCenter: string;
     developerName: string;
     externalId: string;
@@ -2562,20 +2559,20 @@ export type CallCenterRoutingMap = mns_Metadata & {
     referenceRecord: string;
 }
 
-export type CallCoachingMediaProvider = mns_Metadata & {
+export type CallCoachingMediaProvider = Metadata & {
     isActive: boolean;
     providerDescription: string;
     providerName: string;
 }
 
-export type CallCtrAgentFavTrfrDest = mns_Metadata & {
+export type CallCtrAgentFavTrfrDest = Metadata & {
     agent: string;
     callCenter: string;
     name: string;
     transferDestination: string;
 }
 
-export type CampaignInfluenceModel = mns_Metadata & {
+export type CampaignInfluenceModel = Metadata & {
     isActive?: boolean;
     isDefaultModel: boolean;
     isModelLocked: boolean;
@@ -2584,13 +2581,13 @@ export type CampaignInfluenceModel = mns_Metadata & {
     recordPreference?: string;
 }
 
-export type CampaignTemplateDefinition = mns_Metadata & {
+export type CampaignTemplateDefinition = Metadata & {
     description: string;
     developerName: string;
     masterLabel: string;
 }
 
-export type CanvasMetadata = mns_Metadata & {
+export type CanvasMetadata = Metadata & {
     accessMethod: string;
     canvasOptions?: string;
     canvasUrl: string;
@@ -2599,7 +2596,7 @@ export type CanvasMetadata = mns_Metadata & {
     samlInitiationMethod?: string;
 }
 
-export type CareBenefitVerifySettings = mns_Metadata & {
+export type CareBenefitVerifySettings = Metadata & {
     codeSetType?: string;
     defaultNpi?: string;
     generalPlanServiceTypeCode?: string;
@@ -2612,7 +2609,7 @@ export type CareBenefitVerifySettings = mns_Metadata & {
     uriPath?: string;
 }
 
-export type CareRequestConfiguration = mns_Metadata & {
+export type CareRequestConfiguration = Metadata & {
     careRequestRecordType: string;
     careRequestRecords?: CareRequestRecords | CareRequestRecords[];
     careRequestType: string;
@@ -2625,13 +2622,13 @@ export type CareRequestRecords = {
     careRequestRecord: string;
 }
 
-export type CaseSubjectParticle = mns_Metadata & {
+export type CaseSubjectParticle = Metadata & {
     index: number;
     textField?: string;
     type: CaseSubjectParticleType;
 }
 
-export type Certificate = mns_Metadata & {
+export type Certificate = Metadata & {
     caSigned: boolean;
     encryptedWithPlatformEncryption?: boolean;
     expirationDate?: Date;
@@ -2640,7 +2637,7 @@ export type Certificate = mns_Metadata & {
     privateKeyExportable?: boolean;
 }
 
-export type ChannelLayout = mns_Metadata & {
+export type ChannelLayout = Metadata & {
     doesExcludeFieldLabels?: boolean;
     doesExcludeFiles?: boolean;
     enabledChannels?: string | string[];
@@ -2653,7 +2650,7 @@ export type ChannelLayoutItem = {
     field: string;
 }
 
-export type ChannelObjectLinkingRule = mns_Metadata & {
+export type ChannelObjectLinkingRule = Metadata & {
     actionForNoRecordFound: ActionForNoRecordFound;
     actionForSingleRecordFound: ActionForSingleRecordFound;
     channelType: ChannelType;
@@ -2665,7 +2662,7 @@ export type ChannelObjectLinkingRule = mns_Metadata & {
     ruleName: string;
 }
 
-export type ChatterExtension = mns_Metadata & {
+export type ChatterExtension = Metadata & {
     compositionComponent: string;
     description: string;
     extensionName: string;
@@ -2678,21 +2675,21 @@ export type ChatterExtension = mns_Metadata & {
     type: ChatterExtensionType;
 }
 
-export type ClaimFinancialSettings = mns_Metadata & {
+export type ClaimFinancialSettings = Metadata & {
     claimCovPendingAuthStatus: string;
     claimPendingAuthorityStatus: string;
     clmCovPymtDtlPendAuthSts: string;
     masterLabel: string;
 }
 
-export type ClauseCatgConfiguration = mns_Metadata & {
+export type ClauseCatgConfiguration = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
     usageType: ClmCategoryUsageType;
 }
 
-export type CleanDataService = mns_Metadata & {
+export type CleanDataService = Metadata & {
     cleanRules?: CleanRule | CleanRule[];
     description: string;
     masterLabel: string;
@@ -2733,7 +2730,7 @@ export type FieldMappingField = {
     priority: number;
 }
 
-export type CloudServiceProvider = mns_Metadata & {
+export type CloudServiceProvider = Metadata & {
     authParams: string;
     authType: AuthType;
     baseApiUrl: string;
@@ -2756,12 +2753,12 @@ export type CloudServiceProviderApi = {
     version: number;
 }
 
-export type CodeBundle = mns_Metadata & {
+export type CodeBundle = Metadata & {
     apiVersion: number;
     description?: string;
 }
 
-export type CommandAction = mns_Metadata & {
+export type CommandAction = Metadata & {
     actionType: string;
     description?: string;
     intents?: CommandActionIntent | CommandActionIntent[];
@@ -2788,7 +2785,7 @@ export type CommandActionParam = {
     type: string;
 }
 
-export type Community = mns_Metadata & {
+export type Community = Metadata & {
     active?: boolean;
     chatterAnswersFacebookSsoUrl?: string;
     communityFeedPage?: string;
@@ -2821,7 +2818,7 @@ export type IdeaReputationLevel = {
     value: number;
 }
 
-export type CommunityAIModelMapping = mns_Metadata & {
+export type CommunityAIModelMapping = Metadata & {
     modelContent: string;
     modelEntityType: ModelEntityType;
     modelStatus: ModelStatus;
@@ -2830,7 +2827,7 @@ export type CommunityAIModelMapping = mns_Metadata & {
     setupDefinition?: string;
 }
 
-export type CommunityTemplateDefinition = mns_Metadata & {
+export type CommunityTemplateDefinition = Metadata & {
     baseTemplate?: CommunityBaseTemplate;
     bundlesInfo?: CommunityTemplateBundleInfo | CommunityTemplateBundleInfo[];
     category: CommunityTemplateCategory;
@@ -2852,7 +2849,7 @@ export type CommunityTemplateBundleInfo = {
     type: CommunityTemplateBundleInfoType;
 }
 
-export type CommunityThemeBundleInfo = mns_CommunityTemplateBundleInfo & {
+export type CommunityThemeBundleInfo = CommunityTemplateBundleInfo & {
 }
 
 export type NavigationLinkSet = {
@@ -2884,7 +2881,7 @@ export type CommunityTemplatePageSetting = {
     themeLayout: string;
 }
 
-export type CommunityThemeDefinition = mns_Metadata & {
+export type CommunityThemeDefinition = Metadata & {
     bundlesInfo?: CommunityThemeBundleInfo | CommunityThemeBundleInfo[];
     customThemeLayoutType?: CommunityCustomThemeLayoutType | CommunityCustomThemeLayoutType[];
     defaultBrandingSet?: string;
@@ -2914,12 +2911,12 @@ export type CommunityThemeSetting = {
     themeLayoutType?: CommunityThemeLayoutType;
 }
 
-export type CompactLayout = mns_Metadata & {
+export type CompactLayout = Metadata & {
     fields?: string | string[];
     label: string;
 }
 
-export type ConnectedApp = mns_Metadata & {
+export type ConnectedApp = Metadata & {
     attributes?: ConnectedAppAttribute | ConnectedAppAttribute[];
     canvasConfig?: ConnectedAppCanvasConfig;
     contactEmail: string;
@@ -3045,7 +3042,7 @@ export type ConnectedAppSessionPolicy = {
     sessionTimeout?: number;
 }
 
-export type ConnectivityDevConfigMetadata = mns_Metadata & {
+export type ConnectivityDevConfigMetadata = Metadata & {
     allowNonSubscribedNotifTypes?: boolean;
     isOauth?: boolean;
     issuer?: string;
@@ -3064,7 +3061,7 @@ export type ConnectivityDevConfigMetadata = mns_Metadata & {
     subjectCustomAttr?: string;
 }
 
-export type ContentAsset = mns_Metadata & {
+export type ContentAsset = Metadata & {
     format?: ContentAssetFormat;
     isVisibleByExternalUsers?: boolean;
     language: string;
@@ -3098,7 +3095,7 @@ export type ContentAssetVersion = {
     zipEntry?: string;
 }
 
-export type ContextDefinition = mns_Metadata & {
+export type ContextDefinition = Metadata & {
     clonedFrom?: string;
     contextDefinitionVersions?: ContextDefinitionVersion | ContextDefinitionVersion[];
     contextTtl?: number;
@@ -3172,7 +3169,7 @@ export type ContextTag = {
     title: string;
 }
 
-export type ContractType = mns_Metadata & {
+export type ContractType = Metadata & {
     contractTypeConfigs?: ContractTypeConfig | ContractTypeConfig[];
     isDefault?: boolean;
     masterLabel: string;
@@ -3185,7 +3182,7 @@ export type ContractTypeConfig = {
     usageType?: ContractUsageType;
 }
 
-export type ConvReasonReportDefinition = mns_Metadata & {
+export type ConvReasonReportDefinition = Metadata & {
     endDate: Date;
     externalModelIdentifier?: string;
     name: string;
@@ -3195,7 +3192,7 @@ export type ConvReasonReportDefinition = mns_Metadata & {
     status: ReportStatus;
 }
 
-export type ConvReasonReportSegmentDef = mns_Metadata & {
+export type ConvReasonReportSegmentDef = Metadata & {
     convReasonReportDefinition: string;
     filterCriteria?: string;
     filterCriteriaAsJson?: string;
@@ -3205,7 +3202,7 @@ export type ConvReasonReportSegmentDef = mns_Metadata & {
     targetObject: string;
 }
 
-export type ConversationChannelDefinition = mns_Metadata & {
+export type ConversationChannelDefinition = Metadata & {
     connectedAppOauthLink: string;
     consentOwner?: ConsentOwner;
     conversationVendorInfo?: string;
@@ -3224,7 +3221,7 @@ export type ConversationChannelDefinition = mns_Metadata & {
     supportsKeywords?: boolean;
 }
 
-export type ConversationMessageDefinition = mns_Metadata & {
+export type ConversationMessageDefinition = Metadata & {
     constants?: ConversationMessageConstant | ConversationMessageConstant[];
     description?: string;
     label: string;
@@ -3339,7 +3336,7 @@ export type ConversationMessageParameter = {
     primitiveTypeDetails?: ConversationMessageParameterPrimitiveDetails;
 }
 
-export type ConversationVendorInfo = mns_Metadata & {
+export type ConversationVendorInfo = Metadata & {
     agentSSOSupported?: boolean;
     awsAccountKey?: string;
     awsRootEmail?: string;
@@ -3370,11 +3367,11 @@ export type ConversationVendorInfo = mns_Metadata & {
     vendorType?: ConversationVendorType;
 }
 
-export type CorsWhitelistOrigin = mns_Metadata & {
+export type CorsWhitelistOrigin = Metadata & {
     urlPattern: string;
 }
 
-export type CspTrustedSite = mns_Metadata & {
+export type CspTrustedSite = Metadata & {
     canAccessCamera?: boolean;
     canAccessMicrophone?: boolean;
     context?: CspTrustedSiteContext;
@@ -3390,7 +3387,7 @@ export type CspTrustedSite = mns_Metadata & {
     mobileExtension?: string;
 }
 
-export type CustomApplication = mns_Metadata & {
+export type CustomApplication = Metadata & {
     actionOverrides?: AppActionOverride | AppActionOverride[];
     brand?: AppBrand;
     consoleConfig?: ServiceCloudConsoleConfig;
@@ -3416,7 +3413,7 @@ export type CustomApplication = mns_Metadata & {
     workspaceConfig?: AppWorkspaceConfig;
 }
 
-export type AppActionOverride = mns_ActionOverride & {
+export type AppActionOverride = ActionOverride & {
     pageOrSobjectType: string;
 }
 
@@ -3462,7 +3459,7 @@ export type KeyboardShortcuts = {
     defaultShortcuts?: DefaultShortcut | DefaultShortcut[];
 }
 
-export type CustomShortcut = mns_DefaultShortcut & {
+export type CustomShortcut = DefaultShortcut & {
     description?: string;
     eventName: string;
 }
@@ -3513,7 +3510,7 @@ export type AppPreferences = {
     saveUserSessions: boolean;
 }
 
-export type AppProfileActionOverride = mns_ProfileActionOverride & {
+export type AppProfileActionOverride = ProfileActionOverride & {
     profile: string;
 }
 
@@ -3535,7 +3532,7 @@ export type WorkspaceMapping = {
     tab: string;
 }
 
-export type CustomApplicationComponent = mns_Metadata & {
+export type CustomApplicationComponent = Metadata & {
     buttonIconUrl?: string;
     buttonStyle?: string;
     buttonText?: string;
@@ -3548,7 +3545,7 @@ export type CustomApplicationComponent = mns_Metadata & {
     width?: number;
 }
 
-export type CustomFeedFilter = mns_Metadata & {
+export type CustomFeedFilter = Metadata & {
     criteria?: FeedFilterCriterion | FeedFilterCriterion[];
     description?: string;
     isProtected?: boolean;
@@ -3561,7 +3558,7 @@ export type FeedFilterCriterion = {
     relatedSObjectType?: string;
 }
 
-export type CustomField = mns_Metadata & {
+export type CustomField = Metadata & {
     businessOwnerGroup?: string;
     businessOwnerUser?: string;
     businessStatus?: string;
@@ -3672,7 +3669,7 @@ export type ValueSetValuesDefinition = {
     value?: CustomValue | CustomValue[];
 }
 
-export type CustomValue = mns_Metadata & {
+export type CustomValue = Metadata & {
     color?: string;
     default: boolean;
     description?: string;
@@ -3681,7 +3678,7 @@ export type CustomValue = mns_Metadata & {
     valueName: string;
 }
 
-export type StandardValue = mns_CustomValue & {
+export type StandardValue = CustomValue & {
     allowEmail?: boolean;
     closed?: boolean;
     converted?: boolean;
@@ -3700,7 +3697,7 @@ export type ValueSettings = {
     valueName: string;
 }
 
-export type CustomHelpMenuSection = mns_Metadata & {
+export type CustomHelpMenuSection = Metadata & {
     customHelpMenuItems?: CustomHelpMenuItem | CustomHelpMenuItem[];
     masterLabel: string;
 }
@@ -3711,11 +3708,11 @@ export type CustomHelpMenuItem = {
     sortOrder: number;
 }
 
-export type CustomIndex = mns_Metadata & {
+export type CustomIndex = Metadata & {
     allowNullValues?: boolean;
 }
 
-export type CustomLabel = mns_Metadata & {
+export type CustomLabel = Metadata & {
     categories?: string;
     language: string;
     protected: boolean;
@@ -3723,10 +3720,10 @@ export type CustomLabel = mns_Metadata & {
     value: string;
 }
 
-export type CustomLabels = mns_Metadata & {
+export type CustomLabels = Metadata & {
 }
 
-export type CustomMetadata = mns_Metadata & {
+export type CustomMetadata = Metadata & {
     description?: string;
     label?: string;
     protected?: boolean;
@@ -3737,7 +3734,7 @@ export type CustomMetadataValue = {
     field: string;
 }
 
-export type CustomNotificationType = mns_Metadata & {
+export type CustomNotificationType = Metadata & {
     customNotifTypeName: string;
     description?: string;
     desktop: boolean;
@@ -3746,7 +3743,7 @@ export type CustomNotificationType = mns_Metadata & {
     slack?: boolean;
 }
 
-export type CustomObject = mns_Metadata & {
+export type CustomObject = Metadata & {
     actionOverrides?: ActionOverride | ActionOverride[];
     allowInChatterGroups?: boolean;
     compactLayoutAssignment?: string;
@@ -3830,7 +3827,7 @@ export type SearchLayouts = {
     searchResultsCustomButtons?: string | string[];
 }
 
-export type CustomPageWebLink = mns_Metadata & {
+export type CustomPageWebLink = Metadata & {
     availability: WebLinkAvailability;
     description?: string;
     displayType: WebLinkDisplayType;
@@ -3854,7 +3851,7 @@ export type CustomPageWebLink = mns_Metadata & {
     width?: number;
 }
 
-export type CustomPermission = mns_Metadata & {
+export type CustomPermission = Metadata & {
     connectedApp?: string;
     description?: string;
     isLicensed: boolean;
@@ -3867,7 +3864,7 @@ export type CustomPermissionDependencyRequired = {
     dependency: boolean;
 }
 
-export type CustomSite = mns_Metadata & {
+export type CustomSite = Metadata & {
     active: boolean;
     allowGuestPaymentsApi?: boolean;
     allowHomePage: boolean;
@@ -3936,7 +3933,7 @@ export type SiteRedirectMapping = {
     target: string;
 }
 
-export type CustomTab = mns_Metadata & {
+export type CustomTab = Metadata & {
     auraComponent?: string;
     customObject?: boolean;
     description?: string;
@@ -3954,7 +3951,7 @@ export type CustomTab = mns_Metadata & {
     urlEncodingKey?: Encoding;
 }
 
-export type Dashboard = mns_Metadata & {
+export type Dashboard = Metadata & {
     backgroundEndColor: string;
     backgroundFadeDirection: ChartBackgroundDirection;
     backgroundStartColor: string;
@@ -4134,7 +4131,7 @@ export type DashboardComponentSection = {
     components?: DashboardComponent | DashboardComponent[];
 }
 
-export type DataCalcInsightTemplate = mns_Metadata & {
+export type DataCalcInsightTemplate = Metadata & {
     builderExpression: string;
     creationType?: CalculatedInsightCreationType;
     dataspaceName: string;
@@ -4146,7 +4143,7 @@ export type DataCalcInsightTemplate = mns_Metadata & {
     masterLabel: string;
 }
 
-export type DataCategoryGroup = mns_Metadata & {
+export type DataCategoryGroup = Metadata & {
     active: boolean;
     dataCategory: DataCategory;
     description?: string;
@@ -4164,18 +4161,18 @@ export type ObjectUsage = {
     object?: string | string[];
 }
 
-export type DataConnectionParamTmpl = mns_Metadata & {
+export type DataConnectionParamTmpl = Metadata & {
     paramName: string;
     value: string;
 }
 
-export type DataConnectorIngestApi = mns_Metadata & {
+export type DataConnectorIngestApi = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     sourceName: string;
 }
 
-export type DataConnectorS3 = mns_Metadata & {
+export type DataConnectorS3 = Metadata & {
     delimiter?: string;
     fileNameWildcard?: string;
     fileType?: string;
@@ -4186,7 +4183,7 @@ export type DataConnectorS3 = mns_Metadata & {
     s3SecretKey?: string;
 }
 
-export type DataModelTaxonomy = mns_Metadata & {
+export type DataModelTaxonomy = Metadata & {
     creationType?: DefinitionCreationType;
     dataModelType: DataModelType;
     isProtected?: boolean;
@@ -4196,12 +4193,12 @@ export type DataModelTaxonomy = mns_Metadata & {
     versionNbr: number;
 }
 
-export type DataObjectCategory = mns_Metadata & {
+export type DataObjectCategory = Metadata & {
     definitionCreationType?: DefinitionCreationType;
     masterLabel: string;
 }
 
-export type DataPackageKitDefinition = mns_Metadata & {
+export type DataPackageKitDefinition = Metadata & {
     description?: string;
     developerName: string;
     isDeployed?: boolean;
@@ -4210,20 +4207,20 @@ export type DataPackageKitDefinition = mns_Metadata & {
     versionNumber?: number;
 }
 
-export type DataPackageKitObject = mns_Metadata & {
+export type DataPackageKitObject = Metadata & {
     masterLabel: string;
     parentDataPackageKitDefinitionName: string;
     referenceObjectName: string;
     referenceObjectType: string;
 }
 
-export type DataPipeline = mns_Metadata & {
+export type DataPipeline = Metadata & {
     apiVersion: number;
     label: string;
     scriptType: DataPipelineType;
 }
 
-export type DataPlatform = mns_Metadata & {
+export type DataPlatform = Metadata & {
     dataConnectorType: string;
     dataPlatDataSetBundles?: DataPlatDataSetBundle | DataPlatDataSetBundle[];
     description?: string;
@@ -4251,12 +4248,12 @@ export type DataPlatformDataSet = {
     sortOrder?: number;
 }
 
-export type DataSource = mns_Metadata & {
+export type DataSource = Metadata & {
     masterLabel: string;
     prefix: string;
 }
 
-export type DataSourceBundleDefinition = mns_Metadata & {
+export type DataSourceBundleDefinition = Metadata & {
     dataPlatform: string;
     description?: string;
     icon?: string;
@@ -4264,7 +4261,7 @@ export type DataSourceBundleDefinition = mns_Metadata & {
     masterLabel: string;
 }
 
-export type DataSourceField = mns_Metadata & {
+export type DataSourceField = Metadata & {
     datatype: string;
     dateFormat?: string;
     definitionCreationType?: DefinitionCreationType;
@@ -4284,26 +4281,26 @@ export type DataSourceField = mns_Metadata & {
     versionNumber: number;
 }
 
-export type DataSourceObject = mns_Metadata & {
+export type DataSourceObject = Metadata & {
     dataSource: string;
     externalRecordIdentifier?: string;
     masterLabel: string;
     objectType?: DataObjectType;
 }
 
-export type DataSourceTenant = mns_Metadata & {
+export type DataSourceTenant = Metadata & {
     externalRecordId: string;
     masterLabel: string;
 }
 
-export type DataSrcDataModelFieldMap = mns_Metadata & {
+export type DataSrcDataModelFieldMap = Metadata & {
     masterLabel: string;
     sourceField: string;
     targetField: string;
     versionNumber: number;
 }
 
-export type DataStreamDefinition = mns_Metadata & {
+export type DataStreamDefinition = Metadata & {
     areHeadersIncludedInFile?: boolean;
     bulkIngest?: boolean;
     creationType: DefinitionCreationType;
@@ -4325,7 +4322,7 @@ export type DataStreamDefinition = mns_Metadata & {
     mktDataTranObject?: string;
 }
 
-export type DataStreamTemplate = mns_Metadata & {
+export type DataStreamTemplate = Metadata & {
     dataSourceBundleDefinition: string;
     dataSourceObject: string;
     masterLabel: string;
@@ -4335,13 +4332,13 @@ export type DataStreamTemplate = mns_Metadata & {
     refreshMode?: DataImportRefreshMode;
 }
 
-export type DataWeaveResource = mns_Metadata & {
+export type DataWeaveResource = Metadata & {
     apiVersion: number;
     isGlobal?: boolean;
     isProtected?: boolean;
 }
 
-export type DataspaceScope = mns_Metadata & {
+export type DataspaceScope = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -4352,7 +4349,7 @@ export type DataspaceScopeSchemaAccess = {
     metadataGroup: string;
 }
 
-export type DecisionMatrixDefinition = mns_Metadata & {
+export type DecisionMatrixDefinition = Metadata & {
     description?: string;
     groupKey?: string;
     label: string;
@@ -4361,7 +4358,7 @@ export type DecisionMatrixDefinition = mns_Metadata & {
     type?: DecisionMatrixType;
 }
 
-export type DecisionMatrixDefinitionVersion = mns_Metadata & {
+export type DecisionMatrixDefinitionVersion = Metadata & {
     columns?: DecisionMatrixDefinitionVersionColumn | DecisionMatrixDefinitionVersionColumn[];
     decisionMatrixDefinition?: string;
     endDate?: Date;
@@ -4383,7 +4380,7 @@ export type DecisionMatrixDefinitionVersionColumn = {
     wildcardValue?: string;
 }
 
-export type DecisionTable = mns_Metadata & {
+export type DecisionTable = Metadata & {
     collectOperator?: DecisionTableCollectOperator;
     conditionCriteria?: string;
     conditionType?: DecisionTableConditionType;
@@ -4428,7 +4425,7 @@ export type DecisionTableSourceCriteria = {
     valueType: DTSourceCriteriaValueType;
 }
 
-export type DecisionTableDatasetLink = mns_Metadata & {
+export type DecisionTableDatasetLink = Metadata & {
     decisionTableName: string;
     decisionTblDatasetParameters?: DecisionTblDatasetParameter | DecisionTblDatasetParameter[];
     description?: string;
@@ -4443,7 +4440,7 @@ export type DecisionTblDatasetParameter = {
     fieldName: string;
 }
 
-export type PlatformEventSubscriberConfig = mns_Metadata & {
+export type PlatformEventSubscriberConfig = Metadata & {
     batchSize?: number;
     isProtected?: boolean;
     masterLabel: string;
@@ -4453,7 +4450,7 @@ export type PlatformEventSubscriberConfig = mns_Metadata & {
     user?: string;
 }
 
-export type FtestTopLevelWithDeclMd1 = mns_Metadata & {
+export type FtestTopLevelWithDeclMd1 = Metadata & {
     bitVectorFieldRound?: boolean;
     bitVectorFieldSquare?: boolean;
     bitVectorFieldTriangle?: boolean;
@@ -4506,19 +4503,19 @@ export type FtestDetailWithDeclMd2 = {
     staticEnumField?: FTestTopLevelSelection;
 }
 
-export type FtestTopLevelWithDeclMd3 = mns_Metadata & {
+export type FtestTopLevelWithDeclMd3 = Metadata & {
     isProtected?: boolean;
     lookupThatCameBefore?: string;
     masterLabel: string;
 }
 
-export type FtestTopLevelWithCrud = mns_Metadata & {
+export type FtestTopLevelWithCrud = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     textField?: string;
 }
 
-export type SchedulingObjective = mns_Metadata & {
+export type SchedulingObjective = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
@@ -4531,7 +4528,7 @@ export type SchedulingObjectiveParameter = {
     value?: string;
 }
 
-export type FtestTopLevelWithDeclMd2 = mns_Metadata & {
+export type FtestTopLevelWithDeclMd2 = Metadata & {
     enumOrIdField?: string;
     isProtected?: boolean;
     lookupField?: string;
@@ -4544,14 +4541,14 @@ export type FtestTopLevelWithDeclMd2 = mns_Metadata & {
     urlField?: string;
 }
 
-export type PipelineInspMetricConfig = mns_Metadata & {
+export type PipelineInspMetricConfig = Metadata & {
     isCumulative: boolean;
     isProtected?: boolean;
     masterLabel: string;
     metric: PipelineInspectionMetric;
 }
 
-export type VirtualVisitConfig = mns_Metadata & {
+export type VirtualVisitConfig = Metadata & {
     comprehendServiceType?: VirtualVisitComprehendServiceType;
     experienceCloudSiteUrl?: string;
     externalMsgServiceIdentifier?: string;
@@ -4568,14 +4565,14 @@ export type VirtualVisitConfig = mns_Metadata & {
     visitRegion?: VirtualVisitVisitRegion;
 }
 
-export type MobileSecurityAssignment = mns_Metadata & {
+export type MobileSecurityAssignment = Metadata & {
     connectedApplication?: string;
     isProtected?: boolean;
     masterLabel: string;
     profile?: string;
 }
 
-export type MobileSecurityPolicy = mns_Metadata & {
+export type MobileSecurityPolicy = Metadata & {
     effectiveDate?: Date;
     isEnabled: boolean;
     isProtected?: boolean;
@@ -4588,12 +4585,12 @@ export type MobileSecurityPolicy = mns_Metadata & {
     type: MobileSecurityPolicyType;
 }
 
-export type SlackFeatureExtlConfig = mns_Metadata & {
+export type SlackFeatureExtlConfig = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type LearningAchievementConfig = mns_Metadata & {
+export type LearningAchievementConfig = Metadata & {
     description?: string;
     iconName?: string;
     isProtected?: boolean;
@@ -4602,7 +4599,7 @@ export type LearningAchievementConfig = mns_Metadata & {
     masterLabel: string;
 }
 
-export type RecordAlertDataSource = mns_Metadata & {
+export type RecordAlertDataSource = Metadata & {
     apexClass?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -4610,7 +4607,7 @@ export type RecordAlertDataSource = mns_Metadata & {
     type: RecordAlertDataSourceType;
 }
 
-export type RecAlrtDataSrcExpSetDef = mns_Metadata & {
+export type RecAlrtDataSrcExpSetDef = Metadata & {
     expressionSetDefinition: string;
     expressionSetObject: string;
     isActive: boolean;
@@ -4619,7 +4616,7 @@ export type RecAlrtDataSrcExpSetDef = mns_Metadata & {
     recordAlertDataSource: string;
 }
 
-export type AppExplorationDataConsent = mns_Metadata & {
+export type AppExplorationDataConsent = Metadata & {
     applicationName?: string;
     availableObjects?: string;
     enabledObjects?: string;
@@ -4629,7 +4626,7 @@ export type AppExplorationDataConsent = mns_Metadata & {
     projectName?: string;
 }
 
-export type RegisteredExternalService = mns_Metadata & {
+export type RegisteredExternalService = Metadata & {
     configUrl?: string;
     description?: string;
     documentationUrl?: string;
@@ -4642,7 +4639,7 @@ export type RegisteredExternalService = mns_Metadata & {
     masterLabel: string;
 }
 
-export type RecordAlertTemplate = mns_Metadata & {
+export type RecordAlertTemplate = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -4650,7 +4647,7 @@ export type RecordAlertTemplate = mns_Metadata & {
     subject?: string;
 }
 
-export type MobSecurityCertPinConfig = mns_Metadata & {
+export type MobSecurityCertPinConfig = Metadata & {
     certificateHash: string;
     domainName: string;
     isEnabled: boolean;
@@ -4663,7 +4660,7 @@ export type MobSecurityCertPinConfig = mns_Metadata & {
     type: MobileSecurityCertPinType;
 }
 
-export type SemanticModel = mns_Metadata & {
+export type SemanticModel = Metadata & {
     app?: string;
     categories?: string;
     dataSpaceDefinition?: string;
@@ -4678,12 +4675,12 @@ export type SemanticModelContent = {
     semanticDefinition?: string;
 }
 
-export type SlackFeatureSettings = mns_Metadata & {
+export type SlackFeatureSettings = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type CareProviderSearchConfig = mns_Metadata & {
+export type CareProviderSearchConfig = Metadata & {
     isActive?: boolean;
     isProtected?: boolean;
     mappedObject: ProviderSearchObjectMapping;
@@ -4692,7 +4689,7 @@ export type CareProviderSearchConfig = mns_Metadata & {
     targetField?: string;
 }
 
-export type CareSystemFieldMapping = mns_Metadata & {
+export type CareSystemFieldMapping = Metadata & {
     externalIdField?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -4702,14 +4699,14 @@ export type CareSystemFieldMapping = mns_Metadata & {
     targetObject?: string;
 }
 
-export type CareLimitType = mns_Metadata & {
+export type CareLimitType = Metadata & {
     isProtected?: boolean;
     limitType?: string;
     masterLabel: string;
     metricType?: CareLimitTypeMetricType;
 }
 
-export type AssessmentConfiguration = mns_Metadata & {
+export type AssessmentConfiguration = Metadata & {
     configuration: AssessmentConfigurationOption;
     isProtected?: boolean;
     masterLabel: string;
@@ -4717,7 +4714,7 @@ export type AssessmentConfiguration = mns_Metadata & {
     type: AssessmentType;
 }
 
-export type SchedulingRule = mns_Metadata & {
+export type SchedulingRule = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
@@ -4730,21 +4727,21 @@ export type SchedulingRuleParameter = {
     value?: string;
 }
 
-export type CareProviderAfflRoleConfig = mns_Metadata & {
+export type CareProviderAfflRoleConfig = Metadata & {
     affiliationType?: CareProviderAfflType;
     isProtected?: boolean;
     masterLabel: string;
     providerRole?: string;
 }
 
-export type PortalDelegablePermissionSet = mns_Metadata & {
+export type PortalDelegablePermissionSet = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     permissionSet: string;
     profile: string;
 }
 
-export type RelatedRecordAssocCriteria = mns_Metadata & {
+export type RelatedRecordAssocCriteria = Metadata & {
     associationHandlerApexClass?: string;
     associationType: AssociationType;
     description?: string;
@@ -4757,7 +4754,7 @@ export type RelatedRecordAssocCriteria = mns_Metadata & {
     status: AssociationStatusType;
 }
 
-export type SemanticDefinition = mns_Metadata & {
+export type SemanticDefinition = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -4804,7 +4801,7 @@ export type SemanticRelationship = {
     rightSemanticDefinitionDeveloperName: string;
 }
 
-export type ShiftSegmentType = mns_Metadata & {
+export type ShiftSegmentType = Metadata & {
     adherenceThreshold: number;
     category: ShiftSegmentTypeCategory;
     color?: string;
@@ -4814,7 +4811,7 @@ export type ShiftSegmentType = mns_Metadata & {
     servicePresenceStatus?: string;
 }
 
-export type DelegateGroup = mns_Metadata & {
+export type DelegateGroup = Metadata & {
     customObjects?: string | string[];
     groups?: string | string[];
     label: string;
@@ -4825,18 +4822,18 @@ export type DelegateGroup = mns_Metadata & {
     roles?: string | string[];
 }
 
-export type DigitalExperience = mns_Metadata & {
+export type DigitalExperience = Metadata & {
     fileName: string;
     filePath?: string;
     format: string;
 }
 
-export type DigitalExperienceBundle = mns_Metadata & {
+export type DigitalExperienceBundle = Metadata & {
     description?: string;
     label: string;
 }
 
-export type DigitalExperienceConfig = mns_Metadata & {
+export type DigitalExperienceConfig = Metadata & {
     label: string;
     site: Site;
     space: string;
@@ -4846,14 +4843,14 @@ export type Site = {
     urlPathPrefix?: string;
 }
 
-export type DisclosureDefinition = mns_Metadata & {
+export type DisclosureDefinition = Metadata & {
     description?: string;
     disclosureType: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type DisclosureDefinitionVersion = mns_Metadata & {
+export type DisclosureDefinitionVersion = Metadata & {
     authoringMode?: AuthoringMode;
     description?: string;
     disclosureDefCurrVer?: string;
@@ -4868,7 +4865,7 @@ export type DisclosureDefinitionVersion = mns_Metadata & {
     versionNumber: string;
 }
 
-export type DisclosureType = mns_Metadata & {
+export type DisclosureType = Metadata & {
     description?: string;
     disclosureBodyLogo?: string;
     disclosureBodyUrl?: string;
@@ -4877,7 +4874,7 @@ export type DisclosureType = mns_Metadata & {
     masterLabel: string;
 }
 
-export type Document = mns_Metadata & {
+export type Document = Metadata & {
     description?: string;
     internalUseOnly: boolean;
     keywords?: string;
@@ -4885,7 +4882,7 @@ export type Document = mns_Metadata & {
     public: boolean;
 }
 
-export type DocumentGenerationSetting = mns_Metadata & {
+export type DocumentGenerationSetting = Metadata & {
     batchDocGnrnPctLimitPerHour?: number;
     documentTemplateLibraryName: string;
     generationMechanism?: GenerationMechanism;
@@ -4896,7 +4893,7 @@ export type DocumentGenerationSetting = mns_Metadata & {
     previewType?: PreviewType;
 }
 
-export type DocumentTemplate = mns_Metadata & {
+export type DocumentTemplate = Metadata & {
     customClassName?: string;
     defaultFontStyle?: string;
     documentConversionResourceName?: string;
@@ -4928,7 +4925,7 @@ export type DocumentTemplate = mns_Metadata & {
     xmlRelationshipMetadata?: string;
 }
 
-export type DuplicateRule = mns_Metadata & {
+export type DuplicateRule = Metadata & {
     actionOnInsert: DupeActionType;
     actionOnUpdate: DupeActionType;
     alertText?: string;
@@ -4954,7 +4951,7 @@ export type DuplicateRuleMatchRule = {
     objectMapping?: ObjectMapping;
 }
 
-export type ESignatureConfig = mns_Metadata & {
+export type ESignatureConfig = Metadata & {
     configType?: ConfigType;
     configValue?: string;
     description?: string;
@@ -4963,7 +4960,7 @@ export type ESignatureConfig = mns_Metadata & {
     vendor: Vendor;
 }
 
-export type ESignatureEnvelopeConfig = mns_Metadata & {
+export type ESignatureEnvelopeConfig = Metadata & {
     expirationPeriod?: number;
     expirationWarningPeriod?: number;
     firstReminderPeriod?: number;
@@ -4977,7 +4974,7 @@ export type ESignatureEnvelopeConfig = mns_Metadata & {
     vendorAccountIdentifier?: string;
 }
 
-export type EditionDefinition = mns_Metadata & {
+export type EditionDefinition = Metadata & {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -4990,7 +4987,7 @@ export type EditionDefinition = mns_Metadata & {
     name: string;
 }
 
-export type EmailServicesFunction = mns_Metadata & {
+export type EmailServicesFunction = Metadata & {
     apexClass: string;
     attachmentOption: EmailServicesAttOptions;
     authenticationFailureAction: EmailServicesErrorAction;
@@ -5016,7 +5013,7 @@ export type EmailServicesAddress = {
     runAsUser: string;
 }
 
-export type EmailTemplate = mns_Metadata & {
+export type EmailTemplate = Metadata & {
     apiVersion?: number;
     attachedDocuments?: string | string[];
     attachments?: Attachment | Attachment[];
@@ -5040,7 +5037,7 @@ export type Attachment = {
     name: string;
 }
 
-export type EmbeddedServiceBranding = mns_Metadata & {
+export type EmbeddedServiceBranding = Metadata & {
     contrastInvertedColor?: string;
     contrastPrimaryColor?: string;
     embeddedServiceConfig: string;
@@ -5055,7 +5052,7 @@ export type EmbeddedServiceBranding = mns_Metadata & {
     width?: number;
 }
 
-export type EmbeddedServiceConfig = mns_Metadata & {
+export type EmbeddedServiceConfig = Metadata & {
     areGuestUsersAllowed?: boolean;
     authMethod?: EmbeddedServiceAuthMethod;
     branding?: string;
@@ -5069,7 +5066,7 @@ export type EmbeddedServiceConfig = mns_Metadata & {
     site?: string;
 }
 
-export type EmbeddedServiceFieldService = mns_Metadata & {
+export type EmbeddedServiceFieldService = Metadata & {
     embeddedServiceConfig: string;
     enabled: boolean;
     fieldServiceConfirmCardImg?: string;
@@ -5080,11 +5077,11 @@ export type EmbeddedServiceFieldService = mns_Metadata & {
     shouldShowNewAppointment?: boolean;
 }
 
-export type EmbeddedServiceFlowConfig = mns_Metadata & {
+export type EmbeddedServiceFlowConfig = Metadata & {
     enabled: boolean;
 }
 
-export type EmbeddedServiceLiveAgent = mns_Metadata & {
+export type EmbeddedServiceLiveAgent = Metadata & {
     avatarImg?: string;
     embeddedServiceConfig: string;
     embeddedServiceQuickActions?: EmbeddedServiceQuickAction | EmbeddedServiceQuickAction[];
@@ -5113,14 +5110,14 @@ export type EmbeddedServiceQuickAction = {
     quickActionType?: EmbeddedServiceQuickActionType;
 }
 
-export type EmbeddedServiceMenuSettings = mns_Metadata & {
+export type EmbeddedServiceMenuSettings = Metadata & {
     branding?: string;
     isEnabled?: boolean;
     masterLabel?: string;
     site?: string;
 }
 
-export type EntitlementProcess = mns_Metadata & {
+export type EntitlementProcess = Metadata & {
     SObjectType?: string;
     active?: boolean;
     businessHours?: string;
@@ -5158,7 +5155,7 @@ export type EntitlementProcessMilestoneTimeTrigger = {
     workflowTimeTriggerUnit: MilestoneTimeUnits;
 }
 
-export type EntitlementTemplate = mns_Metadata & {
+export type EntitlementTemplate = Metadata & {
     businessHours?: string;
     casesPerEntitlement?: number;
     entitlementProcess?: string;
@@ -5167,7 +5164,7 @@ export type EntitlementTemplate = mns_Metadata & {
     type?: string;
 }
 
-export type EntityImplements = mns_Metadata & {
+export type EntityImplements = Metadata & {
     fieldImplements?: FieldImplements | FieldImplements[];
     isDefault?: boolean;
     isFullyMapped?: boolean;
@@ -5178,15 +5175,15 @@ export type FieldImplements = {
     interfaceField?: string;
 }
 
-export type EscalationRule = mns_Metadata & {
+export type EscalationRule = Metadata & {
     active?: boolean;
     ruleEntry?: RuleEntry | RuleEntry[];
 }
 
-export type EscalationRules = mns_Metadata & {
+export type EscalationRules = Metadata & {
 }
 
-export type EventDelivery = mns_Metadata & {
+export type EventDelivery = Metadata & {
     eventParameters?: EventParameterMap | EventParameterMap[];
     eventSubscription: string;
     referenceData?: string;
@@ -5198,7 +5195,7 @@ export type EventParameterMap = {
     parameterValue?: string;
 }
 
-export type EventRelayConfig = mns_Metadata & {
+export type EventRelayConfig = Metadata & {
     destinationResourceName: string;
     eventChannel: string;
     label?: string;
@@ -5207,14 +5204,14 @@ export type EventRelayConfig = mns_Metadata & {
     usageType?: EventRelayUsageType;
 }
 
-export type EventSubscription = mns_Metadata & {
+export type EventSubscription = Metadata & {
     active?: boolean;
     eventParameters?: EventParameterMap | EventParameterMap[];
     eventType: string;
     referenceData: string;
 }
 
-export type ExperienceBundle = mns_Metadata & {
+export type ExperienceBundle = Metadata & {
     experienceResources?: ExperienceResources;
     label: string;
     type: SiteType;
@@ -5232,13 +5229,13 @@ export type ExperienceResource = {
     type: string;
 }
 
-export type ExperienceContainer = mns_Metadata & {
+export type ExperienceContainer = Metadata & {
     masterLabel: string;
     space: string;
     type: ExperienceContainerType;
 }
 
-export type ExperiencePropertyTypeBundle = mns_Metadata & {
+export type ExperiencePropertyTypeBundle = Metadata & {
     description?: string;
     masterLabel: string;
     resources?: ExperiencePropertyTypeBundleResource | ExperiencePropertyTypeBundleResource[];
@@ -5250,7 +5247,7 @@ export type ExperiencePropertyTypeBundleResource = {
     source: string;
 }
 
-export type ExplainabilityActionDefinition = mns_Metadata & {
+export type ExplainabilityActionDefinition = Metadata & {
     actionLogSchemaType: ActionLogSchemaType;
     applicationSubtype: string;
     applicationType: EASAppType;
@@ -5260,7 +5257,7 @@ export type ExplainabilityActionDefinition = mns_Metadata & {
     processType: string;
 }
 
-export type ExplainabilityActionVersion = mns_Metadata & {
+export type ExplainabilityActionVersion = Metadata & {
     actionLogMessageTemplate?: string;
     actionSpecification: string;
     active: boolean;
@@ -5270,7 +5267,7 @@ export type ExplainabilityActionVersion = mns_Metadata & {
     masterLabel: string;
 }
 
-export type ExplainabilityMsgTemplate = mns_Metadata & {
+export type ExplainabilityMsgTemplate = Metadata & {
     emtUsageType: EmtUsageType;
     evaluationResult: EvaluationResult;
     expressionSetStepType: ExpressionSetStepType;
@@ -5279,7 +5276,7 @@ export type ExplainabilityMsgTemplate = mns_Metadata & {
     message: string;
 }
 
-export type ExpressionSetDefinition = mns_Metadata & {
+export type ExpressionSetDefinition = Metadata & {
     contextDefinitions?: string | string[];
     description?: string;
     interfaceSourceType?: ExpsSetInterfaceSourceType;
@@ -5288,7 +5285,7 @@ export type ExpressionSetDefinition = mns_Metadata & {
     template?: boolean;
 }
 
-export type ExpressionSetDefinitionVersion = mns_Metadata & {
+export type ExpressionSetDefinitionVersion = Metadata & {
     description?: string;
     endDate?: Date;
     expressionSetDefinition?: string;
@@ -5417,13 +5414,13 @@ export type ExpressionSetVariableField = {
     objectName?: string;
 }
 
-export type ExpressionSetMessageToken = mns_Metadata & {
+export type ExpressionSetMessageToken = Metadata & {
     description?: string;
     developerName: string;
     masterLabel: string;
 }
 
-export type ExpressionSetObjectAlias = mns_Metadata & {
+export type ExpressionSetObjectAlias = Metadata & {
     dataType: ExpsSetObjectDataType;
     mappings?: ExpressionSetObjectAliasField | ExpressionSetObjectAliasField[];
     objectApiName: string;
@@ -5437,7 +5434,7 @@ export type ExpressionSetObjectAliasField = {
     sourceFieldName: string;
 }
 
-export type ExtDataTranFieldTemplate = mns_Metadata & {
+export type ExtDataTranFieldTemplate = Metadata & {
     dataSourceField: string;
     externalDataTranField?: string;
     externalName?: string;
@@ -5445,14 +5442,14 @@ export type ExtDataTranFieldTemplate = mns_Metadata & {
     masterLabel: string;
 }
 
-export type ExtDataTranObjectTemplate = mns_Metadata & {
+export type ExtDataTranObjectTemplate = Metadata & {
     dataSourceObject: string;
     externalDataTranObject?: string;
     externalName?: string;
     masterLabel: string;
 }
 
-export type ExternalAIModel = mns_Metadata & {
+export type ExternalAIModel = Metadata & {
     applicationSourceType: ApplicationSourceType;
     externalModelKey: string;
     externalModelStatus: ExternalModelStatus;
@@ -5461,7 +5458,7 @@ export type ExternalAIModel = mns_Metadata & {
     trainingJobName?: string;
 }
 
-export type ExternalClientApplication = mns_Metadata & {
+export type ExternalClientApplication = Metadata & {
     contactEmail?: string;
     contactPhone?: string;
     description?: string;
@@ -5475,7 +5472,7 @@ export type ExternalClientApplication = mns_Metadata & {
     orgScopedExternalApp?: string;
 }
 
-export type ExternalCredential = mns_Metadata & {
+export type ExternalCredential = Metadata & {
     authenticationProtocol: AuthenticationProtocol;
     description?: string;
     externalCredentialParameters?: ExternalCredentialParameter | ExternalCredentialParameter[];
@@ -5493,7 +5490,7 @@ export type ExternalCredentialParameter = {
     sequenceNumber?: number;
 }
 
-export type ExternalDataConnector = mns_Metadata & {
+export type ExternalDataConnector = Metadata & {
     dataConnectionStatus: DataConnectionStatus;
     dataConnectorConfiguration: string;
     dataConnectorType: DataConnectorType;
@@ -5501,7 +5498,7 @@ export type ExternalDataConnector = mns_Metadata & {
     masterLabel: string;
 }
 
-export type ExternalDataSource = mns_Metadata & {
+export type ExternalDataSource = Metadata & {
     authProvider?: string;
     certificate?: string;
     customConfiguration?: string;
@@ -5529,7 +5526,7 @@ export type CustomHttpHeader = {
     isActive?: boolean;
 }
 
-export type ExternalDataSrcDescriptor = mns_Metadata & {
+export type ExternalDataSrcDescriptor = Metadata & {
     customObject?: string;
     descriptor: string;
     descriptorVersion?: string;
@@ -5540,7 +5537,7 @@ export type ExternalDataSrcDescriptor = mns_Metadata & {
     type: ExternalDataSrcDescType;
 }
 
-export type ExternalDataTranField = mns_Metadata & {
+export type ExternalDataTranField = Metadata & {
     creationType?: DefinitionCreationType;
     datatype: string;
     dateFormat?: string;
@@ -5556,7 +5553,7 @@ export type ExternalDataTranField = mns_Metadata & {
     sequence?: number;
 }
 
-export type ExternalDataTranObject = mns_Metadata & {
+export type ExternalDataTranObject = Metadata & {
     availabilityStatus: AvailabilityStatus;
     creationType: DefinitionCreationType;
     extDataTranObjectTemplate?: string;
@@ -5565,7 +5562,7 @@ export type ExternalDataTranObject = mns_Metadata & {
     objectCategory: string;
 }
 
-export type ExternalDocStorageConfig = mns_Metadata & {
+export type ExternalDocStorageConfig = Metadata & {
     documentPath: string;
     externalDocStorageIdentifier: string;
     masterLabel: string;
@@ -5575,7 +5572,7 @@ export type ExternalDocStorageConfig = mns_Metadata & {
     targetObject: TargetObject;
 }
 
-export type ExternalServiceRegistration = mns_Metadata & {
+export type ExternalServiceRegistration = Metadata & {
     description?: string;
     label: string;
     namedCredential?: string;
@@ -5600,14 +5597,14 @@ export type ExternalServiceOperation = {
     name: string;
 }
 
-export type ExtlClntAppConfigurablePolicies = mns_Metadata & {
+export type ExtlClntAppConfigurablePolicies = Metadata & {
     externalClientApplication: string;
     isEnabled: boolean;
     isOauthPluginEnabled?: boolean;
     label?: string;
 }
 
-export type ExtlClntAppGlobalOauthSettings = mns_Metadata & {
+export type ExtlClntAppGlobalOauthSettings = Metadata & {
     callbackUrl?: string;
     certificate?: string;
     consumerKey?: string;
@@ -5635,13 +5632,13 @@ export type ExternalAppIdTokenConfig = {
     idTokenValidityInMinutes?: number;
 }
 
-export type ExtlClntAppMobileSettings = mns_Metadata & {
+export type ExtlClntAppMobileSettings = Metadata & {
     externalClientApplication: string;
     isScreenLockEnabled: boolean;
     label?: string;
 }
 
-export type ExtlClntAppOauthConfigurablePolicies = mns_Metadata & {
+export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
     clientCredentialsFlowUser?: string;
     commaSeparatedPermissionSet?: string;
     customAttributes?: ExtlClntAppOauthPoliciesAttribute | ExtlClntAppOauthPoliciesAttribute[];
@@ -5666,7 +5663,7 @@ export type ExtlClntAppOauthPoliciesAttribute = {
     key: string;
 }
 
-export type ExtlClntAppOauthSettings = mns_Metadata & {
+export type ExtlClntAppOauthSettings = Metadata & {
     commaSeparatedOauthScopes?: string;
     customAttributes?: ExtlClntAppOauthSettingsAttribute | ExtlClntAppOauthSettingsAttribute[];
     externalClientApplication: string;
@@ -5687,7 +5684,7 @@ export type ExtlClntAppOauthIpRange = {
     startIpAddress: string;
 }
 
-export type ExtlClntAppSampleConfigurablePolicies = mns_Metadata & {
+export type ExtlClntAppSampleConfigurablePolicies = Metadata & {
     adminOnlyPolicy?: string;
     externalClientApplication: string;
     label: string;
@@ -5695,7 +5692,7 @@ export type ExtlClntAppSampleConfigurablePolicies = mns_Metadata & {
     policy2?: string;
 }
 
-export type ExtlClntAppSampleSettings = mns_Metadata & {
+export type ExtlClntAppSampleSettings = Metadata & {
     devicePlatform: DevicePlatformType;
     deviceType: DeviceType;
     externalClientApplication: string;
@@ -5708,35 +5705,35 @@ export type ExtlClntAppSampleSettings = mns_Metadata & {
     version?: string;
 }
 
-export type FTestFieldMappingMd = mns_Metadata & {
+export type FTestFieldMappingMd = Metadata & {
     label: string;
 }
 
-export type FTestToolingFLU = mns_Metadata & {
+export type FTestToolingFLU = Metadata & {
     int: number;
     stringWithDifferentName: string;
     text2?: string;
 }
 
-export type FeatureParameterBoolean = mns_Metadata & {
+export type FeatureParameterBoolean = Metadata & {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: boolean;
 }
 
-export type FeatureParameterDate = mns_Metadata & {
+export type FeatureParameterDate = Metadata & {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: Date;
 }
 
-export type FeatureParameterInteger = mns_Metadata & {
+export type FeatureParameterInteger = Metadata & {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: number;
 }
 
-export type FieldRestrictionRule = mns_Metadata & {
+export type FieldRestrictionRule = Metadata & {
     active: boolean;
     classification?: string | string[];
     classificationType?: ClassificationType;
@@ -5749,7 +5746,7 @@ export type FieldRestrictionRule = mns_Metadata & {
     version: number;
 }
 
-export type FieldServiceMobileExtension = mns_Metadata & {
+export type FieldServiceMobileExtension = Metadata & {
     description?: string;
     developerName: string;
     fileName: string;
@@ -5758,7 +5755,7 @@ export type FieldServiceMobileExtension = mns_Metadata & {
     version?: number;
 }
 
-export type FieldSet = mns_Metadata & {
+export type FieldSet = Metadata & {
     availableFields?: FieldSetItem | FieldSetItem[];
     description: string;
     displayedFields?: FieldSetItem | FieldSetItem[];
@@ -5772,7 +5769,7 @@ export type FieldSetItem = {
     isRequired?: boolean;
 }
 
-export type FieldSrcTrgtRelationship = mns_Metadata & {
+export type FieldSrcTrgtRelationship = Metadata & {
     definitionCreationType: DefinitionCreationType;
     lookupFieldName?: string;
     masterLabel: string;
@@ -5781,7 +5778,7 @@ export type FieldSrcTrgtRelationship = mns_Metadata & {
     targetFieldName: string;
 }
 
-export type FlexiPage = mns_Metadata & {
+export type FlexiPage = Metadata & {
     description?: string;
     events?: FlexiPageEvent | FlexiPageEvent[];
     flexiPageRegions?: FlexiPageRegion | FlexiPageRegion[];
@@ -5938,7 +5935,7 @@ export type FlexiPageCompSchemaPropertyDef = {
     type: FlexipageSchemaPropType;
 }
 
-export type Flow = mns_Metadata & {
+export type Flow = Metadata & {
     actionCalls?: FlowActionCall | FlowActionCall[];
     apexPluginCalls?: FlowApexPluginCall | FlowApexPluginCall[];
     apiVersion?: number;
@@ -5985,7 +5982,7 @@ export type Flow = mns_Metadata & {
     waits?: FlowWait | FlowWait[];
 }
 
-export type FlowActionCall = mns_FlowNode & {
+export type FlowActionCall = FlowNode & {
     actionName?: string;
     actionType?: InvocableActionType;
     connector?: FlowConnector;
@@ -5999,14 +5996,14 @@ export type FlowActionCall = mns_FlowNode & {
     versionSegment?: number;
 }
 
-export type FlowNode = mns_FlowElement & {
+export type FlowNode = FlowElement & {
     elementSubtype?: FlowElementSubtype;
     label?: string;
     locationX: number;
     locationY: number;
 }
 
-export type FlowElement = mns_FlowBaseElement & {
+export type FlowElement = FlowBaseElement & {
     description?: string;
     name?: string;
 }
@@ -6035,33 +6032,33 @@ export type FlowElementReferenceOrValue = {
     stringValue?: string;
 }
 
-export type FlowActionCallInputParameter = mns_FlowBaseElement & {
+export type FlowActionCallInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowActionCallOutputParameter = mns_FlowBaseElement & {
+export type FlowActionCallOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowApexPluginCallInputParameter = mns_FlowBaseElement & {
+export type FlowApexPluginCallInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowApexPluginCallOutputParameter = mns_FlowBaseElement & {
+export type FlowApexPluginCallOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowAssignmentItem = mns_FlowBaseElement & {
+export type FlowAssignmentItem = FlowBaseElement & {
     assignToReference?: string;
     operator?: FlowAssignmentOperator;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowChoiceUserInput = mns_FlowBaseElement & {
+export type FlowChoiceUserInput = FlowBaseElement & {
     isRequired?: boolean;
     promptText?: string;
     validationRule?: FlowInputValidationRule;
@@ -6072,145 +6069,145 @@ export type FlowInputValidationRule = {
     formulaExpression: string;
 }
 
-export type FlowCollectionMapItem = mns_FlowBaseElement & {
+export type FlowCollectionMapItem = FlowBaseElement & {
     assignToFieldReference: string;
     operator: FlowAssignmentOperator;
     value: FlowElementReferenceOrValue;
 }
 
-export type FlowCollectionSortOption = mns_FlowBaseElement & {
+export type FlowCollectionSortOption = FlowBaseElement & {
     doesPutEmptyStringAndNullFirst: boolean;
     sortField?: string;
     sortOrder: SortOrder;
 }
 
-export type FlowCondition = mns_FlowBaseElement & {
+export type FlowCondition = FlowBaseElement & {
     conditionType?: string;
     leftValueReference?: string;
     operator: FlowComparisonOperator;
     rightValue?: FlowElementReferenceOrValue;
 }
 
-export type FlowConnector = mns_FlowBaseElement & {
+export type FlowConnector = FlowBaseElement & {
     isGoTo?: boolean;
     targetReference: string;
 }
 
-export type FlowCustomErrorMessage = mns_FlowBaseElement & {
+export type FlowCustomErrorMessage = FlowBaseElement & {
     errorMessage: string;
     fieldSelection?: string;
     isFieldError: boolean;
 }
 
-export type FlowDataTypeMapping = mns_FlowBaseElement & {
+export type FlowDataTypeMapping = FlowBaseElement & {
     typeName: string;
     typeValue: string;
 }
 
-export type FlowInputFieldAssignment = mns_FlowBaseElement & {
+export type FlowInputFieldAssignment = FlowBaseElement & {
     field?: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowOutputFieldAssignment = mns_FlowBaseElement & {
+export type FlowOutputFieldAssignment = FlowBaseElement & {
     assignToReference: string;
     field: string;
 }
 
-export type FlowRecordFilter = mns_FlowBaseElement & {
+export type FlowRecordFilter = FlowBaseElement & {
     field?: string;
     operator?: FlowRecordFilterOperator;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenActionInputParameter = mns_FlowBaseElement & {
+export type FlowScreenActionInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenFieldInputParameter = mns_FlowBaseElement & {
+export type FlowScreenFieldInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenFieldOutputParameter = mns_FlowBaseElement & {
+export type FlowScreenFieldOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowScreenRule = mns_FlowBaseElement & {
+export type FlowScreenRule = FlowBaseElement & {
     conditionLogic?: string;
     conditions?: FlowCondition | FlowCondition[];
     label: string;
     ruleActions?: FlowScreenRuleAction | FlowScreenRuleAction[];
 }
 
-export type FlowScreenRuleAction = mns_FlowBaseElement & {
+export type FlowScreenRuleAction = FlowBaseElement & {
     attribute: string;
     fieldReference: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenTrigger = mns_FlowBaseElement & {
+export type FlowScreenTrigger = FlowBaseElement & {
     eventName: string;
     eventSource: string;
     handlers?: FlowScreenTriggerHandler | FlowScreenTriggerHandler[];
 }
 
-export type FlowScreenTriggerHandler = mns_FlowBaseElement & {
+export type FlowScreenTriggerHandler = FlowBaseElement & {
     screenActionName: string;
 }
 
-export type FlowStageStepAssignee = mns_FlowBaseElement & {
+export type FlowStageStepAssignee = FlowBaseElement & {
     assignee: FlowElementReferenceOrValue;
     assigneeType: FlowStageStepAssigneeType;
 }
 
-export type FlowStageStepEntryActionInputParameter = mns_FlowBaseElement & {
+export type FlowStageStepEntryActionInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepEntryActionOutputParameter = mns_FlowBaseElement & {
+export type FlowStageStepEntryActionOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowStageStepExitActionInputParameter = mns_FlowBaseElement & {
+export type FlowStageStepExitActionInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepExitActionOutputParameter = mns_FlowBaseElement & {
+export type FlowStageStepExitActionOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowStageStepInputParameter = mns_FlowBaseElement & {
+export type FlowStageStepInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepOutputParameter = mns_FlowBaseElement & {
+export type FlowStageStepOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowSubflowInputAssignment = mns_FlowBaseElement & {
+export type FlowSubflowInputAssignment = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowSubflowOutputAssignment = mns_FlowBaseElement & {
+export type FlowSubflowOutputAssignment = FlowBaseElement & {
     assignToReference?: string;
     name: string;
 }
 
-export type FlowTransformValue = mns_FlowBaseElement & {
+export type FlowTransformValue = FlowBaseElement & {
     transformValueActions?: FlowTransformValueAction | FlowTransformValueAction[];
 }
 
-export type FlowTransformValueAction = mns_FlowBaseElement & {
+export type FlowTransformValueAction = FlowBaseElement & {
     inputParameters?: FlowTransformValueActionInputParameter | FlowTransformValueActionInputParameter[];
     name?: string;
     outputFieldApiName?: string;
@@ -6218,50 +6215,50 @@ export type FlowTransformValueAction = mns_FlowBaseElement & {
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowTransformValueActionInputParameter = mns_FlowBaseElement & {
+export type FlowTransformValueActionInputParameter = FlowBaseElement & {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowVisibilityRule = mns_FlowBaseElement & {
+export type FlowVisibilityRule = FlowBaseElement & {
     conditionLogic?: string;
     conditions?: FlowCondition | FlowCondition[];
 }
 
-export type FlowWaitEventInputParameter = mns_FlowBaseElement & {
+export type FlowWaitEventInputParameter = FlowBaseElement & {
     name?: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowWaitEventOutputParameter = mns_FlowBaseElement & {
+export type FlowWaitEventOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
 }
 
-export type FlowCapability = mns_FlowElement & {
+export type FlowCapability = FlowElement & {
     capabilityName: string;
     inputs?: FlowCapabilityInput | FlowCapabilityInput[];
 }
 
-export type FlowCapabilityInput = mns_FlowElement & {
+export type FlowCapabilityInput = FlowElement & {
     capabilityInputName: string;
     dataType?: string;
     isCollection: boolean;
 }
 
-export type FlowChoice = mns_FlowElement & {
+export type FlowChoice = FlowElement & {
     choiceText: string;
     dataType: FlowDataType;
     userInput?: FlowChoiceUserInput;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowConstant = mns_FlowElement & {
+export type FlowConstant = FlowElement & {
     dataType: FlowDataType;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowDynamicChoiceSet = mns_FlowElement & {
+export type FlowDynamicChoiceSet = FlowElement & {
     collectionReference?: string;
     dataType: FlowDataType;
     displayField: string;
@@ -6277,13 +6274,13 @@ export type FlowDynamicChoiceSet = mns_FlowElement & {
     valueField?: string;
 }
 
-export type FlowFormula = mns_FlowElement & {
+export type FlowFormula = FlowElement & {
     dataType?: FlowDataType;
     expression: string;
     scale?: number;
 }
 
-export type FlowRule = mns_FlowElement & {
+export type FlowRule = FlowElement & {
     conditionLogic: string;
     conditions?: FlowCondition | FlowCondition[];
     connector?: FlowConnector;
@@ -6291,7 +6288,7 @@ export type FlowRule = mns_FlowElement & {
     label: string;
 }
 
-export type FlowScheduledPath = mns_FlowElement & {
+export type FlowScheduledPath = FlowElement & {
     connector?: FlowConnector;
     label?: string;
     maxBatchSize?: number;
@@ -6302,7 +6299,7 @@ export type FlowScheduledPath = mns_FlowElement & {
     timeSource?: FlowScheduledPathTimeSource;
 }
 
-export type FlowScreenAction = mns_FlowElement & {
+export type FlowScreenAction = FlowElement & {
     actionName?: string;
     actionType?: InvocableActionType;
     inputParameters?: FlowScreenActionInputParameter | FlowScreenActionInputParameter[];
@@ -6311,7 +6308,7 @@ export type FlowScreenAction = mns_FlowElement & {
     versionSegment?: number;
 }
 
-export type FlowScreenField = mns_FlowElement & {
+export type FlowScreenField = FlowElement & {
     choiceReferences?: string | string[];
     dataType?: FlowDataType;
     dataTypeMappings?: FlowDataTypeMapping | FlowDataTypeMapping[];
@@ -6335,13 +6332,13 @@ export type FlowScreenField = mns_FlowElement & {
     visibilityRule?: FlowVisibilityRule;
 }
 
-export type FlowStage = mns_FlowElement & {
+export type FlowStage = FlowElement & {
     isActive: boolean;
     label: string;
     stageOrder: number;
 }
 
-export type FlowStageStep = mns_FlowElement & {
+export type FlowStageStep = FlowElement & {
     actionName?: string;
     actionType?: InvocableActionType;
     assignees?: FlowStageStepAssignee | FlowStageStepAssignee[];
@@ -6365,12 +6362,12 @@ export type FlowStageStep = mns_FlowElement & {
     stepSubtype?: FlowElementSubtype;
 }
 
-export type FlowTextTemplate = mns_FlowElement & {
+export type FlowTextTemplate = FlowElement & {
     isViewedAsPlainText?: boolean;
     text: string;
 }
 
-export type FlowVariable = mns_FlowElement & {
+export type FlowVariable = FlowElement & {
     apexClass?: string;
     dataType: FlowDataType;
     isCollection?: boolean;
@@ -6381,7 +6378,7 @@ export type FlowVariable = mns_FlowElement & {
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowWaitEvent = mns_FlowElement & {
+export type FlowWaitEvent = FlowElement & {
     associatedElement?: string;
     conditionLogic?: string;
     conditions?: FlowCondition | FlowCondition[];
@@ -6402,7 +6399,7 @@ export type FlowWaitEvent = mns_FlowElement & {
     resumeTime?: Date;
 }
 
-export type FlowApexPluginCall = mns_FlowNode & {
+export type FlowApexPluginCall = FlowNode & {
     apexClass: string;
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
@@ -6410,12 +6407,12 @@ export type FlowApexPluginCall = mns_FlowNode & {
     outputParameters?: FlowApexPluginCallOutputParameter | FlowApexPluginCallOutputParameter[];
 }
 
-export type FlowAssignment = mns_FlowNode & {
+export type FlowAssignment = FlowNode & {
     assignmentItems?: FlowAssignmentItem | FlowAssignmentItem[];
     connector?: FlowConnector;
 }
 
-export type FlowCollectionProcessor = mns_FlowNode & {
+export type FlowCollectionProcessor = FlowNode & {
     assignNextValueToReference?: string;
     collectionProcessorType: FlowCollectionProcessorType;
     collectionReference: string;
@@ -6429,19 +6426,19 @@ export type FlowCollectionProcessor = mns_FlowNode & {
     sortOptions?: FlowCollectionSortOption | FlowCollectionSortOption[];
 }
 
-export type FlowCustomError = mns_FlowNode & {
+export type FlowCustomError = FlowNode & {
     description?: string;
     connector?: FlowConnector;
     customErrorMessages?: FlowCustomErrorMessage | FlowCustomErrorMessage[];
 }
 
-export type FlowDecision = mns_FlowNode & {
+export type FlowDecision = FlowNode & {
     defaultConnector?: FlowConnector;
     defaultConnectorLabel?: string;
     rules?: FlowRule | FlowRule[];
 }
 
-export type FlowLoop = mns_FlowNode & {
+export type FlowLoop = FlowNode & {
     assignNextValueToReference?: string;
     collectionReference?: string;
     iterationOrder?: IterationOrder;
@@ -6449,7 +6446,7 @@ export type FlowLoop = mns_FlowNode & {
     noMoreValuesConnector?: FlowConnector;
 }
 
-export type FlowOrchestratedStage = mns_FlowNode & {
+export type FlowOrchestratedStage = FlowNode & {
     connector?: FlowConnector;
     exitActionInputParameters?: FlowStageStepExitActionInputParameter | FlowStageStepExitActionInputParameter[];
     exitActionName?: string;
@@ -6461,7 +6458,7 @@ export type FlowOrchestratedStage = mns_FlowNode & {
     stageSteps?: FlowStageStep | FlowStageStep[];
 }
 
-export type FlowRecordCreate = mns_FlowNode & {
+export type FlowRecordCreate = FlowNode & {
     assignRecordIdToReference?: string;
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
@@ -6471,7 +6468,7 @@ export type FlowRecordCreate = mns_FlowNode & {
     storeOutputAutomatically?: boolean;
 }
 
-export type FlowRecordDelete = mns_FlowNode & {
+export type FlowRecordDelete = FlowNode & {
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
     filterLogic?: string;
@@ -6480,7 +6477,7 @@ export type FlowRecordDelete = mns_FlowNode & {
     object?: string;
 }
 
-export type FlowRecordLookup = mns_FlowNode & {
+export type FlowRecordLookup = FlowNode & {
     assignNullValuesIfNoRecordsFound?: boolean;
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
@@ -6496,11 +6493,11 @@ export type FlowRecordLookup = mns_FlowNode & {
     storeOutputAutomatically?: boolean;
 }
 
-export type FlowRecordRollback = mns_FlowNode & {
+export type FlowRecordRollback = FlowNode & {
     connector?: FlowConnector;
 }
 
-export type FlowRecordUpdate = mns_FlowNode & {
+export type FlowRecordUpdate = FlowNode & {
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
     filterLogic?: string;
@@ -6510,7 +6507,7 @@ export type FlowRecordUpdate = mns_FlowNode & {
     object?: string;
 }
 
-export type FlowScreen = mns_FlowNode & {
+export type FlowScreen = FlowNode & {
     actions?: FlowScreenAction | FlowScreenAction[];
     allowBack?: boolean;
     allowFinish?: boolean;
@@ -6528,7 +6525,7 @@ export type FlowScreen = mns_FlowNode & {
     triggers?: FlowScreenTrigger | FlowScreenTrigger[];
 }
 
-export type FlowStart = mns_FlowNode & {
+export type FlowStart = FlowNode & {
     capabilityTypes?: FlowCapability | FlowCapability[];
     connector?: FlowConnector;
     doesRequireRecordChangedToMeetCriteria?: boolean;
@@ -6554,11 +6551,11 @@ export type FlowSchedule = {
     startTime?: Date;
 }
 
-export type FlowStep = mns_FlowNode & {
+export type FlowStep = FlowNode & {
     connectors?: FlowConnector | FlowConnector[];
 }
 
-export type FlowSubflow = mns_FlowNode & {
+export type FlowSubflow = FlowNode & {
     connector?: FlowConnector;
     flowName?: string;
     inputAssignments?: FlowSubflowInputAssignment | FlowSubflowInputAssignment[];
@@ -6566,7 +6563,7 @@ export type FlowSubflow = mns_FlowNode & {
     storeOutputAutomatically?: boolean;
 }
 
-export type FlowTransform = mns_FlowNode & {
+export type FlowTransform = FlowNode & {
     apexClass?: string;
     connector?: FlowConnector;
     dataType?: FlowDataType;
@@ -6576,7 +6573,7 @@ export type FlowTransform = mns_FlowNode & {
     transformValues?: FlowTransformValue | FlowTransformValue[];
 }
 
-export type FlowWait = mns_FlowNode & {
+export type FlowWait = FlowNode & {
     defaultConnector?: FlowConnector;
     defaultConnectorLabel: string;
     faultConnector?: FlowConnector;
@@ -6584,7 +6581,7 @@ export type FlowWait = mns_FlowNode & {
     waitEvents?: FlowWaitEvent | FlowWaitEvent[];
 }
 
-export type FlowCategory = mns_Metadata & {
+export type FlowCategory = Metadata & {
     description?: string;
     flowCategoryItems?: FlowCategoryItems | FlowCategoryItems[];
     masterLabel: string;
@@ -6594,13 +6591,13 @@ export type FlowCategoryItems = {
     flow: string;
 }
 
-export type FlowDefinition = mns_Metadata & {
+export type FlowDefinition = Metadata & {
     activeVersionNumber?: number;
     description?: string;
     masterLabel?: string;
 }
 
-export type FlowElementSubtypeDefinition = mns_Metadata & {
+export type FlowElementSubtypeDefinition = Metadata & {
     descriptionArguments?: string | string[];
     elementType: FlowElementType;
     label: string;
@@ -6609,13 +6606,13 @@ export type FlowElementSubtypeDefinition = mns_Metadata & {
     name: string;
 }
 
-export type FlowEnvironmentDefinition = mns_Metadata & {
+export type FlowEnvironmentDefinition = Metadata & {
     label: string;
     name: string;
     screenFieldTypeBlockList?: FlowScreenFieldType | FlowScreenFieldType[];
 }
 
-export type FlowTest = mns_Metadata & {
+export type FlowTest = Metadata & {
     description?: string;
     flowApiName: string;
     label: string;
@@ -6654,7 +6651,7 @@ export type FlowTestParameter = {
     value: FlowTestReferenceOrValue;
 }
 
-export type FlowTriggerTypeDefinition = mns_Metadata & {
+export type FlowTriggerTypeDefinition = Metadata & {
     actionTypes?: InvocableActionType | InvocableActionType[];
     elementSubtypeAllowList?: string | string[];
     elementTypes?: FlowElementType | FlowElementType[];
@@ -6669,7 +6666,7 @@ export type FlowTriggerTypeDefinition = mns_Metadata & {
     supportedFormulaFunctions?: string | string[];
 }
 
-export type Folder = mns_Metadata & {
+export type Folder = Metadata & {
     accessType?: FolderAccessTypes;
     folderShares?: FolderShare | FolderShare[];
     name: string;
@@ -6708,22 +6705,22 @@ export type SharedTo = {
     territoryAndSubordinates?: string | string[];
 }
 
-export type DashboardFolder = mns_Folder & {
+export type DashboardFolder = Folder & {
 }
 
-export type DocumentFolder = mns_Folder & {
+export type DocumentFolder = Folder & {
 }
 
-export type EmailFolder = mns_Folder & {
+export type EmailFolder = Folder & {
 }
 
-export type EmailTemplateFolder = mns_Folder & {
+export type EmailTemplateFolder = Folder & {
 }
 
-export type ReportFolder = mns_Folder & {
+export type ReportFolder = Folder & {
 }
 
-export type ForecastingFilter = mns_Metadata & {
+export type ForecastingFilter = Metadata & {
     filterLogic?: string;
     forecastingType: string;
     forecastingTypeSource: string;
@@ -6731,7 +6728,7 @@ export type ForecastingFilter = mns_Metadata & {
     masterLabel: string;
 }
 
-export type ForecastingFilterCondition = mns_Metadata & {
+export type ForecastingFilterCondition = Metadata & {
     colName?: string;
     fieldName: string;
     forecastingFilter: string;
@@ -6743,7 +6740,7 @@ export type ForecastingFilterCondition = mns_Metadata & {
     value?: string;
 }
 
-export type ForecastingSourceDefinition = mns_Metadata & {
+export type ForecastingSourceDefinition = Metadata & {
     categoryField?: string;
     dateField?: string;
     familyField?: string;
@@ -6755,7 +6752,7 @@ export type ForecastingSourceDefinition = mns_Metadata & {
     userField?: string;
 }
 
-export type ForecastingType = mns_Metadata & {
+export type ForecastingType = Metadata & {
     active: boolean;
     amount: boolean;
     dateType: string;
@@ -6769,7 +6766,7 @@ export type ForecastingType = mns_Metadata & {
     territory2Model?: string;
 }
 
-export type ForecastingTypeSource = mns_Metadata & {
+export type ForecastingTypeSource = Metadata & {
     forecastingSourceDefinition: string;
     forecastingType: string;
     isProtected?: boolean;
@@ -6779,7 +6776,7 @@ export type ForecastingTypeSource = mns_Metadata & {
     sourceGroup: number;
 }
 
-export type FtestFirstTopLevel = mns_Metadata & {
+export type FtestFirstTopLevel = Metadata & {
     content: number;
     isProtected?: boolean;
     longUrl?: string;
@@ -6787,14 +6784,14 @@ export type FtestFirstTopLevel = mns_Metadata & {
     masterLabel: string;
 }
 
-export type FtestSecondTopLevel = mns_Metadata & {
+export type FtestSecondTopLevel = Metadata & {
     content: number;
     isProtected?: boolean;
     masterLabel: string;
     user?: string;
 }
 
-export type FuelType = mns_Metadata & {
+export type FuelType = Metadata & {
     description?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -6803,21 +6800,21 @@ export type FuelType = mns_Metadata & {
     masterLabel: string;
 }
 
-export type FuelTypeSustnUom = mns_Metadata & {
+export type FuelTypeSustnUom = Metadata & {
     fuelType: string;
     isProtected?: boolean;
     masterLabel?: string;
     unitOfMeasure: string;
 }
 
-export type FulfillmentStepType = mns_Metadata & {
+export type FulfillmentStepType = Metadata & {
     developerName: string;
     handler: string;
     isActive: boolean;
     masterLabel: string;
 }
 
-export type FunctionReference = mns_Metadata & {
+export type FunctionReference = Metadata & {
     access?: string;
     description?: string;
     imageReference?: string;
@@ -6826,7 +6823,7 @@ export type FunctionReference = mns_Metadata & {
     userAccessMode?: FunctionReferenceUserAccessMode;
 }
 
-export type FundraisingConfig = mns_Metadata & {
+export type FundraisingConfig = Metadata & {
     donorMatchingMethod?: DonorMatchingMethod;
     failedTransactionCount?: number;
     householdSoftCreditRole?: string;
@@ -6844,7 +6841,7 @@ export type FundraisingConfig = mns_Metadata & {
     utmSourceSrcObjField?: string;
 }
 
-export type GatewayProviderPaymentMethodType = mns_Metadata & {
+export type GatewayProviderPaymentMethodType = Metadata & {
     comments?: string;
     gtwyProviderPaymentMethodType?: string;
     masterLabel: string;
@@ -6853,7 +6850,7 @@ export type GatewayProviderPaymentMethodType = mns_Metadata & {
     recordType?: string;
 }
 
-export type GenAiFunction = mns_Metadata & {
+export type GenAiFunction = Metadata & {
     description?: string;
     invocationTarget: string;
     invocationTargetType: PlannerFunctionInvocableTargetType;
@@ -6861,7 +6858,7 @@ export type GenAiFunction = mns_Metadata & {
     masterLabel: string;
 }
 
-export type GenAiPlanner = mns_Metadata & {
+export type GenAiPlanner = Metadata & {
     capabilities?: string;
     description?: string;
     genAiFunctions?: GenAiPlannerFunctionDef | GenAiPlannerFunctionDef[];
@@ -6875,7 +6872,7 @@ export type GenAiPlannerFunctionDef = {
     genAiPluginName?: string;
 }
 
-export type GenAiPlugin = mns_Metadata & {
+export type GenAiPlugin = Metadata & {
     description?: string;
     developerName: string;
     genAiFunctions?: GenAiPluginFunctionDef | GenAiPluginFunctionDef[];
@@ -6886,26 +6883,26 @@ export type GenAiPluginFunctionDef = {
     functionName: string;
 }
 
-export type GlobalPicklist = mns_Metadata & {
+export type GlobalPicklist = Metadata & {
     description?: string;
     globalPicklistValues?: GlobalPicklistValue | GlobalPicklistValue[];
     masterLabel: string;
     sorted: boolean;
 }
 
-export type GlobalValueSet = mns_Metadata & {
+export type GlobalValueSet = Metadata & {
     customValue?: CustomValue | CustomValue[];
     description?: string;
     masterLabel: string;
     sorted: boolean;
 }
 
-export type Group = mns_Metadata & {
+export type Group = Metadata & {
     doesIncludeBosses?: boolean;
     name: string;
 }
 
-export type HomePageComponent = mns_Metadata & {
+export type HomePageComponent = Metadata & {
     body?: string;
     height?: number;
     links?: string | string[];
@@ -6916,12 +6913,12 @@ export type HomePageComponent = mns_Metadata & {
     width?: PageComponentWidth;
 }
 
-export type HomePageLayout = mns_Metadata & {
+export type HomePageLayout = Metadata & {
     narrowComponents?: string | string[];
     wideComponents?: string | string[];
 }
 
-export type IPAddressRange = mns_Metadata & {
+export type IPAddressRange = Metadata & {
     description?: string;
     endIpAddress: string;
     ipAddressFeature: IPAddressFeature;
@@ -6931,18 +6928,18 @@ export type IPAddressRange = mns_Metadata & {
     startIpAddress: string;
 }
 
-export type Icon = mns_Metadata & {
+export type Icon = Metadata & {
     image: string;
     key: string;
     usageType: IconUsageType;
 }
 
-export type IdentityVerificationProcDef = mns_Metadata & {
+export type IdentityVerificationProcDef = Metadata & {
     masterLabel: string;
     searchLayoutType: IdentityVerificationSearchLayoutType;
 }
 
-export type IdentityVerificationProcDtl = mns_Metadata & {
+export type IdentityVerificationProcDtl = Metadata & {
     apexClass?: string;
     dataSourceType: IdentityVerificationDataSourceType;
     developerName: string;
@@ -6961,7 +6958,7 @@ export type IdentityVerificationProcDtl = mns_Metadata & {
     searchType: IdentityVerificationSearchType;
 }
 
-export type IdentityVerificationProcFld = mns_Metadata & {
+export type IdentityVerificationProcFld = Metadata & {
     customFieldLabel?: string;
     dataSourceType: IdentityVerificationProcFldDataSourceType;
     developerName: string;
@@ -6975,14 +6972,14 @@ export type IdentityVerificationProcFld = mns_Metadata & {
     sequenceNumber: number;
 }
 
-export type InboundCertificate = mns_Metadata & {
+export type InboundCertificate = Metadata & {
     expirationDate: Date;
     issuer: string;
     masterLabel: string;
     serialId: string;
 }
 
-export type InboundNetworkConnection = mns_Metadata & {
+export type InboundNetworkConnection = Metadata & {
     connectionType: ExternalConnectionType;
     description: string;
     inboundNetworkConnProperties?: InboundNetworkConnProperty | InboundNetworkConnProperty[];
@@ -6996,7 +6993,7 @@ export type InboundNetworkConnProperty = {
     propertyValue: string;
 }
 
-export type Index = mns_Metadata & {
+export type Index = Metadata & {
     fields?: IndexField | IndexField[];
     label: string;
     minNumRequiredIndexedFields?: number;
@@ -7008,14 +7005,14 @@ export type IndexField = {
     sortDirection: string;
 }
 
-export type InstalledPackage = mns_Metadata & {
+export type InstalledPackage = Metadata & {
     activateRSS: boolean;
     password?: string;
     securityType?: string;
     versionNumber: string;
 }
 
-export type IntegrationProviderDef = mns_Metadata & {
+export type IntegrationProviderDef = Metadata & {
     active?: boolean;
     apexClass?: string;
     description?: string;
@@ -7046,7 +7043,7 @@ export type IntegrationProviderAttr = {
     trueOrFalseValue?: boolean;
 }
 
-export type InternalDataConnector = mns_Metadata & {
+export type InternalDataConnector = Metadata & {
     dataConnectionStatus: DataConnectionStatus;
     dataConnectorType: DataConnectorType;
     dataPlatform: string;
@@ -7055,13 +7052,13 @@ export type InternalDataConnector = mns_Metadata & {
     masterLabel: string;
 }
 
-export type InternalOrganization = mns_Metadata & {
+export type InternalOrganization = Metadata & {
     isForDataExport: boolean;
     isForDataImport: boolean;
     masterLabel: string;
 }
 
-export type KeywordList = mns_Metadata & {
+export type KeywordList = Metadata & {
     description?: string;
     keywords?: Keyword | Keyword[];
     masterLabel: string;
@@ -7071,7 +7068,7 @@ export type Keyword = {
     keyword: string;
 }
 
-export type Layout = mns_Metadata & {
+export type Layout = Metadata & {
     customButtons?: string | string[];
     customConsoleComponents?: CustomConsoleComponents;
     emailDefault?: boolean;
@@ -7259,13 +7256,13 @@ export type SummaryLayoutItem = {
     posZ?: number;
 }
 
-export type LeadConvertSettings = mns_Metadata & {
+export type LeadConvertSettings = Metadata & {
     allowOwnerChange?: boolean;
     objectMapping?: ObjectMapping | ObjectMapping[];
     opportunityCreationOptions?: VisibleOrRequired;
 }
 
-export type Letterhead = mns_Metadata & {
+export type Letterhead = Metadata & {
     available: boolean;
     backgroundColor: string;
     bodyColor: string;
@@ -7291,7 +7288,7 @@ export type LetterheadHeaderFooter = {
     verticalAlignment?: LetterheadVerticalAlignment;
 }
 
-export type LicenseDefinition = mns_Metadata & {
+export type LicenseDefinition = Metadata & {
     aggregationGroup: string;
     description?: string;
     isPublished: boolean;
@@ -7311,7 +7308,7 @@ export type LicensedCustomPermissions = {
     licenseDefinition: string;
 }
 
-export type LightningBolt = mns_Metadata & {
+export type LightningBolt = Metadata & {
     category: LightningBoltCategory;
     lightningBoltFeatures?: LightningBoltFeatures | LightningBoltFeatures[];
     lightningBoltImages?: LightningBoltImages | LightningBoltImages[];
@@ -7337,7 +7334,7 @@ export type LightningBoltItems = {
     type: string;
 }
 
-export type LightningComponentBundle = mns_Metadata & {
+export type LightningComponentBundle = Metadata & {
     apiVersion?: number;
     capabilities?: Capabilities;
     description?: string;
@@ -7367,14 +7364,14 @@ export type Targets = {
     target?: string | string[];
 }
 
-export type LightningExperienceTheme = mns_Metadata & {
+export type LightningExperienceTheme = Metadata & {
     defaultBrandingSet: string;
     description?: string;
     masterLabel: string;
     shouldOverrideLoadingImage?: boolean;
 }
 
-export type LightningMessageChannel = mns_Metadata & {
+export type LightningMessageChannel = Metadata & {
     description?: string;
     isExposed?: boolean;
     lightningMessageFields?: LightningMessageField | LightningMessageField[];
@@ -7386,7 +7383,7 @@ export type LightningMessageField = {
     fieldName: string;
 }
 
-export type LightningOnboardingConfig = mns_Metadata & {
+export type LightningOnboardingConfig = Metadata & {
     collaborationGroup?: string;
     customQuestion?: string;
     feedbackFormDaysFrequency?: number;
@@ -7396,7 +7393,7 @@ export type LightningOnboardingConfig = mns_Metadata & {
     sendFeedbackToSalesforce: boolean;
 }
 
-export type ListView = mns_Metadata & {
+export type ListView = Metadata & {
     booleanFilter?: string;
     columns?: string | string[];
     division?: string;
@@ -7414,7 +7411,7 @@ export type ListViewFilter = {
     value?: string;
 }
 
-export type LiveChatAgentConfig = mns_Metadata & {
+export type LiveChatAgentConfig = Metadata & {
     assignments?: AgentConfigAssignments;
     autoGreeting?: string;
     capacity?: number;
@@ -7471,7 +7468,7 @@ export type AgentConfigSkills = {
     skill?: string | string[];
 }
 
-export type LiveChatButton = mns_Metadata & {
+export type LiveChatButton = Metadata & {
     animation?: LiveChatButtonPresentation;
     autoGreeting?: string;
     chasitorIdleTimeout?: number;
@@ -7518,7 +7515,7 @@ export type LiveChatButtonSkills = {
     skill?: string | string[];
 }
 
-export type LiveChatDeployment = mns_Metadata & {
+export type LiveChatDeployment = Metadata & {
     brandingImage?: string;
     connectionTimeoutDuration?: number;
     connectionWarningDuration?: number;
@@ -7536,7 +7533,7 @@ export type LiveChatDeploymentDomainWhitelist = {
     domain?: string | string[];
 }
 
-export type LiveChatSensitiveDataRule = mns_Metadata & {
+export type LiveChatSensitiveDataRule = Metadata & {
     actionType: SensitiveDataActionType;
     description?: string;
     enforceOn: number;
@@ -7548,7 +7545,7 @@ export type LiveChatSensitiveDataRule = mns_Metadata & {
     version: SensitiveDataRuleVersion;
 }
 
-export type LocationUse = mns_Metadata & {
+export type LocationUse = Metadata & {
     isBookable?: boolean;
     isProtected?: boolean;
     locationType: string;
@@ -7556,7 +7553,7 @@ export type LocationUse = mns_Metadata & {
     use?: string;
 }
 
-export type LoyaltyProgramSetup = mns_Metadata & {
+export type LoyaltyProgramSetup = Metadata & {
     label?: string;
     programProcesses?: LoyaltyProgramProcess | LoyaltyProgramProcess[];
 }
@@ -7643,7 +7640,7 @@ export type LoyaltyProgramProcessRuleStepMapping = {
     sequence: number;
 }
 
-export type MLDataDefinition = mns_Metadata & {
+export type MLDataDefinition = Metadata & {
     developerName: string;
     entityDeveloperName: string;
     excludedFields?: string | string[];
@@ -7682,7 +7679,7 @@ export type MLFilter = {
     sortOrder?: number;
 }
 
-export type MLGenerativeDefinition = mns_Metadata & {
+export type MLGenerativeDefinition = Metadata & {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -7691,7 +7688,7 @@ export type MLGenerativeDefinition = mns_Metadata & {
     type: MLGenerativeType;
 }
 
-export type MLPredictionDefinition = mns_Metadata & {
+export type MLPredictionDefinition = Metadata & {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -7705,7 +7702,7 @@ export type MLPredictionDefinition = mns_Metadata & {
     type: AIPredictionType;
 }
 
-export type MLRecommendationDefinition = mns_Metadata & {
+export type MLRecommendationDefinition = Metadata & {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -7717,7 +7714,7 @@ export type MLRecommendationDefinition = mns_Metadata & {
     status: MLRecommendationDefinitionStatus;
 }
 
-export type ManagedContentType = mns_Metadata & {
+export type ManagedContentType = Metadata & {
     description?: string;
     developerName: string;
     managedContentNodeTypes?: ManagedContentNodeType | ManagedContentNodeType[];
@@ -7734,14 +7731,14 @@ export type ManagedContentNodeType = {
     placeholderText?: string;
 }
 
-export type ManagedContentTypeBundle = mns_Metadata & {
+export type ManagedContentTypeBundle = Metadata & {
     description?: string;
     developerName: string;
     masterLabel: string;
     schemaBody: string;
 }
 
-export type ManagedEventSubscription = mns_Metadata & {
+export type ManagedEventSubscription = Metadata & {
     defaultReplay?: EventSubscriptionReplayPreset;
     errorRecoveryReplay?: EventSubscriptionReplayPreset;
     label?: string;
@@ -7750,7 +7747,7 @@ export type ManagedEventSubscription = mns_Metadata & {
     version?: string;
 }
 
-export type MarketAudienceDefinition = mns_Metadata & {
+export type MarketAudienceDefinition = Metadata & {
     audienceContactPoints?: AudienceContactPoint | AudienceContactPoint[];
     audiencePackageOwner?: string;
     channels?: string;
@@ -7780,7 +7777,7 @@ export type MarketAudienceField = {
     slotName: string;
 }
 
-export type MarketSegmentDefinition = mns_Metadata & {
+export type MarketSegmentDefinition = Metadata & {
     additionalMetadata?: string;
     excludeCriteria?: string;
     includeCriteria?: string;
@@ -7788,7 +7785,7 @@ export type MarketSegmentDefinition = mns_Metadata & {
     segmentOn?: string;
 }
 
-export type MarketingAppExtActivity = mns_Metadata & {
+export type MarketingAppExtActivity = Metadata & {
     description?: string;
     endpointUrl?: string;
     isActive?: boolean;
@@ -7797,7 +7794,7 @@ export type MarketingAppExtActivity = mns_Metadata & {
     masterLabel: string;
 }
 
-export type MarketingAppExtension = mns_Metadata & {
+export type MarketingAppExtension = Metadata & {
     description?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -7816,7 +7813,7 @@ export type MarketingAppExtAction = {
     marketingAppExtension: string;
 }
 
-export type MatchingRule = mns_Metadata & {
+export type MatchingRule = Metadata & {
     booleanFilter?: string;
     description?: string;
     label: string;
@@ -7830,7 +7827,7 @@ export type MatchingRuleItem = {
     matchingMethod: MatchingMethod;
 }
 
-export type MessagingChannel = mns_Metadata & {
+export type MessagingChannel = Metadata & {
     automatedResponses?: MessagingAutoResponse | MessagingAutoResponse[];
     customParameters?: MessagingChannelCustomParameter | MessagingChannelCustomParameter[];
     description?: string;
@@ -7873,22 +7870,22 @@ export type MessagingChannelStandardParameter = {
     parameterValueMappings?: MessagingChannelParameterValueMapping | MessagingChannelParameterValueMapping[];
 }
 
-export type MetadataForSettings = mns_Metadata & {
+export type MetadataForSettings = Metadata & {
 }
 
-export type AIReplyRecommendationsSettings = mns_MetadataForSettings & {
+export type AIReplyRecommendationsSettings = MetadataForSettings & {
     enableAIReplyRecommendations?: boolean;
     enableGenReplyRecommendations?: boolean;
     enableServiceEinsteinGPTGrounding?: boolean;
 }
 
-export type AccountIntelligenceSettings = mns_MetadataForSettings & {
+export type AccountIntelligenceSettings = MetadataForSettings & {
     enableAccountLogos?: boolean;
     enableAutomatedAccountFields?: boolean;
     enableNewsStories?: boolean;
 }
 
-export type AccountSettings = mns_MetadataForSettings & {
+export type AccountSettings = MetadataForSettings & {
     enableAccountDiscovery?: boolean;
     enableAccountHistoryTracking?: boolean;
     enableAccountInsightsInMobile?: boolean;
@@ -7899,14 +7896,14 @@ export type AccountSettings = mns_MetadataForSettings & {
     showViewHierarchyLink?: boolean;
 }
 
-export type ActionsSettings = mns_MetadataForSettings & {
+export type ActionsSettings = MetadataForSettings & {
     enableDefaultQuickActionsOn?: boolean;
     enableMdpEnabled?: boolean;
     enableOfflineWebLinks?: boolean;
     enableThirdPartyActions?: boolean;
 }
 
-export type ActivitiesSettings = mns_MetadataForSettings & {
+export type ActivitiesSettings = MetadataForSettings & {
     allowUsersToRelateMultipleContactsToTasksAndEvents?: boolean;
     autoRelateEventAttendees?: boolean;
     enableActivityReminders?: boolean;
@@ -7936,7 +7933,7 @@ export type ActivitiesSettings = mns_MetadataForSettings & {
     showMyTasksHoverLinks?: boolean;
 }
 
-export type AddressSettings = mns_MetadataForSettings & {
+export type AddressSettings = MetadataForSettings & {
     countriesAndStates: CountriesAndStates;
 }
 
@@ -7964,12 +7961,12 @@ export type State = {
     visible: boolean;
 }
 
-export type Ai4mSettings = mns_MetadataForSettings & {
+export type Ai4mSettings = MetadataForSettings & {
     enableUmaGlobalModel?: boolean;
     enableUmaSto?: boolean;
 }
 
-export type AnalyticsSettings = mns_MetadataForSettings & {
+export type AnalyticsSettings = MetadataForSettings & {
     alwaysGenPreviews?: boolean;
     analyticsAdoptionMetadata?: boolean;
     autoInstallApps?: boolean;
@@ -8051,7 +8048,7 @@ export type AnalyticsSettings = mns_MetadataForSettings & {
     turnOnTimeZones?: boolean;
 }
 
-export type ApexSettings = mns_MetadataForSettings & {
+export type ApexSettings = MetadataForSettings & {
     defaultQueueableDelay?: number;
     enableAggregateCodeCoverageOnly?: boolean;
     enableApexAccessRightsPref?: boolean;
@@ -8069,27 +8066,27 @@ export type ApexSettings = mns_MetadataForSettings & {
     enableSecureNoArgConstructorPref?: boolean;
 }
 
-export type AppExperienceSettings = mns_MetadataForSettings & {
+export type AppExperienceSettings = MetadataForSettings & {
     doesHideAllAppsInAppLauncher?: boolean;
 }
 
-export type AutomatedContactsSettings = mns_MetadataForSettings & {
+export type AutomatedContactsSettings = MetadataForSettings & {
     enableAddContactAutomatically?: boolean;
     enableAddContactRoleAutomatically?: boolean;
     enableAddContactRoleWithSuggestion?: boolean;
     enableAddContactWithSuggestion?: boolean;
 }
 
-export type BlockchainSettings = mns_MetadataForSettings & {
+export type BlockchainSettings = MetadataForSettings & {
     enableBcp?: boolean;
     enableEtpNft?: boolean;
 }
 
-export type BotSettings = mns_MetadataForSettings & {
+export type BotSettings = MetadataForSettings & {
     enableBots?: boolean;
 }
 
-export type BusinessHoursSettings = mns_MetadataForSettings & {
+export type BusinessHoursSettings = MetadataForSettings & {
     businessHours?: BusinessHoursEntry | BusinessHoursEntry[];
     holidays?: Holiday | Holiday[];
 }
@@ -8113,7 +8110,7 @@ export type Holiday = {
     startTime?: Date;
 }
 
-export type CampaignSettings = mns_MetadataForSettings & {
+export type CampaignSettings = MetadataForSettings & {
     aiAttributionSuccessMilestone?: string;
     aiAttributionTimeframe?: number;
     enableAIAttribution?: boolean;
@@ -8127,7 +8124,7 @@ export type CampaignSettings = mns_MetadataForSettings & {
     enableSuppressNoValueCI2?: boolean;
 }
 
-export type CaseSettings = mns_MetadataForSettings & {
+export type CaseSettings = MetadataForSettings & {
     caseAssignNotificationTemplate?: string;
     caseAutoProcUser?: boolean;
     caseCloseNotificationTemplate?: string;
@@ -8234,7 +8231,7 @@ export type WebToCaseSettings = {
     enableWebToCase?: boolean;
 }
 
-export type ChatterAnswersSettings = mns_MetadataForSettings & {
+export type ChatterAnswersSettings = MetadataForSettings & {
     emailFollowersOnBestAnswer?: boolean;
     emailFollowersOnReply?: boolean;
     emailOwnerOnPrivateReply?: boolean;
@@ -8249,7 +8246,7 @@ export type ChatterAnswersSettings = mns_MetadataForSettings & {
     showInPortals?: boolean;
 }
 
-export type ChatterEmailsMDSettings = mns_MetadataForSettings & {
+export type ChatterEmailsMDSettings = MetadataForSettings & {
     enableChatterDigestEmailsApiOnly?: boolean;
     enableChatterEmailAttachment?: boolean;
     enableCollaborationEmail?: boolean;
@@ -8262,7 +8259,7 @@ export type ChatterEmailsMDSettings = mns_MetadataForSettings & {
     noQnSubNotifyOnRep?: boolean;
 }
 
-export type ChatterSettings = mns_MetadataForSettings & {
+export type ChatterSettings = MetadataForSettings & {
     allowChatterGroupArchiving?: boolean;
     allowRecordsInChatterGroup?: boolean;
     enableApprovalRequest?: boolean;
@@ -8280,7 +8277,7 @@ export type ChatterSettings = mns_MetadataForSettings & {
     unlistedGroupsEnabled?: boolean;
 }
 
-export type CommerceSettings = mns_MetadataForSettings & {
+export type CommerceSettings = MetadataForSettings & {
     commerceAnalyticsEnabled?: boolean;
     commerceConciergeEnabled?: boolean;
     commerceDiscoveryExpansion?: boolean;
@@ -8288,11 +8285,11 @@ export type CommerceSettings = mns_MetadataForSettings & {
     lowestUnitPriceTracking?: boolean;
 }
 
-export type CommsServiceConsoleSettings = mns_MetadataForSettings & {
+export type CommsServiceConsoleSettings = MetadataForSettings & {
     enableCommsServiceConsole?: boolean;
 }
 
-export type CommunitiesSettings = mns_MetadataForSettings & {
+export type CommunitiesSettings = MetadataForSettings & {
     applyLoginPageTypeToEmbeddedLogin?: boolean;
     blockEmbeddedLoginUnknownURLRedirect?: boolean;
     canModerateAllFeedPosts?: boolean;
@@ -8320,7 +8317,7 @@ export type CommunitiesSettings = mns_MetadataForSettings & {
     enableUsernameUniqForOrgPref?: boolean;
 }
 
-export type CompanySettings = mns_MetadataForSettings & {
+export type CompanySettings = MetadataForSettings & {
     enableCustomFiscalYear: boolean;
     fiscalYear?: FiscalYearSettings;
 }
@@ -8330,13 +8327,13 @@ export type FiscalYearSettings = {
     startMonth?: string;
 }
 
-export type ConnectedAppSettings = mns_MetadataForSettings & {
+export type ConnectedAppSettings = MetadataForSettings & {
     enableAdminApprovedAppsOnly?: boolean;
     enableAdminApprovedAppsOnlyForExternalUser?: boolean;
     enableSkipUserProvisioningWizardWelcomePage?: boolean;
 }
 
-export type ConsentBannerSettings = mns_Metadata & {
+export type ConsentBannerSettings = Metadata & {
     allowButtonColor: string;
     allowButtonTextColor: string;
     bannerColor: string;
@@ -8355,7 +8352,7 @@ export type ConsentBannerSettings = mns_Metadata & {
     privacyPolicyUrl?: string;
 }
 
-export type ContentSettings = mns_MetadataForSettings & {
+export type ContentSettings = MetadataForSettings & {
     enableCMSC2CConnections?: boolean;
     enableChatterFileLink?: boolean;
     enableContent?: boolean;
@@ -8379,7 +8376,7 @@ export type ContentSettings = mns_MetadataForSettings & {
     skipContentAssetTriggersOnDeploy?: boolean;
 }
 
-export type ContractSettings = mns_MetadataForSettings & {
+export type ContractSettings = MetadataForSettings & {
     autoCalculateEndDate?: boolean;
     autoExpirationDelay?: string;
     autoExpirationRecipient?: string;
@@ -8388,7 +8385,7 @@ export type ContractSettings = mns_MetadataForSettings & {
     notifyOwnersOnContractExpiration?: boolean;
 }
 
-export type ConversationalIntelligenceSettings = mns_MetadataForSettings & {
+export type ConversationalIntelligenceSettings = MetadataForSettings & {
     enableCallCoaching?: boolean;
     enableCallCoachingZoom?: boolean;
     enableCallExplorer?: boolean;
@@ -8398,7 +8395,7 @@ export type ConversationalIntelligenceSettings = mns_MetadataForSettings & {
     enableUnifiedActivities?: boolean;
 }
 
-export type CurrencySettings = mns_MetadataForSettings & {
+export type CurrencySettings = MetadataForSettings & {
     enableCurrencyEffectiveDates?: boolean;
     enableCurrencySymbolWithMultiCurrency?: boolean;
     enableMultiCurrency?: boolean;
@@ -8406,19 +8403,19 @@ export type CurrencySettings = mns_MetadataForSettings & {
     isParenCurrencyConvDisabled?: boolean;
 }
 
-export type CustomAddressFieldSettings = mns_MetadataForSettings & {
+export type CustomAddressFieldSettings = MetadataForSettings & {
     enableCustomAddressField?: boolean;
 }
 
-export type CustomerDataPlatformSettings = mns_MetadataForSettings & {
+export type CustomerDataPlatformSettings = MetadataForSettings & {
     enableCustomerDataPlatform?: boolean;
 }
 
-export type CustomizablePropensityScoringSettings = mns_MetadataForSettings & {
+export type CustomizablePropensityScoringSettings = MetadataForSettings & {
     enableCpsPref?: boolean;
 }
 
-export type DataDotComSettings = mns_MetadataForSettings & {
+export type DataDotComSettings = MetadataForSettings & {
     enableAccountExportButtonOff?: boolean;
     enableAccountImportButtonOff?: boolean;
     enableAllowDupeContactFromLead?: boolean;
@@ -8431,26 +8428,26 @@ export type DataDotComSettings = mns_MetadataForSettings & {
     enableDatacloudAPIEnabled?: boolean;
 }
 
-export type PlatformSlackSettings = mns_MetadataForSettings & {
+export type PlatformSlackSettings = MetadataForSettings & {
     enableSlackService?: boolean;
     enableSlackServiceAlerts?: boolean;
     slackCapabilitiesEnabled?: boolean;
 }
 
-export type ProductConfiguratorSettings = mns_MetadataForSettings & {
+export type ProductConfiguratorSettings = MetadataForSettings & {
     enableProductConfigurator?: boolean;
 }
 
-export type DataImportManagementSettings = mns_MetadataForSettings & {
+export type DataImportManagementSettings = MetadataForSettings & {
     enableDataConnectorHubspot?: boolean;
     enableEasyImport?: boolean;
 }
 
-export type RevenueManagementSettings = mns_MetadataForSettings & {
+export type RevenueManagementSettings = MetadataForSettings & {
     enableCoreCPQ?: boolean;
 }
 
-export type WorkforceEngagementSettings = mns_MetadataForSettings & {
+export type WorkforceEngagementSettings = MetadataForSettings & {
     enableHistoricalAdherence?: boolean;
     enableIndividualAdherence?: boolean;
     enableIntradayManagement?: boolean;
@@ -8460,111 +8457,111 @@ export type WorkforceEngagementSettings = mns_MetadataForSettings & {
     enableWorkforceEngagementConfiguration?: boolean;
 }
 
-export type KnowledgeGenerationSettings = mns_MetadataForSettings & {
+export type KnowledgeGenerationSettings = MetadataForSettings & {
     enableKnowledgeGeneration?: boolean;
 }
 
-export type ClaimMgmtFoundationEnabledSettings = mns_MetadataForSettings & {
+export type ClaimMgmtFoundationEnabledSettings = MetadataForSettings & {
     enableWarrantyClaimMgmt?: boolean;
 }
 
-export type MailMergeSettings = mns_MetadataForSettings & {
+export type MailMergeSettings = MetadataForSettings & {
     enableExtendedMailMerge?: boolean;
     saveMailMergeDocsAsSalesforceDocs?: boolean;
 }
 
-export type AccountingSettings = mns_MetadataForSettings & {
+export type AccountingSettings = MetadataForSettings & {
     enableAccountingSubledger?: boolean;
     enableFinancePeriod?: boolean;
     enablePaymentMethodAdjust?: boolean;
     enableScheduledJob?: boolean;
 }
 
-export type CollectionsDashboardSettings = mns_MetadataForSettings & {
+export type CollectionsDashboardSettings = MetadataForSettings & {
     enableCollectionsDashboard?: boolean;
 }
 
-export type InvLatePymntRiskCalcSettings = mns_MetadataForSettings & {
+export type InvLatePymntRiskCalcSettings = MetadataForSettings & {
     enableInvLatePymntRiskCalc?: boolean;
 }
 
-export type FTestSettings = mns_MetadataForSettings & {
+export type FTestSettings = MetadataForSettings & {
     enableTestPref?: boolean;
 }
 
-export type MediaAdSalesSettings = mns_MetadataForSettings & {
+export type MediaAdSalesSettings = MetadataForSettings & {
     enableMediaAdSales?: boolean;
 }
 
-export type IndustriesPricingSettings = mns_MetadataForSettings & {
+export type IndustriesPricingSettings = MetadataForSettings & {
     enableHighAvailability?: boolean;
     enablePricingWaterfall?: boolean;
     enablePricingWaterfallPersistence?: boolean;
     enableSalesforcePricing?: boolean;
 }
 
-export type BranchManagementSettings = mns_MetadataForSettings & {
+export type BranchManagementSettings = MetadataForSettings & {
     associateAccountWithBranch?: boolean;
 }
 
-export type DynamicFormsSettings = mns_MetadataForSettings & {
+export type DynamicFormsSettings = MetadataForSettings & {
     enableFormsOnMobile?: boolean;
 }
 
-export type FTestAccessSettings = mns_MetadataForSettings & {
+export type FTestAccessSettings = MetadataForSettings & {
     enableTestPref?: boolean;
 }
 
-export type CodeBuilderSettings = mns_MetadataForSettings & {
+export type CodeBuilderSettings = MetadataForSettings & {
     enableCodeBuilder?: boolean;
 }
 
-export type IndustriesContextSettings = mns_MetadataForSettings & {
+export type IndustriesContextSettings = MetadataForSettings & {
     enableContextDefinitions?: boolean;
 }
 
-export type IncludeEstTaxInQuoteCPQSettings = mns_MetadataForSettings & {
+export type IncludeEstTaxInQuoteCPQSettings = MetadataForSettings & {
     enableQuoteEstimatedTaxCPQ?: boolean;
 }
 
-export type SceGlobalModelOptOutSettings = mns_MetadataForSettings & {
+export type SceGlobalModelOptOutSettings = MetadataForSettings & {
     sceGlobalModelOptOut?: boolean;
 }
 
-export type SandboxSettings = mns_MetadataForSettings & {
+export type SandboxSettings = MetadataForSettings & {
     disableSandboxExpirationEmails?: boolean;
 }
 
-export type InterestTaggingSettings = mns_MetadataForSettings & {
+export type InterestTaggingSettings = MetadataForSettings & {
     enableInterestTagging?: boolean;
 }
 
-export type ConversationServiceIntegrationSettings = mns_MetadataForSettings & {
+export type ConversationServiceIntegrationSettings = MetadataForSettings & {
     enableConvoCatchUpForAgents?: boolean;
     enableConvoCatchUpForSupervisors?: boolean;
 }
 
-export type EinsteinAISettings = mns_MetadataForSettings & {
+export type EinsteinAISettings = MetadataForSettings & {
     enableTrustPIIMasking?: boolean;
 }
 
-export type IndustriesGamificationSettings = mns_MetadataForSettings & {
+export type IndustriesGamificationSettings = MetadataForSettings & {
     enableGamification?: boolean;
 }
 
-export type PlatformEventSettings = mns_MetadataForSettings & {
+export type PlatformEventSettings = MetadataForSettings & {
     enableEnhancedUsageMetrics?: boolean;
 }
 
-export type AssociationEngineSettings = mns_MetadataForSettings & {
+export type AssociationEngineSettings = MetadataForSettings & {
     enableAssociationEngine?: boolean;
 }
 
-export type SourceTrackingSettings = mns_MetadataForSettings & {
+export type SourceTrackingSettings = MetadataForSettings & {
     enableSourceTrackingSandboxes?: boolean;
 }
 
-export type OrgSettings = mns_MetadataForSettings & {
+export type OrgSettings = MetadataForSettings & {
     enableCustomerSuccessPortal?: boolean;
     enableIncludeContractStatus?: boolean;
     enableMakeDeploymentsMandatory?: boolean;
@@ -8574,7 +8571,7 @@ export type OrgSettings = mns_MetadataForSettings & {
     enableResetDivisionOnLogin?: boolean;
 }
 
-export type DevHubSettings = mns_MetadataForSettings & {
+export type DevHubSettings = MetadataForSettings & {
     devOpsCenterBetaMsa?: boolean;
     enableDevOpsCenter?: boolean;
     enableDevOpsCenterGA?: boolean;
@@ -8584,15 +8581,15 @@ export type DevHubSettings = mns_MetadataForSettings & {
     enableShapeExportPref?: boolean;
 }
 
-export type IncludeEstTaxInQuoteSettings = mns_MetadataForSettings & {
+export type IncludeEstTaxInQuoteSettings = MetadataForSettings & {
     enableQuoteEstimatedTax?: boolean;
 }
 
-export type ReferralMarketingSettings = mns_MetadataForSettings & {
+export type ReferralMarketingSettings = MetadataForSettings & {
     enableMarketingCloudIntegration?: boolean;
 }
 
-export type IndustriesLoyaltySettings = mns_MetadataForSettings & {
+export type IndustriesLoyaltySettings = MetadataForSettings & {
     enableAutomaticMemberTierAssessmentSelection?: boolean;
     enableAutomaticVoucherCodeGeneration?: boolean;
     enableFixedTypeNQPAggregation?: boolean;
@@ -8605,52 +8602,52 @@ export type IndustriesLoyaltySettings = mns_MetadataForSettings & {
     enableQPRealTimePointBalance?: boolean;
 }
 
-export type Web3Settings = mns_MetadataForSettings & {
+export type Web3Settings = MetadataForSettings & {
     enableMultisig?: boolean;
 }
 
-export type IndustriesUnifiedPromotionsSettings = mns_MetadataForSettings & {
+export type IndustriesUnifiedPromotionsSettings = MetadataForSettings & {
     enableUnifiedPromotions?: boolean;
 }
 
-export type PaymentsManagementEnabledSettings = mns_MetadataForSettings & {
+export type PaymentsManagementEnabledSettings = MetadataForSettings & {
     paymentsManagementEnabled?: boolean;
 }
 
-export type EinsteinGptSettings = mns_MetadataForSettings & {
+export type EinsteinGptSettings = MetadataForSettings & {
     enableEinsteinGptPlatform?: boolean;
     enableGenAIOrgDataCloud?: boolean;
 }
 
-export type AppAnalyticsSettings = mns_MetadataForSettings & {
+export type AppAnalyticsSettings = MetadataForSettings & {
     enableAppAnalyticsOptOut?: boolean;
     enableSimulationMode?: boolean;
 }
 
-export type MapsAndLocationSettings = mns_MetadataForSettings & {
+export type MapsAndLocationSettings = MetadataForSettings & {
     enableAddressAutoComplete?: boolean;
     enableMapsAndLocation?: boolean;
 }
 
-export type OnlineSalesSettings = mns_MetadataForSettings & {
+export type OnlineSalesSettings = MetadataForSettings & {
     enableSubscriptionAppEnrolled?: boolean;
 }
 
-export type DeploymentSettings = mns_MetadataForSettings & {
+export type DeploymentSettings = MetadataForSettings & {
     doesSkipAsyncApexValidation?: boolean;
 }
 
-export type DiscoverySettings = mns_MetadataForSettings & {
+export type DiscoverySettings = MetadataForSettings & {
     enableEinsteinAnswersPref?: boolean;
     enableEinsteinArticleRecommendations?: boolean;
 }
 
-export type DocumentChecklistSettings = mns_MetadataForSettings & {
+export type DocumentChecklistSettings = MetadataForSettings & {
     dciCustomSharing?: boolean;
     deleteDCIWithFiles?: boolean;
 }
 
-export type EACSettings = mns_MetadataForSettings & {
+export type EACSettings = MetadataForSettings & {
     addRcCompToFlexiPages?: boolean;
     autoPopulateGoogleMeetLinks?: boolean;
     automatedEmailFilter?: boolean;
@@ -8672,7 +8669,7 @@ export type EACSettings = mns_MetadataForSettings & {
     syncInternalEvents?: boolean;
 }
 
-export type EinsteinAgentSettings = mns_MetadataForSettings & {
+export type EinsteinAgentSettings = MetadataForSettings & {
     einsteinAgentRecommendations?: boolean;
     reRunAttributeBasedRules?: boolean;
     runAssignmentRules?: boolean;
@@ -8680,21 +8677,21 @@ export type EinsteinAgentSettings = mns_MetadataForSettings & {
     voiceWrapUpRecs?: boolean;
 }
 
-export type EinsteinAssistantSettings = mns_MetadataForSettings & {
+export type EinsteinAssistantSettings = MetadataForSettings & {
     enableEinsteinAssistantDataExtractionEnabled?: boolean;
     enableEinsteinAssistantEnabled?: boolean;
     enableEinsteinEnableVoiceLogging?: boolean;
 }
 
-export type EinsteinDealInsightsSettings = mns_MetadataForSettings & {
+export type EinsteinDealInsightsSettings = MetadataForSettings & {
     enableUnlikelyToCloseThisMonth?: boolean;
 }
 
-export type EinsteinDocumentCaptureSettings = mns_MetadataForSettings & {
+export type EinsteinDocumentCaptureSettings = MetadataForSettings & {
     enableEinsteinDocumentReader?: boolean;
 }
 
-export type EmailAdministrationSettings = mns_MetadataForSettings & {
+export type EmailAdministrationSettings = MetadataForSettings & {
     enableComplianceBcc?: boolean;
     enableEmailConsentManagement?: boolean;
     enableEmailSenderIdCompliance?: boolean;
@@ -8720,7 +8717,7 @@ export type EmailAdministrationSettings = mns_MetadataForSettings & {
     sendTextOnlySystemEmails?: boolean;
 }
 
-export type EmailIntegrationSettings = mns_MetadataForSettings & {
+export type EmailIntegrationSettings = MetadataForSettings & {
     doesEmailLogAsEmailMessageInOutlook?: boolean;
     doesGmailStayConnectedToSalesforce?: boolean;
     enableContactAndEventSync?: boolean;
@@ -8740,16 +8737,16 @@ export type EmailIntegrationSettings = mns_MetadataForSettings & {
     shouldUseTrustedDomainsList?: boolean;
 }
 
-export type EmailTemplateSettings = mns_MetadataForSettings & {
+export type EmailTemplateSettings = MetadataForSettings & {
     enableTemplateEnhancedFolderPref?: boolean;
 }
 
-export type EmployeeFieldAccessSettings = mns_MetadataForSettings & {
+export type EmployeeFieldAccessSettings = MetadataForSettings & {
     enableEmployeeFieldMaskDefaults?: boolean;
     enableEmployeeFieldMasking?: boolean;
 }
 
-export type EmployeeUserSettings = mns_MetadataForSettings & {
+export type EmployeeUserSettings = MetadataForSettings & {
     emailEncoding: string;
     enableEmployeeAutoCreateUser?: boolean;
     enableEmployeeIsSourceOfTruth?: boolean;
@@ -8758,7 +8755,7 @@ export type EmployeeUserSettings = mns_MetadataForSettings & {
     usernameSuffix?: string;
 }
 
-export type EncryptionKeySettings = mns_MetadataForSettings & {
+export type EncryptionKeySettings = MetadataForSettings & {
     canOptOutOfDerivationWithBYOK?: boolean;
     dataCloudEncryption?: boolean;
     enableBringYourOwnkms?: boolean;
@@ -8766,7 +8763,7 @@ export type EncryptionKeySettings = mns_MetadataForSettings & {
     enableReplayDetection?: boolean;
 }
 
-export type EngagementMessagingSettings = mns_MetadataForSettings & {
+export type EngagementMessagingSettings = MetadataForSettings & {
     engagementEmailProvisionStatusOrgValue: number;
     engagementSMSProvisionStatusOrgValue: number;
     engagementWhatsAppProvisionStatusOrgValue: number;
@@ -8778,12 +8775,12 @@ export type EngagementMessagingSettings = mns_MetadataForSettings & {
     isEngagementWhatsAppEnabled?: boolean;
 }
 
-export type EnhancedNotesSettings = mns_MetadataForSettings & {
+export type EnhancedNotesSettings = MetadataForSettings & {
     enableEnhancedNotes?: boolean;
     enableTasksOnEnhancedNotes?: boolean;
 }
 
-export type EntitlementSettings = mns_MetadataForSettings & {
+export type EntitlementSettings = MetadataForSettings & {
     assetLookupLimitedToActiveEntitlementsOnAccount?: boolean;
     assetLookupLimitedToActiveEntitlementsOnContact?: boolean;
     assetLookupLimitedToSameAccount?: boolean;
@@ -8799,11 +8796,11 @@ export type EntitlementSettings = mns_MetadataForSettings & {
     ignoreMilestoneBusinessHours?: boolean;
 }
 
-export type EssentialsSettings = mns_MetadataForSettings & {
+export type EssentialsSettings = MetadataForSettings & {
     emailConnectorEnabled?: boolean;
 }
 
-export type EventLogObjectSettings = mns_MetadataForSettings & {
+export type EventLogObjectSettings = MetadataForSettings & {
     eventLogObjects?: EventLogObject | EventLogObject[];
 }
 
@@ -8812,7 +8809,7 @@ export type EventLogObject = {
     eventLogName: string;
 }
 
-export type EventSettings = mns_MetadataForSettings & {
+export type EventSettings = MetadataForSettings & {
     bypassMeteringBlock?: boolean;
     enableApexLimitEvents?: boolean;
     enableDeleteMonitoringData?: boolean;
@@ -8824,18 +8821,18 @@ export type EventSettings = mns_MetadataForSettings & {
     enableTransactionSecurityPolicies?: boolean;
 }
 
-export type ExperienceBundleSettings = mns_MetadataForSettings & {
+export type ExperienceBundleSettings = MetadataForSettings & {
     enableExperienceBundleMetadata?: boolean;
 }
 
-export type ExternalClientAppSettings = mns_MetadataForSettings & {
+export type ExternalClientAppSettings = MetadataForSettings & {
     enableClientSecretInRestApiAccess?: boolean;
     enableConsumerSecretApiAccess?: boolean;
     enableExternalClientApps?: boolean;
     enablePackageEcaOauthFromDevOrg?: boolean;
 }
 
-export type FieldServiceSettings = mns_MetadataForSettings & {
+export type FieldServiceSettings = MetadataForSettings & {
     apptAssistantExpiration?: number;
     apptAssistantInfoUrl?: string;
     apptAssistantRadiusUnitValue?: ApptAssistantRadiusUnit;
@@ -8875,7 +8872,7 @@ export type ObjectMappingItem = {
     objectMapping: ObjectMapping;
 }
 
-export type FileUploadAndDownloadSecuritySettings = mns_MetadataForSettings & {
+export type FileUploadAndDownloadSecuritySettings = MetadataForSettings & {
     dispositions?: FileTypeDispositionAssignmentBean | FileTypeDispositionAssignmentBean[];
     noHtmlUploadAsAttachment: boolean;
 }
@@ -8886,13 +8883,13 @@ export type FileTypeDispositionAssignmentBean = {
     securityRiskFileType: boolean;
 }
 
-export type FilesConnectSettings = mns_MetadataForSettings & {
+export type FilesConnectSettings = MetadataForSettings & {
     enableContentHubAllowed?: boolean;
     enableContentHubCvtLinksAllowed?: boolean;
     enableContentHubEOSearchLayout?: boolean;
 }
 
-export type FlowSettings = mns_MetadataForSettings & {
+export type FlowSettings = MetadataForSettings & {
     canDebugFlowAsAnotherUser?: boolean;
     doesEnforceApexCpuTimeLimit?: boolean;
     doesFormulaEnforceDataAccess?: boolean;
@@ -8919,7 +8916,7 @@ export type FlowSettings = mns_MetadataForSettings & {
     isSupportRollbackOnErrorForApexInvocableActionsEnabled?: boolean;
 }
 
-export type ForecastingObjectListSettings = mns_MetadataForSettings & {
+export type ForecastingObjectListSettings = MetadataForSettings & {
     forecastingTypeObjectListSettings?: ForecastingTypeObjectListSettings | ForecastingTypeObjectListSettings[];
 }
 
@@ -8943,7 +8940,7 @@ export type ForecastingObjectListUnselectedSettings = {
     field?: string | string[];
 }
 
-export type ForecastingSettings = mns_MetadataForSettings & {
+export type ForecastingSettings = MetadataForSettings & {
     defaultToPersonalCurrency?: boolean;
     enableForecasts?: boolean;
     forecastingCategoryMappings?: ForecastingCategoryMapping | ForecastingCategoryMapping[];
@@ -9017,11 +9014,11 @@ export type QuotasSettings = {
     showQuotas: boolean;
 }
 
-export type FormulaSettings = mns_MetadataForSettings & {
+export type FormulaSettings = MetadataForSettings & {
     enableDSTAwareDatevalue?: boolean;
 }
 
-export type GoogleAppsSettings = mns_MetadataForSettings & {
+export type GoogleAppsSettings = MetadataForSettings & {
     enableGmailButtons?: boolean;
     enableGmailButtonsAndLinks?: boolean;
     enableGmailLinks?: boolean;
@@ -9033,7 +9030,7 @@ export type GoogleAppsSettings = mns_MetadataForSettings & {
     googleAppsDomainValidated?: boolean;
 }
 
-export type HighVelocitySalesSettings = mns_MetadataForSettings & {
+export type HighVelocitySalesSettings = MetadataForSettings & {
     enableACAutoSendEmail?: boolean;
     enableACChangeTargetAssignee?: boolean;
     enableACSkipWeekends?: boolean;
@@ -9053,7 +9050,7 @@ export type HighVelocitySalesSettings = mns_MetadataForSettings & {
     enableTaskLoggingPref?: boolean;
 }
 
-export type IdeasSettings = mns_MetadataForSettings & {
+export type IdeasSettings = MetadataForSettings & {
     enableChatterProfile?: boolean;
     enableHtmlIdea?: boolean;
     enableIdeaMultipleCategory?: boolean;
@@ -9065,12 +9062,12 @@ export type IdeasSettings = mns_MetadataForSettings & {
     ideasProfilePage?: string;
 }
 
-export type IdentityProviderSettings = mns_MetadataForSettings & {
+export type IdentityProviderSettings = MetadataForSettings & {
     certificateName: string;
     enableIdentityProvider: boolean;
 }
 
-export type IncidentMgmtSettings = mns_MetadataForSettings & {
+export type IncidentMgmtSettings = MetadataForSettings & {
     enableAlertBroadcastType?: boolean;
     enableEmailBroadcastType?: boolean;
     enableIncidentMgmt?: boolean;
@@ -9078,26 +9075,26 @@ export type IncidentMgmtSettings = mns_MetadataForSettings & {
     enableSlackBroadcastType?: boolean;
 }
 
-export type IndustriesAutomotiveSettings = mns_MetadataForSettings & {
+export type IndustriesAutomotiveSettings = MetadataForSettings & {
     enableAutomotiveCloud?: boolean;
     enableAutomotiveScheduler?: boolean;
     enableAutomotiveServiceExcellence?: boolean;
 }
 
-export type IndustriesEinsteinFeatureSettings = mns_MetadataForSettings & {
+export type IndustriesEinsteinFeatureSettings = MetadataForSettings & {
     documentReaderConfidenceOrgValue: number;
 }
 
-export type IndustriesEventOrchSettings = mns_MetadataForSettings & {
+export type IndustriesEventOrchSettings = MetadataForSettings & {
     enableActionableEventOrch?: boolean;
     enableEventOrchDecisionTable?: boolean;
 }
 
-export type IndustriesFieldServiceSettings = mns_MetadataForSettings & {
+export type IndustriesFieldServiceSettings = MetadataForSettings & {
     enableIndustriesFieldService?: boolean;
 }
 
-export type IndustriesManufacturingSettings = mns_MetadataForSettings & {
+export type IndustriesManufacturingSettings = MetadataForSettings & {
     enableFleetManagement?: boolean;
     enableIndManufacturing?: boolean;
     enableIndustriesMfgAccountForecast?: boolean;
@@ -9114,7 +9111,7 @@ export type IndustriesManufacturingSettings = mns_MetadataForSettings & {
     enableVehicleAndAssetFinance?: boolean;
 }
 
-export type IndustriesSettings = mns_MetadataForSettings & {
+export type IndustriesSettings = MetadataForSettings & {
     allowMultipleProducersToWorkOnSamePolicy?: boolean;
     appointmentDistributionOrgPref?: boolean;
     captureResourceUtilizationOrgPref?: boolean;
@@ -9312,22 +9309,22 @@ export type IndustriesSettings = mns_MetadataForSettings & {
     transformRBLtoDPE?: boolean;
 }
 
-export type InventorySettings = mns_MetadataForSettings & {
+export type InventorySettings = MetadataForSettings & {
     enableOCIB2CIntegration?: boolean;
     enableOmniChannelInventory?: boolean;
 }
 
-export type InvocableActionSettings = mns_MetadataForSettings & {
+export type InvocableActionSettings = MetadataForSettings & {
     isPartialSaveAllowed?: boolean;
 }
 
-export type IoTSettings = mns_MetadataForSettings & {
+export type IoTSettings = MetadataForSettings & {
     enableIoT?: boolean;
     enableIoTInsightsPilot?: boolean;
     enableIoTUsageEmail?: boolean;
 }
 
-export type KnowledgeSettings = mns_MetadataForSettings & {
+export type KnowledgeSettings = MetadataForSettings & {
     answers?: KnowledgeAnswerSettings;
     cases?: KnowledgeCaseSettings;
     defaultLanguage?: string;
@@ -9426,7 +9423,7 @@ export type KnowledgeWorkOrderLineItemField = {
     name?: string;
 }
 
-export type LanguageSettings = mns_MetadataForSettings & {
+export type LanguageSettings = MetadataForSettings & {
     enableCanadaIcuFormat?: boolean;
     enableDataTranslation?: boolean;
     enableEndUserLanguages?: boolean;
@@ -9439,7 +9436,7 @@ export type LanguageSettings = mns_MetadataForSettings & {
     useLanguageFallback?: boolean;
 }
 
-export type LeadConfigSettings = mns_MetadataForSettings & {
+export type LeadConfigSettings = MetadataForSettings & {
     doesEnableLeadConvertDefaultSubjectBlankTaskCreation?: boolean;
     doesHideOpportunityInConvertLeadWindow?: boolean;
     doesPreserveLeadStatus?: boolean;
@@ -9451,11 +9448,11 @@ export type LeadConfigSettings = mns_MetadataForSettings & {
     shouldSendNotificationEmailWhenLeadOwnerUpdatesViaApexInLEX?: boolean;
 }
 
-export type LicensingSettings = mns_MetadataForSettings & {
+export type LicensingSettings = MetadataForSettings & {
     enableAutoCreateLicenseDefinition?: boolean;
 }
 
-export type LightningExperienceSettings = mns_MetadataForSettings & {
+export type LightningExperienceSettings = MetadataForSettings & {
     activeThemeName?: string;
     enableAccessCheckCrucPref?: boolean;
     enableApiUserLtngOutAccessPref?: boolean;
@@ -9502,34 +9499,34 @@ export type LightningExperienceSettings = mns_MetadataForSettings & {
     isLEXExtensionOff?: boolean;
 }
 
-export type LiveAgentSettings = mns_MetadataForSettings & {
+export type LiveAgentSettings = MetadataForSettings & {
     enableChatFindOrCreateEnable?: boolean;
     enableLiveAgent?: boolean;
     enableQuickTextEnabled?: boolean;
 }
 
-export type LiveMessageSettings = mns_MetadataForSettings & {
+export type LiveMessageSettings = MetadataForSettings & {
     enableCheckCEUserPerm?: boolean;
     enableLiveMessage?: boolean;
 }
 
-export type MacroSettings = mns_MetadataForSettings & {
+export type MacroSettings = MetadataForSettings & {
     contextualMacroFiltering?: boolean;
     enableAdvancedSearch?: boolean;
     macrosInFolders?: boolean;
 }
 
-export type MeetingsSettings = mns_MetadataForSettings & {
+export type MeetingsSettings = MetadataForSettings & {
     enableSalesforceMeetings?: boolean;
     enableSalesforceMeetingsSyncCheck?: boolean;
     enableZoomVideoConference?: boolean;
 }
 
-export type MfgServiceConsoleSettings = mns_MetadataForSettings & {
+export type MfgServiceConsoleSettings = MetadataForSettings & {
     enableMfgServiceConsole?: boolean;
 }
 
-export type MobileSettings = mns_MetadataForSettings & {
+export type MobileSettings = MetadataForSettings & {
     dashboardMobile?: DashboardMobileSettings;
     enableImportContactFromDevice?: boolean;
     enableOfflineDraftsEnabled?: boolean;
@@ -9542,7 +9539,7 @@ export type DashboardMobileSettings = {
     enableDashboardIPadApp?: boolean;
 }
 
-export type MyDomainSettings = mns_MetadataForSettings & {
+export type MyDomainSettings = MetadataForSettings & {
     canOnlyLoginWithMyDomainUrl?: boolean;
     doesApiLoginRequireOrgDomain?: boolean;
     doesWarnOnForceComRedirect?: boolean;
@@ -9566,45 +9563,45 @@ export type MyDomainSettings = mns_MetadataForSettings & {
     useStabilizedSandboxMyDomainHostnames?: boolean;
 }
 
-export type NameSettings = mns_MetadataForSettings & {
+export type NameSettings = MetadataForSettings & {
     enableInformalName?: boolean;
     enableMiddleName?: boolean;
     enableNameSuffix?: boolean;
 }
 
-export type NotificationsSettings = mns_MetadataForSettings & {
+export type NotificationsSettings = MetadataForSettings & {
     enableActvityReminderBrowserNotifs?: boolean;
     enableMobileAppPushNotifications?: boolean;
     enableNotifications?: boolean;
 }
 
-export type OauthOidcSettings = mns_MetadataForSettings & {
+export type OauthOidcSettings = MetadataForSettings & {
     blockOAuthUnPwFlow?: boolean;
     blockOAuthUsrAgtFlow?: boolean;
     isPkceRequired?: boolean;
     oAuthCdCrdtFlowEnable?: boolean;
 }
 
-export type ObjectLinkingSettings = mns_MetadataForSettings & {
+export type ObjectLinkingSettings = MetadataForSettings & {
     enableObjectLinking?: boolean;
 }
 
-export type OmniChannelPricingSettings = mns_MetadataForSettings & {
+export type OmniChannelPricingSettings = MetadataForSettings & {
     enableOmniChannelPricing?: boolean;
 }
 
-export type OmniChannelSettings = mns_MetadataForSettings & {
+export type OmniChannelSettings = MetadataForSettings & {
     enableOmniAutoLoginPrompt?: boolean;
     enableOmniChannel?: boolean;
     enableOmniSecondaryRoutingPriority?: boolean;
     enableOmniSkillsRouting?: boolean;
 }
 
-export type OpportunityScoreSettings = mns_MetadataForSettings & {
+export type OpportunityScoreSettings = MetadataForSettings & {
     enableOpportunityScoring?: boolean;
 }
 
-export type OpportunitySettings = mns_MetadataForSettings & {
+export type OpportunitySettings = MetadataForSettings & {
     autoActivateNewReminders?: boolean;
     customizableProductSchedulesEnabled?: boolean;
     doesEnforceStandardOpportunitySaveLogic?: boolean;
@@ -9635,7 +9632,7 @@ export type FindSimilarOppFilter = {
     similarOpportunitiesMatchFields?: string | string[];
 }
 
-export type OrderManagementSettings = mns_MetadataForSettings & {
+export type OrderManagementSettings = MetadataForSettings & {
     enableB2CHighScaleOrders?: boolean;
     enableB2CIntegration?: boolean;
     enableDuplicateManagement?: boolean;
@@ -9651,7 +9648,7 @@ export type OrderManagementSettings = mns_MetadataForSettings & {
     repricingEnabled?: boolean;
 }
 
-export type OrderSettings = mns_MetadataForSettings & {
+export type OrderSettings = MetadataForSettings & {
     enableEnhancedCommerceOrders?: boolean;
     enableNegativeQuantity?: boolean;
     enableOptionalPricebook?: boolean;
@@ -9662,12 +9659,12 @@ export type OrderSettings = mns_MetadataForSettings & {
     enableZeroQuantity?: boolean;
 }
 
-export type PardotEinsteinSettings = mns_MetadataForSettings & {
+export type PardotEinsteinSettings = MetadataForSettings & {
     enableCampaignInsight?: boolean;
     enableEngagementScore?: boolean;
 }
 
-export type PardotSettings = mns_MetadataForSettings & {
+export type PardotSettings = MetadataForSettings & {
     enableAIEinsteinEngageFreq?: boolean;
     enableAIOptimizedSendTime?: boolean;
     enableB2bmaAppEnabled?: boolean;
@@ -9679,26 +9676,26 @@ export type PardotSettings = mns_MetadataForSettings & {
     enableProspectActivityDataset?: boolean;
 }
 
-export type PartyDataModelSettings = mns_MetadataForSettings & {
+export type PartyDataModelSettings = MetadataForSettings & {
     enableAutoSelectIndividualOnMerge?: boolean;
     enableConsentManagement?: boolean;
     enableIndividualAutoCreate?: boolean;
 }
 
-export type PathAssistantSettings = mns_MetadataForSettings & {
+export type PathAssistantSettings = MetadataForSettings & {
     canOverrideAutoPathCollapseWithUserPref?: boolean;
     pathAssistantEnabled?: boolean;
 }
 
-export type PaymentsSettings = mns_MetadataForSettings & {
+export type PaymentsSettings = MetadataForSettings & {
     enablePayments?: boolean;
 }
 
-export type PicklistSettings = mns_MetadataForSettings & {
+export type PicklistSettings = MetadataForSettings & {
     isPicklistApiNameEditDisabled?: boolean;
 }
 
-export type PlatformEncryptionSettings = mns_MetadataForSettings & {
+export type PlatformEncryptionSettings = MetadataForSettings & {
     canEncryptManagedPackageFields?: boolean;
     enableDeterministicEncryption?: boolean;
     enableEncryptFieldHistory?: boolean;
@@ -9708,17 +9705,17 @@ export type PlatformEncryptionSettings = mns_MetadataForSettings & {
     isUseHighAssuranceKeysRequired?: boolean;
 }
 
-export type PortalsSettings = mns_MetadataForSettings & {
+export type PortalsSettings = MetadataForSettings & {
     clickjackSSPLoginPage?: boolean;
     redirectPortalLoginToHttps?: boolean;
 }
 
-export type PredictionBuilderSettings = mns_MetadataForSettings & {
+export type PredictionBuilderSettings = MetadataForSettings & {
     enablePredictionBuilder?: boolean;
     isPredictionBuilderStarted?: boolean;
 }
 
-export type PrivacySettings = mns_MetadataForSettings & {
+export type PrivacySettings = MetadataForSettings & {
     authorizationCaptureBrowser?: boolean;
     authorizationCaptureEmail?: boolean;
     authorizationCaptureIp?: boolean;
@@ -9732,25 +9729,25 @@ export type PrivacySettings = mns_MetadataForSettings & {
     useUmaDefaultConsentRecs?: boolean;
 }
 
-export type ProductSettings = mns_MetadataForSettings & {
+export type ProductSettings = MetadataForSettings & {
     enableCascadeActivateToRelatedPrices?: boolean;
     enableMySettings?: boolean;
     enableQuantitySchedule?: boolean;
     enableRevenueSchedule?: boolean;
 }
 
-export type QuickTextSettings = mns_MetadataForSettings & {
+export type QuickTextSettings = MetadataForSettings & {
     hideQuickTextUiInLtng?: boolean;
     lightningQuickTextEnabled?: boolean;
     quickTextsInFolders?: boolean;
 }
 
-export type QuoteSettings = mns_MetadataForSettings & {
+export type QuoteSettings = MetadataForSettings & {
     enableQuote: boolean;
     enableQuotesWithoutOppEnabled?: boolean;
 }
 
-export type RealTimeEventSettings = mns_MetadataForSettings & {
+export type RealTimeEventSettings = MetadataForSettings & {
     realTimeEvents?: RealTimeEvent | RealTimeEvent[];
 }
 
@@ -9759,30 +9756,30 @@ export type RealTimeEvent = {
     isEnabled: boolean;
 }
 
-export type RecommendationBuilderSettings = mns_MetadataForSettings & {
+export type RecommendationBuilderSettings = MetadataForSettings & {
     enableErbEnabledPref?: boolean;
     enableErbStartedPref?: boolean;
 }
 
-export type RecordPageSettings = mns_MetadataForSettings & {
+export type RecordPageSettings = MetadataForSettings & {
     enableActivityRelatedList?: boolean;
     enableFullRecordView?: boolean;
 }
 
-export type RetailExecutionSettings = mns_MetadataForSettings & {
+export type RetailExecutionSettings = MetadataForSettings & {
     enableProductHierarchy?: boolean;
     enableRetailExecution?: boolean;
     enableVisitSharing?: boolean;
 }
 
-export type SchemaSettings = mns_MetadataForSettings & {
+export type SchemaSettings = MetadataForSettings & {
     enableAdvancedCMTSecurity?: boolean;
     enableAdvancedCSSecurity?: boolean;
     enableListCustomSettingCreation?: boolean;
     enableSOSLOnCustomSettings?: boolean;
 }
 
-export type SearchSettings = mns_MetadataForSettings & {
+export type SearchSettings = MetadataForSettings & {
     documentContentSearchEnabled: boolean;
     enableAdvancedSearchInAlohaSidebar?: boolean;
     enableEinsteinSearchAnswersGPT?: boolean;
@@ -9821,7 +9818,7 @@ export type ObjectSearchSetting = {
     resultsPerPageCount: number;
 }
 
-export type SecuritySettings = mns_MetadataForSettings & {
+export type SecuritySettings = MetadataForSettings & {
     canUsersGrantLoginAccess?: boolean;
     enableAdminLoginAsAnyUser?: boolean;
     enableAuditFieldsInactiveOwner?: boolean;
@@ -9934,7 +9931,7 @@ export type SingleSignOnSettings = {
     isLoginWithSalesforceCredentialsDisabled?: boolean;
 }
 
-export type ServiceCloudVoiceSettings = mns_MetadataForSettings & {
+export type ServiceCloudVoiceSettings = MetadataForSettings & {
     enableAmazonQueueManagement?: boolean;
     enableDefaultChannelForSCV?: boolean;
     enableEndUserForSCV?: boolean;
@@ -9947,11 +9944,11 @@ export type ServiceCloudVoiceSettings = mns_MetadataForSettings & {
     enableServiceCloudVoice?: boolean;
 }
 
-export type ServiceSetupAssistantSettings = mns_MetadataForSettings & {
+export type ServiceSetupAssistantSettings = MetadataForSettings & {
     enableServiceSetupAssistant?: boolean;
 }
 
-export type SharingSettings = mns_MetadataForSettings & {
+export type SharingSettings = MetadataForSettings & {
     deferGroupMembership?: boolean;
     deferSharingRules?: boolean;
     enableAccountRoleOptimization?: boolean;
@@ -9971,14 +9968,14 @@ export type SharingSettings = mns_MetadataForSettings & {
     enableTerritoryForecastManager?: boolean;
 }
 
-export type SiteSettings = mns_MetadataForSettings & {
+export type SiteSettings = MetadataForSettings & {
     enableEnhancedSitesAndContentPlatform?: boolean;
     enableProxyLoginICHeader?: boolean;
     enableSitesRecordReassignOrgPref?: boolean;
     enableTopicsInSites?: boolean;
 }
 
-export type SocialCustomerServiceSettings = mns_MetadataForSettings & {
+export type SocialCustomerServiceSettings = MetadataForSettings & {
     caseSubjectOption: CaseSubjectOption;
     enableAllFBResponseAccounts?: boolean;
     enableInboundProcessingConcurrency?: boolean;
@@ -9990,7 +9987,7 @@ export type SocialCustomerServiceSettings = mns_MetadataForSettings & {
     enableSocialReceiveParentPost?: boolean;
 }
 
-export type SubscriptionManagementSettings = mns_MetadataForSettings & {
+export type SubscriptionManagementSettings = MetadataForSettings & {
     enableConvertNegativeInvoiceLinesToCreditMemoAndApply?: boolean;
     enablePaymentScheduleAutomation?: boolean;
     enableRefundAutomation?: boolean;
@@ -9998,18 +9995,18 @@ export type SubscriptionManagementSettings = mns_MetadataForSettings & {
     enableSubscriptionManagement?: boolean;
 }
 
-export type SurveySettings = mns_MetadataForSettings & {
+export type SurveySettings = MetadataForSettings & {
     enableIndustriesCxmEnabled?: boolean;
     enableSurvey?: boolean;
     enableSurveyOwnerCanManageResponse?: boolean;
 }
 
-export type SystemNotificationSettings = mns_MetadataForSettings & {
+export type SystemNotificationSettings = MetadataForSettings & {
     disableDowntimeNotifications?: boolean;
     disableMaintenanceNotifications?: boolean;
 }
 
-export type Territory2Settings = mns_MetadataForSettings & {
+export type Territory2Settings = MetadataForSettings & {
     defaultAccountAccessLevel?: string;
     defaultCaseAccessLevel?: string;
     defaultContactAccessLevel?: string;
@@ -10035,17 +10032,17 @@ export type Territory2SupportedObject = {
     state: string;
 }
 
-export type TrailheadSettings = mns_MetadataForSettings & {
+export type TrailheadSettings = MetadataForSettings & {
     enableConfettiEffect?: boolean;
     enableMyTrailheadPref?: boolean;
     enableTrailheadInLexTerms?: boolean;
 }
 
-export type TrialOrgSettings = mns_MetadataForSettings & {
+export type TrialOrgSettings = MetadataForSettings & {
     enableSampleDataDeleted?: boolean;
 }
 
-export type UserEngagementSettings = mns_MetadataForSettings & {
+export type UserEngagementSettings = MetadataForSettings & {
     canGovCloudUseAdoptionApps?: boolean;
     doesScheduledSwitcherRunDaily?: boolean;
     enableCustomHelpGlobalSection?: boolean;
@@ -10077,7 +10074,7 @@ export type UserEngagementSettings = mns_MetadataForSettings & {
     optimizerAppEnabled?: boolean;
 }
 
-export type UserInterfaceSettings = mns_MetadataForSettings & {
+export type UserInterfaceSettings = MetadataForSettings & {
     alternateAlohaListView?: boolean;
     dynamicMruActionsOff?: boolean;
     enableAsyncRelatedLists?: boolean;
@@ -10101,7 +10098,7 @@ export type UserInterfaceSettings = mns_MetadataForSettings & {
     enableVerticalNavSeamlessSwitching?: boolean;
 }
 
-export type UserManagementSettings = mns_MetadataForSettings & {
+export type UserManagementSettings = MetadataForSettings & {
     enableCanAnswerContainUsername?: boolean;
     enableConcealPersonalInfo?: boolean;
     enableContactlessExternalIdentityUsers?: boolean;
@@ -10120,7 +10117,7 @@ export type UserManagementSettings = mns_MetadataForSettings & {
     userAccessPoliciesEnabled?: boolean;
 }
 
-export type VoiceSettings = mns_MetadataForSettings & {
+export type VoiceSettings = MetadataForSettings & {
     enableCallDisposition?: boolean;
     enableConsentReminder?: boolean;
     enableDefaultRecording?: boolean;
@@ -10133,17 +10130,17 @@ export type VoiceSettings = mns_MetadataForSettings & {
     enableVoiceMailDrop?: boolean;
 }
 
-export type WarrantyLifecycleMgmtSettings = mns_MetadataForSettings & {
+export type WarrantyLifecycleMgmtSettings = MetadataForSettings & {
     enableWarrantyLCMgmt?: boolean;
 }
 
-export type WebToXSettings = mns_MetadataForSettings & {
+export type WebToXSettings = MetadataForSettings & {
     shouldHideRecordInfoInEmail?: boolean;
     webToCaseSpamFilter?: boolean;
     webToLeadSpamFilter?: boolean;
 }
 
-export type WorkDotComSettings = mns_MetadataForSettings & {
+export type WorkDotComSettings = MetadataForSettings & {
     enableCoachingManagerGroupAccess?: boolean;
     enableGoalManagerGroupAccess?: boolean;
     enableProfileSkills?: boolean;
@@ -10160,7 +10157,7 @@ export type WorkDotComSettings = mns_MetadataForSettings & {
     enableWorkUseObjectivesForGoals?: boolean;
 }
 
-export type MfgProgramTemplate = mns_Metadata & {
+export type MfgProgramTemplate = Metadata & {
     description?: string;
     programTemplateItems?: MfgProgramTemplateItem | MfgProgramTemplateItem[];
     programTemplateName: string;
@@ -10175,19 +10172,19 @@ export type MfgProgramTemplateItem = {
     transformationType: MfgProgramTransformationType;
 }
 
-export type MilestoneType = mns_Metadata & {
+export type MilestoneType = Metadata & {
     description?: string;
     recurrenceType?: MilestoneTypeRecurrenceType;
 }
 
-export type MktCalcInsightObjectDef = mns_Metadata & {
+export type MktCalcInsightObjectDef = Metadata & {
     creationType: CalculatedInsightCreationType;
     description?: string;
     expression?: string;
     masterLabel: string;
 }
 
-export type MktDataConnection = mns_Metadata & {
+export type MktDataConnection = Metadata & {
     connectionMethod: MktDataConnectionMethod;
     connectionStatus?: MktDataConnectionStatus;
     connectorName: string;
@@ -10195,23 +10192,23 @@ export type MktDataConnection = mns_Metadata & {
     masterLabel: string;
 }
 
-export type MktDataConnectionCred = mns_Metadata & {
+export type MktDataConnectionCred = Metadata & {
     credentialName: string;
     value: string;
 }
 
-export type MktDataConnectionParam = mns_Metadata & {
+export type MktDataConnectionParam = Metadata & {
     paramName: string;
     value: string;
 }
 
-export type MktDataConnectionSrcParam = mns_Metadata & {
+export type MktDataConnectionSrcParam = Metadata & {
     paramName: string;
     referenceObject: string;
     value: string;
 }
 
-export type MktDataTranField = mns_Metadata & {
+export type MktDataTranField = Metadata & {
     creationType: DefinitionCreationType;
     datatype: string;
     dateFormat?: string;
@@ -10225,7 +10222,7 @@ export type MktDataTranField = mns_Metadata & {
     sequence: number;
 }
 
-export type MktDataTranObject = mns_Metadata & {
+export type MktDataTranObject = Metadata & {
     connector: string;
     creationType: DefinitionCreationType;
     dataSource: string;
@@ -10234,19 +10231,19 @@ export type MktDataTranObject = mns_Metadata & {
     objectCategory: string;
 }
 
-export type MktDatalakeSrcKeyQualifier = mns_Metadata & {
+export type MktDatalakeSrcKeyQualifier = Metadata & {
     description?: string;
     masterLabel: string;
 }
 
-export type MlDomain = mns_Metadata & {
+export type MlDomain = Metadata & {
     description?: string;
     label: string;
     mlIntents?: MlIntent | MlIntent[];
     mlSlotClasses?: MlSlotClass | MlSlotClass[];
 }
 
-export type MlModelArtifact = mns_Metadata & {
+export type MlModelArtifact = Metadata & {
     algorithmType?: MlAIModelAlgorithmType;
     description?: string;
     generativeModelType?: MlGenerativeModelType;
@@ -10294,7 +10291,7 @@ export type MlParameterDefinition = {
     type: MlParameterType;
 }
 
-export type MlModelKit = mns_Metadata & {
+export type MlModelKit = Metadata & {
     activatedModels?: MlActivatedModel | MlActivatedModel[];
     description?: string;
     label: string;
@@ -10323,7 +10320,7 @@ export type MlParameterOverride = {
     parameter: string;
 }
 
-export type MobileApplicationDetail = mns_Metadata & {
+export type MobileApplicationDetail = Metadata & {
     applicationBinaryFile?: string;
     applicationBinaryFileName?: string;
     applicationBundleIdentifier?: string;
@@ -10338,7 +10335,7 @@ export type MobileApplicationDetail = mns_Metadata & {
     version: string;
 }
 
-export type ModerationRule = mns_Metadata & {
+export type ModerationRule = Metadata & {
     action: ModerationRuleAction;
     actionLimit?: number;
     active: boolean;
@@ -10358,7 +10355,7 @@ export type ModeratedEntityField = {
     keywordList?: string;
 }
 
-export type Module = mns_Metadata & {
+export type Module = Metadata & {
     description?: string;
     label: string;
     moduleDependencies?: ModuleDependencies;
@@ -10371,13 +10368,13 @@ export type ModuleDependencies = {
     moduleRef?: ModuleRef | ModuleRef[];
 }
 
-export type MyDomainDiscoverableLogin = mns_Metadata & {
+export type MyDomainDiscoverableLogin = Metadata & {
     apexHandler: string;
     executeApexHandlerAs?: string;
     usernameLabel?: string;
 }
 
-export type NamedCredential = mns_Metadata & {
+export type NamedCredential = Metadata & {
     allowMergeFieldsInBody?: boolean;
     allowMergeFieldsInHeader?: boolean;
     authProvider?: string;
@@ -10420,14 +10417,14 @@ export type NamedCredentialParameter = {
     sequenceNumber?: number;
 }
 
-export type NavigationMenu = mns_Metadata & {
+export type NavigationMenu = Metadata & {
     container: string;
     containerType: string;
     label: string;
     navigationMenuItem?: NavigationMenuItem | NavigationMenuItem[];
 }
 
-export type Network = mns_Metadata & {
+export type Network = Metadata & {
     allowInternalUserLogin?: boolean;
     allowMembersToFlag?: boolean;
     allowedExtensions?: string;
@@ -10603,7 +10600,7 @@ export type NetworkTabSet = {
     standardTab?: string | string[];
 }
 
-export type NetworkBranding = mns_Metadata & {
+export type NetworkBranding = Metadata & {
     loginBackgroundImageUrl?: string;
     loginFooterText?: string;
     loginLogo?: string;
@@ -10626,7 +10623,7 @@ export type NetworkBranding = mns_Metadata & {
     zeronaryComplementColor: string;
 }
 
-export type OauthCustomScope = mns_Metadata & {
+export type OauthCustomScope = Metadata & {
     assignedTo?: OauthCustomScopeApp | OauthCustomScopeApp[];
     description: string;
     developerName: string;
@@ -10639,7 +10636,7 @@ export type OauthCustomScopeApp = {
     connectedApp: string;
 }
 
-export type OauthTokenExchangeHandler = mns_Metadata & {
+export type OauthTokenExchangeHandler = Metadata & {
     description: string;
     developerName: string;
     enablements?: OauthTokenExchHandlerApp | OauthTokenExchHandlerApp[];
@@ -10662,7 +10659,7 @@ export type OauthTokenExchHandlerApp = {
     isDefault: boolean;
 }
 
-export type ObjectHierarchyRelationship = mns_Metadata & {
+export type ObjectHierarchyRelationship = Metadata & {
     childObjectMapping?: ObjectMapping;
     childObjectMappingId?: string;
     inputObjRecordsGrpFieldName?: string;
@@ -10677,7 +10674,7 @@ export type ObjectHierarchyRelationship = mns_Metadata & {
     usageType: MappingUsageType;
 }
 
-export type ObjectSourceTargetMap = mns_Metadata & {
+export type ObjectSourceTargetMap = Metadata & {
     creationType?: DefinitionCreationType;
     fieldSourceTargetMaps?: FieldSourceTargetMap | FieldSourceTargetMap[];
     masterLabel: string;
@@ -10697,7 +10694,7 @@ export type FieldSourceTargetMap = {
     targetField: string;
 }
 
-export type OcrSampleDocument = mns_Metadata & {
+export type OcrSampleDocument = Metadata & {
     applicationType?: OcrApplicationType;
     contentAsset?: string;
     documentHeight?: number;
@@ -10738,7 +10735,7 @@ export type OcrSampleDocumentPage = {
     pageNumber: number;
 }
 
-export type OcrTemplate = mns_Metadata & {
+export type OcrTemplate = Metadata & {
     active?: boolean;
     description?: string;
     documentType: string;
@@ -10765,7 +10762,7 @@ export type OcrTemplateSampleDocument = {
     ocrSampleDocument?: string;
 }
 
-export type OmniDataTransform = mns_Metadata & {
+export type OmniDataTransform = Metadata & {
     active?: boolean;
     assignmentRulesUsed?: boolean;
     deletedOnSuccess?: boolean;
@@ -10849,7 +10846,7 @@ export type OmniDataTransformItem = {
     upsertKey?: boolean;
 }
 
-export type OmniExtTrackingDef = mns_Metadata & {
+export type OmniExtTrackingDef = Metadata & {
     description?: string;
     developerName: string;
     isActive: boolean;
@@ -10860,7 +10857,7 @@ export type OmniExtTrackingDef = mns_Metadata & {
     trackingServiceProvider: ExternalTrackingVendor;
 }
 
-export type OmniExtTrackingEventDef = mns_Metadata & {
+export type OmniExtTrackingEventDef = Metadata & {
     componentType: OmniAnalyticsComponentType;
     description?: string;
     developerName: string;
@@ -10871,7 +10868,7 @@ export type OmniExtTrackingEventDef = mns_Metadata & {
     payloadTemplate: string;
 }
 
-export type OmniIntegrationProcedure = mns_Metadata & {
+export type OmniIntegrationProcedure = Metadata & {
     customHtmlTemplates?: string;
     customJavaScript?: string;
     description?: string;
@@ -10920,7 +10917,7 @@ export type OmniProcessElement = {
     uniqueIndex?: string;
 }
 
-export type OmniInteractionAccessConfig = mns_Metadata & {
+export type OmniInteractionAccessConfig = Metadata & {
     configName?: string;
     isAsyncCardCachingEnabled: boolean;
     isCardApexRemoteDisabled: boolean;
@@ -10936,12 +10933,12 @@ export type OmniInteractionAccessConfig = mns_Metadata & {
     setupOwner?: string;
 }
 
-export type OmniInteractionConfig = mns_Metadata & {
+export type OmniInteractionConfig = Metadata & {
     masterLabel: string;
     value: string;
 }
 
-export type OmniScript = mns_Metadata & {
+export type OmniScript = Metadata & {
     customHtmlTemplates?: string;
     customJavaScript?: string;
     description?: string;
@@ -10972,7 +10969,7 @@ export type OmniScript = mns_Metadata & {
     webComponentKey?: string;
 }
 
-export type OmniSupervisorConfig = mns_Metadata & {
+export type OmniSupervisorConfig = Metadata & {
     isTimelineHidden: boolean;
     masterLabel: string;
     omniSupervisorConfigAction?: OmniSupervisorConfigAction | OmniSupervisorConfigAction[];
@@ -11006,7 +11003,7 @@ export type OmniSupervisorConfigSkill = {
     skill: string;
 }
 
-export type OmniTrackingComponentDef = mns_Metadata & {
+export type OmniTrackingComponentDef = Metadata & {
     componentType: OmniAnalyticsComponentType;
     componentVersion: number;
     developerName: string;
@@ -11015,7 +11012,7 @@ export type OmniTrackingComponentDef = mns_Metadata & {
     omniTrackingGroup?: string;
 }
 
-export type OmniTrackingGroup = mns_Metadata & {
+export type OmniTrackingGroup = Metadata & {
     description?: string;
     developerName: string;
     endDate?: Date;
@@ -11029,7 +11026,7 @@ export type OmniTrackingGroup = mns_Metadata & {
     startDate?: Date;
 }
 
-export type OmniUiCard = mns_Metadata & {
+export type OmniUiCard = Metadata & {
     authorName: string;
     clonedFromOmniUiCardKey?: string;
     dataSourceConfig: string;
@@ -11044,12 +11041,12 @@ export type OmniUiCard = mns_Metadata & {
     versionNumber: string;
 }
 
-export type Orchestration = mns_Metadata & {
+export type Orchestration = Metadata & {
     context: string;
     masterLabel: string;
 }
 
-export type OrchestrationContext = mns_Metadata & {
+export type OrchestrationContext = Metadata & {
     datasets?: OrchestrationContextDataset | OrchestrationContextDataset[];
     description?: string;
     events?: OrchestrationContextEvent | OrchestrationContextEvent[];
@@ -11073,7 +11070,7 @@ export type OrchestrationContextEvent = {
     platformEventPrimaryKey: string;
 }
 
-export type OutboundNetworkConnection = mns_Metadata & {
+export type OutboundNetworkConnection = Metadata & {
     connectionType: ExternalConnectionType;
     description?: string;
     isActive: boolean;
@@ -11087,14 +11084,14 @@ export type OutboundNetworkConnProperty = {
     propertyValue: string;
 }
 
-export type ParticipantRole = mns_Metadata & {
+export type ParticipantRole = Metadata & {
     defaultAccessLevel: ParticipantRoleAccessLevel;
     isActive?: boolean;
     masterLabel: string;
     parentObject: string;
 }
 
-export type PathAssistant = mns_Metadata & {
+export type PathAssistant = Metadata & {
     active: boolean;
     entityName: string;
     fieldName: string;
@@ -11109,7 +11106,7 @@ export type PathAssistantStep = {
     picklistValueName: string;
 }
 
-export type PaymentGatewayProvider = mns_Metadata & {
+export type PaymentGatewayProvider = Metadata & {
     apexAdapter?: string;
     comments?: string;
     gatewayType?: GatewayType;
@@ -11117,7 +11114,7 @@ export type PaymentGatewayProvider = mns_Metadata & {
     masterLabel: string;
 }
 
-export type PermissionSet = mns_Metadata & {
+export type PermissionSet = Metadata & {
     applicationVisibilities?: PermissionSetApplicationVisibility | PermissionSetApplicationVisibility[];
     classAccesses?: PermissionSetApexClassAccess | PermissionSetApexClassAccess[];
     customMetadataTypeAccesses?: PermissionSetCustomMetadataTypeAccess | PermissionSetCustomMetadataTypeAccess[];
@@ -11234,11 +11231,11 @@ export type PermissionSetUserPermission = {
     name: string;
 }
 
-export type MutingPermissionSet = mns_PermissionSet & {
+export type MutingPermissionSet = PermissionSet & {
     label: string;
 }
 
-export type PermissionSetGroup = mns_Metadata & {
+export type PermissionSetGroup = Metadata & {
     description?: string;
     hasActivationRequired?: boolean;
     label: string;
@@ -11247,7 +11244,7 @@ export type PermissionSetGroup = mns_Metadata & {
     status?: string;
 }
 
-export type PermissionSetLicenseDefinition = mns_Metadata & {
+export type PermissionSetLicenseDefinition = Metadata & {
     customPermissions?: PermissionSetLicenseDefinitionCustomPermission | PermissionSetLicenseDefinitionCustomPermission[];
     isSupplementLicense?: boolean;
     label: string;
@@ -11259,14 +11256,14 @@ export type PermissionSetLicenseDefinitionCustomPermission = {
     name: string;
 }
 
-export type PersonAccountOwnerPowerUser = mns_Metadata & {
+export type PersonAccountOwnerPowerUser = Metadata & {
     developerName: string;
     masterLabel: string;
     portalType: string;
     user: string;
 }
 
-export type PlatformCachePartition = mns_Metadata & {
+export type PlatformCachePartition = Metadata & {
     description?: string;
     isDefaultPartition: boolean;
     masterLabel: string;
@@ -11281,12 +11278,12 @@ export type PlatformCachePartitionType = {
     cacheType: PlatformCacheType;
 }
 
-export type PlatformEventChannel = mns_Metadata & {
+export type PlatformEventChannel = Metadata & {
     channelType: PlatformEventChannelType;
     label: string;
 }
 
-export type PlatformEventChannelMember = mns_Metadata & {
+export type PlatformEventChannelMember = Metadata & {
     enrichedFields?: EnrichedField | EnrichedField[];
     eventChannel: string;
     filterExpression?: string;
@@ -11297,7 +11294,7 @@ export type EnrichedField = {
     name: string;
 }
 
-export type PlatformLicenseDefinition = mns_Metadata & {
+export type PlatformLicenseDefinition = Metadata & {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -11339,7 +11336,7 @@ export type SettingUsageDefinition = {
     setting: string;
 }
 
-export type Portal = mns_Metadata & {
+export type Portal = Metadata & {
     active: boolean;
     admin?: string;
     defaultLanguage?: string;
@@ -11367,14 +11364,14 @@ export type Portal = mns_Metadata & {
     type: PortalType;
 }
 
-export type PostTemplate = mns_Metadata & {
+export type PostTemplate = Metadata & {
     default?: boolean;
     description?: string;
     fields?: string | string[];
     label: string;
 }
 
-export type PriceRule = mns_Metadata & {
+export type PriceRule = Metadata & {
     conditionLogic: ConditionLogic;
     description?: string;
     effectiveDate?: Date;
@@ -11429,7 +11426,7 @@ export type PriceRuleExecutionStage = {
     stage: ExecutionStageOfPriceRule;
 }
 
-export type PriceSheetDefinition = mns_Metadata & {
+export type PriceSheetDefinition = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -11445,7 +11442,7 @@ export type PrcShtAttrDefinition = {
     isRangeColumn: boolean;
 }
 
-export type PricingActionParameters = mns_Metadata & {
+export type PricingActionParameters = Metadata & {
     contextDefinition: string;
     contextMapping: string;
     developerName: string;
@@ -11457,7 +11454,7 @@ export type PricingActionParameters = mns_Metadata & {
     pricingProcedure?: string;
 }
 
-export type PricingRecipe = mns_Metadata & {
+export type PricingRecipe = Metadata & {
     defaultPricingProcedureId?: string;
     developerName?: string;
     isActive?: boolean;
@@ -11474,7 +11471,7 @@ export type PricingRecipeTableMapping = {
     pricingRecipe: string;
 }
 
-export type ProcessFlowMigration = mns_Metadata & {
+export type ProcessFlowMigration = Metadata & {
     destinationFlowDefinition: string;
     destinationFlowVersion: string;
     developerName: string;
@@ -11484,7 +11481,7 @@ export type ProcessFlowMigration = mns_Metadata & {
     processVersion: string;
 }
 
-export type ProcessPalette = mns_Metadata & {
+export type ProcessPalette = Metadata & {
     allHeaderAutolayoutVisibility?: boolean | boolean[];
     allHeaderFreeformVisibility?: boolean | boolean[];
     allHeaderNames?: string | string[];
@@ -11511,7 +11508,7 @@ export type ProcessPalette = mns_Metadata & {
     shortcutOrders?: number | number[];
 }
 
-export type ProcessTypeDefinition = mns_Metadata & {
+export type ProcessTypeDefinition = Metadata & {
     actionTypes?: InvocableActionType | InvocableActionType[];
     autoGeneratedRequiredVariables?: FlowVariable | FlowVariable[];
     defaultFlowRuntimeApiVersion?: number;
@@ -11531,14 +11528,14 @@ export type ProcessTypeDefinition = mns_Metadata & {
     triggerTypeAllowList?: FlowTriggerType | FlowTriggerType[];
 }
 
-export type ProductAttrDisplayConfig = mns_Metadata & {
+export type ProductAttrDisplayConfig = Metadata & {
     dataType: string;
     displayType: string;
     masterLabel: string;
     status: string;
 }
 
-export type ProductAttributeSet = mns_Metadata & {
+export type ProductAttributeSet = Metadata & {
     description?: string;
     developerName: string;
     masterLabel: string;
@@ -11550,23 +11547,23 @@ export type ProductAttributeSetItem = {
     sequence: number;
 }
 
-export type ProductFamilyUsage = mns_Metadata & {
+export type ProductFamilyUsage = Metadata & {
     productFamilyUsageType: ProductFamilyUsageType;
 }
 
-export type ProductSpecificationRecType = mns_Metadata & {
+export type ProductSpecificationRecType = Metadata & {
     isCommercial: boolean;
     masterLabel: string;
     productSpecificationType: string;
     recordType: string;
 }
 
-export type ProductSpecificationType = mns_Metadata & {
+export type ProductSpecificationType = Metadata & {
     description: string;
     masterLabel: string;
 }
 
-export type Profile = mns_Metadata & {
+export type Profile = Metadata & {
     applicationVisibilities?: ProfileApplicationVisibility | ProfileApplicationVisibility[];
     categoryGroupVisibilities?: ProfileCategoryGroupVisibility | ProfileCategoryGroupVisibility[];
     classAccesses?: ProfileApexClassAccess | ProfileApexClassAccess[];
@@ -11706,7 +11703,7 @@ export type ProfileUserPermission = {
     name: string;
 }
 
-export type Prompt = mns_Metadata & {
+export type Prompt = Metadata & {
     masterLabel: string;
     promptVersions?: PromptVersion | PromptVersion[];
 }
@@ -11761,7 +11758,7 @@ export type PromptVersion = {
     videoLink?: string;
 }
 
-export type Queue = mns_Metadata & {
+export type Queue = Metadata & {
     doesSendEmailToMembers?: boolean;
     email?: string;
     name: string;
@@ -11802,7 +11799,7 @@ export type QueueSobject = {
     sobjectType: string;
 }
 
-export type QuickAction = mns_Metadata & {
+export type QuickAction = Metadata & {
     actionSubtype?: ActionSubtype;
     canvas?: string;
     description?: string;
@@ -11853,7 +11850,7 @@ export type QuickActionSendEmailOptions = {
     ignoreDefaultEmailTemplateSubject: boolean;
 }
 
-export type RecommendationStrategy = mns_Metadata & {
+export type RecommendationStrategy = Metadata & {
     actionContext?: StrategyAction | StrategyAction[];
     aiLoad?: StrategyNodeAiLoad | StrategyNodeAiLoad[];
     aiSort?: StrategyNodeAiSort | StrategyNodeAiSort[];
@@ -11887,7 +11884,7 @@ export type StrategyActionArg = {
     value: string;
 }
 
-export type StrategyNodeAiLoad = mns_StrategyNodeUnionBase & {
+export type StrategyNodeAiLoad = StrategyNodeUnionBase & {
     acceptanceLabel: string;
     actionReference: string;
     descriptionField: string;
@@ -11896,7 +11893,7 @@ export type StrategyNodeAiLoad = mns_StrategyNodeUnionBase & {
     titleField: string;
 }
 
-export type StrategyNodeUnionBase = mns_StrategyNodeBase & {
+export type StrategyNodeUnionBase = StrategyNodeBase & {
     limit?: number;
 }
 
@@ -11907,17 +11904,17 @@ export type StrategyNodeBase = {
     name: string;
 }
 
-export type StrategyNodeAiSort = mns_StrategyNodeUnionBase & {
+export type StrategyNodeAiSort = StrategyNodeUnionBase & {
 }
 
-export type StrategyNodeExclusive = mns_StrategyNodeUnionBase & {
+export type StrategyNodeExclusive = StrategyNodeUnionBase & {
 }
 
-export type StrategyNodeFilter = mns_StrategyNodeUnionBase & {
+export type StrategyNodeFilter = StrategyNodeUnionBase & {
     expression: string;
 }
 
-export type StrategyNodeIf = mns_StrategyNodeUnionBase & {
+export type StrategyNodeIf = StrategyNodeUnionBase & {
     childNodeExpression?: IfExpression | IfExpression[];
     onlyFirstMatch?: boolean;
 }
@@ -11927,7 +11924,7 @@ export type IfExpression = {
     expression: string;
 }
 
-export type StrategyNodeInvocableAction = mns_StrategyNodeUnionBase & {
+export type StrategyNodeInvocableAction = StrategyNodeUnionBase & {
     action: string;
     argument?: StrategyNodeInvocableActionArg | StrategyNodeInvocableActionArg[];
     isGenerator: boolean;
@@ -11939,7 +11936,7 @@ export type StrategyNodeInvocableActionArg = {
     value: string;
 }
 
-export type StrategyNodeMap = mns_StrategyNodeUnionBase & {
+export type StrategyNodeMap = StrategyNodeUnionBase & {
     mapExpression?: MapExpression | MapExpression[];
 }
 
@@ -11949,13 +11946,13 @@ export type MapExpression = {
     type?: string;
 }
 
-export type StrategyNodeRecommendationLimit = mns_StrategyNodeUnionBase & {
+export type StrategyNodeRecommendationLimit = StrategyNodeUnionBase & {
     filterMode?: StrategyReactionType | StrategyReactionType[];
     lookbackDuration?: number;
     maxRecommendationCount?: number;
 }
 
-export type StrategyNodeRecommendationLoad = mns_StrategyNodeUnionBase & {
+export type StrategyNodeRecommendationLoad = StrategyNodeUnionBase & {
     condition?: RecommendationLoadCondition | RecommendationLoadCondition[];
     conditionLogic?: string;
     object: string;
@@ -11979,14 +11976,14 @@ export type StrategyNodeSortField = {
     order?: SortOrder;
 }
 
-export type StrategyNodeSort = mns_StrategyNodeUnionBase & {
+export type StrategyNodeSort = StrategyNodeUnionBase & {
     field?: StrategyNodeSortField | StrategyNodeSortField[];
 }
 
-export type StrategyNodeUnion = mns_StrategyNodeUnionBase & {
+export type StrategyNodeUnion = StrategyNodeUnionBase & {
 }
 
-export type RecordActionDeployment = mns_Metadata & {
+export type RecordActionDeployment = Metadata & {
     channelConfigurations?: RecordActionDeploymentChannel | RecordActionDeploymentChannel[];
     componentName?: ComponentName;
     deploymentContexts?: RecordActionDeploymentContext | RecordActionDeploymentContext[];
@@ -12036,7 +12033,7 @@ export type RecordActionSelectableItem = {
     type: RecordActionType;
 }
 
-export type RecordAggregationDefinition = mns_Metadata & {
+export type RecordAggregationDefinition = Metadata & {
     aggregateFromObject: string;
     aggregateToObject: string;
     aggregationType: RecordAggregationDefinitionAggregationType;
@@ -12071,13 +12068,13 @@ export type RecordAggregationObjectFilter = {
     value: string;
 }
 
-export type RecordAlertCategory = mns_Metadata & {
+export type RecordAlertCategory = Metadata & {
     description?: string;
     masterLabel: string;
     severity?: string;
 }
 
-export type RecordType = mns_Metadata & {
+export type RecordType = Metadata & {
     active: boolean;
     businessProcess?: string;
     compactLayoutAssignment?: string;
@@ -12091,11 +12088,11 @@ export type RecordTypePicklistValue = {
     values?: PicklistValue | PicklistValue[];
 }
 
-export type RedirectWhitelistUrl = mns_Metadata & {
+export type RedirectWhitelistUrl = Metadata & {
     url: string;
 }
 
-export type ReferencedDashboard = mns_Metadata & {
+export type ReferencedDashboard = Metadata & {
     application: string;
     description?: string;
     embedUrl: string;
@@ -12104,7 +12101,7 @@ export type ReferencedDashboard = mns_Metadata & {
     visibility: string;
 }
 
-export type RelationshipGraphDefinition = mns_Metadata & {
+export type RelationshipGraphDefinition = Metadata & {
     isActive: boolean;
     isTemplate: boolean;
     masterLabel: string;
@@ -12116,14 +12113,14 @@ export type RelationshipGraphDefVersion = {
     graphType: string;
 }
 
-export type RemoteSiteSetting = mns_Metadata & {
+export type RemoteSiteSetting = Metadata & {
     description?: string;
     disableProtocolSecurity: boolean;
     isActive: boolean;
     url: string;
 }
 
-export type Report = mns_Metadata & {
+export type Report = Metadata & {
     aggregates?: ReportAggregate | ReportAggregate[];
     blockInfo?: ReportBlockInfo;
     buckets?: ReportBucketField | ReportBucketField[];
@@ -12319,7 +12316,7 @@ export type ReportTimeFrameFilter = {
     startDate?: Date;
 }
 
-export type ReportType = mns_Metadata & {
+export type ReportType = Metadata & {
     autogenerated?: boolean;
     baseObject: string;
     category: ReportTypeCategory;
@@ -12348,7 +12345,7 @@ export type ReportTypeColumn = {
     table: string;
 }
 
-export type RestrictionRule = mns_Metadata & {
+export type RestrictionRule = Metadata & {
     active: boolean;
     dataspaceScope?: string;
     description?: string;
@@ -12360,7 +12357,7 @@ export type RestrictionRule = mns_Metadata & {
     version: number;
 }
 
-export type RoleOrTerritory = mns_Metadata & {
+export type RoleOrTerritory = Metadata & {
     caseAccessLevel?: string;
     contactAccessLevel?: string;
     description?: string;
@@ -12369,16 +12366,16 @@ export type RoleOrTerritory = mns_Metadata & {
     opportunityAccessLevel?: string;
 }
 
-export type Role = mns_RoleOrTerritory & {
+export type Role = RoleOrTerritory & {
     parentRole?: string;
 }
 
-export type Territory = mns_RoleOrTerritory & {
+export type Territory = RoleOrTerritory & {
     accountAccessLevel?: string;
     parentTerritory?: string;
 }
 
-export type RuleLibraryDefinition = mns_Metadata & {
+export type RuleLibraryDefinition = Metadata & {
     contextDefinition: string;
     contextRuleStatus: ContextRuleStatus;
     description?: string;
@@ -12387,7 +12384,7 @@ export type RuleLibraryDefinition = mns_Metadata & {
     usageType: ContextRuleUsageType;
 }
 
-export type RulesetDefinition = mns_Metadata & {
+export type RulesetDefinition = Metadata & {
     endDate?: Date;
     executionType: ExecutionType;
     label: string;
@@ -12396,7 +12393,7 @@ export type RulesetDefinition = mns_Metadata & {
     status: ContextRuleStatus;
 }
 
-export type RuleDefinition = mns_Metadata & {
+export type RuleDefinition = Metadata & {
     actions?: RuleAction | RuleAction[];
     criteria?: RuleFilterCriteria | RuleFilterCriteria[];
     description?: string;
@@ -12452,7 +12449,7 @@ export type RuleReferenceVariable = {
     value?: string;
 }
 
-export type SalesAgreementSettings = mns_Metadata & {
+export type SalesAgreementSettings = Metadata & {
     actualsCalculationMode: ActualsCalculationMode;
     displayGroups?: AdvAcctFrcstDisplayGroup | AdvAcctFrcstDisplayGroup[];
     displayedAgreementTermsMetrics: string;
@@ -12464,13 +12461,13 @@ export type SalesAgreementSettings = mns_Metadata & {
     secondaryNotifEmailAddress?: string;
 }
 
-export type SalesWorkQueueSettings = mns_Metadata & {
+export type SalesWorkQueueSettings = Metadata & {
     featureName: string;
     targetEntity: string;
     targetField: string;
 }
 
-export type SamlSsoConfig = mns_Metadata & {
+export type SamlSsoConfig = Metadata & {
     attributeName?: string;
     attributeNameIdFormat?: string;
     decryptionCertificate?: string;
@@ -12498,18 +12495,18 @@ export type SamlSsoConfig = mns_Metadata & {
     validationCert: string;
 }
 
-export type Schema = mns_Metadata & {
+export type Schema = Metadata & {
     description?: string;
     schemaContentType: PlatformSchemaContentType;
     sequenceNumber: number;
 }
 
-export type SchemaDefinition = mns_Metadata & {
+export type SchemaDefinition = Metadata & {
     description?: string;
     domainType: DomainType;
 }
 
-export type Scontrol = mns_Metadata & {
+export type Scontrol = Metadata & {
     contentSource: SControlContentSource;
     description?: string;
     encodingKey: Encoding;
@@ -12519,7 +12516,7 @@ export type Scontrol = mns_Metadata & {
     supportsCaching: boolean;
 }
 
-export type ScoreCategory = mns_Metadata & {
+export type ScoreCategory = Metadata & {
     categoryName: string;
     description: string;
     developerName: string;
@@ -12544,7 +12541,7 @@ export type ScoreRangeClassification = {
     rangeStartValue: number;
 }
 
-export type SearchCriteriaConfiguration = mns_Metadata & {
+export type SearchCriteriaConfiguration = Metadata & {
     actionList?: string;
     aggrCriteriaFieldset?: FieldSet;
     description?: string;
@@ -12561,13 +12558,13 @@ export type SearchCriteriaConfiguration = mns_Metadata & {
     sortingCriteriaFieldset?: FieldSet;
 }
 
-export type SearchCustomization = mns_Metadata & {
+export type SearchCustomization = Metadata & {
     channel: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type SearchResultActionConfig = mns_Metadata & {
+export type SearchResultActionConfig = Metadata & {
     actionReference: string;
     actionScope: SearchResultActionScope;
     actionType: SearchResultActionType;
@@ -12575,7 +12572,7 @@ export type SearchResultActionConfig = mns_Metadata & {
     masterLabel: string;
 }
 
-export type SearchableObjDataSyncInfo = mns_Metadata & {
+export type SearchableObjDataSyncInfo = Metadata & {
     dataSyncActive?: boolean;
     dataSyncJob?: string;
     description?: string;
@@ -12589,14 +12586,14 @@ export type SearchableObjDataSyncInfo = mns_Metadata & {
     searchableObject: string;
 }
 
-export type ServiceAISetupDefinition = mns_Metadata & {
+export type ServiceAISetupDefinition = Metadata & {
     appSourceType: ApplicationSourceType;
     name: string;
     setupStatus: ServiceAISetupDefStatus;
     supportedLanguages?: string;
 }
 
-export type ServiceAISetupField = mns_Metadata & {
+export type ServiceAISetupField = Metadata & {
     entity: string;
     field: string;
     fieldMappingType: ServiceAISetupFieldType;
@@ -12605,7 +12602,7 @@ export type ServiceAISetupField = mns_Metadata & {
     setupDefinition: string;
 }
 
-export type ServiceProcess = mns_Metadata & {
+export type ServiceProcess = Metadata & {
     description?: string;
     processLabel: string;
     serviceProcessAttributes?: ServiceProcessAttribute | ServiceProcessAttribute[];
@@ -12643,7 +12640,7 @@ export type ServiceProcessItemGroup = {
     sortOrder: number;
 }
 
-export type SharingBaseRule = mns_Metadata & {
+export type SharingBaseRule = Metadata & {
     accessLevel: string;
     accountSettings?: AccountSharingRuleSettings;
     description?: string;
@@ -12657,18 +12654,18 @@ export type AccountSharingRuleSettings = {
     opportunityAccessLevel: string;
 }
 
-export type SharingOwnerRule = mns_SharingBaseRule & {
+export type SharingOwnerRule = SharingBaseRule & {
     sharedFrom: SharedTo;
 }
 
-export type SharingTerritoryRule = mns_SharingOwnerRule & {
+export type SharingTerritoryRule = SharingOwnerRule & {
 }
 
-export type SharingReason = mns_Metadata & {
+export type SharingReason = Metadata & {
     label: string;
 }
 
-export type SharingSet = mns_Metadata & {
+export type SharingSet = Metadata & {
     accessMappings?: AccessMapping | AccessMapping[];
     description?: string;
     name: string;
@@ -12682,12 +12679,12 @@ export type AccessMapping = {
     userField: string;
 }
 
-export type SiteDotCom = mns_Metadata & {
+export type SiteDotCom = Metadata & {
     label: string;
     siteType: SiteType;
 }
 
-export type Skill = mns_Metadata & {
+export type Skill = Metadata & {
     assignments?: SkillAssignments;
     description?: string;
     label: string;
@@ -12707,11 +12704,11 @@ export type SkillUserAssignments = {
     user?: string | string[];
 }
 
-export type SkillType = mns_Metadata & {
+export type SkillType = Metadata & {
     masterLabel: string;
 }
 
-export type SlackApp = mns_Metadata & {
+export type SlackApp = Metadata & {
     apiVersion?: number;
     appKey: string;
     appToken: string;
@@ -12725,38 +12722,38 @@ export type SlackApp = mns_Metadata & {
     userScopes?: string;
 }
 
-export type SlackRecordLayout = mns_Metadata & {
+export type SlackRecordLayout = Metadata & {
     isProtected?: boolean;
     masterLabel: string;
     sobjectType: string;
     viewMode: SlackRecordLayoutViewMode;
 }
 
-export type StandardValueSet = mns_Metadata & {
+export type StandardValueSet = Metadata & {
     groupingStringEnum?: string;
     sorted: boolean;
     standardValue?: StandardValue | StandardValue[];
 }
 
-export type StaticResource = mns_Metadata & {
+export type StaticResource = Metadata & {
     cacheControl: StaticResourceCacheControl;
     contentType: string;
     description?: string;
 }
 
-export type StnryAssetEnvSrcCnfg = mns_Metadata & {
+export type StnryAssetEnvSrcCnfg = Metadata & {
     recordType: string;
     stationaryAssetType: StationaryAssetType;
 }
 
-export type StreamingAppDataConnector = mns_Metadata & {
+export type StreamingAppDataConnector = Metadata & {
     appIdentifier: string;
     dataConnectorType: DataConnectorType;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type SustainabilityUom = mns_Metadata & {
+export type SustainabilityUom = Metadata & {
     description?: string;
     isProductUom?: boolean;
     isProtected?: boolean;
@@ -12766,7 +12763,7 @@ export type SustainabilityUom = mns_Metadata & {
     unitType: UnitType;
 }
 
-export type SustnUomConversion = mns_Metadata & {
+export type SustnUomConversion = Metadata & {
     conversionFactor: number;
     fuelType?: string;
     isProtected?: boolean;
@@ -12776,7 +12773,7 @@ export type SustnUomConversion = mns_Metadata & {
     uomsKey?: string;
 }
 
-export type SvcCatalogCategory = mns_Metadata & {
+export type SvcCatalogCategory = Metadata & {
     image?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -12785,7 +12782,7 @@ export type SvcCatalogCategory = mns_Metadata & {
     sortOrder?: number;
 }
 
-export type SvcCatalogFilterCriteria = mns_Metadata & {
+export type SvcCatalogFilterCriteria = Metadata & {
     conditions?: SvcCatalogFilterCondition | SvcCatalogFilterCondition[];
     criteriaRelation: CriteriaRelationshipType;
     description?: string;
@@ -12800,7 +12797,7 @@ export type SvcCatalogFilterCondition = {
     value: string;
 }
 
-export type SvcCatalogFulfillmentFlow = mns_Metadata & {
+export type SvcCatalogFulfillmentFlow = Metadata & {
     description: string;
     flow: string;
     icon?: string;
@@ -12821,7 +12818,7 @@ export type SvcCatalogFulfillFlowItem = {
     objectLookupDomain?: string;
 }
 
-export type SvcCatalogItemDef = mns_Metadata & {
+export type SvcCatalogItemDef = Metadata & {
     apiVersion?: number;
     catalogFilterCriteria?: SvcCatalogItemDefFiltrCrit | SvcCatalogItemDefFiltrCrit[];
     categories?: SvcCatalogCategoryItem | SvcCatalogCategoryItem[];
@@ -12874,13 +12871,13 @@ export type SvcCatalogItemAttrDetail = {
     value: string;
 }
 
-export type SynonymDictionary = mns_Metadata & {
+export type SynonymDictionary = Metadata & {
     groups?: SynonymGroup | SynonymGroup[];
     isProtected?: boolean;
     label: string;
 }
 
-export type Territory2 = mns_Metadata & {
+export type Territory2 = Metadata & {
     accountAccessLevel?: string;
     caseAccessLevel?: string;
     contactAccessLevel?: string;
@@ -12908,13 +12905,13 @@ export type Territory2RuleAssociation = {
     ruleName: string;
 }
 
-export type Territory2Model = mns_Metadata & {
+export type Territory2Model = Metadata & {
     customFields?: FieldValue | FieldValue[];
     description?: string;
     name: string;
 }
 
-export type Territory2Rule = mns_Metadata & {
+export type Territory2Rule = Metadata & {
     active: boolean;
     booleanFilter?: string;
     name: string;
@@ -12928,13 +12925,13 @@ export type Territory2RuleItem = {
     value?: string;
 }
 
-export type Territory2Type = mns_Metadata & {
+export type Territory2Type = Metadata & {
     description?: string;
     name: string;
     priority: number;
 }
 
-export type TimeSheetTemplate = mns_Metadata & {
+export type TimeSheetTemplate = Metadata & {
     active: boolean;
     description?: string;
     frequency: TimeSheetFrequency;
@@ -12949,19 +12946,19 @@ export type TimeSheetTemplateAssignment = {
     assignedTo?: string;
 }
 
-export type TimelineObjectDefinition = mns_Metadata & {
+export type TimelineObjectDefinition = Metadata & {
     baseObject: string;
     definition: string;
     isActive?: boolean;
     masterLabel: string;
 }
 
-export type TopicsForObjects = mns_Metadata & {
+export type TopicsForObjects = Metadata & {
     enableTopics: boolean;
     entityApiName: string;
 }
 
-export type TransactionSecurityPolicy = mns_Metadata & {
+export type TransactionSecurityPolicy = Metadata & {
     action: TransactionSecurityAction;
     active: boolean;
     apexClass?: string;
@@ -12992,7 +12989,7 @@ export type TransactionSecurityNotification = {
     user: string;
 }
 
-export type Translations = mns_Metadata & {
+export type Translations = Metadata & {
     botBlocks?: BotBlockTranslation | BotBlockTranslation[];
     botTemplates?: BotTemplateTranslation | BotTemplateTranslation[];
     bots?: BotTranslation | BotTranslation[];
@@ -13241,7 +13238,7 @@ export type ScontrolTranslation = {
     name: string;
 }
 
-export type UIObjectRelationConfig = mns_Metadata & {
+export type UIObjectRelationConfig = Metadata & {
     UIObjectRelationFieldConfigs?: UIObjectRelationFieldConfig | UIObjectRelationFieldConfig[];
     contextObject: string;
     contextObjectRecordType?: string;
@@ -13262,7 +13259,7 @@ export type UIObjectRelationFieldConfig = {
     rowOrder: number;
 }
 
-export type UiPlugin = mns_Metadata & {
+export type UiPlugin = Metadata & {
     description?: string;
     extensionPointIdentifier: string;
     isEnabled: boolean;
@@ -13270,12 +13267,12 @@ export type UiPlugin = mns_Metadata & {
     masterLabel: string;
 }
 
-export type UiViewDefinition = mns_Metadata & {
+export type UiViewDefinition = Metadata & {
     content: string;
     type: FlexiPageType;
 }
 
-export type UserAccessPolicy = mns_Metadata & {
+export type UserAccessPolicy = Metadata & {
     booleanFilter: string;
     description?: string;
     isProtected?: boolean;
@@ -13301,7 +13298,7 @@ export type UserAccessPolicyFilter = {
     value?: string;
 }
 
-export type UserAuthCertificate = mns_Metadata & {
+export type UserAuthCertificate = Metadata & {
     developerName: string;
     expirationDate?: Date;
     masterLabel: string;
@@ -13309,7 +13306,7 @@ export type UserAuthCertificate = mns_Metadata & {
     user: string;
 }
 
-export type UserCriteria = mns_Metadata & {
+export type UserCriteria = Metadata & {
     creationAgeInSeconds?: number;
     description?: string;
     lastChatterActivityAgeInSeconds?: number;
@@ -13318,7 +13315,7 @@ export type UserCriteria = mns_Metadata & {
     userTypes?: NetworkUserType | NetworkUserType[];
 }
 
-export type UserLicenseDefinition = mns_Metadata & {
+export type UserLicenseDefinition = Metadata & {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -13352,12 +13349,12 @@ export type SettingValue = {
     value: string;
 }
 
-export type UserProfileSearchScope = mns_Metadata & {
+export type UserProfileSearchScope = Metadata & {
     entityApiNames?: string | string[];
     profile?: string;
 }
 
-export type UserProvisioningConfig = mns_Metadata & {
+export type UserProvisioningConfig = Metadata & {
     approvalRequired?: string;
     connectedApp: string;
     enabled?: boolean;
@@ -13371,7 +13368,7 @@ export type UserProvisioningConfig = mns_Metadata & {
     userAccountMapping?: string;
 }
 
-export type ValidationRule = mns_Metadata & {
+export type ValidationRule = Metadata & {
     active: boolean;
     description?: string;
     errorConditionFormula: string;
@@ -13380,12 +13377,12 @@ export type ValidationRule = mns_Metadata & {
     shouldEvaluateOnClient?: boolean;
 }
 
-export type VehicleAssetEmssnSrcCnfg = mns_Metadata & {
+export type VehicleAssetEmssnSrcCnfg = Metadata & {
     recordType: string;
     vehicleAssetType: VehicleAssetType;
 }
 
-export type ViewDefinition = mns_Metadata & {
+export type ViewDefinition = Metadata & {
     apiVersion?: number;
     content: string;
     description?: string;
@@ -13394,7 +13391,7 @@ export type ViewDefinition = mns_Metadata & {
     targetType: ViewTargetType;
 }
 
-export type VisualizationPlugin = mns_Metadata & {
+export type VisualizationPlugin = Metadata & {
     description?: string;
     developerName: string;
     icon: string;
@@ -13418,7 +13415,7 @@ export type VisualizationType = {
     scriptBootstrapMethod?: string;
 }
 
-export type WaveAnalyticAssetCollection = mns_Metadata & {
+export type WaveAnalyticAssetCollection = Metadata & {
     collectionType: string;
     color: string;
     description?: string;
@@ -13435,7 +13432,7 @@ export type WaveAnalyticAssetCollectionItem = {
     sortOrder?: number;
 }
 
-export type WaveApplication = mns_Metadata & {
+export type WaveApplication = Metadata & {
     assetIcon?: string;
     description?: string;
     folder: string;
@@ -13445,7 +13442,7 @@ export type WaveApplication = mns_Metadata & {
     templateVersion?: string;
 }
 
-export type WaveDashboard = mns_Metadata & {
+export type WaveDashboard = Metadata & {
     application: string;
     dateVersion?: number;
     description?: string;
@@ -13453,17 +13450,17 @@ export type WaveDashboard = mns_Metadata & {
     templateAssetSourceName?: string;
 }
 
-export type WaveComponent = mns_WaveDashboard & {
+export type WaveComponent = WaveDashboard & {
 }
 
-export type WaveDataflow = mns_Metadata & {
+export type WaveDataflow = Metadata & {
     application?: string;
     dataflowType?: string;
     description?: string;
     masterLabel: string;
 }
 
-export type WaveDataset = mns_Metadata & {
+export type WaveDataset = Metadata & {
     application: string;
     description?: string;
     masterLabel: string;
@@ -13471,7 +13468,7 @@ export type WaveDataset = mns_Metadata & {
     type?: string;
 }
 
-export type WaveLens = mns_Metadata & {
+export type WaveLens = Metadata & {
     application: string;
     datasets?: string | string[];
     dateVersion?: number;
@@ -13481,7 +13478,7 @@ export type WaveLens = mns_Metadata & {
     visualizationType: string;
 }
 
-export type WaveRecipe = mns_Metadata & {
+export type WaveRecipe = Metadata & {
     application?: string;
     dataflow: string;
     format?: string;
@@ -13491,7 +13488,7 @@ export type WaveRecipe = mns_Metadata & {
     templateAssetSourceName?: string;
 }
 
-export type WaveTemplateBundle = mns_Metadata & {
+export type WaveTemplateBundle = Metadata & {
     assetIcon?: string;
     assetVersion?: number;
     description?: string;
@@ -13499,20 +13496,20 @@ export type WaveTemplateBundle = mns_Metadata & {
     templateType: string;
 }
 
-export type WaveTemplateDetailsMetadata = mns_Metadata & {
+export type WaveTemplateDetailsMetadata = Metadata & {
 }
 
-export type WaveTemplateExternalDataMetadata = mns_Metadata & {
+export type WaveTemplateExternalDataMetadata = Metadata & {
     edgemartLabel: string;
     format: string;
     label: string;
     simulatedRowCount?: number;
 }
 
-export type WaveTemplateLensDashboardMetadata = mns_Metadata & {
+export type WaveTemplateLensDashboardMetadata = Metadata & {
 }
 
-export type WaveXmd = mns_Metadata & {
+export type WaveXmd = Metadata & {
     application?: string;
     dataset: string;
     datasetConnector?: string;
@@ -13667,7 +13664,7 @@ export type WaveXmdOrganization = {
     sortIndex: number;
 }
 
-export type WebLink = mns_Metadata & {
+export type WebLink = Metadata & {
     availability: WebLinkAvailability;
     description?: string;
     displayType: WebLinkDisplayType;
@@ -13691,7 +13688,7 @@ export type WebLink = mns_Metadata & {
     width?: number;
 }
 
-export type WebStoreBundle = mns_Metadata & {
+export type WebStoreBundle = Metadata & {
     autoFacetingEnabled?: boolean;
     cartToOrderAutoCustomFieldMapping?: boolean;
     commerceEinsteinActivitiesTracked?: boolean;
@@ -13716,7 +13713,7 @@ export type WebStoreBundle = mns_Metadata & {
     type: WebStoreType;
 }
 
-export type WebStoreTemplate = mns_Metadata & {
+export type WebStoreTemplate = Metadata & {
     autoFacetingEnabled?: boolean;
     cartAsyncProcessingEnabled?: boolean;
     cartCalculateEnabled?: boolean;
@@ -13752,12 +13749,12 @@ export type WebStoreTemplate = mns_Metadata & {
     type: WebStoreType;
 }
 
-export type WindowsPushApplicationSetup = mns_Metadata & {
+export type WindowsPushApplicationSetup = Metadata & {
     packageSecurityIdentifier: string;
     secretKey: string;
 }
 
-export type WorkSkillRouting = mns_Metadata & {
+export type WorkSkillRouting = Metadata & {
     isActive: boolean;
     masterLabel: string;
     relatedEntity: string;
@@ -13773,13 +13770,13 @@ export type WorkSkillRoutingAttribute = {
     value?: string;
 }
 
-export type Workflow = mns_Metadata & {
+export type Workflow = Metadata & {
 }
 
-export type WorkflowAction = mns_Metadata & {
+export type WorkflowAction = Metadata & {
 }
 
-export type WorkflowAlert = mns_WorkflowAction & {
+export type WorkflowAlert = WorkflowAction & {
     ccEmails?: string | string[];
     description: string;
     protected: boolean;
@@ -13795,7 +13792,7 @@ export type WorkflowEmailRecipient = {
     type: ActionEmailRecipientTypes;
 }
 
-export type WorkflowFieldUpdate = mns_WorkflowAction & {
+export type WorkflowFieldUpdate = WorkflowAction & {
     description?: string;
     field: string;
     formula?: string;
@@ -13810,7 +13807,7 @@ export type WorkflowFieldUpdate = mns_WorkflowAction & {
     targetObject?: string;
 }
 
-export type WorkflowFlowAction = mns_WorkflowAction & {
+export type WorkflowFlowAction = WorkflowAction & {
     description?: string;
     flow: string;
     flowInputs?: WorkflowFlowActionParameter | WorkflowFlowActionParameter[];
@@ -13824,7 +13821,7 @@ export type WorkflowFlowActionParameter = {
     value?: string;
 }
 
-export type WorkflowKnowledgePublish = mns_WorkflowAction & {
+export type WorkflowKnowledgePublish = WorkflowAction & {
     action: KnowledgeWorkflowAction;
     description?: string;
     label: string;
@@ -13832,7 +13829,7 @@ export type WorkflowKnowledgePublish = mns_WorkflowAction & {
     protected: boolean;
 }
 
-export type WorkflowOutboundMessage = mns_WorkflowAction & {
+export type WorkflowOutboundMessage = WorkflowAction & {
     apiVersion: number;
     description?: string;
     endpointUrl: string;
@@ -13844,7 +13841,7 @@ export type WorkflowOutboundMessage = mns_WorkflowAction & {
     useDeadLetterQueue?: boolean;
 }
 
-export type WorkflowSend = mns_WorkflowAction & {
+export type WorkflowSend = WorkflowAction & {
     action: SendAction;
     description?: string;
     label: string;
@@ -13852,7 +13849,7 @@ export type WorkflowSend = mns_WorkflowAction & {
     protected: boolean;
 }
 
-export type WorkflowTask = mns_WorkflowAction & {
+export type WorkflowTask = WorkflowAction & {
     assignedTo?: string;
     assignedToType: ActionTaskAssignedToTypes;
     description?: string;
@@ -13865,7 +13862,7 @@ export type WorkflowTask = mns_WorkflowAction & {
     subject: string;
 }
 
-export type WorkflowRule = mns_Metadata & {
+export type WorkflowRule = Metadata & {
     actions?: WorkflowActionReference | WorkflowActionReference[];
     active: boolean;
     booleanFilter?: string;
@@ -14010,7 +14007,7 @@ export type PicklistValueTranslation = {
     translation?: string;
 }
 
-export type DiscoveryAIModel = mns_Metadata & {
+export type DiscoveryAIModel = Metadata & {
     algorithmType: DiscoveryAlgorithmType;
     classificationThreshold?: number;
     description?: string;
@@ -14083,7 +14080,7 @@ export type DiscoveryPrescribableField = {
     name: string;
 }
 
-export type DiscoveryGoal = mns_Metadata & {
+export type DiscoveryGoal = Metadata & {
     active: boolean;
     deployedModels?: DiscoveryDeployedModel | DiscoveryDeployedModel[];
     label: string;
@@ -14110,7 +14107,7 @@ export type DiscoveryGoalOutcome = {
     mappedField?: string;
 }
 
-export type DiscoveryStory = mns_Metadata & {
+export type DiscoveryStory = Metadata & {
     application: string;
     autopilot?: DiscoveryStoryAutopilotStatus;
     classificationThreshold?: number;
@@ -14130,7 +14127,7 @@ export type DiscoveryStoryOutcome = {
     type: DiscoveryStoryOutcomeType;
 }
 
-export type DocumentType = mns_Metadata & {
+export type DocumentType = Metadata & {
     description?: string;
     isActive: boolean;
     masterLabel: string;
@@ -14341,11 +14338,11 @@ export type PresenceConfigUserAssignments = {
     user?: string | string[];
 }
 
-export type PresenceDeclineReason = mns_Metadata & {
+export type PresenceDeclineReason = Metadata & {
     label: string;
 }
 
-export type PresenceUserConfig = mns_Metadata & {
+export type PresenceUserConfig = Metadata & {
     assignments?: PresenceConfigAssignments;
     capacity: number;
     declineReasons?: string | string[];
@@ -14366,7 +14363,7 @@ export type ProfileLayoutAssignment = {
     recordType?: string;
 }
 
-export type ProfilePasswordPolicy = mns_Metadata & {
+export type ProfilePasswordPolicy = Metadata & {
     forgotPasswordRedirect?: boolean;
     lockoutInterval: number;
     maxLoginAttempts: number;
@@ -14385,7 +14382,7 @@ export type ProfileSearchCustomization = {
     searchCustomization: string;
 }
 
-export type ProfileSessionSetting = mns_Metadata & {
+export type ProfileSessionSetting = Metadata & {
     externalCommunityUserIdentityVerif: boolean;
     forceLogout: boolean;
     profile: string;
@@ -14395,7 +14392,7 @@ export type ProfileSessionSetting = mns_Metadata & {
     sessionTimeoutWarning: boolean;
 }
 
-export type QueueRoutingConfig = mns_Metadata & {
+export type QueueRoutingConfig = Metadata & {
     capacityPercentage?: number;
     capacityType?: CapacityType;
     capacityWeight?: number;
@@ -14441,7 +14438,7 @@ export type SearchObjectCustomization = {
     searchCustomization: string;
 }
 
-export type ServiceChannel = mns_Metadata & {
+export type ServiceChannel = Metadata & {
     acwExtensionDuration?: number;
     afterConvoWorkMaxTime?: number;
     doesMinimizeWidgetOnAccept?: boolean;
@@ -14466,7 +14463,7 @@ export type ServiceChannelStatus = {
     channel?: string | string[];
 }
 
-export type ServicePresenceStatus = mns_Metadata & {
+export type ServicePresenceStatus = Metadata & {
     channels?: ServiceChannelStatus;
     label: string;
 }
@@ -14617,7 +14614,7 @@ export type sObject = {
     Id?: ID;
 }
 
-export type AIApplication = ens_sObject & {
+export type AIApplication = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14644,7 +14641,7 @@ export type AIApplication = ens_sObject & {
     Type?: AIApplicationType;
 }
 
-export type AIApplicationConfig = ens_sObject & {
+export type AIApplicationConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     Application?: AIApplication;
     ApplicationId?: ID;
@@ -14670,7 +14667,7 @@ export type AIApplicationConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIConvSummarizationConfig = ens_sObject & {
+export type AIConvSummarizationConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -14693,7 +14690,7 @@ export type AIConvSummarizationConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIDataDefinition = ens_sObject & {
+export type AIDataDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14715,7 +14712,7 @@ export type AIDataDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIFactorComponent = ens_sObject & {
+export type AIFactorComponent = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -14739,7 +14736,7 @@ export type AIFactorComponent = ens_sObject & {
     Value?: string;
 }
 
-export type AIFeatureExtractor = ens_sObject & {
+export type AIFeatureExtractor = sObject & {
     AiUsecaseModel?: AIUsecaseModel;
     AiUsecaseModelId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -14765,7 +14762,7 @@ export type AIFeatureExtractor = ens_sObject & {
     Type?: ExtractorType;
 }
 
-export type AIFilter = ens_sObject & {
+export type AIFilter = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14792,7 +14789,7 @@ export type AIFilter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIFilterGroup = ens_sObject & {
+export type AIFilterGroup = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14809,7 +14806,7 @@ export type AIFilterGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIFilterValue = ens_sObject & {
+export type AIFilterValue = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14830,7 +14827,7 @@ export type AIFilterValue = ens_sObject & {
     Value?: string;
 }
 
-export type AIManagedField = ens_sObject & {
+export type AIManagedField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14847,7 +14844,7 @@ export type AIManagedField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIModel = ens_sObject & {
+export type AIModel = sObject & {
     ApprovalStatus?: AIModelApproval;
     ContentVersion?: string;
     CreatedBy?: User;
@@ -14878,7 +14875,7 @@ export type AIModel = ens_sObject & {
     Type?: AIModelType;
 }
 
-export type AIModelDefinition = ens_sObject & {
+export type AIModelDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     ApprovalType?: AIModelDefinitionApprovalType;
     CreatedBy?: User;
@@ -14902,7 +14899,7 @@ export type AIModelDefinition = ens_sObject & {
     Type?: AIModelType;
 }
 
-export type AIModelFactor = ens_sObject & {
+export type AIModelFactor = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -14921,7 +14918,7 @@ export type AIModelFactor = ens_sObject & {
     UpperLimit?: number;
 }
 
-export type AIModelGraph = ens_sObject & {
+export type AIModelGraph = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -14938,7 +14935,7 @@ export type AIModelGraph = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIModelMetric = ens_sObject & {
+export type AIModelMetric = sObject & {
     ClassLabel1?: string;
     ClassLabel2?: string;
     CreatedBy?: User;
@@ -14956,7 +14953,7 @@ export type AIModelMetric = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIPredictionDefinition = ens_sObject & {
+export type AIPredictionDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     Application?: AIApplication;
     ApplicationId?: ID;
@@ -14977,7 +14974,7 @@ export type AIPredictionDefinition = ens_sObject & {
     Type?: AIPredictionType;
 }
 
-export type AIPredictionExpression = ens_sObject & {
+export type AIPredictionExpression = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -14997,7 +14994,7 @@ export type AIPredictionExpression = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIPredictionField = ens_sObject & {
+export type AIPredictionField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15016,7 +15013,7 @@ export type AIPredictionField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIPredictionTarget = ens_sObject & {
+export type AIPredictionTarget = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15036,7 +15033,7 @@ export type AIPredictionTarget = ens_sObject & {
     TargetFieldId?: ID;
 }
 
-export type AIReplyRecommendationsSettings = ens_sObject & {
+export type AIReplyRecommendationsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAiReplyRecommendationsEnabled?: boolean;
@@ -15045,7 +15042,7 @@ export type AIReplyRecommendationsSettings = ens_sObject & {
     Metadata?: AIReplyRecommendationsSettings;
 }
 
-export type AIScoringModelDefVersion = ens_sObject & {
+export type AIScoringModelDefVersion = sObject & {
     AIScoringModelDefinition?: AIScoringModelDefinition;
     AIScoringModelDefinitionId?: ID;
     AdditionalInformation?: string;
@@ -15070,7 +15067,7 @@ export type AIScoringModelDefVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIScoringModelDefinition = ens_sObject & {
+export type AIScoringModelDefinition = sObject & {
     AiModelConfig?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15090,7 +15087,7 @@ export type AIScoringModelDefinition = ens_sObject & {
     Versions?: QueryResult;
 }
 
-export type AIScoringStep = ens_sObject & {
+export type AIScoringStep = sObject & {
     AiModelConfigStep?: string;
     AiScoringModelDefVersion?: AIScoringModelDefVersion;
     AiScoringModelDefVersionId?: ID;
@@ -15107,7 +15104,7 @@ export type AIScoringStep = ens_sObject & {
     ValidationStatusResult?: string;
 }
 
-export type AIUsecaseDefinition = ens_sObject & {
+export type AIUsecaseDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15141,7 +15138,7 @@ export type AIUsecaseDefinition = ens_sObject & {
     UsecaseName?: string;
 }
 
-export type AIUsecaseFieldMapping = ens_sObject & {
+export type AIUsecaseFieldMapping = sObject & {
     AiUsecaseDefinition?: AIUsecaseDefinition;
     AiUsecaseDefinitionId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -15167,7 +15164,7 @@ export type AIUsecaseFieldMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AIUsecaseModel = ens_sObject & {
+export type AIUsecaseModel = sObject & {
     AiFeatureExtractor?: AIFeatureExtractor;
     AiFeatureExtractorId?: ID;
     AiUsecaseDefinition?: AIUsecaseDefinition;
@@ -15192,7 +15189,7 @@ export type AIUsecaseModel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AccountForecastFormula = ens_sObject & {
+export type AccountForecastFormula = sObject & {
     AccountForecastSettings?: AccountForecastSettings;
     AccountForecastSettingsId?: ID;
     CreatedBy?: User;
@@ -15209,7 +15206,7 @@ export type AccountForecastFormula = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AccountForecastSettings = ens_sObject & {
+export type AccountForecastSettings = sObject & {
     AccountFilterId?: ID;
     AccountForecastSettings?: QueryResult;
     AcctPrdctPrdFrcstVolCnt?: number;
@@ -15248,7 +15245,7 @@ export type AccountForecastSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AccountIntelligenceSettings = ens_sObject & {
+export type AccountIntelligenceSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAccountLogosEnabled?: boolean;
@@ -15257,7 +15254,7 @@ export type AccountIntelligenceSettings = ens_sObject & {
     Metadata?: AccountIntelligenceSettings;
 }
 
-export type AccountRelationshipShareRule = ens_sObject & {
+export type AccountRelationshipShareRule = sObject & {
     AccessLevel?: string;
     AccountToCriteriaField?: string;
     AllManagedPackageMemberId?: ID;
@@ -15281,7 +15278,7 @@ export type AccountRelationshipShareRule = ens_sObject & {
     Type?: string;
 }
 
-export type AccountSettings = ens_sObject & {
+export type AccountSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAccountDiscoveryEnabled?: boolean;
@@ -15295,7 +15292,7 @@ export type AccountSettings = ens_sObject & {
     ShowViewHierarchyLink?: boolean;
 }
 
-export type AccountingSettings = ens_sObject & {
+export type AccountingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAccountingSubledgerEnabled?: boolean;
@@ -15305,7 +15302,7 @@ export type AccountingSettings = ens_sObject & {
     Metadata?: AccountingSettings;
 }
 
-export type AcctMgrTargetSettings = ens_sObject & {
+export type AcctMgrTargetSettings = sObject & {
     AcctMgrPeriodicTargetDstrCnt?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15326,7 +15323,7 @@ export type AcctMgrTargetSettings = ens_sObject & {
     TeamMemberHierarchyType?: TeamMemberHierarchyType;
 }
 
-export type WorkflowAlert = ens_sObject & {
+export type WorkflowAlert = sObject & {
     CcEmails?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15346,7 +15343,7 @@ export type WorkflowAlert = ens_sObject & {
     TemplateId?: ID;
 }
 
-export type WorkflowFieldUpdate = ens_sObject & {
+export type WorkflowFieldUpdate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -15367,7 +15364,7 @@ export type WorkflowFieldUpdate = ens_sObject & {
     SourceTableEnumOrId?: string;
 }
 
-export type ActionLauncherItemDef = ens_sObject & {
+export type ActionLauncherItemDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15392,7 +15389,7 @@ export type ActionLauncherItemDef = ens_sObject & {
     VersionNumber?: string;
 }
 
-export type WorkflowOutboundMessage = ens_sObject & {
+export type WorkflowOutboundMessage = sObject & {
     ApiVersion?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15410,7 +15407,7 @@ export type WorkflowOutboundMessage = ens_sObject & {
     NamespacePrefix?: string;
 }
 
-export type ActionOverride = ens_sObject & {
+export type ActionOverride = sObject & {
     ContentId?: ID;
     ContentName?: string;
     CreatedBy?: User;
@@ -15432,7 +15429,7 @@ export type ActionOverride = ens_sObject & {
     Type?: ActionOverrideType;
 }
 
-export type WorkflowTask = ens_sObject & {
+export type WorkflowTask = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -15450,7 +15447,7 @@ export type WorkflowTask = ens_sObject & {
     Subject?: string;
 }
 
-export type ActionableEventOrchDef = ens_sObject & {
+export type ActionableEventOrchDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15469,7 +15466,7 @@ export type ActionableEventOrchDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActionableEventTypeDef = ens_sObject & {
+export type ActionableEventTypeDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15488,7 +15485,7 @@ export type ActionableEventTypeDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActionsSettings = ens_sObject & {
+export type ActionsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsDefaultQuickActionsOnEnabled?: boolean;
@@ -15498,7 +15495,7 @@ export type ActionsSettings = ens_sObject & {
     Metadata?: ActionsSettings;
 }
 
-export type ActivationPlatform = ens_sObject & {
+export type ActivationPlatform = sObject & {
     ActivationPlatformActvAttrs?: QueryResult;
     ActivationPlatformAdditionalMetadata?: string;
     ActivationPlatformConnectorType?: ActivationPlatformConnectorType;
@@ -15535,7 +15532,7 @@ export type ActivationPlatform = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActivationPlatformActvAttr = ens_sObject & {
+export type ActivationPlatformActvAttr = sObject & {
     ActivationPlatform?: ActivationPlatform;
     ActivationPlatformId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -15560,7 +15557,7 @@ export type ActivationPlatformActvAttr = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActivationPlatformField = ens_sObject & {
+export type ActivationPlatformField = sObject & {
     ActivationPlatform?: ActivationPlatform;
     ActivationPlatformFieldValues?: QueryResult;
     ActivationPlatformId?: ID;
@@ -15587,7 +15584,7 @@ export type ActivationPlatformField = ens_sObject & {
     Type?: ActivationPlatformFieldDataType;
 }
 
-export type ActivitiesSettings = ens_sObject & {
+export type ActivitiesSettings = sObject & {
     AllowUsersToRelateMultipleContactsToTasksAndEvents?: boolean;
     AutoRelateEventAttendees?: boolean;
     DurableId?: string;
@@ -15620,7 +15617,7 @@ export type ActivitiesSettings = ens_sObject & {
     ShowMyTasksHoverLinks?: boolean;
 }
 
-export type ActnblListKeyPrfmIndDef = ens_sObject & {
+export type ActnblListKeyPrfmIndDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15643,7 +15640,7 @@ export type ActnblListKeyPrfmIndDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActvPfrmDataConnectorS3 = ens_sObject & {
+export type ActvPfrmDataConnectorS3 = sObject & {
     ActvPfrmDataConnectors?: QueryResult;
     AllManagedPackageMemberId?: ID;
     BucketName?: string;
@@ -15666,7 +15663,7 @@ export type ActvPfrmDataConnectorS3 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActvPlatformAdncIdentifier = ens_sObject & {
+export type ActvPlatformAdncIdentifier = sObject & {
     ActivationPlatform?: ActivationPlatform;
     ActivationPlatformId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -15690,7 +15687,7 @@ export type ActvPlatformAdncIdentifier = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ActvPlatformFieldValue = ens_sObject & {
+export type ActvPlatformFieldValue = sObject & {
     ActivationPlatformField?: ActivationPlatformField;
     ActivationPlatformFieldId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -15714,7 +15711,7 @@ export type ActvPlatformFieldValue = ens_sObject & {
     Value?: string;
 }
 
-export type ActvPlatformOAuthConnector = ens_sObject & {
+export type ActvPlatformOAuthConnector = sObject & {
     ActvPfrmDataConnectors?: QueryResult;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -15737,7 +15734,7 @@ export type ActvPlatformOAuthConnector = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AddressSettings = ens_sObject & {
+export type AddressSettings = sObject & {
     CountriesAndStates?: CountriesAndStates;
     CountriesAndStatesId?: string;
     DurableId?: string;
@@ -15745,14 +15742,14 @@ export type AddressSettings = ens_sObject & {
     Metadata?: AddressSettings;
 }
 
-export type AdjustmentsSettings = ens_sObject & {
+export type AdjustmentsSettings = sObject & {
     AllowExpandedColumns?: boolean;
     DurableId?: string;
     IsAdjustmentsEnabled?: boolean;
     IsOwnerAdjustmentsEnabled?: boolean;
 }
 
-export type AdvAccountForecastFormula = ens_sObject & {
+export type AdvAccountForecastFormula = sObject & {
     AdvAccountForecastSet?: AdvAccountForecastSet;
     AdvAccountForecastSetId?: ID;
     CreatedBy?: User;
@@ -15769,7 +15766,7 @@ export type AdvAccountForecastFormula = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAccountForecastPeriod = ens_sObject & {
+export type AdvAccountForecastPeriod = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -15785,7 +15782,7 @@ export type AdvAccountForecastPeriod = ens_sObject & {
     Type?: PeriodTypes;
 }
 
-export type AdvAccountForecastSet = ens_sObject & {
+export type AdvAccountForecastSet = sObject & {
     AccountFieldName?: string;
     AdvAcctForecastSet?: QueryResult;
     AdvAcctFrcstDisplayGroupForecastSet?: QueryResult;
@@ -15830,7 +15827,7 @@ export type AdvAccountForecastSet = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctForecastAdjPeriod = ens_sObject & {
+export type AdvAcctForecastAdjPeriod = sObject & {
     AdjustmentDayCount?: number;
     AdvAccountForecastSet?: AdvAccountForecastSet;
     AdvAccountForecastSetId?: ID;
@@ -15848,7 +15845,7 @@ export type AdvAcctForecastAdjPeriod = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctForecastDimSource = ens_sObject & {
+export type AdvAcctForecastDimSource = sObject & {
     AdvAcctForecastDimSrcName?: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -15870,7 +15867,7 @@ export type AdvAcctForecastDimSource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctForecastDimension = ens_sObject & {
+export type AdvAcctForecastDimension = sObject & {
     AdvAcctForecastDimName?: string;
     AdvAcctForecastDimSource?: AdvAcctForecastDimSource;
     AdvAcctForecastDimSourceId?: ID;
@@ -15888,7 +15885,7 @@ export type AdvAcctForecastDimension = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctForecastMeasureDef = ens_sObject & {
+export type AdvAcctForecastMeasureDef = sObject & {
     AdvAccountForecastSet?: sObject;
     AdvAccountForecastSetId?: ID;
     AdvAcctForecastMeasureDefName?: string;
@@ -15909,7 +15906,7 @@ export type AdvAcctForecastMeasureDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctForecastPeriodGroup = ens_sObject & {
+export type AdvAcctForecastPeriodGroup = sObject & {
     AdvAcctForecastPeriodGroup?: QueryResult;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -15934,7 +15931,7 @@ export type AdvAcctForecastPeriodGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvAcctFrcstDisplayGroup = ens_sObject & {
+export type AdvAcctFrcstDisplayGroup = sObject & {
     AdvAccountForecastSet?: sObject;
     AdvAccountForecastSetId?: ID;
     AdvAcctFrcstDisplayGroupName?: string;
@@ -15953,7 +15950,7 @@ export type AdvAcctFrcstDisplayGroup = ens_sObject & {
     UserProfileId?: ID;
 }
 
-export type AdvAcctFrcstDplyGroupItem = ens_sObject & {
+export type AdvAcctFrcstDplyGroupItem = sObject & {
     AdvAcctFrcstDisplayGroup?: AdvAcctFrcstDisplayGroup;
     AdvAcctFrcstDisplayGroupId?: ID;
     AdvAcctFrcstDplyGroupItemName?: string;
@@ -15970,7 +15967,7 @@ export type AdvAcctFrcstDplyGroupItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AdvancedObjectMapping = ens_sObject & {
+export type AdvancedObjectMapping = sObject & {
     Client?: FieldMappingClient;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -15991,7 +15988,7 @@ export type AdvancedObjectMapping = ens_sObject & {
     TargetObject?: string;
 }
 
-export type Ai4mSettings = ens_sObject & {
+export type Ai4mSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsUmaGlobalModelEnabled?: boolean;
@@ -15999,7 +15996,7 @@ export type Ai4mSettings = ens_sObject & {
     Metadata?: Ai4mSettings;
 }
 
-export type AllPackage = ens_sObject & {
+export type AllPackage = sObject & {
     ApexGackUserId?: ID;
     CreatedDate?: Date;
     Description?: string;
@@ -16021,7 +16018,7 @@ export type AllPackage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AnalyticsSettings = ens_sObject & {
+export type AnalyticsSettings = sObject & {
     AlwaysGenPreviews?: boolean;
     AnalyticsAdoptionMetadata?: boolean;
     AutoInstallApps?: boolean;
@@ -16106,7 +16103,7 @@ export type AnalyticsSettings = ens_sObject & {
     TurnOnTimeZones?: boolean;
 }
 
-export type AnimationRule = ens_sObject & {
+export type AnimationRule = sObject & {
     AnimationFrequency?: AnimationFrequencyUnit;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16131,7 +16128,7 @@ export type AnimationRule = ens_sObject & {
     TargetFieldChangeToValues?: string;
 }
 
-export type ApexClass = ens_sObject & {
+export type ApexClass = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     Body?: string;
@@ -16154,7 +16151,7 @@ export type ApexClass = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexClassDefinition = ens_sObject & {
+export type ApexClassDefinition = sObject & {
     ApiVersion?: number;
     Body?: string;
     ClassIdentifier?: string;
@@ -16171,7 +16168,7 @@ export type ApexClassDefinition = ens_sObject & {
     ProviderIdentifier?: string;
 }
 
-export type ApexClassMember = ens_sObject & {
+export type ApexClassMember = sObject & {
     Body?: string;
     Content?: string;
     ContentEntity?: ApexClass;
@@ -16192,7 +16189,7 @@ export type ApexClassMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexCodeCoverage = ens_sObject & {
+export type ApexCodeCoverage = sObject & {
     ApexClassOrTrigger?: sObject;
     ApexClassOrTriggerId?: ID;
     ApexTestClass?: ApexClass;
@@ -16211,7 +16208,7 @@ export type ApexCodeCoverage = ens_sObject & {
     TestMethodName?: string;
 }
 
-export type ApexCodeCoverageAggregate = ens_sObject & {
+export type ApexCodeCoverageAggregate = sObject & {
     ApexClassOrTrigger?: sObject;
     ApexClassOrTriggerId?: ID;
     Coverage?: Coverage;
@@ -16228,7 +16225,7 @@ export type ApexCodeCoverageAggregate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexComponent = ens_sObject & {
+export type ApexComponent = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     ControllerKey?: string;
@@ -16249,7 +16246,7 @@ export type ApexComponent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexComponentMember = ens_sObject & {
+export type ApexComponentMember = sObject & {
     Body?: string;
     Content?: string;
     ContentEntity?: ApexComponent;
@@ -16269,7 +16266,7 @@ export type ApexComponentMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexDebuggerBreakpoint = ens_sObject & {
+export type ApexDebuggerBreakpoint = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -16294,7 +16291,7 @@ export type ApexDebuggerBreakpoint = ens_sObject & {
     Type?: ApexDebuggerBreakpointType;
 }
 
-export type ApexDebuggerEvent = ens_sObject & {
+export type ApexDebuggerEvent = sObject & {
     Breakpoint?: ApexDebuggerBreakpoint;
     BreakpointId?: ID;
     ClassBody?: string;
@@ -16325,7 +16322,7 @@ export type ApexDebuggerEvent = ens_sObject & {
     Username?: string;
 }
 
-export type ApexDebuggerLicense = ens_sObject & {
+export type ApexDebuggerLicense = sObject & {
     ChildOrg?: string;
     ChildSession?: string;
     ChildUser?: string;
@@ -16346,7 +16343,7 @@ export type ApexDebuggerLicense = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexDebuggerRequest = ens_sObject & {
+export type ApexDebuggerRequest = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -16371,7 +16368,7 @@ export type ApexDebuggerRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexDebuggerSession = ens_sObject & {
+export type ApexDebuggerSession = sObject & {
     Breakpoints?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16402,7 +16399,7 @@ export type ApexDebuggerSession = ens_sObject & {
     UserIdFilter?: string;
 }
 
-export type ApexEmailNotification = ens_sObject & {
+export type ApexEmailNotification = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -16416,7 +16413,7 @@ export type ApexEmailNotification = ens_sObject & {
     UserId?: ID;
 }
 
-export type ApexExecutionOverlayAction = ens_sObject & {
+export type ApexExecutionOverlayAction = sObject & {
     ActionScript?: string;
     ActionScriptType?: ApexExecutionOverlayActionType;
     CreatedBy?: User;
@@ -16439,7 +16436,7 @@ export type ApexExecutionOverlayAction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexExecutionOverlayResult = ens_sObject & {
+export type ApexExecutionOverlayResult = sObject & {
     ActionScript?: string;
     ActionScriptType?: ApexExecutionOverlayActionType;
     ApexResult?: ApexResult;
@@ -16466,7 +16463,7 @@ export type ApexExecutionOverlayResult = ens_sObject & {
     UserId?: ID;
 }
 
-export type ApexInvocableMethod = ens_sObject & {
+export type ApexInvocableMethod = sObject & {
     ActionType?: InvocableActionType;
     Category?: string;
     CreatedBy?: User;
@@ -16485,7 +16482,7 @@ export type ApexInvocableMethod = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexInvocableMethodParam = ens_sObject & {
+export type ApexInvocableMethodParam = sObject & {
     ApexClass?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16509,7 +16506,7 @@ export type ApexInvocableMethodParam = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexLog = ens_sObject & {
+export type ApexLog = sObject & {
     Application?: string;
     DurationMilliseconds?: number;
     LastModifiedDate?: Date;
@@ -16525,7 +16522,7 @@ export type ApexLog = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexOrgWideCoverage = ens_sObject & {
+export type ApexOrgWideCoverage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -16537,7 +16534,7 @@ export type ApexOrgWideCoverage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexPage = ens_sObject & {
+export type ApexPage = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     ControllerKey?: string;
@@ -16562,7 +16559,7 @@ export type ApexPage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexPageInfo = ens_sObject & {
+export type ApexPageInfo = sObject & {
     ApexPageId?: string;
     ApiVersion?: number;
     Description?: string;
@@ -16574,7 +16571,7 @@ export type ApexPageInfo = ens_sObject & {
     NameSpacePrefix?: string;
 }
 
-export type ApexPageMember = ens_sObject & {
+export type ApexPageMember = sObject & {
     Body?: string;
     Content?: string;
     ContentEntity?: ApexPage;
@@ -16594,7 +16591,7 @@ export type ApexPageMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexSettings = ens_sObject & {
+export type ApexSettings = sObject & {
     DefaultQueueableDelay?: number;
     DurableId?: string;
     FullName?: string;
@@ -16615,7 +16612,7 @@ export type ApexSettings = ens_sObject & {
     Metadata?: ApexSettings;
 }
 
-export type ApexTestQueueItem = ens_sObject & {
+export type ApexTestQueueItem = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     CreatedBy?: User;
@@ -16630,7 +16627,7 @@ export type ApexTestQueueItem = ens_sObject & {
     TestRunResultId?: ID;
 }
 
-export type ApexTestResult = ens_sObject & {
+export type ApexTestResult = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     ApexLog?: ApexLog;
@@ -16651,7 +16648,7 @@ export type ApexTestResult = ens_sObject & {
     TestTimestamp?: Date;
 }
 
-export type ApexTestResultLimits = ens_sObject & {
+export type ApexTestResultLimits = sObject & {
     ApexTestResult?: ApexTestResult;
     ApexTestResultId?: ID;
     AsyncCalls?: number;
@@ -16676,7 +16673,7 @@ export type ApexTestResultLimits = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexTestRunResult = ens_sObject & {
+export type ApexTestRunResult = sObject & {
     AsyncApexJob?: AsyncApexJob;
     AsyncApexJobId?: ID;
     ClassesCompleted?: number;
@@ -16703,7 +16700,7 @@ export type ApexTestRunResult = ens_sObject & {
     UserId?: ID;
 }
 
-export type ApexTestSuite = ens_sObject & {
+export type ApexTestSuite = sObject & {
     ApexClassIds?: ID | ID[];
     ApexClassJunctions?: QueryResult;
     CreatedBy?: User;
@@ -16717,7 +16714,7 @@ export type ApexTestSuite = ens_sObject & {
     TestSuiteName?: string;
 }
 
-export type ApexTrigger = ens_sObject & {
+export type ApexTrigger = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     Body?: string;
@@ -16751,7 +16748,7 @@ export type ApexTrigger = ens_sObject & {
     UsageIsBulk?: boolean;
 }
 
-export type ApexTriggerMember = ens_sObject & {
+export type ApexTriggerMember = sObject & {
     Body?: string;
     Content?: string;
     ContentEntity?: ApexTrigger;
@@ -16772,7 +16769,7 @@ export type ApexTriggerMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApexTypeImplementor = ens_sObject & {
+export type ApexTypeImplementor = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     ClassName?: string;
@@ -16785,7 +16782,7 @@ export type ApexTypeImplementor = ens_sObject & {
     IsConcrete?: boolean;
 }
 
-export type AppAnalyticsSettings = ens_sObject & {
+export type AppAnalyticsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAppAnalyticsOptOutEnabled?: boolean;
@@ -16793,14 +16790,14 @@ export type AppAnalyticsSettings = ens_sObject & {
     Metadata?: AppAnalyticsSettings;
 }
 
-export type AppExperienceSettings = ens_sObject & {
+export type AppExperienceSettings = sObject & {
     DoesHideAllAppsInAppLauncher?: boolean;
     DurableId?: string;
     FullName?: string;
     Metadata?: AppExperienceSettings;
 }
 
-export type AppExplorationDataConsent = ens_sObject & {
+export type AppExplorationDataConsent = sObject & {
     ApplicationName?: string;
     AvailableObjects?: string;
     CreatedBy?: User;
@@ -16821,7 +16818,7 @@ export type AppExplorationDataConsent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApplicationRecordTypeConfig = ens_sObject & {
+export type ApplicationRecordTypeConfig = sObject & {
     ApplicationUsageType?: ApplicationUsageType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16839,7 +16836,7 @@ export type ApplicationRecordTypeConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApplicationSubtypeDefinition = ens_sObject & {
+export type ApplicationSubtypeDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     ApplicationUsageType?: AppDomainUsageType;
     CreatedBy?: User;
@@ -16859,7 +16856,7 @@ export type ApplicationSubtypeDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AppointmentAssignmentPolicy = ens_sObject & {
+export type AppointmentAssignmentPolicy = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -16879,7 +16876,7 @@ export type AppointmentAssignmentPolicy = ens_sObject & {
     UtilizationFactor?: UtilizationFactor;
 }
 
-export type AppointmentSchedulingPolicy = ens_sObject & {
+export type AppointmentSchedulingPolicy = sObject & {
     AppointmentAssignmentPolicy?: AppointmentAssignmentPolicy;
     AppointmentAssignmentPolicyId?: ID;
     CreatedBy?: User;
@@ -16911,7 +16908,7 @@ export type AppointmentSchedulingPolicy = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApptBookingConfig = ens_sObject & {
+export type ApptBookingConfig = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     ApptBookingUrlConfigs?: QueryResult;
@@ -16939,7 +16936,7 @@ export type ApptBookingConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ApptBookingUrlConfig = ens_sObject & {
+export type ApptBookingUrlConfig = sObject & {
     AdditionalHeaders?: string;
     ApptBookingConfig?: ApptBookingConfig;
     ApptBookingConfigId?: ID;
@@ -16959,7 +16956,7 @@ export type ApptBookingUrlConfig = ens_sObject & {
     UrlPath?: string;
 }
 
-export type AssessmentConfiguration = ens_sObject & {
+export type AssessmentConfiguration = sObject & {
     AllManagedPackageMemberId?: ID;
     Configuration?: AssessmentConfigurationOption;
     CreatedBy?: User;
@@ -16981,7 +16978,7 @@ export type AssessmentConfiguration = ens_sObject & {
     Type?: AssessmentType;
 }
 
-export type AssessmentQuestionConfig = ens_sObject & {
+export type AssessmentQuestionConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16999,7 +16996,7 @@ export type AssessmentQuestionConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssessmentQuestionSetConfig = ens_sObject & {
+export type AssessmentQuestionSetConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17017,7 +17014,7 @@ export type AssessmentQuestionSetConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssignmentRule = ens_sObject & {
+export type AssignmentRule = sObject & {
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17030,7 +17027,7 @@ export type AssignmentRule = ens_sObject & {
     Name?: string;
 }
 
-export type AssistantContextItem = ens_sObject & {
+export type AssistantContextItem = sObject & {
     AssistantVersion?: AssistantVersion;
     AssistantVersionId?: ID;
     CreatedBy?: User;
@@ -17064,7 +17061,7 @@ export type AssistantContextItem = ens_sObject & {
     WhereClause?: string;
 }
 
-export type AssistantDefinition = ens_sObject & {
+export type AssistantDefinition = sObject & {
     AppVersionNumber?: number;
     AssistantVersions?: QueryResult;
     CreatedBy?: User;
@@ -17085,7 +17082,7 @@ export type AssistantDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantDefinitionProfile = ens_sObject & {
+export type AssistantDefinitionProfile = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17100,7 +17097,7 @@ export type AssistantDefinitionProfile = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantSkill = ens_sObject & {
+export type AssistantSkill = sObject & {
     AssistantSkillIntents?: QueryResult;
     AssistantVersion?: AssistantVersion;
     AssistantVersionId?: ID;
@@ -17120,7 +17117,7 @@ export type AssistantSkill = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantSkillIntent = ens_sObject & {
+export type AssistantSkillIntent = sObject & {
     Action?: sObject;
     ActionId?: ID;
     AssistantSkill?: AssistantSkill;
@@ -17144,7 +17141,7 @@ export type AssistantSkillIntent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantSkillQuickAction = ens_sObject & {
+export type AssistantSkillQuickAction = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17169,7 +17166,7 @@ export type AssistantSkillQuickAction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantSkillQuickActionParam = ens_sObject & {
+export type AssistantSkillQuickActionParam = sObject & {
     AssistantAction?: AssistantSkillQuickAction;
     AssistantActionId?: ID;
     CreatedBy?: User;
@@ -17190,7 +17187,7 @@ export type AssistantSkillQuickActionParam = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantSkillSobjectAction = ens_sObject & {
+export type AssistantSkillSobjectAction = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17217,7 +17214,7 @@ export type AssistantSkillSobjectAction = ens_sObject & {
     Type?: AssistantSkillSobjectActionType;
 }
 
-export type AssistantSkillSobjectParam = ens_sObject & {
+export type AssistantSkillSobjectParam = sObject & {
     AssistantAction?: AssistantSkillSobjectAction;
     AssistantActionId?: ID;
     CreatedBy?: User;
@@ -17238,7 +17235,7 @@ export type AssistantSkillSobjectParam = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssistantVersion = ens_sObject & {
+export type AssistantVersion = sObject & {
     AssistantSkills?: QueryResult;
     ContextItems?: QueryResult;
     CreatedBy?: User;
@@ -17262,7 +17259,7 @@ export type AssistantVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type AssistantVersionAction = ens_sObject & {
+export type AssistantVersionAction = sObject & {
     Action?: sObject;
     ActionId?: ID;
     AssistantVersion?: AssistantVersion;
@@ -17277,14 +17274,14 @@ export type AssistantVersionAction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AssociationEngineSettings = ens_sObject & {
+export type AssociationEngineSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAssociationEngineEnabled?: boolean;
     Metadata?: AssociationEngineSettings;
 }
 
-export type AsyncApexJob = ens_sObject & {
+export type AsyncApexJob = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     AsyncApex?: QueryResult;
@@ -17311,7 +17308,7 @@ export type AsyncApexJob = ens_sObject & {
     TotalJobItems?: number;
 }
 
-export type AudienceContactPoint = ens_sObject & {
+export type AudienceContactPoint = sObject & {
     AudienceDefinition?: MarketAudienceDefinition;
     AudienceDefinitionId?: ID;
     AudienceVersion?: number;
@@ -17327,7 +17324,7 @@ export type AudienceContactPoint = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AuraDefinition = ens_sObject & {
+export type AuraDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     AuraDefinitionBundle?: AuraDefinitionBundle;
     AuraDefinitionBundleId?: ID;
@@ -17345,7 +17342,7 @@ export type AuraDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AuraDefinitionBundle = ens_sObject & {
+export type AuraDefinitionBundle = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     CreatedBy?: User;
@@ -17367,7 +17364,7 @@ export type AuraDefinitionBundle = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AuraDefinitionChange = ens_sObject & {
+export type AuraDefinitionChange = sObject & {
     Content?: string;
     ContentEntity?: AuraDefinition;
     ContentEntityId?: ID;
@@ -17387,7 +17384,7 @@ export type AuraDefinitionChange = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type AutoResponseRule = ens_sObject & {
+export type AutoResponseRule = sObject & {
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17400,7 +17397,7 @@ export type AutoResponseRule = ens_sObject & {
     Name?: string;
 }
 
-export type AutomatedContactsSettings = ens_sObject & {
+export type AutomatedContactsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAddContactAutomaticallyEnabled?: boolean;
@@ -17410,7 +17407,7 @@ export type AutomatedContactsSettings = ens_sObject & {
     Metadata?: AutomatedContactsSettings;
 }
 
-export type B2BMktCampaignSyncConfig = ens_sObject & {
+export type B2BMktCampaignSyncConfig = sObject & {
     CampaignRecordType?: RecordType;
     CampaignRecordTypeId?: ID;
     CreatedBy?: User;
@@ -17429,7 +17426,7 @@ export type B2BMktCampaignSyncConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type B2BMktVirtualObjectField = ens_sObject & {
+export type B2BMktVirtualObjectField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17452,7 +17449,7 @@ export type B2BMktVirtualObjectField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BatchCalcJobDefinition = ens_sObject & {
+export type BatchCalcJobDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     BatchJobDefinition?: BatchJobDefinition;
     BatchJobDefinitionId?: ID;
@@ -17479,7 +17476,7 @@ export type BatchCalcJobDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BatchCalcJobDefinitionView = ens_sObject & {
+export type BatchCalcJobDefinitionView = sObject & {
     CalculationDefinition?: string;
     DataSpaceApiName?: string;
     Description?: string;
@@ -17497,7 +17494,7 @@ export type BatchCalcJobDefinitionView = ens_sObject & {
     ProcessType?: BatchCalcProcessType;
 }
 
-export type BatchCalcJobProcessType = ens_sObject & {
+export type BatchCalcJobProcessType = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -17508,7 +17505,7 @@ export type BatchCalcJobProcessType = ens_sObject & {
     Name?: string;
 }
 
-export type BatchDataSource = ens_sObject & {
+export type BatchDataSource = sObject & {
     BatchJobDefinition?: BatchJobDefinition;
     BatchJobDefinitionId?: ID;
     CreatedBy?: User;
@@ -17525,7 +17522,7 @@ export type BatchDataSource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BatchDataSrcFilterCriteria = ens_sObject & {
+export type BatchDataSrcFilterCriteria = sObject & {
     BatchDataSource?: BatchDataSource;
     BatchDataSourceId?: ID;
     CreatedBy?: User;
@@ -17544,7 +17541,7 @@ export type BatchDataSrcFilterCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BatchJobDefinition = ens_sObject & {
+export type BatchJobDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17563,7 +17560,7 @@ export type BatchJobDefinition = ens_sObject & {
     Type?: BatchJobDefinitionType;
 }
 
-export type BatchProcessJobDefView = ens_sObject & {
+export type BatchProcessJobDefView = sObject & {
     DurableId?: string;
     IsActive?: boolean;
     Label?: string;
@@ -17576,7 +17573,7 @@ export type BatchProcessJobDefView = ens_sObject & {
     TypeInstance?: string;
 }
 
-export type BatchProcessJobDefinition = ens_sObject & {
+export type BatchProcessJobDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     BatchJobDefinition?: BatchJobDefinition;
     BatchJobDefinitionId?: ID;
@@ -17610,7 +17607,7 @@ export type BatchProcessJobDefinition = ens_sObject & {
     TypeInstance?: string;
 }
 
-export type BenefitAction = ens_sObject & {
+export type BenefitAction = sObject & {
     AllManagedPackageMemberId?: ID;
     BenefitParameterActions?: QueryResult;
     CreatedBy?: User;
@@ -17640,7 +17637,7 @@ export type BenefitAction = ens_sObject & {
     Type?: BenefitActionType;
 }
 
-export type BenefitActionParameter = ens_sObject & {
+export type BenefitActionParameter = sObject & {
     BenefitAction?: BenefitAction;
     BenefitActionId?: ID;
     CreatedBy?: User;
@@ -17660,7 +17657,7 @@ export type BenefitActionParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BenefitActionParameterValue = ens_sObject & {
+export type BenefitActionParameterValue = sObject & {
     BenefitActionParameter?: BenefitActionParameter;
     BenefitActionParameterId?: ID;
     CreatedBy?: User;
@@ -17674,7 +17671,7 @@ export type BenefitActionParameterValue = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BldgEnrgyIntensityCnfg = ens_sObject & {
+export type BldgEnrgyIntensityCnfg = sObject & {
     AllManagedPackageMemberId?: ID;
     BuildingEnergyIntensityType?: BuildingEnergyIntensityType;
     CreatedBy?: User;
@@ -17695,7 +17692,7 @@ export type BldgEnrgyIntensityCnfg = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BlockchainSettings = ens_sObject & {
+export type BlockchainSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsBcpEnabled?: boolean;
@@ -17703,7 +17700,7 @@ export type BlockchainSettings = ens_sObject & {
     Metadata?: BlockchainSettings;
 }
 
-export type BotDefinition = ens_sObject & {
+export type BotDefinition = sObject & {
     ActiveVersion?: BotVersion;
     ActiveVersionId?: ID;
     BotMlDomain?: MlDomain;
@@ -17738,7 +17735,7 @@ export type BotDefinition = ens_sObject & {
     Type?: BotType;
 }
 
-export type BotVersion = ens_sObject & {
+export type BotVersion = sObject & {
     BotDefinition?: BotDefinition;
     BotDefinitionId?: ID;
     ConversationDefinitionDialogGroups?: QueryResult;
@@ -17782,14 +17779,14 @@ export type BotVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type BranchManagementSettings = ens_sObject & {
+export type BranchManagementSettings = sObject & {
     AssociateAccountWithBranch?: boolean;
     DurableId?: string;
     FullName?: string;
     Metadata?: BranchManagementSettings;
 }
 
-export type BrandingSet = ens_sObject & {
+export type BrandingSet = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17811,7 +17808,7 @@ export type BrandingSet = ens_sObject & {
     Type?: string;
 }
 
-export type BrandingSetProperty = ens_sObject & {
+export type BrandingSetProperty = sObject & {
     BrandingSet?: BrandingSet;
     BrandingSetId?: ID;
     CreatedBy?: User;
@@ -17826,7 +17823,7 @@ export type BrandingSetProperty = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BriefcaseDefinition = ens_sObject & {
+export type BriefcaseDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17849,7 +17846,7 @@ export type BriefcaseDefinition = ens_sObject & {
     Type?: BriefcaseType;
 }
 
-export type BusProcessFeedbackConfig = ens_sObject & {
+export type BusProcessFeedbackConfig = sObject & {
     ActionName?: string;
     ActionType?: ExpFeedbackCollType;
     AllManagedPackageMemberId?: ID;
@@ -17882,7 +17879,7 @@ export type BusProcessFeedbackConfig = ens_sObject & {
     TriggerAction?: RecordTriggerType;
 }
 
-export type BusinessHours = ens_sObject & {
+export type BusinessHours = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17912,7 +17909,7 @@ export type BusinessHours = ens_sObject & {
     WednesdayStartTime?: Date;
 }
 
-export type BusinessHoursEntry = ens_sObject & {
+export type BusinessHoursEntry = sObject & {
     Active?: boolean;
     Default?: boolean;
     DurableId?: string;
@@ -17934,13 +17931,13 @@ export type BusinessHoursEntry = ens_sObject & {
     WednesdayStartTime?: Date;
 }
 
-export type BusinessHoursSettings = ens_sObject & {
+export type BusinessHoursSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: BusinessHoursSettings;
 }
 
-export type BusinessProcess = ens_sObject & {
+export type BusinessProcess = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17958,7 +17955,7 @@ export type BusinessProcess = ens_sObject & {
     NamespacePrefix?: string;
 }
 
-export type BusinessProcessDefinition = ens_sObject & {
+export type BusinessProcessDefinition = sObject & {
     BusinessProcessFeedbacks?: QueryResult;
     BusinessProcessGroup?: BusinessProcessGroup;
     BusinessProcessGroupId?: ID;
@@ -17979,7 +17976,7 @@ export type BusinessProcessDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BusinessProcessFeedback = ens_sObject & {
+export type BusinessProcessFeedback = sObject & {
     ActionName?: string;
     ActionParam?: string;
     ActionType?: ExpFeedbackCollType;
@@ -17997,7 +17994,7 @@ export type BusinessProcessFeedback = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BusinessProcessGroup = ens_sObject & {
+export type BusinessProcessGroup = sObject & {
     AllManagedPackageMemberId?: ID;
     BusinessProcessDefinitions?: QueryResult;
     CreatedBy?: User;
@@ -18018,7 +18015,7 @@ export type BusinessProcessGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BusinessProcessSettings = ens_sObject & {
+export type BusinessProcessSettings = sObject & {
     BusinessProcess?: sObject;
     BusinessProcessId?: ID;
     CreatedBy?: User;
@@ -18031,7 +18028,7 @@ export type BusinessProcessSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BusinessProcessTypeDef = ens_sObject & {
+export type BusinessProcessTypeDef = sObject & {
     AllManagedPackageMemberId?: ID;
     ApplicationUsageType?: AppDomainUsageType;
     CreatedBy?: User;
@@ -18051,7 +18048,7 @@ export type BusinessProcessTypeDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type BuyerGroupMember = ens_sObject & {
+export type BuyerGroupMember = sObject & {
     Buyer?: sObject;
     BuyerGroupId?: ID;
     BuyerId?: ID;
@@ -18070,7 +18067,7 @@ export type BuyerGroupMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type C2CPermissionBinding = ens_sObject & {
+export type C2CPermissionBinding = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18085,7 +18082,7 @@ export type C2CPermissionBinding = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectAsset = ens_sObject & {
+export type CMSConnectAsset = sObject & {
     AssetPath?: string;
     AssetType?: CMSConnectionAssetType;
     CmsConnectSource?: CMSConnectSource;
@@ -18101,7 +18098,7 @@ export type CMSConnectAsset = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectLanguage = ens_sObject & {
+export type CMSConnectLanguage = sObject & {
     CmsConnectSource?: CMSConnectSource;
     CmsConnectSourceId?: ID;
     CmsLanguage?: string;
@@ -18116,7 +18113,7 @@ export type CMSConnectLanguage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectPersonalization = ens_sObject & {
+export type CMSConnectPersonalization = sObject & {
     CmsConnectSource?: CMSConnectSource;
     CmsConnectSourceId?: ID;
     ConnectorPage?: string;
@@ -18132,7 +18129,7 @@ export type CMSConnectPersonalization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectResourceDefinition = ens_sObject & {
+export type CMSConnectResourceDefinition = sObject & {
     CmsConnectResourceType?: CMSConnectResourceType;
     CmsConnectResourceTypeId?: ID;
     CmsConnectSource?: CMSConnectSource;
@@ -18157,7 +18154,7 @@ export type CMSConnectResourceDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectResourceType = ens_sObject & {
+export type CMSConnectResourceType = sObject & {
     CMSConnectResourceTypes?: QueryResult;
     CmsConnectSource?: CMSConnectSource;
     CmsConnectSourceId?: ID;
@@ -18176,7 +18173,7 @@ export type CMSConnectResourceType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CMSConnectSource = ens_sObject & {
+export type CMSConnectSource = sObject & {
     CMSConnectAssets?: QueryResult;
     CMSConnectLanguages?: QueryResult;
     CMSConnectResourceDefinitions?: QueryResult;
@@ -18209,7 +18206,7 @@ export type CMSConnectSource = ens_sObject & {
     WebsiteUrl?: string;
 }
 
-export type CallCenter = ens_sObject & {
+export type CallCenter = sObject & {
     AdapterUrl?: string;
     ContactCenterChannels?: QueryResult;
     CreatedBy?: User;
@@ -18225,7 +18222,7 @@ export type CallCenter = ens_sObject & {
     Version?: number;
 }
 
-export type CallDisposition = ens_sObject & {
+export type CallDisposition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18239,7 +18236,7 @@ export type CallDisposition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CallDispositionCategory = ens_sObject & {
+export type CallDispositionCategory = sObject & {
     Category?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18256,7 +18253,7 @@ export type CallDispositionCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CallRecordingGeoRestriction = ens_sObject & {
+export type CallRecordingGeoRestriction = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18273,7 +18270,7 @@ export type CallRecordingGeoRestriction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CampaignInfluenceModel = ens_sObject & {
+export type CampaignInfluenceModel = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18296,7 +18293,7 @@ export type CampaignInfluenceModel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CampaignSettings = ens_sObject & {
+export type CampaignSettings = sObject & {
     AiAttributionSuccessMilestone?: string;
     AiAttributionTimeframe?: number;
     DurableId?: string;
@@ -18313,7 +18310,7 @@ export type CampaignSettings = ens_sObject & {
     Metadata?: CampaignSettings;
 }
 
-export type CareBenefitVerifySettings = ens_sObject & {
+export type CareBenefitVerifySettings = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18334,7 +18331,7 @@ export type CareBenefitVerifySettings = ens_sObject & {
     UriPath?: string;
 }
 
-export type CareLimitType = ens_sObject & {
+export type CareLimitType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18356,7 +18353,7 @@ export type CareLimitType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CareProviderAfflRoleConfig = ens_sObject & {
+export type CareProviderAfflRoleConfig = sObject & {
     AffiliationType?: CareProviderAfflType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18375,7 +18372,7 @@ export type CareProviderAfflRoleConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CareProviderSearchConfig = ens_sObject & {
+export type CareProviderSearchConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18396,7 +18393,7 @@ export type CareProviderSearchConfig = ens_sObject & {
     TargetField?: string;
 }
 
-export type CareRequestConfiguration = ens_sObject & {
+export type CareRequestConfiguration = sObject & {
     AllManagedPackageMemberId?: ID;
     CareRequestRecordType?: string;
     CareRequestRecords?: string;
@@ -18421,7 +18418,7 @@ export type CareRequestConfiguration = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CareSystemFieldMapping = ens_sObject & {
+export type CareSystemFieldMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18446,7 +18443,7 @@ export type CareSystemFieldMapping = ens_sObject & {
     TargetObject?: string;
 }
 
-export type CaseSettings = ens_sObject & {
+export type CaseSettings = sObject & {
     CaseAssignNotificationTemplate?: string;
     CaseAutoProcUser?: boolean;
     CaseCloseNotificationTemplate?: string;
@@ -18502,7 +18499,7 @@ export type CaseSettings = ens_sObject & {
     WebToCaseId?: string;
 }
 
-export type CaseSubjectParticle = ens_sObject & {
+export type CaseSubjectParticle = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18522,7 +18519,7 @@ export type CaseSubjectParticle = ens_sObject & {
     Type?: CaseSubjectParticleType;
 }
 
-export type Certificate = ens_sObject & {
+export type Certificate = sObject & {
     CertificateChain?: string;
     CreatedDate?: Date;
     DeveloperName?: string;
@@ -18539,7 +18536,7 @@ export type Certificate = ens_sObject & {
     OptionsIsUsingKMS?: boolean;
 }
 
-export type ChannelObjectLinkingRule = ens_sObject & {
+export type ChannelObjectLinkingRule = sObject & {
     ActionForNoRecordFound?: ActionForNoRecordFound;
     ActionForSingleRecordFound?: ActionForSingleRecordFound;
     AllManagedPackageMemberId?: ID;
@@ -18565,7 +18562,7 @@ export type ChannelObjectLinkingRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ChatbotMetric = ens_sObject & {
+export type ChatbotMetric = sObject & {
     AverageInteractionsPerSession?: string;
     AverageSessionTime?: string;
     AverageStepEvents?: string;
@@ -18585,7 +18582,7 @@ export type ChatbotMetric = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ChatterAnswersSettings = ens_sObject & {
+export type ChatterAnswersSettings = sObject & {
     DurableId?: string;
     EmailFollowersOnBestAnswer?: boolean;
     EmailFollowersOnReply?: boolean;
@@ -18603,7 +18600,7 @@ export type ChatterAnswersSettings = ens_sObject & {
     ShowInPortals?: boolean;
 }
 
-export type ChatterEmailsMDSettings = ens_sObject & {
+export type ChatterEmailsMDSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsChatterDigestEmailsApiOnlyEnabled?: boolean;
@@ -18619,7 +18616,7 @@ export type ChatterEmailsMDSettings = ens_sObject & {
     NoQnSubNotifyOnRep?: boolean;
 }
 
-export type ChatterSettings = ens_sObject & {
+export type ChatterSettings = sObject & {
     AllowChatterGroupArchiving?: boolean;
     AllowRecordsInChatterGroup?: boolean;
     DurableId?: string;
@@ -18640,7 +18637,7 @@ export type ChatterSettings = ens_sObject & {
     UnlistedGroupsEnabled?: boolean;
 }
 
-export type ChoiceList = ens_sObject & {
+export type ChoiceList = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18656,7 +18653,7 @@ export type ChoiceList = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ChoiceListValue = ens_sObject & {
+export type ChoiceListValue = sObject & {
     ChoiceList?: ChoiceList;
     ChoiceListId?: ID;
     CreatedBy?: User;
@@ -18672,7 +18669,7 @@ export type ChoiceListValue = ens_sObject & {
     ValueName?: string;
 }
 
-export type ChoiceListValueDependency = ens_sObject & {
+export type ChoiceListValueDependency = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18687,7 +18684,7 @@ export type ChoiceListValueDependency = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ClaimFinancialSettings = ens_sObject & {
+export type ClaimFinancialSettings = sObject & {
     AllManagedPackageMemberId?: ID;
     ClaimCovPendingAuthStatus?: string;
     ClaimPendingAuthorityStatus?: string;
@@ -18708,14 +18705,14 @@ export type ClaimFinancialSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ClaimMgmtFoundationEnabledSettings = ens_sObject & {
+export type ClaimMgmtFoundationEnabledSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsWarrantyClaimMgmtEnabled?: boolean;
     Metadata?: ClaimMgmtFoundationEnabledSettings;
 }
 
-export type ClauseCatgConfiguration = ens_sObject & {
+export type ClauseCatgConfiguration = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18735,7 +18732,7 @@ export type ClauseCatgConfiguration = ens_sObject & {
     UsageType?: ClmCategoryUsageType;
 }
 
-export type CleanDataService = ens_sObject & {
+export type CleanDataService = sObject & {
     AllManagedPackageMemberId?: ID;
     CleanRules?: QueryResult;
     CreatedBy?: User;
@@ -18756,7 +18753,7 @@ export type CleanDataService = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CleanRule = ens_sObject & {
+export type CleanRule = sObject & {
     CleanDataService?: CleanDataService;
     CleanDataServiceId?: ID;
     CreatedBy?: User;
@@ -18785,14 +18782,14 @@ export type CleanRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CodeBuilderSettings = ens_sObject & {
+export type CodeBuilderSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCodeBuilderEnabled?: boolean;
     Metadata?: CodeBuilderSettings;
 }
 
-export type CodeBundle = ens_sObject & {
+export type CodeBundle = sObject & {
     ApiVersion?: number;
     Body?: string;
     CreatedBy?: User;
@@ -18812,14 +18809,14 @@ export type CodeBundle = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CollectionsDashboardSettings = ens_sObject & {
+export type CollectionsDashboardSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCollectionsDashboardEnabled?: boolean;
     Metadata?: CollectionsDashboardSettings;
 }
 
-export type ColorDefinition = ens_sObject & {
+export type ColorDefinition = sObject & {
     Color?: string;
     Context?: string;
     DurableId?: string;
@@ -18828,7 +18825,7 @@ export type ColorDefinition = ens_sObject & {
     Theme?: string;
 }
 
-export type ChannelLayout = ens_sObject & {
+export type ChannelLayout = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18849,7 +18846,7 @@ export type ChannelLayout = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommerceEntitlementBuyerGroup = ens_sObject & {
+export type CommerceEntitlementBuyerGroup = sObject & {
     BuyerGroupId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -18866,7 +18863,7 @@ export type CommerceEntitlementBuyerGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommerceEntitlementProduct = ens_sObject & {
+export type CommerceEntitlementProduct = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18883,7 +18880,7 @@ export type CommerceEntitlementProduct = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommerceSettings = ens_sObject & {
+export type CommerceSettings = sObject & {
     CommerceAnalyticsEnabled?: boolean;
     CommerceConciergeEnabled?: boolean;
     CommerceDiscoveryExpansion?: boolean;
@@ -18894,7 +18891,7 @@ export type CommerceSettings = ens_sObject & {
     Metadata?: CommerceSettings;
 }
 
-export type CommonEventSubscription = ens_sObject & {
+export type CommonEventSubscription = sObject & {
     BatchSize?: number;
     CheckpointReplay?: string;
     CreatedBy?: User;
@@ -18916,14 +18913,14 @@ export type CommonEventSubscription = ens_sObject & {
     Version?: string;
 }
 
-export type CommsServiceConsoleSettings = ens_sObject & {
+export type CommsServiceConsoleSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCommsServiceConsoleEnabled?: boolean;
     Metadata?: CommsServiceConsoleSettings;
 }
 
-export type CommunitiesSettings = ens_sObject & {
+export type CommunitiesSettings = sObject & {
     ApplyLoginPageTypeToEmbeddedLogin?: boolean;
     BlockEmbeddedLoginUnknownUrlRedirect?: boolean;
     CanModerateAllFeedPosts?: boolean;
@@ -18954,7 +18951,7 @@ export type CommunitiesSettings = ens_sObject & {
     Metadata?: CommunitiesSettings;
 }
 
-export type CommunityAIModelMapping = ens_sObject & {
+export type CommunityAIModelMapping = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -18977,7 +18974,7 @@ export type CommunityAIModelMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommunityTemplateDefinition = ens_sObject & {
+export type CommunityTemplateDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     BaseTemplate?: CommunityBaseTemplate;
     Category?: CommunityTemplateCategory;
@@ -19005,7 +19002,7 @@ export type CommunityTemplateDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommunityThemeDefinition = ens_sObject & {
+export type CommunityThemeDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19029,7 +19026,7 @@ export type CommunityThemeDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CommunityWorkspacesNode = ens_sObject & {
+export type CommunityWorkspacesNode = sObject & {
     Description?: string;
     DevName?: string;
     ExternalId?: string;
@@ -19042,7 +19039,7 @@ export type CommunityWorkspacesNode = ens_sObject & {
     Workspace?: string;
 }
 
-export type CompactLayout = ens_sObject & {
+export type CompactLayout = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19063,7 +19060,7 @@ export type CompactLayout = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CompactLayoutInfo = ens_sObject & {
+export type CompactLayoutInfo = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19083,7 +19080,7 @@ export type CompactLayoutInfo = ens_sObject & {
     ParentEnumOrId?: string;
 }
 
-export type CompactLayoutItemInfo = ens_sObject & {
+export type CompactLayoutItemInfo = sObject & {
     CompactLayoutInfo?: CompactLayoutInfo;
     CompactLayoutInfoId?: string;
     DurableId?: string;
@@ -19092,7 +19089,7 @@ export type CompactLayoutItemInfo = ens_sObject & {
     SortOrder?: number;
 }
 
-export type CompactLayoutMapping = ens_sObject & {
+export type CompactLayoutMapping = sObject & {
     AssignedToEnumOrId?: string;
     CompactLayout?: string;
     CreatedBy?: User;
@@ -19105,7 +19102,7 @@ export type CompactLayoutMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CompanySettings = ens_sObject & {
+export type CompanySettings = sObject & {
     DurableId?: string;
     FiscalYear?: string;
     FullName?: string;
@@ -19113,7 +19110,7 @@ export type CompanySettings = ens_sObject & {
     Metadata?: CompanySettings;
 }
 
-export type ComplexLiteralCustomAspect = ens_sObject & {
+export type ComplexLiteralCustomAspect = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19126,7 +19123,7 @@ export type ComplexLiteralCustomAspect = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ComponentLicenseStatus = ens_sObject & {
+export type ComponentLicenseStatus = sObject & {
     ComponentIdentifier?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19145,7 +19142,7 @@ export type ComponentLicenseStatus = ens_sObject & {
     UserIdentifier?: string;
 }
 
-export type ComputedComponentMetadata = ens_sObject & {
+export type ComputedComponentMetadata = sObject & {
     AuraDefinitionBundle?: string;
     ComplexityScore?: number;
     CreatedBy?: User;
@@ -19165,7 +19162,7 @@ export type ComputedComponentMetadata = ens_sObject & {
     TotalDomNodes?: number;
 }
 
-export type ConnectedAppSettings = ens_sObject & {
+export type ConnectedAppSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAdminApprovedAppsOnlyEnabled?: boolean;
@@ -19174,7 +19171,7 @@ export type ConnectedAppSettings = ens_sObject & {
     Metadata?: ConnectedAppSettings;
 }
 
-export type ConnectedApplication = ens_sObject & {
+export type ConnectedApplication = sObject & {
     AppManifestVersionId?: ID;
     ApplicationOrg?: string;
     ConnAppPluginClassId?: ID;
@@ -19216,7 +19213,7 @@ export type ConnectedApplication = ens_sObject & {
     Version?: string;
 }
 
-export type ConsentBannerSettings = ens_sObject & {
+export type ConsentBannerSettings = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19236,7 +19233,7 @@ export type ConsentBannerSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ContactCenterChannel = ens_sObject & {
+export type ContactCenterChannel = sObject & {
     Channel?: MessagingChannel;
     ChannelId?: ID;
     ContactCenter?: CallCenter;
@@ -19254,7 +19251,7 @@ export type ContactCenterChannel = ens_sObject & {
     VoicemailHandler?: string;
 }
 
-export type ContainerAsyncRequest = ens_sObject & {
+export type ContainerAsyncRequest = sObject & {
     ApexClassMembers?: QueryResult;
     ApexComponentMembers?: QueryResult;
     ApexPageMembers?: QueryResult;
@@ -19290,7 +19287,7 @@ export type ContainerAsyncRequest = ens_sObject & {
     WorkflowTaskMembers?: QueryResult;
 }
 
-export type ContentSettings = ens_sObject & {
+export type ContentSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsChatterFileLinkEnabled?: boolean;
@@ -19317,7 +19314,7 @@ export type ContentSettings = ens_sObject & {
     SkipContentAssetTriggersOnDeploy?: boolean;
 }
 
-export type ContextAttrHydrationDetail = ens_sObject & {
+export type ContextAttrHydrationDetail = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextAttrHydrationDetails?: QueryResult;
     ContextAttributeMapping?: ContextAttributeMapping;
@@ -19338,7 +19335,7 @@ export type ContextAttrHydrationDetail = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ContextAttribute = ens_sObject & {
+export type ContextAttribute = sObject & {
     AggregateFunctionType?: ContextAggregateFunctionType;
     AggregateSrcContextAttr?: ContextAttribute;
     AggregateSrcContextAttrId?: ID;
@@ -19366,7 +19363,7 @@ export type ContextAttribute = ens_sObject & {
     Title?: string;
 }
 
-export type ContextAttributeMapping = ens_sObject & {
+export type ContextAttributeMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextAttrHydrationDetails?: QueryResult;
     ContextAttribute?: ContextAttribute;
@@ -19386,7 +19383,7 @@ export type ContextAttributeMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ContextDefinition = ens_sObject & {
+export type ContextDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     ClonedFrom?: string;
     ContextDefinitionVersions?: QueryResult;
@@ -19411,7 +19408,7 @@ export type ContextDefinition = ens_sObject & {
     Title?: string;
 }
 
-export type ContextDefinitionVersion = ens_sObject & {
+export type ContextDefinitionVersion = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextDefinition?: ContextDefinition;
     ContextDefinitionId?: ID;
@@ -19432,7 +19429,7 @@ export type ContextDefinitionVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type ContextMapping = ens_sObject & {
+export type ContextMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextDefinitionVersion?: ContextDefinitionVersion;
     ContextDefinitionVersionId?: ID;
@@ -19452,7 +19449,7 @@ export type ContextMapping = ens_sObject & {
     Title?: string;
 }
 
-export type ContextNode = ens_sObject & {
+export type ContextNode = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextAttributes?: QueryResult;
     ContextDefinitionVersion?: ContextDefinitionVersion;
@@ -19473,7 +19470,7 @@ export type ContextNode = ens_sObject & {
     Title?: string;
 }
 
-export type ContextNodeMapping = ens_sObject & {
+export type ContextNodeMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextAttributeMappings?: QueryResult;
     ContextMapping?: ContextMapping;
@@ -19493,7 +19490,7 @@ export type ContextNodeMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ContextTag = ens_sObject & {
+export type ContextTag = sObject & {
     ContextAttribute?: ContextAttribute;
     ContextAttributeId?: ID;
     ContextNode?: ContextNode;
@@ -19510,7 +19507,7 @@ export type ContextTag = ens_sObject & {
     Title?: string;
 }
 
-export type ContractSettings = ens_sObject & {
+export type ContractSettings = sObject & {
     AutoCalculateEndDate?: boolean;
     AutoExpirationDelay?: string;
     AutoExpirationRecipient?: string;
@@ -19522,7 +19519,7 @@ export type ContractSettings = ens_sObject & {
     NotifyOwnersOnContractExpiration?: boolean;
 }
 
-export type ContractType = ens_sObject & {
+export type ContractType = sObject & {
     AllManagedPackageMemberId?: ID;
     ContractTypes?: QueryResult;
     CreatedBy?: User;
@@ -19545,7 +19542,7 @@ export type ContractType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ContractTypeConfig = ens_sObject & {
+export type ContractTypeConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ConfigType?: ContractConfigType;
     ConfigValue?: string;
@@ -19563,7 +19560,7 @@ export type ContractTypeConfig = ens_sObject & {
     UsageType?: ContractUsageType;
 }
 
-export type ConvMsgExternalTemplateVersion = ens_sObject & {
+export type ConvMsgExternalTemplateVersion = sObject & {
     AccountIdentifier?: string;
     AccountName?: string;
     CreatedBy?: User;
@@ -19582,7 +19579,7 @@ export type ConvMsgExternalTemplateVersion = ens_sObject & {
     TemplateVersionIdentifier?: string;
 }
 
-export type ConvReasonReportDefinition = ens_sObject & {
+export type ConvReasonReportDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19605,7 +19602,7 @@ export type ConvReasonReportDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConvReasonReportSegmentDef = ens_sObject & {
+export type ConvReasonReportSegmentDef = sObject & {
     ConvReasonReportDefinition?: ConvReasonReportDefinition;
     ConvReasonReportDefinitionId?: ID;
     CreatedBy?: User;
@@ -19629,7 +19626,7 @@ export type ConvReasonReportSegmentDef = ens_sObject & {
     TargetObject?: string;
 }
 
-export type ConversationApplicationDefinition = ens_sObject & {
+export type ConversationApplicationDefinition = sObject & {
     ConversationDefinitions?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19647,7 +19644,7 @@ export type ConversationApplicationDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationChannelDefinition = ens_sObject & {
+export type ConversationChannelDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CapabilitiesSupportsDoubleOptInConsent?: boolean;
     CapabilitiesSupportsExplicitConsent?: boolean;
@@ -19682,7 +19679,7 @@ export type ConversationChannelDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationContextVariableMapping = ens_sObject & {
+export type ConversationContextVariableMapping = sObject & {
     ConversationVariable?: ConversationDefinitionVariable;
     ConversationVariableId?: ID;
     CreatedBy?: User;
@@ -19698,7 +19695,7 @@ export type ConversationContextVariableMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionBlock = ens_sObject & {
+export type ConversationDefinitionBlock = sObject & {
     AllManagedPackageMemberId?: ID;
     BotBlockVersions?: QueryResult;
     CreatedBy?: User;
@@ -19722,7 +19719,7 @@ export type ConversationDefinitionBlock = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionBlockVersion = ens_sObject & {
+export type ConversationDefinitionBlockVersion = sObject & {
     ConversationDefinitionBlock?: ConversationDefinitionBlock;
     ConversationDefinitionBlockId?: ID;
     ConversationDefinitionDialogs?: QueryResult;
@@ -19750,7 +19747,7 @@ export type ConversationDefinitionBlockVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionChannelProvider = ens_sObject & {
+export type ConversationDefinitionChannelProvider = sObject & {
     ChannelProvider?: sObject;
     ChannelProviderId?: ID;
     ConversationDefinition?: BotDefinition;
@@ -19766,7 +19763,7 @@ export type ConversationDefinitionChannelProvider = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionDialog = ens_sObject & {
+export type ConversationDefinitionDialog = sObject & {
     BotDialogGroup?: ConversationDefinitionDialogGroup;
     BotDialogGroupId?: ID;
     ConversationDefinitionSteps?: QueryResult;
@@ -19812,7 +19809,7 @@ export type ConversationDefinitionDialog = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionDialogGroup = ens_sObject & {
+export type ConversationDefinitionDialogGroup = sObject & {
     BotVersion?: sObject;
     BotVersionId?: ID;
     ConversationDefinitionDialogs?: QueryResult;
@@ -19831,7 +19828,7 @@ export type ConversationDefinitionDialogGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionEventLog = ens_sObject & {
+export type ConversationDefinitionEventLog = sObject & {
     Action?: string;
     BotSessionKey?: string;
     ChannelType?: MessageType;
@@ -19879,7 +19876,7 @@ export type ConversationDefinitionEventLog = ens_sObject & {
     User?: string;
 }
 
-export type ConversationDefinitionGoal = ens_sObject & {
+export type ConversationDefinitionGoal = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19894,7 +19891,7 @@ export type ConversationDefinitionGoal = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionMessage = ens_sObject & {
+export type ConversationDefinitionMessage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19912,7 +19909,7 @@ export type ConversationDefinitionMessage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionNlpProvider = ens_sObject & {
+export type ConversationDefinitionNlpProvider = sObject & {
     ConversationDefinition?: BotVersion;
     ConversationDefinitionId?: ID;
     ConversationLanguage?: string;
@@ -19930,7 +19927,7 @@ export type ConversationDefinitionNlpProvider = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionPredictionDataCategory = ens_sObject & {
+export type ConversationDefinitionPredictionDataCategory = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -19944,7 +19941,7 @@ export type ConversationDefinitionPredictionDataCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionPredictionSetup = ens_sObject & {
+export type ConversationDefinitionPredictionSetup = sObject & {
     ConvDefPredictionCategories?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19962,7 +19959,7 @@ export type ConversationDefinitionPredictionSetup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionRichMessage = ens_sObject & {
+export type ConversationDefinitionRichMessage = sObject & {
     ConversationInvocationMappings?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19980,7 +19977,7 @@ export type ConversationDefinitionRichMessage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionSession = ens_sObject & {
+export type ConversationDefinitionSession = sObject & {
     ChannelType?: MessageType;
     ConversationDefinition?: sObject;
     ConversationDefinitionEventLogs?: QueryResult;
@@ -20020,7 +20017,7 @@ export type ConversationDefinitionSession = ens_sObject & {
     WasSessionEngaged?: boolean;
 }
 
-export type ConversationDefinitionStep = ens_sObject & {
+export type ConversationDefinitionStep = sObject & {
     BooleanFilter?: string;
     BotNavigations?: QueryResult;
     ConditionLogicType?: ConversationDefinitionLogicalOperatorType;
@@ -20050,7 +20047,7 @@ export type ConversationDefinitionStep = ens_sObject & {
     Type?: BotStepType;
 }
 
-export type ConversationDefinitionStepCondition = ens_sObject & {
+export type ConversationDefinitionStepCondition = sObject & {
     ConversationDefinitionStep?: ConversationDefinitionStep;
     ConversationDefinitionStepId?: ID;
     CreatedBy?: User;
@@ -20069,7 +20066,7 @@ export type ConversationDefinitionStepCondition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionStepGoalMapping = ens_sObject & {
+export type ConversationDefinitionStepGoalMapping = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20086,7 +20083,7 @@ export type ConversationDefinitionStepGoalMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationDefinitionSystemDialog = ens_sObject & {
+export type ConversationDefinitionSystemDialog = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20102,7 +20099,7 @@ export type ConversationDefinitionSystemDialog = ens_sObject & {
     Type?: ConversationSystemDialogType;
 }
 
-export type ConversationDefinitionTemplate = ens_sObject & {
+export type ConversationDefinitionTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     ConversationDefinitionDialogGroups?: QueryResult;
     ConversationDefinitionDialogs?: QueryResult;
@@ -20141,7 +20138,7 @@ export type ConversationDefinitionTemplate = ens_sObject & {
     Type?: BotType;
 }
 
-export type ConversationDefinitionVariable = ens_sObject & {
+export type ConversationDefinitionVariable = sObject & {
     ConversationContextVariableMappings?: QueryResult;
     ConversationNavigationLinks?: QueryResult;
     ConversationVariableOperands?: QueryResult;
@@ -20166,7 +20163,7 @@ export type ConversationDefinitionVariable = ens_sObject & {
     VariableType?: ConversationVariableType;
 }
 
-export type ConversationInvocation = ens_sObject & {
+export type ConversationInvocation = sObject & {
     ConversationInvocationMappings?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20184,7 +20181,7 @@ export type ConversationInvocation = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationInvocationMapping = ens_sObject & {
+export type ConversationInvocationMapping = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20204,7 +20201,7 @@ export type ConversationInvocationMapping = ens_sObject & {
     Variable?: string;
 }
 
-export type ConversationMessageConstant = ens_sObject & {
+export type ConversationMessageConstant = sObject & {
     ConstantType?: ConversationMessageConstantType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20220,7 +20217,7 @@ export type ConversationMessageConstant = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationMessageConstantValue = ens_sObject & {
+export type ConversationMessageConstantValue = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20240,7 +20237,7 @@ export type ConversationMessageConstantValue = ens_sObject & {
     ValueType?: ConversationMessageValueType;
 }
 
-export type ConversationMessageDefinition = ens_sObject & {
+export type ConversationMessageDefinition = sObject & {
     ConversationMessageConstantValues?: QueryResult;
     ConversationMessageConstants?: QueryResult;
     ConversationMessageDefinitionHandlers?: QueryResult;
@@ -20265,7 +20262,7 @@ export type ConversationMessageDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationMessageDefinitionHandler = ens_sObject & {
+export type ConversationMessageDefinitionHandler = sObject & {
     ActiveRequestDurationMinutes?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20281,7 +20278,7 @@ export type ConversationMessageDefinitionHandler = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationMessageGroup = ens_sObject & {
+export type ConversationMessageGroup = sObject & {
     ConversationDefinitionMessages?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20299,7 +20296,7 @@ export type ConversationMessageGroup = ens_sObject & {
     Type?: ConversationMessageGroupType;
 }
 
-export type ConversationMessageLayout = ens_sObject & {
+export type ConversationMessageLayout = sObject & {
     ConversationMessageLayouts?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20316,7 +20313,7 @@ export type ConversationMessageLayout = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationMessageParameterDefinition = ens_sObject & {
+export type ConversationMessageParameterDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20340,7 +20337,7 @@ export type ConversationMessageParameterDefinition = ens_sObject & {
     ValueType?: ConversationMessageValueType;
 }
 
-export type ConversationNavigation = ens_sObject & {
+export type ConversationNavigation = sObject & {
     ConversationNavigationLinks?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20357,7 +20354,7 @@ export type ConversationNavigation = ens_sObject & {
     Type?: BotNavigationType;
 }
 
-export type ConversationNavigationLink = ens_sObject & {
+export type ConversationNavigationLink = sObject & {
     ConversationNavigation?: ConversationNavigation;
     ConversationNavigationId?: ID;
     CreatedBy?: User;
@@ -20378,7 +20375,7 @@ export type ConversationNavigationLink = ens_sObject & {
     TargetVariableId?: ID;
 }
 
-export type ConversationQuickReplyOption = ens_sObject & {
+export type ConversationQuickReplyOption = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20396,7 +20393,7 @@ export type ConversationQuickReplyOption = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationRecordLookup = ens_sObject & {
+export type ConversationRecordLookup = sObject & {
     AdvancedFilterText?: string;
     ConversationRecordLookupConditions?: QueryResult;
     ConversationRecordOutputFields?: QueryResult;
@@ -20423,7 +20420,7 @@ export type ConversationRecordLookup = ens_sObject & {
     Type?: ConversationRecordLookupType;
 }
 
-export type ConversationRecordLookupCondition = ens_sObject & {
+export type ConversationRecordLookupCondition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20443,7 +20440,7 @@ export type ConversationRecordLookupCondition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationRecordOutputField = ens_sObject & {
+export type ConversationRecordOutputField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20459,7 +20456,7 @@ export type ConversationRecordOutputField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ConversationSlackApplication = ens_sObject & {
+export type ConversationSlackApplication = sObject & {
     ByeKeywords?: string;
     ConversationDefinitions?: QueryResult;
     CreatedBy?: User;
@@ -20478,7 +20475,7 @@ export type ConversationSlackApplication = ens_sObject & {
     WakeupKeywords?: string;
 }
 
-export type ConversationSystemMessage = ens_sObject & {
+export type ConversationSystemMessage = sObject & {
     ConversationSystemMessageMappings?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20495,7 +20492,7 @@ export type ConversationSystemMessage = ens_sObject & {
     Type?: ConversationSystemMessageType;
 }
 
-export type ConversationSystemMessageMapping = ens_sObject & {
+export type ConversationSystemMessageMapping = sObject & {
     ConversationSystemMessage?: ConversationSystemMessage;
     ConversationSystemMessageId?: ID;
     CreatedBy?: User;
@@ -20513,7 +20510,7 @@ export type ConversationSystemMessageMapping = ens_sObject & {
     Variable?: string;
 }
 
-export type ConversationVariableOperand = ens_sObject & {
+export type ConversationVariableOperand = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20534,7 +20531,7 @@ export type ConversationVariableOperand = ens_sObject & {
     TargetId?: ID;
 }
 
-export type ConversationVariableOperation = ens_sObject & {
+export type ConversationVariableOperation = sObject & {
     BotNavigations?: QueryResult;
     ConversationDefinitionMessages?: QueryResult;
     ConversationDefinitionRichMessages?: QueryResult;
@@ -20566,7 +20563,7 @@ export type ConversationVariableOperation = ens_sObject & {
     VariableOperationIdentifier?: string;
 }
 
-export type ConversationVendorInfo = ens_sObject & {
+export type ConversationVendorInfo = sObject & {
     AllManagedPackageMemberId?: ID;
     AwsAccountKey?: string;
     AwsRootEmail?: string;
@@ -20612,7 +20609,7 @@ export type ConversationVendorInfo = ens_sObject & {
     VendorType?: ConversationVendorType;
 }
 
-export type ConversationalIntelligenceSettings = ens_sObject & {
+export type ConversationalIntelligenceSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCallCoachingEnabled?: boolean;
@@ -20625,11 +20622,11 @@ export type ConversationalIntelligenceSettings = ens_sObject & {
     Metadata?: ConversationalIntelligenceSettings;
 }
 
-export type CountriesAndStates = ens_sObject & {
+export type CountriesAndStates = sObject & {
     DurableId?: string;
 }
 
-export type Country = ens_sObject & {
+export type Country = sObject & {
     Active?: boolean;
     DurableId?: string;
     IntegrationValue?: string;
@@ -20640,7 +20637,7 @@ export type Country = ens_sObject & {
     Visible?: boolean;
 }
 
-export type CspTrustedSite = ens_sObject & {
+export type CspTrustedSite = sObject & {
     AllManagedPackageMemberId?: ID;
     CanAccessCamera?: boolean;
     CanAccessMicrophone?: boolean;
@@ -20671,7 +20668,7 @@ export type CspTrustedSite = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CurrencySettings = ens_sObject & {
+export type CurrencySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCurrencyEffectiveDatesEnabled?: boolean;
@@ -20682,14 +20679,14 @@ export type CurrencySettings = ens_sObject & {
     Metadata?: CurrencySettings;
 }
 
-export type CustomAddressFieldSettings = ens_sObject & {
+export type CustomAddressFieldSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCustomAddressFieldEnabled?: boolean;
     Metadata?: CustomAddressFieldSettings;
 }
 
-export type CustomObject = ens_sObject & {
+export type CustomObject = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20709,7 +20706,7 @@ export type CustomObject = ens_sObject & {
     SharingModel?: string;
 }
 
-export type CustomField = ens_sObject & {
+export type CustomField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20736,7 +20733,7 @@ export type CustomField = ens_sObject & {
     TableEnumOrId?: string;
 }
 
-export type CustomFieldMember = ens_sObject & {
+export type CustomFieldMember = sObject & {
     Content?: string;
     ContentEntity?: CustomField;
     ContentEntityId?: ID;
@@ -20755,7 +20752,7 @@ export type CustomFieldMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CustomHelpMenuSection = ens_sObject & {
+export type CustomHelpMenuSection = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20775,7 +20772,7 @@ export type CustomHelpMenuSection = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CustomHttpHeader = ens_sObject & {
+export type CustomHttpHeader = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20792,7 +20789,7 @@ export type CustomHttpHeader = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Index = ens_sObject & {
+export type Index = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20815,7 +20812,7 @@ export type Index = ens_sObject & {
     Type?: IndexType;
 }
 
-export type IndexField = ens_sObject & {
+export type IndexField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20834,7 +20831,7 @@ export type IndexField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type CustomNotificationType = ens_sObject & {
+export type CustomNotificationType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20857,7 +20854,7 @@ export type CustomNotificationType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type HomePageLayout = ens_sObject & {
+export type HomePageLayout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20869,7 +20866,7 @@ export type HomePageLayout = ens_sObject & {
     NamespacePrefix?: string;
 }
 
-export type CustomTab = ens_sObject & {
+export type CustomTab = sObject & {
     ContentId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20892,26 +20889,26 @@ export type CustomTab = ens_sObject & {
     Url?: string;
 }
 
-export type CustomerDataPlatformSettings = ens_sObject & {
+export type CustomerDataPlatformSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCustomerDataPlatformEnabled?: boolean;
     Metadata?: CustomerDataPlatformSettings;
 }
 
-export type CustomizablePropensityScoringSettings = ens_sObject & {
+export type CustomizablePropensityScoringSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCpsPrefEnabled?: boolean;
     Metadata?: CustomizablePropensityScoringSettings;
 }
 
-export type DashboardMobileSettings = ens_sObject & {
+export type DashboardMobileSettings = sObject & {
     DurableId?: string;
     IsDashboardIpadAppEnabled?: boolean;
 }
 
-export type DataAssessmentConfigItem = ens_sObject & {
+export type DataAssessmentConfigItem = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20925,7 +20922,7 @@ export type DataAssessmentConfigItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataCalcInsightTemplate = ens_sObject & {
+export type DataCalcInsightTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     BuilderExpression?: string;
     CreatedBy?: User;
@@ -20953,7 +20950,7 @@ export type DataCalcInsightTemplate = ens_sObject & {
     referenceObject?: QueryResult;
 }
 
-export type DataConnectorConvStorage = ens_sObject & {
+export type DataConnectorConvStorage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20969,7 +20966,7 @@ export type DataConnectorConvStorage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataConnectorInternalS3 = ens_sObject & {
+export type DataConnectorInternalS3 = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20988,7 +20985,7 @@ export type DataConnectorInternalS3 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataConnectorS3 = ens_sObject & {
+export type DataConnectorS3 = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21015,7 +21012,7 @@ export type DataConnectorS3 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataDotComEntitySetting = ens_sObject & {
+export type DataDotComEntitySetting = sObject & {
     AllowDuplicates?: boolean;
     BypassSkippedRecords?: boolean;
     BypassTriggers?: boolean;
@@ -21038,7 +21035,7 @@ export type DataDotComEntitySetting = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataDotComSettings = ens_sObject & {
+export type DataDotComSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAccountExportButtonOffEnabled?: boolean;
@@ -21054,7 +21051,7 @@ export type DataDotComSettings = ens_sObject & {
     Metadata?: DataDotComSettings;
 }
 
-export type DataGraphDefinition = ens_sObject & {
+export type DataGraphDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21071,7 +21068,7 @@ export type DataGraphDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphDependencyMppng = ens_sObject & {
+export type DataGraphDependencyMppng = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21086,7 +21083,7 @@ export type DataGraphDependencyMppng = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphField = ens_sObject & {
+export type DataGraphField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21103,7 +21100,7 @@ export type DataGraphField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphFilterCondition = ens_sObject & {
+export type DataGraphFilterCondition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21118,7 +21115,7 @@ export type DataGraphFilterCondition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphFilterCriteria = ens_sObject & {
+export type DataGraphFilterCriteria = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21133,7 +21130,7 @@ export type DataGraphFilterCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphRecencyCriteria = ens_sObject & {
+export type DataGraphRecencyCriteria = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21149,7 +21146,7 @@ export type DataGraphRecencyCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphSource = ens_sObject & {
+export type DataGraphSource = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21167,7 +21164,7 @@ export type DataGraphSource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataGraphVersion = ens_sObject & {
+export type DataGraphVersion = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21182,7 +21179,7 @@ export type DataGraphVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataImportManagementSettings = ens_sObject & {
+export type DataImportManagementSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsDataConnectorHubspotEnabled?: boolean;
@@ -21190,7 +21187,7 @@ export type DataImportManagementSettings = ens_sObject & {
     Metadata?: DataImportManagementSettings;
 }
 
-export type DataIntegrationRecordPurchasePermission = ens_sObject & {
+export type DataIntegrationRecordPurchasePermission = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21205,7 +21202,7 @@ export type DataIntegrationRecordPurchasePermission = ens_sObject & {
     UserRecordPurchaseLimit?: number;
 }
 
-export type DataModelTaxonomy = ens_sObject & {
+export type DataModelTaxonomy = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21227,7 +21224,7 @@ export type DataModelTaxonomy = ens_sObject & {
     VersionNbr?: number;
 }
 
-export type DataObjectCategory = ens_sObject & {
+export type DataObjectCategory = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21249,7 +21246,7 @@ export type DataObjectCategory = ens_sObject & {
     TransportCategories?: QueryResult;
 }
 
-export type DataPackageKitDefinition = ens_sObject & {
+export type DataPackageKitDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21274,7 +21271,7 @@ export type DataPackageKitDefinition = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type DataPackageKitObject = ens_sObject & {
+export type DataPackageKitObject = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21294,7 +21291,7 @@ export type DataPackageKitObject = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataPlatDataSetBundle = ens_sObject & {
+export type DataPlatDataSetBundle = sObject & {
     BundleType?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21311,7 +21308,7 @@ export type DataPlatDataSetBundle = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataPlatform = ens_sObject & {
+export type DataPlatform = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21337,7 +21334,7 @@ export type DataPlatform = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataPlatformDataSet = ens_sObject & {
+export type DataPlatformDataSet = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21352,7 +21349,7 @@ export type DataPlatformDataSet = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataSource = ens_sObject & {
+export type DataSource = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21376,7 +21373,7 @@ export type DataSource = ens_sObject & {
     TransportSources?: QueryResult;
 }
 
-export type DataSourceBundleDefinition = ens_sObject & {
+export type DataSourceBundleDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21403,7 +21400,7 @@ export type DataSourceBundleDefinition = ens_sObject & {
     referenceObject?: QueryResult;
 }
 
-export type DataSourceObject = ens_sObject & {
+export type DataSourceObject = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21431,7 +21428,7 @@ export type DataSourceObject = ens_sObject & {
     TransportSourceObjects?: QueryResult;
 }
 
-export type DataSrcDataModelFieldMap = ens_sObject & {
+export type DataSrcDataModelFieldMap = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21455,7 +21452,7 @@ export type DataSrcDataModelFieldMap = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type DataStreamDefinition = ens_sObject & {
+export type DataStreamDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     AreHeadersIncludedInFile?: boolean;
     BulkIngest?: boolean;
@@ -21500,7 +21497,7 @@ export type DataStreamDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataStreamTemplate = ens_sObject & {
+export type DataStreamTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21530,7 +21527,7 @@ export type DataStreamTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DataType = ens_sObject & {
+export type DataType = sObject & {
     ContextServiceDataType?: ServiceDataType;
     ContextServiceDataTypeId?: string;
     ContextWsdlDataType?: WsdlDataType;
@@ -21540,7 +21537,7 @@ export type DataType = ens_sObject & {
     IsComplex?: boolean;
 }
 
-export type DebugLevel = ens_sObject & {
+export type DebugLevel = sObject & {
     ApexCode?: ApexLogLevel;
     ApexProfiling?: ApexLogLevel;
     Callout?: ApexLogLevel;
@@ -21565,7 +21562,7 @@ export type DebugLevel = ens_sObject & {
     Workflow?: ApexLogLevel;
 }
 
-export type DecisionMatrixDefinition = ens_sObject & {
+export type DecisionMatrixDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21592,7 +21589,7 @@ export type DecisionMatrixDefinition = ens_sObject & {
     UsageType?: ExpsSetProcessType;
 }
 
-export type DecisionMatrixDefinitionVersion = ens_sObject & {
+export type DecisionMatrixDefinitionVersion = sObject & {
     ActiveVersionSnapshotId?: ID;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -21618,7 +21615,7 @@ export type DecisionMatrixDefinitionVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type DecisionTable = ens_sObject & {
+export type DecisionTable = sObject & {
     AllManagedPackageMemberId?: ID;
     CollectOperator?: DecisionTableCollectOperator;
     ConditionCriteria?: string;
@@ -21657,7 +21654,7 @@ export type DecisionTable = ens_sObject & {
     UsageType?: DecisionTableUsageType;
 }
 
-export type DecisionTableDatasetLink = ens_sObject & {
+export type DecisionTableDatasetLink = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21684,7 +21681,7 @@ export type DecisionTableDatasetLink = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DecisionTableParameter = ens_sObject & {
+export type DecisionTableParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21713,7 +21710,7 @@ export type DecisionTableParameter = ens_sObject & {
     Usage?: DecisionTableParameterType;
 }
 
-export type DecisionTableSourceCriteria = ens_sObject & {
+export type DecisionTableSourceCriteria = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21733,7 +21730,7 @@ export type DecisionTableSourceCriteria = ens_sObject & {
     ValueType?: DTSourceCriteriaValueType;
 }
 
-export type DecisionTblDatasetParameter = ens_sObject & {
+export type DecisionTblDatasetParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21752,7 +21749,7 @@ export type DecisionTblDatasetParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DelegateGroup = ens_sObject & {
+export type DelegateGroup = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21766,7 +21763,7 @@ export type DelegateGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DelegateGroupGrant = ens_sObject & {
+export type DelegateGroupGrant = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21776,7 +21773,7 @@ export type DelegateGroupGrant = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DelegateGroupMember = ens_sObject & {
+export type DelegateGroupMember = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -21785,7 +21782,7 @@ export type DelegateGroupMember = ens_sObject & {
     UserOrGroupId?: ID;
 }
 
-export type DeployRequest = ens_sObject & {
+export type DeployRequest = sObject & {
     AbortRequested?: boolean;
     AllowMissingFiles?: boolean;
     AsyncRequestId?: ID;
@@ -21828,7 +21825,7 @@ export type DeployRequest = ens_sObject & {
     Type?: AsyncRequestSource;
 }
 
-export type DeployTestResult = ens_sObject & {
+export type DeployTestResult = sObject & {
     CodeType?: string;
     ComponentId?: string;
     CreatedBy?: User;
@@ -21850,14 +21847,14 @@ export type DeployTestResult = ens_sObject & {
     Time?: number;
 }
 
-export type DeploymentSettings = ens_sObject & {
+export type DeploymentSettings = sObject & {
     DoesSkipAsyncApexValidation?: boolean;
     DurableId?: string;
     FullName?: string;
     Metadata?: DeploymentSettings;
 }
 
-export type DevHubSettings = ens_sObject & {
+export type DevHubSettings = sObject & {
     DevOpsCenterBetaMsa?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -21870,7 +21867,7 @@ export type DevHubSettings = ens_sObject & {
     Metadata?: DevHubSettings;
 }
 
-export type DisclosureDefinition = ens_sObject & {
+export type DisclosureDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21890,7 +21887,7 @@ export type DisclosureDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DisclosureDefinitionVersion = ens_sObject & {
+export type DisclosureDefinitionVersion = sObject & {
     AllManagedPackageMemberId?: ID;
     AuthoringMode?: AuthoringMode;
     CreatedBy?: User;
@@ -21919,7 +21916,7 @@ export type DisclosureDefinitionVersion = ens_sObject & {
     VersionNumber?: string;
 }
 
-export type DisclosureType = ens_sObject & {
+export type DisclosureType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21942,7 +21939,7 @@ export type DisclosureType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DiscoverySettings = ens_sObject & {
+export type DiscoverySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEinsteinAnswersPrefEnabled?: boolean;
@@ -21950,7 +21947,7 @@ export type DiscoverySettings = ens_sObject & {
     Metadata?: DiscoverySettings;
 }
 
-export type Document = ens_sObject & {
+export type Document = sObject & {
     AllManagedPackageMemberId?: ID;
     Author?: User;
     AuthorId?: ID;
@@ -21988,7 +21985,7 @@ export type Document = ens_sObject & {
     Url?: string;
 }
 
-export type DocumentChecklistSettings = ens_sObject & {
+export type DocumentChecklistSettings = sObject & {
     DciCustomSharing?: boolean;
     DeleteDciWithFiles?: boolean;
     DurableId?: string;
@@ -21996,7 +21993,7 @@ export type DocumentChecklistSettings = ens_sObject & {
     Metadata?: DocumentChecklistSettings;
 }
 
-export type DocumentGenerationSetting = ens_sObject & {
+export type DocumentGenerationSetting = sObject & {
     AllManagedPackageMemberId?: ID;
     BatchDocGnrnPctLimitPerHour?: number;
     CreatedBy?: User;
@@ -22023,7 +22020,7 @@ export type DocumentGenerationSetting = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DocumentTemplateConfig = ens_sObject & {
+export type DocumentTemplateConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22040,7 +22037,7 @@ export type DocumentTemplateConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DocumentTypeInputPrompt = ens_sObject & {
+export type DocumentTypeInputPrompt = sObject & {
     ApiName?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22054,7 +22051,7 @@ export type DocumentTypeInputPrompt = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DomainProvision = ens_sObject & {
+export type DomainProvision = sObject & {
     CnameTarget?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22087,7 +22084,7 @@ export type DomainProvision = ens_sObject & {
     TargetSandboxId?: ID;
 }
 
-export type DuplicateJobDefinition = ens_sObject & {
+export type DuplicateJobDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22105,7 +22102,7 @@ export type DuplicateJobDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DuplicateJobMatchingRuleDefinition = ens_sObject & {
+export type DuplicateJobMatchingRuleDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22122,14 +22119,14 @@ export type DuplicateJobMatchingRuleDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type DynamicFormsSettings = ens_sObject & {
+export type DynamicFormsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsFormsOnMobileEnabled?: boolean;
     Metadata?: DynamicFormsSettings;
 }
 
-export type EACSettings = ens_sObject & {
+export type EACSettings = sObject & {
     AddRcCompToFlexiPages?: boolean;
     AutoPopulateGoogleMeetLinks?: boolean;
     AutomatedEmailFilter?: boolean;
@@ -22154,7 +22151,7 @@ export type EACSettings = ens_sObject & {
     SyncInternalEvents?: boolean;
 }
 
-export type ESignatureConfig = ens_sObject & {
+export type ESignatureConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ConfigType?: ConfigType;
     ConfigValue?: string;
@@ -22179,7 +22176,7 @@ export type ESignatureConfig = ens_sObject & {
     Vendor?: Vendor;
 }
 
-export type ESignatureEnvelopeConfig = ens_sObject & {
+export type ESignatureEnvelopeConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22209,7 +22206,7 @@ export type ESignatureEnvelopeConfig = ens_sObject & {
     VendorAccountIdentifier?: string;
 }
 
-export type EinsteinAgentSettings = ens_sObject & {
+export type EinsteinAgentSettings = sObject & {
     DurableId?: string;
     EinsteinAgentRecommendations?: boolean;
     FullName?: string;
@@ -22220,7 +22217,7 @@ export type EinsteinAgentSettings = ens_sObject & {
     VoiceWrapUpRecs?: boolean;
 }
 
-export type EinsteinAssistantSettings = ens_sObject & {
+export type EinsteinAssistantSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEinsteinAssistantDataExtractionEnabledEnabled?: boolean;
@@ -22229,21 +22226,21 @@ export type EinsteinAssistantSettings = ens_sObject & {
     Metadata?: EinsteinAssistantSettings;
 }
 
-export type EinsteinDealInsightsSettings = ens_sObject & {
+export type EinsteinDealInsightsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsUnlikelyToCloseThisMonthEnabled?: boolean;
     Metadata?: EinsteinDealInsightsSettings;
 }
 
-export type EinsteinDocumentCaptureSettings = ens_sObject & {
+export type EinsteinDocumentCaptureSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEinsteinDocumentReaderEnabled?: boolean;
     Metadata?: EinsteinDocumentCaptureSettings;
 }
 
-export type EinsteinGptSettings = ens_sObject & {
+export type EinsteinGptSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEinsteinGptPlatformEnabled?: boolean;
@@ -22251,7 +22248,7 @@ export type EinsteinGptSettings = ens_sObject & {
     Metadata?: EinsteinGptSettings;
 }
 
-export type EmailAdministrationSettings = ens_sObject & {
+export type EmailAdministrationSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsComplianceBccEnabled?: boolean;
@@ -22280,7 +22277,7 @@ export type EmailAdministrationSettings = ens_sObject & {
     SendTextOnlySystemEmails?: boolean;
 }
 
-export type EmailIntegrationSettings = ens_sObject & {
+export type EmailIntegrationSettings = sObject & {
     DoesEmailLogAsEmailMessageInOutlook?: boolean;
     DoesGmailStayConnectedToSalesforce?: boolean;
     DurableId?: string;
@@ -22303,7 +22300,7 @@ export type EmailIntegrationSettings = ens_sObject & {
     ShouldUseTrustedDomainsList?: boolean;
 }
 
-export type EmailTemplate = ens_sObject & {
+export type EmailTemplate = sObject & {
     ApiVersion?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22322,14 +22319,14 @@ export type EmailTemplate = ens_sObject & {
     UiType?: EmailTemplateUiType;
 }
 
-export type EmailTemplateSettings = ens_sObject & {
+export type EmailTemplateSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsTemplateEnhancedFolderPrefEnabled?: boolean;
     Metadata?: EmailTemplateSettings;
 }
 
-export type EmailToCaseRoutingAddress = ens_sObject & {
+export type EmailToCaseRoutingAddress = sObject & {
     AddressType?: string;
     AuthorizedSenders?: string;
     CaseOrigin?: string;
@@ -22348,7 +22345,7 @@ export type EmailToCaseRoutingAddress = ens_sObject & {
     TaskStatus?: string;
 }
 
-export type EmailToCaseSettings = ens_sObject & {
+export type EmailToCaseSettings = sObject & {
     DurableId?: string;
     IsE2CattachmentAsFileEnabled?: boolean;
     IsE2CdeduplicateAttachmentsEnabled?: boolean;
@@ -22371,7 +22368,7 @@ export type EmailToCaseSettings = ens_sObject & {
     UseEmailHeadersForThreading?: boolean;
 }
 
-export type EmbeddedMessagingChannel = ens_sObject & {
+export type EmbeddedMessagingChannel = sObject & {
     AnonymousUserJwtExpiry?: number;
     AuthMode?: EmbeddedServiceAuthModeType;
     CreatedBy?: User;
@@ -22391,7 +22388,7 @@ export type EmbeddedMessagingChannel = ens_sObject & {
     VerifiedUserJwtExpiry?: number;
 }
 
-export type EmbeddedServiceAppointmentSettings = ens_sObject & {
+export type EmbeddedServiceAppointmentSettings = sObject & {
     AppointmentConfirmImg?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22410,7 +22407,7 @@ export type EmbeddedServiceAppointmentSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceBranding = ens_sObject & {
+export type EmbeddedServiceBranding = sObject & {
     AllManagedPackageMemberId?: ID;
     ContrastInvertedColor?: string;
     ContrastPrimaryColor?: string;
@@ -22442,7 +22439,7 @@ export type EmbeddedServiceBranding = ens_sObject & {
     Width?: number;
 }
 
-export type EmbeddedServiceConfig = ens_sObject & {
+export type EmbeddedServiceConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     AreGuestUsersAllowed?: boolean;
     AuthMethod?: EmbeddedServiceAuthMethod;
@@ -22473,7 +22470,7 @@ export type EmbeddedServiceConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceConfigPub = ens_sObject & {
+export type EmbeddedServiceConfigPub = sObject & {
     Branding?: string;
     ChoiceList?: string;
     CoreVersion?: string;
@@ -22491,7 +22488,7 @@ export type EmbeddedServiceConfigPub = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceCustomComponent = ens_sObject & {
+export type EmbeddedServiceCustomComponent = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22508,7 +22505,7 @@ export type EmbeddedServiceCustomComponent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceCustomLabel = ens_sObject & {
+export type EmbeddedServiceCustomLabel = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22524,7 +22521,7 @@ export type EmbeddedServiceCustomLabel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceCustomization = ens_sObject & {
+export type EmbeddedServiceCustomization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22539,7 +22536,7 @@ export type EmbeddedServiceCustomization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceFlow = ens_sObject & {
+export type EmbeddedServiceFlow = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22556,7 +22553,7 @@ export type EmbeddedServiceFlow = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceFlowConfig = ens_sObject & {
+export type EmbeddedServiceFlowConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22572,7 +22569,7 @@ export type EmbeddedServiceFlowConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceForm = ens_sObject & {
+export type EmbeddedServiceForm = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22587,7 +22584,7 @@ export type EmbeddedServiceForm = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceFormField = ens_sObject & {
+export type EmbeddedServiceFormField = sObject & {
     ChoiceControllingField?: EmbeddedServiceFormField;
     ChoiceControllingFieldId?: ID;
     ChoiceList?: ChoiceList;
@@ -22609,7 +22606,7 @@ export type EmbeddedServiceFormField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceLabelsPub = ens_sObject & {
+export type EmbeddedServiceLabelsPub = sObject & {
     ChoiceListLabels?: string;
     CoreVersion?: string;
     CreatedBy?: User;
@@ -22628,7 +22625,7 @@ export type EmbeddedServiceLabelsPub = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceLayout = ens_sObject & {
+export type EmbeddedServiceLayout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22645,7 +22642,7 @@ export type EmbeddedServiceLayout = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceLayoutRule = ens_sObject & {
+export type EmbeddedServiceLayoutRule = sObject & {
     AppointmentStatus?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22659,7 +22656,7 @@ export type EmbeddedServiceLayoutRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceLiveAgent = ens_sObject & {
+export type EmbeddedServiceLiveAgent = sObject & {
     AllManagedPackageMemberId?: ID;
     AvatarImg?: string;
     CreatedBy?: User;
@@ -22698,7 +22695,7 @@ export type EmbeddedServiceLiveAgent = ens_sObject & {
     WaitingStateBackgroundImg?: string;
 }
 
-export type EmbeddedServiceMenuItem = ens_sObject & {
+export type EmbeddedServiceMenuItem = sObject & {
     Channel?: sObject;
     ChannelId?: ID;
     ChannelType?: EmbeddedServiceChannelType;
@@ -22726,7 +22723,7 @@ export type EmbeddedServiceMenuItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceMenuSettings = ens_sObject & {
+export type EmbeddedServiceMenuSettings = sObject & {
     AllManagedPackageMemberId?: ID;
     Branding?: BrandingSet;
     BrandingId?: ID;
@@ -22749,7 +22746,7 @@ export type EmbeddedServiceMenuSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceMessagingChannel = ens_sObject & {
+export type EmbeddedServiceMessagingChannel = sObject & {
     BusinessHours?: BusinessHours;
     BusinessHoursId?: ID;
     CreatedBy?: User;
@@ -22772,7 +22769,7 @@ export type EmbeddedServiceMessagingChannel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceMobilePlatform = ens_sObject & {
+export type EmbeddedServiceMobilePlatform = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22788,7 +22785,7 @@ export type EmbeddedServiceMobilePlatform = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceQuickAction = ens_sObject & {
+export type EmbeddedServiceQuickAction = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22805,7 +22802,7 @@ export type EmbeddedServiceQuickAction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmbeddedServiceResource = ens_sObject & {
+export type EmbeddedServiceResource = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22821,7 +22818,7 @@ export type EmbeddedServiceResource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EmployeeDataSyncField = ens_sObject & {
+export type EmployeeDataSyncField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -22838,7 +22835,7 @@ export type EmployeeDataSyncField = ens_sObject & {
     TargetField?: string;
 }
 
-export type EmployeeFieldAccessSettings = ens_sObject & {
+export type EmployeeFieldAccessSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEmployeeFieldMaskDefaultsEnabled?: boolean;
@@ -22846,7 +22843,7 @@ export type EmployeeFieldAccessSettings = ens_sObject & {
     Metadata?: EmployeeFieldAccessSettings;
 }
 
-export type EmployeeUserSettings = ens_sObject & {
+export type EmployeeUserSettings = sObject & {
     DurableId?: string;
     EmailEncoding?: string;
     FullName?: string;
@@ -22858,7 +22855,7 @@ export type EmployeeUserSettings = ens_sObject & {
     UsernameSuffix?: string;
 }
 
-export type EncryptionKeySettings = ens_sObject & {
+export type EncryptionKeySettings = sObject & {
     CanOptOutOfDerivationWithByok?: boolean;
     DataCloudEncryption?: boolean;
     DurableId?: string;
@@ -22869,7 +22866,7 @@ export type EncryptionKeySettings = ens_sObject & {
     Metadata?: EncryptionKeySettings;
 }
 
-export type EngagementMessagingSettings = ens_sObject & {
+export type EngagementMessagingSettings = sObject & {
     DurableId?: string;
     EngagementEmailProvisionStatusOrgValue?: number;
     EngagementSmsProvisionStatusOrgValue?: number;
@@ -22884,7 +22881,7 @@ export type EngagementMessagingSettings = ens_sObject & {
     Metadata?: EngagementMessagingSettings;
 }
 
-export type EnhancedNotesSettings = ens_sObject & {
+export type EnhancedNotesSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEnhancedNotesEnabled?: boolean;
@@ -22892,7 +22889,7 @@ export type EnhancedNotesSettings = ens_sObject & {
     Metadata?: EnhancedNotesSettings;
 }
 
-export type EntitlementSettings = ens_sObject & {
+export type EntitlementSettings = sObject & {
     AssetLookupLimitedToActiveEntitlementsOnAccount?: boolean;
     AssetLookupLimitedToActiveEntitlementsOnContact?: boolean;
     AssetLookupLimitedToSameAccount?: boolean;
@@ -22911,7 +22908,7 @@ export type EntitlementSettings = ens_sObject & {
     Metadata?: EntitlementSettings;
 }
 
-export type EntityDefinition = ens_sObject & {
+export type EntityDefinition = sObject & {
     ApexTriggers?: QueryResult;
     AssignmentRules?: QueryResult;
     AutoResponseRules?: QueryResult;
@@ -23016,7 +23013,7 @@ export type EntityDefinition = ens_sObject & {
     WorkflowTasks?: QueryResult;
 }
 
-export type EntityImplements = ens_sObject & {
+export type EntityImplements = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23037,7 +23034,7 @@ export type EntityImplements = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EntityLimit = ens_sObject & {
+export type EntityLimit = sObject & {
     DurableId?: string;
     EntityDefinition?: EntityDefinition;
     EntityDefinitionId?: string;
@@ -23047,7 +23044,7 @@ export type EntityLimit = ens_sObject & {
     Type?: EntityLimitType;
 }
 
-export type EntityParticle = ens_sObject & {
+export type EntityParticle = sObject & {
     ByteLength?: number;
     DataType?: string;
     DefaultValueFormula?: string;
@@ -23113,14 +23110,14 @@ export type EntityParticle = ens_sObject & {
     ValueTypeId?: string;
 }
 
-export type EssentialsSettings = ens_sObject & {
+export type EssentialsSettings = sObject & {
     DurableId?: string;
     EmailConnectorEnabled?: boolean;
     FullName?: string;
     Metadata?: EssentialsSettings;
 }
 
-export type EventRelayConfig = ens_sObject & {
+export type EventRelayConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23146,7 +23143,7 @@ export type EventRelayConfig = ens_sObject & {
     UsageType?: EventRelayUsageType;
 }
 
-export type EventSettings = ens_sObject & {
+export type EventSettings = sObject & {
     BypassMeteringBlock?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -23161,7 +23158,7 @@ export type EventSettings = ens_sObject & {
     Metadata?: EventSettings;
 }
 
-export type EventTypeDefinition = ens_sObject & {
+export type EventTypeDefinition = sObject & {
     Description?: string;
     DurableId?: string;
     EventType?: EventType;
@@ -23172,7 +23169,7 @@ export type EventTypeDefinition = ens_sObject & {
     SubscriptionType?: EventSubscriptionType;
 }
 
-export type EventTypeFieldDefinition = ens_sObject & {
+export type EventTypeFieldDefinition = sObject & {
     DataType?: string;
     Description?: string;
     DurableId?: string;
@@ -23185,7 +23182,7 @@ export type EventTypeFieldDefinition = ens_sObject & {
     QualifiedApiName?: string;
 }
 
-export type ExplainabilityActionDef = ens_sObject & {
+export type ExplainabilityActionDef = sObject & {
     ActionLogSchemaType?: ActionLogSchemaType;
     AllManagedPackageMemberId?: ID;
     ApplicationSubtype?: ApplicationSubtypeDefinition;
@@ -23211,7 +23208,7 @@ export type ExplainabilityActionDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExplainabilityActionVersion = ens_sObject & {
+export type ExplainabilityActionVersion = sObject & {
     ActionLogMessageTemplate?: string;
     ActionSpecification?: string;
     AllManagedPackageMemberId?: ID;
@@ -23236,7 +23233,7 @@ export type ExplainabilityActionVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExplainabilityMsgTemplate = ens_sObject & {
+export type ExplainabilityMsgTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23259,7 +23256,7 @@ export type ExplainabilityMsgTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExpressionSetDefinition = ens_sObject & {
+export type ExpressionSetDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23285,7 +23282,7 @@ export type ExpressionSetDefinition = ens_sObject & {
     UsageType?: ExpsSetProcessType;
 }
 
-export type ExpressionSetDefinitionVersion = ens_sObject & {
+export type ExpressionSetDefinitionVersion = sObject & {
     ActiveVersionSnapshotId?: ID;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -23312,7 +23309,7 @@ export type ExpressionSetDefinitionVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type ExpressionSetMessageToken = ens_sObject & {
+export type ExpressionSetMessageToken = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23331,7 +23328,7 @@ export type ExpressionSetMessageToken = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExpressionSetObjectAlias = ens_sObject & {
+export type ExpressionSetObjectAlias = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23355,7 +23352,7 @@ export type ExpressionSetObjectAlias = ens_sObject & {
     UsageType?: ExpsSetProcessType;
 }
 
-export type ExpressionSetView = ens_sObject & {
+export type ExpressionSetView = sObject & {
     Description?: string;
     DurableId?: string;
     ExpressionSetDetails?: string;
@@ -23369,7 +23366,7 @@ export type ExpressionSetView = ens_sObject & {
     UsageType?: ExpsSetProcessType;
 }
 
-export type ExpsSetObjectAliasFieldVw = ens_sObject & {
+export type ExpsSetObjectAliasFieldVw = sObject & {
     DurableId?: string;
     ExpsSetDefVerVarField?: string;
     FieldAlias?: string;
@@ -23386,7 +23383,7 @@ export type ExpsSetObjectAliasFieldVw = ens_sObject & {
     UsageType?: ExpsSetProcessType;
 }
 
-export type ExtDataTranFieldTemplate = ens_sObject & {
+export type ExtDataTranFieldTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23414,7 +23411,7 @@ export type ExtDataTranFieldTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExtDataTranObjectTemplate = ens_sObject & {
+export type ExtDataTranObjectTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23440,7 +23437,7 @@ export type ExtDataTranObjectTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalAIMetric = ens_sObject & {
+export type ExternalAIMetric = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -23456,7 +23453,7 @@ export type ExternalAIMetric = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalAIModel = ens_sObject & {
+export type ExternalAIModel = sObject & {
     ApplicationType?: ApplicationSourceType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23479,7 +23476,7 @@ export type ExternalAIModel = ens_sObject & {
     TrainingJobName?: string;
 }
 
-export type ExternalClientAppSettings = ens_sObject & {
+export type ExternalClientAppSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsClientSecretInRestApiAccessEnabled?: boolean;
@@ -23489,7 +23486,7 @@ export type ExternalClientAppSettings = ens_sObject & {
     Metadata?: ExternalClientAppSettings;
 }
 
-export type ExternalCredential = ens_sObject & {
+export type ExternalCredential = sObject & {
     AllManagedPackageMemberId?: ID;
     AuthenticationProtocol?: AuthenticationProtocol;
     CreatedBy?: User;
@@ -23512,7 +23509,7 @@ export type ExternalCredential = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalCredentialParameter = ens_sObject & {
+export type ExternalCredentialParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     AuthProviderId?: ID;
     Certificate?: Certificate;
@@ -23536,7 +23533,7 @@ export type ExternalCredentialParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalDataSource = ens_sObject & {
+export type ExternalDataSource = sObject & {
     AllManagedPackageMemberId?: ID;
     AuthProviderId?: ID;
     Certificate?: Certificate;
@@ -23577,7 +23574,7 @@ export type ExternalDataSource = ens_sObject & {
     Version?: string;
 }
 
-export type ExternalDataSrcDescriptor = ens_sObject & {
+export type ExternalDataSrcDescriptor = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23606,7 +23603,7 @@ export type ExternalDataSrcDescriptor = ens_sObject & {
     Type?: ExternalDataSrcDescType;
 }
 
-export type ExternalDataTranField = ens_sObject & {
+export type ExternalDataTranField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23644,7 +23641,7 @@ export type ExternalDataTranField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalDataTranObject = ens_sObject & {
+export type ExternalDataTranObject = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23673,7 +23670,7 @@ export type ExternalDataTranObject = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalDocStorageConfig = ens_sObject & {
+export type ExternalDocStorageConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23701,11 +23698,11 @@ export type ExternalDocStorageConfig = ens_sObject & {
     TargetObject?: TargetObject;
 }
 
-export type ExternalServiceDataType = ens_sObject & {
+export type ExternalServiceDataType = sObject & {
     ImplementorType?: string;
 }
 
-export type ExternalServiceListType = ens_sObject & {
+export type ExternalServiceListType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -23728,7 +23725,7 @@ export type ExternalServiceListType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalServiceMapType = ens_sObject & {
+export type ExternalServiceMapType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -23752,7 +23749,7 @@ export type ExternalServiceMapType = ens_sObject & {
     ValueDataTypeId?: ID;
 }
 
-export type ExternalServiceObjectType = ens_sObject & {
+export type ExternalServiceObjectType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23778,7 +23775,7 @@ export type ExternalServiceObjectType = ens_sObject & {
     Variant?: ExternalServiceObjectVariant;
 }
 
-export type ExternalServiceOperation = ens_sObject & {
+export type ExternalServiceOperation = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23807,7 +23804,7 @@ export type ExternalServiceOperation = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalServiceParameter = ens_sObject & {
+export type ExternalServiceParameter = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -23834,7 +23831,7 @@ export type ExternalServiceParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalServiceProperty = ens_sObject & {
+export type ExternalServiceProperty = sObject & {
     AllowEmptyValue?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23861,7 +23858,7 @@ export type ExternalServiceProperty = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalServiceRegistration = ens_sObject & {
+export type ExternalServiceRegistration = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23899,7 +23896,7 @@ export type ExternalServiceRegistration = ens_sObject & {
     SystemVersion?: number;
 }
 
-export type ExternalServiceSimpleType = ens_sObject & {
+export type ExternalServiceSimpleType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -23914,7 +23911,7 @@ export type ExternalServiceSimpleType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ExternalString = ens_sObject & {
+export type ExternalString = sObject & {
     AllManagedPackageMemberId?: ID;
     Category?: string;
     CreatedBy?: User;
@@ -23935,7 +23932,7 @@ export type ExternalString = ens_sObject & {
     Value?: string;
 }
 
-export type ExternalStringLocalization = ens_sObject & {
+export type ExternalStringLocalization = sObject & {
     CountryCode?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23955,14 +23952,14 @@ export type ExternalStringLocalization = ens_sObject & {
     Value?: string;
 }
 
-export type FTestAccessSettings = ens_sObject & {
+export type FTestAccessSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsTestPrefEnabled?: boolean;
     Metadata?: FTestAccessSettings;
 }
 
-export type FTestCart = ens_sObject & {
+export type FTestCart = sObject & {
     CartKey?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -23994,7 +23991,7 @@ export type FTestCart = ens_sObject & {
     Uvid?: string;
 }
 
-export type FTestCartItemTax = ens_sObject & {
+export type FTestCartItemTax = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24012,7 +24009,7 @@ export type FTestCartItemTax = ens_sObject & {
     TaxType?: TaxTypes;
 }
 
-export type FTestDeliveryGroup = ens_sObject & {
+export type FTestDeliveryGroup = sObject & {
     Cart?: FTestCart;
     CartId?: ID;
     CreatedBy?: User;
@@ -24039,11 +24036,11 @@ export type FTestDeliveryGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FTestFieldMappingMd = ens_sObject & {
+export type FTestFieldMappingMd = sObject & {
     Label?: string;
 }
 
-export type FTestFlatZos = ens_sObject & {
+export type FTestFlatZos = sObject & {
     ApplicationType?: ApplicationType;
     Cost?: number;
     CreatedBy?: User;
@@ -24061,12 +24058,12 @@ export type FTestFlatZos = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FTestMetadataCatalogEntity = ens_sObject & {
+export type FTestMetadataCatalogEntity = sObject & {
     DurableId?: string;
     Name?: string;
 }
 
-export type FTestProductItem = ens_sObject & {
+export type FTestProductItem = sObject & {
     Cart?: FTestCart;
     CartId?: ID;
     CreatedBy?: User;
@@ -24090,19 +24087,19 @@ export type FTestProductItem = ens_sObject & {
     Total?: number;
 }
 
-export type FTestSettings = ens_sObject & {
+export type FTestSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsTestPrefEnabled?: boolean;
     Metadata?: FTestSettings;
 }
 
-export type FTestSystemCatalogEntity = ens_sObject & {
+export type FTestSystemCatalogEntity = sObject & {
     DurableId?: string;
     Name?: string;
 }
 
-export type FTestToolingFLU = ens_sObject & {
+export type FTestToolingFLU = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24122,7 +24119,7 @@ export type FTestToolingFLU = ens_sObject & {
     Text2?: string;
 }
 
-export type FTestToolingFLUInfo = ens_sObject & {
+export type FTestToolingFLUInfo = sObject & {
     DeveloperName?: string;
     DurableId?: string;
     EnumOrId?: string;
@@ -24133,14 +24130,14 @@ export type FTestToolingFLUInfo = ens_sObject & {
     Text2?: string;
 }
 
-export type FeedItemSettings = ens_sObject & {
+export type FeedItemSettings = sObject & {
     CharacterLimit?: number;
     DisplayFormat?: FeedItemDisplayFormat;
     DurableId?: string;
     FeedItemType?: FeedItemType;
 }
 
-export type PostTemplate = ens_sObject & {
+export type PostTemplate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24154,7 +24151,7 @@ export type PostTemplate = ens_sObject & {
     TableEnumOrId?: string;
 }
 
-export type FieldClassificationSetting = ens_sObject & {
+export type FieldClassificationSetting = sObject & {
     ConfidenceThreshold?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24169,7 +24166,7 @@ export type FieldClassificationSetting = ens_sObject & {
     Type?: FieldClassificationConfigType;
 }
 
-export type FieldDefinition = ens_sObject & {
+export type FieldDefinition = sObject & {
     BusinessOwner?: sObject;
     BusinessOwnerId?: ID;
     BusinessStatus?: string;
@@ -24237,7 +24234,7 @@ export type FieldDefinition = ens_sObject & {
     WorkflowFieldUpdates?: QueryResult;
 }
 
-export type FieldImplements = ens_sObject & {
+export type FieldImplements = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24254,7 +24251,7 @@ export type FieldImplements = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FieldMapping = ens_sObject & {
+export type FieldMapping = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24273,7 +24270,7 @@ export type FieldMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FieldMappingField = ens_sObject & {
+export type FieldMappingField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24289,7 +24286,7 @@ export type FieldMappingField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FieldMappingRow = ens_sObject & {
+export type FieldMappingRow = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24306,7 +24303,7 @@ export type FieldMappingRow = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FieldRestrictionRule = ens_sObject & {
+export type FieldRestrictionRule = sObject & {
     AllManagedPackageMemberId?: ID;
     Classification?: string;
     ClassificationType?: ClassificationType;
@@ -24335,7 +24332,7 @@ export type FieldRestrictionRule = ens_sObject & {
     Version?: number;
 }
 
-export type FieldServiceSettings = ens_sObject & {
+export type FieldServiceSettings = sObject & {
     ApptAssistantExpiration?: number;
     ApptAssistantInfoUrl?: string;
     ApptAssistantRadiusUnitValue?: ApptAssistantRadiusUnit;
@@ -24372,7 +24369,7 @@ export type FieldServiceSettings = ens_sObject & {
     WorkOrderSearchFields?: string;
 }
 
-export type FieldSet = ens_sObject & {
+export type FieldSet = sObject & {
     AggrCriteriaFieldsets?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24394,21 +24391,21 @@ export type FieldSet = ens_sObject & {
     SortingCriteriaFieldsets?: QueryResult;
 }
 
-export type FileTypeDispositionAssignmentBean = ens_sObject & {
+export type FileTypeDispositionAssignmentBean = sObject & {
     Behavior?: string;
     DurableId?: string;
     FileType?: FileType;
     SecurityRiskFileType?: boolean;
 }
 
-export type FileUploadAndDownloadSecuritySettings = ens_sObject & {
+export type FileUploadAndDownloadSecuritySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: FileUploadAndDownloadSecuritySettings;
     NoHtmlUploadAsAttachment?: boolean;
 }
 
-export type FilesConnectSettings = ens_sObject & {
+export type FilesConnectSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsContentHubAllowedEnabled?: boolean;
@@ -24417,13 +24414,13 @@ export type FilesConnectSettings = ens_sObject & {
     Metadata?: FilesConnectSettings;
 }
 
-export type FindSimilarOppFilter = ens_sObject & {
+export type FindSimilarOppFilter = sObject & {
     DurableId?: string;
     SimilarOpportunitiesDisplayColumns?: string;
     SimilarOpportunitiesMatchFields?: string;
 }
 
-export type FlexiPage = ens_sObject & {
+export type FlexiPage = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24449,7 +24446,7 @@ export type FlexiPage = ens_sObject & {
     Type?: FlexiPageType;
 }
 
-export type FlowApexClassDescriptor = ens_sObject & {
+export type FlowApexClassDescriptor = sObject & {
     DurableId?: string;
     IdentifierEnumOrId?: string;
     InnerTypes?: QueryResult;
@@ -24460,7 +24457,7 @@ export type FlowApexClassDescriptor = ens_sObject & {
     Properties?: QueryResult;
 }
 
-export type FlowApexClassPropertyDesc = ens_sObject & {
+export type FlowApexClassPropertyDesc = sObject & {
     ApexClass?: string;
     DurableId?: string;
     IdentifierEnumOrId?: string;
@@ -24472,7 +24469,7 @@ export type FlowApexClassPropertyDesc = ens_sObject & {
     Type?: string;
 }
 
-export type FlowCategory = ens_sObject & {
+export type FlowCategory = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24493,7 +24490,7 @@ export type FlowCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FlowDefinition = ens_sObject & {
+export type FlowDefinition = sObject & {
     ActiveVersion?: Flow;
     ActiveVersionId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -24517,7 +24514,7 @@ export type FlowDefinition = ens_sObject & {
     Versions?: QueryResult;
 }
 
-export type FlowElementSubtype = ens_sObject & {
+export type FlowElementSubtype = sObject & {
     Color?: string;
     DescriptionKey?: string;
     DescriptionSection?: string;
@@ -24536,7 +24533,7 @@ export type FlowElementSubtype = ens_sObject & {
     SupportsBranching?: boolean;
 }
 
-export type FlowElementTestCoverage = ens_sObject & {
+export type FlowElementTestCoverage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24552,7 +24549,7 @@ export type FlowElementTestCoverage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FlowEnvironmentDefinition = ens_sObject & {
+export type FlowEnvironmentDefinition = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -24561,7 +24558,7 @@ export type FlowEnvironmentDefinition = ens_sObject & {
     Name?: string;
 }
 
-export type FlowExtension = ens_sObject & {
+export type FlowExtension = sObject & {
     AllowMultipleChoices?: boolean;
     AllowSingleChoice?: boolean;
     Category?: string;
@@ -24578,7 +24575,7 @@ export type FlowExtension = ens_sObject & {
     Source?: string;
 }
 
-export type FlowExtensionGenericType = ens_sObject & {
+export type FlowExtensionGenericType = sObject & {
     Description?: string;
     DurableId?: string;
     FlowExtension?: FlowExtension;
@@ -24588,7 +24585,7 @@ export type FlowExtensionGenericType = ens_sObject & {
     SuperType?: string;
 }
 
-export type FlowExtensionParam = ens_sObject & {
+export type FlowExtensionParam = sObject & {
     ApexClass?: string;
     ApiName?: string;
     AvailableValues?: string;
@@ -24610,14 +24607,14 @@ export type FlowExtensionParam = ens_sObject & {
     ObjectType?: string;
 }
 
-export type FlowExtensionProcessType = ens_sObject & {
+export type FlowExtensionProcessType = sObject & {
     DurableId?: string;
     FlowExtension?: FlowExtension;
     FlowExtensionId?: string;
     ProcessType?: string;
 }
 
-export type FlowSettings = ens_sObject & {
+export type FlowSettings = sObject & {
     CanDebugFlowAsAnotherUser?: boolean;
     DoesEnforceApexCpuTimeLimit?: boolean;
     DoesFormulaEnforceDataAccess?: boolean;
@@ -24647,7 +24644,7 @@ export type FlowSettings = ens_sObject & {
     Metadata?: FlowSettings;
 }
 
-export type FlowTest = ens_sObject & {
+export type FlowTest = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24668,7 +24665,7 @@ export type FlowTest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FlowTestCoverage = ens_sObject & {
+export type FlowTestCoverage = sObject & {
     ApexTestClass?: ApexClass;
     ApexTestClassId?: ID;
     CreatedBy?: User;
@@ -24686,7 +24683,7 @@ export type FlowTestCoverage = ens_sObject & {
     TestMethodName?: string;
 }
 
-export type FlowTriggerTypeDefinition = ens_sObject & {
+export type FlowTriggerTypeDefinition = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -24695,14 +24692,14 @@ export type FlowTriggerTypeDefinition = ens_sObject & {
     Name?: string;
 }
 
-export type ForecastRangeSettings = ens_sObject & {
+export type ForecastRangeSettings = sObject & {
     Beginning?: number;
     Displaying?: number;
     DurableId?: string;
     PeriodType?: PeriodTypes;
 }
 
-export type ForecastingDisplayedFamily = ens_sObject & {
+export type ForecastingDisplayedFamily = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24715,12 +24712,12 @@ export type ForecastingDisplayedFamily = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ForecastingDisplayedFamilySettings = ens_sObject & {
+export type ForecastingDisplayedFamilySettings = sObject & {
     DurableId?: string;
     ProductFamily?: string;
 }
 
-export type ForecastingFilter = ens_sObject & {
+export type ForecastingFilter = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24742,7 +24739,7 @@ export type ForecastingFilter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ForecastingFilterCondition = ens_sObject & {
+export type ForecastingFilterCondition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24765,18 +24762,18 @@ export type ForecastingFilterCondition = ens_sObject & {
     Value?: string;
 }
 
-export type ForecastingObjectListSelectedSettings = ens_sObject & {
+export type ForecastingObjectListSelectedSettings = sObject & {
     DurableId?: string;
     Field?: string;
 }
 
-export type ForecastingObjectListSettings = ens_sObject & {
+export type ForecastingObjectListSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: ForecastingObjectListSettings;
 }
 
-export type ForecastingSettings = ens_sObject & {
+export type ForecastingSettings = sObject & {
     DefaultToPersonalCurrency?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -24787,7 +24784,7 @@ export type ForecastingSettings = ens_sObject & {
     Metadata?: ForecastingSettings;
 }
 
-export type ForecastingSourceDefinition = ens_sObject & {
+export type ForecastingSourceDefinition = sObject & {
     CategoryField?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -24811,7 +24808,7 @@ export type ForecastingSourceDefinition = ens_sObject & {
     UserField?: string;
 }
 
-export type ForecastingType = ens_sObject & {
+export type ForecastingType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24836,7 +24833,7 @@ export type ForecastingType = ens_sObject & {
     Territory2ModelId?: ID;
 }
 
-export type ForecastingTypeSettings = ens_sObject & {
+export type ForecastingTypeSettings = sObject & {
     Active?: boolean;
     DisplayedCategoryApiNames?: string;
     DurableId?: string;
@@ -24858,7 +24855,7 @@ export type ForecastingTypeSettings = ens_sObject & {
     Territory2ModelName?: string;
 }
 
-export type ForecastingTypeSource = ens_sObject & {
+export type ForecastingTypeSource = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -24883,7 +24880,7 @@ export type ForecastingTypeSource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FormulaFunction = ens_sObject & {
+export type FormulaFunction = sObject & {
     Category?: FormulaFunctionCategory;
     CategoryId?: string;
     Description?: string;
@@ -24894,28 +24891,28 @@ export type FormulaFunction = ens_sObject & {
     Types?: QueryResult;
 }
 
-export type FormulaFunctionAllowedType = ens_sObject & {
+export type FormulaFunctionAllowedType = sObject & {
     DurableId?: string;
     Function?: FormulaFunction;
     FunctionId?: string;
     Type?: UddFormulaType;
 }
 
-export type FormulaFunctionCategory = ens_sObject & {
+export type FormulaFunctionCategory = sObject & {
     DurableId?: string;
     Functions?: QueryResult;
     Label?: string;
     Name?: string;
 }
 
-export type FormulaOperator = ens_sObject & {
+export type FormulaOperator = sObject & {
     DurableId?: string;
     Label?: string;
     Name?: string;
     Value?: string;
 }
 
-export type FormulaParticle = ens_sObject & {
+export type FormulaParticle = sObject & {
     DurableId?: string;
     EntityParticle?: EntityParticle;
     EntityParticleId?: string;
@@ -24925,14 +24922,14 @@ export type FormulaParticle = ens_sObject & {
     IsSpanningAllowed?: boolean;
 }
 
-export type FormulaSettings = ens_sObject & {
+export type FormulaSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsDstAwareDatevalueEnabled?: boolean;
     Metadata?: FormulaSettings;
 }
 
-export type FormulaVariable = ens_sObject & {
+export type FormulaVariable = sObject & {
     Children?: QueryResult;
     DataType?: string;
     DataTypeLabel?: string;
@@ -24948,7 +24945,7 @@ export type FormulaVariable = ens_sObject & {
     Value?: string;
 }
 
-export type FtestDeclMd1Member = ens_sObject & {
+export type FtestDeclMd1Member = sObject & {
     Content?: string;
     ContentEntity?: FtestTopLevelWithDeclMd1;
     ContentEntityId?: ID;
@@ -24967,7 +24964,7 @@ export type FtestDeclMd1Member = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestDeclMd2Member = ens_sObject & {
+export type FtestDeclMd2Member = sObject & {
     Content?: string;
     ContentEntity?: FtestTopLevelWithDeclMd2;
     ContentEntityId?: ID;
@@ -24986,7 +24983,7 @@ export type FtestDeclMd2Member = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestDeclMd3Member = ens_sObject & {
+export type FtestDeclMd3Member = sObject & {
     Content?: string;
     ContentEntity?: FtestTopLevelWithDeclMd3;
     ContentEntityId?: ID;
@@ -25005,7 +25002,7 @@ export type FtestDeclMd3Member = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestDetailWithDeclMd1 = ens_sObject & {
+export type FtestDetailWithDeclMd1 = sObject & {
     BooleanField?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25025,7 +25022,7 @@ export type FtestDetailWithDeclMd1 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestDetailWithDeclMd2 = ens_sObject & {
+export type FtestDetailWithDeclMd2 = sObject & {
     BooleanField?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25043,7 +25040,7 @@ export type FtestDetailWithDeclMd2 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestSetup = ens_sObject & {
+export type FtestSetup = sObject & {
     AutoNum?: string;
     Body?: string;
     BodyCompressedLength?: number;
@@ -25083,7 +25080,7 @@ export type FtestSetup = ens_sObject & {
     UserId?: ID;
 }
 
-export type FtestSubDetailWithDeclMd = ens_sObject & {
+export type FtestSubDetailWithDeclMd = sObject & {
     BooleanField?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25101,7 +25098,7 @@ export type FtestSubDetailWithDeclMd = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FtestTopLevelWithCrud = ens_sObject & {
+export type FtestTopLevelWithCrud = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25117,7 +25114,7 @@ export type FtestTopLevelWithCrud = ens_sObject & {
     TextField?: string;
 }
 
-export type FtestTopLevelWithDeclMd1 = ens_sObject & {
+export type FtestTopLevelWithDeclMd1 = sObject & {
     BooleanField?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25143,7 +25140,7 @@ export type FtestTopLevelWithDeclMd1 = ens_sObject & {
     TypeTwoItems?: QueryResult;
 }
 
-export type FtestTopLevelWithDeclMd2 = ens_sObject & {
+export type FtestTopLevelWithDeclMd2 = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25172,7 +25169,7 @@ export type FtestTopLevelWithDeclMd2 = ens_sObject & {
     UrlField?: string;
 }
 
-export type FtestTopLevelWithDeclMd3 = ens_sObject & {
+export type FtestTopLevelWithDeclMd3 = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25191,7 +25188,7 @@ export type FtestTopLevelWithDeclMd3 = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FuelType = ens_sObject & {
+export type FuelType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25213,7 +25210,7 @@ export type FuelType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FuelTypeSustnUom = ens_sObject & {
+export type FuelTypeSustnUom = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25233,7 +25230,7 @@ export type FuelTypeSustnUom = ens_sObject & {
     UnitOfMeasure?: string;
 }
 
-export type FulfillmentStepType = ens_sObject & {
+export type FulfillmentStepType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25253,7 +25250,7 @@ export type FulfillmentStepType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type FundraisingConfig = ens_sObject & {
+export type FundraisingConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25287,7 +25284,7 @@ export type FundraisingConfig = ens_sObject & {
     UtmSourceSrcObjField?: string;
 }
 
-export type GenAiConvDefPlanner = ens_sObject & {
+export type GenAiConvDefPlanner = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25302,7 +25299,7 @@ export type GenAiConvDefPlanner = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiFunctionDefinition = ens_sObject & {
+export type GenAiFunctionDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25327,7 +25324,7 @@ export type GenAiFunctionDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiFunctionTypeDef = ens_sObject & {
+export type GenAiFunctionTypeDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25348,7 +25345,7 @@ export type GenAiFunctionTypeDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPlannerAttrDefinition = ens_sObject & {
+export type GenAiPlannerAttrDefinition = sObject & {
     AllowedValues?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25376,7 +25373,7 @@ export type GenAiPlannerAttrDefinition = ens_sObject & {
     Value?: string;
 }
 
-export type GenAiPlannerDefinition = ens_sObject & {
+export type GenAiPlannerDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     Capabilities?: string;
     CreatedBy?: User;
@@ -25402,7 +25399,7 @@ export type GenAiPlannerDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPlannerFunctionDef = ens_sObject & {
+export type GenAiPlannerFunctionDef = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25418,7 +25415,7 @@ export type GenAiPlannerFunctionDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPluginDefinition = ens_sObject & {
+export type GenAiPluginDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25440,7 +25437,7 @@ export type GenAiPluginDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPluginFunctionDef = ens_sObject & {
+export type GenAiPluginFunctionDef = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25454,7 +25451,7 @@ export type GenAiPluginFunctionDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptOutputParameter = ens_sObject & {
+export type GenAiPromptOutputParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25478,7 +25475,7 @@ export type GenAiPromptOutputParameter = ens_sObject & {
     Value?: string;
 }
 
-export type GenAiPromptTemplate = ens_sObject & {
+export type GenAiPromptTemplate = sObject & {
     ActiveVersion?: GenAiPromptTemplateVersion;
     ActiveVersionId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -25513,7 +25510,7 @@ export type GenAiPromptTemplate = ens_sObject & {
     Visibility?: GenAiPromptTemplateVisibilityType;
 }
 
-export type GenAiPromptTemplateActv = ens_sObject & {
+export type GenAiPromptTemplateActv = sObject & {
     AccessLevel?: GenAiPromptTemplateActvAccessLevel;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25530,7 +25527,7 @@ export type GenAiPromptTemplateActv = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptTemplateDataProvider = ens_sObject & {
+export type GenAiPromptTemplateDataProvider = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25546,7 +25543,7 @@ export type GenAiPromptTemplateDataProvider = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptTemplateDataProviderParam = ens_sObject & {
+export type GenAiPromptTemplateDataProviderParam = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25563,7 +25560,7 @@ export type GenAiPromptTemplateDataProviderParam = ens_sObject & {
     ValueExpression?: string;
 }
 
-export type GenAiPromptTemplateInput = ens_sObject & {
+export type GenAiPromptTemplateInput = sObject & {
     ApiName?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25582,7 +25579,7 @@ export type GenAiPromptTemplateInput = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptTemplateOutputParameter = ens_sObject & {
+export type GenAiPromptTemplateOutputParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25599,7 +25596,7 @@ export type GenAiPromptTemplateOutputParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptTemplateSampleData = ens_sObject & {
+export type GenAiPromptTemplateSampleData = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25614,7 +25611,7 @@ export type GenAiPromptTemplateSampleData = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GenAiPromptTemplateType = ens_sObject & {
+export type GenAiPromptTemplateType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25637,7 +25634,7 @@ export type GenAiPromptTemplateType = ens_sObject & {
     Type?: string;
 }
 
-export type GenAiPromptTemplateVersion = ens_sObject & {
+export type GenAiPromptTemplateVersion = sObject & {
     AllManagedPackageMemberId?: ID;
     Classification?: string;
     Content?: string;
@@ -25666,7 +25663,7 @@ export type GenAiPromptTemplateVersion = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type GenAiSampleData = ens_sObject & {
+export type GenAiSampleData = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25685,7 +25682,7 @@ export type GenAiSampleData = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type GlobalVariable = ens_sObject & {
+export type GlobalVariable = sObject & {
     Datatype?: string;
     DurableId?: string;
     Label?: string;
@@ -25694,7 +25691,7 @@ export type GlobalVariable = ens_sObject & {
     TypeId?: string;
 }
 
-export type GlobalVariableType = ens_sObject & {
+export type GlobalVariableType = sObject & {
     ChildTypes?: QueryResult;
     Context?: GlobalVariableContext;
     DurableId?: string;
@@ -25708,7 +25705,7 @@ export type GlobalVariableType = ens_sObject & {
     Variables?: QueryResult;
 }
 
-export type GoogleAppsSettings = ens_sObject & {
+export type GoogleAppsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     GoogleAppsDomain?: string;
@@ -25723,7 +25720,7 @@ export type GoogleAppsSettings = ens_sObject & {
     Metadata?: GoogleAppsSettings;
 }
 
-export type Group = ens_sObject & {
+export type Group = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25743,7 +25740,7 @@ export type Group = ens_sObject & {
     Type?: string;
 }
 
-export type GtwyProvPaymentMethodType = ens_sObject & {
+export type GtwyProvPaymentMethodType = sObject & {
     AllManagedPackageMemberId?: ID;
     Comments?: string;
     CreatedBy?: User;
@@ -25771,7 +25768,7 @@ export type GtwyProvPaymentMethodType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type HighVelocitySalesSettings = ens_sObject & {
+export type HighVelocitySalesSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAcAutoSendEmailEnabled?: boolean;
@@ -25794,7 +25791,7 @@ export type HighVelocitySalesSettings = ens_sObject & {
     Metadata?: HighVelocitySalesSettings;
 }
 
-export type HistoryRetentionJob = ens_sObject & {
+export type HistoryRetentionJob = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25810,7 +25807,7 @@ export type HistoryRetentionJob = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IDEPerspective = ens_sObject & {
+export type IDEPerspective = sObject & {
     Content?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25825,7 +25822,7 @@ export type IDEPerspective = ens_sObject & {
     UserId?: ID;
 }
 
-export type IDEWorkspace = ens_sObject & {
+export type IDEWorkspace = sObject & {
     Content?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25840,7 +25837,7 @@ export type IDEWorkspace = ens_sObject & {
     UserId?: ID;
 }
 
-export type IPAddressRange = ens_sObject & {
+export type IPAddressRange = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25862,7 +25859,7 @@ export type IPAddressRange = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IconDefinition = ens_sObject & {
+export type IconDefinition = sObject & {
     ContentType?: string;
     DurableId?: string;
     Height?: number;
@@ -25873,7 +25870,7 @@ export type IconDefinition = ens_sObject & {
     Width?: number;
 }
 
-export type IdeasSettings = ens_sObject & {
+export type IdeasSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     HalfLife?: number;
@@ -25888,7 +25885,7 @@ export type IdeasSettings = ens_sObject & {
     Metadata?: IdeasSettings;
 }
 
-export type IdentityVerificationProcDef = ens_sObject & {
+export type IdentityVerificationProcDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25910,7 +25907,7 @@ export type IdentityVerificationProcDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IdentityVerificationProcDtl = ens_sObject & {
+export type IdentityVerificationProcDtl = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25947,7 +25944,7 @@ export type IdentityVerificationProcDtl = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IdentityVerificationProcFld = ens_sObject & {
+export type IdentityVerificationProcFld = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -25977,7 +25974,7 @@ export type IdentityVerificationProcFld = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type InboundNetworkConnProperty = ens_sObject & {
+export type InboundNetworkConnProperty = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -25992,7 +25989,7 @@ export type InboundNetworkConnProperty = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type InboundNetworkConnection = ens_sObject & {
+export type InboundNetworkConnection = sObject & {
     AllManagedPackageMemberId?: ID;
     ConnectionType?: ExternalConnectionType;
     CreatedBy?: User;
@@ -26017,7 +26014,7 @@ export type InboundNetworkConnection = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IncidentMgmtSettings = ens_sObject & {
+export type IncidentMgmtSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAlertBroadcastTypeEnabled?: boolean;
@@ -26028,14 +26025,14 @@ export type IncidentMgmtSettings = ens_sObject & {
     Metadata?: IncidentMgmtSettings;
 }
 
-export type IncludeEstTaxInQuoteSettings = ens_sObject & {
+export type IncludeEstTaxInQuoteSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsQuoteEstimatedTaxEnabled?: boolean;
     Metadata?: IncludeEstTaxInQuoteSettings;
 }
 
-export type IndustriesAutomotiveSettings = ens_sObject & {
+export type IndustriesAutomotiveSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAutomotiveCloudEnabled?: boolean;
@@ -26044,14 +26041,14 @@ export type IndustriesAutomotiveSettings = ens_sObject & {
     Metadata?: IndustriesAutomotiveSettings;
 }
 
-export type IndustriesEinsteinFeatureSettings = ens_sObject & {
+export type IndustriesEinsteinFeatureSettings = sObject & {
     DocumentReaderConfidenceOrgValue?: number;
     DurableId?: string;
     FullName?: string;
     Metadata?: IndustriesEinsteinFeatureSettings;
 }
 
-export type IndustriesLoyaltySettings = ens_sObject & {
+export type IndustriesLoyaltySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAutomaticMemberTierAssessmentSelectionEnabled?: boolean;
@@ -26067,7 +26064,7 @@ export type IndustriesLoyaltySettings = ens_sObject & {
     Metadata?: IndustriesLoyaltySettings;
 }
 
-export type IndustriesManufacturingSettings = ens_sObject & {
+export type IndustriesManufacturingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsFleetManagementEnabled?: boolean;
@@ -26087,7 +26084,7 @@ export type IndustriesManufacturingSettings = ens_sObject & {
     Metadata?: IndustriesManufacturingSettings;
 }
 
-export type IndustriesSettings = ens_sObject & {
+export type IndustriesSettings = sObject & {
     AllowMultipleProducersToWorkOnSamePolicy?: boolean;
     AppointmentDistributionOrgPref?: boolean;
     CaptureResourceUtilizationOrgPref?: boolean;
@@ -26288,7 +26285,7 @@ export type IndustriesSettings = ens_sObject & {
     TransformRbLtoDpe?: boolean;
 }
 
-export type InstalledSubscriberPackage = ens_sObject & {
+export type InstalledSubscriberPackage = sObject & {
     MinPackageVersionId?: ID;
     SubscriberPackage?: SubscriberPackage;
     SubscriberPackageId?: ID;
@@ -26296,7 +26293,7 @@ export type InstalledSubscriberPackage = ens_sObject & {
     SubscriberPackageVersionId?: ID;
 }
 
-export type InstalledSubscriberPackageVersion = ens_sObject & {
+export type InstalledSubscriberPackageVersion = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26313,7 +26310,7 @@ export type InstalledSubscriberPackageVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IntegrationEnvApplication = ens_sObject & {
+export type IntegrationEnvApplication = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26352,7 +26349,7 @@ export type IntegrationEnvApplication = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IntegrationEnvConfig = ens_sObject & {
+export type IntegrationEnvConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26376,7 +26373,7 @@ export type IntegrationEnvConfig = ens_sObject & {
     Username?: string;
 }
 
-export type IntegrationEnvResource = ens_sObject & {
+export type IntegrationEnvResource = sObject & {
     ClientAppIdentifier?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26400,7 +26397,7 @@ export type IntegrationEnvResource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IntegrationEnvSysDependency = ens_sObject & {
+export type IntegrationEnvSysDependency = sObject & {
     AuthenticationType?: IntegrationAuthenticationType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26422,7 +26419,7 @@ export type IntegrationEnvSysDependency = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IntegrationProviderAttr = ens_sObject & {
+export type IntegrationProviderAttr = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26449,7 +26446,7 @@ export type IntegrationProviderAttr = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type IntegrationProviderDef = ens_sObject & {
+export type IntegrationProviderDef = sObject & {
     AllManagedPackageMemberId?: ID;
     ApexClass?: ApexClass;
     ApexClassId?: ID;
@@ -26483,7 +26480,7 @@ export type IntegrationProviderDef = ens_sObject & {
     Type?: DefinitionType;
 }
 
-export type Flow = ens_sObject & {
+export type Flow = sObject & {
     ApiVersion?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26513,14 +26510,14 @@ export type Flow = ens_sObject & {
     VersionNumber?: number;
 }
 
-export type InterestTaggingSettings = ens_sObject & {
+export type InterestTaggingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsInterestTaggingEnabled?: boolean;
     Metadata?: InterestTaggingSettings;
 }
 
-export type InterfaceFieldMapping = ens_sObject & {
+export type InterfaceFieldMapping = sObject & {
     DurableId?: string;
     EntityFieldQualifiedApiName?: string;
     EntityQualifiedApiName?: string;
@@ -26529,7 +26526,7 @@ export type InterfaceFieldMapping = ens_sObject & {
     IsCustom?: boolean;
 }
 
-export type InternalOrganization = ens_sObject & {
+export type InternalOrganization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26549,14 +26546,14 @@ export type InternalOrganization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type InvLatePymntRiskCalcSettings = ens_sObject & {
+export type InvLatePymntRiskCalcSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsInvLatePymntRiskCalcEnabled?: boolean;
     Metadata?: InvLatePymntRiskCalcSettings;
 }
 
-export type InventorySettings = ens_sObject & {
+export type InventorySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsOciB2CintegrationEnabled?: boolean;
@@ -26564,7 +26561,7 @@ export type InventorySettings = ens_sObject & {
     Metadata?: InventorySettings;
 }
 
-export type InvocableAction = ens_sObject & {
+export type InvocableAction = sObject & {
     AllowsTransactionControl?: boolean;
     CapabilityType?: string;
     Category?: string;
@@ -26584,7 +26581,7 @@ export type InvocableAction = ens_sObject & {
     Version?: number;
 }
 
-export type InvocableActionGenericType = ens_sObject & {
+export type InvocableActionGenericType = sObject & {
     Description?: string;
     DurableId?: string;
     InvocableAction?: InvocableAction;
@@ -26594,7 +26591,7 @@ export type InvocableActionGenericType = ens_sObject & {
     SuperType?: string;
 }
 
-export type InvocableActionParameter = ens_sObject & {
+export type InvocableActionParameter = sObject & {
     ApexClass?: string;
     DataType?: string;
     Description?: string;
@@ -26613,7 +26610,7 @@ export type InvocableActionParameter = ens_sObject & {
     SobjectType?: string;
 }
 
-export type InvocableActionPicklist = ens_sObject & {
+export type InvocableActionPicklist = sObject & {
     DurableId?: string;
     InvocableActionParameter?: InvocableActionParameter;
     InvocableActionParameterId?: string;
@@ -26623,21 +26620,21 @@ export type InvocableActionPicklist = ens_sObject & {
     Value?: string;
 }
 
-export type InvocableActionSettings = ens_sObject & {
+export type InvocableActionSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsPartialSaveAllowed?: boolean;
     Metadata?: InvocableActionSettings;
 }
 
-export type IpRange = ens_sObject & {
+export type IpRange = sObject & {
     Description?: string;
     DurableId?: string;
     End?: string;
     Start?: string;
 }
 
-export type KeywordList = ens_sObject & {
+export type KeywordList = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26657,23 +26654,23 @@ export type KeywordList = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type KnowledgeAnswerSettings = ens_sObject & {
+export type KnowledgeAnswerSettings = sObject & {
     AssignTo?: string;
     DefaultArticleType?: string;
     DurableId?: string;
     IsArticleCreationEnabled?: boolean;
 }
 
-export type KnowledgeCaseField = ens_sObject & {
+export type KnowledgeCaseField = sObject & {
     DurableId?: string;
     Name?: string;
 }
 
-export type KnowledgeCaseFieldsSettings = ens_sObject & {
+export type KnowledgeCaseFieldsSettings = sObject & {
     DurableId?: string;
 }
 
-export type KnowledgeCaseSettings = ens_sObject & {
+export type KnowledgeCaseSettings = sObject & {
     ArticlePdfCreationProfile?: string;
     ArticlePublicSharingCommunities?: string;
     ArticlePublicSharingSitesChatterAnswersId?: string;
@@ -26689,14 +26686,14 @@ export type KnowledgeCaseSettings = ens_sObject & {
     UseProfileForPdfCreation?: boolean;
 }
 
-export type KnowledgeGenerationSettings = ens_sObject & {
+export type KnowledgeGenerationSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsKnowledgeGenerationEnabled?: boolean;
     Metadata?: KnowledgeGenerationSettings;
 }
 
-export type KnowledgeLanguage = ens_sObject & {
+export type KnowledgeLanguage = sObject & {
     Active?: boolean;
     DefaultAssignee?: string;
     DefaultAssigneeType?: string;
@@ -26706,11 +26703,11 @@ export type KnowledgeLanguage = ens_sObject & {
     Name?: string;
 }
 
-export type KnowledgeLanguageSettings = ens_sObject & {
+export type KnowledgeLanguageSettings = sObject & {
     DurableId?: string;
 }
 
-export type KnowledgeSettings = ens_sObject & {
+export type KnowledgeSettings = sObject & {
     AnswersId?: string;
     CasesId?: string;
     DefaultLanguage?: string;
@@ -26739,12 +26736,12 @@ export type KnowledgeSettings = ens_sObject & {
     VotingEnabled?: boolean;
 }
 
-export type KnowledgeSitesSettings = ens_sObject & {
+export type KnowledgeSitesSettings = sObject & {
     DurableId?: string;
     Site?: string;
 }
 
-export type KnowledgeSuggestedArticlesSettings = ens_sObject & {
+export type KnowledgeSuggestedArticlesSettings = sObject & {
     CaseFieldsId?: string;
     DurableId?: string;
     UseSuggestedArticlesForCase?: boolean;
@@ -26752,25 +26749,25 @@ export type KnowledgeSuggestedArticlesSettings = ens_sObject & {
     WorkOrderLineItemFieldsId?: string;
 }
 
-export type KnowledgeWorkOrderField = ens_sObject & {
+export type KnowledgeWorkOrderField = sObject & {
     DurableId?: string;
     Name?: string;
 }
 
-export type KnowledgeWorkOrderFieldsSettings = ens_sObject & {
+export type KnowledgeWorkOrderFieldsSettings = sObject & {
     DurableId?: string;
 }
 
-export type KnowledgeWorkOrderLineItemField = ens_sObject & {
+export type KnowledgeWorkOrderLineItemField = sObject & {
     DurableId?: string;
     Name?: string;
 }
 
-export type KnowledgeWorkOrderLineItemFieldsSettings = ens_sObject & {
+export type KnowledgeWorkOrderLineItemFieldsSettings = sObject & {
     DurableId?: string;
 }
 
-export type LanguageSettings = ens_sObject & {
+export type LanguageSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCanadaIcuFormatEnabled?: boolean;
@@ -26786,7 +26783,7 @@ export type LanguageSettings = ens_sObject & {
     UseLanguageFallback?: boolean;
 }
 
-export type Layout = ens_sObject & {
+export type Layout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -26805,7 +26802,7 @@ export type Layout = ens_sObject & {
     TableEnumOrId?: string;
 }
 
-export type LayoutDefinition = ens_sObject & {
+export type LayoutDefinition = sObject & {
     DurableId?: string;
     Entity?: string;
     FieldsInfo?: FieldsInfo;
@@ -26814,7 +26811,7 @@ export type LayoutDefinition = ens_sObject & {
     RelatedListsInfo?: RelatedListsInfo;
 }
 
-export type LayoutParticle = ens_sObject & {
+export type LayoutParticle = sObject & {
     DurableId?: string;
     EntityParticle?: EntityParticle;
     EntityParticleId?: string;
@@ -26824,7 +26821,7 @@ export type LayoutParticle = ens_sObject & {
     IsUiRequired?: boolean;
 }
 
-export type LeadConfigSettings = ens_sObject & {
+export type LeadConfigSettings = sObject & {
     DoesEnableLeadConvertDefaultSubjectBlankTaskCreation?: boolean;
     DoesHideOpportunityInConvertLeadWindow?: boolean;
     DoesPreserveLeadStatus?: boolean;
@@ -26839,7 +26836,7 @@ export type LeadConfigSettings = ens_sObject & {
     ShouldSendNotificationEmailWhenLeadOwnerUpdatesViaApexInLex?: boolean;
 }
 
-export type LeadConvertSettings = ens_sObject & {
+export type LeadConvertSettings = sObject & {
     AllowOwnerChange?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26858,7 +26855,7 @@ export type LeadConvertSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LearningAchievementConfig = ens_sObject & {
+export type LearningAchievementConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26883,14 +26880,14 @@ export type LearningAchievementConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LicensingSettings = ens_sObject & {
+export type LicensingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAutoCreateLicenseDefinitionEnabled?: boolean;
     Metadata?: LicensingSettings;
 }
 
-export type LightningBolt = ens_sObject & {
+export type LightningBolt = sObject & {
     AllManagedPackageMemberId?: ID;
     Category?: LightningBoltCategory;
     CreatedBy?: User;
@@ -26913,7 +26910,7 @@ export type LightningBolt = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LightningComponentBundle = ens_sObject & {
+export type LightningComponentBundle = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     CreatedBy?: User;
@@ -26939,7 +26936,7 @@ export type LightningComponentBundle = ens_sObject & {
     TargetConfigs?: string;
 }
 
-export type LightningComponentResource = ens_sObject & {
+export type LightningComponentResource = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -26957,7 +26954,7 @@ export type LightningComponentResource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LightningExperienceSettings = ens_sObject & {
+export type LightningExperienceSettings = sObject & {
     ActiveThemeName?: string;
     DurableId?: string;
     FullName?: string;
@@ -27007,7 +27004,7 @@ export type LightningExperienceSettings = ens_sObject & {
     Metadata?: LightningExperienceSettings;
 }
 
-export type LightningExperienceTheme = ens_sObject & {
+export type LightningExperienceTheme = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27031,7 +27028,7 @@ export type LightningExperienceTheme = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LightningMessageChannel = ens_sObject & {
+export type LightningMessageChannel = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27053,7 +27050,7 @@ export type LightningMessageChannel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LightningMessageField = ens_sObject & {
+export type LightningMessageField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27070,7 +27067,7 @@ export type LightningMessageField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LightningOnboardingConfig = ens_sObject & {
+export type LightningOnboardingConfig = sObject & {
     CollaborationGroupId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27093,7 +27090,7 @@ export type LightningOnboardingConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LinkedInLeadGenAdAccount = ens_sObject & {
+export type LinkedInLeadGenAdAccount = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27111,7 +27108,7 @@ export type LinkedInLeadGenAdAccount = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LinkedInLeadGenConfig = ens_sObject & {
+export type LinkedInLeadGenConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27133,7 +27130,7 @@ export type LinkedInLeadGenConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ListLayout = ens_sObject & {
+export type ListLayout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27146,7 +27143,7 @@ export type ListLayout = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LiveAgentSettings = ens_sObject & {
+export type LiveAgentSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsChatFindOrCreateEnableEnabled?: boolean;
@@ -27155,7 +27152,7 @@ export type LiveAgentSettings = ens_sObject & {
     Metadata?: LiveAgentSettings;
 }
 
-export type LiveChatButton = ens_sObject & {
+export type LiveChatButton = sObject & {
     Animation?: LiveChatButtonPresentation;
     AutoGreeting?: string;
     ChasitorIdleTimeout?: number;
@@ -27223,7 +27220,7 @@ export type LiveChatButton = ens_sObject & {
     WindowLanguage?: string;
 }
 
-export type LmaApiSession = ens_sObject & {
+export type LmaApiSession = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27247,7 +27244,7 @@ export type LmaApiSession = ens_sObject & {
     Type?: LmaApiSessionType;
 }
 
-export type LocalizedValue = ens_sObject & {
+export type LocalizedValue = sObject & {
     Aspect?: TranslationAspect;
     CountryCode?: string;
     CreatedBy?: User;
@@ -27269,7 +27266,7 @@ export type LocalizedValue = ens_sObject & {
     Value?: string;
 }
 
-export type LocationUse = ens_sObject & {
+export type LocationUse = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27287,7 +27284,7 @@ export type LocationUse = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MLDataDefinition = ens_sObject & {
+export type MLDataDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27318,7 +27315,7 @@ export type MLDataDefinition = ens_sObject & {
     Type?: MLDataDefinitionType;
 }
 
-export type MLField = ens_sObject & {
+export type MLField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27339,7 +27336,7 @@ export type MLField = ens_sObject & {
     Type?: MLFieldType;
 }
 
-export type MLFilter = ens_sObject & {
+export type MLFilter = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27367,10 +27364,10 @@ export type MLFilter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MLFilterValue = ens_sObject & {
+export type MLFilterValue = sObject & {
 }
 
-export type MLGenerativeDefinition = ens_sObject & {
+export type MLGenerativeDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     Application?: AIApplication;
     ApplicationId?: ID;
@@ -27397,7 +27394,7 @@ export type MLGenerativeDefinition = ens_sObject & {
     Type?: MLGenerativeType;
 }
 
-export type MLPredictionDefinition = ens_sObject & {
+export type MLPredictionDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     Application?: AIApplication;
     ApplicationId?: ID;
@@ -27433,7 +27430,7 @@ export type MLPredictionDefinition = ens_sObject & {
     Type?: AIPredictionType;
 }
 
-export type MLRecommendationDefinition = ens_sObject & {
+export type MLRecommendationDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     Application?: AIApplication;
     ApplicationId?: ID;
@@ -27465,7 +27462,7 @@ export type MLRecommendationDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MacroSettings = ens_sObject & {
+export type MacroSettings = sObject & {
     ContextualMacroFiltering?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -27474,7 +27471,7 @@ export type MacroSettings = ens_sObject & {
     Metadata?: MacroSettings;
 }
 
-export type MailAppOwaWhitelist = ens_sObject & {
+export type MailAppOwaWhitelist = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27493,7 +27490,7 @@ export type MailAppOwaWhitelist = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MailMergeSettings = ens_sObject & {
+export type MailMergeSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsExtendedMailMergeEnabled?: boolean;
@@ -27501,7 +27498,7 @@ export type MailMergeSettings = ens_sObject & {
     SaveMailMergeDocsAsSalesforceDocs?: boolean;
 }
 
-export type ManagedContentNodeType = ens_sObject & {
+export type ManagedContentNodeType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27521,7 +27518,7 @@ export type ManagedContentNodeType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ManagedContentType = ens_sObject & {
+export type ManagedContentType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27539,7 +27536,7 @@ export type ManagedContentType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ManagedEventSubscription = ens_sObject & {
+export type ManagedEventSubscription = sObject & {
     AllManagedPackageMemberId?: ID;
     CommonEventSubscriptions?: QueryResult;
     CreatedBy?: User;
@@ -27561,7 +27558,7 @@ export type ManagedEventSubscription = ens_sObject & {
     Version?: string;
 }
 
-export type MapsAndLocationSettings = ens_sObject & {
+export type MapsAndLocationSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAddressAutoCompleteEnabled?: boolean;
@@ -27569,7 +27566,7 @@ export type MapsAndLocationSettings = ens_sObject & {
     Metadata?: MapsAndLocationSettings;
 }
 
-export type MarketAudienceDefinition = ens_sObject & {
+export type MarketAudienceDefinition = sObject & {
     AudienceContactPoints?: QueryResult;
     AudiencePackageOwner?: string;
     Channels?: string;
@@ -27593,7 +27590,7 @@ export type MarketAudienceDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MarketAudienceField = ens_sObject & {
+export type MarketAudienceField = sObject & {
     AudienceDefinition?: MarketAudienceDefinition;
     AudienceDefinitionId?: ID;
     AudienceVersion?: number;
@@ -27611,7 +27608,7 @@ export type MarketAudienceField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MarketingAppExtAction = ens_sObject & {
+export type MarketingAppExtAction = sObject & {
     ActionName?: string;
     ActionParams?: string;
     ActionSchema?: string;
@@ -27634,7 +27631,7 @@ export type MarketingAppExtAction = ens_sObject & {
     Version?: number;
 }
 
-export type MarketingAppExtActivity = ens_sObject & {
+export type MarketingAppExtActivity = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27657,7 +27654,7 @@ export type MarketingAppExtActivity = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MarketingAppExtAssignment = ens_sObject & {
+export type MarketingAppExtAssignment = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27672,7 +27669,7 @@ export type MarketingAppExtAssignment = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MarketingAppExtension = ens_sObject & {
+export type MarketingAppExtension = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27695,7 +27692,7 @@ export type MarketingAppExtension = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MatchingRule = ens_sObject & {
+export type MatchingRule = sObject & {
     AllManagedPackageMemberId?: ID;
     BooleanFilter?: string;
     CreatedBy?: User;
@@ -27723,14 +27720,14 @@ export type MatchingRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MediaAdSalesSettings = ens_sObject & {
+export type MediaAdSalesSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsMediaAdSalesEnabled?: boolean;
     Metadata?: MediaAdSalesSettings;
 }
 
-export type MeetingsSettings = ens_sObject & {
+export type MeetingsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsSalesforceMeetingsEnabled?: boolean;
@@ -27739,7 +27736,7 @@ export type MeetingsSettings = ens_sObject & {
     Metadata?: MeetingsSettings;
 }
 
-export type MenuItem = ens_sObject & {
+export type MenuItem = sObject & {
     Active?: boolean;
     AppId?: string;
     Color?: string;
@@ -27750,7 +27747,7 @@ export type MenuItem = ens_sObject & {
     Theme?: string;
 }
 
-export type MessagingChannel = ens_sObject & {
+export type MessagingChannel = sObject & {
     ActionParameterMappings?: QueryResult;
     BusinessHours?: BusinessHours;
     BusinessHoursId?: ID;
@@ -27808,7 +27805,7 @@ export type MessagingChannel = ens_sObject & {
     UniqueAddressIdentifierIndex?: boolean;
 }
 
-export type MessagingChannelActionParameterMapping = ens_sObject & {
+export type MessagingChannelActionParameterMapping = sObject & {
     ActionParameterName?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27823,7 +27820,7 @@ export type MessagingChannelActionParameterMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingChannelAuthorization = ens_sObject & {
+export type MessagingChannelAuthorization = sObject & {
     AuthIdentifier?: string;
     AuthorizationConfig?: sObject;
     AuthorizationConfigId?: ID;
@@ -27840,7 +27837,7 @@ export type MessagingChannelAuthorization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingChannelAutoResponse = ens_sObject & {
+export type MessagingChannelAutoResponse = sObject & {
     AutoResponseType?: MessagingChannelAutoResponseType;
     ContentReferenceRecord?: ConversationMessageDefinition;
     ContentReferenceRecordId?: ID;
@@ -27857,7 +27854,7 @@ export type MessagingChannelAutoResponse = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingChannelEmailTemplate = ens_sObject & {
+export type MessagingChannelEmailTemplate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27875,7 +27872,7 @@ export type MessagingChannelEmailTemplate = ens_sObject & {
     Type?: EmailPurposeType;
 }
 
-export type MessagingChannelParameter = ens_sObject & {
+export type MessagingChannelParameter = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27894,7 +27891,7 @@ export type MessagingChannelParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingChannelParameterValueMapping = ens_sObject & {
+export type MessagingChannelParameterValueMapping = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27911,7 +27908,7 @@ export type MessagingChannelParameterValueMapping = ens_sObject & {
     TargetLookupValueId?: ID;
 }
 
-export type MessagingChannelPaymentConfig = ens_sObject & {
+export type MessagingChannelPaymentConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27929,7 +27926,7 @@ export type MessagingChannelPaymentConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingChannelUsage = ens_sObject & {
+export type MessagingChannelUsage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27947,7 +27944,7 @@ export type MessagingChannelUsage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingTemplate = ens_sObject & {
+export type MessagingTemplate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -27966,7 +27963,7 @@ export type MessagingTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MessagingTemplateChannel = ens_sObject & {
+export type MessagingTemplateChannel = sObject & {
     ApprovalStatus?: MessagingTemplateApprovalStatus;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27982,7 +27979,7 @@ export type MessagingTemplateChannel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MetadataComponentDependency = ens_sObject & {
+export type MetadataComponentDependency = sObject & {
     MetadataComponentId?: string;
     MetadataComponentName?: string;
     MetadataComponentNamespace?: string;
@@ -27993,7 +27990,7 @@ export type MetadataComponentDependency = ens_sObject & {
     RefMetadataComponentType?: string;
 }
 
-export type MetadataContainer = ens_sObject & {
+export type MetadataContainer = sObject & {
     ApexClassMembers?: QueryResult;
     ApexComponentMembers?: QueryResult;
     ApexPageMembers?: QueryResult;
@@ -28020,7 +28017,7 @@ export type MetadataContainer = ens_sObject & {
     WorkflowTaskMembers?: QueryResult;
 }
 
-export type MetadataContainerMember = ens_sObject & {
+export type MetadataContainerMember = sObject & {
     Content?: string;
     ContentEntity?: sObject;
     ContentEntityId?: ID;
@@ -28031,7 +28028,7 @@ export type MetadataContainerMember = ens_sObject & {
     MetadataContainerId?: ID;
 }
 
-export type MetadataDependency = ens_sObject & {
+export type MetadataDependency = sObject & {
     MetadataComponentId?: string;
     MetadataComponentName?: string;
     MetadataComponentNamespace?: string;
@@ -28042,7 +28039,7 @@ export type MetadataDependency = ens_sObject & {
     RefMetadataComponentType?: string;
 }
 
-export type MetadataPackage = ens_sObject & {
+export type MetadataPackage = sObject & {
     MetadataPackageVersions?: QueryResult;
     Name?: string;
     NamespacePrefix?: string;
@@ -28050,7 +28047,7 @@ export type MetadataPackage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MetadataPackageVersion = ens_sObject & {
+export type MetadataPackageVersion = sObject & {
     BuildNumber?: number;
     IsDeprecated?: boolean;
     MajorVersion?: number;
@@ -28063,7 +28060,7 @@ export type MetadataPackageVersion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MfgProgramTemplate = ens_sObject & {
+export type MfgProgramTemplate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28084,7 +28081,7 @@ export type MfgProgramTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MfgProgramTemplateItem = ens_sObject & {
+export type MfgProgramTemplateItem = sObject & {
     AdvAccountForecastSet?: AdvAccountForecastSet;
     AdvAccountForecastSetId?: ID;
     CreatedBy?: User;
@@ -28103,23 +28100,23 @@ export type MfgProgramTemplateItem = ens_sObject & {
     TransformationType?: MfgProgramTransformationType;
 }
 
-export type MfgServiceConsoleSettings = ens_sObject & {
+export type MfgServiceConsoleSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsMfgServiceConsoleEnabled?: boolean;
     Metadata?: MfgServiceConsoleSettings;
 }
 
-export type MktCalculatedInsightField = ens_sObject & {
+export type MktCalculatedInsightField = sObject & {
     DataApplicationObjectFieldSourceField?: QueryResult;
     DataRecencyCriteriaField?: QueryResult;
 }
 
-export type MktCalculatedInsightObject = ens_sObject & {
+export type MktCalculatedInsightObject = sObject & {
     SourceObject?: QueryResult;
 }
 
-export type MktDataConnection = ens_sObject & {
+export type MktDataConnection = sObject & {
     AllManagedPackageMemberId?: ID;
     ConnectionMethod?: MktDataConnectionMethod;
     CreatedBy?: User;
@@ -28145,7 +28142,7 @@ export type MktDataConnection = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MktDataConnectionCred = ens_sObject & {
+export type MktDataConnectionCred = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28166,7 +28163,7 @@ export type MktDataConnectionCred = ens_sObject & {
     Value?: string;
 }
 
-export type MktDataConnectionParam = ens_sObject & {
+export type MktDataConnectionParam = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28190,7 +28187,7 @@ export type MktDataConnectionParam = ens_sObject & {
     Value?: string;
 }
 
-export type MktDataConnectionSrcParam = ens_sObject & {
+export type MktDataConnectionSrcParam = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28214,27 +28211,27 @@ export type MktDataConnectionSrcParam = ens_sObject & {
     Value?: string;
 }
 
-export type MktDataLakeField = ens_sObject & {
+export type MktDataLakeField = sObject & {
 }
 
-export type MktDataLakeObject = ens_sObject & {
+export type MktDataLakeObject = sObject & {
     DataStreamDefinitionLandEntities?: QueryResult;
 }
 
-export type MktDataModelField = ens_sObject & {
+export type MktDataModelField = sObject & {
     DataApplicationObjectFieldSourceField?: QueryResult;
     DataRecencyCriteriaField?: QueryResult;
     TargetField?: QueryResult;
 }
 
-export type MktDataModelObject = ens_sObject & {
+export type MktDataModelObject = sObject & {
     DataApplicationObjectDependencyMapping?: QueryResult;
     SourceObject?: QueryResult;
     TargetObject?: QueryResult;
     referenceObject?: QueryResult;
 }
 
-export type MktDataTranField = ens_sObject & {
+export type MktDataTranField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28266,7 +28263,7 @@ export type MktDataTranField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MktDataTranObject = ens_sObject & {
+export type MktDataTranObject = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28295,7 +28292,7 @@ export type MktDataTranObject = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MktProfileActionOverride = ens_sObject & {
+export type MktProfileActionOverride = sObject & {
     Action?: string;
     Content?: FlexiPage;
     ContentId?: ID;
@@ -28316,7 +28313,7 @@ export type MktProfileActionOverride = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MlDomain = ens_sObject & {
+export type MlDomain = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28340,7 +28337,7 @@ export type MlDomain = ens_sObject & {
     Type?: MlDomainType;
 }
 
-export type MlExternalModel = ens_sObject & {
+export type MlExternalModel = sObject & {
     CompletePercentage?: number;
     CorrectnessPercent?: number;
     CreatedBy?: User;
@@ -28369,7 +28366,7 @@ export type MlExternalModel = ens_sObject & {
     UtteranceCount?: number;
 }
 
-export type MlIntent = ens_sObject & {
+export type MlIntent = sObject & {
     AllManagedPackageMemberId?: ID;
     ConversationDefinitionDialogs?: QueryResult;
     CreatedBy?: User;
@@ -28398,7 +28395,7 @@ export type MlIntent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MlIntentModelMetric = ens_sObject & {
+export type MlIntentModelMetric = sObject & {
     ConfusionType?: MlIntentModelConfusionType;
     CorrectCount?: number;
     CorrectnessPercent?: number;
@@ -28426,7 +28423,7 @@ export type MlIntentModelMetric = ens_sObject & {
     UtteranceCount?: number;
 }
 
-export type MlIntentModelMisclassification = ens_sObject & {
+export type MlIntentModelMisclassification = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28445,7 +28442,7 @@ export type MlIntentModelMisclassification = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MlIntentUtterance = ens_sObject & {
+export type MlIntentUtterance = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28462,7 +28459,7 @@ export type MlIntentUtterance = ens_sObject & {
     Utterance?: string;
 }
 
-export type MlRelatedIntent = ens_sObject & {
+export type MlRelatedIntent = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28477,7 +28474,7 @@ export type MlRelatedIntent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MlSlotClass = ens_sObject & {
+export type MlSlotClass = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28503,7 +28500,7 @@ export type MlSlotClass = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MlSlotClassValue = ens_sObject & {
+export type MlSlotClassValue = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28517,7 +28514,7 @@ export type MlSlotClassValue = ens_sObject & {
     Value?: string;
 }
 
-export type MobSecurityCertPinConfig = ens_sObject & {
+export type MobSecurityCertPinConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CertificateHash?: string;
     CreatedBy?: User;
@@ -28546,7 +28543,7 @@ export type MobSecurityCertPinConfig = ens_sObject & {
     Type?: MobileSecurityCertPinType;
 }
 
-export type MobilePushNotificationCredential = ens_sObject & {
+export type MobilePushNotificationCredential = sObject & {
     ApplicationBundle?: string;
     Certificate?: string;
     CreatedBy?: User;
@@ -28571,7 +28568,7 @@ export type MobilePushNotificationCredential = ens_sObject & {
     TeamIdentifier?: string;
 }
 
-export type MobileSecurityAssignment = ens_sObject & {
+export type MobileSecurityAssignment = sObject & {
     AllManagedPackageMemberId?: ID;
     ConnectedApplicationId?: ID;
     CreatedBy?: User;
@@ -28594,7 +28591,7 @@ export type MobileSecurityAssignment = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MobileSecurityPolicy = ens_sObject & {
+export type MobileSecurityPolicy = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28623,7 +28620,7 @@ export type MobileSecurityPolicy = ens_sObject & {
     Type?: MobileSecurityPolicyType;
 }
 
-export type MobileSettings = ens_sObject & {
+export type MobileSettings = sObject & {
     DashboardMobileId?: string;
     DurableId?: string;
     FullName?: string;
@@ -28635,7 +28632,7 @@ export type MobileSettings = ens_sObject & {
     Metadata?: MobileSettings;
 }
 
-export type ModerationRule = ens_sObject & {
+export type ModerationRule = sObject & {
     Action?: ModerationRuleAction;
     ActionLimit?: number;
     Active?: boolean;
@@ -28662,7 +28659,7 @@ export type ModerationRule = ens_sObject & {
     UserMessage?: string;
 }
 
-export type MsgChannelLanguageKeyword = ens_sObject & {
+export type MsgChannelLanguageKeyword = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28685,7 +28682,7 @@ export type MsgChannelLanguageKeyword = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MsgChannelProcureRequest = ens_sObject & {
+export type MsgChannelProcureRequest = sObject & {
     ChannelAddressIdentifier?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28705,7 +28702,7 @@ export type MsgChannelProcureRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MsgChannelProvisionRequest = ens_sObject & {
+export type MsgChannelProvisionRequest = sObject & {
     ChannelType?: MessageType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28726,7 +28723,7 @@ export type MsgChannelProvisionRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MsgChannelUsageExternalOrg = ens_sObject & {
+export type MsgChannelUsageExternalOrg = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -28741,7 +28738,7 @@ export type MsgChannelUsageExternalOrg = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MutingPermissionSet = ens_sObject & {
+export type MutingPermissionSet = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -29863,7 +29860,7 @@ export type MutingPermissionSet = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type MyDomainSettings = ens_sObject & {
+export type MyDomainSettings = sObject & {
     CanOnlyLoginWithMyDomainUrl?: boolean;
     DoesApiLoginRequireOrgDomain?: boolean;
     DoesWarnOnForceComRedirect?: boolean;
@@ -29890,7 +29887,7 @@ export type MyDomainSettings = ens_sObject & {
     UseStabilizedSandboxMyDomainHostnames?: boolean;
 }
 
-export type Name = ens_sObject & {
+export type Name = sObject & {
     AddressableName?: string;
     Alias?: string;
     CommunityNickname?: string;
@@ -29925,7 +29922,7 @@ export type Name = ens_sObject & {
     Username?: string;
 }
 
-export type NameSettings = ens_sObject & {
+export type NameSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsInformalNameEnabled?: boolean;
@@ -29934,7 +29931,7 @@ export type NameSettings = ens_sObject & {
     Metadata?: NameSettings;
 }
 
-export type NamedCredential = ens_sObject & {
+export type NamedCredential = sObject & {
     AllManagedPackageMemberId?: ID;
     AuthProviderId?: ID;
     AuthTokenEndpointUrl?: string;
@@ -29983,7 +29980,7 @@ export type NamedCredential = ens_sObject & {
     Username?: string;
 }
 
-export type NamedCredentialParameter = ens_sObject & {
+export type NamedCredentialParameter = sObject & {
     AllManagedPackageMemberId?: ID;
     Certificate?: Certificate;
     CertificateId?: ID;
@@ -30009,7 +30006,7 @@ export type NamedCredentialParameter = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type LookupFilter = ens_sObject & {
+export type LookupFilter = sObject & {
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30030,7 +30027,7 @@ export type LookupFilter = ens_sObject & {
     TargetEntityDefinitionId?: string;
 }
 
-export type NavigationMenu = ens_sObject & {
+export type NavigationMenu = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30050,11 +30047,11 @@ export type NavigationMenu = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type NetworkAccess = ens_sObject & {
+export type NetworkAccess = sObject & {
     DurableId?: string;
 }
 
-export type NotificationsSettings = ens_sObject & {
+export type NotificationsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsActvityReminderBrowserNotifsEnabled?: boolean;
@@ -30063,7 +30060,7 @@ export type NotificationsSettings = ens_sObject & {
     Metadata?: NotificationsSettings;
 }
 
-export type OauthOidcSettings = ens_sObject & {
+export type OauthOidcSettings = sObject & {
     BlockOauthUnPwFlow?: boolean;
     BlockOauthUsrAgtFlow?: boolean;
     DurableId?: string;
@@ -30073,7 +30070,7 @@ export type OauthOidcSettings = ens_sObject & {
     OauthCdCrdtFlowEnable?: boolean;
 }
 
-export type ObjectHierarchyRelationship = ens_sObject & {
+export type ObjectHierarchyRelationship = sObject & {
     ChildObjectMapping?: ObjectMapping;
     ChildObjectMappingId?: ID;
     CreatedBy?: User;
@@ -30102,14 +30099,14 @@ export type ObjectHierarchyRelationship = ens_sObject & {
     UsageType?: MappingUsageType;
 }
 
-export type ObjectLinkingSettings = ens_sObject & {
+export type ObjectLinkingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsObjectLinkingEnabled?: boolean;
     Metadata?: ObjectLinkingSettings;
 }
 
-export type ObjectMapping = ens_sObject & {
+export type ObjectMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30131,7 +30128,7 @@ export type ObjectMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ObjectMappingField = ens_sObject & {
+export type ObjectMappingField = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30150,7 +30147,7 @@ export type ObjectMappingField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ObjectSearchSetting = ens_sObject & {
+export type ObjectSearchSetting = sObject & {
     DurableId?: string;
     EnhancedLookupEnabled?: boolean;
     LookupAutoCompleteEnabled?: boolean;
@@ -30158,7 +30155,7 @@ export type ObjectSearchSetting = ens_sObject & {
     ResultsPerPageCount?: number;
 }
 
-export type OcrSampleDocument = ens_sObject & {
+export type OcrSampleDocument = sObject & {
     AllManagedPackageMemberId?: ID;
     ApplicationType?: OcrApplicationType;
     CreatedBy?: User;
@@ -30181,7 +30178,7 @@ export type OcrSampleDocument = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OcrSampleDocumentField = ens_sObject & {
+export type OcrSampleDocumentField = sObject & {
     AllManagedPackageMemberId?: ID;
     CellColumnNumber?: number;
     CellColumnSpanValue?: number;
@@ -30216,7 +30213,7 @@ export type OcrSampleDocumentField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OcrSampleDocumentPage = ens_sObject & {
+export type OcrSampleDocumentPage = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30234,7 +30231,7 @@ export type OcrSampleDocumentPage = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OcrSampleDocumentPageItem = ens_sObject & {
+export type OcrSampleDocumentPageItem = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30253,7 +30250,7 @@ export type OcrSampleDocumentPageItem = ens_sObject & {
     Type?: ItemType;
 }
 
-export type OcrTargetObjFieldMapping = ens_sObject & {
+export type OcrTargetObjFieldMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30273,7 +30270,7 @@ export type OcrTargetObjFieldMapping = ens_sObject & {
     Type?: OcrMappingType;
 }
 
-export type OcrTargetObject = ens_sObject & {
+export type OcrTargetObject = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30291,7 +30288,7 @@ export type OcrTargetObject = ens_sObject & {
     TargetObjectSequence?: number;
 }
 
-export type OcrTemplate = ens_sObject & {
+export type OcrTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30316,7 +30313,7 @@ export type OcrTemplate = ens_sObject & {
     TemplateName?: string;
 }
 
-export type OcrTemplateSampleDocument = ens_sObject & {
+export type OcrTemplateSampleDocument = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30333,14 +30330,14 @@ export type OcrTemplateSampleDocument = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniChannelPricingSettings = ens_sObject & {
+export type OmniChannelPricingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsOmniChannelPricingEnabled?: boolean;
     Metadata?: OmniChannelPricingSettings;
 }
 
-export type OmniDataTransformConfig = ens_sObject & {
+export type OmniDataTransformConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30357,7 +30354,7 @@ export type OmniDataTransformConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniExtTrackingDef = ens_sObject & {
+export type OmniExtTrackingDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30384,7 +30381,7 @@ export type OmniExtTrackingDef = ens_sObject & {
     TrackingServiceProvider?: ExternalTrackingVendor;
 }
 
-export type OmniExtTrackingEventDef = ens_sObject & {
+export type OmniExtTrackingEventDef = sObject & {
     AllManagedPackageMemberId?: ID;
     ComponentType?: OmniAnalyticsComponentType;
     CreatedBy?: User;
@@ -30411,7 +30408,7 @@ export type OmniExtTrackingEventDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniIntegrationProcConfig = ens_sObject & {
+export type OmniIntegrationProcConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30428,7 +30425,7 @@ export type OmniIntegrationProcConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniInteractionAccessConfig = ens_sObject & {
+export type OmniInteractionAccessConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ConfigName?: string;
     CreatedBy?: User;
@@ -30461,7 +30458,7 @@ export type OmniInteractionAccessConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniInteractionConfig = ens_sObject & {
+export type OmniInteractionConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30482,7 +30479,7 @@ export type OmniInteractionConfig = ens_sObject & {
     Value?: string;
 }
 
-export type OmniScriptConfig = ens_sObject & {
+export type OmniScriptConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30499,7 +30496,7 @@ export type OmniScriptConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniSupervisorConfig = ens_sObject & {
+export type OmniSupervisorConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30518,7 +30515,7 @@ export type OmniSupervisorConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniTrackingComponentDef = ens_sObject & {
+export type OmniTrackingComponentDef = sObject & {
     AllManagedPackageMemberId?: ID;
     ComponentType?: OmniAnalyticsComponentType;
     ComponentVersion?: number;
@@ -30543,7 +30540,7 @@ export type OmniTrackingComponentDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniTrackingGroup = ens_sObject & {
+export type OmniTrackingGroup = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30573,7 +30570,7 @@ export type OmniTrackingGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OmniUiCardConfig = ens_sObject & {
+export type OmniUiCardConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30590,14 +30587,14 @@ export type OmniUiCardConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OnlineSalesSettings = ens_sObject & {
+export type OnlineSalesSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsSubscriptionAppEnrolledEnabled?: boolean;
     Metadata?: OnlineSalesSettings;
 }
 
-export type OperationLog = ens_sObject & {
+export type OperationLog = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30613,30 +30610,30 @@ export type OperationLog = ens_sObject & {
     Type?: OperationType;
 }
 
-export type OpportunityListFieldsLabelMapping = ens_sObject & {
+export type OpportunityListFieldsLabelMapping = sObject & {
     DurableId?: string;
     Field?: string;
     Label?: string;
 }
 
-export type OpportunityListFieldsSelectedSettings = ens_sObject & {
+export type OpportunityListFieldsSelectedSettings = sObject & {
     DurableId?: string;
     Field?: string;
 }
 
-export type OpportunityListFieldsUnselectedSettings = ens_sObject & {
+export type OpportunityListFieldsUnselectedSettings = sObject & {
     DurableId?: string;
     Field?: string;
 }
 
-export type OpportunityScoreSettings = ens_sObject & {
+export type OpportunityScoreSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsOpportunityScoringEnabled?: boolean;
     Metadata?: OpportunityScoreSettings;
 }
 
-export type OpportunitySettings = ens_sObject & {
+export type OpportunitySettings = sObject & {
     AutoActivateNewReminders?: boolean;
     CustomizableProductSchedulesEnabled?: boolean;
     DoesEnforceStandardOpportunitySaveLogic?: boolean;
@@ -30666,7 +30663,7 @@ export type OpportunitySettings = ens_sObject & {
     SimpleOppCreateFromEvent?: boolean;
 }
 
-export type OpportunitySplitType = ens_sObject & {
+export type OpportunitySplitType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30691,7 +30688,7 @@ export type OpportunitySplitType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OpptyLineItemSplitType = ens_sObject & {
+export type OpptyLineItemSplitType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30717,7 +30714,7 @@ export type OpptyLineItemSplitType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OrderManagementSettings = ens_sObject & {
+export type OrderManagementSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IngestOrdersAtScale?: boolean;
@@ -30736,7 +30733,7 @@ export type OrderManagementSettings = ens_sObject & {
     RepricingEnabled?: boolean;
 }
 
-export type OrderSettings = ens_sObject & {
+export type OrderSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEnhancedCommerceOrdersEnabled?: boolean;
@@ -30750,7 +30747,7 @@ export type OrderSettings = ens_sObject & {
     Metadata?: OrderSettings;
 }
 
-export type OrgDomainLog = ens_sObject & {
+export type OrgDomainLog = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30764,7 +30761,7 @@ export type OrgDomainLog = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OrgSettings = ens_sObject & {
+export type OrgSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCustomerSuccessPortalEnabled?: boolean;
@@ -30777,7 +30774,7 @@ export type OrgSettings = ens_sObject & {
     Metadata?: OrgSettings;
 }
 
-export type OrgWideEmailAddress = ens_sObject & {
+export type OrgWideEmailAddress = sObject & {
     Address?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -30792,7 +30789,7 @@ export type OrgWideEmailAddress = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OutboundNetworkConnProperty = ens_sObject & {
+export type OutboundNetworkConnProperty = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30807,7 +30804,7 @@ export type OutboundNetworkConnProperty = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OutboundNetworkConnection = ens_sObject & {
+export type OutboundNetworkConnection = sObject & {
     AllManagedPackageMemberId?: ID;
     ConnectionType?: ExternalConnectionType;
     CreatedBy?: User;
@@ -30832,7 +30829,7 @@ export type OutboundNetworkConnection = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type OverridableEntities = ens_sObject & {
+export type OverridableEntities = sObject & {
     Action?: string;
     DurableId?: string;
     FormFactor?: FormFactor;
@@ -30842,7 +30839,7 @@ export type OverridableEntities = ens_sObject & {
     Type?: ActionOverrideType;
 }
 
-export type OwnerChangeOptionInfo = ens_sObject & {
+export type OwnerChangeOptionInfo = sObject & {
     ChildOwnerChangeOptionInfo?: QueryResult;
     DefaultValue?: boolean;
     DurableId?: string;
@@ -30855,7 +30852,7 @@ export type OwnerChangeOptionInfo = ens_sObject & {
     ParentId?: string;
 }
 
-export type Package2 = ens_sObject & {
+export type Package2 = sObject & {
     AppAnalyticsEnabled?: boolean;
     ContainerOptions?: Package2ContainerOptions;
     ConvertedFromPackage?: SubscriberPackage;
@@ -30882,7 +30879,7 @@ export type Package2 = ens_sObject & {
     WasTransferred?: boolean;
 }
 
-export type Package2Member = ens_sObject & {
+export type Package2Member = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30905,7 +30902,7 @@ export type Package2Member = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Package2TransferRequest = ens_sObject & {
+export type Package2TransferRequest = sObject & {
     AllPackage?: AllPackage;
     AllPackageId?: ID;
     CreatedBy?: User;
@@ -30923,7 +30920,7 @@ export type Package2TransferRequest = ens_sObject & {
     ValidateOnly?: boolean;
 }
 
-export type Package2UpgradeExport = ens_sObject & {
+export type Package2UpgradeExport = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -30940,7 +30937,7 @@ export type Package2UpgradeExport = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Package2Version = ens_sObject & {
+export type Package2Version = sObject & {
     Ancestor?: SubscriberPackageVersion;
     AncestorId?: ID;
     Branch?: string;
@@ -30980,7 +30977,7 @@ export type Package2Version = ens_sObject & {
     ValidationSkipped?: boolean;
 }
 
-export type Package2VersionBuildRequest = ens_sObject & {
+export type Package2VersionBuildRequest = sObject & {
     AncestorPackageVersion?: SubscriberPackageVersion;
     AncestorPackageVersionId?: ID;
     AsyncDeployOtherReqFfx?: DeployRequest;
@@ -31019,7 +31016,7 @@ export type Package2VersionBuildRequest = ens_sObject & {
     VersionNumber?: string;
 }
 
-export type Package2VersionCreateRequest = ens_sObject & {
+export type Package2VersionCreateRequest = sObject & {
     Branch?: string;
     CalculateCodeCoverage?: boolean;
     CreatedBy?: User;
@@ -31046,7 +31043,7 @@ export type Package2VersionCreateRequest = ens_sObject & {
     VersionInfo?: string;
 }
 
-export type Package2VersionCreateRequestError = ens_sObject & {
+export type Package2VersionCreateRequestError = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31060,7 +31057,7 @@ export type Package2VersionCreateRequestError = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PackageConversion = ens_sObject & {
+export type PackageConversion = sObject & {
     ConvertedFromPackage?: AllPackage;
     ConvertedFromPackageId?: ID;
     ConvertedToPackage?: AllPackage;
@@ -31078,7 +31075,7 @@ export type PackageConversion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PackageInstallRequest = ens_sObject & {
+export type PackageInstallRequest = sObject & {
     ApexCompileType?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31106,7 +31103,7 @@ export type PackageInstallRequest = ens_sObject & {
     ZeroOrgDeploymentId?: ID;
 }
 
-export type PackageMember = ens_sObject & {
+export type PackageMember = sObject & {
     AllPackage?: AllPackage;
     AllPackageId?: ID;
     CreatedBy?: User;
@@ -31123,7 +31120,7 @@ export type PackageMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PackageUploadRequest = ens_sObject & {
+export type PackageUploadRequest = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31148,7 +31145,7 @@ export type PackageUploadRequest = ens_sObject & {
     VersionName?: string;
 }
 
-export type PackageVersionInstallRequestError = ens_sObject & {
+export type PackageVersionInstallRequestError = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31162,7 +31159,7 @@ export type PackageVersionInstallRequestError = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PackageVersionUninstallRequestError = ens_sObject & {
+export type PackageVersionUninstallRequestError = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31176,7 +31173,7 @@ export type PackageVersionUninstallRequestError = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type HomePageComponent = ens_sObject & {
+export type HomePageComponent = sObject & {
     Body?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31192,7 +31189,7 @@ export type HomePageComponent = ens_sObject & {
     ShowScrollbars?: boolean;
 }
 
-export type PardotEinsteinSettings = ens_sObject & {
+export type PardotEinsteinSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCampaignInsightEnabled?: boolean;
@@ -31200,7 +31197,7 @@ export type PardotEinsteinSettings = ens_sObject & {
     Metadata?: PardotEinsteinSettings;
 }
 
-export type PardotSettings = ens_sObject & {
+export type PardotSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAiEinsteinEngageFreqEnabled?: boolean;
@@ -31215,7 +31212,7 @@ export type PardotSettings = ens_sObject & {
     Metadata?: PardotSettings;
 }
 
-export type PardotTenant = ens_sObject & {
+export type PardotTenant = sObject & {
     B2BMktCampaignSyncConfigs?: QueryResult;
     CdpEnablementStatus?: CdpEnablementStatus;
     CreatedBy?: User;
@@ -31244,7 +31241,7 @@ export type PardotTenant = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PartitionLevelScheme = ens_sObject & {
+export type PartitionLevelScheme = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31260,7 +31257,7 @@ export type PartitionLevelScheme = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PartyDataModelSettings = ens_sObject & {
+export type PartyDataModelSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAutoSelectIndividualOnMergeEnabled?: boolean;
@@ -31269,7 +31266,7 @@ export type PartyDataModelSettings = ens_sObject & {
     Metadata?: PartyDataModelSettings;
 }
 
-export type PasswordPolicies = ens_sObject & {
+export type PasswordPolicies = sObject & {
     ApiOnlyUserHomePageUrl?: string;
     Complexity?: string;
     DurableId?: string;
@@ -31285,7 +31282,7 @@ export type PasswordPolicies = ens_sObject & {
     QuestionRestriction?: string;
 }
 
-export type PathAssistant = ens_sObject & {
+export type PathAssistant = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31312,7 +31309,7 @@ export type PathAssistant = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PathAssistantSettings = ens_sObject & {
+export type PathAssistantSettings = sObject & {
     CanOverrideAutoPathCollapseWithUserPref?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -31320,7 +31317,7 @@ export type PathAssistantSettings = ens_sObject & {
     PathAssistantEnabled?: boolean;
 }
 
-export type PathAssistantStepInfo = ens_sObject & {
+export type PathAssistantStepInfo = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31336,7 +31333,7 @@ export type PathAssistantStepInfo = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PathAssistantStepItem = ens_sObject & {
+export type PathAssistantStepItem = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -31356,7 +31353,7 @@ export type PathAssistantStepItem = ens_sObject & {
     Type?: PathAssistantStepItemType;
 }
 
-export type PaymentGatewayProvider = ens_sObject & {
+export type PaymentGatewayProvider = sObject & {
     AllManagedPackageMemberId?: ID;
     ApexAdapter?: ApexClass;
     ApexAdapterId?: ID;
@@ -31381,28 +31378,28 @@ export type PaymentGatewayProvider = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PaymentsManagementEnabledSettings = ens_sObject & {
+export type PaymentsManagementEnabledSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: PaymentsManagementEnabledSettings;
     PaymentsManagementEnabled?: boolean;
 }
 
-export type PaymentsSettings = ens_sObject & {
+export type PaymentsSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsPaymentsEnabled?: boolean;
     Metadata?: PaymentsSettings;
 }
 
-export type PermissionDependency = ens_sObject & {
+export type PermissionDependency = sObject & {
     Permission?: string;
     PermissionType?: string;
     RequiredPermission?: string;
     RequiredPermissionType?: string;
 }
 
-export type PermissionSet = ens_sObject & {
+export type PermissionSet = sObject & {
     AllManagedPackageMemberId?: ID;
     Assignments?: QueryResult;
     CreatedBy?: User;
@@ -32537,7 +32534,7 @@ export type PermissionSet = ens_sObject & {
     Type?: PermissionSetType;
 }
 
-export type PermissionSetAssignment = ens_sObject & {
+export type PermissionSetAssignment = sObject & {
     Assignee?: User;
     AssigneeId?: ID;
     ExpirationDate?: Date;
@@ -32552,7 +32549,7 @@ export type PermissionSetAssignment = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PermissionSetGroup = ens_sObject & {
+export type PermissionSetGroup = sObject & {
     AllManagedPackageMemberId?: ID;
     Assignments?: QueryResult;
     CreatedBy?: User;
@@ -32576,7 +32573,7 @@ export type PermissionSetGroup = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PermissionSetGroupComponent = ens_sObject & {
+export type PermissionSetGroupComponent = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32592,7 +32589,7 @@ export type PermissionSetGroupComponent = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PermissionSetGroupRecalc = ens_sObject & {
+export type PermissionSetGroupRecalc = sObject & {
     Cause?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32610,21 +32607,21 @@ export type PermissionSetGroupRecalc = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PermissionSetTabSetting = ens_sObject & {
+export type PermissionSetTabSetting = sObject & {
     Name?: string;
     Parent?: sObject;
     ParentId?: ID;
     Visibility?: TabVisibility;
 }
 
-export type PicklistSettings = ens_sObject & {
+export type PicklistSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsPicklistApiNameEditDisabled?: boolean;
     Metadata?: PicklistSettings;
 }
 
-export type PicklistValueInfo = ens_sObject & {
+export type PicklistValueInfo = sObject & {
     DurableId?: string;
     EntityParticle?: EntityParticle;
     EntityParticleId?: string;
@@ -32635,7 +32632,7 @@ export type PicklistValueInfo = ens_sObject & {
     Value?: string;
 }
 
-export type PipelineInspMetricConfig = ens_sObject & {
+export type PipelineInspMetricConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32653,7 +32650,7 @@ export type PipelineInspMetricConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformAction = ens_sObject & {
+export type PlatformAction = sObject & {
     ActionListContext?: PlatformActionListContext;
     ActionTarget?: string;
     ActionTargetType?: PlatformActionTargetType;
@@ -32678,7 +32675,7 @@ export type PlatformAction = ens_sObject & {
     Type?: PlatformActionType;
 }
 
-export type PlatformActionList = ens_sObject & {
+export type PlatformActionList = sObject & {
     ActionListContext?: PlatformActionListContext;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32695,7 +32692,7 @@ export type PlatformActionList = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformActionListItem = ens_sObject & {
+export type PlatformActionListItem = sObject & {
     Action?: sObject;
     ActionId?: ID;
     ActionName?: string;
@@ -32714,7 +32711,7 @@ export type PlatformActionListItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformCachePartition = ens_sObject & {
+export type PlatformCachePartition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32735,7 +32732,7 @@ export type PlatformCachePartition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformCachePartitionType = ens_sObject & {
+export type PlatformCachePartitionType = sObject & {
     AllManagedPackageMemberId?: ID;
     AllocatedCapacity?: number;
     AllocatedPartnerCapacity?: number;
@@ -32755,7 +32752,7 @@ export type PlatformCachePartitionType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformEncryptionSettings = ens_sObject & {
+export type PlatformEncryptionSettings = sObject & {
     CanEncryptManagedPackageFields?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -32768,7 +32765,7 @@ export type PlatformEncryptionSettings = ens_sObject & {
     Metadata?: PlatformEncryptionSettings;
 }
 
-export type PlatformEventChannel = ens_sObject & {
+export type PlatformEventChannel = sObject & {
     AllManagedPackageMemberId?: ID;
     ChannelType?: PlatformEventChannelType;
     CreatedBy?: User;
@@ -32789,7 +32786,7 @@ export type PlatformEventChannel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformEventChannelMember = ens_sObject & {
+export type PlatformEventChannelMember = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32813,7 +32810,7 @@ export type PlatformEventChannelMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type EnrichedField = ens_sObject & {
+export type EnrichedField = sObject & {
     AllManagedPackageMemberId?: ID;
     ChannelMember?: PlatformEventChannelMember;
     ChannelMemberId?: ID;
@@ -32829,14 +32826,14 @@ export type EnrichedField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PlatformEventSettings = ens_sObject & {
+export type PlatformEventSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsEnhancedUsageMetricsEnabled?: boolean;
     Metadata?: PlatformEventSettings;
 }
 
-export type PlatformEventSubscriberConfig = ens_sObject & {
+export type PlatformEventSubscriberConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     BatchSize?: number;
     CreatedBy?: User;
@@ -32861,7 +32858,7 @@ export type PlatformEventSubscriberConfig = ens_sObject & {
     UserId?: ID;
 }
 
-export type PlatformSlackSettings = ens_sObject & {
+export type PlatformSlackSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsSlackServiceAlertsEnabled?: boolean;
@@ -32870,7 +32867,7 @@ export type PlatformSlackSettings = ens_sObject & {
     SlackCapabilitiesEnabled?: boolean;
 }
 
-export type PortalDelegablePermissionSet = ens_sObject & {
+export type PortalDelegablePermissionSet = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32891,7 +32888,7 @@ export type PortalDelegablePermissionSet = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PortalsSettings = ens_sObject & {
+export type PortalsSettings = sObject & {
     ClickjackSspLoginPage?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -32899,7 +32896,7 @@ export type PortalsSettings = ens_sObject & {
     RedirectPortalLoginToHttps?: boolean;
 }
 
-export type PredictionBuilderSettings = ens_sObject & {
+export type PredictionBuilderSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsPredictionBuilderEnabled?: boolean;
@@ -32907,7 +32904,7 @@ export type PredictionBuilderSettings = ens_sObject & {
     Metadata?: PredictionBuilderSettings;
 }
 
-export type PredictionDefinition = ens_sObject & {
+export type PredictionDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32928,7 +32925,7 @@ export type PredictionDefinition = ens_sObject & {
     Type?: RecordRecommendationType;
 }
 
-export type PredictionDefinitionField = ens_sObject & {
+export type PredictionDefinitionField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32944,12 +32941,12 @@ export type PredictionDefinitionField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PresenceUserConfigInfo = ens_sObject & {
+export type PresenceUserConfigInfo = sObject & {
     DurableId?: string;
     PresenceUserConfigId?: string;
 }
 
-export type PriceRule = ens_sObject & {
+export type PriceRule = sObject & {
     AllManagedPackageMemberId?: ID;
     ConditionLogic?: ConditionLogic;
     CreatedBy?: User;
@@ -32975,7 +32972,7 @@ export type PriceRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PriceSheetDefinition = ens_sObject & {
+export type PriceSheetDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -32993,7 +32990,7 @@ export type PriceSheetDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PricingActionParameters = ens_sObject & {
+export type PricingActionParameters = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextDefinition?: string;
     ContextMapping?: string;
@@ -33018,7 +33015,7 @@ export type PricingActionParameters = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PricingProcedureOutputMap = ens_sObject & {
+export type PricingProcedureOutputMap = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33035,7 +33032,7 @@ export type PricingProcedureOutputMap = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PricingRecipe = ens_sObject & {
+export type PricingRecipe = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33059,7 +33056,7 @@ export type PricingRecipe = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PricingRecipeTableMapping = ens_sObject & {
+export type PricingRecipeTableMapping = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33080,7 +33077,7 @@ export type PricingRecipeTableMapping = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PrivacySettings = ens_sObject & {
+export type PrivacySettings = sObject & {
     AuthorizationCaptureBrowser?: boolean;
     AuthorizationCaptureEmail?: boolean;
     AuthorizationCaptureIp?: boolean;
@@ -33097,7 +33094,7 @@ export type PrivacySettings = ens_sObject & {
     UseUmaDefaultConsentRecs?: boolean;
 }
 
-export type PrivateDomainDefinition = ens_sObject & {
+export type PrivateDomainDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33115,7 +33112,7 @@ export type PrivateDomainDefinition = ens_sObject & {
     ValidationStatus?: PrivateDomainDefinitionValidationStatus;
 }
 
-export type ProcessFlowMigration = ens_sObject & {
+export type ProcessFlowMigration = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33141,14 +33138,14 @@ export type ProcessFlowMigration = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProcessPalette = ens_sObject & {
+export type ProcessPalette = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
     Metadata?: ProcessPalette;
 }
 
-export type ProcessPlugin = ens_sObject & {
+export type ProcessPlugin = sObject & {
     ApexClass?: string;
     Description?: string;
     DurableId?: string;
@@ -33157,7 +33154,7 @@ export type ProcessPlugin = ens_sObject & {
     Tag?: string;
 }
 
-export type ProcessPluginParameter = ens_sObject & {
+export type ProcessPluginParameter = sObject & {
     DataType?: string;
     Description?: string;
     DurableId?: string;
@@ -33169,7 +33166,7 @@ export type ProcessPluginParameter = ens_sObject & {
     ProcessPluginId?: string;
 }
 
-export type ProcessTypeDefinition = ens_sObject & {
+export type ProcessTypeDefinition = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -33180,7 +33177,7 @@ export type ProcessTypeDefinition = ens_sObject & {
     Name?: string;
 }
 
-export type ProductAttrDisplayConfig = ens_sObject & {
+export type ProductAttrDisplayConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33201,7 +33198,7 @@ export type ProductAttrDisplayConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProductAttributeSet = ens_sObject & {
+export type ProductAttributeSet = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33222,7 +33219,7 @@ export type ProductAttributeSet = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProductFamilyUsage = ens_sObject & {
+export type ProductFamilyUsage = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33241,7 +33238,7 @@ export type ProductFamilyUsage = ens_sObject & {
     UsageType?: ProductFamilyUsageType;
 }
 
-export type ProductPropertyInfo = ens_sObject & {
+export type ProductPropertyInfo = sObject & {
     DurableId?: string;
     FieldId?: string;
     IsAttribute?: boolean;
@@ -33259,7 +33256,7 @@ export type ProductPropertyInfo = ens_sObject & {
     PropertyObjectScope?: PropertyObjectScope;
 }
 
-export type ProductSettings = ens_sObject & {
+export type ProductSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCascadeActivateToRelatedPricesEnabled?: boolean;
@@ -33269,7 +33266,7 @@ export type ProductSettings = ens_sObject & {
     Metadata?: ProductSettings;
 }
 
-export type ProductSpecificationRecType = ens_sObject & {
+export type ProductSpecificationRecType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33291,7 +33288,7 @@ export type ProductSpecificationRecType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProductSpecificationType = ens_sObject & {
+export type ProductSpecificationType = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33310,7 +33307,7 @@ export type ProductSpecificationType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Profile = ens_sObject & {
+export type Profile = sObject & {
     AdvAcctForecastAdjPeriodProfile?: QueryResult;
     AdvAcctFrcstDisplayGroupProfile?: QueryResult;
     AssistantDefinitionProfiles?: QueryResult;
@@ -33331,7 +33328,7 @@ export type Profile = ens_sObject & {
     Users?: QueryResult;
 }
 
-export type ProfileActionOverride = ens_sObject & {
+export type ProfileActionOverride = sObject & {
     Action?: string;
     Content?: FlexiPage;
     ContentId?: ID;
@@ -33355,7 +33352,7 @@ export type ProfileActionOverride = ens_sObject & {
     Type?: ActionOverrideType;
 }
 
-export type ProfileCallLogQuickAction = ens_sObject & {
+export type ProfileCallLogQuickAction = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33370,7 +33367,7 @@ export type ProfileCallLogQuickAction = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProfileLayout = ens_sObject & {
+export type ProfileLayout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33387,7 +33384,7 @@ export type ProfileLayout = ens_sObject & {
     TableEnumOrId?: string;
 }
 
-export type ProfileManifestEntry = ens_sObject & {
+export type ProfileManifestEntry = sObject & {
     ComponentType?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33400,7 +33397,7 @@ export type ProfileManifestEntry = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ProfileSearchCustomization = ens_sObject & {
+export type ProfileSearchCustomization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33415,7 +33412,7 @@ export type ProfileSearchCustomization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Prompt = ens_sObject & {
+export type Prompt = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33435,7 +33432,7 @@ export type Prompt = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PromptVersion = ens_sObject & {
+export type PromptVersion = sObject & {
     ActionButtonLabel?: string;
     ActionButtonLink?: string;
     AllManagedPackageMemberId?: ID;
@@ -33501,7 +33498,7 @@ export type PromptVersion = ens_sObject & {
     VideoLink?: string;
 }
 
-export type ProvisionedFeature = ens_sObject & {
+export type ProvisionedFeature = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33517,7 +33514,7 @@ export type ProvisionedFeature = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PublicKeyCertificate = ens_sObject & {
+export type PublicKeyCertificate = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33537,7 +33534,7 @@ export type PublicKeyCertificate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type PublicKeyCertificateSet = ens_sObject & {
+export type PublicKeyCertificateSet = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33556,7 +33553,7 @@ export type PublicKeyCertificateSet = ens_sObject & {
     Type?: PublicKeyCertificateSetType;
 }
 
-export type PublicKeyCertificateSetKey = ens_sObject & {
+export type PublicKeyCertificateSetKey = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33571,7 +33568,7 @@ export type PublicKeyCertificateSetKey = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Publisher = ens_sObject & {
+export type Publisher = sObject & {
     DurableId?: string;
     InstalledEntityDefinitions?: QueryResult;
     InstalledFieldDefinitions?: QueryResult;
@@ -33582,7 +33579,7 @@ export type Publisher = ens_sObject & {
     NamespacePrefix?: string;
 }
 
-export type QuickActionDefinition = ens_sObject & {
+export type QuickActionDefinition = sObject & {
     ActionSubtype?: ActionSubtype;
     AllManagedPackageMemberId?: ID;
     Component?: string;
@@ -33621,7 +33618,7 @@ export type QuickActionDefinition = ens_sObject & {
     Width?: number;
 }
 
-export type QuickActionList = ens_sObject & {
+export type QuickActionList = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33635,7 +33632,7 @@ export type QuickActionList = ens_sObject & {
     items?: QueryResult;
 }
 
-export type QuickActionListItem = ens_sObject & {
+export type QuickActionListItem = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33650,7 +33647,7 @@ export type QuickActionListItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type QuickTextSettings = ens_sObject & {
+export type QuickTextSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     HideQuickTextUiInLtng?: boolean;
@@ -33659,12 +33656,12 @@ export type QuickTextSettings = ens_sObject & {
     QuickTextsInFolders?: boolean;
 }
 
-export type QuotasSettings = ens_sObject & {
+export type QuotasSettings = sObject & {
     DurableId?: string;
     ShowQuotas?: boolean;
 }
 
-export type QuoteSettings = ens_sObject & {
+export type QuoteSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsQuoteEnabled?: boolean;
@@ -33672,19 +33669,19 @@ export type QuoteSettings = ens_sObject & {
     Metadata?: QuoteSettings;
 }
 
-export type RealTimeEvent = ens_sObject & {
+export type RealTimeEvent = sObject & {
     DurableId?: string;
     EntityName?: string;
     IsEnabled?: boolean;
 }
 
-export type RealTimeEventSettings = ens_sObject & {
+export type RealTimeEventSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: RealTimeEventSettings;
 }
 
-export type RecAlrtDataSrcExpSetDef = ens_sObject & {
+export type RecAlrtDataSrcExpSetDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33710,7 +33707,7 @@ export type RecAlrtDataSrcExpSetDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecentlyViewed = ens_sObject & {
+export type RecentlyViewed = sObject & {
     AddressableName?: string;
     Alias?: string;
     CommunityNickname?: string;
@@ -33743,7 +33740,7 @@ export type RecentlyViewed = ens_sObject & {
     UserRoleId?: ID;
 }
 
-export type RecommendationBuilderSettings = ens_sObject & {
+export type RecommendationBuilderSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsErbEnabledPrefEnabled?: boolean;
@@ -33751,13 +33748,13 @@ export type RecommendationBuilderSettings = ens_sObject & {
     Metadata?: RecommendationBuilderSettings;
 }
 
-export type RecommendationDefReference = ens_sObject & {
+export type RecommendationDefReference = sObject & {
     ExternalId?: string;
     RecommendationDefId?: string;
     RecommendationStrategyId?: string;
 }
 
-export type RecommendationStrategy = ens_sObject & {
+export type RecommendationStrategy = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextRecordType?: string;
     CreatedBy?: User;
@@ -33781,7 +33778,7 @@ export type RecommendationStrategy = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordActionDeployment = ens_sObject & {
+export type RecordActionDeployment = sObject & {
     AllManagedPackageMemberId?: ID;
     ComponentName?: ComponentName;
     CreatedBy?: User;
@@ -33805,7 +33802,7 @@ export type RecordActionDeployment = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordAggregationDefinition = ens_sObject & {
+export type RecordAggregationDefinition = sObject & {
     AggregateFromObject?: string;
     AggregateToObject?: string;
     AggregationType?: RecordAggregationDefinitionAggregationType;
@@ -33834,7 +33831,7 @@ export type RecordAggregationDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordAggregationJoinCondition = ens_sObject & {
+export type RecordAggregationJoinCondition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33853,7 +33850,7 @@ export type RecordAggregationJoinCondition = ens_sObject & {
     Type?: RecordAggregationJoinConditionType;
 }
 
-export type RecordAggregationObject = ens_sObject & {
+export type RecordAggregationObject = sObject & {
     AssociatedObject?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33875,7 +33872,7 @@ export type RecordAggregationObject = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordAggregationObjectFilter = ens_sObject & {
+export type RecordAggregationObjectFilter = sObject & {
     AssociatedObjectField?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33892,7 +33889,7 @@ export type RecordAggregationObjectFilter = ens_sObject & {
     Value?: string;
 }
 
-export type RecordAlertCategory = ens_sObject & {
+export type RecordAlertCategory = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33915,7 +33912,7 @@ export type RecordAlertCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordAlertDataSource = ens_sObject & {
+export type RecordAlertDataSource = sObject & {
     AllManagedPackageMemberId?: ID;
     ApexClass?: ApexClass;
     ApexClassId?: ID;
@@ -33939,7 +33936,7 @@ export type RecordAlertDataSource = ens_sObject & {
     Type?: RecordAlertDataSourceType;
 }
 
-export type RecordAlertTemplate = ens_sObject & {
+export type RecordAlertTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33963,7 +33960,7 @@ export type RecordAlertTemplate = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RecordPageSettings = ens_sObject & {
+export type RecordPageSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsActivityRelatedListEnabled?: boolean;
@@ -33971,7 +33968,7 @@ export type RecordPageSettings = ens_sObject & {
     Metadata?: RecordPageSettings;
 }
 
-export type RecordType = ens_sObject & {
+export type RecordType = sObject & {
     BusinessProcessId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -33995,7 +33992,7 @@ export type RecordType = ens_sObject & {
     SobjectType?: string;
 }
 
-export type RegisteredExternalService = ens_sObject & {
+export type RegisteredExternalService = sObject & {
     AllManagedPackageMemberId?: ID;
     ConfigUrl?: string;
     CreatedBy?: User;
@@ -34024,14 +34021,14 @@ export type RegisteredExternalService = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RelatedEntity = ens_sObject & {
+export type RelatedEntity = sObject & {
     DurableId?: string;
     RelatedId?: string;
     RelationshipType?: RelationshipType;
     RootId?: string;
 }
 
-export type RelatedListColumnDefinition = ens_sObject & {
+export type RelatedListColumnDefinition = sObject & {
     Alias?: string;
     ColumnSoql?: string;
     DataType?: string;
@@ -34046,7 +34043,7 @@ export type RelatedListColumnDefinition = ens_sObject & {
     RelatedListDefinitionId?: string;
 }
 
-export type RelatedListDefinition = ens_sObject & {
+export type RelatedListDefinition = sObject & {
     DefaultSort?: string;
     DurableId?: string;
     EntityDefinition?: EntityDefinition;
@@ -34062,7 +34059,7 @@ export type RelatedListDefinition = ens_sObject & {
     RelatedListName?: string;
 }
 
-export type RelatedObjectPartySrchDef = ens_sObject & {
+export type RelatedObjectPartySrchDef = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34085,7 +34082,7 @@ export type RelatedObjectPartySrchDef = ens_sObject & {
     TargetRecordTypeId?: ID;
 }
 
-export type RelatedRecordAssocCriteria = ens_sObject & {
+export type RelatedRecordAssocCriteria = sObject & {
     AllManagedPackageMemberId?: ID;
     AssociationHandlerApexClass?: ApexClass;
     AssociationHandlerApexClassId?: ID;
@@ -34114,7 +34111,7 @@ export type RelatedRecordAssocCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RelationshipDomain = ens_sObject & {
+export type RelationshipDomain = sObject & {
     ChildSobject?: EntityDefinition;
     ChildSobjectId?: string;
     DurableId?: string;
@@ -34131,7 +34128,7 @@ export type RelationshipDomain = ens_sObject & {
     RelationshipName?: string;
 }
 
-export type RelationshipGraphDefinition = ens_sObject & {
+export type RelationshipGraphDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34155,7 +34152,7 @@ export type RelationshipGraphDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RelationshipInfo = ens_sObject & {
+export type RelationshipInfo = sObject & {
     ChildSobject?: EntityDefinition;
     ChildSobjectId?: string;
     DurableId?: string;
@@ -34168,7 +34165,7 @@ export type RelationshipInfo = ens_sObject & {
     RelationshipDomains?: QueryResult;
 }
 
-export type ReleaseUpdate = ens_sObject & {
+export type ReleaseUpdate = sObject & {
     ApiVersion?: number;
     Category?: string;
     Description?: string;
@@ -34191,7 +34188,7 @@ export type ReleaseUpdate = ens_sObject & {
     Title?: string;
 }
 
-export type ReleaseUpdateStep = ens_sObject & {
+export type ReleaseUpdateStep = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34210,7 +34207,7 @@ export type ReleaseUpdateStep = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ReleaseUpdateStepLog = ens_sObject & {
+export type ReleaseUpdateStepLog = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34228,7 +34225,7 @@ export type ReleaseUpdateStepLog = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ReleasedApexClassRel = ens_sObject & {
+export type ReleasedApexClassRel = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34248,7 +34245,7 @@ export type ReleasedApexClassRel = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ReleasedApexIdentifier = ens_sObject & {
+export type ReleasedApexIdentifier = sObject & {
     ApexClassIdentifierId?: ID;
     ApexReleasedEntityState?: ReleasedEntityState;
     ApexReleasedEntityStateId?: ID;
@@ -34282,7 +34279,7 @@ export type ReleasedApexIdentifier = ens_sObject & {
     UUID?: string;
 }
 
-export type ReleasedApexIdentifierOption = ens_sObject & {
+export type ReleasedApexIdentifierOption = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34299,7 +34296,7 @@ export type ReleasedApexIdentifierOption = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ReleasedEntityState = ens_sObject & {
+export type ReleasedEntityState = sObject & {
     ApiVersion?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34334,7 +34331,7 @@ export type ReleasedEntityState = ens_sObject & {
     UUID?: string;
 }
 
-export type RemoteProxy = ens_sObject & {
+export type RemoteProxy = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34354,7 +34351,7 @@ export type RemoteProxy = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RestrictionRule = ens_sObject & {
+export type RestrictionRule = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34382,7 +34379,7 @@ export type RestrictionRule = ens_sObject & {
     Version?: number;
 }
 
-export type RetailExecutionSettings = ens_sObject & {
+export type RetailExecutionSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsProductHierarchyEnabled?: boolean;
@@ -34391,7 +34388,7 @@ export type RetailExecutionSettings = ens_sObject & {
     Metadata?: RetailExecutionSettings;
 }
 
-export type RevenueSourceCategoryConfig = ens_sObject & {
+export type RevenueSourceCategoryConfig = sObject & {
     ClosedDateFieldName?: string;
     ClosedLostStageOption?: string;
     ClosedWonStageOption?: string;
@@ -34414,7 +34411,7 @@ export type RevenueSourceCategoryConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RevenueSourceObjectConfig = ens_sObject & {
+export type RevenueSourceObjectConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34439,7 +34436,7 @@ export type RevenueSourceObjectConfig = ens_sObject & {
     UserIdentifierFieldName?: string;
 }
 
-export type RuleDefinition = ens_sObject & {
+export type RuleDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34456,7 +34453,7 @@ export type RuleDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type RuleLibraryContextTag = ens_sObject & {
+export type RuleLibraryContextTag = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34473,7 +34470,7 @@ export type RuleLibraryContextTag = ens_sObject & {
     UsageSubtype?: ContextRuleUsageSubtype;
 }
 
-export type RuleLibraryDefinition = ens_sObject & {
+export type RuleLibraryDefinition = sObject & {
     BodyLength?: number;
     CompressedBodyLength?: number;
     ContextDefinition?: ContextDefinition;
@@ -34498,7 +34495,7 @@ export type RuleLibraryDefinition = ens_sObject & {
     UsageType?: ContextRuleUsageType;
 }
 
-export type RulesetDefinition = ens_sObject & {
+export type RulesetDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34515,7 +34512,7 @@ export type RulesetDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SalesAgreementSettings = ens_sObject & {
+export type SalesAgreementSettings = sObject & {
     ActualsCalculationMode?: ActualsCalculationMode;
     AdvAcctFrcstDisplayGroupForecastSet?: QueryResult;
     CreatedBy?: User;
@@ -34541,7 +34538,7 @@ export type SalesAgreementSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SandboxInfo = ens_sObject & {
+export type SandboxInfo = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     AutoActivate?: boolean;
@@ -34572,7 +34569,7 @@ export type SandboxInfo = ens_sObject & {
     TemplateId?: ID;
 }
 
-export type SandboxProcess = ens_sObject & {
+export type SandboxProcess = sObject & {
     ActivatedBy?: User;
     ActivatedById?: ID;
     ActivatedDate?: Date;
@@ -34618,14 +34615,14 @@ export type SandboxProcess = ens_sObject & {
     TemplateId?: ID;
 }
 
-export type SandboxSettings = ens_sObject & {
+export type SandboxSettings = sObject & {
     DisableSandboxExpirationEmails?: boolean;
     DurableId?: string;
     FullName?: string;
     Metadata?: SandboxSettings;
 }
 
-export type SchedulingObjective = ens_sObject & {
+export type SchedulingObjective = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34644,7 +34641,7 @@ export type SchedulingObjective = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SchedulingRule = ens_sObject & {
+export type SchedulingRule = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34663,7 +34660,7 @@ export type SchedulingRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SchemaSettings = ens_sObject & {
+export type SchemaSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAdvancedCmtSecurityEnabled?: boolean;
@@ -34673,7 +34670,7 @@ export type SchemaSettings = ens_sObject & {
     Metadata?: SchemaSettings;
 }
 
-export type Scontrol = ens_sObject & {
+export type Scontrol = sObject & {
     ContentSource?: SControlContentSource;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34690,7 +34687,7 @@ export type Scontrol = ens_sObject & {
     SupportsCaching?: boolean;
 }
 
-export type ScoreCategory = ens_sObject & {
+export type ScoreCategory = sObject & {
     AllManagedPackageMemberId?: ID;
     CategoryName?: string;
     ChildScoreCategories?: QueryResult;
@@ -34717,7 +34714,7 @@ export type ScoreCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ScoreCategoryCalcInsight = ens_sObject & {
+export type ScoreCategoryCalcInsight = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34734,7 +34731,7 @@ export type ScoreCategoryCalcInsight = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ScoreRangeClassification = ens_sObject & {
+export type ScoreRangeClassification = sObject & {
     ClassificationName?: string;
     ColorHexadecimalCode?: string;
     CreatedBy?: User;
@@ -34752,7 +34749,7 @@ export type ScoreRangeClassification = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchCriteriaConfiguration = ens_sObject & {
+export type SearchCriteriaConfiguration = sObject & {
     ActionList?: string;
     AggrCriteriaFieldset?: FieldSet;
     AggrCriteriaFieldsetId?: ID;
@@ -34787,7 +34784,7 @@ export type SearchCriteriaConfiguration = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchCustomization = ens_sObject & {
+export type SearchCustomization = sObject & {
     Channel?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34803,7 +34800,7 @@ export type SearchCustomization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchFieldCustomization = ens_sObject & {
+export type SearchFieldCustomization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34820,7 +34817,7 @@ export type SearchFieldCustomization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchLayout = ens_sObject & {
+export type SearchLayout = sObject & {
     ButtonsDisplayed?: SearchLayoutButtonsDisplayed;
     DurableId?: string;
     EntityDefinition?: EntityDefinition;
@@ -34836,7 +34833,7 @@ export type SearchLayout = ens_sObject & {
     ProfileName?: string;
 }
 
-export type SearchObjectCustomization = ens_sObject & {
+export type SearchObjectCustomization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34852,7 +34849,7 @@ export type SearchObjectCustomization = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchResultActionConfig = ens_sObject & {
+export type SearchResultActionConfig = sObject & {
     ActionReference?: string;
     ActionScope?: SearchResultActionScope;
     ActionType?: SearchResultActionType;
@@ -34873,7 +34870,7 @@ export type SearchResultActionConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SearchSettings = ens_sObject & {
+export type SearchSettings = sObject & {
     DocumentContentSearchEnabled?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -34905,11 +34902,11 @@ export type SearchSettings = ens_sObject & {
     SpellCorrectKnowledgeSearchEnabled?: boolean;
 }
 
-export type SearchSettingsByObject = ens_sObject & {
+export type SearchSettingsByObject = sObject & {
     DurableId?: string;
 }
 
-export type SearchableField = ens_sObject & {
+export type SearchableField = sObject & {
     ExperienceName?: string;
     ExternalId?: string;
     FieldApiName?: string;
@@ -34918,7 +34915,7 @@ export type SearchableField = ens_sObject & {
     ObjectName?: string;
 }
 
-export type SearchableObjDataSyncInfo = ens_sObject & {
+export type SearchableObjDataSyncInfo = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34947,14 +34944,14 @@ export type SearchableObjDataSyncInfo = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SecurityHealthCheck = ens_sObject & {
+export type SecurityHealthCheck = sObject & {
     CustomBaselineId?: string;
     DurableId?: string;
     Score?: string;
     SecurityHealthCheckRisk?: QueryResult;
 }
 
-export type SecurityHealthCheckRisks = ens_sObject & {
+export type SecurityHealthCheckRisks = sObject & {
     DurableId?: string;
     OrgValue?: string;
     OrgValueRaw?: string;
@@ -34968,7 +34965,7 @@ export type SecurityHealthCheckRisks = ens_sObject & {
     StandardValueRaw?: string;
 }
 
-export type SecuritySettings = ens_sObject & {
+export type SecuritySettings = sObject & {
     CanUsersGrantLoginAccess?: boolean;
     DurableId?: string;
     FullName?: string;
@@ -34993,7 +34990,7 @@ export type SecuritySettings = ens_sObject & {
     SingleSignOnSettingsId?: string;
 }
 
-export type SemanticDefinition = ens_sObject & {
+export type SemanticDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35015,7 +35012,7 @@ export type SemanticDefinition = ens_sObject & {
     Type?: SemanticDefinitionType;
 }
 
-export type SemanticModel = ens_sObject & {
+export type SemanticModel = sObject & {
     AllManagedPackageMemberId?: ID;
     App?: string;
     Categories?: string;
@@ -35040,7 +35037,7 @@ export type SemanticModel = ens_sObject & {
     UnrelatedDataObjectsQueryBehavior?: SemanticModelQueryUnrelatedDataObjectsType;
 }
 
-export type SenderFromDefinition = ens_sObject & {
+export type SenderFromDefinition = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35062,7 +35059,7 @@ export type SenderFromDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type Service = ens_sObject & {
+export type Service = sObject & {
     DeveloperName?: string;
     DurableId?: string;
     Types?: QueryResult;
@@ -35072,7 +35069,7 @@ export type Service = ens_sObject & {
     XmlSchemas?: QueryResult;
 }
 
-export type ServiceAISetupDefinition = ens_sObject & {
+export type ServiceAISetupDefinition = sObject & {
     AppSourceType?: ApplicationSourceType;
     ConvDefPredictionSetups?: QueryResult;
     CreatedBy?: User;
@@ -35093,7 +35090,7 @@ export type ServiceAISetupDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ServiceAISetupField = ens_sObject & {
+export type ServiceAISetupField = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35116,7 +35113,7 @@ export type ServiceAISetupField = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ServiceCloudVoiceSettings = ens_sObject & {
+export type ServiceCloudVoiceSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsAmazonQueueManagementEnabled?: boolean;
@@ -35132,7 +35129,7 @@ export type ServiceCloudVoiceSettings = ens_sObject & {
     Metadata?: ServiceCloudVoiceSettings;
 }
 
-export type ServiceDataType = ens_sObject & {
+export type ServiceDataType = sObject & {
     DataType?: DataType;
     DataTypeId?: string;
     DeveloperName?: string;
@@ -35144,7 +35141,7 @@ export type ServiceDataType = ens_sObject & {
     WsdlDataTypes?: QueryResult;
 }
 
-export type ServicePresenceStatusInfo = ens_sObject & {
+export type ServicePresenceStatusInfo = sObject & {
     DurableId?: string;
     HasChannels?: boolean;
     MasterLabel?: string;
@@ -35152,7 +35149,7 @@ export type ServicePresenceStatusInfo = ens_sObject & {
     StatusCapacityModel?: StatusCapacityType;
 }
 
-export type ServiceProcessAttribute = ens_sObject & {
+export type ServiceProcessAttribute = sObject & {
     AttributeName?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35176,7 +35173,7 @@ export type ServiceProcessAttribute = ens_sObject & {
     Type?: ServiceProcessAttributeType;
 }
 
-export type ServiceProcessDefinition = ens_sObject & {
+export type ServiceProcessDefinition = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     CreatedBy?: User;
@@ -35197,14 +35194,14 @@ export type ServiceProcessDefinition = ens_sObject & {
     Version?: string;
 }
 
-export type ServiceSetupAssistantSettings = ens_sObject & {
+export type ServiceSetupAssistantSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsServiceSetupAssistantEnabled?: boolean;
     Metadata?: ServiceSetupAssistantSettings;
 }
 
-export type ServiceVersion = ens_sObject & {
+export type ServiceVersion = sObject & {
     DurableId?: string;
     IsLatest?: boolean;
     Service?: Service;
@@ -35216,7 +35213,7 @@ export type ServiceVersion = ens_sObject & {
     XmlSchemas?: QueryResult;
 }
 
-export type SessionLevelPolicy = ens_sObject & {
+export type SessionLevelPolicy = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35237,7 +35234,7 @@ export type SessionLevelPolicy = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SessionSettings = ens_sObject & {
+export type SessionSettings = sObject & {
     AllowUserAuthenticationByCertificate?: boolean;
     AllowUserCertBasedAuthenticationWithOcspValidation?: boolean;
     CanConfirmEmailChangeInLightningCommunities?: boolean;
@@ -35299,13 +35296,13 @@ export type SessionSettings = ens_sObject & {
     UseLocalStorageForLogoutUrl?: boolean;
 }
 
-export type SettingsTemplate = ens_sObject & {
+export type SettingsTemplate = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: Metadata;
 }
 
-export type SetupApp = ens_sObject & {
+export type SetupApp = sObject & {
     DeveloperName?: string;
     DurableId?: string;
     HeaderColor?: string;
@@ -35313,7 +35310,7 @@ export type SetupApp = ens_sObject & {
     TreeNodeType?: NodeType;
 }
 
-export type SetupNode = ens_sObject & {
+export type SetupNode = sObject & {
     ExternalId?: string;
     FullName?: string;
     IconUrl?: string;
@@ -35326,7 +35323,7 @@ export type SetupNode = ens_sObject & {
     Url?: string;
 }
 
-export type GlobalValueSet = ens_sObject & {
+export type GlobalValueSet = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35342,7 +35339,7 @@ export type GlobalValueSet = ens_sObject & {
     NamespacePrefix?: string;
 }
 
-export type SharingSettings = ens_sObject & {
+export type SharingSettings = sObject & {
     DeferGroupMembership?: boolean;
     DeferSharingRules?: boolean;
     DurableId?: string;
@@ -35365,7 +35362,7 @@ export type SharingSettings = ens_sObject & {
     Metadata?: SharingSettings;
 }
 
-export type ShiftSegmentType = ens_sObject & {
+export type ShiftSegmentType = sObject & {
     AdherenceThreshold?: number;
     AllManagedPackageMemberId?: ID;
     Category?: ShiftSegmentTypeCategory;
@@ -35390,7 +35387,7 @@ export type ShiftSegmentType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SingleSignOnSettings = ens_sObject & {
+export type SingleSignOnSettings = sObject & {
     DurableId?: string;
     IsCaseInsensitiveFederationIdEnabled?: boolean;
     IsForceDelegatedCalloutEnabled?: boolean;
@@ -35400,13 +35397,13 @@ export type SingleSignOnSettings = ens_sObject & {
     IsSamlLoginEnabled?: boolean;
 }
 
-export type SiteDetail = ens_sObject & {
+export type SiteDetail = sObject & {
     DurableId?: string;
     IsRegistrationEnabled?: boolean;
     SecureUrl?: string;
 }
 
-export type SkillType = ens_sObject & {
+export type SkillType = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35421,7 +35418,7 @@ export type SkillType = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SlackApp = ens_sObject & {
+export type SlackApp = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     AppKey?: string;
@@ -35453,7 +35450,7 @@ export type SlackApp = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SlackAppAuthorization = ens_sObject & {
+export type SlackAppAuthorization = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35472,7 +35469,7 @@ export type SlackAppAuthorization = ens_sObject & {
     Token?: string;
 }
 
-export type SlackApplicationObject = ens_sObject & {
+export type SlackApplicationObject = sObject & {
     ApplicationObject?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35487,7 +35484,7 @@ export type SlackApplicationObject = ens_sObject & {
     UniqueIndex?: string;
 }
 
-export type SlackContext = ens_sObject & {
+export type SlackContext = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35502,7 +35499,7 @@ export type SlackContext = ens_sObject & {
     Type?: SlackContextType;
 }
 
-export type SlackFeatureExtlConfig = ens_sObject & {
+export type SlackFeatureExtlConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35518,7 +35515,7 @@ export type SlackFeatureExtlConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SlackFeatureSettings = ens_sObject & {
+export type SlackFeatureSettings = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35536,7 +35533,7 @@ export type SlackFeatureSettings = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SlackRecordLayout = ens_sObject & {
+export type SlackRecordLayout = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35555,7 +35552,7 @@ export type SlackRecordLayout = ens_sObject & {
     ViewMode?: SlackRecordLayoutViewMode;
 }
 
-export type SlackUser = ens_sObject & {
+export type SlackUser = sObject & {
     AppAuthorizations?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35572,7 +35569,7 @@ export type SlackUser = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SocialCustomerServiceSettings = ens_sObject & {
+export type SocialCustomerServiceSettings = sObject & {
     CaseSubjectOption?: CaseSubjectOption;
     DurableId?: string;
     FullName?: string;
@@ -35587,7 +35584,7 @@ export type SocialCustomerServiceSettings = ens_sObject & {
     Metadata?: SocialCustomerServiceSettings;
 }
 
-export type SourceChangeNotification = ens_sObject & {
+export type SourceChangeNotification = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35599,7 +35596,7 @@ export type SourceChangeNotification = ens_sObject & {
     RevisionNum?: number;
 }
 
-export type SourceMember = ens_sObject & {
+export type SourceMember = sObject & {
     ChangedBy?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35618,7 +35615,7 @@ export type SourceMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SourceMemberDeployRequest = ens_sObject & {
+export type SourceMemberDeployRequest = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35639,14 +35636,14 @@ export type SourceMemberDeployRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SourceTrackingSettings = ens_sObject & {
+export type SourceTrackingSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsSourceTrackingSandboxesEnabled?: boolean;
     Metadata?: SourceTrackingSettings;
 }
 
-export type StandardAction = ens_sObject & {
+export type StandardAction = sObject & {
     ContentType?: ActionOverrideType;
     Description?: string;
     DurableId?: string;
@@ -35663,7 +35660,7 @@ export type StandardAction = ens_sObject & {
     OverrideContentId?: ID;
 }
 
-export type StandardValueSet = ens_sObject & {
+export type StandardValueSet = sObject & {
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -35671,7 +35668,7 @@ export type StandardValueSet = ens_sObject & {
     Metadata?: StandardValueSet;
 }
 
-export type State = ens_sObject & {
+export type State = sObject & {
     Active?: boolean;
     DurableId?: string;
     IntegrationValue?: string;
@@ -35681,7 +35678,7 @@ export type State = ens_sObject & {
     Visible?: boolean;
 }
 
-export type StaticResource = ens_sObject & {
+export type StaticResource = sObject & {
     AllManagedPackageMemberId?: ID;
     Body?: string;
     BodyLength?: number;
@@ -35702,7 +35699,7 @@ export type StaticResource = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type StnryAssetEnvSrcCnfg = ens_sObject & {
+export type StnryAssetEnvSrcCnfg = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35723,7 +35720,7 @@ export type StnryAssetEnvSrcCnfg = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SubscriberPackage = ens_sObject & {
+export type SubscriberPackage = sObject & {
     Description?: string;
     IsPackageValid?: boolean;
     Name?: string;
@@ -35731,7 +35728,7 @@ export type SubscriberPackage = ens_sObject & {
     SubscriberPackageVersions?: QueryResult;
 }
 
-export type SubscriberPackageVersion = ens_sObject & {
+export type SubscriberPackageVersion = sObject & {
     AppExchangeDescription?: string;
     AppExchangeLogoUrl?: string;
     AppExchangePackageName?: string;
@@ -35761,7 +35758,7 @@ export type SubscriberPackageVersion = ens_sObject & {
     SubscriberPackageId?: ID;
 }
 
-export type SubscriberPackageVersionInstallRequest = ens_sObject & {
+export type SubscriberPackageVersionInstallRequest = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35776,7 +35773,7 @@ export type SubscriberPackageVersionInstallRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SubscriberPackageVersionUninstallRequest = ens_sObject & {
+export type SubscriberPackageVersionUninstallRequest = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35791,7 +35788,7 @@ export type SubscriberPackageVersionUninstallRequest = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SubscriptionManagementSettings = ens_sObject & {
+export type SubscriptionManagementSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsConvertNegativeInvoiceLinesToCreditMemoAndApplyEnabled?: boolean;
@@ -35802,7 +35799,7 @@ export type SubscriptionManagementSettings = ens_sObject & {
     Metadata?: SubscriptionManagementSettings;
 }
 
-export type SurveySettings = ens_sObject & {
+export type SurveySettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsIndustriesCxmEnabledEnabled?: boolean;
@@ -35811,7 +35808,7 @@ export type SurveySettings = ens_sObject & {
     Metadata?: SurveySettings;
 }
 
-export type SustainabilityUom = ens_sObject & {
+export type SustainabilityUom = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35834,7 +35831,7 @@ export type SustainabilityUom = ens_sObject & {
     UnitType?: UnitType;
 }
 
-export type SustnRefDataTracking = ens_sObject & {
+export type SustnRefDataTracking = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35854,7 +35851,7 @@ export type SustnRefDataTracking = ens_sObject & {
     VersionNumber?: string;
 }
 
-export type SustnUomConversion = ens_sObject & {
+export type SustnUomConversion = sObject & {
     AllManagedPackageMemberId?: ID;
     ConversionFactor?: number;
     CreatedBy?: User;
@@ -35877,7 +35874,7 @@ export type SustnUomConversion = ens_sObject & {
     UomsKey?: string;
 }
 
-export type SvcCatalogCategory = ens_sObject & {
+export type SvcCatalogCategory = sObject & {
     AllManagedPackageMemberId?: ID;
     CatalogCategoryItems?: QueryResult;
     CreatedBy?: User;
@@ -35903,7 +35900,7 @@ export type SvcCatalogCategory = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SvcCatalogCategoryItem = ens_sObject & {
+export type SvcCatalogCategoryItem = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35920,7 +35917,7 @@ export type SvcCatalogCategoryItem = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SvcCatalogFilterCriteria = ens_sObject & {
+export type SvcCatalogFilterCriteria = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -35945,10 +35942,10 @@ export type SvcCatalogFilterCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SvcCatalogFulfillFlowItem = ens_sObject & {
+export type SvcCatalogFulfillFlowItem = sObject & {
 }
 
-export type SvcCatalogFulfillmentFlow = ens_sObject & {
+export type SvcCatalogFulfillmentFlow = sObject & {
     AllManagedPackageMemberId?: ID;
     ChangeNum?: number;
     CreatedBy?: User;
@@ -35974,7 +35971,7 @@ export type SvcCatalogFulfillmentFlow = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type SvcCatalogItemDef = ens_sObject & {
+export type SvcCatalogItemDef = sObject & {
     AllManagedPackageMemberId?: ID;
     CatalogCategoryItems?: QueryResult;
     CreatedBy?: User;
@@ -36010,7 +36007,7 @@ export type SvcCatalogItemDef = ens_sObject & {
     UsageType?: SvcCatalogItemUsageType;
 }
 
-export type SystemNotificationSettings = ens_sObject & {
+export type SystemNotificationSettings = sObject & {
     DisableDowntimeNotifications?: boolean;
     DisableMaintenanceNotifications?: boolean;
     DurableId?: string;
@@ -36018,14 +36015,14 @@ export type SystemNotificationSettings = ens_sObject & {
     Metadata?: SystemNotificationSettings;
 }
 
-export type TabAppRestriction = ens_sObject & {
+export type TabAppRestriction = sObject & {
     ApplicationId?: ID;
     DurableId?: string;
     TabDefinition?: TabDefinition;
     TabDefinitionId?: string;
 }
 
-export type TabDefinition = ens_sObject & {
+export type TabDefinition = sObject & {
     Colors?: QueryResult;
     DurableId?: string;
     Icons?: QueryResult;
@@ -36041,7 +36038,7 @@ export type TabDefinition = ens_sObject & {
     Url?: string;
 }
 
-export type CustomApplication = ens_sObject & {
+export type CustomApplication = sObject & {
     BrandId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36070,7 +36067,7 @@ export type CustomApplication = ens_sObject & {
     UtilityBarId?: ID;
 }
 
-export type Territory2Settings = ens_sObject & {
+export type Territory2Settings = sObject & {
     DefaultAccountAccessLevel?: string;
     DefaultCaseAccessLevel?: string;
     DefaultContactAccessLevel?: string;
@@ -36086,21 +36083,21 @@ export type Territory2Settings = ens_sObject & {
     Tm2EnableUserAssignmentLog?: boolean;
 }
 
-export type Territory2SettingsOpportunityFilter = ens_sObject & {
+export type Territory2SettingsOpportunityFilter = sObject & {
     ApexClassName?: string;
     DurableId?: string;
     IsFilterEnabled?: boolean;
     RunOnCreate?: boolean;
 }
 
-export type Territory2SupportedObject = ens_sObject & {
+export type Territory2SupportedObject = sObject & {
     DefaultAccessLevel?: string;
     DurableId?: string;
     ObjectType?: string;
     State?: string;
 }
 
-export type TestSuiteMembership = ens_sObject & {
+export type TestSuiteMembership = sObject & {
     ApexClass?: ApexClass;
     ApexClassId?: ID;
     ApexTestSuite?: ApexTestSuite;
@@ -36115,7 +36112,7 @@ export type TestSuiteMembership = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type TimeSheetTemplate = ens_sObject & {
+export type TimeSheetTemplate = sObject & {
     Active?: boolean;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -36142,7 +36139,7 @@ export type TimeSheetTemplate = ens_sObject & {
     WorkWeekStartDay?: DaysOfWeek;
 }
 
-export type TimeSheetTemplateAssignment = ens_sObject & {
+export type TimeSheetTemplateAssignment = sObject & {
     AssignedTo?: Profile;
     AssignedToId?: ID;
     CreatedBy?: User;
@@ -36157,7 +36154,7 @@ export type TimeSheetTemplateAssignment = ens_sObject & {
     TimeSheetTemplateId?: ID;
 }
 
-export type TimelineObjectDefinition = ens_sObject & {
+export type TimelineObjectDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     BaseObject?: string;
     CreatedBy?: User;
@@ -36180,7 +36177,7 @@ export type TimelineObjectDefinition = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type TraceFlag = ens_sObject & {
+export type TraceFlag = sObject & {
     ApexCode?: ApexLogLevel;
     ApexProfiling?: ApexLogLevel;
     Callout?: ApexLogLevel;
@@ -36210,7 +36207,7 @@ export type TraceFlag = ens_sObject & {
     Workflow?: ApexLogLevel;
 }
 
-export type TrailheadSettings = ens_sObject & {
+export type TrailheadSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsConfettiEffectEnabled?: boolean;
@@ -36219,7 +36216,7 @@ export type TrailheadSettings = ens_sObject & {
     Metadata?: TrailheadSettings;
 }
 
-export type TransactionSecurityPolicy = ens_sObject & {
+export type TransactionSecurityPolicy = sObject & {
     ActionConfig?: string;
     AllManagedPackageMemberId?: ID;
     ApexPolicy?: ApexClass;
@@ -36254,7 +36251,7 @@ export type TransactionSecurityPolicy = ens_sObject & {
     Type?: TxnSecurityPolicyType;
 }
 
-export type TranslationImportExportJob = ens_sObject & {
+export type TranslationImportExportJob = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36266,14 +36263,14 @@ export type TranslationImportExportJob = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type TrialOrgSettings = ens_sObject & {
+export type TrialOrgSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsSampleDataDeletedEnabled?: boolean;
     Metadata?: TrialOrgSettings;
 }
 
-export type UIObjectRelationConfig = ens_sObject & {
+export type UIObjectRelationConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ContextObject?: string;
     ContextObjectRecordType?: RecordType;
@@ -36306,7 +36303,7 @@ export type UIObjectRelationConfig = ens_sObject & {
     UIObjectRelationFieldConfigs?: QueryResult;
 }
 
-export type UIObjectRelationFieldConfig = ens_sObject & {
+export type UIObjectRelationFieldConfig = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36320,7 +36317,7 @@ export type UIObjectRelationFieldConfig = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UiAppFeatureActivationCrit = ens_sObject & {
+export type UiAppFeatureActivationCrit = sObject & {
     Content?: FlexiPage;
     ContentId?: ID;
     CreatedBy?: User;
@@ -36338,7 +36335,7 @@ export type UiAppFeatureActivationCrit = ens_sObject & {
     UiFormulaRuleId?: ID;
 }
 
-export type UiAppFeatureActivationDef = ens_sObject & {
+export type UiAppFeatureActivationDef = sObject & {
     Application?: ActivationAppType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36357,7 +36354,7 @@ export type UiAppFeatureActivationDef = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UiCardActivation = ens_sObject & {
+export type UiCardActivation = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36372,7 +36369,7 @@ export type UiCardActivation = ens_sObject & {
     UiViewId?: ID;
 }
 
-export type UiFormulaCriterion = ens_sObject & {
+export type UiFormulaCriterion = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36390,7 +36387,7 @@ export type UiFormulaCriterion = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UiFormulaRule = ens_sObject & {
+export type UiFormulaRule = sObject & {
     AssociatedElement?: sObject;
     AssociatedElementId?: ID;
     BooleanFilter?: string;
@@ -36410,7 +36407,7 @@ export type UiFormulaRule = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UiPlugin = ens_sObject & {
+export type UiPlugin = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36429,7 +36426,7 @@ export type UiPlugin = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type User = ens_sObject & {
+export type User = sObject & {
     DelegatedUsers?: QueryResult;
     FirstName?: string;
     FtestSetups?: QueryResult;
@@ -36448,7 +36445,7 @@ export type User = ens_sObject & {
     WorkspaceId?: ID;
 }
 
-export type UserAcceptedFeatureAgreement = ens_sObject & {
+export type UserAcceptedFeatureAgreement = sObject & {
     AcceptedByUser?: User;
     AcceptedByUserId?: ID;
     AcceptedDate?: Date;
@@ -36469,7 +36466,7 @@ export type UserAcceptedFeatureAgreement = ens_sObject & {
     Version?: string;
 }
 
-export type UserAccessPolicy = ens_sObject & {
+export type UserAccessPolicy = sObject & {
     AllManagedPackageMemberId?: ID;
     BooleanFilter?: string;
     CreatedBy?: User;
@@ -36491,7 +36488,7 @@ export type UserAccessPolicy = ens_sObject & {
     TriggerType?: UserAccessPolicyTriggerType;
 }
 
-export type UserAccessPolicyAction = ens_sObject & {
+export type UserAccessPolicyAction = sObject & {
     Action?: UserAccessPolicyActionType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36507,7 +36504,7 @@ export type UserAccessPolicyAction = ens_sObject & {
     UserAccessPolicyId?: ID;
 }
 
-export type UserAccessPolicyFilter = ens_sObject & {
+export type UserAccessPolicyFilter = sObject & {
     ColumnName?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36525,7 +36522,7 @@ export type UserAccessPolicyFilter = ens_sObject & {
     Value?: string;
 }
 
-export type UserCriteria = ens_sObject & {
+export type UserCriteria = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36545,7 +36542,7 @@ export type UserCriteria = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UserEngagementSettings = ens_sObject & {
+export type UserEngagementSettings = sObject & {
     CanGovCloudUseAdoptionApps?: boolean;
     DoesScheduledSwitcherRunDaily?: boolean;
     DurableId?: string;
@@ -36580,7 +36577,7 @@ export type UserEngagementSettings = ens_sObject & {
     OptimizerAppEnabled?: boolean;
 }
 
-export type UserEntityAccess = ens_sObject & {
+export type UserEntityAccess = sObject & {
     DurableId?: string;
     EntityDefinition?: EntityDefinition;
     EntityDefinitionId?: string;
@@ -36597,7 +36594,7 @@ export type UserEntityAccess = ens_sObject & {
     UserId?: ID;
 }
 
-export type UserFieldAccess = ens_sObject & {
+export type UserFieldAccess = sObject & {
     DurableId?: string;
     EntityDefinition?: EntityDefinition;
     EntityDefinitionId?: string;
@@ -36610,7 +36607,7 @@ export type UserFieldAccess = ens_sObject & {
     UserId?: ID;
 }
 
-export type UserInterfaceSettings = ens_sObject & {
+export type UserInterfaceSettings = sObject & {
     AlternateAlohaListView?: boolean;
     DurableId?: string;
     DynamicMruActionsOff?: boolean;
@@ -36637,7 +36634,7 @@ export type UserInterfaceSettings = ens_sObject & {
     Metadata?: UserInterfaceSettings;
 }
 
-export type UserManagementSettings = ens_sObject & {
+export type UserManagementSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCanAnswerContainUsernameEnabled?: boolean;
@@ -36659,14 +36656,14 @@ export type UserManagementSettings = ens_sObject & {
     UserAccessPoliciesEnabled?: boolean;
 }
 
-export type UserPreference = ens_sObject & {
+export type UserPreference = sObject & {
     Preference?: string;
     SystemModstamp?: Date;
     UserId?: ID;
     Value?: string;
 }
 
-export type UserProfileSearchScope = ens_sObject & {
+export type UserProfileSearchScope = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36685,7 +36682,7 @@ export type UserProfileSearchScope = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type UserProfileSearchScopeItem = ens_sObject & {
+export type UserProfileSearchScopeItem = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -36702,7 +36699,7 @@ export type UserProfileSearchScopeItem = ens_sObject & {
     UserProfileSearchScopeId?: ID;
 }
 
-export type UserProvisioningConfig = ens_sObject & {
+export type UserProvisioningConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ApexProvisioningHandler?: string;
     ApprovalRequired?: string;
@@ -36736,7 +36733,7 @@ export type UserProvisioningConfig = ens_sObject & {
     UserAccountMapping?: string;
 }
 
-export type UserRole = ens_sObject & {
+export type UserRole = sObject & {
     CaseAccessForAccountOwner?: string;
     ContactAccessForAccountOwner?: string;
     DeveloperName?: string;
@@ -36757,7 +36754,7 @@ export type UserRole = ens_sObject & {
     Users?: QueryResult;
 }
 
-export type ValidationRule = ens_sObject & {
+export type ValidationRule = sObject & {
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36778,7 +36775,7 @@ export type ValidationRule = ens_sObject & {
     ValidationName?: string;
 }
 
-export type ValidationRuleMember = ens_sObject & {
+export type ValidationRuleMember = sObject & {
     Content?: string;
     ContentEntity?: ValidationRule;
     ContentEntityId?: ID;
@@ -36797,7 +36794,7 @@ export type ValidationRuleMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type VehicleAssetEmssnSrcCnfg = ens_sObject & {
+export type VehicleAssetEmssnSrcCnfg = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36818,7 +36815,7 @@ export type VehicleAssetEmssnSrcCnfg = ens_sObject & {
     VehicleAssetType?: VehicleAssetType;
 }
 
-export type VendorCallCenterStatusMap = ens_sObject & {
+export type VendorCallCenterStatusMap = sObject & {
     CallCenter?: CallCenter;
     CallCenterId?: ID;
     CreatedBy?: User;
@@ -36833,7 +36830,7 @@ export type VendorCallCenterStatusMap = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type ViewDefinition = ens_sObject & {
+export type ViewDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     Content?: string;
@@ -36858,7 +36855,7 @@ export type ViewDefinition = ens_sObject & {
     TargetType?: ViewTargetType;
 }
 
-export type VirtualVisitConfig = ens_sObject & {
+export type VirtualVisitConfig = sObject & {
     AllManagedPackageMemberId?: ID;
     ComprehendServiceType?: VirtualVisitComprehendServiceType;
     CreatedBy?: User;
@@ -36889,7 +36886,7 @@ export type VirtualVisitConfig = ens_sObject & {
     VisitRegion?: VirtualVisitVisitRegion;
 }
 
-export type VisibilityOperation = ens_sObject & {
+export type VisibilityOperation = sObject & {
     Attempts?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36905,7 +36902,7 @@ export type VisibilityOperation = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type VisualforceAccessMetrics = ens_sObject & {
+export type VisualforceAccessMetrics = sObject & {
     ApexPage?: ApexPage;
     ApexPageId?: ID;
     DailyPageViewCount?: number;
@@ -36916,7 +36913,7 @@ export type VisualforceAccessMetrics = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type VoiceLocalPresenceNumber = ens_sObject & {
+export type VoiceLocalPresenceNumber = sObject & {
     CountryCode?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36931,7 +36928,7 @@ export type VoiceLocalPresenceNumber = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type VoiceOrgSetting = ens_sObject & {
+export type VoiceOrgSetting = sObject & {
     ConsentMessage?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -36949,7 +36946,7 @@ export type VoiceOrgSetting = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type VoiceSettings = ens_sObject & {
+export type VoiceSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCallDispositionEnabled?: boolean;
@@ -36965,7 +36962,7 @@ export type VoiceSettings = ens_sObject & {
     Metadata?: VoiceSettings;
 }
 
-export type VoiceVendorInfo = ens_sObject & {
+export type VoiceVendorInfo = sObject & {
     ApiKeyLastUpdatedTime?: Date;
     ConferenceNumber?: string;
     CorporateNumber?: string;
@@ -36989,21 +36986,21 @@ export type VoiceVendorInfo = ens_sObject & {
     VendorType?: VoiceProviderType;
 }
 
-export type WarrantyLifecycleMgmtSettings = ens_sObject & {
+export type WarrantyLifecycleMgmtSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsWarrantyLcMgmtEnabled?: boolean;
     Metadata?: WarrantyLifecycleMgmtSettings;
 }
 
-export type Web3Settings = ens_sObject & {
+export type Web3Settings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsMultisigEnabled?: boolean;
     Metadata?: Web3Settings;
 }
 
-export type WebLink = ens_sObject & {
+export type WebLink = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -37037,7 +37034,7 @@ export type WebLink = ens_sObject & {
     Width?: number;
 }
 
-export type WebServiceDefinition = ens_sObject & {
+export type WebServiceDefinition = sObject & {
     DeveloperName?: string;
     DurableId?: string;
     Service?: Service;
@@ -37048,7 +37045,7 @@ export type WebServiceDefinition = ens_sObject & {
     XmlSchemas?: QueryResult;
 }
 
-export type WebStoreDefinition = ens_sObject & {
+export type WebStoreDefinition = sObject & {
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -37067,7 +37064,7 @@ export type WebStoreDefinition = ens_sObject & {
     WebStoreId?: ID;
 }
 
-export type WebStoreTemplate = ens_sObject & {
+export type WebStoreTemplate = sObject & {
     AllManagedPackageMemberId?: ID;
     CheckoutTimeToLive?: number;
     CheckoutValidAfterDate?: Date;
@@ -37120,14 +37117,14 @@ export type WebStoreTemplate = ens_sObject & {
     Type?: WebStoreType;
 }
 
-export type WebToCaseSettings = ens_sObject & {
+export type WebToCaseSettings = sObject & {
     CaseOrigin?: string;
     DefaultResponseTemplate?: string;
     DurableId?: string;
     IsWebToCaseEnabled?: boolean;
 }
 
-export type WebToXSettings = ens_sObject & {
+export type WebToXSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     Metadata?: WebToXSettings;
@@ -37136,7 +37133,7 @@ export type WebToXSettings = ens_sObject & {
     WebToLeadSpamFilter?: boolean;
 }
 
-export type WorkDotComSettings = ens_sObject & {
+export type WorkDotComSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsCoachingManagerGroupAccessEnabled?: boolean;
@@ -37156,7 +37153,7 @@ export type WorkDotComSettings = ens_sObject & {
     Metadata?: WorkDotComSettings;
 }
 
-export type WorkSkillRouting = ens_sObject & {
+export type WorkSkillRouting = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -37175,7 +37172,7 @@ export type WorkSkillRouting = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkSkillRoutingAttribute = ens_sObject & {
+export type WorkSkillRoutingAttribute = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -37195,7 +37192,7 @@ export type WorkSkillRoutingAttribute = ens_sObject & {
     WorkSkillRoutingId?: ID;
 }
 
-export type WorkflowAlertMember = ens_sObject & {
+export type WorkflowAlertMember = sObject & {
     Content?: string;
     ContentEntity?: WorkflowAlert;
     ContentEntityId?: ID;
@@ -37214,7 +37211,7 @@ export type WorkflowAlertMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkflowFieldUpdateMember = ens_sObject & {
+export type WorkflowFieldUpdateMember = sObject & {
     Content?: string;
     ContentEntity?: WorkflowFieldUpdate;
     ContentEntityId?: ID;
@@ -37233,7 +37230,7 @@ export type WorkflowFieldUpdateMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkflowOutboundMessageMember = ens_sObject & {
+export type WorkflowOutboundMessageMember = sObject & {
     Content?: string;
     ContentEntity?: WorkflowOutboundMessage;
     ContentEntityId?: ID;
@@ -37252,7 +37249,7 @@ export type WorkflowOutboundMessageMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkflowRule = ens_sObject & {
+export type WorkflowRule = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -37267,7 +37264,7 @@ export type WorkflowRule = ens_sObject & {
     TableEnumOrId?: string;
 }
 
-export type WorkflowRuleMember = ens_sObject & {
+export type WorkflowRuleMember = sObject & {
     Content?: string;
     ContentEntity?: WorkflowRule;
     ContentEntityId?: ID;
@@ -37286,7 +37283,7 @@ export type WorkflowRuleMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkflowTaskMember = ens_sObject & {
+export type WorkflowTaskMember = sObject & {
     Content?: string;
     ContentEntity?: WorkflowTask;
     ContentEntityId?: ID;
@@ -37305,7 +37302,7 @@ export type WorkflowTaskMember = ens_sObject & {
     SystemModstamp?: Date;
 }
 
-export type WorkforceEngagementSettings = ens_sObject & {
+export type WorkforceEngagementSettings = sObject & {
     DurableId?: string;
     FullName?: string;
     IsHistoricalAdherenceEnabled?: boolean;
@@ -37318,7 +37315,7 @@ export type WorkforceEngagementSettings = ens_sObject & {
     Metadata?: WorkforceEngagementSettings;
 }
 
-export type WsdlDataType = ens_sObject & {
+export type WsdlDataType = sObject & {
     DataType?: DataType;
     DataTypeId?: string;
     DurableId?: string;
@@ -37335,7 +37332,7 @@ export type WsdlDataType = ens_sObject & {
     XmlSchemaId?: string;
 }
 
-export type XmlSchema = ens_sObject & {
+export type XmlSchema = sObject & {
     DurableId?: string;
     NamespacePrefix?: string;
     NamespaceUri?: string;
@@ -37348,7 +37345,7 @@ export type XmlSchema = ens_sObject & {
     WsdlDataTypes?: QueryResult;
 }
 
-export type ZeroOrgDeployment = ens_sObject & {
+export type ZeroOrgDeployment = sObject & {
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -48617,39 +48614,39 @@ export type ApiFault = {
     upgradeMessage?: string;
 }
 
-export type ApiQueryFault = fns_ApiFault & {
+export type ApiQueryFault = ApiFault & {
     row: number;
     column: number;
 }
 
-export type LoginFault = fns_ApiFault & {
+export type LoginFault = ApiFault & {
 }
 
-export type InvalidQueryLocatorFault = fns_ApiFault & {
+export type InvalidQueryLocatorFault = ApiFault & {
 }
 
-export type InvalidNewPasswordFault = fns_ApiFault & {
+export type InvalidNewPasswordFault = ApiFault & {
 }
 
-export type InvalidOldPasswordFault = fns_ApiFault & {
+export type InvalidOldPasswordFault = ApiFault & {
 }
 
-export type InvalidIdFault = fns_ApiFault & {
+export type InvalidIdFault = ApiFault & {
 }
 
-export type UnexpectedErrorFault = fns_ApiFault & {
+export type UnexpectedErrorFault = ApiFault & {
 }
 
-export type InvalidFieldFault = fns_ApiQueryFault & {
+export type InvalidFieldFault = ApiQueryFault & {
 }
 
-export type InvalidSObjectFault = fns_ApiQueryFault & {
+export type InvalidSObjectFault = ApiQueryFault & {
 }
 
-export type MalformedQueryFault = fns_ApiQueryFault & {
+export type MalformedQueryFault = ApiQueryFault & {
 }
 
-export type MalformedSearchFault = fns_ApiQueryFault & {
+export type MalformedSearchFault = ApiQueryFault & {
 }
 
 export type ApiFault= {

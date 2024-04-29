@@ -98,9 +98,6 @@ fs.readdirSync(wsdlFolder).forEach(
 function convertWsdlToTypescript(wsdl: string): string {
     let output = '';
 
-    output += '/* eslint-disable @typescript-eslint/no-explicit-any */\n';
-    output += '/* eslint-disable @typescript-eslint/no-empty-interface */\n\n';
-
     parseString(wsdl
             // Remove the xsd namespace prefix, because partner.wsdl does not use it.
             .replaceAll('xsd:', '')
@@ -410,6 +407,16 @@ function translateTypeName(fieldTypeXml: string): string {
 function treatTypeName(str: string): string {
     if (reservedWords.includes(str)) {
         str += '_';
+    }
+
+    if (str?.startsWith('tns_')) {
+        str = str?.replace('tns_', '');
+    } else if (str?.startsWith('ens_')) {
+        str = str?.replace('ens_', '');
+    } else if (str?.startsWith('mns_')) {
+        str = str?.replace('mns_', '');
+    } else if (str?.startsWith('fns_')) {
+        str = str?.replace('fns_', '');
     }
 
     return str;
