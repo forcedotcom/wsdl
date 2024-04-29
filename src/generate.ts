@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import {parseString} from 'xml2js';
+import {parseString, parseStringPromise} from 'xml2js';
 import type {
     ComplexTypeNode,
     ComplexTypeNodeWithComplexContent,
@@ -80,7 +80,7 @@ const reservedWords = ['abstract',
     'yield'];
 
 fs.readdirSync(wsdlFolder).forEach(
-    (wsdlFile) => {
+   async (wsdlFile) => {
         console.dir(wsdlFile);
 
         const fileName = wsdlFile.split('.')[0];
@@ -114,28 +114,10 @@ function convertWsdlToTypescript(wsdl: string): string {
             explicitCharkey: true,
         },
         (err, result) => {
-            toArray((result.definitions as DefinitionsNode).types.schema).forEach(
-
-                (schema) => {
-                    toArray(schema.simpleType).forEach(
-                        (simpleTypeNode) => {
-                            output += treatSimpleTypeNode(simpleTypeNode);
-                        },
-                    );
-
-                    toArray(schema.complexType).forEach(
-                        (complexTypeNode) => {
-                            output += treatComplexTypeNode(complexTypeNode);
-                        },
-                    );
-
-                    toArray(schema.element).forEach(
-                        (elementNode) => {
-                            output += treatElementNode(elementNode);
-                        },
-                    );
-                },
-            );
+        const arr = toArray((result.definitions as DefinitionsNode).types.schema)
+            arr.flatMap(a => a.simpleType).filter(x=>x).forEach(simple => output+= treatSimpleTypeNode(simple))
+            arr.flatMap(a => a.element).filter(x=>x).forEach(element => output+= treatElementNode(element))
+            output += treatComplexTypeNode(arr.flatMap<ComplexTypeNode>(a => a.complexType).filter(x=>x))// .forEach(complex => output+= treatComplexTypeNode(complex))
         },
     );
 
@@ -235,34 +217,48 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
         </xsd:complexType>
 */
 
-function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
+function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
     let complexNodeOutput = '';
 
-    const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
-    let sequenceNode: SequenceNode | undefined;
-    let typeStructure= (complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent ? 'complexContent' : 'sequence'
+    complexTypeNodes.forEach(complexTypeNode => {
+        const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
+        let sequenceNode: SequenceNode | undefined;
+        let typeStructure= (complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent ? 'complexContent' : 'sequence'
 
-    complexNodeOutput += 'export type ' + typeName;
+        complexNodeOutput += 'export type ' + typeName;
 
-    switch (typeStructure) {
-        case 'complexContent': {
-            const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
-            const parentType = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
-            complexNodeOutput += parentType ? ' = ' + treatTypeName(parentType) + ' & {\n' : '';
-            sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
-            break;
+        const found = complexTypeNodes.filter(c => c.$?.name === complexTypeNode.$?.name) as ComplexTypeNodeWithComplexContent[]
+
+        switch (typeStructure) {
+            case 'complexContent': {
+                const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
+                if(found){
+                    complexNodeOutput +=  ' = '
+
+                    const parents=found.map(f => treatTypeName(f.complexContent?.extension?.$?.base ?? '') + ' & ').join('')
+
+                    complexNodeOutput += parents
+
+                    complexNodeOutput +=' {\n'
+                }
+
+
+                // sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
+                // sequenceNode.element = found.flatMap(f=>f.complexContent.extension.sequence.element)
+                sequenceNode =  updatedComplexTypeNode.complexContent.extension.sequence;
+                break;
+            }
+
+            case 'sequence': {
+                const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithSequence;
+                sequenceNode = updatedComplexTypeNode.sequence;
+                complexNodeOutput += ' = {\n';
+                break;
+            }
+
+            default:
+                complexNodeOutput += ' = {\n';
         }
-
-        case 'sequence': {
-            const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithSequence;
-            sequenceNode = updatedComplexTypeNode.sequence;
-            complexNodeOutput += ' = {\n';
-            break;
-        }
-
-        default:
-            complexNodeOutput += ' = {\n';
-    }
 
     if (sequenceNode) {
         toArray(sequenceNode.element).forEach(
@@ -272,9 +268,13 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
         );
     }
 
-    complexNodeOutput += '}\n\n';
+        complexNodeOutput += '}\n\n';
 
-    return complexNodeOutput;
+        return complexNodeOutput;
+    })
+
+    return complexNodeOutput
+
 }
 
 function treatElementNode(elementNode: ElementNode): string {

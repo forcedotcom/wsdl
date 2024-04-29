@@ -1,9 +1,3 @@
-export type sObject = {
-    type: string;
-    fieldsToNull?: string | string[];
-    Id?: ID;
-}
-
 export type ID = string;
 
 export type json = string;
@@ -1516,2186 +1510,271 @@ export type OwnerChangeOptionType = 'EnforceNewOwnerHasReadAccess'
 export type RequestOrigin = 'ListViewMetadata' 
       | 'ListViewRecords';
 
-export type address = location & {
-    city?: string;
-    country?: string;
-    countryCode?: string;
-    geocodeAccuracy?: string;
-    postalCode?: string;
-    state?: string;
-    stateCode?: string;
-    street?: string;
-}
-
-export type location = {
-    latitude?: number;
-    longitude?: number;
-}
-
-export type QueryResult = {
-    done: boolean;
-    queryLocator?: QueryLocator;
-    records?: sObject | sObject[];
-    size: number;
-}
-
-export type SetupBriefcaseResult = {
-    briefcaseType: briefcaseType;
-}
-
-export type SearchResult = {
-    queryId: string;
-    searchRecords?: SearchRecord | SearchRecord[];
-    searchResultsMetadata?: SearchResultsMetadata;
-}
-
-export type SearchRecord = {
-    record: sObject;
-    searchRecordMetadata?: SearchRecordMetadata;
-    snippet?: SearchSnippet;
-}
-
-export type SearchRecordMetadata = {
-    searchPromoted: boolean;
-    spellCorrected: boolean;
-}
-
-export type SearchSnippet = {
-    text?: string;
-    wholeFields?: NameValuePair | NameValuePair[];
-}
-
-export type SearchResultsMetadata = {
-    entityLabelMetadata?: LabelsSearchMetadata | LabelsSearchMetadata[];
-    entityMetadata?: EntitySearchMetadata | EntitySearchMetadata[];
-}
-
-export type LabelsSearchMetadata = {
-    entityFieldLabels?: NameValuePair | NameValuePair[];
-    entityName: string;
-}
-
-export type EntitySearchMetadata = {
-    entityName: string;
-    errorMetadata?: EntityErrorMetadata;
-    fieldMetadata?: FieldLevelSearchMetadata | FieldLevelSearchMetadata[];
-    intentQueryMetadata?: EntityIntentQueryMetadata;
-    searchPromotionMetadata?: EntitySearchPromotionMetadata;
-    spellCorrectionMetadata?: EntitySpellCorrectionMetadata;
-}
-
-export type FieldLevelSearchMetadata = {
-    label?: string;
-    name: string;
-    type?: string;
-}
-
-export type EntitySpellCorrectionMetadata = {
-    correctedQuery: string;
-    hasNonCorrectedResults: boolean;
-}
-
-export type EntitySearchPromotionMetadata = {
-    promotedResultCount: number;
-}
-
-export type EntityIntentQueryMetadata = {
-    intentQuery: boolean;
-    message?: string;
-}
-
-export type EntityErrorMetadata = {
-    errorCode?: string;
-    message?: string;
-}
-
-export type RelationshipReferenceTo = {
-    referenceTo?: string | string[];
-}
-
-export type RecordTypesSupported = {
-    recordTypeInfos?: RecordTypeInfo | RecordTypeInfo[];
-}
-
-export type JunctionIdListNames = {
-    names?: string | string[];
-}
-
-export type SearchLayoutButtonsDisplayed = {
-    applicable: boolean;
-    buttons?: SearchLayoutButton | SearchLayoutButton[];
-}
-
-export type SearchLayoutButton = {
-    apiName: string;
-    label: string;
-}
-
-export type SearchLayoutFieldsDisplayed = {
-    applicable: boolean;
-    fields?: SearchLayoutField | SearchLayoutField[];
-}
-
-export type SearchLayoutField = {
-    apiName: string;
-    label: string;
-    sortable: boolean;
-}
-
-export type NameValuePair = {
-    name: string;
-    value: string;
-}
-
-export type NameObjectValuePair = {
-    isVisible?: boolean;
-    name: string;
-    value: any | any[];
-}
-
-export type NameValueTypeTriple = {
-    name: string;
-    type: string;
-    value: string;
-}
-
-export type SimpleNameObjectValuePair = {
-    name: string;
-    value: any;
-}
-
-export type FlowInterviewWrapperContext = {
-    inputs?: SimpleNameObjectValuePair | SimpleNameObjectValuePair[];
-    wrapperContextType: string;
-}
-
-export type StartFlowInterviewRequest = {
-    flowName: string;
-    inputs?: NameObjectValuePair | NameObjectValuePair[];
-    versionId: string;
-    debug?: FlowInterviewDebugInput;
-    wrapperContext?: FlowInterviewWrapperContext;
-}
-
-export type NavigateFlowInterviewRequest = {
-    action: string;
-    screenInputs?: NameObjectValuePair | NameObjectValuePair[];
-    state: string;
-    debug?: FlowInterviewDebugInput;
-    lcErrors?: NameValuePair | NameValuePair[];
-}
-
-export type ResumeFlowInterviewRequest = {
-    guid: string;
-}
-
-export type RunFlowTestInput = {
-    testIdOrName?: string | string[];
-    showTrace?: boolean;
-    flowVersionId: string;
-}
-
-export type RunFlowTestResult = {
-    assertionResults?: FlowTestAssertionResult | FlowTestAssertionResult[];
-    endDateTime: Date;
-    flowTestId: string;
-    flowTestName: string;
-    interviewErrors?: string | string[];
-    interviewStatus: string;
-    startDateTime: Date;
-    status: string;
-    trace: string;
-}
-
-export type GetFlowInterviewHistoryRequest = {
-    debug?: FlowInterviewDebugInput;
-    guid: string;
-}
-
-export type FlowAccessInput = {
-    flowEnumOrDefId: string;
-    flowVersionId: string;
-    isBasedOnCommUserAccessCheck: boolean;
-}
-
-export type CanViewFlowResult = {
-    canView: boolean;
-    errors?: Error | Error[];
-}
-
-export type FlowInterviewAction = {
-    id: string;
-    label: string;
-}
-
-export type FlowTest = {
-    description?: string;
-    label: string;
-    referenceFlow: string;
-    testPoints?: FlowTestPoint | FlowTestPoint[];
-}
-
-export type FlowTestPoint = {
-    asserts?: FlowTestAssert | FlowTestAssert[];
-    elementDeveloperName: string;
-    parameters?: FlowTestParameter | FlowTestParameter[];
-}
-
-export type FlowTestAssert = {
-    assertErrorMessage?: string;
-    conditions?: FlowTestCondition | FlowTestCondition[];
-}
-
-export type FlowTestAssertionResult = {
-    conditionsText?: string | string[];
-    failMessage: string;
-    errorMessage: string;
-    status?: string;
-}
-
-export type FlowTestCondition = {
-    leftValueReference: string;
-    Operator?: string;
-    rightValue?: FlowTestReferenceOrValue;
-}
-
-export type FlowTestReferenceOrValue = {
-    booleanValue?: boolean;
-    dateTimeValue?: Date;
-    dateValue?: Date;
-    numberValue?: number;
-    sobjectValue?: string;
-    stringValue?: string;
-}
-
-export type FlowTestParameter = {
-    leftValueReference: string;
-    type: string;
-    value: FlowTestReferenceOrValue;
-}
-
-export type GenerateFlowTestResult = {
-    flowTest?: FlowTest;
-}
-
-export type NavigateFlowInterviewResult = {
-    activeStages?: FlowInterviewStage | FlowInterviewStage[];
-    apiVersionRuntime?: number;
-    availableActions?: FlowInterviewAction | FlowInterviewAction[];
-    currentFlowVersionId?: string;
-    currentStage?: FlowInterviewStage;
-    debug?: FlowInterviewDebugOutput;
-    errorMessages?: string | string[];
-    flowLabel: string;
-    formulas?: FlowInterviewReactiveFormula | FlowInterviewReactiveFormula[];
-    guid: string;
-    helpText?: string;
-    interviewStatus: string;
-    localActionName?: string;
-    localActionInputs?: FlowInterviewLocalActionInput | FlowInterviewLocalActionInput[];
-    localActionOutputs?: FlowInterviewLocalActionOutput | FlowInterviewLocalActionOutput[];
-    locationName?: string;
-    outputVariables?: FlowInterviewOutputVariable | FlowInterviewOutputVariable[];
-    pausedText?: string;
-    reactiveActions?: FlowInterviewReactiveAction | FlowInterviewReactiveAction[];
-    reactiveAssignments?: FlowInterviewReactiveAssignment | FlowInterviewReactiveAssignment[];
-    reactiveDataProviders?: FlowInterviewReactiveDataProvider | FlowInterviewReactiveDataProvider[];
-    reactiveTriggers?: FlowInterviewReactiveTrigger | FlowInterviewReactiveTrigger[];
-    screenFields?: FlowInterviewScreenField | FlowInterviewScreenField[];
-    showFooter: boolean;
-    showHeader: boolean;
-    state?: string;
-}
-
-export type FlowInterviewScreenField = {
-    choices?: FlowInterviewChoice | FlowInterviewChoice[];
-    contextMap?: NameValuePair | NameValuePair[];
-    dataType: string;
-    errorMessages?: string | string[];
-    extensionName?: string;
-    extensionType?: string;
-    fields?: FlowInterviewScreenField | FlowInterviewScreenField[];
-    fieldType: string;
-    helpText?: string;
-    inputs?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
-    isDisabled: boolean;
-    isReactiveOnInit: boolean;
-    isReadOnly: boolean;
-    isRequired: boolean;
-    isValidValue: boolean;
-    label: string;
-    metadataValues?: FlowInterviewMetadataValue | FlowInterviewMetadataValue[];
-    name: string;
-    objectFieldReference?: FlowInterviewObjectFieldReference | FlowInterviewObjectFieldReference[];
-    outputs?: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
-    regionContainerType?: string;
-    scale?: number;
-    templateField?: FlowInterviewScreenField;
-    triggersUpdate: boolean;
-    value?: any;
-    valueSources?: string | string[];
-    visibilityRule: string;
-}
-
-export type FlowInterviewReactiveTrigger = {
-    eventHandlers?: FlowInterviewReactiveHandler | FlowInterviewReactiveHandler[];
-    eventName: string;
-    eventSources?: string | string[];
-}
-
-export type FlowInterviewReactiveHandler = {
-    actionName: string;
-    actionType: string;
-    conditionContextMap?: NameValueTypeTriple | NameValueTypeTriple[];
-    conditionExpression: string;
-    conditionSources?: string | string[];
-    initBehavior: string;
-    lockLevel: string;
-}
-
-export type FlowInterviewReactiveAction = {
-    actionName: string;
-    actionType: string;
-    inputs?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
-    name: string;
-    outputs?: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
-    prefillValues?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
-}
-
-export type FlowInterviewReactiveAssignment = {
-    assigmentType: string;
-    name: string;
-    source: string;
-    target: string;
-}
-
-export type FlowInterviewReactiveDataProvider = {
-    filterLogic: string;
-    filters?: FlowInterviewReactiveDataProviderFilter | FlowInterviewReactiveDataProviderFilter[];
-    initBehavior: string;
-    limit: number;
-    name: string;
-    objectSuperType?: string;
-    objectType?: string;
-    prefillValue?: any | any[];
-    sortFieldName: string;
-    sortOrder: string;
-}
-
-export type FlowInterviewReactiveDataProviderFilter = {
-    isRhsReference: boolean;
-    lhsFieldName: string;
-    operator: string;
-    rhsDataType: string;
-    rhsValue?: string;
-}
-
-export type FlowInterviewReactiveFormula = {
-    contextMap?: NameValueTypeTriple | NameValueTypeTriple[];
-    expression: string;
-    formulaType: string;
-    name: string;
-    outputType: string;
-    scale?: number;
-    valueSources?: string | string[];
-}
-
-export type FlowInterviewScreenFieldInput = {
-    dataType: string;
-    isCollection: boolean;
-    name: string;
-    objectType?: string;
-    value: any | any[];
-    valueSources?: string | string[];
-}
-
-export type FlowInterviewScreenFieldOutput = {
-    dataType: string;
-    isCollection: boolean;
-    name: string;
-    objectType?: string;
-}
-
-export type FlowInterviewLocalActionInput = {
-    dataType: string;
-    isCollection: boolean;
-    name: string;
-    objectType?: string;
-    value: any | any[];
-}
-
-export type FlowInterviewLocalActionOutput = {
-    dataType: string;
-    isCollection: boolean;
-    name: string;
-    objectType?: string;
-}
-
-export type FlowInterviewMetadataValue = {
-    name: string;
-    value: any | any[];
-}
-
-export type FlowInterviewReactiveChoiceSource = {
-    dataType: string;
-    labelFieldName: string;
-    sourceElement: string;
-    valueFieldName: string;
-}
-
-export type FlowInterviewChoice = {
-    choiceSource?: FlowInterviewReactiveChoiceSource;
-    choiceValue?: string;
-    isSelected: boolean;
-    label: string;
-    name: string;
-    text?: string;
-    userInput?: FlowInterviewChoiceUserInput;
-}
-
-export type FlowInterviewChoiceUserInput = {
-    dataType: string;
-    errorMessages?: string | string[];
-    isRequired: boolean;
-    isValidValue: boolean;
-    label: string;
-    name: string;
-    value?: any;
-}
-
-export type FlowInterviewOutputVariable = {
-    dataType: string;
-    description?: string;
-    isCollection: boolean;
-    name: string;
-    objectType?: string;
-    flowName: string;
-    value: any | any[];
-}
-
-export type FlowInterviewStage = {
-    label: string;
-    name: string;
-}
-
-export type FlowInterviewDebugInput = {
-    collectApexLimitUsage?: boolean;
-    debugAsUserId?: string;
-    debugWaitInput?: FlowInterviewDebugWaitInput;
-    debugWaits?: boolean;
-    enableRollbackMode?: boolean;
-    enableTrace?: boolean;
-    isForNewDebugging?: boolean;
-    useLatestSubflow?: boolean;
-}
-
-export type FlowInterviewDebugWaitInput = {
-    eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
-    waitEventName?: string;
-}
-
-export type FlowInterviewDebugOutput = {
-    trace?: string;
-    waitDebugOutput?: FlowInterviewDebugWaitOutput | FlowInterviewDebugWaitOutput[];
-}
-
-export type FlowInterviewDebugWaitOutput = {
-    eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
-    waitEventName?: string;
-}
-
-export type FlowInterviewObjectFieldReference = {
-    objectFieldName?: string;
-    objectName?: string;
-    objectResourceName?: string;
-    recordId?: string;
-    recordTypeId?: string;
-}
-
-export type ClaimsMapping = {
-    claimKey: string;
-    claimValue: string;
-}
-
-export type GetUpdatedResult = {
-    ids?: ID | ID[];
-    latestDateCovered: Date;
-}
-
-export type GetDeletedResult = {
-    deletedRecords?: DeletedRecord | DeletedRecord[];
-    earliestDateAvailable: Date;
-    latestDateCovered: Date;
-}
-
-export type DeletedRecord = {
-    deletedDate: Date;
-    id: ID;
-}
-
-export type OutlookSearchResult = {
-    records?: sObject | sObject[];
-    size: number;
-}
-
-export type OutlookDescribeResult = {
-    inboundEmailType?: string;
-    outboundEmailType?: string;
-    priority?: string;
-    recordTypeId?: ID;
-    status?: string;
-}
-
-export type GetServerTimestampResult = {
-    timestamp: Date;
-}
-
-export type ImpersonateUserResult = {
-    errors?: Error | Error[];
-    sessionId?: string;
-    success: boolean;
-    userId?: ID;
-}
-
-export type InvalidateSessionsResult = {
-    errors?: Error | Error[];
-    success: boolean;
-}
-
-export type SetPasswordResult = {
-}
-
-export type ChangeOwnPasswordResult = {
-}
-
-export type ResetPasswordResult = {
-    password: string;
-}
-
-export type GetAccessInfoResult = {
-    accessMap?: AccessMapping | AccessMapping[];
-}
-
-export type AccessMapping = {
-    accessName: string;
-    accessible: boolean;
-}
-
-export type GetUserInfoResult = {
-    accessibilityMode: boolean;
-    chatterExternal: boolean;
-    currencySymbol?: string;
-    defaultAppIdForProfile?: ID;
-    orgAttachmentFileSizeLimit: number;
-    orgDefaultCurrencyIsoCode?: string;
-    orgDefaultCurrencyLocale?: string;
-    orgDisallowHtmlAttachments: boolean;
-    orgHasPersonAccounts: boolean;
-    organizationId: ID;
-    organizationMultiCurrency: boolean;
-    organizationName: string;
-    profileId: ID;
-    roleId?: ID;
-    sessionSecondsValid: number;
-    userDefaultCurrencyIsoCode?: string;
-    userEmail: string;
-    userFullName: string;
-    userId: ID;
-    userLanguage: string;
-    userLocale: string;
-    userName: string;
-    userTimeZone: string;
-    userType: string;
-    userUiSkin: string;
-}
-
-export type LoginResult = {
-    metadataServerUrl?: string;
-    passwordExpired: boolean;
-    sandbox: boolean;
-    serverUrl?: string;
-    sessionId?: string;
-    upgradeMessage?: string;
-    upgradeURL?: string;
-    userId?: ID;
-    userInfo?: GetUserInfoResult;
-}
-
-export type ExtendedErrorDetails = {
-    extendedErrorCode: ExtendedErrorCode;
-}
-
-export type Error = {
-    extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
-    fields?: string | string[];
-    message: string;
-    statusCode: StatusCode;
-}
-
-export type SendEmailError = {
-    fields?: string | string[];
-    message: string;
-    statusCode: StatusCode;
-    targetObjectId?: ID;
-}
-
-export type SaveResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type RenderEmailTemplateError = {
-    fieldName: string;
-    message: string;
-    offset: number;
-    statusCode: StatusCode;
-}
-
-export type UpsertResult = {
-    created: boolean;
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type PerformQuickActionResult = {
-    contextId?: ID;
-    created: boolean;
-    errors?: Error | Error[];
-    feedItemIds?: ID | ID[];
-    ids?: ID | ID[];
-    success: boolean;
-    successMessage?: string;
-}
-
-export type QuickActionTemplateResult = {
-    contextId?: string;
-    defaultValueFormulas?: sObject;
-    defaultValues?: sObject;
-    errors?: Error | Error[];
-    success: boolean;
-}
-
-export type MergeRequest = {
-    additionalInformationMap?: AdditionalInformationMap | AdditionalInformationMap[];
-    masterRecord: sObject;
-    recordToMergeIds: ID | ID[];
-}
-
-export type MergeResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    mergedRecordIds?: ID | ID[];
-    success: boolean;
-    updatedRelatedIds?: ID | ID[];
-}
-
-export type ProcessRequest = {
-    comments?: string;
-    nextApproverIds?: ID | ID[];
-}
-
-export type ProcessSubmitRequest = ProcessRequest & {
-    objectId: ID;
-    submitterId?: ID;
-    processDefinitionNameOrId?: string;
-    skipEntryCriteria?: boolean;
-}
-
-export type ProcessWorkitemRequest = ProcessRequest & {
-    action: string;
-    workitemId: ID;
-}
-
-export type PerformQuickActionRequest = {
-    contextId?: ID;
-    quickActionName: string;
-    records?: sObject | sObject[];
-}
-
-export type DescribeAvailableQuickActionResult = {
-    actionEnumOrId: string;
-    label: string;
-    name: string;
-    type: string;
-}
-
-export type DescribeQuickActionResult = {
-    accessLevelRequired?: ShareAccessLevel;
-    actionEnumOrId: string;
-    canvasApplicationId?: ID;
-    canvasApplicationName?: string;
-    colors?: DescribeColor | DescribeColor[];
-    contextSobjectType?: string;
-    defaultValues?: DescribeQuickActionDefaultValue | DescribeQuickActionDefaultValue[];
-    flowDevName?: string;
-    flowRecordIdVar?: string;
-    height?: number;
-    iconName?: string;
-    iconUrl?: string;
-    icons?: DescribeIcon | DescribeIcon[];
-    label: string;
-    layout?: DescribeLayoutSection;
-    lightningComponentBundleId?: ID;
-    lightningComponentBundleName?: string;
-    lightningComponentQualifiedName?: string;
-    lightningWebComponentBundleId?: ID;
-    lightningWebComponentBundleName?: string;
-    lightningWebComponentQualifiedName?: string;
-    miniIconUrl?: string;
-    mobileExtensionId?: string;
-    name: string;
-    showQuickActionLcHeader: boolean;
-    showQuickActionVfHeader: boolean;
-    targetParentField?: string;
-    targetRecordTypeId?: ID;
-    targetSobjectType?: string;
-    type: string;
-    visualforcePageName?: string;
-    visualforcePageUrl?: string;
-    width?: number;
-}
-
-export type DescribeQuickActionDefaultValue = {
-    defaultValue?: string;
-    field: string;
-}
-
-export type DescribeVisualForceResult = {
-    domain: string;
-}
-
-export type ProcessArticleRequest = ProcessWorkitemRequest & {
-    version: string;
-}
-
-export type ProcessResult = {
-    actorIds?: ID | ID[];
-    entityId?: ID;
-    errors?: Error | Error[];
-    instanceId?: ID;
-    instanceStatus?: string;
-    newWorkitemIds?: ID | ID[];
-    success: boolean;
-}
-
-export type DescribeWorkitemActionResult = {
-    actions?: AllowedWorkitemAction | AllowedWorkitemAction[];
-    errors?: Error | Error[];
-    success: boolean;
-    targetObjectId: ID;
-    workitemId: ID;
-}
-
-export type AllowedWorkitemAction = {
-    versionRequired: boolean;
-    commentsRequired: boolean;
-    label: string;
-    name: string;
-    nextOwnerRequired: boolean;
-}
-
-export type DeleteResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type UndeleteResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type DeleteByExampleResult = {
-    entity?: sObject;
-    errors?: Error | Error[];
-    rowCount: number;
-    success: boolean;
-}
-
-export type EmptyRecycleBinResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type LeadConvert = {
-    accountId?: ID;
-    accountRecord?: sObject;
-    bypassAccountDedupeCheck?: boolean;
-    bypassContactDedupeCheck?: boolean;
-    contactId?: ID;
-    contactRecord?: sObject;
-    convertedStatus: string;
-    doNotCreateOpportunity: boolean;
-    leadId: ID;
-    opportunityId?: ID;
-    opportunityName?: string;
-    opportunityRecord?: sObject;
-    overwriteLeadSource: boolean;
-    ownerId?: ID;
-    relatedPersonAccountId?: ID;
-    relatedPersonAccountRecord?: sObject;
-    sendNotificationEmail: boolean;
-}
-
-export type LeadConvertResult = {
-    accountId?: ID;
-    contactId?: ID;
-    errors?: Error | Error[];
-    leadId?: ID;
-    opportunityId?: ID;
-    relatedPersonAccountId?: ID;
-    success: boolean;
-}
-
-export type AddCampaignMemberOptions = {
-    campaignId?: ID;
-    keepExistingStatus: boolean;
-    leadOrContactIds?: ID;
-    newStatus: string;
-    reportId?: ID;
-    reportMetadata: string;
-}
-
-export type AddCampaignMemberResult = {
-    errors?: Error | Error[];
-    numInserts: number;
-    numUpdates: number;
-    saveError: string;
-    success: boolean;
-}
-
-export type DescribeSObjectResult = {
-    actionOverrides?: ActionOverride | ActionOverride[];
-    activateable: boolean;
-    associateEntityType?: string;
-    associateParentEntity?: string;
-    childRelationships?: ChildRelationship | ChildRelationship[];
-    compactLayoutable: boolean;
-    createable: boolean;
-    custom: boolean;
-    customSetting: boolean;
-    dataTranslationEnabled?: boolean;
-    deepCloneable: boolean;
-    defaultImplementation?: string;
-    deletable: boolean;
-    deprecatedAndHidden: boolean;
-    feedEnabled: boolean;
-    fields?: Field | Field[];
-    hasSubtypes: boolean;
-    idEnabled: boolean;
-    implementedBy?: string;
-    implementsInterfaces?: string;
-    isInterface: boolean;
-    isSubtype: boolean;
-    keyPrefix?: string;
-    label: string;
-    labelPlural: string;
-    layoutable: boolean;
-    listviewable?: boolean;
-    lookupLayoutable?: boolean;
-    mergeable: boolean;
-    mruEnabled: boolean;
-    name: string;
-    namedLayoutInfos?: NamedLayoutInfo | NamedLayoutInfo[];
-    networkScopeFieldName?: string;
-    queryable: boolean;
-    recordTypeInfos?: RecordTypeInfo | RecordTypeInfo[];
-    replicateable: boolean;
-    retrieveable: boolean;
-    searchLayoutable?: boolean;
-    searchable: boolean;
-    supportedScopes?: ScopeInfo | ScopeInfo[];
-    triggerable?: boolean;
-    undeletable: boolean;
-    updateable: boolean;
-    urlDetail?: string;
-    urlEdit?: string;
-    urlNew?: string;
-}
-
-export type DescribePicklistResult = {
-    defaultValue?: PicklistEntry;
-    multiSelectable: boolean;
-    picklistValues?: PicklistEntry | PicklistEntry[];
-}
-
-export type DescribePicklistsParam = {
-    entityName: string;
-    fieldNames: string;
-    recordTypeId?: string;
-}
-
-export type DescribeGlobalSObjectResult = {
-    activateable: boolean;
-    associateEntityType?: string;
-    associateParentEntity?: string;
-    createable: boolean;
-    custom: boolean;
-    customSetting: boolean;
-    dataTranslationEnabled?: boolean;
-    deepCloneable: boolean;
-    deletable: boolean;
-    deprecatedAndHidden: boolean;
-    feedEnabled: boolean;
-    hasSubtypes: boolean;
-    idEnabled: boolean;
-    isInterface: boolean;
-    isSubtype: boolean;
-    keyPrefix?: string;
-    label: string;
-    labelPlural: string;
-    layoutable: boolean;
-    mergeable: boolean;
-    mruEnabled: boolean;
-    name: string;
-    queryable: boolean;
-    replicateable: boolean;
-    retrieveable: boolean;
-    searchable: boolean;
-    triggerable: boolean;
-    undeletable: boolean;
-    updateable: boolean;
-}
-
-export type ChildRelationship = {
-    cascadeDelete: boolean;
-    childSObject: string;
-    deprecatedAndHidden: boolean;
-    field: string;
-    junctionIdListNames?: string | string[];
-    junctionReferenceTo?: string | string[];
-    relationshipName?: string;
-    restrictedDelete?: boolean;
-}
-
-export type DescribeGlobalResult = {
-    encoding?: string;
-    maxBatchSize: number;
-    sobjects?: DescribeGlobalSObjectResult | DescribeGlobalSObjectResult[];
-}
-
-export type DescribeGlobalTheme = {
-    global: DescribeGlobalResult;
-    theme: DescribeThemeResult;
-}
-
-export type DiscoverSchemasResult = {
-    schemas?: Schema | Schema[];
-}
-
-export type Schema = {
-    name: string;
-}
-
-export type DescribeSchemaResult = {
-    fields?: SchemaField | SchemaField[];
-    keyPrefix?: string;
-    name: string;
-}
-
-export type SchemaField = {
-    digits: number;
-    length: number;
-    name: string;
-    nillable: boolean;
-    precision: number;
-    scale: number;
-    type: fieldType;
-    unique: boolean;
-}
-
-export type ScopeInfo = {
-    label: string;
-    name: string;
-}
-
-export type DurableIdList = {
-    ids?: string | string[];
-}
-
-export type StringList = {
-    values?: string | string[];
-}
-
-export type ChangeEventHeader = {
-    entityName: string;
-    recordIds: string | string[];
-    commitTimestamp: number;
-    commitNumber: number;
-    commitUser: string;
-    diffFields?: string | string[];
-    changeType: changeEventType;
-    changeOrigin: string;
-    transactionKey: string;
-    sequenceNumber: number;
-    nulledFields?: string | string[];
-    changedFields?: string | string[];
-}
-
-export type FilteredLookupInfo = {
-    controllingFields?: string | string[];
-    dependent: boolean;
-    optionalFilter: boolean;
-}
-
-export type Field = {
-    aggregatable: boolean;
-    aiPredictionField: boolean;
-    autoNumber: boolean;
-    byteLength: number;
-    calculated: boolean;
-    calculatedFormula?: string;
-    cascadeDelete?: boolean;
-    caseSensitive: boolean;
-    compoundFieldName?: string;
-    controllerName?: string;
-    createable: boolean;
-    custom: boolean;
-    dataTranslationEnabled?: boolean;
-    defaultValue?: any;
-    defaultValueFormula?: string;
-    defaultedOnCreate: boolean;
-    dependentPicklist?: boolean;
-    deprecatedAndHidden: boolean;
-    digits: number;
-    displayLocationInDecimal?: boolean;
-    encrypted?: boolean;
-    externalId?: boolean;
-    extraTypeInfo?: string;
-    filterable: boolean;
-    filteredLookupInfo?: FilteredLookupInfo;
-    formulaTreatNullNumberAsZero?: boolean;
-    groupable: boolean;
-    highScaleNumber?: boolean;
-    htmlFormatted?: boolean;
-    idLookup: boolean;
-    inlineHelpText?: string;
-    label: string;
-    length: number;
-    mask?: string;
-    maskType?: string;
-    name: string;
-    nameField: boolean;
-    namePointing?: boolean;
-    nillable: boolean;
-    permissionable: boolean;
-    picklistValues?: PicklistEntry | PicklistEntry[];
-    polymorphicForeignKey: boolean;
-    precision: number;
-    queryByDistance: boolean;
-    referenceTargetField?: string;
-    referenceTo?: string | string[];
-    relationshipName?: string;
-    relationshipOrder?: number;
-    restrictedDelete?: boolean;
-    restrictedPicklist: boolean;
-    scale: number;
-    searchPrefilterable: boolean;
-    soapType: soapType;
-    sortable?: boolean;
-    type: fieldType;
-    unique: boolean;
-    updateable: boolean;
-    writeRequiresMasterRead?: boolean;
-}
-
-export type PicklistEntry = {
-    active: boolean;
-    defaultValue: boolean;
-    label?: string;
-    validFor?: string;
-    value: string;
-}
-
-export type DescribeDataCategoryGroupResult = {
-    categoryCount: number;
-    description: string;
-    label: string;
-    name: string;
-    sobject: string;
-}
-
-export type DescribeDataCategoryGroupStructureResult = {
-    description: string;
-    label: string;
-    name: string;
-    sobject: string;
-    topCategories?: DataCategory | DataCategory[];
-}
-
-export type DataCategoryGroupSobjectTypePair = {
-    dataCategoryGroupName: string;
-    sobject: string;
-}
-
-export type DataCategory = {
-    childCategories?: DataCategory | DataCategory[];
-    label: string;
-    name: string;
-}
-
-export type DescribeDataCategoryMappingResult = {
-    dataCategoryGroupId: string;
-    dataCategoryGroupLabel: string;
-    dataCategoryGroupName: string;
-    dataCategoryId: string;
-    dataCategoryLabel: string;
-    dataCategoryName: string;
-    id: string;
-    mappedEntity: string;
-    mappedField: string;
-}
-
-export type CommonEventResult = {
-    success: boolean;
-}
-
-export type KnowledgeSettings = {
-    defaultLanguage?: string;
-    knowledgeEnabled: boolean;
-    languages?: KnowledgeLanguageItem | KnowledgeLanguageItem[];
-}
-
-export type KnowledgeLanguageItem = {
-    active: boolean;
-    assigneeId?: string;
-    name: string;
-}
-
-export type FieldDiff = {
-    difference: differenceType;
-    name: string;
-}
-
-export type AdditionalInformationMap = {
-    name: string;
-    value: string;
-}
-
-export type MatchRecord = {
-    additionalInformation?: AdditionalInformationMap | AdditionalInformationMap[];
-    fieldDiffs?: FieldDiff | FieldDiff[];
-    matchConfidence: number;
-    record: sObject;
-}
-
-export type MatchResult = {
-    entityType: string;
-    errors?: Error | Error[];
-    matchEngine: string;
-    matchRecords?: MatchRecord | MatchRecord[];
-    rule: string;
-    size: number;
-    success: boolean;
-}
-
-export type DuplicateResult = {
-    allowSave: boolean;
-    duplicateRule: string;
-    duplicateRuleEntityType: string;
-    errorMessage?: string;
-    matchResults?: MatchResult | MatchResult[];
-}
-
-export type DuplicateError = Error & {
-    duplicateResult: DuplicateResult;
-}
-
-export type DescribeNounResult = {
-    caseValues?: NameCaseValue | NameCaseValue[];
-    developerName: string;
-    gender?: Gender;
-    name: string;
-    pluralAlias?: string;
-    startsWith?: StartsWith;
-}
-
-export type NameCaseValue = {
-    article?: Article;
-    caseType?: CaseType;
-    number?: GrammaticalNumber;
-    possessive?: Possessive;
-    value?: string;
-}
-
-export type ObjectMapping = {
-    inputObject: string;
-    objectMappingFields?: ObjectMappingField | ObjectMappingField[];
-    outputObject: string;
-}
-
-export type ObjectMappingField = {
-    inputField: string;
-    inputLookupObject?: string;
-    outputField: string;
-    outputLookupObject?: string;
-}
-
-export type DescribeDuplicateRuleResult = {
-    actionOnInsert: DuplicateActionType;
-    actionOnUpdate: DuplicateActionType;
-    active: boolean;
-    alertMessage?: string;
-    developerName: string;
-    duplicateFilters?: DuplicateRuleFilter | DuplicateRuleFilter[];
-    duplicateRuleMatchInfos?: DuplicateRuleMatchInfo | DuplicateRuleMatchInfo[];
-    name: string;
-    operationsOnInsert?: string | string[];
-    operationsOnUpdate?: string | string[];
-    securityOption: DuplicateSecurityOptionType;
-    sortOrder: number;
-}
-
-export type DuplicateRuleFilter = {
-    booleanFilter: string;
-    filterItems?: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
-    ruleCritera: string;
-}
-
-export type DuplicateRuleFilterItem = {
-    field: string;
-    operation: string;
-    sortOrder: number;
-    value: string;
-}
-
-export type DuplicateRuleMatchInfo = {
-    entityType: string;
-    mapped: boolean;
-    matchEngine: string;
-    matchFields?: string | string[];
-    matchRuleName: string;
-    objectMapping?: ObjectMapping;
-}
-
-export type FindDuplicatesResult = {
-    duplicateResults?: DuplicateResult | DuplicateResult[];
-    errors?: Error | Error[];
-    success: boolean;
-}
-
-export type DescribeFlexiPageResult = {
-    id: ID;
-    label: string;
-    name: string;
-    quickActionList?: DescribeQuickActionListResult;
-    regions?: DescribeFlexiPageRegion | DescribeFlexiPageRegion[];
-    sobjectType?: string;
-    template?: string;
-    type: string;
-}
-
-export type DescribeFlexiPageRegion = {
-    components?: DescribeComponentInstance | DescribeComponentInstance[];
-    name: string;
-}
-
-export type DescribeComponentInstance = {
-    properties?: DescribeComponentInstanceProperty | DescribeComponentInstanceProperty[];
-    typeName: string;
-    typeNamespace: string;
-}
-
-export type DescribeComponentInstanceProperty = {
-    name: string;
-    region?: DescribeFlexiPageRegion;
-    type?: ComponentInstancePropertyTypeEnum;
-    value?: string;
-}
-
-export type FlexipageContext = {
-    type: FlexipageContextTypeEnum;
-    value: string;
-}
-
-export type DescribeAppMenuResult = {
-    appMenuItems?: DescribeAppMenuItem | DescribeAppMenuItem[];
-}
-
-export type DescribeAppMenuItem = {
-    colors?: DescribeColor | DescribeColor[];
-    content: string;
-    icons?: DescribeIcon | DescribeIcon[];
-    label: string;
-    name: string;
-    type: string;
-    url: string;
-}
-
-export type DescribeThemeResult = {
-    themeItems?: DescribeThemeItem | DescribeThemeItem[];
-}
-
-export type DescribeThemeItem = {
-    colors?: DescribeColor | DescribeColor[];
-    icons?: DescribeIcon | DescribeIcon[];
-    name: string;
-}
-
-export type DescribeSoftphoneLayoutResult = {
-    callTypes: DescribeSoftphoneLayoutCallType | DescribeSoftphoneLayoutCallType[];
-    id: ID;
-    name: string;
-}
-
-export type DescribeSoftphoneLayoutCallType = {
-    infoFields: DescribeSoftphoneLayoutInfoField | DescribeSoftphoneLayoutInfoField[];
-    name: string;
-    screenPopOptions?: DescribeSoftphoneScreenPopOption | DescribeSoftphoneScreenPopOption[];
-    screenPopsOpenWithin?: string;
-    sections?: DescribeSoftphoneLayoutSection | DescribeSoftphoneLayoutSection[];
-}
-
-export type DescribeSoftphoneScreenPopOption = {
-    matchType: string;
-    screenPopData: string;
-    screenPopType: string;
-}
-
-export type DescribeSoftphoneLayoutInfoField = {
-    name: string;
-}
-
-export type DescribeSoftphoneLayoutSection = {
-    entityApiName: string;
-    items: DescribeSoftphoneLayoutItem | DescribeSoftphoneLayoutItem[];
-}
-
-export type DescribeSoftphoneLayoutItem = {
-    itemApiName: string;
-}
-
-export type DescribeCompactLayoutsResult = {
-    compactLayouts: DescribeCompactLayout | DescribeCompactLayout[];
-    defaultCompactLayoutId: ID;
-    recordTypeCompactLayoutMappings?: RecordTypeCompactLayoutMapping | RecordTypeCompactLayoutMapping[];
-}
-
-export type DescribeCompactLayout = {
-    actions?: DescribeLayoutButton | DescribeLayoutButton[];
-    fieldItems?: DescribeLayoutItem | DescribeLayoutItem[];
-    id: ID;
-    imageItems?: DescribeLayoutItem | DescribeLayoutItem[];
-    label: string;
-    name: string;
-    objectType: string;
-}
-
-export type RecordTypeCompactLayoutMapping = {
-    available: boolean;
-    compactLayoutId?: ID;
-    compactLayoutName: string;
-    recordTypeId: ID;
-    recordTypeName: string;
-}
-
-export type DescribePathAssistantsResult = {
-    pathAssistants?: DescribePathAssistant | DescribePathAssistant[];
-}
-
-export type DescribePathAssistant = {
-    active: boolean;
-    animationRule?: DescribeAnimationRule | DescribeAnimationRule[];
-    apiName: string;
-    label: string;
-    pathPicklistField: string;
-    picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
-    recordTypeId?: ID;
-    steps?: DescribePathAssistantStep | DescribePathAssistantStep[];
-}
-
-export type DescribePathAssistantStep = {
-    closed: boolean;
-    converted: boolean;
-    fields?: DescribePathAssistantField | DescribePathAssistantField[];
-    info?: string;
-    layoutSection?: DescribeLayoutSection;
-    picklistLabel: string;
-    picklistValue: string;
-    won: boolean;
-}
-
-export type DescribePathAssistantField = {
-    apiName: string;
-    label: string;
-    readOnly: boolean;
-    required: boolean;
-}
-
-export type DescribeAnimationRule = {
-    animationFrequency: string;
-    isActive: boolean;
-    recordTypeContext: string;
-    recordTypeId?: string;
-    targetField: string;
-    targetFieldChangeToValues: string;
-}
-
-export type DescribeApprovalLayoutResult = {
-    approvalLayouts?: DescribeApprovalLayout | DescribeApprovalLayout[];
-}
-
-export type DescribeApprovalLayout = {
-    id: ID;
-    label: string;
-    layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
-    name: string;
-}
-
-export type DescribeLayoutResult = {
-    layouts: DescribeLayout | DescribeLayout[];
-    recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
-    recordTypeSelectorRequired: boolean;
-}
-
-export type DescribeLayout = {
-    buttonLayoutSection?: DescribeLayoutButtonSection;
-    detailLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
-    editLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
-    feedView?: DescribeLayoutFeedView;
-    highlightsPanelLayoutSection?: DescribeLayoutSection;
-    id?: ID;
-    multirowEditLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
-    offlineLinks?: OfflineLink | OfflineLink[];
-    quickActionList?: DescribeQuickActionListResult;
-    relatedContent?: RelatedContent;
-    relatedLists?: RelatedList | RelatedList[];
-    saveOptions?: DescribeLayoutSaveOption | DescribeLayoutSaveOption[];
-}
-
-export type DescribeMiniLayoutResult = {
-    layouts: DescribeLayout | DescribeLayout[];
-    recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
-    recordTypeSelectorRequired: boolean;
-}
-
-export type DescribeQuickActionListResult = {
-    quickActionListItems?: DescribeQuickActionListItemResult | DescribeQuickActionListItemResult[];
-}
-
-export type DescribeQuickActionListItemResult = {
-    accessLevelRequired?: ShareAccessLevel;
-    colors?: DescribeColor | DescribeColor[];
-    iconUrl?: string;
-    icons?: DescribeIcon | DescribeIcon[];
-    label: string;
-    miniIconUrl: string;
-    quickActionName: string;
-    targetSobjectType?: string;
-    type: string;
-}
-
-export type DescribeLayoutFeedView = {
-    feedFilters?: DescribeLayoutFeedFilter | DescribeLayoutFeedFilter[];
-}
-
-export type DescribeLayoutFeedFilter = {
-    label: string;
-    name: string;
-    type: FeedLayoutFilterType;
-}
-
-export type DescribeLayoutSaveOption = {
-    defaultValue: boolean;
-    isDisplayed: boolean;
-    label: string;
-    name: string;
-    restHeaderName: string;
-    soapHeaderName: string;
-}
-
-export type DescribeLayoutSection = {
-    collapsed: boolean;
-    columns: number;
-    heading?: string;
-    layoutRows: DescribeLayoutRow | DescribeLayoutRow[];
-    layoutSectionId?: ID;
-    parentLayoutId: ID;
-    rows: number;
-    tabOrder: TabOrderType;
-    useCollapsibleSection: boolean;
-    useHeading: boolean;
-}
-
-export type DescribeLayoutButtonSection = {
-    detailButtons: DescribeLayoutButton | DescribeLayoutButton[];
-}
-
-export type DescribeLayoutRow = {
-    layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
-    numItems: number;
-}
-
-export type DescribeLayoutItem = {
-    editableForNew: boolean;
-    editableForUpdate: boolean;
-    label?: string;
-    layoutComponents?: DescribeLayoutComponent | DescribeLayoutComponent[];
-    placeholder: boolean;
-    required: boolean;
-}
-
-export type DescribeLayoutButton = {
-    behavior?: WebLinkWindowType;
-    colors?: DescribeColor | DescribeColor[];
-    content?: string;
-    contentSource?: WebLinkType;
-    custom: boolean;
-    encoding?: string;
-    height?: number;
-    icons?: DescribeIcon | DescribeIcon[];
-    label?: string;
-    menubar?: boolean;
-    name?: string;
-    overridden: boolean;
-    resizeable?: boolean;
-    scrollbars?: boolean;
-    showsLocation?: boolean;
-    showsStatus?: boolean;
-    toolbar?: boolean;
-    url?: string;
-    width?: number;
-    windowPosition?: WebLinkPosition;
-}
-
-export type DescribeLayoutComponent = {
-    displayLines: number;
-    tabOrder: number;
-    type: layoutComponentType;
-    value?: string;
-}
-
-export type FieldComponent = DescribeLayoutComponent & {
-    field: Field;
-}
-
-export type FieldLayoutComponent = DescribeLayoutComponent & {
-    components?: DescribeLayoutComponent | DescribeLayoutComponent[];
-    fieldType: fieldType;
-}
-
-export type VisualforcePage = DescribeLayoutComponent & {
-    showLabel: boolean;
-    showScrollbars: boolean;
-    suggestedHeight: string;
-    suggestedWidth: string;
-    url: string;
-}
-
-export type Canvas = DescribeLayoutComponent & {
-    displayLocation: string;
-    referenceId: string;
-    showLabel: boolean;
-    showScrollbars: boolean;
-    suggestedHeight: string;
-    suggestedWidth: string;
-}
-
-export type ReportChartComponent = DescribeLayoutComponent & {
-    cacheData: boolean;
-    contextFilterableField: string;
-    error: string;
-    hideOnError: boolean;
-    includeContext: boolean;
-    showTitle: boolean;
-    size: ReportChartSize;
-}
-
-export type AnalyticsCloudComponent = DescribeLayoutComponent & {
-    error: string;
-    filter: string;
-    height: string;
-    hideOnError: boolean;
-    showSharing: boolean;
-    showTitle: boolean;
-    width: string;
-}
-
-export type FieldCriteria = {
-    criteria?: FieldCriterion | FieldCriterion[];
-}
-
-export type FieldCriterion = {
-    columnName: string;
-    operand: string;
-    operator: string;
-}
-
-export type CustomLinkComponent = DescribeLayoutComponent & {
-    customLink: DescribeLayoutButton;
-}
-
-export type NamedLayoutInfo = {
-    name: string;
-}
-
-export type RecordTypeInfo = {
-    active: boolean;
-    available: boolean;
-    defaultRecordTypeMapping: boolean;
-    developerName: string;
-    master: boolean;
-    name: string;
-    recordTypeId?: ID;
-}
-
-export type RecordTypeMapping = {
-    active: boolean;
-    available: boolean;
-    defaultRecordTypeMapping: boolean;
-    developerName: string;
-    layoutId: ID;
-    master: boolean;
-    name: string;
-    picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
-    recordTypeId?: ID;
-}
-
-export type PicklistForRecordType = {
-    picklistName: string;
-    picklistValues?: PicklistEntry | PicklistEntry[];
-}
-
-export type RelatedContent = {
-    relatedContentItems: DescribeRelatedContentItem | DescribeRelatedContentItem[];
-}
-
-export type DescribeRelatedContentItem = {
-    describeLayoutItem: DescribeLayoutItem;
-}
-
-export type RelatedList = {
-    accessLevelRequiredForCreate?: ShareAccessLevel;
-    buttons?: DescribeLayoutButton | DescribeLayoutButton[];
-    columns: RelatedListColumn | RelatedListColumn[];
-    custom: boolean;
-    field?: string;
-    label: string;
-    limitRows: number;
-    name: string;
-    sobject?: string;
-    sort?: RelatedListSort | RelatedListSort[];
-}
-
-export type RelatedListColumn = {
-    field?: string;
-    fieldApiName: string;
-    format?: string;
-    label: string;
-    lookupId?: string;
-    name: string;
-    sortable: boolean;
-}
-
-export type RelatedListSort = {
-    ascending: boolean;
-    column: string;
-}
-
-export type OfflineLink = {
-    name: string;
-    openType: string;
-    position: string;
-    properties: string;
-    url: string;
-    x: number;
-    y: number;
-}
-
-export type EmailAttachment = {
-    body?: string;
-    contentId?: string;
-    contentType: string;
-    fileName: string;
-}
-
-export type HandledEmailMessage = {
-    attachments?: EmailAttachment | EmailAttachment[];
-    headers?: NameValuePair | NameValuePair[];
-    htmlBody: string;
-    subject: string;
-    textBody: string;
-}
-
-export type EmailFileAttachment = {
-    body?: string;
-    contentType?: string;
-    fileName: string;
-    id?: ID;
-    inline?: boolean;
-}
-
-export type Email = {
-    bccSender?: boolean;
-    emailPriority?: EmailPriority;
-    replyTo?: string;
-    saveAsActivity?: boolean;
-    senderDisplayName?: string;
-    subject?: string;
-    useSignature?: boolean;
-}
-
-export type MassEmailMessage = Email & {
-    description?: string;
-    targetObjectIds?: ID;
-    templateId: ID;
-    whatIds?: ID;
-}
-
-export type SingleEmailMessage = Email & {
-    bccAddresses?: string;
-    ccAddresses?: string;
-    charset?: string;
-    documentAttachments?: ID | ID[];
-    entityAttachments?: ID | ID[];
-    fileAttachments?: EmailFileAttachment | EmailFileAttachment[];
-    htmlBody?: string;
-    inReplyTo?: string;
-    optOutPolicy?: SendEmailOptOutPolicy;
-    orgWideEmailAddressId?: ID;
-    plainTextBody?: string;
-    references?: string;
-    targetObjectId?: ID;
-    templateId?: ID;
-    templateName?: string;
-    toAddresses?: string;
-    treatBodiesAsTemplate?: boolean;
-    treatTargetObjectAsRecipient?: boolean;
-    whatId?: ID;
-}
-
-export type SendEmailResult = {
-    errors?: SendEmailError | SendEmailError[];
-    success: boolean;
-}
-
-export type DescribeListViewResult = {
-    listViews?: DescribeListView | DescribeListView[];
-}
-
-export type DescribeListView = {
-    filterLanguage?: string;
-    id: ID;
-    limitRows: number;
-    listViewAdvancedFilter?: string;
-    listViewColumns?: DescribeColumn | DescribeColumn[];
-    listViewFilters?: DescribeFilter | DescribeFilter[];
-    listViewName: string;
-    listViewScopeFilters?: DescribeFilter | DescribeFilter[];
-    relatedEntityId?: ID;
-    scope?: queryOptionsScope;
-    scopeEntityId?: ID;
-    sobjectName?: string;
-}
-
-export type DescribeFilter = {
-    column: string;
-    negated: boolean;
-    operator: string;
-    value?: string | string[];
-    valueSeparator: string;
-}
-
-export type DescribeColumn = {
-    field: string;
-    format?: string;
-    label: string;
-    name: string;
-}
-
-export type DescribeSort = {
-    ascending: boolean;
-    column: string;
-}
-
-export type DescribeLookupLayoutResult = {
-    label: string;
-    limitRows: number;
-    lookupColumns?: DescribeColumn | DescribeColumn[];
-}
-
-export type ListViewColumn = {
-    ascendingLabel?: string;
-    descendingLabel?: string;
-    fieldNameOrPath: string;
-    hidden: boolean;
-    label: string;
-    searchable: boolean;
-    selectListItem: string;
-    sortDirection?: orderByDirection;
-    sortIndex?: number;
-    sortable: boolean;
-    type: fieldType;
-}
-
-export type ListViewOrderBy = {
-    fieldNameOrPath: string;
-    nullsPosition?: orderByNullsPosition;
-    sortDirection?: orderByDirection;
-}
-
-export type DescribeSoqlListView = {
-    columns: ListViewColumn | ListViewColumn[];
-    id: ID;
-    orderBy: ListViewOrderBy | ListViewOrderBy[];
-    query: string;
-    relatedEntityId?: ID;
-    scope?: string;
-    scopeEntityId?: ID;
-    sobjectType: string;
-    whereCondition?: SoqlWhereCondition;
-}
-
-export type DescribeSoqlListViewsRequest = {
-    listViewParams: DescribeSoqlListViewParams | DescribeSoqlListViewParams[];
-}
-
-export type DescribeSoqlListViewParams = {
-    developerNameOrId: string;
-    sobjectType?: string;
-}
-
-export type DescribeSoqlListViewResult = {
-    describeSoqlListViews: DescribeSoqlListView | DescribeSoqlListView[];
-}
-
-export type ExecuteListViewRequest = {
-    developerNameOrId: string;
-    limit?: number;
-    offset?: number;
-    orderBy: ListViewOrderBy | ListViewOrderBy[];
-    sobjectType: string;
-}
-
-export type ExecuteListViewResult = {
-    columns: ListViewColumn | ListViewColumn[];
-    developerName: string;
-    done: boolean;
-    id: ID;
-    label: string;
-    records: ListViewRecord | ListViewRecord[];
-    size: number;
-}
-
-export type ListViewRecord = {
-    columns: ListViewRecordColumn | ListViewRecordColumn[];
-}
-
-export type ListViewRecordColumn = {
-    fieldNameOrPath: string;
-    value?: string;
-}
-
-export type SoqlWhereCondition = {
-}
-
-export type SoqlCondition = SoqlWhereCondition & {
-    field: string;
-    operator: soqlOperator;
-    values: string | string[];
-}
-
-export type SoqlNotCondition = SoqlWhereCondition & {
-    condition: SoqlWhereCondition;
-}
-
-export type SoqlConditionGroup = SoqlWhereCondition & {
-    conditions?: SoqlWhereCondition | SoqlWhereCondition[];
-    conjunction: soqlConjunction;
-}
-
-export type SoqlSubQueryCondition = SoqlWhereCondition & {
-    field: string;
-    operator: soqlOperator;
-    subQuery: string;
-}
-
-export type DescribeSearchLayoutResult = {
-    errorMsg?: string;
-    label?: string;
-    limitRows?: number;
-    objectType: string;
-    searchColumns?: DescribeColumn | DescribeColumn[];
-}
-
-export type DescribeSearchScopeOrderResult = {
-    keyPrefix: string;
-    name: string;
-}
-
-export type DescribeSearchableEntityResult = {
-    label: string;
-    name: string;
-    pluralLabel: string;
-}
-
-export type DescribeTabSetResult = {
-    description: string;
-    label: string;
-    logoUrl: string;
-    namespace?: string;
-    selected: boolean;
-    tabSetId: string;
-    tabs?: DescribeTab | DescribeTab[];
-}
-
-export type DescribeTab = {
-    colors?: DescribeColor | DescribeColor[];
-    custom: boolean;
-    iconUrl: string;
-    icons?: DescribeIcon | DescribeIcon[];
-    label: string;
-    miniIconUrl: string;
-    name: string;
-    sobjectName?: string;
-    url: string;
-}
-
-export type DescribeColor = {
-    color: string;
-    context: string;
-    theme: string;
-}
-
-export type DescribeIcon = {
-    contentType: string;
-    height?: number;
-    theme: string;
-    url: string;
-    width?: number;
-}
-
-export type ActionOverride = {
-    formFactor?: string;
-    isAvailableInTouch: boolean;
-    name: string;
-    pageId: ID;
-    url?: string;
-}
-
-export type ActivateResult = {
-    errors?: Error | Error[];
-    id?: ID;
-    success: boolean;
-}
-
-export type SnapshotItem = {
-    oid: ID;
-    uid: ID;
-}
-
-export type SnapshotResult = {
-    add?: SnapshotItem | SnapshotItem[];
-    fullSnapshot: boolean;
-    id: ID;
-    locator?: string;
-    remove?: SnapshotItem | SnapshotItem[];
-}
-
-export type SyncOfflineDataResult = {
-    lastConfigChange: Date;
-    lastFullQuery: Date;
-    lastQuery: Date;
-    lastReset: Date;
-    removed?: ID | ID[];
-    timestamp: Date;
-    token: string;
-    updates: QueryResult;
-}
-
-export type EmailSyncAdvancedSetting = {
-    name: string;
-    type: string;
-    value: string;
-}
-
-export type EmailSyncEntity = {
-    clientFolderName?: string;
-    conflictResolution: EmailSyncConflictResolution;
-    dataSetFilter?: string;
-    fieldMapping?: EmailSyncFieldMapping | EmailSyncFieldMapping[];
-    matchPreference?: EmailSyncMatchPreference;
-    name: string;
-    recordTypeId?: ID;
-    syncDirection: EmailSyncDirection;
-    syncFollowed: boolean;
-}
-
-export type EmailSyncFieldMapping = {
-    clientName: string;
-    clientType: EmailSyncClientFieldType;
-    name: string;
-    type: fieldType;
-    usedForMatching: boolean;
-    valueMapping?: EmailSyncFieldValueMapping | EmailSyncFieldValueMapping[];
-}
-
-export type EmailSyncFieldValueMapping = {
-    clientValue: string;
-    value: string;
-}
-
-export type EmailSyncRoutingAddress = {
-    emailAddress: string;
-    fromAddressFilter?: string | string[];
-    name: string;
-}
-
-export type DescribeEmailSyncSettings = {
-    addCase: boolean;
-    addEmail: boolean;
-    addEmailAttachment: boolean;
-    advancedSetting?: EmailSyncAdvancedSetting | EmailSyncAdvancedSetting[];
-    attachmentSizeLimit?: number;
-    automaticallySyncOutlookObjects: boolean;
-    cannotChangeClientSyncSetting: boolean;
-    clientVersionNumber?: string;
-    emailToCaseRoutingAddress?: EmailSyncRoutingAddress | EmailSyncRoutingAddress[];
-    entitySetting?: EmailSyncEntity | EmailSyncEntity[];
-    expandedRecurringEventSyncWindow: boolean;
-    isSyncThrottlingEnabled: boolean;
-    logActivityEmailAddress?: string;
-    personAccountRecordTypeId?: ID;
-    recurringEvents: boolean;
-    recurringTasks: boolean;
-    showPersonAccountsAsAccounts: boolean;
-    showPersonAccountsAsContacts: boolean;
-    sidePanel: boolean;
-    upgradeNotification: boolean;
-}
-
-export type DescribeMobileResult = {
-    configured: boolean;
-    defaultConfiguration: boolean;
-    emailSyncSettings?: DescribeEmailSyncSettings;
-    feedEnabledObjects?: DescribeMobileSObject | DescribeMobileSObject[];
-    mobileSObject?: DescribeMobileSObject | DescribeMobileSObject[];
-    mobileSettings?: DescribeMobileSettings;
-    mobileView?: DescribeMobileView | DescribeMobileView[];
-    mobileViewDispColumn?: DescribeMobileViewDispColumn | DescribeMobileViewDispColumn[];
-    mobileViewFilter?: DescribeMobileViewFilter | DescribeMobileViewFilter[];
-    mobileViewSortOrder?: DescribeMobileViewSortOrder | DescribeMobileViewSortOrder[];
-    tabSet?: DescribeTabSetResult | DescribeTabSetResult[];
-}
-
-export type DescribeMobileSObject = {
-    iconUrl?: string;
-    layout?: DescribeLayoutResult;
-    searchLayout?: DescribeSearchLayoutResult;
-    sobject: DescribeSObjectResult;
-}
-
-export type DescribeMobileView = {
-    SObject: string;
-    matchAll: boolean;
-    name: string;
-    viewId: ID;
-}
-
-export type DescribeMobileViewDispColumn = {
-    column: number;
-    field: string;
-    viewId: ID;
-}
-
-export type DescribeMobileViewFilter = {
-    field: string;
-    operator: string;
-    value: string;
-    viewId: ID;
-}
-
-export type DescribeMobileViewSortOrder = {
-    ascending: boolean;
-    field: string;
-    order: number;
-    viewId: ID;
-}
-
-export type DescribeMobileSettings = {
-    lockUserToMobileDevice: boolean;
-    mappingURL: string;
-    maxTextFieldSize?: number;
-    mobileDeviceHelpUrl?: string;
-    mobileLite: boolean;
-    mobilizeFollowed: boolean;
-    multiDayEventsEnabled: boolean;
-}
-
-export type RenderEmailTemplateRequest = {
-    escapeHtmlInMergeFields?: boolean;
-    templateBodies: string;
-    whatId?: ID;
-    whoId?: ID;
-}
-
-export type RenderEmailTemplateBodyResult = {
-    errors?: RenderEmailTemplateError | RenderEmailTemplateError[];
-    mergedBody?: string;
-    success: boolean;
-}
-
-export type RenderEmailTemplateResult = {
-    bodyResults?: RenderEmailTemplateBodyResult;
-    errors?: Error | Error[];
-    success: boolean;
-}
-
-export type RenderStoredEmailTemplateRequest = {
-    attachmentRetrievalOption?: AttachmentRetrievalOption;
-    templateId: ID;
-    updateTemplateUsage?: boolean;
-    whatId?: ID;
-    whoId?: ID;
-}
-
-export type RenderStoredEmailTemplateResult = {
-    errors?: Error | Error[];
-    renderedEmail?: SingleEmailMessage;
-    success: boolean;
-}
-
-export type Fact = {
-    fact: MetadataVersionCheckFact;
-    subject: string;
-    token: string;
-}
-
-export type LogInfo = {
-    category: LogCategory;
-    level: LogCategoryLevel;
-}
-
-export type PackageVersion = {
-    majorNumber: number;
-    minorNumber: number;
-    namespace: string;
-}
-
-export type LimitInfo = {
-    appName?: string;
-    current: number;
-    limit: number;
-    type: string;
-}
-
-export type MatchOptions = {
-    fields: string;
-    matchEngine: string;
-    maxMatchResults: number;
-    minMatchConfidence: number;
-    rule: string;
-    sObjectType: string;
-}
-
-export type OwnerChangeOption = {
-    type: OwnerChangeOptionType;
-    execute: boolean;
-}
+export type ExceptionCode = 'ADAPTER_ERROR' 
+      | 'ADAPTER_VALIDATION_EXCEPTION' 
+      | 'APEX_REST_SERVICES_DISABLED' 
+      | 'APEX_TRIGGER_COUPLING_LIMIT' 
+      | 'API_CURRENTLY_DISABLED' 
+      | 'API_DISABLED_FOR_ORG' 
+      | 'ARGUMENT_OBJECT_PARSE_ERROR' 
+      | 'ASYNC_OPERATION_LOCATOR' 
+      | 'ASYNC_QUERY_UNSUPPORTED_QUERY' 
+      | 'BAD_REQUEST' 
+      | 'BATCH_PROCESSING_HALTED' 
+      | 'BIG_OBJECT_UNSUPPORTED_OPERATION' 
+      | 'BILLING_ENTITIES_NO_ACCESS' 
+      | 'BUYER_ACCOUNT_NOT_FOUND' 
+      | 'CANNOT_DELETE_ENTITY' 
+      | 'CANNOT_DELETE_OWNER' 
+      | 'CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY' 
+      | 'CANT_ADD_STANDARD_PORTAL_USER_TO_TERRITORY' 
+      | 'CATEGORY_NOT_FOUND' 
+      | 'CIRCULAR_OBJECT_GRAPH' 
+      | 'CLIENT_NOT_ACCESSIBLE_FOR_USER' 
+      | 'CLIENT_REQUIRE_UPDATE_FOR_USER' 
+      | 'CLONE_FIELD_INTEGRITY_EXCEPTION' 
+      | 'CLONE_NOT_SUPPORTED' 
+      | 'COMMERCE_ADMIN_MISCONFIGURATION' 
+      | 'CONFIG_PUBLISH_FAILED' 
+      | 'CONTENT_ALREADY_AN_ASSET_EXCEPTION' 
+      | 'CONTENT_CUSTOM_DOWNLOAD_EXCEPTION' 
+      | 'CONTENT_HUB_AUTHENTICATION_EXCEPTION' 
+      | 'CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION' 
+      | 'CONTENT_HUB_FILE_HAS_NO_URL_EXCEPTION' 
+      | 'CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION' 
+      | 'CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION' 
+      | 'CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION' 
+      | 'CONTENT_HUB_INVALID_PAYLOAD' 
+      | 'CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION' 
+      | 'CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION' 
+      | 'CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION' 
+      | 'CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION' 
+      | 'CONTENT_HUB_SECURITY_EXCEPTION' 
+      | 'CONTENT_HUB_TIMEOUT_EXCEPTION' 
+      | 'CONTENT_HUB_UNEXPECTED_EXCEPTION' 
+      | 'CONTENT_IMAGE_SCALING_INVALID_ARGUMENTS_EXCEPTION' 
+      | 'CONTENT_IMAGE_SCALING_INVALID_IMAGE_EXCEPTION' 
+      | 'CONTENT_IMAGE_SCALING_MAX_RENDITIONS_EXCEPTION' 
+      | 'CONTENT_IMAGE_SCALING_TIMEOUT_EXCEPTION' 
+      | 'CONTENT_IMAGE_SCALING_UNKNOWN_EXCEPTION' 
+      | 'CUSTOM_METADATA_LIMIT_EXCEEDED' 
+      | 'CUSTOM_SETTINGS_LIMIT_EXCEEDED' 
+      | 'DATACLOUD_API_CLIENT_EXCEPTION' 
+      | 'DATACLOUD_API_DISABLED_EXCEPTION' 
+      | 'DATACLOUD_API_INVALID_QUERY_EXCEPTION' 
+      | 'DATACLOUD_API_SERVER_BUSY_EXCEPTION' 
+      | 'DATACLOUD_API_SERVER_EXCEPTION' 
+      | 'DATACLOUD_API_TIMEOUT_EXCEPTION' 
+      | 'DATACLOUD_API_UNAVAILABLE' 
+      | 'DATA_INTEGRATION_INPUT_ERROR' 
+      | 'DATA_INTEGRATION_NOT_FOUND' 
+      | 'DATA_INTEGRATION_NO_ACCESS' 
+      | 'DATA_INTEGRATION_PACKAGE_ERROR' 
+      | 'DATA_INTEGRATION_SERVER_ERROR' 
+      | 'DATA_INTEGRATION_VENDOR_SETUP_ERROR' 
+      | 'DEPENDENCY_API_UNSUPPORTED_EXCEPTION' 
+      | 'DUPLICATE_ARGUMENT_VALUE' 
+      | 'DUPLICATE_VALUE' 
+      | 'EASY_ROUTING_CREATION_NOT_ALLOWED' 
+      | 'EMAIL_BATCH_SIZE_LIMIT_EXCEEDED' 
+      | 'EMAIL_TO_CASE_INVALID_ROUTING' 
+      | 'EMAIL_TO_CASE_LIMIT_EXCEEDED' 
+      | 'EMAIL_TO_CASE_NOT_ENABLED' 
+      | 'ENTITY_NOT_QUERYABLE' 
+      | 'ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT' 
+      | 'EXCEEDED_ID_LIMIT' 
+      | 'EXCEEDED_LEAD_CONVERT_LIMIT' 
+      | 'EXCEEDED_MAX_FILTER_ENTITIES' 
+      | 'EXCEEDED_MAX_SEMIJOIN_SUBSELECTS' 
+      | 'EXCEEDED_MAX_SIZE_REQUEST' 
+      | 'EXCEEDED_MAX_SOBJECTS' 
+      | 'EXCEEDED_MAX_TYPES_LIMIT' 
+      | 'EXCEEDED_QUOTA' 
+      | 'EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION' 
+      | 'EXTERNAL_OBJECT_CONNECTION_EXCEPTION' 
+      | 'EXTERNAL_OBJECT_EXCEPTION' 
+      | 'EXTERNAL_OBJECT_UNSUPPORTED_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_AUTHENTICATION_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_CONNECTION_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_DATA_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_INVALID_STATE_EXCEPTION' 
+      | 'EXTERNAL_SERVICE_UNSUPPORTED_EXCEPTION' 
+      | 'FEDERATED_SEARCH_ERROR' 
+      | 'FEED_NOT_ENABLED_FOR_OBJECT' 
+      | 'FUNCTIONALITY_NOT_ENABLED' 
+      | 'FUNCTIONALITY_TEMPORARILY_UNAVAILABLE' 
+      | 'GMAIL_ROUTING_CREATION_NOT_ALLOWED' 
+      | 'GONE' 
+      | 'IAS_NOT_FOUND' 
+      | 'IAS_TIMEOUT_EXCEPTION' 
+      | 'IDEMPOTENCY_AUTHENTICATION_FAILED' 
+      | 'IDEMPOTENCY_BACKEND_CONNECTION_TIMEOUT' 
+      | 'IDEMPOTENCY_BACKEND_OPERATION_ERROR' 
+      | 'IDEMPOTENCY_CONCURRENT_REQUEST' 
+      | 'IDEMPOTENCY_FEATURE_NOT_ENABLED' 
+      | 'IDEMPOTENCY_KEY_ALREADY_USED' 
+      | 'IDEMPOTENCY_KEY_USED_DIFFERENT_USER' 
+      | 'IDEMPOTENCY_NOT_SUPPORTED' 
+      | 'ID_REQUIRED' 
+      | 'ILLEGAL_QUERY_PARAMETER_VALUE' 
+      | 'INACTIVE_OWNER_OR_USER' 
+      | 'INACTIVE_PORTAL' 
+      | 'INDEX_NOT_FOUND' 
+      | 'INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE' 
+      | 'INSTALL_KEY_INVALID' 
+      | 'INSTALL_KEY_REQUIRED' 
+      | 'INSUFFICIENT_ACCESS' 
+      | 'INSUFFICIENT_ACCESS_APEX_METADATA_DEPLOY' 
+      | 'INTERNAL_CANVAS_ERROR' 
+      | 'INTERNAL_ERROR' 
+      | 'INTERNAL_SERVER_ERROR' 
+      | 'INVALID_ACCOUNTING_SET' 
+      | 'INVALID_ASSIGNMENT_RULE' 
+      | 'INVALID_AUTH_HEADER' 
+      | 'INVALID_BATCH_REQUEST' 
+      | 'INVALID_BATCH_SIZE' 
+      | 'INVALID_CLIENT' 
+      | 'INVALID_CROSS_REFERENCE_KEY' 
+      | 'INVALID_DATE_FORMAT' 
+      | 'INVALID_DEFINITION' 
+      | 'INVALID_FIELD' 
+      | 'INVALID_FIELD_ACCESS_RULE' 
+      | 'INVALID_FILTER_LANGUAGE' 
+      | 'INVALID_FILTER_VALUE' 
+      | 'INVALID_IDEMPOTENCY_KEY' 
+      | 'INVALID_ID_FIELD' 
+      | 'INVALID_INPUT_COMBINATION' 
+      | 'INVALID_LOCALE_LANGUAGE' 
+      | 'INVALID_LOCATOR' 
+      | 'INVALID_LOGIN' 
+      | 'INVALID_MULTIPART_REQUEST' 
+      | 'INVALID_NEW_PASSWORD' 
+      | 'INVALID_OLD_PASSWORD' 
+      | 'INVALID_OPERATION' 
+      | 'INVALID_OPERATION_WITH_EXPIRED_PASSWORD' 
+      | 'INVALID_PACKAGE_VERSION' 
+      | 'INVALID_PAGING_OPTION' 
+      | 'INVALID_QUERY_FILTER_OPERATOR' 
+      | 'INVALID_QUERY_KEY' 
+      | 'INVALID_QUERY_LOCATOR' 
+      | 'INVALID_QUERY_SCOPE' 
+      | 'INVALID_QUERY_VALUE' 
+      | 'INVALID_RECORD_ACCESS_RULE' 
+      | 'INVALID_REPLICATION_DATE' 
+      | 'INVALID_SEARCH' 
+      | 'INVALID_SEARCH_SCOPE' 
+      | 'INVALID_SESSION_ID' 
+      | 'INVALID_SOAP_HEADER' 
+      | 'INVALID_SORT_OPTION' 
+      | 'INVALID_SSO_GATEWAY_URL' 
+      | 'INVALID_TYPE' 
+      | 'INVALID_TYPE_FOR_OPERATION' 
+      | 'JIGSAW_ACTION_DISABLED' 
+      | 'JIGSAW_IMPORT_LIMIT_EXCEEDED' 
+      | 'JIGSAW_REQUEST_NOT_SUPPORTED' 
+      | 'JSON_PARSER_ERROR' 
+      | 'KEY_HAS_BEEN_DESTROYED' 
+      | 'LANGUAGE_PARAM_CONFLICT' 
+      | 'LICENSING_DATA_ERROR' 
+      | 'LICENSING_UNKNOWN_ERROR' 
+      | 'LIMIT_EXCEEDED' 
+      | 'LOGIN_CHALLENGE_ISSUED' 
+      | 'LOGIN_CHALLENGE_PENDING' 
+      | 'LOGIN_DURING_RESTRICTED_DOMAIN' 
+      | 'LOGIN_DURING_RESTRICTED_TIME' 
+      | 'LOGIN_MUST_USE_SECURITY_TOKEN' 
+      | 'MALFORMED_ID' 
+      | 'MALFORMED_QUERY' 
+      | 'MALFORMED_SEARCH' 
+      | 'MISMATCHING_VERSIONS' 
+      | 'MISSING_ARGUMENT' 
+      | 'MISSING_RECORD' 
+      | 'MODIFIED' 
+      | 'MULTIPLE_RECORDS_FOUND' 
+      | 'MUTUAL_AUTHENTICATION_FAILED' 
+      | 'NOT_ACCEPTABLE' 
+      | 'NOT_MODIFIED' 
+      | 'NO_ACTIVE_DUPLICATE_RULE' 
+      | 'NO_DEFINITION_ASSOCIATED' 
+      | 'NO_RECIPIENTS' 
+      | 'NO_SOFTPHONE_LAYOUT' 
+      | 'NUMBER_OUTSIDE_VALID_RANGE' 
+      | 'OCR_INVALID_REQUEST' 
+      | 'OPERATION_TOO_LARGE' 
+      | 'ORDER_MANAGEMENT_ACTION_NOT_ALLOWED' 
+      | 'ORG_IN_MAINTENANCE' 
+      | 'ORG_IS_DOT_ORG' 
+      | 'ORG_IS_SIGNING_UP' 
+      | 'ORG_LOCKED' 
+      | 'ORG_NOT_OWNED_BY_INSTANCE' 
+      | 'PASSWORD_LOCKOUT' 
+      | 'PAYLOAD_ITEM_MAP_ERROR' 
+      | 'PENDING_COMMIT' 
+      | 'PORTAL_NO_ACCESS' 
+      | 'POST_BODY_PARSE_ERROR' 
+      | 'POST_TAX_PROCESSING_ERROR' 
+      | 'PRODUCT_NOT_FOUND' 
+      | 'QAT_HETEROGENOUS_CONTEXT_IDS' 
+      | 'QAT_INVALID_CONTEXT_ID' 
+      | 'QAT_INVALID_QUICK_ACTION' 
+      | 'QUERY_TIMEOUT' 
+      | 'QUERY_TOO_COMPLICATED' 
+      | 'REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT' 
+      | 'RECORD_NOT_FOUND' 
+      | 'REPORT_EXPORT_LIMIT_EXCEEDED' 
+      | 'REQUEST_LIMIT_EXCEEDED' 
+      | 'REQUEST_RUNNING_TOO_LONG' 
+      | 'SERVER_UNAVAILABLE' 
+      | 'SERVICE_DESK_NOT_ENABLED' 
+      | 'SITE_PUBLISH_FAILED' 
+      | 'SLACK_SERVICE_ALREADY_REACTED' 
+      | 'SLACK_SERVICE_INVALID_REACTION' 
+      | 'SLACK_SERVICE_INVALID_REQUEST' 
+      | 'SLACK_SERVICE_MISSING_DATA' 
+      | 'SLACK_SERVICE_NO_REACTION' 
+      | 'SLACK_SERVICE_REACTION_LIMIT_REACHED' 
+      | 'SLACK_SERVICE_RESOURCE_NOT_FOUND' 
+      | 'SLACK_SERVICE_SLACK_USER_SCOPES_NOT_FOUND' 
+      | 'SLACK_SERVICE_SLACK_USER_TOKEN_NOT_FOUND' 
+      | 'SLACK_SERVICE_UNKNOWN_ERROR' 
+      | 'SLACK_USER_MAPPING_NOT_FOUND' 
+      | 'SOCIALCRM_FEEDSERVICE_API_CLIENT_EXCEPTION' 
+      | 'SOCIALCRM_FEEDSERVICE_API_SERVER_EXCEPTION' 
+      | 'SOCIALCRM_FEEDSERVICE_API_UNAVAILABLE' 
+      | 'SPECIFICATION_GENERATION_EXCEPTION' 
+      | 'SSO_SERVICE_DOWN' 
+      | 'SST_ADMIN_FILE_DOWNLOAD_EXCEPTION' 
+      | 'STATE_TRANSITION_NOT_ALLOWED' 
+      | 'TAX_INTERNAL_ERROR' 
+      | 'TOO_MANY_APEX_REQUESTS' 
+      | 'TOO_MANY_JOBS' 
+      | 'TOO_MANY_RECIPIENTS' 
+      | 'TOO_MANY_RECORDS' 
+      | 'TRIAL_EXPIRED' 
+      | 'TXN_SECURITY_APEX_ERROR' 
+      | 'TXN_SECURITY_END_A_SESSION' 
+      | 'TXN_SECURITY_FAIL_CLOSE' 
+      | 'TXN_SECURITY_METERING_ERROR' 
+      | 'TXN_SECURITY_NO_ACCESS' 
+      | 'TXN_SECURITY_RUNTIME_ERROR' 
+      | 'TXN_SECURITY_TWO_FA_REQUIRED' 
+      | 'UNABLE_TO_LOCK_ROW' 
+      | 'UNKNOWN_ATTACHMENT_EXCEPTION' 
+      | 'UNKNOWN_EXCEPTION' 
+      | 'UNKNOWN_ORG_SETTING' 
+      | 'UNSUPPORTED_API_VERSION' 
+      | 'UNSUPPORTED_ATTACHMENT_ENCODING' 
+      | 'UNSUPPORTED_CLIENT' 
+      | 'UNSUPPORTED_DML_OPERATION' 
+      | 'UNSUPPORTED_MEDIA_TYPE' 
+      | 'UNSUPPORTED_QUERY' 
+      | 'USER_EMAIL_NOT_CONNECTED' 
+      | 'VERSION_NOT_FOUND' 
+      | 'WEBSTORE_NOT_FOUND' 
+      | 'XML_PARSER_ERROR';
+
+export type FaultCode = any;
 
 export type findDuplicates = {
     sObjects?: sObject | sObject[];
@@ -4624,271 +2703,2192 @@ export type CommonEventRequestInformation = {
     requestOrigin: RequestOrigin;
 }
 
-export type ExceptionCode = 'ADAPTER_ERROR' 
-      | 'ADAPTER_VALIDATION_EXCEPTION' 
-      | 'APEX_REST_SERVICES_DISABLED' 
-      | 'APEX_TRIGGER_COUPLING_LIMIT' 
-      | 'API_CURRENTLY_DISABLED' 
-      | 'API_DISABLED_FOR_ORG' 
-      | 'ARGUMENT_OBJECT_PARSE_ERROR' 
-      | 'ASYNC_OPERATION_LOCATOR' 
-      | 'ASYNC_QUERY_UNSUPPORTED_QUERY' 
-      | 'BAD_REQUEST' 
-      | 'BATCH_PROCESSING_HALTED' 
-      | 'BIG_OBJECT_UNSUPPORTED_OPERATION' 
-      | 'BILLING_ENTITIES_NO_ACCESS' 
-      | 'BUYER_ACCOUNT_NOT_FOUND' 
-      | 'CANNOT_DELETE_ENTITY' 
-      | 'CANNOT_DELETE_OWNER' 
-      | 'CANT_ADD_STANDADRD_PORTAL_USER_TO_TERRITORY' 
-      | 'CANT_ADD_STANDARD_PORTAL_USER_TO_TERRITORY' 
-      | 'CATEGORY_NOT_FOUND' 
-      | 'CIRCULAR_OBJECT_GRAPH' 
-      | 'CLIENT_NOT_ACCESSIBLE_FOR_USER' 
-      | 'CLIENT_REQUIRE_UPDATE_FOR_USER' 
-      | 'CLONE_FIELD_INTEGRITY_EXCEPTION' 
-      | 'CLONE_NOT_SUPPORTED' 
-      | 'COMMERCE_ADMIN_MISCONFIGURATION' 
-      | 'CONFIG_PUBLISH_FAILED' 
-      | 'CONTENT_ALREADY_AN_ASSET_EXCEPTION' 
-      | 'CONTENT_CUSTOM_DOWNLOAD_EXCEPTION' 
-      | 'CONTENT_HUB_AUTHENTICATION_EXCEPTION' 
-      | 'CONTENT_HUB_FILE_DOWNLOAD_EXCEPTION' 
-      | 'CONTENT_HUB_FILE_HAS_NO_URL_EXCEPTION' 
-      | 'CONTENT_HUB_FILE_NOT_FOUND_EXCEPTION' 
-      | 'CONTENT_HUB_INVALID_OBJECT_TYPE_EXCEPTION' 
-      | 'CONTENT_HUB_INVALID_PAGE_NUMBER_EXCEPTION' 
-      | 'CONTENT_HUB_INVALID_PAYLOAD' 
-      | 'CONTENT_HUB_INVALID_RENDITION_PAGE_NUMBER_EXCEPTION' 
-      | 'CONTENT_HUB_ITEM_TYPE_NOT_FOUND_EXCEPTION' 
-      | 'CONTENT_HUB_OBJECT_NOT_FOUND_EXCEPTION' 
-      | 'CONTENT_HUB_OPERATION_NOT_SUPPORTED_EXCEPTION' 
-      | 'CONTENT_HUB_SECURITY_EXCEPTION' 
-      | 'CONTENT_HUB_TIMEOUT_EXCEPTION' 
-      | 'CONTENT_HUB_UNEXPECTED_EXCEPTION' 
-      | 'CONTENT_IMAGE_SCALING_INVALID_ARGUMENTS_EXCEPTION' 
-      | 'CONTENT_IMAGE_SCALING_INVALID_IMAGE_EXCEPTION' 
-      | 'CONTENT_IMAGE_SCALING_MAX_RENDITIONS_EXCEPTION' 
-      | 'CONTENT_IMAGE_SCALING_TIMEOUT_EXCEPTION' 
-      | 'CONTENT_IMAGE_SCALING_UNKNOWN_EXCEPTION' 
-      | 'CUSTOM_METADATA_LIMIT_EXCEEDED' 
-      | 'CUSTOM_SETTINGS_LIMIT_EXCEEDED' 
-      | 'DATACLOUD_API_CLIENT_EXCEPTION' 
-      | 'DATACLOUD_API_DISABLED_EXCEPTION' 
-      | 'DATACLOUD_API_INVALID_QUERY_EXCEPTION' 
-      | 'DATACLOUD_API_SERVER_BUSY_EXCEPTION' 
-      | 'DATACLOUD_API_SERVER_EXCEPTION' 
-      | 'DATACLOUD_API_TIMEOUT_EXCEPTION' 
-      | 'DATACLOUD_API_UNAVAILABLE' 
-      | 'DATA_INTEGRATION_INPUT_ERROR' 
-      | 'DATA_INTEGRATION_NOT_FOUND' 
-      | 'DATA_INTEGRATION_NO_ACCESS' 
-      | 'DATA_INTEGRATION_PACKAGE_ERROR' 
-      | 'DATA_INTEGRATION_SERVER_ERROR' 
-      | 'DATA_INTEGRATION_VENDOR_SETUP_ERROR' 
-      | 'DEPENDENCY_API_UNSUPPORTED_EXCEPTION' 
-      | 'DUPLICATE_ARGUMENT_VALUE' 
-      | 'DUPLICATE_VALUE' 
-      | 'EASY_ROUTING_CREATION_NOT_ALLOWED' 
-      | 'EMAIL_BATCH_SIZE_LIMIT_EXCEEDED' 
-      | 'EMAIL_TO_CASE_INVALID_ROUTING' 
-      | 'EMAIL_TO_CASE_LIMIT_EXCEEDED' 
-      | 'EMAIL_TO_CASE_NOT_ENABLED' 
-      | 'ENTITY_NOT_QUERYABLE' 
-      | 'ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT' 
-      | 'EXCEEDED_ID_LIMIT' 
-      | 'EXCEEDED_LEAD_CONVERT_LIMIT' 
-      | 'EXCEEDED_MAX_FILTER_ENTITIES' 
-      | 'EXCEEDED_MAX_SEMIJOIN_SUBSELECTS' 
-      | 'EXCEEDED_MAX_SIZE_REQUEST' 
-      | 'EXCEEDED_MAX_SOBJECTS' 
-      | 'EXCEEDED_MAX_TYPES_LIMIT' 
-      | 'EXCEEDED_QUOTA' 
-      | 'EXTERNAL_OBJECT_AUTHENTICATION_EXCEPTION' 
-      | 'EXTERNAL_OBJECT_CONNECTION_EXCEPTION' 
-      | 'EXTERNAL_OBJECT_EXCEPTION' 
-      | 'EXTERNAL_OBJECT_UNSUPPORTED_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_AUTHENTICATION_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_CONNECTION_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_DATA_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_INVALID_STATE_EXCEPTION' 
-      | 'EXTERNAL_SERVICE_UNSUPPORTED_EXCEPTION' 
-      | 'FEDERATED_SEARCH_ERROR' 
-      | 'FEED_NOT_ENABLED_FOR_OBJECT' 
-      | 'FUNCTIONALITY_NOT_ENABLED' 
-      | 'FUNCTIONALITY_TEMPORARILY_UNAVAILABLE' 
-      | 'GMAIL_ROUTING_CREATION_NOT_ALLOWED' 
-      | 'GONE' 
-      | 'IAS_NOT_FOUND' 
-      | 'IAS_TIMEOUT_EXCEPTION' 
-      | 'IDEMPOTENCY_AUTHENTICATION_FAILED' 
-      | 'IDEMPOTENCY_BACKEND_CONNECTION_TIMEOUT' 
-      | 'IDEMPOTENCY_BACKEND_OPERATION_ERROR' 
-      | 'IDEMPOTENCY_CONCURRENT_REQUEST' 
-      | 'IDEMPOTENCY_FEATURE_NOT_ENABLED' 
-      | 'IDEMPOTENCY_KEY_ALREADY_USED' 
-      | 'IDEMPOTENCY_KEY_USED_DIFFERENT_USER' 
-      | 'IDEMPOTENCY_NOT_SUPPORTED' 
-      | 'ID_REQUIRED' 
-      | 'ILLEGAL_QUERY_PARAMETER_VALUE' 
-      | 'INACTIVE_OWNER_OR_USER' 
-      | 'INACTIVE_PORTAL' 
-      | 'INDEX_NOT_FOUND' 
-      | 'INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE' 
-      | 'INSTALL_KEY_INVALID' 
-      | 'INSTALL_KEY_REQUIRED' 
-      | 'INSUFFICIENT_ACCESS' 
-      | 'INSUFFICIENT_ACCESS_APEX_METADATA_DEPLOY' 
-      | 'INTERNAL_CANVAS_ERROR' 
-      | 'INTERNAL_ERROR' 
-      | 'INTERNAL_SERVER_ERROR' 
-      | 'INVALID_ACCOUNTING_SET' 
-      | 'INVALID_ASSIGNMENT_RULE' 
-      | 'INVALID_AUTH_HEADER' 
-      | 'INVALID_BATCH_REQUEST' 
-      | 'INVALID_BATCH_SIZE' 
-      | 'INVALID_CLIENT' 
-      | 'INVALID_CROSS_REFERENCE_KEY' 
-      | 'INVALID_DATE_FORMAT' 
-      | 'INVALID_DEFINITION' 
-      | 'INVALID_FIELD' 
-      | 'INVALID_FIELD_ACCESS_RULE' 
-      | 'INVALID_FILTER_LANGUAGE' 
-      | 'INVALID_FILTER_VALUE' 
-      | 'INVALID_IDEMPOTENCY_KEY' 
-      | 'INVALID_ID_FIELD' 
-      | 'INVALID_INPUT_COMBINATION' 
-      | 'INVALID_LOCALE_LANGUAGE' 
-      | 'INVALID_LOCATOR' 
-      | 'INVALID_LOGIN' 
-      | 'INVALID_MULTIPART_REQUEST' 
-      | 'INVALID_NEW_PASSWORD' 
-      | 'INVALID_OLD_PASSWORD' 
-      | 'INVALID_OPERATION' 
-      | 'INVALID_OPERATION_WITH_EXPIRED_PASSWORD' 
-      | 'INVALID_PACKAGE_VERSION' 
-      | 'INVALID_PAGING_OPTION' 
-      | 'INVALID_QUERY_FILTER_OPERATOR' 
-      | 'INVALID_QUERY_KEY' 
-      | 'INVALID_QUERY_LOCATOR' 
-      | 'INVALID_QUERY_SCOPE' 
-      | 'INVALID_QUERY_VALUE' 
-      | 'INVALID_RECORD_ACCESS_RULE' 
-      | 'INVALID_REPLICATION_DATE' 
-      | 'INVALID_SEARCH' 
-      | 'INVALID_SEARCH_SCOPE' 
-      | 'INVALID_SESSION_ID' 
-      | 'INVALID_SOAP_HEADER' 
-      | 'INVALID_SORT_OPTION' 
-      | 'INVALID_SSO_GATEWAY_URL' 
-      | 'INVALID_TYPE' 
-      | 'INVALID_TYPE_FOR_OPERATION' 
-      | 'JIGSAW_ACTION_DISABLED' 
-      | 'JIGSAW_IMPORT_LIMIT_EXCEEDED' 
-      | 'JIGSAW_REQUEST_NOT_SUPPORTED' 
-      | 'JSON_PARSER_ERROR' 
-      | 'KEY_HAS_BEEN_DESTROYED' 
-      | 'LANGUAGE_PARAM_CONFLICT' 
-      | 'LICENSING_DATA_ERROR' 
-      | 'LICENSING_UNKNOWN_ERROR' 
-      | 'LIMIT_EXCEEDED' 
-      | 'LOGIN_CHALLENGE_ISSUED' 
-      | 'LOGIN_CHALLENGE_PENDING' 
-      | 'LOGIN_DURING_RESTRICTED_DOMAIN' 
-      | 'LOGIN_DURING_RESTRICTED_TIME' 
-      | 'LOGIN_MUST_USE_SECURITY_TOKEN' 
-      | 'MALFORMED_ID' 
-      | 'MALFORMED_QUERY' 
-      | 'MALFORMED_SEARCH' 
-      | 'MISMATCHING_VERSIONS' 
-      | 'MISSING_ARGUMENT' 
-      | 'MISSING_RECORD' 
-      | 'MODIFIED' 
-      | 'MULTIPLE_RECORDS_FOUND' 
-      | 'MUTUAL_AUTHENTICATION_FAILED' 
-      | 'NOT_ACCEPTABLE' 
-      | 'NOT_MODIFIED' 
-      | 'NO_ACTIVE_DUPLICATE_RULE' 
-      | 'NO_DEFINITION_ASSOCIATED' 
-      | 'NO_RECIPIENTS' 
-      | 'NO_SOFTPHONE_LAYOUT' 
-      | 'NUMBER_OUTSIDE_VALID_RANGE' 
-      | 'OCR_INVALID_REQUEST' 
-      | 'OPERATION_TOO_LARGE' 
-      | 'ORDER_MANAGEMENT_ACTION_NOT_ALLOWED' 
-      | 'ORG_IN_MAINTENANCE' 
-      | 'ORG_IS_DOT_ORG' 
-      | 'ORG_IS_SIGNING_UP' 
-      | 'ORG_LOCKED' 
-      | 'ORG_NOT_OWNED_BY_INSTANCE' 
-      | 'PASSWORD_LOCKOUT' 
-      | 'PAYLOAD_ITEM_MAP_ERROR' 
-      | 'PENDING_COMMIT' 
-      | 'PORTAL_NO_ACCESS' 
-      | 'POST_BODY_PARSE_ERROR' 
-      | 'POST_TAX_PROCESSING_ERROR' 
-      | 'PRODUCT_NOT_FOUND' 
-      | 'QAT_HETEROGENOUS_CONTEXT_IDS' 
-      | 'QAT_INVALID_CONTEXT_ID' 
-      | 'QAT_INVALID_QUICK_ACTION' 
-      | 'QUERY_TIMEOUT' 
-      | 'QUERY_TOO_COMPLICATED' 
-      | 'REALTIME_PROCESSING_TIME_EXCEEDED_LIMIT' 
-      | 'RECORD_NOT_FOUND' 
-      | 'REPORT_EXPORT_LIMIT_EXCEEDED' 
-      | 'REQUEST_LIMIT_EXCEEDED' 
-      | 'REQUEST_RUNNING_TOO_LONG' 
-      | 'SERVER_UNAVAILABLE' 
-      | 'SERVICE_DESK_NOT_ENABLED' 
-      | 'SITE_PUBLISH_FAILED' 
-      | 'SLACK_SERVICE_ALREADY_REACTED' 
-      | 'SLACK_SERVICE_INVALID_REACTION' 
-      | 'SLACK_SERVICE_INVALID_REQUEST' 
-      | 'SLACK_SERVICE_MISSING_DATA' 
-      | 'SLACK_SERVICE_NO_REACTION' 
-      | 'SLACK_SERVICE_REACTION_LIMIT_REACHED' 
-      | 'SLACK_SERVICE_RESOURCE_NOT_FOUND' 
-      | 'SLACK_SERVICE_SLACK_USER_SCOPES_NOT_FOUND' 
-      | 'SLACK_SERVICE_SLACK_USER_TOKEN_NOT_FOUND' 
-      | 'SLACK_SERVICE_UNKNOWN_ERROR' 
-      | 'SLACK_USER_MAPPING_NOT_FOUND' 
-      | 'SOCIALCRM_FEEDSERVICE_API_CLIENT_EXCEPTION' 
-      | 'SOCIALCRM_FEEDSERVICE_API_SERVER_EXCEPTION' 
-      | 'SOCIALCRM_FEEDSERVICE_API_UNAVAILABLE' 
-      | 'SPECIFICATION_GENERATION_EXCEPTION' 
-      | 'SSO_SERVICE_DOWN' 
-      | 'SST_ADMIN_FILE_DOWNLOAD_EXCEPTION' 
-      | 'STATE_TRANSITION_NOT_ALLOWED' 
-      | 'TAX_INTERNAL_ERROR' 
-      | 'TOO_MANY_APEX_REQUESTS' 
-      | 'TOO_MANY_JOBS' 
-      | 'TOO_MANY_RECIPIENTS' 
-      | 'TOO_MANY_RECORDS' 
-      | 'TRIAL_EXPIRED' 
-      | 'TXN_SECURITY_APEX_ERROR' 
-      | 'TXN_SECURITY_END_A_SESSION' 
-      | 'TXN_SECURITY_FAIL_CLOSE' 
-      | 'TXN_SECURITY_METERING_ERROR' 
-      | 'TXN_SECURITY_NO_ACCESS' 
-      | 'TXN_SECURITY_RUNTIME_ERROR' 
-      | 'TXN_SECURITY_TWO_FA_REQUIRED' 
-      | 'UNABLE_TO_LOCK_ROW' 
-      | 'UNKNOWN_ATTACHMENT_EXCEPTION' 
-      | 'UNKNOWN_EXCEPTION' 
-      | 'UNKNOWN_ORG_SETTING' 
-      | 'UNSUPPORTED_API_VERSION' 
-      | 'UNSUPPORTED_ATTACHMENT_ENCODING' 
-      | 'UNSUPPORTED_CLIENT' 
-      | 'UNSUPPORTED_DML_OPERATION' 
-      | 'UNSUPPORTED_MEDIA_TYPE' 
-      | 'UNSUPPORTED_QUERY' 
-      | 'USER_EMAIL_NOT_CONNECTED' 
-      | 'VERSION_NOT_FOUND' 
-      | 'WEBSTORE_NOT_FOUND' 
-      | 'XML_PARSER_ERROR';
+export type sObject = {
+    type: string;
+    fieldsToNull?: string | string[];
+    Id?: ID;
+}
 
-export type FaultCode = any;
+export type address = location &  {
+    city?: string;
+    country?: string;
+    countryCode?: string;
+    geocodeAccuracy?: string;
+    postalCode?: string;
+    state?: string;
+    stateCode?: string;
+    street?: string;
+}
+
+export type location = {
+    latitude?: number;
+    longitude?: number;
+}
+
+export type QueryResult = {
+    done: boolean;
+    queryLocator?: QueryLocator;
+    records?: sObject | sObject[];
+    size: number;
+}
+
+export type SetupBriefcaseResult = {
+    briefcaseType: briefcaseType;
+}
+
+export type SearchResult = {
+    queryId: string;
+    searchRecords?: SearchRecord | SearchRecord[];
+    searchResultsMetadata?: SearchResultsMetadata;
+}
+
+export type SearchRecord = {
+    record: sObject;
+    searchRecordMetadata?: SearchRecordMetadata;
+    snippet?: SearchSnippet;
+}
+
+export type SearchRecordMetadata = {
+    searchPromoted: boolean;
+    spellCorrected: boolean;
+}
+
+export type SearchSnippet = {
+    text?: string;
+    wholeFields?: NameValuePair | NameValuePair[];
+}
+
+export type SearchResultsMetadata = {
+    entityLabelMetadata?: LabelsSearchMetadata | LabelsSearchMetadata[];
+    entityMetadata?: EntitySearchMetadata | EntitySearchMetadata[];
+}
+
+export type LabelsSearchMetadata = {
+    entityFieldLabels?: NameValuePair | NameValuePair[];
+    entityName: string;
+}
+
+export type EntitySearchMetadata = {
+    entityName: string;
+    errorMetadata?: EntityErrorMetadata;
+    fieldMetadata?: FieldLevelSearchMetadata | FieldLevelSearchMetadata[];
+    intentQueryMetadata?: EntityIntentQueryMetadata;
+    searchPromotionMetadata?: EntitySearchPromotionMetadata;
+    spellCorrectionMetadata?: EntitySpellCorrectionMetadata;
+}
+
+export type FieldLevelSearchMetadata = {
+    label?: string;
+    name: string;
+    type?: string;
+}
+
+export type EntitySpellCorrectionMetadata = {
+    correctedQuery: string;
+    hasNonCorrectedResults: boolean;
+}
+
+export type EntitySearchPromotionMetadata = {
+    promotedResultCount: number;
+}
+
+export type EntityIntentQueryMetadata = {
+    intentQuery: boolean;
+    message?: string;
+}
+
+export type EntityErrorMetadata = {
+    errorCode?: string;
+    message?: string;
+}
+
+export type RelationshipReferenceTo = {
+    referenceTo?: string | string[];
+}
+
+export type RecordTypesSupported = {
+    recordTypeInfos?: RecordTypeInfo | RecordTypeInfo[];
+}
+
+export type JunctionIdListNames = {
+    names?: string | string[];
+}
+
+export type SearchLayoutButtonsDisplayed = {
+    applicable: boolean;
+    buttons?: SearchLayoutButton | SearchLayoutButton[];
+}
+
+export type SearchLayoutButton = {
+    apiName: string;
+    label: string;
+}
+
+export type SearchLayoutFieldsDisplayed = {
+    applicable: boolean;
+    fields?: SearchLayoutField | SearchLayoutField[];
+}
+
+export type SearchLayoutField = {
+    apiName: string;
+    label: string;
+    sortable: boolean;
+}
+
+export type NameValuePair = {
+    name: string;
+    value: string;
+}
+
+export type NameObjectValuePair = {
+    isVisible?: boolean;
+    name: string;
+    value: any | any[];
+}
+
+export type NameValueTypeTriple = {
+    name: string;
+    type: string;
+    value: string;
+}
+
+export type SimpleNameObjectValuePair = {
+    name: string;
+    value: any;
+}
+
+export type FlowInterviewWrapperContext = {
+    inputs?: SimpleNameObjectValuePair | SimpleNameObjectValuePair[];
+    wrapperContextType: string;
+}
+
+export type StartFlowInterviewRequest = {
+    flowName: string;
+    inputs?: NameObjectValuePair | NameObjectValuePair[];
+    versionId: string;
+    debug?: FlowInterviewDebugInput;
+    wrapperContext?: FlowInterviewWrapperContext;
+}
+
+export type NavigateFlowInterviewRequest = {
+    action: string;
+    screenInputs?: NameObjectValuePair | NameObjectValuePair[];
+    state: string;
+    debug?: FlowInterviewDebugInput;
+    lcErrors?: NameValuePair | NameValuePair[];
+}
+
+export type ResumeFlowInterviewRequest = {
+    guid: string;
+}
+
+export type RunFlowTestInput = {
+    testIdOrName?: string | string[];
+    showTrace?: boolean;
+    flowVersionId: string;
+}
+
+export type RunFlowTestResult = {
+    assertionResults?: FlowTestAssertionResult | FlowTestAssertionResult[];
+    endDateTime: Date;
+    flowTestId: string;
+    flowTestName: string;
+    interviewErrors?: string | string[];
+    interviewStatus: string;
+    startDateTime: Date;
+    status: string;
+    trace: string;
+}
+
+export type GetFlowInterviewHistoryRequest = {
+    debug?: FlowInterviewDebugInput;
+    guid: string;
+}
+
+export type FlowAccessInput = {
+    flowEnumOrDefId: string;
+    flowVersionId: string;
+    isBasedOnCommUserAccessCheck: boolean;
+}
+
+export type CanViewFlowResult = {
+    canView: boolean;
+    errors?: Error | Error[];
+}
+
+export type FlowInterviewAction = {
+    id: string;
+    label: string;
+}
+
+export type FlowTest = {
+    description?: string;
+    label: string;
+    referenceFlow: string;
+    testPoints?: FlowTestPoint | FlowTestPoint[];
+}
+
+export type FlowTestPoint = {
+    asserts?: FlowTestAssert | FlowTestAssert[];
+    elementDeveloperName: string;
+    parameters?: FlowTestParameter | FlowTestParameter[];
+}
+
+export type FlowTestAssert = {
+    assertErrorMessage?: string;
+    conditions?: FlowTestCondition | FlowTestCondition[];
+}
+
+export type FlowTestAssertionResult = {
+    conditionsText?: string | string[];
+    failMessage: string;
+    errorMessage: string;
+    status?: string;
+}
+
+export type FlowTestCondition = {
+    leftValueReference: string;
+    Operator?: string;
+    rightValue?: FlowTestReferenceOrValue;
+}
+
+export type FlowTestReferenceOrValue = {
+    booleanValue?: boolean;
+    dateTimeValue?: Date;
+    dateValue?: Date;
+    numberValue?: number;
+    sobjectValue?: string;
+    stringValue?: string;
+}
+
+export type FlowTestParameter = {
+    leftValueReference: string;
+    type: string;
+    value: FlowTestReferenceOrValue;
+}
+
+export type GenerateFlowTestResult = {
+    flowTest?: FlowTest;
+}
+
+export type NavigateFlowInterviewResult = {
+    activeStages?: FlowInterviewStage | FlowInterviewStage[];
+    apiVersionRuntime?: number;
+    availableActions?: FlowInterviewAction | FlowInterviewAction[];
+    currentFlowVersionId?: string;
+    currentStage?: FlowInterviewStage;
+    debug?: FlowInterviewDebugOutput;
+    errorMessages?: string | string[];
+    flowLabel: string;
+    formulas?: FlowInterviewReactiveFormula | FlowInterviewReactiveFormula[];
+    guid: string;
+    helpText?: string;
+    interviewStatus: string;
+    localActionName?: string;
+    localActionInputs?: FlowInterviewLocalActionInput | FlowInterviewLocalActionInput[];
+    localActionOutputs?: FlowInterviewLocalActionOutput | FlowInterviewLocalActionOutput[];
+    locationName?: string;
+    outputVariables?: FlowInterviewOutputVariable | FlowInterviewOutputVariable[];
+    pausedText?: string;
+    reactiveActions?: FlowInterviewReactiveAction | FlowInterviewReactiveAction[];
+    reactiveAssignments?: FlowInterviewReactiveAssignment | FlowInterviewReactiveAssignment[];
+    reactiveDataProviders?: FlowInterviewReactiveDataProvider | FlowInterviewReactiveDataProvider[];
+    reactiveTriggers?: FlowInterviewReactiveTrigger | FlowInterviewReactiveTrigger[];
+    screenFields?: FlowInterviewScreenField | FlowInterviewScreenField[];
+    showFooter: boolean;
+    showHeader: boolean;
+    state?: string;
+}
+
+export type FlowInterviewScreenField = {
+    choices?: FlowInterviewChoice | FlowInterviewChoice[];
+    contextMap?: NameValuePair | NameValuePair[];
+    dataType: string;
+    errorMessages?: string | string[];
+    extensionName?: string;
+    extensionType?: string;
+    fields?: FlowInterviewScreenField | FlowInterviewScreenField[];
+    fieldType: string;
+    helpText?: string;
+    inputs?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+    isDisabled: boolean;
+    isReactiveOnInit: boolean;
+    isReadOnly: boolean;
+    isRequired: boolean;
+    isValidValue: boolean;
+    label: string;
+    metadataValues?: FlowInterviewMetadataValue | FlowInterviewMetadataValue[];
+    name: string;
+    objectFieldReference?: FlowInterviewObjectFieldReference | FlowInterviewObjectFieldReference[];
+    outputs?: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
+    regionContainerType?: string;
+    scale?: number;
+    templateField?: FlowInterviewScreenField;
+    triggersUpdate: boolean;
+    value?: any;
+    valueSources?: string | string[];
+    visibilityRule: string;
+}
+
+export type FlowInterviewReactiveTrigger = {
+    eventHandlers?: FlowInterviewReactiveHandler | FlowInterviewReactiveHandler[];
+    eventName: string;
+    eventSources?: string | string[];
+}
+
+export type FlowInterviewReactiveHandler = {
+    actionName: string;
+    actionType: string;
+    conditionContextMap?: NameValueTypeTriple | NameValueTypeTriple[];
+    conditionExpression: string;
+    conditionSources?: string | string[];
+    initBehavior: string;
+    lockLevel: string;
+}
+
+export type FlowInterviewReactiveAction = {
+    actionName: string;
+    actionType: string;
+    inputs?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+    name: string;
+    outputs?: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
+    prefillValues?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+}
+
+export type FlowInterviewReactiveAssignment = {
+    assigmentType: string;
+    name: string;
+    source: string;
+    target: string;
+}
+
+export type FlowInterviewReactiveDataProvider = {
+    filterLogic: string;
+    filters?: FlowInterviewReactiveDataProviderFilter | FlowInterviewReactiveDataProviderFilter[];
+    initBehavior: string;
+    limit: number;
+    name: string;
+    objectSuperType?: string;
+    objectType?: string;
+    prefillValue?: any | any[];
+    sortFieldName: string;
+    sortOrder: string;
+}
+
+export type FlowInterviewReactiveDataProviderFilter = {
+    isRhsReference: boolean;
+    lhsFieldName: string;
+    operator: string;
+    rhsDataType: string;
+    rhsValue?: string;
+}
+
+export type FlowInterviewReactiveFormula = {
+    contextMap?: NameValueTypeTriple | NameValueTypeTriple[];
+    expression: string;
+    formulaType: string;
+    name: string;
+    outputType: string;
+    scale?: number;
+    valueSources?: string | string[];
+}
+
+export type FlowInterviewScreenFieldInput = {
+    dataType: string;
+    isCollection: boolean;
+    name: string;
+    objectType?: string;
+    value: any | any[];
+    valueSources?: string | string[];
+}
+
+export type FlowInterviewScreenFieldOutput = {
+    dataType: string;
+    isCollection: boolean;
+    name: string;
+    objectType?: string;
+}
+
+export type FlowInterviewLocalActionInput = {
+    dataType: string;
+    isCollection: boolean;
+    name: string;
+    objectType?: string;
+    value: any | any[];
+}
+
+export type FlowInterviewLocalActionOutput = {
+    dataType: string;
+    isCollection: boolean;
+    name: string;
+    objectType?: string;
+}
+
+export type FlowInterviewMetadataValue = {
+    name: string;
+    value: any | any[];
+}
+
+export type FlowInterviewReactiveChoiceSource = {
+    dataType: string;
+    labelFieldName: string;
+    sourceElement: string;
+    valueFieldName: string;
+}
+
+export type FlowInterviewChoice = {
+    choiceSource?: FlowInterviewReactiveChoiceSource;
+    choiceValue?: string;
+    isSelected: boolean;
+    label: string;
+    name: string;
+    text?: string;
+    userInput?: FlowInterviewChoiceUserInput;
+}
+
+export type FlowInterviewChoiceUserInput = {
+    dataType: string;
+    errorMessages?: string | string[];
+    isRequired: boolean;
+    isValidValue: boolean;
+    label: string;
+    name: string;
+    value?: any;
+}
+
+export type FlowInterviewOutputVariable = {
+    dataType: string;
+    description?: string;
+    isCollection: boolean;
+    name: string;
+    objectType?: string;
+    flowName: string;
+    value: any | any[];
+}
+
+export type FlowInterviewStage = {
+    label: string;
+    name: string;
+}
+
+export type FlowInterviewDebugInput = {
+    collectApexLimitUsage?: boolean;
+    debugAsUserId?: string;
+    debugWaitInput?: FlowInterviewDebugWaitInput;
+    debugWaits?: boolean;
+    enableRollbackMode?: boolean;
+    enableTrace?: boolean;
+    isForNewDebugging?: boolean;
+    useLatestSubflow?: boolean;
+}
+
+export type FlowInterviewDebugWaitInput = {
+    eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
+    waitEventName?: string;
+}
+
+export type FlowInterviewDebugOutput = {
+    trace?: string;
+    waitDebugOutput?: FlowInterviewDebugWaitOutput | FlowInterviewDebugWaitOutput[];
+}
+
+export type FlowInterviewDebugWaitOutput = {
+    eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
+    waitEventName?: string;
+}
+
+export type FlowInterviewObjectFieldReference = {
+    objectFieldName?: string;
+    objectName?: string;
+    objectResourceName?: string;
+    recordId?: string;
+    recordTypeId?: string;
+}
+
+export type ClaimsMapping = {
+    claimKey: string;
+    claimValue: string;
+}
+
+export type GetUpdatedResult = {
+    ids?: ID | ID[];
+    latestDateCovered: Date;
+}
+
+export type GetDeletedResult = {
+    deletedRecords?: DeletedRecord | DeletedRecord[];
+    earliestDateAvailable: Date;
+    latestDateCovered: Date;
+}
+
+export type DeletedRecord = {
+    deletedDate: Date;
+    id: ID;
+}
+
+export type OutlookSearchResult = {
+    records?: sObject | sObject[];
+    size: number;
+}
+
+export type OutlookDescribeResult = {
+    inboundEmailType?: string;
+    outboundEmailType?: string;
+    priority?: string;
+    recordTypeId?: ID;
+    status?: string;
+}
+
+export type GetServerTimestampResult = {
+    timestamp: Date;
+}
+
+export type ImpersonateUserResult = {
+    errors?: Error | Error[];
+    sessionId?: string;
+    success: boolean;
+    userId?: ID;
+}
+
+export type InvalidateSessionsResult = {
+    errors?: Error | Error[];
+    success: boolean;
+}
+
+export type SetPasswordResult = {
+}
+
+export type ChangeOwnPasswordResult = {
+}
+
+export type ResetPasswordResult = {
+    password: string;
+}
+
+export type GetAccessInfoResult = {
+    accessMap?: AccessMapping | AccessMapping[];
+}
+
+export type AccessMapping = {
+    accessName: string;
+    accessible: boolean;
+}
+
+export type GetUserInfoResult = {
+    accessibilityMode: boolean;
+    chatterExternal: boolean;
+    currencySymbol?: string;
+    defaultAppIdForProfile?: ID;
+    orgAttachmentFileSizeLimit: number;
+    orgDefaultCurrencyIsoCode?: string;
+    orgDefaultCurrencyLocale?: string;
+    orgDisallowHtmlAttachments: boolean;
+    orgHasPersonAccounts: boolean;
+    organizationId: ID;
+    organizationMultiCurrency: boolean;
+    organizationName: string;
+    profileId: ID;
+    roleId?: ID;
+    sessionSecondsValid: number;
+    userDefaultCurrencyIsoCode?: string;
+    userEmail: string;
+    userFullName: string;
+    userId: ID;
+    userLanguage: string;
+    userLocale: string;
+    userName: string;
+    userTimeZone: string;
+    userType: string;
+    userUiSkin: string;
+}
+
+export type LoginResult = {
+    metadataServerUrl?: string;
+    passwordExpired: boolean;
+    sandbox: boolean;
+    serverUrl?: string;
+    sessionId?: string;
+    upgradeMessage?: string;
+    upgradeURL?: string;
+    userId?: ID;
+    userInfo?: GetUserInfoResult;
+}
+
+export type ExtendedErrorDetails = {
+    extendedErrorCode: ExtendedErrorCode;
+}
+
+export type Error = {
+    extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
+    fields?: string | string[];
+    message: string;
+    statusCode: StatusCode;
+}
+
+export type SendEmailError = {
+    fields?: string | string[];
+    message: string;
+    statusCode: StatusCode;
+    targetObjectId?: ID;
+}
+
+export type SaveResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type RenderEmailTemplateError = {
+    fieldName: string;
+    message: string;
+    offset: number;
+    statusCode: StatusCode;
+}
+
+export type UpsertResult = {
+    created: boolean;
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type PerformQuickActionResult = {
+    contextId?: ID;
+    created: boolean;
+    errors?: Error | Error[];
+    feedItemIds?: ID | ID[];
+    ids?: ID | ID[];
+    success: boolean;
+    successMessage?: string;
+}
+
+export type QuickActionTemplateResult = {
+    contextId?: string;
+    defaultValueFormulas?: sObject;
+    defaultValues?: sObject;
+    errors?: Error | Error[];
+    success: boolean;
+}
+
+export type MergeRequest = {
+    additionalInformationMap?: AdditionalInformationMap | AdditionalInformationMap[];
+    masterRecord: sObject;
+    recordToMergeIds: ID | ID[];
+}
+
+export type MergeResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    mergedRecordIds?: ID | ID[];
+    success: boolean;
+    updatedRelatedIds?: ID | ID[];
+}
+
+export type ProcessRequest = {
+    comments?: string;
+    nextApproverIds?: ID | ID[];
+}
+
+export type ProcessSubmitRequest = ProcessRequest &  {
+    objectId: ID;
+    submitterId?: ID;
+    processDefinitionNameOrId?: string;
+    skipEntryCriteria?: boolean;
+}
+
+export type ProcessWorkitemRequest = ProcessRequest &  {
+    action: string;
+    workitemId: ID;
+}
+
+export type PerformQuickActionRequest = {
+    contextId?: ID;
+    quickActionName: string;
+    records?: sObject | sObject[];
+}
+
+export type DescribeAvailableQuickActionResult = {
+    actionEnumOrId: string;
+    label: string;
+    name: string;
+    type: string;
+}
+
+export type DescribeQuickActionResult = {
+    accessLevelRequired?: ShareAccessLevel;
+    actionEnumOrId: string;
+    canvasApplicationId?: ID;
+    canvasApplicationName?: string;
+    colors?: DescribeColor | DescribeColor[];
+    contextSobjectType?: string;
+    defaultValues?: DescribeQuickActionDefaultValue | DescribeQuickActionDefaultValue[];
+    flowDevName?: string;
+    flowRecordIdVar?: string;
+    height?: number;
+    iconName?: string;
+    iconUrl?: string;
+    icons?: DescribeIcon | DescribeIcon[];
+    label: string;
+    layout?: DescribeLayoutSection;
+    lightningComponentBundleId?: ID;
+    lightningComponentBundleName?: string;
+    lightningComponentQualifiedName?: string;
+    lightningWebComponentBundleId?: ID;
+    lightningWebComponentBundleName?: string;
+    lightningWebComponentQualifiedName?: string;
+    miniIconUrl?: string;
+    mobileExtensionId?: string;
+    name: string;
+    showQuickActionLcHeader: boolean;
+    showQuickActionVfHeader: boolean;
+    targetParentField?: string;
+    targetRecordTypeId?: ID;
+    targetSobjectType?: string;
+    type: string;
+    visualforcePageName?: string;
+    visualforcePageUrl?: string;
+    width?: number;
+}
+
+export type DescribeQuickActionDefaultValue = {
+    defaultValue?: string;
+    field: string;
+}
+
+export type DescribeVisualForceResult = {
+    domain: string;
+}
+
+export type ProcessArticleRequest = ProcessWorkitemRequest &  {
+    version: string;
+}
+
+export type ProcessResult = {
+    actorIds?: ID | ID[];
+    entityId?: ID;
+    errors?: Error | Error[];
+    instanceId?: ID;
+    instanceStatus?: string;
+    newWorkitemIds?: ID | ID[];
+    success: boolean;
+}
+
+export type DescribeWorkitemActionResult = {
+    actions?: AllowedWorkitemAction | AllowedWorkitemAction[];
+    errors?: Error | Error[];
+    success: boolean;
+    targetObjectId: ID;
+    workitemId: ID;
+}
+
+export type AllowedWorkitemAction = {
+    versionRequired: boolean;
+    commentsRequired: boolean;
+    label: string;
+    name: string;
+    nextOwnerRequired: boolean;
+}
+
+export type DeleteResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type UndeleteResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type DeleteByExampleResult = {
+    entity?: sObject;
+    errors?: Error | Error[];
+    rowCount: number;
+    success: boolean;
+}
+
+export type EmptyRecycleBinResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type LeadConvert = {
+    accountId?: ID;
+    accountRecord?: sObject;
+    bypassAccountDedupeCheck?: boolean;
+    bypassContactDedupeCheck?: boolean;
+    contactId?: ID;
+    contactRecord?: sObject;
+    convertedStatus: string;
+    doNotCreateOpportunity: boolean;
+    leadId: ID;
+    opportunityId?: ID;
+    opportunityName?: string;
+    opportunityRecord?: sObject;
+    overwriteLeadSource: boolean;
+    ownerId?: ID;
+    relatedPersonAccountId?: ID;
+    relatedPersonAccountRecord?: sObject;
+    sendNotificationEmail: boolean;
+}
+
+export type LeadConvertResult = {
+    accountId?: ID;
+    contactId?: ID;
+    errors?: Error | Error[];
+    leadId?: ID;
+    opportunityId?: ID;
+    relatedPersonAccountId?: ID;
+    success: boolean;
+}
+
+export type AddCampaignMemberOptions = {
+    campaignId?: ID;
+    keepExistingStatus: boolean;
+    leadOrContactIds?: ID;
+    newStatus: string;
+    reportId?: ID;
+    reportMetadata: string;
+}
+
+export type AddCampaignMemberResult = {
+    errors?: Error | Error[];
+    numInserts: number;
+    numUpdates: number;
+    saveError: string;
+    success: boolean;
+}
+
+export type DescribeSObjectResult = {
+    actionOverrides?: ActionOverride | ActionOverride[];
+    activateable: boolean;
+    associateEntityType?: string;
+    associateParentEntity?: string;
+    childRelationships?: ChildRelationship | ChildRelationship[];
+    compactLayoutable: boolean;
+    createable: boolean;
+    custom: boolean;
+    customSetting: boolean;
+    dataTranslationEnabled?: boolean;
+    deepCloneable: boolean;
+    defaultImplementation?: string;
+    deletable: boolean;
+    deprecatedAndHidden: boolean;
+    feedEnabled: boolean;
+    fields?: Field | Field[];
+    hasSubtypes: boolean;
+    idEnabled: boolean;
+    implementedBy?: string;
+    implementsInterfaces?: string;
+    isInterface: boolean;
+    isSubtype: boolean;
+    keyPrefix?: string;
+    label: string;
+    labelPlural: string;
+    layoutable: boolean;
+    listviewable?: boolean;
+    lookupLayoutable?: boolean;
+    mergeable: boolean;
+    mruEnabled: boolean;
+    name: string;
+    namedLayoutInfos?: NamedLayoutInfo | NamedLayoutInfo[];
+    networkScopeFieldName?: string;
+    queryable: boolean;
+    recordTypeInfos?: RecordTypeInfo | RecordTypeInfo[];
+    replicateable: boolean;
+    retrieveable: boolean;
+    searchLayoutable?: boolean;
+    searchable: boolean;
+    supportedScopes?: ScopeInfo | ScopeInfo[];
+    triggerable?: boolean;
+    undeletable: boolean;
+    updateable: boolean;
+    urlDetail?: string;
+    urlEdit?: string;
+    urlNew?: string;
+}
+
+export type DescribePicklistResult = {
+    defaultValue?: PicklistEntry;
+    multiSelectable: boolean;
+    picklistValues?: PicklistEntry | PicklistEntry[];
+}
+
+export type DescribePicklistsParam = {
+    entityName: string;
+    fieldNames: string;
+    recordTypeId?: string;
+}
+
+export type DescribeGlobalSObjectResult = {
+    activateable: boolean;
+    associateEntityType?: string;
+    associateParentEntity?: string;
+    createable: boolean;
+    custom: boolean;
+    customSetting: boolean;
+    dataTranslationEnabled?: boolean;
+    deepCloneable: boolean;
+    deletable: boolean;
+    deprecatedAndHidden: boolean;
+    feedEnabled: boolean;
+    hasSubtypes: boolean;
+    idEnabled: boolean;
+    isInterface: boolean;
+    isSubtype: boolean;
+    keyPrefix?: string;
+    label: string;
+    labelPlural: string;
+    layoutable: boolean;
+    mergeable: boolean;
+    mruEnabled: boolean;
+    name: string;
+    queryable: boolean;
+    replicateable: boolean;
+    retrieveable: boolean;
+    searchable: boolean;
+    triggerable: boolean;
+    undeletable: boolean;
+    updateable: boolean;
+}
+
+export type ChildRelationship = {
+    cascadeDelete: boolean;
+    childSObject: string;
+    deprecatedAndHidden: boolean;
+    field: string;
+    junctionIdListNames?: string | string[];
+    junctionReferenceTo?: string | string[];
+    relationshipName?: string;
+    restrictedDelete?: boolean;
+}
+
+export type DescribeGlobalResult = {
+    encoding?: string;
+    maxBatchSize: number;
+    sobjects?: DescribeGlobalSObjectResult | DescribeGlobalSObjectResult[];
+}
+
+export type DescribeGlobalTheme = {
+    global: DescribeGlobalResult;
+    theme: DescribeThemeResult;
+}
+
+export type DiscoverSchemasResult = {
+    schemas?: Schema | Schema[];
+}
+
+export type Schema = {
+    name: string;
+}
+
+export type DescribeSchemaResult = {
+    fields?: SchemaField | SchemaField[];
+    keyPrefix?: string;
+    name: string;
+}
+
+export type SchemaField = {
+    digits: number;
+    length: number;
+    name: string;
+    nillable: boolean;
+    precision: number;
+    scale: number;
+    type: fieldType;
+    unique: boolean;
+}
+
+export type ScopeInfo = {
+    label: string;
+    name: string;
+}
+
+export type DurableIdList = {
+    ids?: string | string[];
+}
+
+export type StringList = {
+    values?: string | string[];
+}
+
+export type ChangeEventHeader = {
+    entityName: string;
+    recordIds: string | string[];
+    commitTimestamp: number;
+    commitNumber: number;
+    commitUser: string;
+    diffFields?: string | string[];
+    changeType: changeEventType;
+    changeOrigin: string;
+    transactionKey: string;
+    sequenceNumber: number;
+    nulledFields?: string | string[];
+    changedFields?: string | string[];
+}
+
+export type FilteredLookupInfo = {
+    controllingFields?: string | string[];
+    dependent: boolean;
+    optionalFilter: boolean;
+}
+
+export type Field = {
+    aggregatable: boolean;
+    aiPredictionField: boolean;
+    autoNumber: boolean;
+    byteLength: number;
+    calculated: boolean;
+    calculatedFormula?: string;
+    cascadeDelete?: boolean;
+    caseSensitive: boolean;
+    compoundFieldName?: string;
+    controllerName?: string;
+    createable: boolean;
+    custom: boolean;
+    dataTranslationEnabled?: boolean;
+    defaultValue?: any;
+    defaultValueFormula?: string;
+    defaultedOnCreate: boolean;
+    dependentPicklist?: boolean;
+    deprecatedAndHidden: boolean;
+    digits: number;
+    displayLocationInDecimal?: boolean;
+    encrypted?: boolean;
+    externalId?: boolean;
+    extraTypeInfo?: string;
+    filterable: boolean;
+    filteredLookupInfo?: FilteredLookupInfo;
+    formulaTreatNullNumberAsZero?: boolean;
+    groupable: boolean;
+    highScaleNumber?: boolean;
+    htmlFormatted?: boolean;
+    idLookup: boolean;
+    inlineHelpText?: string;
+    label: string;
+    length: number;
+    mask?: string;
+    maskType?: string;
+    name: string;
+    nameField: boolean;
+    namePointing?: boolean;
+    nillable: boolean;
+    permissionable: boolean;
+    picklistValues?: PicklistEntry | PicklistEntry[];
+    polymorphicForeignKey: boolean;
+    precision: number;
+    queryByDistance: boolean;
+    referenceTargetField?: string;
+    referenceTo?: string | string[];
+    relationshipName?: string;
+    relationshipOrder?: number;
+    restrictedDelete?: boolean;
+    restrictedPicklist: boolean;
+    scale: number;
+    searchPrefilterable: boolean;
+    soapType: soapType;
+    sortable?: boolean;
+    type: fieldType;
+    unique: boolean;
+    updateable: boolean;
+    writeRequiresMasterRead?: boolean;
+}
+
+export type PicklistEntry = {
+    active: boolean;
+    defaultValue: boolean;
+    label?: string;
+    validFor?: string;
+    value: string;
+}
+
+export type DescribeDataCategoryGroupResult = {
+    categoryCount: number;
+    description: string;
+    label: string;
+    name: string;
+    sobject: string;
+}
+
+export type DescribeDataCategoryGroupStructureResult = {
+    description: string;
+    label: string;
+    name: string;
+    sobject: string;
+    topCategories?: DataCategory | DataCategory[];
+}
+
+export type DataCategoryGroupSobjectTypePair = {
+    dataCategoryGroupName: string;
+    sobject: string;
+}
+
+export type DataCategory = {
+    childCategories?: DataCategory | DataCategory[];
+    label: string;
+    name: string;
+}
+
+export type DescribeDataCategoryMappingResult = {
+    dataCategoryGroupId: string;
+    dataCategoryGroupLabel: string;
+    dataCategoryGroupName: string;
+    dataCategoryId: string;
+    dataCategoryLabel: string;
+    dataCategoryName: string;
+    id: string;
+    mappedEntity: string;
+    mappedField: string;
+}
+
+export type CommonEventResult = {
+    success: boolean;
+}
+
+export type KnowledgeSettings = {
+    defaultLanguage?: string;
+    knowledgeEnabled: boolean;
+    languages?: KnowledgeLanguageItem | KnowledgeLanguageItem[];
+}
+
+export type KnowledgeLanguageItem = {
+    active: boolean;
+    assigneeId?: string;
+    name: string;
+}
+
+export type FieldDiff = {
+    difference: differenceType;
+    name: string;
+}
+
+export type AdditionalInformationMap = {
+    name: string;
+    value: string;
+}
+
+export type MatchRecord = {
+    additionalInformation?: AdditionalInformationMap | AdditionalInformationMap[];
+    fieldDiffs?: FieldDiff | FieldDiff[];
+    matchConfidence: number;
+    record: sObject;
+}
+
+export type MatchResult = {
+    entityType: string;
+    errors?: Error | Error[];
+    matchEngine: string;
+    matchRecords?: MatchRecord | MatchRecord[];
+    rule: string;
+    size: number;
+    success: boolean;
+}
+
+export type DuplicateResult = {
+    allowSave: boolean;
+    duplicateRule: string;
+    duplicateRuleEntityType: string;
+    errorMessage?: string;
+    matchResults?: MatchResult | MatchResult[];
+}
+
+export type DuplicateError = Error &  {
+    duplicateResult: DuplicateResult;
+}
+
+export type DescribeNounResult = {
+    caseValues?: NameCaseValue | NameCaseValue[];
+    developerName: string;
+    gender?: Gender;
+    name: string;
+    pluralAlias?: string;
+    startsWith?: StartsWith;
+}
+
+export type NameCaseValue = {
+    article?: Article;
+    caseType?: CaseType;
+    number?: GrammaticalNumber;
+    possessive?: Possessive;
+    value?: string;
+}
+
+export type ObjectMapping = {
+    inputObject: string;
+    objectMappingFields?: ObjectMappingField | ObjectMappingField[];
+    outputObject: string;
+}
+
+export type ObjectMappingField = {
+    inputField: string;
+    inputLookupObject?: string;
+    outputField: string;
+    outputLookupObject?: string;
+}
+
+export type DescribeDuplicateRuleResult = {
+    actionOnInsert: DuplicateActionType;
+    actionOnUpdate: DuplicateActionType;
+    active: boolean;
+    alertMessage?: string;
+    developerName: string;
+    duplicateFilters?: DuplicateRuleFilter | DuplicateRuleFilter[];
+    duplicateRuleMatchInfos?: DuplicateRuleMatchInfo | DuplicateRuleMatchInfo[];
+    name: string;
+    operationsOnInsert?: string | string[];
+    operationsOnUpdate?: string | string[];
+    securityOption: DuplicateSecurityOptionType;
+    sortOrder: number;
+}
+
+export type DuplicateRuleFilter = {
+    booleanFilter: string;
+    filterItems?: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
+    ruleCritera: string;
+}
+
+export type DuplicateRuleFilterItem = {
+    field: string;
+    operation: string;
+    sortOrder: number;
+    value: string;
+}
+
+export type DuplicateRuleMatchInfo = {
+    entityType: string;
+    mapped: boolean;
+    matchEngine: string;
+    matchFields?: string | string[];
+    matchRuleName: string;
+    objectMapping?: ObjectMapping;
+}
+
+export type FindDuplicatesResult = {
+    duplicateResults?: DuplicateResult | DuplicateResult[];
+    errors?: Error | Error[];
+    success: boolean;
+}
+
+export type DescribeFlexiPageResult = {
+    id: ID;
+    label: string;
+    name: string;
+    quickActionList?: DescribeQuickActionListResult;
+    regions?: DescribeFlexiPageRegion | DescribeFlexiPageRegion[];
+    sobjectType?: string;
+    template?: string;
+    type: string;
+}
+
+export type DescribeFlexiPageRegion = {
+    components?: DescribeComponentInstance | DescribeComponentInstance[];
+    name: string;
+}
+
+export type DescribeComponentInstance = {
+    properties?: DescribeComponentInstanceProperty | DescribeComponentInstanceProperty[];
+    typeName: string;
+    typeNamespace: string;
+}
+
+export type DescribeComponentInstanceProperty = {
+    name: string;
+    region?: DescribeFlexiPageRegion;
+    type?: ComponentInstancePropertyTypeEnum;
+    value?: string;
+}
+
+export type FlexipageContext = {
+    type: FlexipageContextTypeEnum;
+    value: string;
+}
+
+export type DescribeAppMenuResult = {
+    appMenuItems?: DescribeAppMenuItem | DescribeAppMenuItem[];
+}
+
+export type DescribeAppMenuItem = {
+    colors?: DescribeColor | DescribeColor[];
+    content: string;
+    icons?: DescribeIcon | DescribeIcon[];
+    label: string;
+    name: string;
+    type: string;
+    url: string;
+}
+
+export type DescribeThemeResult = {
+    themeItems?: DescribeThemeItem | DescribeThemeItem[];
+}
+
+export type DescribeThemeItem = {
+    colors?: DescribeColor | DescribeColor[];
+    icons?: DescribeIcon | DescribeIcon[];
+    name: string;
+}
+
+export type DescribeSoftphoneLayoutResult = {
+    callTypes: DescribeSoftphoneLayoutCallType | DescribeSoftphoneLayoutCallType[];
+    id: ID;
+    name: string;
+}
+
+export type DescribeSoftphoneLayoutCallType = {
+    infoFields: DescribeSoftphoneLayoutInfoField | DescribeSoftphoneLayoutInfoField[];
+    name: string;
+    screenPopOptions?: DescribeSoftphoneScreenPopOption | DescribeSoftphoneScreenPopOption[];
+    screenPopsOpenWithin?: string;
+    sections?: DescribeSoftphoneLayoutSection | DescribeSoftphoneLayoutSection[];
+}
+
+export type DescribeSoftphoneScreenPopOption = {
+    matchType: string;
+    screenPopData: string;
+    screenPopType: string;
+}
+
+export type DescribeSoftphoneLayoutInfoField = {
+    name: string;
+}
+
+export type DescribeSoftphoneLayoutSection = {
+    entityApiName: string;
+    items: DescribeSoftphoneLayoutItem | DescribeSoftphoneLayoutItem[];
+}
+
+export type DescribeSoftphoneLayoutItem = {
+    itemApiName: string;
+}
+
+export type DescribeCompactLayoutsResult = {
+    compactLayouts: DescribeCompactLayout | DescribeCompactLayout[];
+    defaultCompactLayoutId: ID;
+    recordTypeCompactLayoutMappings?: RecordTypeCompactLayoutMapping | RecordTypeCompactLayoutMapping[];
+}
+
+export type DescribeCompactLayout = {
+    actions?: DescribeLayoutButton | DescribeLayoutButton[];
+    fieldItems?: DescribeLayoutItem | DescribeLayoutItem[];
+    id: ID;
+    imageItems?: DescribeLayoutItem | DescribeLayoutItem[];
+    label: string;
+    name: string;
+    objectType: string;
+}
+
+export type RecordTypeCompactLayoutMapping = {
+    available: boolean;
+    compactLayoutId?: ID;
+    compactLayoutName: string;
+    recordTypeId: ID;
+    recordTypeName: string;
+}
+
+export type DescribePathAssistantsResult = {
+    pathAssistants?: DescribePathAssistant | DescribePathAssistant[];
+}
+
+export type DescribePathAssistant = {
+    active: boolean;
+    animationRule?: DescribeAnimationRule | DescribeAnimationRule[];
+    apiName: string;
+    label: string;
+    pathPicklistField: string;
+    picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
+    recordTypeId?: ID;
+    steps?: DescribePathAssistantStep | DescribePathAssistantStep[];
+}
+
+export type DescribePathAssistantStep = {
+    closed: boolean;
+    converted: boolean;
+    fields?: DescribePathAssistantField | DescribePathAssistantField[];
+    info?: string;
+    layoutSection?: DescribeLayoutSection;
+    picklistLabel: string;
+    picklistValue: string;
+    won: boolean;
+}
+
+export type DescribePathAssistantField = {
+    apiName: string;
+    label: string;
+    readOnly: boolean;
+    required: boolean;
+}
+
+export type DescribeAnimationRule = {
+    animationFrequency: string;
+    isActive: boolean;
+    recordTypeContext: string;
+    recordTypeId?: string;
+    targetField: string;
+    targetFieldChangeToValues: string;
+}
+
+export type DescribeApprovalLayoutResult = {
+    approvalLayouts?: DescribeApprovalLayout | DescribeApprovalLayout[];
+}
+
+export type DescribeApprovalLayout = {
+    id: ID;
+    label: string;
+    layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
+    name: string;
+}
+
+export type DescribeLayoutResult = {
+    layouts: DescribeLayout | DescribeLayout[];
+    recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
+    recordTypeSelectorRequired: boolean;
+}
+
+export type DescribeLayout = {
+    buttonLayoutSection?: DescribeLayoutButtonSection;
+    detailLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
+    editLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
+    feedView?: DescribeLayoutFeedView;
+    highlightsPanelLayoutSection?: DescribeLayoutSection;
+    id?: ID;
+    multirowEditLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
+    offlineLinks?: OfflineLink | OfflineLink[];
+    quickActionList?: DescribeQuickActionListResult;
+    relatedContent?: RelatedContent;
+    relatedLists?: RelatedList | RelatedList[];
+    saveOptions?: DescribeLayoutSaveOption | DescribeLayoutSaveOption[];
+}
+
+export type DescribeMiniLayoutResult = {
+    layouts: DescribeLayout | DescribeLayout[];
+    recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
+    recordTypeSelectorRequired: boolean;
+}
+
+export type DescribeQuickActionListResult = {
+    quickActionListItems?: DescribeQuickActionListItemResult | DescribeQuickActionListItemResult[];
+}
+
+export type DescribeQuickActionListItemResult = {
+    accessLevelRequired?: ShareAccessLevel;
+    colors?: DescribeColor | DescribeColor[];
+    iconUrl?: string;
+    icons?: DescribeIcon | DescribeIcon[];
+    label: string;
+    miniIconUrl: string;
+    quickActionName: string;
+    targetSobjectType?: string;
+    type: string;
+}
+
+export type DescribeLayoutFeedView = {
+    feedFilters?: DescribeLayoutFeedFilter | DescribeLayoutFeedFilter[];
+}
+
+export type DescribeLayoutFeedFilter = {
+    label: string;
+    name: string;
+    type: FeedLayoutFilterType;
+}
+
+export type DescribeLayoutSaveOption = {
+    defaultValue: boolean;
+    isDisplayed: boolean;
+    label: string;
+    name: string;
+    restHeaderName: string;
+    soapHeaderName: string;
+}
+
+export type DescribeLayoutSection = {
+    collapsed: boolean;
+    columns: number;
+    heading?: string;
+    layoutRows: DescribeLayoutRow | DescribeLayoutRow[];
+    layoutSectionId?: ID;
+    parentLayoutId: ID;
+    rows: number;
+    tabOrder: TabOrderType;
+    useCollapsibleSection: boolean;
+    useHeading: boolean;
+}
+
+export type DescribeLayoutButtonSection = {
+    detailButtons: DescribeLayoutButton | DescribeLayoutButton[];
+}
+
+export type DescribeLayoutRow = {
+    layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
+    numItems: number;
+}
+
+export type DescribeLayoutItem = {
+    editableForNew: boolean;
+    editableForUpdate: boolean;
+    label?: string;
+    layoutComponents?: DescribeLayoutComponent | DescribeLayoutComponent[];
+    placeholder: boolean;
+    required: boolean;
+}
+
+export type DescribeLayoutButton = {
+    behavior?: WebLinkWindowType;
+    colors?: DescribeColor | DescribeColor[];
+    content?: string;
+    contentSource?: WebLinkType;
+    custom: boolean;
+    encoding?: string;
+    height?: number;
+    icons?: DescribeIcon | DescribeIcon[];
+    label?: string;
+    menubar?: boolean;
+    name?: string;
+    overridden: boolean;
+    resizeable?: boolean;
+    scrollbars?: boolean;
+    showsLocation?: boolean;
+    showsStatus?: boolean;
+    toolbar?: boolean;
+    url?: string;
+    width?: number;
+    windowPosition?: WebLinkPosition;
+}
+
+export type DescribeLayoutComponent = {
+    displayLines: number;
+    tabOrder: number;
+    type: layoutComponentType;
+    value?: string;
+}
+
+export type FieldComponent = DescribeLayoutComponent &  {
+    field: Field;
+}
+
+export type FieldLayoutComponent = DescribeLayoutComponent &  {
+    components?: DescribeLayoutComponent | DescribeLayoutComponent[];
+    fieldType: fieldType;
+}
+
+export type VisualforcePage = DescribeLayoutComponent &  {
+    showLabel: boolean;
+    showScrollbars: boolean;
+    suggestedHeight: string;
+    suggestedWidth: string;
+    url: string;
+}
+
+export type Canvas = DescribeLayoutComponent &  {
+    displayLocation: string;
+    referenceId: string;
+    showLabel: boolean;
+    showScrollbars: boolean;
+    suggestedHeight: string;
+    suggestedWidth: string;
+}
+
+export type ReportChartComponent = DescribeLayoutComponent &  {
+    cacheData: boolean;
+    contextFilterableField: string;
+    error: string;
+    hideOnError: boolean;
+    includeContext: boolean;
+    showTitle: boolean;
+    size: ReportChartSize;
+}
+
+export type AnalyticsCloudComponent = DescribeLayoutComponent &  {
+    error: string;
+    filter: string;
+    height: string;
+    hideOnError: boolean;
+    showSharing: boolean;
+    showTitle: boolean;
+    width: string;
+}
+
+export type FieldCriteria = {
+    criteria?: FieldCriterion | FieldCriterion[];
+}
+
+export type FieldCriterion = {
+    columnName: string;
+    operand: string;
+    operator: string;
+}
+
+export type CustomLinkComponent = DescribeLayoutComponent &  {
+    customLink: DescribeLayoutButton;
+}
+
+export type NamedLayoutInfo = {
+    name: string;
+}
+
+export type RecordTypeInfo = {
+    active: boolean;
+    available: boolean;
+    defaultRecordTypeMapping: boolean;
+    developerName: string;
+    master: boolean;
+    name: string;
+    recordTypeId?: ID;
+}
+
+export type RecordTypeMapping = {
+    active: boolean;
+    available: boolean;
+    defaultRecordTypeMapping: boolean;
+    developerName: string;
+    layoutId: ID;
+    master: boolean;
+    name: string;
+    picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
+    recordTypeId?: ID;
+}
+
+export type PicklistForRecordType = {
+    picklistName: string;
+    picklistValues?: PicklistEntry | PicklistEntry[];
+}
+
+export type RelatedContent = {
+    relatedContentItems: DescribeRelatedContentItem | DescribeRelatedContentItem[];
+}
+
+export type DescribeRelatedContentItem = {
+    describeLayoutItem: DescribeLayoutItem;
+}
+
+export type RelatedList = {
+    accessLevelRequiredForCreate?: ShareAccessLevel;
+    buttons?: DescribeLayoutButton | DescribeLayoutButton[];
+    columns: RelatedListColumn | RelatedListColumn[];
+    custom: boolean;
+    field?: string;
+    label: string;
+    limitRows: number;
+    name: string;
+    sobject?: string;
+    sort?: RelatedListSort | RelatedListSort[];
+}
+
+export type RelatedListColumn = {
+    field?: string;
+    fieldApiName: string;
+    format?: string;
+    label: string;
+    lookupId?: string;
+    name: string;
+    sortable: boolean;
+}
+
+export type RelatedListSort = {
+    ascending: boolean;
+    column: string;
+}
+
+export type OfflineLink = {
+    name: string;
+    openType: string;
+    position: string;
+    properties: string;
+    url: string;
+    x: number;
+    y: number;
+}
+
+export type EmailAttachment = {
+    body?: string;
+    contentId?: string;
+    contentType: string;
+    fileName: string;
+}
+
+export type HandledEmailMessage = {
+    attachments?: EmailAttachment | EmailAttachment[];
+    headers?: NameValuePair | NameValuePair[];
+    htmlBody: string;
+    subject: string;
+    textBody: string;
+}
+
+export type EmailFileAttachment = {
+    body?: string;
+    contentType?: string;
+    fileName: string;
+    id?: ID;
+    inline?: boolean;
+}
+
+export type Email = {
+    bccSender?: boolean;
+    emailPriority?: EmailPriority;
+    replyTo?: string;
+    saveAsActivity?: boolean;
+    senderDisplayName?: string;
+    subject?: string;
+    useSignature?: boolean;
+}
+
+export type MassEmailMessage = Email &  {
+    description?: string;
+    targetObjectIds?: ID;
+    templateId: ID;
+    whatIds?: ID;
+}
+
+export type SingleEmailMessage = Email &  {
+    bccAddresses?: string;
+    ccAddresses?: string;
+    charset?: string;
+    documentAttachments?: ID | ID[];
+    entityAttachments?: ID | ID[];
+    fileAttachments?: EmailFileAttachment | EmailFileAttachment[];
+    htmlBody?: string;
+    inReplyTo?: string;
+    optOutPolicy?: SendEmailOptOutPolicy;
+    orgWideEmailAddressId?: ID;
+    plainTextBody?: string;
+    references?: string;
+    targetObjectId?: ID;
+    templateId?: ID;
+    templateName?: string;
+    toAddresses?: string;
+    treatBodiesAsTemplate?: boolean;
+    treatTargetObjectAsRecipient?: boolean;
+    whatId?: ID;
+}
+
+export type SendEmailResult = {
+    errors?: SendEmailError | SendEmailError[];
+    success: boolean;
+}
+
+export type DescribeListViewResult = {
+    listViews?: DescribeListView | DescribeListView[];
+}
+
+export type DescribeListView = {
+    filterLanguage?: string;
+    id: ID;
+    limitRows: number;
+    listViewAdvancedFilter?: string;
+    listViewColumns?: DescribeColumn | DescribeColumn[];
+    listViewFilters?: DescribeFilter | DescribeFilter[];
+    listViewName: string;
+    listViewScopeFilters?: DescribeFilter | DescribeFilter[];
+    relatedEntityId?: ID;
+    scope?: queryOptionsScope;
+    scopeEntityId?: ID;
+    sobjectName?: string;
+}
+
+export type DescribeFilter = {
+    column: string;
+    negated: boolean;
+    operator: string;
+    value?: string | string[];
+    valueSeparator: string;
+}
+
+export type DescribeColumn = {
+    field: string;
+    format?: string;
+    label: string;
+    name: string;
+}
+
+export type DescribeSort = {
+    ascending: boolean;
+    column: string;
+}
+
+export type DescribeLookupLayoutResult = {
+    label: string;
+    limitRows: number;
+    lookupColumns?: DescribeColumn | DescribeColumn[];
+}
+
+export type ListViewColumn = {
+    ascendingLabel?: string;
+    descendingLabel?: string;
+    fieldNameOrPath: string;
+    hidden: boolean;
+    label: string;
+    searchable: boolean;
+    selectListItem: string;
+    sortDirection?: orderByDirection;
+    sortIndex?: number;
+    sortable: boolean;
+    type: fieldType;
+}
+
+export type ListViewOrderBy = {
+    fieldNameOrPath: string;
+    nullsPosition?: orderByNullsPosition;
+    sortDirection?: orderByDirection;
+}
+
+export type DescribeSoqlListView = {
+    columns: ListViewColumn | ListViewColumn[];
+    id: ID;
+    orderBy: ListViewOrderBy | ListViewOrderBy[];
+    query: string;
+    relatedEntityId?: ID;
+    scope?: string;
+    scopeEntityId?: ID;
+    sobjectType: string;
+    whereCondition?: SoqlWhereCondition;
+}
+
+export type DescribeSoqlListViewsRequest = {
+    listViewParams: DescribeSoqlListViewParams | DescribeSoqlListViewParams[];
+}
+
+export type DescribeSoqlListViewParams = {
+    developerNameOrId: string;
+    sobjectType?: string;
+}
+
+export type DescribeSoqlListViewResult = {
+    describeSoqlListViews: DescribeSoqlListView | DescribeSoqlListView[];
+}
+
+export type ExecuteListViewRequest = {
+    developerNameOrId: string;
+    limit?: number;
+    offset?: number;
+    orderBy: ListViewOrderBy | ListViewOrderBy[];
+    sobjectType: string;
+}
+
+export type ExecuteListViewResult = {
+    columns: ListViewColumn | ListViewColumn[];
+    developerName: string;
+    done: boolean;
+    id: ID;
+    label: string;
+    records: ListViewRecord | ListViewRecord[];
+    size: number;
+}
+
+export type ListViewRecord = {
+    columns: ListViewRecordColumn | ListViewRecordColumn[];
+}
+
+export type ListViewRecordColumn = {
+    fieldNameOrPath: string;
+    value?: string;
+}
+
+export type SoqlWhereCondition = {
+}
+
+export type SoqlCondition = SoqlWhereCondition &  {
+    field: string;
+    operator: soqlOperator;
+    values: string | string[];
+}
+
+export type SoqlNotCondition = SoqlWhereCondition &  {
+    condition: SoqlWhereCondition;
+}
+
+export type SoqlConditionGroup = SoqlWhereCondition &  {
+    conditions?: SoqlWhereCondition | SoqlWhereCondition[];
+    conjunction: soqlConjunction;
+}
+
+export type SoqlSubQueryCondition = SoqlWhereCondition &  {
+    field: string;
+    operator: soqlOperator;
+    subQuery: string;
+}
+
+export type DescribeSearchLayoutResult = {
+    errorMsg?: string;
+    label?: string;
+    limitRows?: number;
+    objectType: string;
+    searchColumns?: DescribeColumn | DescribeColumn[];
+}
+
+export type DescribeSearchScopeOrderResult = {
+    keyPrefix: string;
+    name: string;
+}
+
+export type DescribeSearchableEntityResult = {
+    label: string;
+    name: string;
+    pluralLabel: string;
+}
+
+export type DescribeTabSetResult = {
+    description: string;
+    label: string;
+    logoUrl: string;
+    namespace?: string;
+    selected: boolean;
+    tabSetId: string;
+    tabs?: DescribeTab | DescribeTab[];
+}
+
+export type DescribeTab = {
+    colors?: DescribeColor | DescribeColor[];
+    custom: boolean;
+    iconUrl: string;
+    icons?: DescribeIcon | DescribeIcon[];
+    label: string;
+    miniIconUrl: string;
+    name: string;
+    sobjectName?: string;
+    url: string;
+}
+
+export type DescribeColor = {
+    color: string;
+    context: string;
+    theme: string;
+}
+
+export type DescribeIcon = {
+    contentType: string;
+    height?: number;
+    theme: string;
+    url: string;
+    width?: number;
+}
+
+export type ActionOverride = {
+    formFactor?: string;
+    isAvailableInTouch: boolean;
+    name: string;
+    pageId: ID;
+    url?: string;
+}
+
+export type ActivateResult = {
+    errors?: Error | Error[];
+    id?: ID;
+    success: boolean;
+}
+
+export type SnapshotItem = {
+    oid: ID;
+    uid: ID;
+}
+
+export type SnapshotResult = {
+    add?: SnapshotItem | SnapshotItem[];
+    fullSnapshot: boolean;
+    id: ID;
+    locator?: string;
+    remove?: SnapshotItem | SnapshotItem[];
+}
+
+export type SyncOfflineDataResult = {
+    lastConfigChange: Date;
+    lastFullQuery: Date;
+    lastQuery: Date;
+    lastReset: Date;
+    removed?: ID | ID[];
+    timestamp: Date;
+    token: string;
+    updates: QueryResult;
+}
+
+export type EmailSyncAdvancedSetting = {
+    name: string;
+    type: string;
+    value: string;
+}
+
+export type EmailSyncEntity = {
+    clientFolderName?: string;
+    conflictResolution: EmailSyncConflictResolution;
+    dataSetFilter?: string;
+    fieldMapping?: EmailSyncFieldMapping | EmailSyncFieldMapping[];
+    matchPreference?: EmailSyncMatchPreference;
+    name: string;
+    recordTypeId?: ID;
+    syncDirection: EmailSyncDirection;
+    syncFollowed: boolean;
+}
+
+export type EmailSyncFieldMapping = {
+    clientName: string;
+    clientType: EmailSyncClientFieldType;
+    name: string;
+    type: fieldType;
+    usedForMatching: boolean;
+    valueMapping?: EmailSyncFieldValueMapping | EmailSyncFieldValueMapping[];
+}
+
+export type EmailSyncFieldValueMapping = {
+    clientValue: string;
+    value: string;
+}
+
+export type EmailSyncRoutingAddress = {
+    emailAddress: string;
+    fromAddressFilter?: string | string[];
+    name: string;
+}
+
+export type DescribeEmailSyncSettings = {
+    addCase: boolean;
+    addEmail: boolean;
+    addEmailAttachment: boolean;
+    advancedSetting?: EmailSyncAdvancedSetting | EmailSyncAdvancedSetting[];
+    attachmentSizeLimit?: number;
+    automaticallySyncOutlookObjects: boolean;
+    cannotChangeClientSyncSetting: boolean;
+    clientVersionNumber?: string;
+    emailToCaseRoutingAddress?: EmailSyncRoutingAddress | EmailSyncRoutingAddress[];
+    entitySetting?: EmailSyncEntity | EmailSyncEntity[];
+    expandedRecurringEventSyncWindow: boolean;
+    isSyncThrottlingEnabled: boolean;
+    logActivityEmailAddress?: string;
+    personAccountRecordTypeId?: ID;
+    recurringEvents: boolean;
+    recurringTasks: boolean;
+    showPersonAccountsAsAccounts: boolean;
+    showPersonAccountsAsContacts: boolean;
+    sidePanel: boolean;
+    upgradeNotification: boolean;
+}
+
+export type DescribeMobileResult = {
+    configured: boolean;
+    defaultConfiguration: boolean;
+    emailSyncSettings?: DescribeEmailSyncSettings;
+    feedEnabledObjects?: DescribeMobileSObject | DescribeMobileSObject[];
+    mobileSObject?: DescribeMobileSObject | DescribeMobileSObject[];
+    mobileSettings?: DescribeMobileSettings;
+    mobileView?: DescribeMobileView | DescribeMobileView[];
+    mobileViewDispColumn?: DescribeMobileViewDispColumn | DescribeMobileViewDispColumn[];
+    mobileViewFilter?: DescribeMobileViewFilter | DescribeMobileViewFilter[];
+    mobileViewSortOrder?: DescribeMobileViewSortOrder | DescribeMobileViewSortOrder[];
+    tabSet?: DescribeTabSetResult | DescribeTabSetResult[];
+}
+
+export type DescribeMobileSObject = {
+    iconUrl?: string;
+    layout?: DescribeLayoutResult;
+    searchLayout?: DescribeSearchLayoutResult;
+    sobject: DescribeSObjectResult;
+}
+
+export type DescribeMobileView = {
+    SObject: string;
+    matchAll: boolean;
+    name: string;
+    viewId: ID;
+}
+
+export type DescribeMobileViewDispColumn = {
+    column: number;
+    field: string;
+    viewId: ID;
+}
+
+export type DescribeMobileViewFilter = {
+    field: string;
+    operator: string;
+    value: string;
+    viewId: ID;
+}
+
+export type DescribeMobileViewSortOrder = {
+    ascending: boolean;
+    field: string;
+    order: number;
+    viewId: ID;
+}
+
+export type DescribeMobileSettings = {
+    lockUserToMobileDevice: boolean;
+    mappingURL: string;
+    maxTextFieldSize?: number;
+    mobileDeviceHelpUrl?: string;
+    mobileLite: boolean;
+    mobilizeFollowed: boolean;
+    multiDayEventsEnabled: boolean;
+}
+
+export type RenderEmailTemplateRequest = {
+    escapeHtmlInMergeFields?: boolean;
+    templateBodies: string;
+    whatId?: ID;
+    whoId?: ID;
+}
+
+export type RenderEmailTemplateBodyResult = {
+    errors?: RenderEmailTemplateError | RenderEmailTemplateError[];
+    mergedBody?: string;
+    success: boolean;
+}
+
+export type RenderEmailTemplateResult = {
+    bodyResults?: RenderEmailTemplateBodyResult;
+    errors?: Error | Error[];
+    success: boolean;
+}
+
+export type RenderStoredEmailTemplateRequest = {
+    attachmentRetrievalOption?: AttachmentRetrievalOption;
+    templateId: ID;
+    updateTemplateUsage?: boolean;
+    whatId?: ID;
+    whoId?: ID;
+}
+
+export type RenderStoredEmailTemplateResult = {
+    errors?: Error | Error[];
+    renderedEmail?: SingleEmailMessage;
+    success: boolean;
+}
+
+export type Fact = {
+    fact: MetadataVersionCheckFact;
+    subject: string;
+    token: string;
+}
+
+export type LogInfo = {
+    category: LogCategory;
+    level: LogCategoryLevel;
+}
+
+export type PackageVersion = {
+    majorNumber: number;
+    minorNumber: number;
+    namespace: string;
+}
+
+export type LimitInfo = {
+    appName?: string;
+    current: number;
+    limit: number;
+    type: string;
+}
+
+export type MatchOptions = {
+    fields: string;
+    matchEngine: string;
+    maxMatchResults: number;
+    minMatchConfidence: number;
+    rule: string;
+    sObjectType: string;
+}
+
+export type OwnerChangeOption = {
+    type: OwnerChangeOptionType;
+    execute: boolean;
+}
 
 export type ApiFault = {
     exceptionCode: ExceptionCode;
@@ -4898,38 +4898,38 @@ export type ApiFault = {
     upgradeMessage?: string;
 }
 
-export type ApiQueryFault = ApiFault & {
+export type ApiQueryFault = ApiFault &  {
     row: number;
     column: number;
 }
 
-export type LoginFault = ApiFault & {
+export type LoginFault = ApiFault &  {
 }
 
-export type InvalidQueryLocatorFault = ApiFault & {
+export type InvalidQueryLocatorFault = ApiFault &  {
 }
 
-export type InvalidNewPasswordFault = ApiFault & {
+export type InvalidNewPasswordFault = ApiFault &  {
 }
 
-export type InvalidOldPasswordFault = ApiFault & {
+export type InvalidOldPasswordFault = ApiFault &  {
 }
 
-export type InvalidIdFault = ApiFault & {
+export type InvalidIdFault = ApiFault &  {
 }
 
-export type UnexpectedErrorFault = ApiFault & {
+export type UnexpectedErrorFault = ApiFault &  {
 }
 
-export type InvalidFieldFault = ApiQueryFault & {
+export type InvalidFieldFault = ApiQueryFault &  {
 }
 
-export type InvalidSObjectFault = ApiQueryFault & {
+export type InvalidSObjectFault = ApiQueryFault &  {
 }
 
-export type MalformedQueryFault = ApiQueryFault & {
+export type MalformedQueryFault = ApiQueryFault &  {
 }
 
-export type MalformedSearchFault = ApiQueryFault & {
+export type MalformedSearchFault = ApiQueryFault &  {
 }
 

@@ -70,6 +70,85 @@ export type LogType = 'None'
 
 export type ID = string;
 
+export type AllowFieldTruncationHeader = {
+    allowFieldTruncation: boolean;
+}
+
+export type CallOptions = {
+    client: string;
+    perfOption: PerfOption;
+    uiRequestId: string;
+}
+
+export type DebuggingHeader = {
+    categories?: LogInfo | LogInfo[];
+    debugLevel: LogType;
+}
+
+export type DebuggingInfo = {
+    debugLog: string;
+}
+
+export type DisableFeedTrackingHeader = {
+    disableFeedTracking: boolean;
+}
+
+export type PackageVersionHeader = {
+    packageVersions?: PackageVersion | PackageVersion[];
+}
+
+export type SessionHeader = {
+    sessionId: string;
+}
+
+export type compileAndTest = {
+    CompileAndTestRequest: CompileAndTestRequest;
+}
+
+export type compileAndTestResponse = {
+    result: CompileAndTestResult;
+}
+
+export type compileClasses = {
+    scripts?: string | string[];
+}
+
+export type compileClassesResponse = {
+    result?: CompileClassResult | CompileClassResult[];
+}
+
+export type compileTriggers = {
+    scripts?: string | string[];
+}
+
+export type compileTriggersResponse = {
+    result?: CompileTriggerResult | CompileTriggerResult[];
+}
+
+export type executeAnonymous = {
+    String: string;
+}
+
+export type executeAnonymousResponse = {
+    result: ExecuteAnonymousResult;
+}
+
+export type runTests = {
+    RunTestsRequest: RunTestsRequest;
+}
+
+export type runTestsResponse = {
+    result: RunTestsResult;
+}
+
+export type wsdlToApex = {
+    info: WsdlToApexInfo;
+}
+
+export type wsdlToApexResponse = {
+    result: WsdlToApexResult;
+}
+
 export type CompileAndTestRequest = {
     checkOnly: boolean;
     classes?: string | string[];
@@ -250,84 +329,5 @@ export type PackageVersion = {
     majorNumber: number;
     minorNumber: number;
     namespace: string;
-}
-
-export type AllowFieldTruncationHeader = {
-    allowFieldTruncation: boolean;
-}
-
-export type CallOptions = {
-    client: string;
-    perfOption: PerfOption;
-    uiRequestId: string;
-}
-
-export type DebuggingHeader = {
-    categories?: LogInfo | LogInfo[];
-    debugLevel: LogType;
-}
-
-export type DebuggingInfo = {
-    debugLog: string;
-}
-
-export type DisableFeedTrackingHeader = {
-    disableFeedTracking: boolean;
-}
-
-export type PackageVersionHeader = {
-    packageVersions?: PackageVersion | PackageVersion[];
-}
-
-export type SessionHeader = {
-    sessionId: string;
-}
-
-export type compileAndTest = {
-    CompileAndTestRequest: CompileAndTestRequest;
-}
-
-export type compileAndTestResponse = {
-    result: CompileAndTestResult;
-}
-
-export type compileClasses = {
-    scripts?: string | string[];
-}
-
-export type compileClassesResponse = {
-    result?: CompileClassResult | CompileClassResult[];
-}
-
-export type compileTriggers = {
-    scripts?: string | string[];
-}
-
-export type compileTriggersResponse = {
-    result?: CompileTriggerResult | CompileTriggerResult[];
-}
-
-export type executeAnonymous = {
-    String: string;
-}
-
-export type executeAnonymousResponse = {
-    result: ExecuteAnonymousResult;
-}
-
-export type runTests = {
-    RunTestsRequest: RunTestsRequest;
-}
-
-export type runTestsResponse = {
-    result: RunTestsResult;
-}
-
-export type wsdlToApex = {
-    info: WsdlToApexInfo;
-}
-
-export type wsdlToApexResponse = {
-    result: WsdlToApexResult;
 }
 
