@@ -1,4 +1,7 @@
-export type sObject =  {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-interface */
+
+export type sObject = {
     type: string;
     fieldsToNull?: string | string[];
     Id?: ID;
@@ -1516,7 +1519,7 @@ export type OwnerChangeOptionType = 'EnforceNewOwnerHasReadAccess'
 export type RequestOrigin = 'ListViewMetadata' 
       | 'ListViewRecords';
 
-export type address = location &  {
+export type address = location & {
     city?: string;
     country?: string;
     countryCode?: string;
@@ -1527,55 +1530,55 @@ export type address = location &  {
     street?: string;
 }
 
-export type location =  {
+export type location = {
     latitude?: number;
     longitude?: number;
 }
 
-export type QueryResult =  {
+export type QueryResult = {
     done: boolean;
     queryLocator?: QueryLocator;
     records?: sObject | sObject[];
     size: number;
 }
 
-export type SetupBriefcaseResult =  {
+export type SetupBriefcaseResult = {
     briefcaseType: briefcaseType;
 }
 
-export type SearchResult =  {
+export type SearchResult = {
     queryId: string;
     searchRecords?: SearchRecord | SearchRecord[];
     searchResultsMetadata?: SearchResultsMetadata;
 }
 
-export type SearchRecord =  {
+export type SearchRecord = {
     record: sObject;
     searchRecordMetadata?: SearchRecordMetadata;
     snippet?: SearchSnippet;
 }
 
-export type SearchRecordMetadata =  {
+export type SearchRecordMetadata = {
     searchPromoted: boolean;
     spellCorrected: boolean;
 }
 
-export type SearchSnippet =  {
+export type SearchSnippet = {
     text?: string;
     wholeFields?: NameValuePair | NameValuePair[];
 }
 
-export type SearchResultsMetadata =  {
+export type SearchResultsMetadata = {
     entityLabelMetadata?: LabelsSearchMetadata | LabelsSearchMetadata[];
     entityMetadata?: EntitySearchMetadata | EntitySearchMetadata[];
 }
 
-export type LabelsSearchMetadata =  {
+export type LabelsSearchMetadata = {
     entityFieldLabels?: NameValuePair | NameValuePair[];
     entityName: string;
 }
 
-export type EntitySearchMetadata =  {
+export type EntitySearchMetadata = {
     entityName: string;
     errorMetadata?: EntityErrorMetadata;
     fieldMetadata?: FieldLevelSearchMetadata | FieldLevelSearchMetadata[];
@@ -1584,92 +1587,92 @@ export type EntitySearchMetadata =  {
     spellCorrectionMetadata?: EntitySpellCorrectionMetadata;
 }
 
-export type FieldLevelSearchMetadata =  {
+export type FieldLevelSearchMetadata = {
     label?: string;
     name: string;
     type?: string;
 }
 
-export type EntitySpellCorrectionMetadata =  {
+export type EntitySpellCorrectionMetadata = {
     correctedQuery: string;
     hasNonCorrectedResults: boolean;
 }
 
-export type EntitySearchPromotionMetadata =  {
+export type EntitySearchPromotionMetadata = {
     promotedResultCount: number;
 }
 
-export type EntityIntentQueryMetadata =  {
+export type EntityIntentQueryMetadata = {
     intentQuery: boolean;
     message?: string;
 }
 
-export type EntityErrorMetadata =  {
+export type EntityErrorMetadata = {
     errorCode?: string;
     message?: string;
 }
 
-export type RelationshipReferenceTo =  {
+export type RelationshipReferenceTo = {
     referenceTo?: string | string[];
 }
 
-export type RecordTypesSupported =  {
+export type RecordTypesSupported = {
     recordTypeInfos?: RecordTypeInfo | RecordTypeInfo[];
 }
 
-export type JunctionIdListNames =  {
+export type JunctionIdListNames = {
     names?: string | string[];
 }
 
-export type SearchLayoutButtonsDisplayed =  {
+export type SearchLayoutButtonsDisplayed = {
     applicable: boolean;
     buttons?: SearchLayoutButton | SearchLayoutButton[];
 }
 
-export type SearchLayoutButton =  {
+export type SearchLayoutButton = {
     apiName: string;
     label: string;
 }
 
-export type SearchLayoutFieldsDisplayed =  {
+export type SearchLayoutFieldsDisplayed = {
     applicable: boolean;
     fields?: SearchLayoutField | SearchLayoutField[];
 }
 
-export type SearchLayoutField =  {
+export type SearchLayoutField = {
     apiName: string;
     label: string;
     sortable: boolean;
 }
 
-export type NameValuePair =  {
+export type NameValuePair = {
     name: string;
     value: string;
 }
 
-export type NameObjectValuePair =  {
+export type NameObjectValuePair = {
     isVisible?: boolean;
     name: string;
     value: any | any[];
 }
 
-export type NameValueTypeTriple =  {
+export type NameValueTypeTriple = {
     name: string;
     type: string;
     value: string;
 }
 
-export type SimpleNameObjectValuePair =  {
+export type SimpleNameObjectValuePair = {
     name: string;
     value: any;
 }
 
-export type FlowInterviewWrapperContext =  {
+export type FlowInterviewWrapperContext = {
     inputs?: SimpleNameObjectValuePair | SimpleNameObjectValuePair[];
     wrapperContextType: string;
 }
 
-export type StartFlowInterviewRequest =  {
+export type StartFlowInterviewRequest = {
     flowName: string;
     inputs?: NameObjectValuePair | NameObjectValuePair[];
     versionId: string;
@@ -1677,7 +1680,7 @@ export type StartFlowInterviewRequest =  {
     wrapperContext?: FlowInterviewWrapperContext;
 }
 
-export type NavigateFlowInterviewRequest =  {
+export type NavigateFlowInterviewRequest = {
     action: string;
     screenInputs?: NameObjectValuePair | NameObjectValuePair[];
     state: string;
@@ -1685,17 +1688,17 @@ export type NavigateFlowInterviewRequest =  {
     lcErrors?: NameValuePair | NameValuePair[];
 }
 
-export type ResumeFlowInterviewRequest =  {
+export type ResumeFlowInterviewRequest = {
     guid: string;
 }
 
-export type RunFlowTestInput =  {
+export type RunFlowTestInput = {
     testIdOrName?: string | string[];
     showTrace?: boolean;
     flowVersionId: string;
 }
 
-export type RunFlowTestResult =  {
+export type RunFlowTestResult = {
     assertionResults?: FlowTestAssertionResult | FlowTestAssertionResult[];
     endDateTime: Date;
     flowTestId: string;
@@ -1707,59 +1710,59 @@ export type RunFlowTestResult =  {
     trace: string;
 }
 
-export type GetFlowInterviewHistoryRequest =  {
+export type GetFlowInterviewHistoryRequest = {
     debug?: FlowInterviewDebugInput;
     guid: string;
 }
 
-export type FlowAccessInput =  {
+export type FlowAccessInput = {
     flowEnumOrDefId: string;
     flowVersionId: string;
     isBasedOnCommUserAccessCheck: boolean;
 }
 
-export type CanViewFlowResult =  {
+export type CanViewFlowResult = {
     canView: boolean;
     errors?: Error | Error[];
 }
 
-export type FlowInterviewAction =  {
+export type FlowInterviewAction = {
     id: string;
     label: string;
 }
 
-export type FlowTest =  {
+export type FlowTest = {
     description?: string;
     label: string;
     referenceFlow: string;
     testPoints?: FlowTestPoint | FlowTestPoint[];
 }
 
-export type FlowTestPoint =  {
+export type FlowTestPoint = {
     asserts?: FlowTestAssert | FlowTestAssert[];
     elementDeveloperName: string;
     parameters?: FlowTestParameter | FlowTestParameter[];
 }
 
-export type FlowTestAssert =  {
+export type FlowTestAssert = {
     assertErrorMessage?: string;
     conditions?: FlowTestCondition | FlowTestCondition[];
 }
 
-export type FlowTestAssertionResult =  {
+export type FlowTestAssertionResult = {
     conditionsText?: string | string[];
     failMessage: string;
     errorMessage: string;
     status?: string;
 }
 
-export type FlowTestCondition =  {
+export type FlowTestCondition = {
     leftValueReference: string;
     Operator?: string;
     rightValue?: FlowTestReferenceOrValue;
 }
 
-export type FlowTestReferenceOrValue =  {
+export type FlowTestReferenceOrValue = {
     booleanValue?: boolean;
     dateTimeValue?: Date;
     dateValue?: Date;
@@ -1768,17 +1771,17 @@ export type FlowTestReferenceOrValue =  {
     stringValue?: string;
 }
 
-export type FlowTestParameter =  {
+export type FlowTestParameter = {
     leftValueReference: string;
     type: string;
     value: FlowTestReferenceOrValue;
 }
 
-export type GenerateFlowTestResult =  {
+export type GenerateFlowTestResult = {
     flowTest?: FlowTest;
 }
 
-export type NavigateFlowInterviewResult =  {
+export type NavigateFlowInterviewResult = {
     activeStages?: FlowInterviewStage | FlowInterviewStage[];
     apiVersionRuntime?: number;
     availableActions?: FlowInterviewAction | FlowInterviewAction[];
@@ -1807,7 +1810,7 @@ export type NavigateFlowInterviewResult =  {
     state?: string;
 }
 
-export type FlowInterviewScreenField =  {
+export type FlowInterviewScreenField = {
     choices?: FlowInterviewChoice | FlowInterviewChoice[];
     contextMap?: NameValuePair | NameValuePair[];
     dataType: string;
@@ -1837,13 +1840,13 @@ export type FlowInterviewScreenField =  {
     visibilityRule: string;
 }
 
-export type FlowInterviewReactiveTrigger =  {
+export type FlowInterviewReactiveTrigger = {
     eventHandlers?: FlowInterviewReactiveHandler | FlowInterviewReactiveHandler[];
     eventName: string;
     eventSources?: string | string[];
 }
 
-export type FlowInterviewReactiveHandler =  {
+export type FlowInterviewReactiveHandler = {
     actionName: string;
     actionType: string;
     conditionContextMap?: NameValueTypeTriple | NameValueTypeTriple[];
@@ -1853,7 +1856,7 @@ export type FlowInterviewReactiveHandler =  {
     lockLevel: string;
 }
 
-export type FlowInterviewReactiveAction =  {
+export type FlowInterviewReactiveAction = {
     actionName: string;
     actionType: string;
     inputs?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
@@ -1862,14 +1865,14 @@ export type FlowInterviewReactiveAction =  {
     prefillValues?: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
 }
 
-export type FlowInterviewReactiveAssignment =  {
+export type FlowInterviewReactiveAssignment = {
     assigmentType: string;
     name: string;
     source: string;
     target: string;
 }
 
-export type FlowInterviewReactiveDataProvider =  {
+export type FlowInterviewReactiveDataProvider = {
     filterLogic: string;
     filters?: FlowInterviewReactiveDataProviderFilter | FlowInterviewReactiveDataProviderFilter[];
     initBehavior: string;
@@ -1882,7 +1885,7 @@ export type FlowInterviewReactiveDataProvider =  {
     sortOrder: string;
 }
 
-export type FlowInterviewReactiveDataProviderFilter =  {
+export type FlowInterviewReactiveDataProviderFilter = {
     isRhsReference: boolean;
     lhsFieldName: string;
     operator: string;
@@ -1890,7 +1893,7 @@ export type FlowInterviewReactiveDataProviderFilter =  {
     rhsValue?: string;
 }
 
-export type FlowInterviewReactiveFormula =  {
+export type FlowInterviewReactiveFormula = {
     contextMap?: NameValueTypeTriple | NameValueTypeTriple[];
     expression: string;
     formulaType: string;
@@ -1900,7 +1903,7 @@ export type FlowInterviewReactiveFormula =  {
     valueSources?: string | string[];
 }
 
-export type FlowInterviewScreenFieldInput =  {
+export type FlowInterviewScreenFieldInput = {
     dataType: string;
     isCollection: boolean;
     name: string;
@@ -1909,14 +1912,14 @@ export type FlowInterviewScreenFieldInput =  {
     valueSources?: string | string[];
 }
 
-export type FlowInterviewScreenFieldOutput =  {
+export type FlowInterviewScreenFieldOutput = {
     dataType: string;
     isCollection: boolean;
     name: string;
     objectType?: string;
 }
 
-export type FlowInterviewLocalActionInput =  {
+export type FlowInterviewLocalActionInput = {
     dataType: string;
     isCollection: boolean;
     name: string;
@@ -1924,26 +1927,26 @@ export type FlowInterviewLocalActionInput =  {
     value: any | any[];
 }
 
-export type FlowInterviewLocalActionOutput =  {
+export type FlowInterviewLocalActionOutput = {
     dataType: string;
     isCollection: boolean;
     name: string;
     objectType?: string;
 }
 
-export type FlowInterviewMetadataValue =  {
+export type FlowInterviewMetadataValue = {
     name: string;
     value: any | any[];
 }
 
-export type FlowInterviewReactiveChoiceSource =  {
+export type FlowInterviewReactiveChoiceSource = {
     dataType: string;
     labelFieldName: string;
     sourceElement: string;
     valueFieldName: string;
 }
 
-export type FlowInterviewChoice =  {
+export type FlowInterviewChoice = {
     choiceSource?: FlowInterviewReactiveChoiceSource;
     choiceValue?: string;
     isSelected: boolean;
@@ -1953,7 +1956,7 @@ export type FlowInterviewChoice =  {
     userInput?: FlowInterviewChoiceUserInput;
 }
 
-export type FlowInterviewChoiceUserInput =  {
+export type FlowInterviewChoiceUserInput = {
     dataType: string;
     errorMessages?: string | string[];
     isRequired: boolean;
@@ -1963,7 +1966,7 @@ export type FlowInterviewChoiceUserInput =  {
     value?: any;
 }
 
-export type FlowInterviewOutputVariable =  {
+export type FlowInterviewOutputVariable = {
     dataType: string;
     description?: string;
     isCollection: boolean;
@@ -1973,12 +1976,12 @@ export type FlowInterviewOutputVariable =  {
     value: any | any[];
 }
 
-export type FlowInterviewStage =  {
+export type FlowInterviewStage = {
     label: string;
     name: string;
 }
 
-export type FlowInterviewDebugInput =  {
+export type FlowInterviewDebugInput = {
     collectApexLimitUsage?: boolean;
     debugAsUserId?: string;
     debugWaitInput?: FlowInterviewDebugWaitInput;
@@ -1989,22 +1992,22 @@ export type FlowInterviewDebugInput =  {
     useLatestSubflow?: boolean;
 }
 
-export type FlowInterviewDebugWaitInput =  {
+export type FlowInterviewDebugWaitInput = {
     eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
     waitEventName?: string;
 }
 
-export type FlowInterviewDebugOutput =  {
+export type FlowInterviewDebugOutput = {
     trace?: string;
     waitDebugOutput?: FlowInterviewDebugWaitOutput | FlowInterviewDebugWaitOutput[];
 }
 
-export type FlowInterviewDebugWaitOutput =  {
+export type FlowInterviewDebugWaitOutput = {
     eventOutputs?: NameObjectValuePair | NameObjectValuePair[];
     waitEventName?: string;
 }
 
-export type FlowInterviewObjectFieldReference =  {
+export type FlowInterviewObjectFieldReference = {
     objectFieldName?: string;
     objectName?: string;
     objectResourceName?: string;
@@ -2012,33 +2015,33 @@ export type FlowInterviewObjectFieldReference =  {
     recordTypeId?: string;
 }
 
-export type ClaimsMapping =  {
+export type ClaimsMapping = {
     claimKey: string;
     claimValue: string;
 }
 
-export type GetUpdatedResult =  {
+export type GetUpdatedResult = {
     ids?: ID | ID[];
     latestDateCovered: Date;
 }
 
-export type GetDeletedResult =  {
+export type GetDeletedResult = {
     deletedRecords?: DeletedRecord | DeletedRecord[];
     earliestDateAvailable: Date;
     latestDateCovered: Date;
 }
 
-export type DeletedRecord =  {
+export type DeletedRecord = {
     deletedDate: Date;
     id: ID;
 }
 
-export type OutlookSearchResult =  {
+export type OutlookSearchResult = {
     records?: sObject | sObject[];
     size: number;
 }
 
-export type OutlookDescribeResult =  {
+export type OutlookDescribeResult = {
     inboundEmailType?: string;
     outboundEmailType?: string;
     priority?: string;
@@ -2046,42 +2049,42 @@ export type OutlookDescribeResult =  {
     status?: string;
 }
 
-export type GetServerTimestampResult =  {
+export type GetServerTimestampResult = {
     timestamp: Date;
 }
 
-export type ImpersonateUserResult =  {
+export type ImpersonateUserResult = {
     errors?: Error | Error[];
     sessionId?: string;
     success: boolean;
     userId?: ID;
 }
 
-export type InvalidateSessionsResult =  {
+export type InvalidateSessionsResult = {
     errors?: Error | Error[];
     success: boolean;
 }
 
-export type SetPasswordResult =  {
+export type SetPasswordResult = {
 }
 
-export type ChangeOwnPasswordResult =  {
+export type ChangeOwnPasswordResult = {
 }
 
-export type ResetPasswordResult =  {
+export type ResetPasswordResult = {
     password: string;
 }
 
-export type GetAccessInfoResult =  {
+export type GetAccessInfoResult = {
     accessMap?: AccessMapping | AccessMapping[];
 }
 
-export type AccessMapping =  {
+export type AccessMapping = {
     accessName: string;
     accessible: boolean;
 }
 
-export type GetUserInfoResult =  {
+export type GetUserInfoResult = {
     accessibilityMode: boolean;
     chatterExternal: boolean;
     currencySymbol?: string;
@@ -2109,7 +2112,7 @@ export type GetUserInfoResult =  {
     userUiSkin: string;
 }
 
-export type LoginResult =  {
+export type LoginResult = {
     metadataServerUrl?: string;
     passwordExpired: boolean;
     sandbox: boolean;
@@ -2121,45 +2124,45 @@ export type LoginResult =  {
     userInfo?: GetUserInfoResult;
 }
 
-export type ExtendedErrorDetails =  {
+export type ExtendedErrorDetails = {
     extendedErrorCode: ExtendedErrorCode;
 }
 
-export type Error =  {
+export type Error = {
     extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
     fields?: string | string[];
     message: string;
     statusCode: StatusCode;
 }
 
-export type SendEmailError =  {
+export type SendEmailError = {
     fields?: string | string[];
     message: string;
     statusCode: StatusCode;
     targetObjectId?: ID;
 }
 
-export type SaveResult =  {
+export type SaveResult = {
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type RenderEmailTemplateError =  {
+export type RenderEmailTemplateError = {
     fieldName: string;
     message: string;
     offset: number;
     statusCode: StatusCode;
 }
 
-export type UpsertResult =  {
+export type UpsertResult = {
     created: boolean;
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type PerformQuickActionResult =  {
+export type PerformQuickActionResult = {
     contextId?: ID;
     created: boolean;
     errors?: Error | Error[];
@@ -2169,7 +2172,7 @@ export type PerformQuickActionResult =  {
     successMessage?: string;
 }
 
-export type QuickActionTemplateResult =  {
+export type QuickActionTemplateResult = {
     contextId?: string;
     defaultValueFormulas?: sObject;
     defaultValues?: sObject;
@@ -2177,13 +2180,13 @@ export type QuickActionTemplateResult =  {
     success: boolean;
 }
 
-export type MergeRequest =  {
+export type MergeRequest = {
     additionalInformationMap?: AdditionalInformationMap | AdditionalInformationMap[];
     masterRecord: sObject;
     recordToMergeIds: ID | ID[];
 }
 
-export type MergeResult =  {
+export type MergeResult = {
     errors?: Error | Error[];
     id?: ID;
     mergedRecordIds?: ID | ID[];
@@ -2191,37 +2194,37 @@ export type MergeResult =  {
     updatedRelatedIds?: ID | ID[];
 }
 
-export type ProcessRequest =  {
+export type ProcessRequest = {
     comments?: string;
     nextApproverIds?: ID | ID[];
 }
 
-export type ProcessSubmitRequest = ProcessRequest &  {
+export type ProcessSubmitRequest = ProcessRequest & {
     objectId: ID;
     submitterId?: ID;
     processDefinitionNameOrId?: string;
     skipEntryCriteria?: boolean;
 }
 
-export type ProcessWorkitemRequest = ProcessRequest &  {
+export type ProcessWorkitemRequest = ProcessRequest & {
     action: string;
     workitemId: ID;
 }
 
-export type PerformQuickActionRequest =  {
+export type PerformQuickActionRequest = {
     contextId?: ID;
     quickActionName: string;
     records?: sObject | sObject[];
 }
 
-export type DescribeAvailableQuickActionResult =  {
+export type DescribeAvailableQuickActionResult = {
     actionEnumOrId: string;
     label: string;
     name: string;
     type: string;
 }
 
-export type DescribeQuickActionResult =  {
+export type DescribeQuickActionResult = {
     accessLevelRequired?: ShareAccessLevel;
     actionEnumOrId: string;
     canvasApplicationId?: ID;
@@ -2257,20 +2260,20 @@ export type DescribeQuickActionResult =  {
     width?: number;
 }
 
-export type DescribeQuickActionDefaultValue =  {
+export type DescribeQuickActionDefaultValue = {
     defaultValue?: string;
     field: string;
 }
 
-export type DescribeVisualForceResult =  {
+export type DescribeVisualForceResult = {
     domain: string;
 }
 
-export type ProcessArticleRequest = ProcessWorkitemRequest &  {
+export type ProcessArticleRequest = ProcessWorkitemRequest & {
     version: string;
 }
 
-export type ProcessResult =  {
+export type ProcessResult = {
     actorIds?: ID | ID[];
     entityId?: ID;
     errors?: Error | Error[];
@@ -2280,7 +2283,7 @@ export type ProcessResult =  {
     success: boolean;
 }
 
-export type DescribeWorkitemActionResult =  {
+export type DescribeWorkitemActionResult = {
     actions?: AllowedWorkitemAction | AllowedWorkitemAction[];
     errors?: Error | Error[];
     success: boolean;
@@ -2288,7 +2291,7 @@ export type DescribeWorkitemActionResult =  {
     workitemId: ID;
 }
 
-export type AllowedWorkitemAction =  {
+export type AllowedWorkitemAction = {
     versionRequired: boolean;
     commentsRequired: boolean;
     label: string;
@@ -2296,32 +2299,32 @@ export type AllowedWorkitemAction =  {
     nextOwnerRequired: boolean;
 }
 
-export type DeleteResult =  {
+export type DeleteResult = {
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type UndeleteResult =  {
+export type UndeleteResult = {
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type DeleteByExampleResult =  {
+export type DeleteByExampleResult = {
     entity?: sObject;
     errors?: Error | Error[];
     rowCount: number;
     success: boolean;
 }
 
-export type EmptyRecycleBinResult =  {
+export type EmptyRecycleBinResult = {
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type LeadConvert =  {
+export type LeadConvert = {
     accountId?: ID;
     accountRecord?: sObject;
     bypassAccountDedupeCheck?: boolean;
@@ -2341,7 +2344,7 @@ export type LeadConvert =  {
     sendNotificationEmail: boolean;
 }
 
-export type LeadConvertResult =  {
+export type LeadConvertResult = {
     accountId?: ID;
     contactId?: ID;
     errors?: Error | Error[];
@@ -2351,7 +2354,7 @@ export type LeadConvertResult =  {
     success: boolean;
 }
 
-export type AddCampaignMemberOptions =  {
+export type AddCampaignMemberOptions = {
     campaignId?: ID;
     keepExistingStatus: boolean;
     leadOrContactIds?: ID;
@@ -2360,7 +2363,7 @@ export type AddCampaignMemberOptions =  {
     reportMetadata: string;
 }
 
-export type AddCampaignMemberResult =  {
+export type AddCampaignMemberResult = {
     errors?: Error | Error[];
     numInserts: number;
     numUpdates: number;
@@ -2368,7 +2371,7 @@ export type AddCampaignMemberResult =  {
     success: boolean;
 }
 
-export type DescribeSObjectResult =  {
+export type DescribeSObjectResult = {
     actionOverrides?: ActionOverride | ActionOverride[];
     activateable: boolean;
     associateEntityType?: string;
@@ -2417,19 +2420,19 @@ export type DescribeSObjectResult =  {
     urlNew?: string;
 }
 
-export type DescribePicklistResult =  {
+export type DescribePicklistResult = {
     defaultValue?: PicklistEntry;
     multiSelectable: boolean;
     picklistValues?: PicklistEntry | PicklistEntry[];
 }
 
-export type DescribePicklistsParam =  {
+export type DescribePicklistsParam = {
     entityName: string;
     fieldNames: string;
     recordTypeId?: string;
 }
 
-export type DescribeGlobalSObjectResult =  {
+export type DescribeGlobalSObjectResult = {
     activateable: boolean;
     associateEntityType?: string;
     associateParentEntity?: string;
@@ -2461,7 +2464,7 @@ export type DescribeGlobalSObjectResult =  {
     updateable: boolean;
 }
 
-export type ChildRelationship =  {
+export type ChildRelationship = {
     cascadeDelete: boolean;
     childSObject: string;
     deprecatedAndHidden: boolean;
@@ -2472,32 +2475,32 @@ export type ChildRelationship =  {
     restrictedDelete?: boolean;
 }
 
-export type DescribeGlobalResult =  {
+export type DescribeGlobalResult = {
     encoding?: string;
     maxBatchSize: number;
     sobjects?: DescribeGlobalSObjectResult | DescribeGlobalSObjectResult[];
 }
 
-export type DescribeGlobalTheme =  {
+export type DescribeGlobalTheme = {
     global: DescribeGlobalResult;
     theme: DescribeThemeResult;
 }
 
-export type DiscoverSchemasResult =  {
+export type DiscoverSchemasResult = {
     schemas?: Schema | Schema[];
 }
 
-export type Schema =  {
+export type Schema = {
     name: string;
 }
 
-export type DescribeSchemaResult =  {
+export type DescribeSchemaResult = {
     fields?: SchemaField | SchemaField[];
     keyPrefix?: string;
     name: string;
 }
 
-export type SchemaField =  {
+export type SchemaField = {
     digits: number;
     length: number;
     name: string;
@@ -2508,20 +2511,20 @@ export type SchemaField =  {
     unique: boolean;
 }
 
-export type ScopeInfo =  {
+export type ScopeInfo = {
     label: string;
     name: string;
 }
 
-export type DurableIdList =  {
+export type DurableIdList = {
     ids?: string | string[];
 }
 
-export type StringList =  {
+export type StringList = {
     values?: string | string[];
 }
 
-export type ChangeEventHeader =  {
+export type ChangeEventHeader = {
     entityName: string;
     recordIds: string | string[];
     commitTimestamp: number;
@@ -2536,13 +2539,13 @@ export type ChangeEventHeader =  {
     changedFields?: string | string[];
 }
 
-export type FilteredLookupInfo =  {
+export type FilteredLookupInfo = {
     controllingFields?: string | string[];
     dependent: boolean;
     optionalFilter: boolean;
 }
 
-export type Field =  {
+export type Field = {
     aggregatable: boolean;
     aiPredictionField: boolean;
     autoNumber: boolean;
@@ -2603,7 +2606,7 @@ export type Field =  {
     writeRequiresMasterRead?: boolean;
 }
 
-export type PicklistEntry =  {
+export type PicklistEntry = {
     active: boolean;
     defaultValue: boolean;
     label?: string;
@@ -2611,7 +2614,7 @@ export type PicklistEntry =  {
     value: string;
 }
 
-export type DescribeDataCategoryGroupResult =  {
+export type DescribeDataCategoryGroupResult = {
     categoryCount: number;
     description: string;
     label: string;
@@ -2619,7 +2622,7 @@ export type DescribeDataCategoryGroupResult =  {
     sobject: string;
 }
 
-export type DescribeDataCategoryGroupStructureResult =  {
+export type DescribeDataCategoryGroupStructureResult = {
     description: string;
     label: string;
     name: string;
@@ -2627,18 +2630,18 @@ export type DescribeDataCategoryGroupStructureResult =  {
     topCategories?: DataCategory | DataCategory[];
 }
 
-export type DataCategoryGroupSobjectTypePair =  {
+export type DataCategoryGroupSobjectTypePair = {
     dataCategoryGroupName: string;
     sobject: string;
 }
 
-export type DataCategory =  {
+export type DataCategory = {
     childCategories?: DataCategory | DataCategory[];
     label: string;
     name: string;
 }
 
-export type DescribeDataCategoryMappingResult =  {
+export type DescribeDataCategoryMappingResult = {
     dataCategoryGroupId: string;
     dataCategoryGroupLabel: string;
     dataCategoryGroupName: string;
@@ -2650,40 +2653,40 @@ export type DescribeDataCategoryMappingResult =  {
     mappedField: string;
 }
 
-export type CommonEventResult =  {
+export type CommonEventResult = {
     success: boolean;
 }
 
-export type KnowledgeSettings =  {
+export type KnowledgeSettings = {
     defaultLanguage?: string;
     knowledgeEnabled: boolean;
     languages?: KnowledgeLanguageItem | KnowledgeLanguageItem[];
 }
 
-export type KnowledgeLanguageItem =  {
+export type KnowledgeLanguageItem = {
     active: boolean;
     assigneeId?: string;
     name: string;
 }
 
-export type FieldDiff =  {
+export type FieldDiff = {
     difference: differenceType;
     name: string;
 }
 
-export type AdditionalInformationMap =  {
+export type AdditionalInformationMap = {
     name: string;
     value: string;
 }
 
-export type MatchRecord =  {
+export type MatchRecord = {
     additionalInformation?: AdditionalInformationMap | AdditionalInformationMap[];
     fieldDiffs?: FieldDiff | FieldDiff[];
     matchConfidence: number;
     record: sObject;
 }
 
-export type MatchResult =  {
+export type MatchResult = {
     entityType: string;
     errors?: Error | Error[];
     matchEngine: string;
@@ -2693,7 +2696,7 @@ export type MatchResult =  {
     success: boolean;
 }
 
-export type DuplicateResult =  {
+export type DuplicateResult = {
     allowSave: boolean;
     duplicateRule: string;
     duplicateRuleEntityType: string;
@@ -2701,11 +2704,11 @@ export type DuplicateResult =  {
     matchResults?: MatchResult | MatchResult[];
 }
 
-export type DuplicateError = Error &  {
+export type DuplicateError = Error & {
     duplicateResult: DuplicateResult;
 }
 
-export type DescribeNounResult =  {
+export type DescribeNounResult = {
     caseValues?: NameCaseValue | NameCaseValue[];
     developerName: string;
     gender?: Gender;
@@ -2714,7 +2717,7 @@ export type DescribeNounResult =  {
     startsWith?: StartsWith;
 }
 
-export type NameCaseValue =  {
+export type NameCaseValue = {
     article?: Article;
     caseType?: CaseType;
     number?: GrammaticalNumber;
@@ -2722,20 +2725,20 @@ export type NameCaseValue =  {
     value?: string;
 }
 
-export type ObjectMapping =  {
+export type ObjectMapping = {
     inputObject: string;
     objectMappingFields?: ObjectMappingField | ObjectMappingField[];
     outputObject: string;
 }
 
-export type ObjectMappingField =  {
+export type ObjectMappingField = {
     inputField: string;
     inputLookupObject?: string;
     outputField: string;
     outputLookupObject?: string;
 }
 
-export type DescribeDuplicateRuleResult =  {
+export type DescribeDuplicateRuleResult = {
     actionOnInsert: DuplicateActionType;
     actionOnUpdate: DuplicateActionType;
     active: boolean;
@@ -2750,20 +2753,20 @@ export type DescribeDuplicateRuleResult =  {
     sortOrder: number;
 }
 
-export type DuplicateRuleFilter =  {
+export type DuplicateRuleFilter = {
     booleanFilter: string;
     filterItems?: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
     ruleCritera: string;
 }
 
-export type DuplicateRuleFilterItem =  {
+export type DuplicateRuleFilterItem = {
     field: string;
     operation: string;
     sortOrder: number;
     value: string;
 }
 
-export type DuplicateRuleMatchInfo =  {
+export type DuplicateRuleMatchInfo = {
     entityType: string;
     mapped: boolean;
     matchEngine: string;
@@ -2772,13 +2775,13 @@ export type DuplicateRuleMatchInfo =  {
     objectMapping?: ObjectMapping;
 }
 
-export type FindDuplicatesResult =  {
+export type FindDuplicatesResult = {
     duplicateResults?: DuplicateResult | DuplicateResult[];
     errors?: Error | Error[];
     success: boolean;
 }
 
-export type DescribeFlexiPageResult =  {
+export type DescribeFlexiPageResult = {
     id: ID;
     label: string;
     name: string;
@@ -2789,34 +2792,34 @@ export type DescribeFlexiPageResult =  {
     type: string;
 }
 
-export type DescribeFlexiPageRegion =  {
+export type DescribeFlexiPageRegion = {
     components?: DescribeComponentInstance | DescribeComponentInstance[];
     name: string;
 }
 
-export type DescribeComponentInstance =  {
+export type DescribeComponentInstance = {
     properties?: DescribeComponentInstanceProperty | DescribeComponentInstanceProperty[];
     typeName: string;
     typeNamespace: string;
 }
 
-export type DescribeComponentInstanceProperty =  {
+export type DescribeComponentInstanceProperty = {
     name: string;
     region?: DescribeFlexiPageRegion;
     type?: ComponentInstancePropertyTypeEnum;
     value?: string;
 }
 
-export type FlexipageContext =  {
+export type FlexipageContext = {
     type: FlexipageContextTypeEnum;
     value: string;
 }
 
-export type DescribeAppMenuResult =  {
+export type DescribeAppMenuResult = {
     appMenuItems?: DescribeAppMenuItem | DescribeAppMenuItem[];
 }
 
-export type DescribeAppMenuItem =  {
+export type DescribeAppMenuItem = {
     colors?: DescribeColor | DescribeColor[];
     content: string;
     icons?: DescribeIcon | DescribeIcon[];
@@ -2826,23 +2829,23 @@ export type DescribeAppMenuItem =  {
     url: string;
 }
 
-export type DescribeThemeResult =  {
+export type DescribeThemeResult = {
     themeItems?: DescribeThemeItem | DescribeThemeItem[];
 }
 
-export type DescribeThemeItem =  {
+export type DescribeThemeItem = {
     colors?: DescribeColor | DescribeColor[];
     icons?: DescribeIcon | DescribeIcon[];
     name: string;
 }
 
-export type DescribeSoftphoneLayoutResult =  {
+export type DescribeSoftphoneLayoutResult = {
     callTypes: DescribeSoftphoneLayoutCallType | DescribeSoftphoneLayoutCallType[];
     id: ID;
     name: string;
 }
 
-export type DescribeSoftphoneLayoutCallType =  {
+export type DescribeSoftphoneLayoutCallType = {
     infoFields: DescribeSoftphoneLayoutInfoField | DescribeSoftphoneLayoutInfoField[];
     name: string;
     screenPopOptions?: DescribeSoftphoneScreenPopOption | DescribeSoftphoneScreenPopOption[];
@@ -2850,32 +2853,32 @@ export type DescribeSoftphoneLayoutCallType =  {
     sections?: DescribeSoftphoneLayoutSection | DescribeSoftphoneLayoutSection[];
 }
 
-export type DescribeSoftphoneScreenPopOption =  {
+export type DescribeSoftphoneScreenPopOption = {
     matchType: string;
     screenPopData: string;
     screenPopType: string;
 }
 
-export type DescribeSoftphoneLayoutInfoField =  {
+export type DescribeSoftphoneLayoutInfoField = {
     name: string;
 }
 
-export type DescribeSoftphoneLayoutSection =  {
+export type DescribeSoftphoneLayoutSection = {
     entityApiName: string;
     items: DescribeSoftphoneLayoutItem | DescribeSoftphoneLayoutItem[];
 }
 
-export type DescribeSoftphoneLayoutItem =  {
+export type DescribeSoftphoneLayoutItem = {
     itemApiName: string;
 }
 
-export type DescribeCompactLayoutsResult =  {
+export type DescribeCompactLayoutsResult = {
     compactLayouts: DescribeCompactLayout | DescribeCompactLayout[];
     defaultCompactLayoutId: ID;
     recordTypeCompactLayoutMappings?: RecordTypeCompactLayoutMapping | RecordTypeCompactLayoutMapping[];
 }
 
-export type DescribeCompactLayout =  {
+export type DescribeCompactLayout = {
     actions?: DescribeLayoutButton | DescribeLayoutButton[];
     fieldItems?: DescribeLayoutItem | DescribeLayoutItem[];
     id: ID;
@@ -2885,7 +2888,7 @@ export type DescribeCompactLayout =  {
     objectType: string;
 }
 
-export type RecordTypeCompactLayoutMapping =  {
+export type RecordTypeCompactLayoutMapping = {
     available: boolean;
     compactLayoutId?: ID;
     compactLayoutName: string;
@@ -2893,11 +2896,11 @@ export type RecordTypeCompactLayoutMapping =  {
     recordTypeName: string;
 }
 
-export type DescribePathAssistantsResult =  {
+export type DescribePathAssistantsResult = {
     pathAssistants?: DescribePathAssistant | DescribePathAssistant[];
 }
 
-export type DescribePathAssistant =  {
+export type DescribePathAssistant = {
     active: boolean;
     animationRule?: DescribeAnimationRule | DescribeAnimationRule[];
     apiName: string;
@@ -2908,7 +2911,7 @@ export type DescribePathAssistant =  {
     steps?: DescribePathAssistantStep | DescribePathAssistantStep[];
 }
 
-export type DescribePathAssistantStep =  {
+export type DescribePathAssistantStep = {
     closed: boolean;
     converted: boolean;
     fields?: DescribePathAssistantField | DescribePathAssistantField[];
@@ -2919,14 +2922,14 @@ export type DescribePathAssistantStep =  {
     won: boolean;
 }
 
-export type DescribePathAssistantField =  {
+export type DescribePathAssistantField = {
     apiName: string;
     label: string;
     readOnly: boolean;
     required: boolean;
 }
 
-export type DescribeAnimationRule =  {
+export type DescribeAnimationRule = {
     animationFrequency: string;
     isActive: boolean;
     recordTypeContext: string;
@@ -2935,24 +2938,24 @@ export type DescribeAnimationRule =  {
     targetFieldChangeToValues: string;
 }
 
-export type DescribeApprovalLayoutResult =  {
+export type DescribeApprovalLayoutResult = {
     approvalLayouts?: DescribeApprovalLayout | DescribeApprovalLayout[];
 }
 
-export type DescribeApprovalLayout =  {
+export type DescribeApprovalLayout = {
     id: ID;
     label: string;
     layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
     name: string;
 }
 
-export type DescribeLayoutResult =  {
+export type DescribeLayoutResult = {
     layouts: DescribeLayout | DescribeLayout[];
     recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
     recordTypeSelectorRequired: boolean;
 }
 
-export type DescribeLayout =  {
+export type DescribeLayout = {
     buttonLayoutSection?: DescribeLayoutButtonSection;
     detailLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
     editLayoutSections?: DescribeLayoutSection | DescribeLayoutSection[];
@@ -2967,17 +2970,17 @@ export type DescribeLayout =  {
     saveOptions?: DescribeLayoutSaveOption | DescribeLayoutSaveOption[];
 }
 
-export type DescribeMiniLayoutResult =  {
+export type DescribeMiniLayoutResult = {
     layouts: DescribeLayout | DescribeLayout[];
     recordTypeMappings?: RecordTypeMapping | RecordTypeMapping[];
     recordTypeSelectorRequired: boolean;
 }
 
-export type DescribeQuickActionListResult =  {
+export type DescribeQuickActionListResult = {
     quickActionListItems?: DescribeQuickActionListItemResult | DescribeQuickActionListItemResult[];
 }
 
-export type DescribeQuickActionListItemResult =  {
+export type DescribeQuickActionListItemResult = {
     accessLevelRequired?: ShareAccessLevel;
     colors?: DescribeColor | DescribeColor[];
     iconUrl?: string;
@@ -2989,17 +2992,17 @@ export type DescribeQuickActionListItemResult =  {
     type: string;
 }
 
-export type DescribeLayoutFeedView =  {
+export type DescribeLayoutFeedView = {
     feedFilters?: DescribeLayoutFeedFilter | DescribeLayoutFeedFilter[];
 }
 
-export type DescribeLayoutFeedFilter =  {
+export type DescribeLayoutFeedFilter = {
     label: string;
     name: string;
     type: FeedLayoutFilterType;
 }
 
-export type DescribeLayoutSaveOption =  {
+export type DescribeLayoutSaveOption = {
     defaultValue: boolean;
     isDisplayed: boolean;
     label: string;
@@ -3008,7 +3011,7 @@ export type DescribeLayoutSaveOption =  {
     soapHeaderName: string;
 }
 
-export type DescribeLayoutSection =  {
+export type DescribeLayoutSection = {
     collapsed: boolean;
     columns: number;
     heading?: string;
@@ -3021,16 +3024,16 @@ export type DescribeLayoutSection =  {
     useHeading: boolean;
 }
 
-export type DescribeLayoutButtonSection =  {
+export type DescribeLayoutButtonSection = {
     detailButtons: DescribeLayoutButton | DescribeLayoutButton[];
 }
 
-export type DescribeLayoutRow =  {
+export type DescribeLayoutRow = {
     layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
     numItems: number;
 }
 
-export type DescribeLayoutItem =  {
+export type DescribeLayoutItem = {
     editableForNew: boolean;
     editableForUpdate: boolean;
     label?: string;
@@ -3039,7 +3042,7 @@ export type DescribeLayoutItem =  {
     required: boolean;
 }
 
-export type DescribeLayoutButton =  {
+export type DescribeLayoutButton = {
     behavior?: WebLinkWindowType;
     colors?: DescribeColor | DescribeColor[];
     content?: string;
@@ -3062,23 +3065,23 @@ export type DescribeLayoutButton =  {
     windowPosition?: WebLinkPosition;
 }
 
-export type DescribeLayoutComponent =  {
+export type DescribeLayoutComponent = {
     displayLines: number;
     tabOrder: number;
     type: layoutComponentType;
     value?: string;
 }
 
-export type FieldComponent = DescribeLayoutComponent &  {
+export type FieldComponent = DescribeLayoutComponent & {
     field: Field;
 }
 
-export type FieldLayoutComponent = DescribeLayoutComponent &  {
+export type FieldLayoutComponent = DescribeLayoutComponent & {
     components?: DescribeLayoutComponent | DescribeLayoutComponent[];
     fieldType: fieldType;
 }
 
-export type VisualforcePage = DescribeLayoutComponent &  {
+export type VisualforcePage = DescribeLayoutComponent & {
     showLabel: boolean;
     showScrollbars: boolean;
     suggestedHeight: string;
@@ -3086,7 +3089,7 @@ export type VisualforcePage = DescribeLayoutComponent &  {
     url: string;
 }
 
-export type Canvas = DescribeLayoutComponent &  {
+export type Canvas = DescribeLayoutComponent & {
     displayLocation: string;
     referenceId: string;
     showLabel: boolean;
@@ -3095,7 +3098,7 @@ export type Canvas = DescribeLayoutComponent &  {
     suggestedWidth: string;
 }
 
-export type ReportChartComponent = DescribeLayoutComponent &  {
+export type ReportChartComponent = DescribeLayoutComponent & {
     cacheData: boolean;
     contextFilterableField: string;
     error: string;
@@ -3105,7 +3108,7 @@ export type ReportChartComponent = DescribeLayoutComponent &  {
     size: ReportChartSize;
 }
 
-export type AnalyticsCloudComponent = DescribeLayoutComponent &  {
+export type AnalyticsCloudComponent = DescribeLayoutComponent & {
     error: string;
     filter: string;
     height: string;
@@ -3115,25 +3118,25 @@ export type AnalyticsCloudComponent = DescribeLayoutComponent &  {
     width: string;
 }
 
-export type FieldCriteria =  {
+export type FieldCriteria = {
     criteria?: FieldCriterion | FieldCriterion[];
 }
 
-export type FieldCriterion =  {
+export type FieldCriterion = {
     columnName: string;
     operand: string;
     operator: string;
 }
 
-export type CustomLinkComponent = DescribeLayoutComponent &  {
+export type CustomLinkComponent = DescribeLayoutComponent & {
     customLink: DescribeLayoutButton;
 }
 
-export type NamedLayoutInfo =  {
+export type NamedLayoutInfo = {
     name: string;
 }
 
-export type RecordTypeInfo =  {
+export type RecordTypeInfo = {
     active: boolean;
     available: boolean;
     defaultRecordTypeMapping: boolean;
@@ -3143,7 +3146,7 @@ export type RecordTypeInfo =  {
     recordTypeId?: ID;
 }
 
-export type RecordTypeMapping =  {
+export type RecordTypeMapping = {
     active: boolean;
     available: boolean;
     defaultRecordTypeMapping: boolean;
@@ -3155,20 +3158,20 @@ export type RecordTypeMapping =  {
     recordTypeId?: ID;
 }
 
-export type PicklistForRecordType =  {
+export type PicklistForRecordType = {
     picklistName: string;
     picklistValues?: PicklistEntry | PicklistEntry[];
 }
 
-export type RelatedContent =  {
+export type RelatedContent = {
     relatedContentItems: DescribeRelatedContentItem | DescribeRelatedContentItem[];
 }
 
-export type DescribeRelatedContentItem =  {
+export type DescribeRelatedContentItem = {
     describeLayoutItem: DescribeLayoutItem;
 }
 
-export type RelatedList =  {
+export type RelatedList = {
     accessLevelRequiredForCreate?: ShareAccessLevel;
     buttons?: DescribeLayoutButton | DescribeLayoutButton[];
     columns: RelatedListColumn | RelatedListColumn[];
@@ -3181,7 +3184,7 @@ export type RelatedList =  {
     sort?: RelatedListSort | RelatedListSort[];
 }
 
-export type RelatedListColumn =  {
+export type RelatedListColumn = {
     field?: string;
     fieldApiName: string;
     format?: string;
@@ -3191,12 +3194,12 @@ export type RelatedListColumn =  {
     sortable: boolean;
 }
 
-export type RelatedListSort =  {
+export type RelatedListSort = {
     ascending: boolean;
     column: string;
 }
 
-export type OfflineLink =  {
+export type OfflineLink = {
     name: string;
     openType: string;
     position: string;
@@ -3206,14 +3209,14 @@ export type OfflineLink =  {
     y: number;
 }
 
-export type EmailAttachment =  {
+export type EmailAttachment = {
     body?: string;
     contentId?: string;
     contentType: string;
     fileName: string;
 }
 
-export type HandledEmailMessage =  {
+export type HandledEmailMessage = {
     attachments?: EmailAttachment | EmailAttachment[];
     headers?: NameValuePair | NameValuePair[];
     htmlBody: string;
@@ -3221,7 +3224,7 @@ export type HandledEmailMessage =  {
     textBody: string;
 }
 
-export type EmailFileAttachment =  {
+export type EmailFileAttachment = {
     body?: string;
     contentType?: string;
     fileName: string;
@@ -3229,7 +3232,7 @@ export type EmailFileAttachment =  {
     inline?: boolean;
 }
 
-export type Email =  {
+export type Email = {
     bccSender?: boolean;
     emailPriority?: EmailPriority;
     replyTo?: string;
@@ -3239,14 +3242,14 @@ export type Email =  {
     useSignature?: boolean;
 }
 
-export type MassEmailMessage = Email &  {
+export type MassEmailMessage = Email & {
     description?: string;
     targetObjectIds?: ID;
     templateId: ID;
     whatIds?: ID;
 }
 
-export type SingleEmailMessage = Email &  {
+export type SingleEmailMessage = Email & {
     bccAddresses?: string;
     ccAddresses?: string;
     charset?: string;
@@ -3268,16 +3271,16 @@ export type SingleEmailMessage = Email &  {
     whatId?: ID;
 }
 
-export type SendEmailResult =  {
+export type SendEmailResult = {
     errors?: SendEmailError | SendEmailError[];
     success: boolean;
 }
 
-export type DescribeListViewResult =  {
+export type DescribeListViewResult = {
     listViews?: DescribeListView | DescribeListView[];
 }
 
-export type DescribeListView =  {
+export type DescribeListView = {
     filterLanguage?: string;
     id: ID;
     limitRows: number;
@@ -3292,7 +3295,7 @@ export type DescribeListView =  {
     sobjectName?: string;
 }
 
-export type DescribeFilter =  {
+export type DescribeFilter = {
     column: string;
     negated: boolean;
     operator: string;
@@ -3300,25 +3303,25 @@ export type DescribeFilter =  {
     valueSeparator: string;
 }
 
-export type DescribeColumn =  {
+export type DescribeColumn = {
     field: string;
     format?: string;
     label: string;
     name: string;
 }
 
-export type DescribeSort =  {
+export type DescribeSort = {
     ascending: boolean;
     column: string;
 }
 
-export type DescribeLookupLayoutResult =  {
+export type DescribeLookupLayoutResult = {
     label: string;
     limitRows: number;
     lookupColumns?: DescribeColumn | DescribeColumn[];
 }
 
-export type ListViewColumn =  {
+export type ListViewColumn = {
     ascendingLabel?: string;
     descendingLabel?: string;
     fieldNameOrPath: string;
@@ -3332,13 +3335,13 @@ export type ListViewColumn =  {
     type: fieldType;
 }
 
-export type ListViewOrderBy =  {
+export type ListViewOrderBy = {
     fieldNameOrPath: string;
     nullsPosition?: orderByNullsPosition;
     sortDirection?: orderByDirection;
 }
 
-export type DescribeSoqlListView =  {
+export type DescribeSoqlListView = {
     columns: ListViewColumn | ListViewColumn[];
     id: ID;
     orderBy: ListViewOrderBy | ListViewOrderBy[];
@@ -3350,20 +3353,20 @@ export type DescribeSoqlListView =  {
     whereCondition?: SoqlWhereCondition;
 }
 
-export type DescribeSoqlListViewsRequest =  {
+export type DescribeSoqlListViewsRequest = {
     listViewParams: DescribeSoqlListViewParams | DescribeSoqlListViewParams[];
 }
 
-export type DescribeSoqlListViewParams =  {
+export type DescribeSoqlListViewParams = {
     developerNameOrId: string;
     sobjectType?: string;
 }
 
-export type DescribeSoqlListViewResult =  {
+export type DescribeSoqlListViewResult = {
     describeSoqlListViews: DescribeSoqlListView | DescribeSoqlListView[];
 }
 
-export type ExecuteListViewRequest =  {
+export type ExecuteListViewRequest = {
     developerNameOrId: string;
     limit?: number;
     offset?: number;
@@ -3371,7 +3374,7 @@ export type ExecuteListViewRequest =  {
     sobjectType: string;
 }
 
-export type ExecuteListViewResult =  {
+export type ExecuteListViewResult = {
     columns: ListViewColumn | ListViewColumn[];
     developerName: string;
     done: boolean;
@@ -3381,40 +3384,40 @@ export type ExecuteListViewResult =  {
     size: number;
 }
 
-export type ListViewRecord =  {
+export type ListViewRecord = {
     columns: ListViewRecordColumn | ListViewRecordColumn[];
 }
 
-export type ListViewRecordColumn =  {
+export type ListViewRecordColumn = {
     fieldNameOrPath: string;
     value?: string;
 }
 
-export type SoqlWhereCondition =  {
+export type SoqlWhereCondition = {
 }
 
-export type SoqlCondition = SoqlWhereCondition &  {
+export type SoqlCondition = SoqlWhereCondition & {
     field: string;
     operator: soqlOperator;
     values: string | string[];
 }
 
-export type SoqlNotCondition = SoqlWhereCondition &  {
+export type SoqlNotCondition = SoqlWhereCondition & {
     condition: SoqlWhereCondition;
 }
 
-export type SoqlConditionGroup = SoqlWhereCondition &  {
+export type SoqlConditionGroup = SoqlWhereCondition & {
     conditions?: SoqlWhereCondition | SoqlWhereCondition[];
     conjunction: soqlConjunction;
 }
 
-export type SoqlSubQueryCondition = SoqlWhereCondition &  {
+export type SoqlSubQueryCondition = SoqlWhereCondition & {
     field: string;
     operator: soqlOperator;
     subQuery: string;
 }
 
-export type DescribeSearchLayoutResult =  {
+export type DescribeSearchLayoutResult = {
     errorMsg?: string;
     label?: string;
     limitRows?: number;
@@ -3422,18 +3425,18 @@ export type DescribeSearchLayoutResult =  {
     searchColumns?: DescribeColumn | DescribeColumn[];
 }
 
-export type DescribeSearchScopeOrderResult =  {
+export type DescribeSearchScopeOrderResult = {
     keyPrefix: string;
     name: string;
 }
 
-export type DescribeSearchableEntityResult =  {
+export type DescribeSearchableEntityResult = {
     label: string;
     name: string;
     pluralLabel: string;
 }
 
-export type DescribeTabSetResult =  {
+export type DescribeTabSetResult = {
     description: string;
     label: string;
     logoUrl: string;
@@ -3443,7 +3446,7 @@ export type DescribeTabSetResult =  {
     tabs?: DescribeTab | DescribeTab[];
 }
 
-export type DescribeTab =  {
+export type DescribeTab = {
     colors?: DescribeColor | DescribeColor[];
     custom: boolean;
     iconUrl: string;
@@ -3455,13 +3458,13 @@ export type DescribeTab =  {
     url: string;
 }
 
-export type DescribeColor =  {
+export type DescribeColor = {
     color: string;
     context: string;
     theme: string;
 }
 
-export type DescribeIcon =  {
+export type DescribeIcon = {
     contentType: string;
     height?: number;
     theme: string;
@@ -3469,7 +3472,7 @@ export type DescribeIcon =  {
     width?: number;
 }
 
-export type ActionOverride =  {
+export type ActionOverride = {
     formFactor?: string;
     isAvailableInTouch: boolean;
     name: string;
@@ -3477,18 +3480,18 @@ export type ActionOverride =  {
     url?: string;
 }
 
-export type ActivateResult =  {
+export type ActivateResult = {
     errors?: Error | Error[];
     id?: ID;
     success: boolean;
 }
 
-export type SnapshotItem =  {
+export type SnapshotItem = {
     oid: ID;
     uid: ID;
 }
 
-export type SnapshotResult =  {
+export type SnapshotResult = {
     add?: SnapshotItem | SnapshotItem[];
     fullSnapshot: boolean;
     id: ID;
@@ -3496,7 +3499,7 @@ export type SnapshotResult =  {
     remove?: SnapshotItem | SnapshotItem[];
 }
 
-export type SyncOfflineDataResult =  {
+export type SyncOfflineDataResult = {
     lastConfigChange: Date;
     lastFullQuery: Date;
     lastQuery: Date;
@@ -3507,13 +3510,13 @@ export type SyncOfflineDataResult =  {
     updates: QueryResult;
 }
 
-export type EmailSyncAdvancedSetting =  {
+export type EmailSyncAdvancedSetting = {
     name: string;
     type: string;
     value: string;
 }
 
-export type EmailSyncEntity =  {
+export type EmailSyncEntity = {
     clientFolderName?: string;
     conflictResolution: EmailSyncConflictResolution;
     dataSetFilter?: string;
@@ -3525,7 +3528,7 @@ export type EmailSyncEntity =  {
     syncFollowed: boolean;
 }
 
-export type EmailSyncFieldMapping =  {
+export type EmailSyncFieldMapping = {
     clientName: string;
     clientType: EmailSyncClientFieldType;
     name: string;
@@ -3534,18 +3537,18 @@ export type EmailSyncFieldMapping =  {
     valueMapping?: EmailSyncFieldValueMapping | EmailSyncFieldValueMapping[];
 }
 
-export type EmailSyncFieldValueMapping =  {
+export type EmailSyncFieldValueMapping = {
     clientValue: string;
     value: string;
 }
 
-export type EmailSyncRoutingAddress =  {
+export type EmailSyncRoutingAddress = {
     emailAddress: string;
     fromAddressFilter?: string | string[];
     name: string;
 }
 
-export type DescribeEmailSyncSettings =  {
+export type DescribeEmailSyncSettings = {
     addCase: boolean;
     addEmail: boolean;
     addEmailAttachment: boolean;
@@ -3568,7 +3571,7 @@ export type DescribeEmailSyncSettings =  {
     upgradeNotification: boolean;
 }
 
-export type DescribeMobileResult =  {
+export type DescribeMobileResult = {
     configured: boolean;
     defaultConfiguration: boolean;
     emailSyncSettings?: DescribeEmailSyncSettings;
@@ -3582,41 +3585,41 @@ export type DescribeMobileResult =  {
     tabSet?: DescribeTabSetResult | DescribeTabSetResult[];
 }
 
-export type DescribeMobileSObject =  {
+export type DescribeMobileSObject = {
     iconUrl?: string;
     layout?: DescribeLayoutResult;
     searchLayout?: DescribeSearchLayoutResult;
     sobject: DescribeSObjectResult;
 }
 
-export type DescribeMobileView =  {
+export type DescribeMobileView = {
     SObject: string;
     matchAll: boolean;
     name: string;
     viewId: ID;
 }
 
-export type DescribeMobileViewDispColumn =  {
+export type DescribeMobileViewDispColumn = {
     column: number;
     field: string;
     viewId: ID;
 }
 
-export type DescribeMobileViewFilter =  {
+export type DescribeMobileViewFilter = {
     field: string;
     operator: string;
     value: string;
     viewId: ID;
 }
 
-export type DescribeMobileViewSortOrder =  {
+export type DescribeMobileViewSortOrder = {
     ascending: boolean;
     field: string;
     order: number;
     viewId: ID;
 }
 
-export type DescribeMobileSettings =  {
+export type DescribeMobileSettings = {
     lockUserToMobileDevice: boolean;
     mappingURL: string;
     maxTextFieldSize?: number;
@@ -3626,26 +3629,26 @@ export type DescribeMobileSettings =  {
     multiDayEventsEnabled: boolean;
 }
 
-export type RenderEmailTemplateRequest =  {
+export type RenderEmailTemplateRequest = {
     escapeHtmlInMergeFields?: boolean;
     templateBodies: string;
     whatId?: ID;
     whoId?: ID;
 }
 
-export type RenderEmailTemplateBodyResult =  {
+export type RenderEmailTemplateBodyResult = {
     errors?: RenderEmailTemplateError | RenderEmailTemplateError[];
     mergedBody?: string;
     success: boolean;
 }
 
-export type RenderEmailTemplateResult =  {
+export type RenderEmailTemplateResult = {
     bodyResults?: RenderEmailTemplateBodyResult;
     errors?: Error | Error[];
     success: boolean;
 }
 
-export type RenderStoredEmailTemplateRequest =  {
+export type RenderStoredEmailTemplateRequest = {
     attachmentRetrievalOption?: AttachmentRetrievalOption;
     templateId: ID;
     updateTemplateUsage?: boolean;
@@ -3653,37 +3656,37 @@ export type RenderStoredEmailTemplateRequest =  {
     whoId?: ID;
 }
 
-export type RenderStoredEmailTemplateResult =  {
+export type RenderStoredEmailTemplateResult = {
     errors?: Error | Error[];
     renderedEmail?: SingleEmailMessage;
     success: boolean;
 }
 
-export type Fact =  {
+export type Fact = {
     fact: MetadataVersionCheckFact;
     subject: string;
     token: string;
 }
 
-export type LogInfo =  {
+export type LogInfo = {
     category: LogCategory;
     level: LogCategoryLevel;
 }
 
-export type PackageVersion =  {
+export type PackageVersion = {
     majorNumber: number;
     minorNumber: number;
     namespace: string;
 }
 
-export type LimitInfo =  {
+export type LimitInfo = {
     appName?: string;
     current: number;
     limit: number;
     type: string;
 }
 
-export type MatchOptions =  {
+export type MatchOptions = {
     fields: string;
     matchEngine: string;
     maxMatchResults: number;
@@ -3692,52 +3695,52 @@ export type MatchOptions =  {
     sObjectType: string;
 }
 
-export type OwnerChangeOption =  {
+export type OwnerChangeOption = {
     type: OwnerChangeOptionType;
     execute: boolean;
 }
 
-export type findDuplicates =  {
+export type findDuplicates= {
     sObjects?: sObject | sObject[];
 }
 
-export type findDuplicatesByIds =  {
+export type findDuplicatesByIds= {
     ids: ID | ID[];
 }
 
-export type findDuplicatesByIdsResponse =  {
+export type findDuplicatesByIdsResponse= {
     result?: FindDuplicatesResult | FindDuplicatesResult[];
 }
 
-export type findDuplicatesResponse =  {
+export type findDuplicatesResponse= {
     result?: FindDuplicatesResult | FindDuplicatesResult[];
 }
 
-export type createSnapshot =  {
+export type createSnapshot= {
     sObject: string;
     forceFullSnapshot: boolean;
 }
 
-export type createSnapshotResponse =  {
+export type createSnapshotResponse= {
     result: SnapshotResult;
 }
 
-export type moreSnapshot =  {
+export type moreSnapshot= {
     snapshotLocator: string;
 }
 
-export type moreSnapshotResponse =  {
+export type moreSnapshotResponse= {
     result: SnapshotResult;
 }
 
-export type ackSnapshot =  {
+export type ackSnapshot= {
     snapshotId: ID;
 }
 
-export type ackSnapshotResponse =  {
+export type ackSnapshotResponse= {
 }
 
-export type syncOfflineData =  {
+export type syncOfflineData= {
     reset: boolean;
     userRequested: boolean;
     syncStateId: string;
@@ -3747,293 +3750,293 @@ export type syncOfflineData =  {
     entitiesToSync?: string | string[];
 }
 
-export type syncOfflineDataResponse =  {
+export type syncOfflineDataResponse= {
     result: SyncOfflineDataResult;
 }
 
-export type ackSyncOfflineData =  {
+export type ackSyncOfflineData= {
     token: string;
     syncStateId: string;
 }
 
-export type ackSyncOfflineDataResponse =  {
+export type ackSyncOfflineDataResponse= {
 }
 
-export type describeMobile =  {
+export type describeMobile= {
 }
 
-export type describeMobileResponse =  {
+export type describeMobileResponse= {
     result: DescribeMobileResult;
 }
 
-export type loginXi =  {
+export type loginXi= {
     username: string;
 }
 
-export type loginXiResponse =  {
+export type loginXiResponse= {
     result: LoginResult;
 }
 
-export type login =  {
+export type login= {
     username: string;
     password: string;
 }
 
-export type loginResponse =  {
+export type loginResponse= {
     result: LoginResult;
 }
 
-export type describeSObject =  {
+export type describeSObject= {
     sObjectType: string;
 }
 
-export type describeSObjectResponse =  {
+export type describeSObjectResponse= {
     result?: DescribeSObjectResult;
 }
 
-export type discoverSchemas =  {
+export type discoverSchemas= {
     scope: SchemaScope;
     typeFilter: SchemaType;
 }
 
-export type discoverSchemasResponse =  {
+export type discoverSchemasResponse= {
     result?: DiscoverSchemasResult;
 }
 
-export type describeSchema =  {
+export type describeSchema= {
     type: string;
 }
 
-export type describeSchemaResponse =  {
+export type describeSchemaResponse= {
     result?: DescribeSchemaResult;
 }
 
-export type describePicklists =  {
+export type describePicklists= {
     param: DescribePicklistsParam;
 }
 
-export type describePicklistsResponse =  {
+export type describePicklistsResponse= {
     result?: DescribePicklistResult;
 }
 
-export type captureCommonEvent =  {
+export type captureCommonEvent= {
     appName: string;
     eventValues: string;
     eventName: EventName;
 }
 
-export type captureCommonEventResponse =  {
+export type captureCommonEventResponse= {
     result?: CommonEventResult;
 }
 
-export type describeSObjects =  {
+export type describeSObjects= {
     sObjectType?: string;
 }
 
-export type describeSObjectsResponse =  {
+export type describeSObjectsResponse= {
     result?: DescribeSObjectResult;
 }
 
-export type describeGlobal =  {
+export type describeGlobal= {
 }
 
-export type describeGlobalResponse =  {
+export type describeGlobalResponse= {
     result: DescribeGlobalResult;
 }
 
-export type describeGlobalTheme =  {
+export type describeGlobalTheme= {
 }
 
-export type describeGlobalThemeResponse =  {
+export type describeGlobalThemeResponse= {
     result: DescribeGlobalTheme;
 }
 
-export type describeTheme =  {
+export type describeTheme= {
     sobjectType?: string | string[];
 }
 
-export type describeThemeResponse =  {
+export type describeThemeResponse= {
     result: DescribeThemeResult;
 }
 
-export type describeDataCategoryGroups =  {
+export type describeDataCategoryGroups= {
     sObjectType?: string;
 }
 
-export type describeDataCategoryGroupsResponse =  {
+export type describeDataCategoryGroupsResponse= {
     result?: DescribeDataCategoryGroupResult;
 }
 
-export type describeDataCategoryGroupStructures =  {
+export type describeDataCategoryGroupStructures= {
     pairs?: DataCategoryGroupSobjectTypePair;
     topCategoriesOnly: boolean;
 }
 
-export type describeDataCategoryGroupStructuresResponse =  {
+export type describeDataCategoryGroupStructuresResponse= {
     result?: DescribeDataCategoryGroupStructureResult;
 }
 
-export type describeDataCategoryMappings =  {
+export type describeDataCategoryMappings= {
 }
 
-export type describeDataCategoryMappingsResponse =  {
+export type describeDataCategoryMappingsResponse= {
     result?: DescribeDataCategoryMappingResult;
 }
 
-export type describeKnowledgeSettings =  {
+export type describeKnowledgeSettings= {
 }
 
-export type describeKnowledgeSettingsResponse =  {
+export type describeKnowledgeSettingsResponse= {
     result: KnowledgeSettings;
 }
 
-export type describeDuplicateRules =  {
+export type describeDuplicateRules= {
     sObjectType: string;
 }
 
-export type describeDuplicateRulesResponse =  {
+export type describeDuplicateRulesResponse= {
     result?: DescribeDuplicateRuleResult | DescribeDuplicateRuleResult[];
 }
 
-export type ftestPatch =  {
+export type ftestPatch= {
 }
 
-export type ftestPatchResponse =  {
+export type ftestPatchResponse= {
     result: SaveResult;
 }
 
-export type ftestPatchPreviousVersion =  {
+export type ftestPatchPreviousVersion= {
 }
 
-export type ftestPatchPreviousVersionResponse =  {
+export type ftestPatchPreviousVersionResponse= {
     result: SaveResult;
 }
 
-export type describeFlexiPages =  {
+export type describeFlexiPages= {
     flexiPages: string | string[];
     contexts?: FlexipageContext | FlexipageContext[];
 }
 
-export type describeFlexiPagesResponse =  {
+export type describeFlexiPagesResponse= {
     result?: DescribeFlexiPageResult | DescribeFlexiPageResult[];
 }
 
-export type describeAppMenu =  {
+export type describeAppMenu= {
     appMenuType: AppMenuType;
     networkId?: ID;
 }
 
-export type describeAppMenuResponse =  {
+export type describeAppMenuResponse= {
     result?: DescribeAppMenuResult;
 }
 
-export type describeLayout =  {
+export type describeLayout= {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeLayoutByUiType =  {
+export type describeLayoutByUiType= {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
     uiType?: UiType;
 }
 
-export type describeLayoutByUiTypeResponse =  {
+export type describeLayoutByUiTypeResponse= {
     result?: DescribeLayoutResult;
 }
 
-export type describeLayoutResponse =  {
+export type describeLayoutResponse= {
     result?: DescribeLayoutResult;
 }
 
-export type describeMiniLayout =  {
+export type describeMiniLayout= {
     sObjectType: string;
     layoutName?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeMiniLayoutResponse =  {
+export type describeMiniLayoutResponse= {
     result?: DescribeMiniLayoutResult;
 }
 
-export type describeCompactLayouts =  {
+export type describeCompactLayouts= {
     sObjectType: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describeCompactLayoutsResponse =  {
+export type describeCompactLayoutsResponse= {
     result?: DescribeCompactLayoutsResult;
 }
 
-export type describePrimaryCompactLayouts =  {
+export type describePrimaryCompactLayouts= {
     sObjectTypes: string | string[];
 }
 
-export type describePrimaryCompactLayoutsResponse =  {
+export type describePrimaryCompactLayoutsResponse= {
     result?: DescribeCompactLayout | DescribeCompactLayout[];
 }
 
-export type describePathAssistants =  {
+export type describePathAssistants= {
     sObjectType: string;
     picklistValue?: string;
     recordTypeIds?: ID | ID[];
 }
 
-export type describePathAssistantsResponse =  {
+export type describePathAssistantsResponse= {
     result?: DescribePathAssistantsResult;
 }
 
-export type describeApprovalLayout =  {
+export type describeApprovalLayout= {
     sObjectType: string;
     approvalProcessNames?: string | string[];
 }
 
-export type describeApprovalLayoutResponse =  {
+export type describeApprovalLayoutResponse= {
     result?: DescribeApprovalLayoutResult;
 }
 
-export type describeSoftphoneLayout =  {
+export type describeSoftphoneLayout= {
 }
 
-export type describeSoftphoneLayoutResponse =  {
+export type describeSoftphoneLayoutResponse= {
     result?: DescribeSoftphoneLayoutResult;
 }
 
-export type describeListViews =  {
+export type describeListViews= {
     sObjectType?: string | string[];
 }
 
-export type describeListViewsResponse =  {
+export type describeListViewsResponse= {
     result?: DescribeListViewResult | DescribeListViewResult[];
 }
 
-export type describeLookupLayouts =  {
+export type describeLookupLayouts= {
     sObjectType?: string | string[];
 }
 
-export type describeLookupLayoutsResponse =  {
+export type describeLookupLayoutsResponse= {
     result?: DescribeLookupLayoutResult | DescribeLookupLayoutResult[];
 }
 
-export type describeSoqlListViews =  {
+export type describeSoqlListViews= {
     request: DescribeSoqlListViewsRequest;
 }
 
-export type describeSoqlListViewsResponse =  {
+export type describeSoqlListViewsResponse= {
     result: DescribeSoqlListViewResult;
 }
 
-export type executeListView =  {
+export type executeListView= {
     request: ExecuteListViewRequest;
 }
 
-export type executeListViewResponse =  {
+export type executeListViewResponse= {
     result?: ExecuteListViewResult;
 }
 
-export type describeSObjectListViews =  {
+export type describeSObjectListViews= {
     sObjectType: string;
     recentsOnly: boolean;
     isSoqlCompatible: listViewIsSoqlCompatible;
@@ -4041,511 +4044,511 @@ export type describeSObjectListViews =  {
     offset: number;
 }
 
-export type describeSObjectListViewsResponse =  {
+export type describeSObjectListViewsResponse= {
     result: DescribeSoqlListViewResult;
 }
 
-export type describeSearchLayouts =  {
+export type describeSearchLayouts= {
     sObjectType?: string | string[];
 }
 
-export type describeSearchLayoutsResponse =  {
+export type describeSearchLayoutsResponse= {
     result?: DescribeSearchLayoutResult | DescribeSearchLayoutResult[];
 }
 
-export type describeSearchScopeOrder =  {
+export type describeSearchScopeOrder= {
     includeRealTimeEntities?: boolean;
 }
 
-export type describeSearchScopeOrderResponse =  {
+export type describeSearchScopeOrderResponse= {
     result?: DescribeSearchScopeOrderResult | DescribeSearchScopeOrderResult[];
 }
 
-export type describeSearchableEntities =  {
+export type describeSearchableEntities= {
     includeOnlyEntitiesWithTabs: boolean;
 }
 
-export type describeSearchableEntitiesResponse =  {
+export type describeSearchableEntitiesResponse= {
     result?: DescribeSearchableEntityResult | DescribeSearchableEntityResult[];
 }
 
-export type describeTabs =  {
+export type describeTabs= {
 }
 
-export type describeTabsResponse =  {
+export type describeTabsResponse= {
     result?: DescribeTabSetResult | DescribeTabSetResult[];
 }
 
-export type describeAllTabs =  {
+export type describeAllTabs= {
 }
 
-export type describeAllTabsResponse =  {
+export type describeAllTabsResponse= {
     result?: DescribeTab | DescribeTab[];
 }
 
-export type describeNouns =  {
+export type describeNouns= {
     nouns?: string;
     onlyRenamed: boolean;
     includeFields: boolean;
 }
 
-export type describeNounsResponse =  {
+export type describeNounsResponse= {
     result?: DescribeNounResult | DescribeNounResult[];
 }
 
-export type create =  {
+export type create= {
     sObjects?: sObject | sObject[];
 }
 
-export type createResponse =  {
+export type createResponse= {
     result?: SaveResult | SaveResult[];
 }
 
-export type sendEmail =  {
+export type sendEmail= {
     messages?: Email;
 }
 
-export type sendEmailResponse =  {
+export type sendEmailResponse= {
     result?: SendEmailResult;
 }
 
-export type renderEmailTemplate =  {
+export type renderEmailTemplate= {
     renderRequests?: RenderEmailTemplateRequest;
 }
 
-export type renderEmailTemplateResponse =  {
+export type renderEmailTemplateResponse= {
     result?: RenderEmailTemplateResult;
 }
 
-export type renderStoredEmailTemplate =  {
+export type renderStoredEmailTemplate= {
     request: RenderStoredEmailTemplateRequest;
 }
 
-export type renderStoredEmailTemplateResponse =  {
+export type renderStoredEmailTemplateResponse= {
     result: RenderStoredEmailTemplateResult;
 }
 
-export type sendEmailMessage =  {
+export type sendEmailMessage= {
     ids?: ID;
 }
 
-export type sendEmailMessageResponse =  {
+export type sendEmailMessageResponse= {
     result?: SendEmailResult;
 }
 
-export type emailMerge =  {
+export type emailMerge= {
     template: ID;
     id: ID | ID[];
 }
 
-export type emailMergeResponse =  {
+export type emailMergeResponse= {
     result?: string | string[];
 }
 
-export type update =  {
+export type update= {
     sObjects?: sObject | sObject[];
 }
 
-export type updateResponse =  {
+export type updateResponse= {
     result?: SaveResult | SaveResult[];
 }
 
-export type upsert =  {
+export type upsert= {
     externalIDFieldName: string;
     sObjects?: sObject | sObject[];
 }
 
-export type upsertResponse =  {
+export type upsertResponse= {
     result?: UpsertResult | UpsertResult[];
 }
 
-export type merge =  {
+export type merge= {
     request?: MergeRequest | MergeRequest[];
 }
 
-export type mergeResponse =  {
+export type mergeResponse= {
     result?: MergeResult | MergeResult[];
 }
 
-export type delete_ =  {
+export type delete_= {
     ids?: ID | ID[];
 }
 
-export type deleteResponse =  {
+export type deleteResponse= {
     result?: DeleteResult | DeleteResult[];
 }
 
-export type deleteByExample =  {
+export type deleteByExample= {
     sObjects?: sObject | sObject[];
 }
 
-export type deleteByExampleResponse =  {
+export type deleteByExampleResponse= {
     result?: DeleteByExampleResult | DeleteByExampleResult[];
 }
 
-export type undelete =  {
+export type undelete= {
     ids: ID | ID[];
 }
 
-export type undeleteResponse =  {
+export type undeleteResponse= {
     result: UndeleteResult | UndeleteResult[];
 }
 
-export type updateSettings =  {
+export type updateSettings= {
     settingNames: string | string[];
     settingValues: string | string[];
 }
 
-export type updateSettingsResponse =  {
+export type updateSettingsResponse= {
     result?: SaveResult | SaveResult[];
 }
 
-export type emptyRecycleBin =  {
+export type emptyRecycleBin= {
     ids: ID | ID[];
 }
 
-export type emptyRecycleBinResponse =  {
+export type emptyRecycleBinResponse= {
     result: EmptyRecycleBinResult | EmptyRecycleBinResult[];
 }
 
-export type process =  {
+export type process= {
     actions?: ProcessRequest | ProcessRequest[];
 }
 
-export type processResponse =  {
+export type processResponse= {
     result?: ProcessResult | ProcessResult[];
 }
 
-export type performQuickActions =  {
+export type performQuickActions= {
     quickActions?: PerformQuickActionRequest | PerformQuickActionRequest[];
 }
 
-export type performQuickActionsResponse =  {
+export type performQuickActionsResponse= {
     result?: PerformQuickActionResult | PerformQuickActionResult[];
 }
 
-export type retrieveMassQuickActionTemplates =  {
+export type retrieveMassQuickActionTemplates= {
     quickActionName: string;
     contextIds?: ID | ID[];
 }
 
-export type retrieveMassQuickActionTemplatesResponse =  {
+export type retrieveMassQuickActionTemplatesResponse= {
     result?: QuickActionTemplateResult | QuickActionTemplateResult[];
 }
 
-export type retrieveQuickActionTemplates =  {
+export type retrieveQuickActionTemplates= {
     quickActionNames?: string | string[];
     contextId?: ID;
 }
 
-export type retrieveQuickActionTemplatesResponse =  {
+export type retrieveQuickActionTemplatesResponse= {
     result?: QuickActionTemplateResult | QuickActionTemplateResult[];
 }
 
-export type describeQuickActions =  {
+export type describeQuickActions= {
     quickActions?: string | string[];
 }
 
-export type describeQuickActionsResponse =  {
+export type describeQuickActionsResponse= {
     result?: DescribeQuickActionResult | DescribeQuickActionResult[];
 }
 
-export type describeQuickActionsForRecordType =  {
+export type describeQuickActionsForRecordType= {
     quickActions?: string | string[];
     recordTypeId: string;
 }
 
-export type describeQuickActionsForRecordTypeResponse =  {
+export type describeQuickActionsForRecordTypeResponse= {
     result?: DescribeQuickActionResult | DescribeQuickActionResult[];
 }
 
-export type describeAvailableQuickActions =  {
+export type describeAvailableQuickActions= {
     contextType?: string;
 }
 
-export type describeAvailableQuickActionsResponse =  {
+export type describeAvailableQuickActionsResponse= {
     result?: DescribeAvailableQuickActionResult | DescribeAvailableQuickActionResult[];
 }
 
-export type describeVisualForce =  {
+export type describeVisualForce= {
     includeAllDetails: boolean;
     namespacePrefix?: string;
 }
 
-export type describeVisualForceResponse =  {
+export type describeVisualForceResponse= {
     result: DescribeVisualForceResult;
 }
 
-export type describeWorkitemActions =  {
+export type describeWorkitemActions= {
     workitemIds?: ID | ID[];
 }
 
-export type describeWorkitemActionsResponse =  {
+export type describeWorkitemActionsResponse= {
     result?: DescribeWorkitemActionResult | DescribeWorkitemActionResult[];
 }
 
-export type retrieve =  {
+export type retrieve= {
     fieldList: string;
     sObjectType: string;
     ids?: ID | ID[];
 }
 
-export type retrieveResponse =  {
+export type retrieveResponse= {
     result?: sObject | sObject[];
 }
 
-export type retrieveDefaultValues =  {
+export type retrieveDefaultValues= {
     sObjectType: string;
     recordTypeId?: ID;
     fieldList?: string;
 }
 
-export type retrieveDefaultValuesResponse =  {
+export type retrieveDefaultValuesResponse= {
     result?: sObject;
 }
 
-export type convertLead =  {
+export type convertLead= {
     leadConverts?: LeadConvert | LeadConvert[];
 }
 
-export type convertLeadResponse =  {
+export type convertLeadResponse= {
     result?: LeadConvertResult | LeadConvertResult[];
 }
 
-export type addCampaignMember =  {
+export type addCampaignMember= {
     AddCampaignMemberOptions: AddCampaignMemberOptions;
 }
 
-export type addCampaignMemberResponse =  {
+export type addCampaignMemberResponse= {
     result: AddCampaignMemberResult;
 }
 
-export type getUpdated =  {
+export type getUpdated= {
     sObjectType: string;
     startDate: Date;
     endDate: Date;
 }
 
-export type getUpdatedResponse =  {
+export type getUpdatedResponse= {
     result: GetUpdatedResult;
 }
 
-export type getDeleted =  {
+export type getDeleted= {
     sObjectType: string;
     startDate: Date;
     endDate: Date;
 }
 
-export type getDeletedResponse =  {
+export type getDeletedResponse= {
     result: GetDeletedResult;
 }
 
-export type impersonateUser =  {
+export type impersonateUser= {
     userIds?: ID | ID[];
 }
 
-export type impersonateUserResponse =  {
+export type impersonateUserResponse= {
     result?: ImpersonateUserResult | ImpersonateUserResult[];
 }
 
-export type logout =  {
+export type logout= {
 }
 
-export type logoutResponse =  {
+export type logoutResponse= {
 }
 
-export type invalidateSessions =  {
+export type invalidateSessions= {
     sessionIds?: string | string[];
 }
 
-export type invalidateSessionsResponse =  {
+export type invalidateSessionsResponse= {
     result?: InvalidateSessionsResult | InvalidateSessionsResult[];
 }
 
-export type canViewFlow =  {
+export type canViewFlow= {
     input: FlowAccessInput;
 }
 
-export type canViewFlowResponse =  {
+export type canViewFlowResponse= {
     result: CanViewFlowResult;
 }
 
-export type startFlowInterview =  {
+export type startFlowInterview= {
     request: StartFlowInterviewRequest;
 }
 
-export type startFlowInterviewResponse =  {
+export type startFlowInterviewResponse= {
     result: NavigateFlowInterviewResult;
 }
 
-export type resumeFlowInterview =  {
+export type resumeFlowInterview= {
     request: ResumeFlowInterviewRequest;
 }
 
-export type resumeFlowInterviewResponse =  {
+export type resumeFlowInterviewResponse= {
     result: NavigateFlowInterviewResult;
 }
 
-export type runFlowTest =  {
+export type runFlowTest= {
     request: RunFlowTestInput;
 }
 
-export type runFlowTestResponse =  {
+export type runFlowTestResponse= {
     result?: RunFlowTestResult | RunFlowTestResult[];
 }
 
-export type generateFlowTest =  {
+export type generateFlowTest= {
     request: string;
 }
 
-export type generateFlowTestResponse =  {
+export type generateFlowTestResponse= {
     result: GenerateFlowTestResult;
 }
 
-export type getFlowInterviewHistory =  {
+export type getFlowInterviewHistory= {
     request: GetFlowInterviewHistoryRequest;
 }
 
-export type getFlowInterviewHistoryResponse =  {
+export type getFlowInterviewHistoryResponse= {
     result: NavigateFlowInterviewResult;
 }
 
-export type navigateFlowInterview =  {
+export type navigateFlowInterview= {
     request: NavigateFlowInterviewRequest;
 }
 
-export type navigateFlowInterviewResponse =  {
+export type navigateFlowInterviewResponse= {
     result: NavigateFlowInterviewResult;
 }
 
-export type query =  {
+export type query= {
     queryString: string;
 }
 
-export type queryResponse =  {
+export type queryResponse= {
     result: QueryResult;
 }
 
-export type queryAll =  {
+export type queryAll= {
     queryString: string;
 }
 
-export type queryAllResponse =  {
+export type queryAllResponse= {
     result: QueryResult;
 }
 
-export type queryMore =  {
+export type queryMore= {
     queryLocator: QueryLocator;
 }
 
-export type queryMoreResponse =  {
+export type queryMoreResponse= {
     result: QueryResult;
 }
 
-export type setupBriefcase =  {
+export type setupBriefcase= {
 }
 
-export type setupBriefcaseResponse =  {
+export type setupBriefcaseResponse= {
     result: SetupBriefcaseResult;
 }
 
-export type search =  {
+export type search= {
     searchString: string;
 }
 
-export type searchResponse =  {
+export type searchResponse= {
     result: SearchResult;
 }
 
-export type outlookSearch =  {
+export type outlookSearch= {
     searchExpr: string;
     contextString: string;
 }
 
-export type outlookSearchResponse =  {
+export type outlookSearchResponse= {
     result: OutlookSearchResult;
 }
 
-export type outlookDescribe =  {
+export type outlookDescribe= {
 }
 
-export type outlookDescribeResponse =  {
+export type outlookDescribeResponse= {
     result: OutlookDescribeResult;
 }
 
-export type getServerTimestamp =  {
+export type getServerTimestamp= {
 }
 
-export type getServerTimestampResponse =  {
+export type getServerTimestampResponse= {
     result: GetServerTimestampResult;
 }
 
-export type setPassword =  {
+export type setPassword= {
     userId: ID;
     password: string;
 }
 
-export type setPasswordResponse =  {
+export type setPasswordResponse= {
     result: SetPasswordResult;
 }
 
-export type changeOwnPassword =  {
+export type changeOwnPassword= {
     oldPassword: string;
     newPassword: string;
 }
 
-export type changeOwnPasswordResponse =  {
+export type changeOwnPasswordResponse= {
     result: ChangeOwnPasswordResult;
 }
 
-export type resetPassword =  {
+export type resetPassword= {
     userId: ID;
 }
 
-export type resetPasswordResponse =  {
+export type resetPasswordResponse= {
     result: ResetPasswordResult;
 }
 
-export type getAccessInfo =  {
+export type getAccessInfo= {
 }
 
-export type getAccessInfoResponse =  {
+export type getAccessInfoResponse= {
     result: GetAccessInfoResult;
 }
 
-export type getUserInfo =  {
+export type getUserInfo= {
 }
 
-export type getUserInfoResponse =  {
+export type getUserInfoResponse= {
     result: GetUserInfoResult;
 }
 
-export type activate =  {
+export type activate= {
     ids?: ID | ID[];
 }
 
-export type activateResponse =  {
+export type activateResponse= {
     result?: ActivateResult | ActivateResult[];
 }
 
-export type generateJwtToken =  {
+export type generateJwtToken= {
     claims?: ClaimsMapping | ClaimsMapping[];
 }
 
-export type generateJwtTokenResponse =  {
+export type generateJwtTokenResponse= {
     result: string;
 }
 
-export type SessionHeader =  {
+export type SessionHeader= {
     sessionId: string;
 }
 
-export type LoginScopeHeader =  {
+export type LoginScopeHeader= {
     organizationId: ID;
     portalId?: ID;
 }
 
-export type CallOptions =  {
+export type CallOptions= {
     client?: string;
     defaultNamespace?: string;
     returnFieldDataTypes?: boolean;
@@ -4557,119 +4560,119 @@ export type CallOptions =  {
     perfOption: PerfOption;
 }
 
-export type QueryOptions =  {
+export type QueryOptions= {
     batchSize?: number;
     filterLanguage?: string;
     scope: queryOptionsScope;
 }
 
-export type APIPerformanceInfo =  {
+export type APIPerformanceInfo= {
     encodedIntervalTimerTree?: string;
     handlerMetrics?: NameValuePair | NameValuePair[];
 }
 
-export type MetadataVersionCheck =  {
+export type MetadataVersionCheck= {
     facts?: Fact | Fact[];
     operation: Operation;
 }
 
-export type DebuggingHeader =  {
+export type DebuggingHeader= {
     categories?: LogInfo | LogInfo[];
     debugLevel: DebugLevel;
 }
 
-export type DebuggingInfo =  {
+export type DebuggingInfo= {
     debugLog: string;
 }
 
-export type PackageVersionHeader =  {
+export type PackageVersionHeader= {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type AllowFieldTruncationHeader =  {
+export type AllowFieldTruncationHeader= {
     allowFieldTruncation: boolean;
 }
 
-export type DisableFeedTrackingHeader =  {
+export type DisableFeedTrackingHeader= {
     disableFeedTracking: boolean;
 }
 
-export type StreamingEnabledHeader =  {
+export type StreamingEnabledHeader= {
     streamingEnabled: boolean;
 }
 
-export type AllOrNoneHeader =  {
+export type AllOrNoneHeader= {
     allOrNone: boolean;
 }
 
-export type CurrencyConversionHeader =  {
+export type CurrencyConversionHeader= {
     skipCurrencyConversion: boolean;
 }
 
-export type DuplicateRuleHeader =  {
+export type DuplicateRuleHeader= {
     allowSave: boolean;
     includeRecordDetails: boolean;
     runAsCurrentUser: boolean;
 }
 
-export type LimitInfoHeader =  {
+export type LimitInfoHeader= {
     limitInfo?: LimitInfo | LimitInfo[];
 }
 
-export type PatchHeader =  {
+export type PatchHeader= {
     patch: boolean;
 }
 
-export type match =  {
+export type match= {
     sObjects?: sObject | sObject[];
     matchOptions: MatchOptions;
 }
 
-export type matchResponse =  {
+export type matchResponse= {
     result?: MatchResult | MatchResult[];
 }
 
-export type MruHeader =  {
+export type MruHeader= {
     updateMru: boolean;
 }
 
-export type EmailHeader =  {
+export type EmailHeader= {
     triggerAutoResponseEmail: boolean;
     triggerOtherEmail: boolean;
     triggerUserEmail: boolean;
 }
 
-export type AssignmentRuleHeader =  {
+export type AssignmentRuleHeader= {
     assignmentRuleId?: ID;
     useDefaultRule?: boolean;
 }
 
-export type ConditionalRequestHeader =  {
+export type ConditionalRequestHeader= {
     ifModifiedBefore?: Date;
     ifModifiedSince?: Date;
     ifModifiedBeforeArray?: Date | Date[];
 }
 
-export type UserTerritoryDeleteHeader =  {
+export type UserTerritoryDeleteHeader= {
     transferToUserId?: ID;
 }
 
-export type PartnerNetworkHeader =  {
+export type PartnerNetworkHeader= {
     connectionId?: ID;
     partnerEntityIds?: ID | ID[];
     parentEntityIds?: ID | ID[];
 }
 
-export type LocaleOptions =  {
+export type LocaleOptions= {
     language?: string;
     localizeErrors?: boolean;
 }
 
-export type OwnerChangeOptions =  {
+export type OwnerChangeOptions= {
     options?: OwnerChangeOption | OwnerChangeOption[];
 }
 
-export type CommonEventRequestInformation =  {
+export type CommonEventRequestInformation= {
     appName: string;
     entityId: string;
     requestOrigin: RequestOrigin;
@@ -4941,7 +4944,7 @@ export type ExceptionCode = 'ADAPTER_ERROR'
 
 export type FaultCode = any;
 
-export type ApiFault =  {
+export type ApiFault = {
     exceptionCode: ExceptionCode;
     exceptionMessage: string;
     extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
@@ -4949,71 +4952,71 @@ export type ApiFault =  {
     upgradeMessage?: string;
 }
 
-export type ApiQueryFault = fns_ApiFault &  {
+export type ApiQueryFault = fns_ApiFault & {
     row: number;
     column: number;
 }
 
-export type LoginFault = fns_ApiFault &  {
+export type LoginFault = fns_ApiFault & {
 }
 
-export type InvalidQueryLocatorFault = fns_ApiFault &  {
+export type InvalidQueryLocatorFault = fns_ApiFault & {
 }
 
-export type InvalidNewPasswordFault = fns_ApiFault &  {
+export type InvalidNewPasswordFault = fns_ApiFault & {
 }
 
-export type InvalidOldPasswordFault = fns_ApiFault &  {
+export type InvalidOldPasswordFault = fns_ApiFault & {
 }
 
-export type InvalidIdFault = fns_ApiFault &  {
+export type InvalidIdFault = fns_ApiFault & {
 }
 
-export type UnexpectedErrorFault = fns_ApiFault &  {
+export type UnexpectedErrorFault = fns_ApiFault & {
 }
 
-export type InvalidFieldFault = fns_ApiQueryFault &  {
+export type InvalidFieldFault = fns_ApiQueryFault & {
 }
 
-export type InvalidSObjectFault = fns_ApiQueryFault &  {
+export type InvalidSObjectFault = fns_ApiQueryFault & {
 }
 
-export type MalformedQueryFault = fns_ApiQueryFault &  {
+export type MalformedQueryFault = fns_ApiQueryFault & {
 }
 
-export type MalformedSearchFault = fns_ApiQueryFault &  {
+export type MalformedSearchFault = fns_ApiQueryFault & {
 }
 
-export type fault =  {
+export type fault= {
 }
 
-export type LoginFault =  {
+export type LoginFault= {
 }
 
-export type InvalidQueryLocatorFault =  {
+export type InvalidQueryLocatorFault= {
 }
 
-export type InvalidNewPasswordFault =  {
+export type InvalidNewPasswordFault= {
 }
 
-export type InvalidOldPasswordFault =  {
+export type InvalidOldPasswordFault= {
 }
 
-export type InvalidIdFault =  {
+export type InvalidIdFault= {
 }
 
-export type UnexpectedErrorFault =  {
+export type UnexpectedErrorFault= {
 }
 
-export type InvalidFieldFault =  {
+export type InvalidFieldFault= {
 }
 
-export type InvalidSObjectFault =  {
+export type InvalidSObjectFault= {
 }
 
-export type MalformedQueryFault =  {
+export type MalformedQueryFault= {
 }
 
-export type MalformedSearchFault =  {
+export type MalformedSearchFault= {
 }
 

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-empty-interface */
+
 export type FlowProcessType = 'AutoLaunchedFlow' 
       | 'Flow' 
       | 'Workflow' 
@@ -70,7 +73,7 @@ export type LogType = 'None'
 
 export type ID = string;
 
-export type CompileAndTestRequest =  {
+export type CompileAndTestRequest = {
     checkOnly: boolean;
     classes?: string | string[];
     deleteClasses?: string | string[];
@@ -79,7 +82,7 @@ export type CompileAndTestRequest =  {
     triggers?: string | string[];
 }
 
-export type RunTestsRequest =  {
+export type RunTestsRequest = {
     allTests: boolean;
     classes?: string | string[];
     maxFailedTests?: number;
@@ -89,13 +92,13 @@ export type RunTestsRequest =  {
     tests?: TestsNode | TestsNode[];
 }
 
-export type TestsNode =  {
+export type TestsNode = {
     classId: string;
     className: string;
     testMethods?: string | string[];
 }
 
-export type CompileAndTestResult =  {
+export type CompileAndTestResult = {
     classes?: CompileClassResult | CompileClassResult[];
     deleteClasses?: DeleteApexResult | DeleteApexResult[];
     deleteTriggers?: DeleteApexResult | DeleteApexResult[];
@@ -104,7 +107,7 @@ export type CompileAndTestResult =  {
     triggers?: CompileTriggerResult | CompileTriggerResult[];
 }
 
-export type CompileClassResult =  {
+export type CompileClassResult = {
     bodyCrc?: number;
     column: number;
     id?: ID;
@@ -116,19 +119,19 @@ export type CompileClassResult =  {
     warnings?: CompileIssue | CompileIssue[];
 }
 
-export type CompileIssue =  {
+export type CompileIssue = {
     column?: number;
     line?: number;
     message?: string;
 }
 
-export type DeleteApexResult =  {
+export type DeleteApexResult = {
     id?: ID;
     problem?: string;
     success: boolean;
 }
 
-export type RunTestsResult =  {
+export type RunTestsResult = {
     apexLogId?: string;
     codeCoverage?: CodeCoverageResult | CodeCoverageResult[];
     codeCoverageWarnings?: CodeCoverageWarning | CodeCoverageWarning[];
@@ -141,7 +144,7 @@ export type RunTestsResult =  {
     totalTime: number;
 }
 
-export type CodeCoverageResult =  {
+export type CodeCoverageResult = {
     id: ID;
     locationsNotCovered?: CodeLocation | CodeLocation[];
     name: string;
@@ -151,21 +154,21 @@ export type CodeCoverageResult =  {
     type: string;
 }
 
-export type CodeLocation =  {
+export type CodeLocation = {
     column: number;
     line: number;
     numExecutions: number;
     time: number;
 }
 
-export type CodeCoverageWarning =  {
+export type CodeCoverageWarning = {
     id: ID;
     message: string;
     name?: string;
     namespace?: string;
 }
 
-export type RunTestFailure =  {
+export type RunTestFailure = {
     id: ID;
     message: string;
     methodName?: string;
@@ -177,7 +180,7 @@ export type RunTestFailure =  {
     type: string;
 }
 
-export type FlowCoverageResult =  {
+export type FlowCoverageResult = {
     elementsNotCovered?: string | string[];
     flowId: string;
     flowName: string;
@@ -187,14 +190,14 @@ export type FlowCoverageResult =  {
     processType: FlowProcessType;
 }
 
-export type FlowCoverageWarning =  {
+export type FlowCoverageWarning = {
     flowId?: string;
     flowName?: string;
     flowNamespace?: string;
     message: string;
 }
 
-export type RunTestSuccess =  {
+export type RunTestSuccess = {
     id: ID;
     methodName: string;
     name: string;
@@ -203,7 +206,7 @@ export type RunTestSuccess =  {
     time: number;
 }
 
-export type CompileTriggerResult =  {
+export type CompileTriggerResult = {
     bodyCrc?: number;
     column: number;
     id?: ID;
@@ -215,7 +218,7 @@ export type CompileTriggerResult =  {
     warnings?: CompileIssue | CompileIssue[];
 }
 
-export type ExecuteAnonymousResult =  {
+export type ExecuteAnonymousResult = {
     column: number;
     compileProblem?: string;
     compiled: boolean;
@@ -225,109 +228,109 @@ export type ExecuteAnonymousResult =  {
     success: boolean;
 }
 
-export type WsdlToApexInfo =  {
+export type WsdlToApexInfo = {
     mapping?: NamespacePackagePair | NamespacePackagePair[];
     wsdl: string;
 }
 
-export type NamespacePackagePair =  {
+export type NamespacePackagePair = {
     namespace: string;
     packageName: string;
 }
 
-export type WsdlToApexResult =  {
+export type WsdlToApexResult = {
     apexScripts?: string | string[];
     errors?: string | string[];
     success: boolean;
 }
 
-export type LogInfo =  {
+export type LogInfo = {
     category: LogCategory;
     level: LogCategoryLevel;
 }
 
-export type PackageVersion =  {
+export type PackageVersion = {
     majorNumber: number;
     minorNumber: number;
     namespace: string;
 }
 
-export type AllowFieldTruncationHeader =  {
+export type AllowFieldTruncationHeader= {
     allowFieldTruncation: boolean;
 }
 
-export type CallOptions =  {
+export type CallOptions= {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader =  {
+export type DebuggingHeader= {
     categories?: LogInfo | LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo =  {
+export type DebuggingInfo= {
     debugLog: string;
 }
 
-export type DisableFeedTrackingHeader =  {
+export type DisableFeedTrackingHeader= {
     disableFeedTracking: boolean;
 }
 
-export type PackageVersionHeader =  {
+export type PackageVersionHeader= {
     packageVersions?: PackageVersion | PackageVersion[];
 }
 
-export type SessionHeader =  {
+export type SessionHeader= {
     sessionId: string;
 }
 
-export type compileAndTest =  {
+export type compileAndTest= {
     CompileAndTestRequest: CompileAndTestRequest;
 }
 
-export type compileAndTestResponse =  {
+export type compileAndTestResponse= {
     result: CompileAndTestResult;
 }
 
-export type compileClasses =  {
+export type compileClasses= {
     scripts?: string | string[];
 }
 
-export type compileClassesResponse =  {
+export type compileClassesResponse= {
     result?: CompileClassResult | CompileClassResult[];
 }
 
-export type compileTriggers =  {
+export type compileTriggers= {
     scripts?: string | string[];
 }
 
-export type compileTriggersResponse =  {
+export type compileTriggersResponse= {
     result?: CompileTriggerResult | CompileTriggerResult[];
 }
 
-export type executeAnonymous =  {
+export type executeAnonymous= {
     String: string;
 }
 
-export type executeAnonymousResponse =  {
+export type executeAnonymousResponse= {
     result: ExecuteAnonymousResult;
 }
 
-export type runTests =  {
+export type runTests= {
     RunTestsRequest: RunTestsRequest;
 }
 
-export type runTestsResponse =  {
+export type runTestsResponse= {
     result: RunTestsResult;
 }
 
-export type wsdlToApex =  {
+export type wsdlToApex= {
     info: WsdlToApexInfo;
 }
 
-export type wsdlToApexResponse =  {
+export type wsdlToApexResponse= {
     result: WsdlToApexResult;
 }
 

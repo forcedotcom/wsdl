@@ -19,6 +19,12 @@
     "metadata"
   ],
   "author": "Salesforce",
+  "contributors": [
+    {
+      "name": "Andrés Catalán",
+      "url": "https://github.com/catalandres"
+    }
+  ],
   "license": "MIT",
   "licenses": [
     {

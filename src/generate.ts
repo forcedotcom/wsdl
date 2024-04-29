@@ -81,15 +81,15 @@ const reservedWords = ['abstract',
     'yield'];
 
 fs.readdirSync(wsdlFolder).forEach(
-    (wsdlFile) => {
+    (wsdlFile: string) => {
         console.dir(wsdlFile);
 
         const fileName: string = wsdlFile.split('.')[0];
         const extension: string = wsdlFile.split('.')[1];
 
         if (extension === 'wsdl') {
-            const wsdl = fs.readFileSync(wsdlFolder + '/' + wsdlFile, 'utf-8');
-            const ts = convertWsdlToTypescript(wsdl);
+            const wsdl: string = fs.readFileSync(wsdlFolder + '/' + wsdlFile, 'utf-8');
+            const ts: string = convertWsdlToTypescript(wsdl);
             fs.writeFileSync(outputFolder + '/' + fileName + '.d.ts', ts);
         }
     },
@@ -97,6 +97,10 @@ fs.readdirSync(wsdlFolder).forEach(
 
 function convertWsdlToTypescript(wsdl: string): string {
     let output = '';
+
+    output += '/* eslint-disable @typescript-eslint/no-explicit-any */\n';
+    output += '/* eslint-disable @typescript-eslint/no-empty-interface */\n\n';
+
     parseString(wsdl
             // Remove the xsd namespace prefix, because partner.wsdl does not use it.
             .replaceAll('xsd:', '')
@@ -114,22 +118,22 @@ function convertWsdlToTypescript(wsdl: string): string {
             explicitCharkey: true,
         },
         (err, result) => {
-            toArray((result.definitions as DefinitionsNode).types.schema).forEach(
+            arraynge((result.definitions as DefinitionsNode).types.schema).forEach(
 
-                (schema) => {
-                    toArray(schema.simpleType).forEach(
+                (schema: SchemaNode) => {
+                    arraynge(schema.simpleType).forEach(
                         (simpleTypeNode: SimpleTypeNode) => {
                             output += treatSimpleTypeNode(simpleTypeNode);
                         },
                     );
 
-                    toArray(schema.complexType).forEach(
+                    arraynge(schema.complexType).forEach(
                         (complexTypeNode: ComplexTypeNode) => {
                             output += treatComplexTypeNode(complexTypeNode);
                         },
                     );
 
-                    toArray(schema.element).forEach(
+                    arraynge(schema.element).forEach(
                         (elementNode: ElementNode) => {
                             output += treatElementNode(elementNode);
                         },
@@ -237,23 +241,23 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
 function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
     let complexNodeOutput = '';
 
-    const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
+    const typeName: string = treatTypeName(complexTypeNode.$?.name ?? '');
     let sequenceNode: SequenceNode | string | undefined;
     let typeStructure: string;
 
-    if (complexTypeNode.complexContent) {
+    if ((complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent) {
         typeStructure = 'complexContent';
     } else {
         typeStructure = 'sequence';
     }
 
-    complexNodeOutput += 'export type ' + typeName + ' = ';
+    complexNodeOutput += 'export type ' + typeName;
 
     switch (typeStructure) {
         case 'complexContent': {
             const updatedComplexTypeNode: ComplexTypeNodeWithComplexContent = complexTypeNode as ComplexTypeNodeWithComplexContent;
-            const parentType = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
-            complexNodeOutput += parentType ? treatTypeName(parentType) + ' & ' : '';
+            const parentType: string | undefined = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
+            complexNodeOutput += parentType ? ' = ' + treatTypeName(parentType) + ' & {\n' : '';
             sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
             break;
         }
@@ -261,16 +265,18 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
         case 'sequence': {
             const updatedComplexTypeNode: ComplexTypeNodeWithSequence = complexTypeNode as ComplexTypeNodeWithSequence;
             sequenceNode = updatedComplexTypeNode.sequence;
+            complexNodeOutput += ' = {\n';
             break;
         }
 
         default:
+            complexNodeOutput += ' = {\n';
     }
 
-    complexNodeOutput += ' {\n';
+
 
     if (sequenceNode && sequenceNode !== '') {
-        toArray((sequenceNode as SequenceNode).element).forEach(
+        arraynge((sequenceNode as SequenceNode).element).forEach(
             elementNode => {
                 complexNodeOutput += treatAttribute(elementNode);
             },
@@ -285,15 +291,15 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
 function treatElementNode(elementNode: ElementNode): string {
     let elementNodeOutput = '';
 
-    const typeName = treatTypeName(elementNode.$?.name);
+    const typeName: string = treatTypeName(elementNode.$?.name || '');
     const sequenceNode: SequenceNode | string = elementNode.complexType?.sequence ?? '';
 
-    elementNodeOutput += 'export type ' + typeName + ' = ';
+    elementNodeOutput += 'export type ' + typeName;
 
-    elementNodeOutput += ' {\n';
+    elementNodeOutput += '= {\n';
 
-    if (sequenceNode && typeof sequenceNode !== 'string') {
-        toArray((sequenceNode).element).forEach(
+    if (sequenceNode && sequenceNode !== '') {
+        arraynge((sequenceNode as SequenceNode).element).forEach(
             subElementNode => {
                 elementNodeOutput += treatAttribute(subElementNode);
             },
@@ -310,10 +316,13 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 
     const {name: fieldName, type: fieldTypeXml, minOccurs, maxOccurs, nillable} = elementNode.$;
 
-    const optional = (minOccurs === '0' || nillable === 'true') ? '?' : '';
+    console.assert(fieldName !== undefined, 'A field name is undefined');
+    console.assert(fieldTypeXml !== undefined, 'A field type is undefined');
+
+    const optional: string = (minOccurs === '0' || nillable === 'true') ? '?' : '';
     attributeOutput += '    ' + fieldName + optional + ': ';
 
-    const fieldType = translateTypeName(fieldTypeXml ?? '') ;
+    const fieldType: string = translateTypeName(fieldTypeXml ?? '') ?? 'any';
 
     if (maxOccurs === 'unbounded') {
         attributeOutput += fieldType + ' | ' + fieldType + '[]';
@@ -335,23 +344,43 @@ function translateTypeName(fieldTypeXml: string): string {
             break;
         }
 
-        case 'base64Binary':
         case 'string': {
             fieldType = 'string';
             break;
         }
 
-        case 'time':
-        case 'date':
         case 'dateTime': {
             fieldType = 'Date';
             break;
         }
 
-        case 'long':
-        case 'double':
         case 'int': {
             fieldType = 'number';
+            break;
+        }
+
+        case 'base64Binary': {
+            fieldType = 'string';
+            break;
+        }
+
+        case 'double': {
+            fieldType = 'number';
+            break;
+        }
+
+        case 'date': {
+            fieldType = 'Date';
+            break;
+        }
+
+        case 'long': {
+            fieldType = 'number';
+            break;
+        }
+
+        case 'time': {
+            fieldType = 'Date';
             break;
         }
 
@@ -386,7 +415,7 @@ function treatTypeName(str: string): string {
     return str;
 }
 
-function toArray<Type>(input: Type | Type[] | undefined): Type[] {
+function arraynge<Type>(input: Type | Type[] | undefined): Type[] {
     if (input === undefined) {
         return [];
     }
