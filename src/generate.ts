@@ -232,6 +232,8 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
         switch (typeStructure) {
             case 'complexContent': {
                 const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
+                sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence ?? '';
+
                 if(found){
                     complexNodeOutput +=  ' = '
 
@@ -240,12 +242,11 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
                     complexNodeOutput += parents
 
                     complexNodeOutput +=' {\n'
+                    // @ts-ignore
+                    if(sequenceNode!==''){
+                        sequenceNode.element= found.flatMap(f=>f.complexContent?.extension.sequence?.element)
+                    }
                 }
-
-
-                // sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
-                // sequenceNode.element = found.flatMap(f=>f.complexContent.extension.sequence.element)
-                sequenceNode =  updatedComplexTypeNode.complexContent.extension.sequence;
                 break;
             }
 
@@ -261,7 +262,7 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
         }
 
     if (sequenceNode) {
-        toArray(sequenceNode.element).forEach(
+        toArray(sequenceNode.element).filter(x=>x).forEach(
             elementNode => {
                 complexNodeOutput += treatAttribute(elementNode);
             },
