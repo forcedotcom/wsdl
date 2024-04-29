@@ -81,15 +81,15 @@ const reservedWords = ['abstract',
     'yield'];
 
 fs.readdirSync(wsdlFolder).forEach(
-    (wsdlFile: string) => {
+    (wsdlFile) => {
         console.dir(wsdlFile);
 
-        const fileName: string = wsdlFile.split('.')[0];
-        const extension: string = wsdlFile.split('.')[1];
+        const fileName = wsdlFile.split('.')[0];
+        const extension = wsdlFile.split('.')[1];
 
         if (extension === 'wsdl') {
-            const wsdl: string = fs.readFileSync(wsdlFolder + '/' + wsdlFile, 'utf-8');
-            const ts: string = convertWsdlToTypescript(wsdl);
+            const wsdl = fs.readFileSync(wsdlFolder + '/' + wsdlFile, 'utf-8');
+            const ts = convertWsdlToTypescript(wsdl);
             fs.writeFileSync(outputFolder + '/' + fileName + '.d.ts', ts);
         }
     },
@@ -115,23 +115,23 @@ function convertWsdlToTypescript(wsdl: string): string {
             explicitCharkey: true,
         },
         (err, result) => {
-            arraynge((result.definitions as DefinitionsNode).types.schema).forEach(
+            toArray((result.definitions as DefinitionsNode).types.schema).forEach(
 
-                (schema: SchemaNode) => {
-                    arraynge(schema.simpleType).forEach(
-                        (simpleTypeNode: SimpleTypeNode) => {
+                (schema) => {
+                    toArray(schema.simpleType).forEach(
+                        (simpleTypeNode) => {
                             output += treatSimpleTypeNode(simpleTypeNode);
                         },
                     );
 
-                    arraynge(schema.complexType).forEach(
-                        (complexTypeNode: ComplexTypeNode) => {
+                    toArray(schema.complexType).forEach(
+                        (complexTypeNode) => {
                             output += treatComplexTypeNode(complexTypeNode);
                         },
                     );
 
-                    arraynge(schema.element).forEach(
-                        (elementNode: ElementNode) => {
+                    toArray(schema.element).forEach(
+                        (elementNode) => {
                             output += treatElementNode(elementNode);
                         },
                     );
@@ -184,7 +184,7 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
         const enumerations: NodeWithAttributes[] = simpleTypeNode.restriction.enumeration as NodeWithAttributes[];
 
         if (enumerations && enumerations.length > 0) {
-            const enumerationValues: string[] = enumerations.map(
+            const enumerationValues= enumerations.map(
                 enumeration => enumeration.$.value || '',
             );
 
@@ -238,7 +238,7 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
 function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
     let complexNodeOutput = '';
 
-    const typeName: string = treatTypeName(complexTypeNode.$?.name ?? '');
+    const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
     let sequenceNode: SequenceNode | string | undefined;
     let typeStructure: string;
 
@@ -252,7 +252,7 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
 
     switch (typeStructure) {
         case 'complexContent': {
-            const updatedComplexTypeNode: ComplexTypeNodeWithComplexContent = complexTypeNode as ComplexTypeNodeWithComplexContent;
+            const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
             const parentType: string | undefined = updatedComplexTypeNode.complexContent.extension.$.base?.replace('tns_', '');
             complexNodeOutput += parentType ? ' = ' + treatTypeName(parentType) + ' & {\n' : '';
             sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence;
@@ -260,7 +260,7 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
         }
 
         case 'sequence': {
-            const updatedComplexTypeNode: ComplexTypeNodeWithSequence = complexTypeNode as ComplexTypeNodeWithSequence;
+            const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithSequence;
             sequenceNode = updatedComplexTypeNode.sequence;
             complexNodeOutput += ' = {\n';
             break;
@@ -273,7 +273,7 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
 
 
     if (sequenceNode && sequenceNode !== '') {
-        arraynge((sequenceNode as SequenceNode).element).forEach(
+        toArray((sequenceNode as SequenceNode).element).forEach(
             elementNode => {
                 complexNodeOutput += treatAttribute(elementNode);
             },
@@ -288,7 +288,7 @@ function treatComplexTypeNode(complexTypeNode: ComplexTypeNode): string {
 function treatElementNode(elementNode: ElementNode): string {
     let elementNodeOutput = '';
 
-    const typeName: string = treatTypeName(elementNode.$?.name || '');
+    const typeName = treatTypeName(elementNode.$?.name || '');
     const sequenceNode: SequenceNode | string = elementNode.complexType?.sequence ?? '';
 
     elementNodeOutput += 'export type ' + typeName;
@@ -296,7 +296,7 @@ function treatElementNode(elementNode: ElementNode): string {
     elementNodeOutput += '= {\n';
 
     if (sequenceNode && sequenceNode !== '') {
-        arraynge((sequenceNode as SequenceNode).element).forEach(
+        toArray((sequenceNode as SequenceNode).element).forEach(
             subElementNode => {
                 elementNodeOutput += treatAttribute(subElementNode);
             },
@@ -316,10 +316,10 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
     console.assert(fieldName !== undefined, 'A field name is undefined');
     console.assert(fieldTypeXml !== undefined, 'A field type is undefined');
 
-    const optional: string = (minOccurs === '0' || nillable === 'true') ? '?' : '';
+    const optional = (minOccurs === '0' || nillable === 'true') ? '?' : '';
     attributeOutput += '    ' + fieldName + optional + ': ';
 
-    const fieldType: string = translateTypeName(fieldTypeXml ?? '') ?? 'any';
+    const fieldType = translateTypeName(fieldTypeXml ?? '') ?? 'any';
 
     if (maxOccurs === 'unbounded') {
         attributeOutput += fieldType + ' | ' + fieldType + '[]';
@@ -340,43 +340,22 @@ function translateTypeName(fieldTypeXml: string): string {
             fieldType = 'boolean';
             break;
         }
-
+        case 'base64Binary':
         case 'string': {
             fieldType = 'string';
             break;
         }
 
-        case 'dateTime': {
-            fieldType = 'Date';
-            break;
-        }
-
+        case 'double':
+        case 'long':
         case 'int': {
             fieldType = 'number';
             break;
         }
 
-        case 'base64Binary': {
-            fieldType = 'string';
-            break;
-        }
-
-        case 'double': {
-            fieldType = 'number';
-            break;
-        }
-
+        case 'dateTime':
+        case 'time':
         case 'date': {
-            fieldType = 'Date';
-            break;
-        }
-
-        case 'long': {
-            fieldType = 'number';
-            break;
-        }
-
-        case 'time': {
             fieldType = 'Date';
             break;
         }
@@ -422,7 +401,7 @@ function treatTypeName(str: string): string {
     return str;
 }
 
-function arraynge<Type>(input: Type | Type[] | undefined): Type[] {
+function toArray<Type>(input: Type | Type[] | undefined): Type[] {
     if (input === undefined) {
         return [];
     }
