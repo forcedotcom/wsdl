@@ -117,7 +117,7 @@ function convertWsdlToTypescript(wsdl: string): string {
         const arr = toArray((result.definitions as DefinitionsNode).types.schema)
             arr.flatMap(a => a.simpleType).filter(x=>x).forEach(simple => output+= treatSimpleTypeNode(simple))
             arr.flatMap(a => a.element).filter(x=>x).forEach(element => output+= treatElementNode(element))
-            output += treatComplexTypeNode(arr.flatMap<ComplexTypeNode>(a => a.complexType).filter(x=>x))// .forEach(complex => output+= treatComplexTypeNode(complex))
+            output += treatComplexTypeNode(arr.flatMap<ComplexTypeNode>(a => a.complexType))
         },
     );
 
@@ -220,58 +220,47 @@ function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
 function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
     let complexNodeOutput = '';
 
-    complexTypeNodes.forEach(complexTypeNode => {
-        const typeName = treatTypeName(complexTypeNode.$?.name ?? '');
-        let sequenceNode: SequenceNode | undefined;
-        let typeStructure= (complexTypeNode as ComplexTypeNodeWithComplexContent).complexContent ? 'complexContent' : 'sequence'
+    const typeMap = new Map<string, {parents:string[], fields: SequenceNode[]}>();
 
-        complexNodeOutput += 'export type ' + typeName;
-
-        const found = complexTypeNodes.filter(c => c.$?.name === complexTypeNode.$?.name) as ComplexTypeNodeWithComplexContent[]
-
-        switch (typeStructure) {
-            case 'complexContent': {
-                const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithComplexContent;
-                sequenceNode = updatedComplexTypeNode.complexContent.extension.sequence ?? '';
-
-                if(found){
-                    complexNodeOutput +=  ' = '
-
-                    const parents=found.map(f => treatTypeName(f.complexContent?.extension?.$?.base ?? '') + ' & ').join('')
-
-                    complexNodeOutput += parents
-
-                    complexNodeOutput +=' {\n'
-                    // @ts-ignore
-                    if(sequenceNode!==''){
-                        sequenceNode.element= found.flatMap(f=>f.complexContent?.extension.sequence?.element)
-                    }
-                }
-                break;
+    complexTypeNodes.map(type => {
+        const key = treatTypeName(type.$?.name??'')
+        if(!typeMap.has(key)){
+            if((type as ComplexTypeNodeWithComplexContent).complexContent){
+                // complex content case
+                const t = type as ComplexTypeNodeWithComplexContent;
+                typeMap.set(key, {parents: [t.complexContent.extension.$.base], fields: toArray(t.complexContent.extension.sequence?.element ?? []) as SequenceNode[]})
+            }else{
+                typeMap.set(key, {parents: [], fields: toArray((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[] ?? []) })
             }
-
-            case 'sequence': {
-                const updatedComplexTypeNode = complexTypeNode as ComplexTypeNodeWithSequence;
-                sequenceNode = updatedComplexTypeNode.sequence;
-                complexNodeOutput += ' = {\n';
-                break;
+        } else {
+            // we have this key, update it - use ! because we just ensured the map has it
+            const currValue = typeMap.get(key)!
+            if((type as ComplexTypeNodeWithComplexContent).complexContent){
+                // complex content case
+                const t = type as ComplexTypeNodeWithComplexContent;
+                currValue.parents.push(t.complexContent.extension.$.base)
+                currValue.fields.push(...toArray(t.complexContent.extension.sequence.element) as SequenceNode[])
+            }else{
+                // @ts-ignore
+                currValue.fields.concat((type as ComplexTypeNodeWithSequence).sequence?.element)
             }
+            typeMap.set(key, currValue)
+        }
+    })
 
-            default:
-                complexNodeOutput += ' = {\n';
+    typeMap.forEach((info, type)=>{
+        complexNodeOutput += 'export type ' + type + ' = '
+        complexNodeOutput += info.parents.map(p => treatTypeName(p)).join(' & ')
+        if(info.parents.length){
+            complexNodeOutput+= ' & {\n'
+        }else{
+            complexNodeOutput+= '{\n'
         }
 
-    if (sequenceNode) {
-        toArray(sequenceNode.element).filter(x=>x).forEach(
-            elementNode => {
-                complexNodeOutput += treatAttribute(elementNode);
-            },
-        );
-    }
-
-        complexNodeOutput += '}\n\n';
-
-        return complexNodeOutput;
+        info.fields.filter(f=>f).map(f => {
+            complexNodeOutput+= treatAttribute(f)
+        })
+        complexNodeOutput+= '}\n\n'
     })
 
     return complexNodeOutput
