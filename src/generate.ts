@@ -115,13 +115,12 @@ function convertWsdlToTypescript(wsdl: string): string {
         },
         (err, result) => {
         const arr = toArray((result.definitions as DefinitionsNode).types.schema);
-        const all = [
+
+        output += treatComplexTypeNode([
             ...arr.flatMap(a => a.simpleType).filter(x=>x),
             ...arr.flatMap(a => a.element).filter(x=>x),
             ...arr.flatMap<ComplexTypeNode>(a => a.complexType).filter(x=>x)
-        ];
-
-        output += treatComplexTypeNode(all)
+        ])
         },
     );
 
@@ -156,36 +155,6 @@ function convertWsdlToTypescript(wsdl: string): string {
 
 * Note that restrictions like length and pattern are not taken into account while building the Typescript type.
 */
-
-function treatSimpleTypeNode(simpleTypeNode: SimpleTypeNode): string {
-    let simpleNodeOutput = '';
-
-    const typeName = treatTypeName(simpleTypeNode.$.name );
-    const typePrimitive = simpleTypeNode.restriction.$.base ;
-
-    if (typePrimitive === 'string') {
-        simpleNodeOutput += 'export type ' + typeName + ' = ';
-
-        const enumerations = simpleTypeNode.restriction.enumeration as NodeWithAttributes[];
-
-        if (enumerations && enumerations.length > 0) {
-            const enumerationValues= enumerations.map(
-                enumeration => enumeration.$.value || '',
-            );
-
-            simpleNodeOutput += '\'' + enumerationValues.join('\' \n      | \'') + '\'';
-        } else {
-            // Not an enumeration
-            simpleNodeOutput += 'string';
-        }
-    } else {
-        simpleNodeOutput += 'export type ' + typeName + ' = ' + translateTypeName(typePrimitive);
-    }
-
-    simpleNodeOutput += ';\n\n';
-
-    return simpleNodeOutput;
-}
 
 /*
 **********************
@@ -272,10 +241,10 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
             }else {
                 complexNodeOutput += '{\n'
             }
-            info.fields.filter(f=>f).map(f => {
-                if(!('value' in f.$)){
-                    complexNodeOutput+= treatAttribute(f)
-                }
+            // there's a duplciate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
+            // as well as fields that shouldn't be here !('value' in n.$')
+            info.fields.filter((n, i) => info.fields.map(f=>f.$.name).indexOf(n.$.name)===i && !('value' in n.$) ).map(f => {
+                complexNodeOutput+= treatAttribute(f)
             })
             complexNodeOutput+= '}\n\n'
         }
@@ -283,25 +252,6 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
 
     return complexNodeOutput
 
-}
-
-function treatElementNode(elementNode: ElementNode): string {
-    let elementNodeOutput = '';
-
-    const typeName = treatTypeName(elementNode.$?.name || '');
-    const sequenceNode = elementNode.complexType?.sequence;
-    if (sequenceNode) {
-        elementNodeOutput += 'export type ' + typeName + ' = {\n';
-
-        toArray((sequenceNode as SequenceNode).element).forEach(
-            subElementNode => {
-                elementNodeOutput += treatAttribute(subElementNode);
-            },
-        );
-
-        elementNodeOutput += '}\n\n';
-    }
-    return elementNodeOutput;
 }
 
 function treatAttribute(elementNode: NodeWithAttributes): string {

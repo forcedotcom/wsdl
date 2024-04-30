@@ -35442,7 +35442,6 @@ export type UIObjectRelationConfig = Metadata & sObject & {
     RelatedObjectRecordTypeId?: ID;
     RelationshipType?: ObjectRelationshipType;
     SystemModstamp?: Date;
-    UIObjectRelationFieldConfigs?: QueryResult;
 }
 
 export type UIObjectRelationFieldConfig = sObject & {
