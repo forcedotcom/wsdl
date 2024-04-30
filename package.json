@@ -6,6 +6,13 @@
     "type": "git",
     "url": "https://github.com/forcedotcom/wsdl"
   },
+  "exports": {
+    "./apex": "./lib/apex.js",
+    "./metadata": "./lib/metadata.js",
+    "./partner": "./lib/partner.js",
+    "./tooling": "./lib/tooling.js"
+  },
+  "types": "./lib",
   "engines": {
     "node": ">=18"
   },
@@ -36,7 +43,7 @@
     }
   ],
   "files": [
-    "output"
+    "lib"
   ],
   "devDependencies": {
     "@salesforce/dev-scripts": "^9.0.0",
@@ -49,22 +56,17 @@
   "dependencies": {},
   "wireit": {
     "format": {
-      "command": "prettier --write \"+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json\"",
+      "command": "prettier --write \"+src/**/*.+(ts|js|json)\"",
       "files": [
-        "src/**/*.ts",
-        "test/**/*.ts",
-        "schemas/**/*.json",
-        "command-snapshot.json",
+        "lib/**/*.ts",
         ".prettier*"
       ],
       "output": []
     },
     "lint": {
-      "command": "eslint src test --color --cache --cache-location .eslintcache",
+      "command": "eslint src --color --cache --cache-location .eslintcache",
       "files": [
-        "src/**/*.ts",
-        "test/**/*.ts",
-        "messages/**",
+        "lib/**/*.ts",
         "**/.eslint*",
         "**/tsconfig.json"
       ],

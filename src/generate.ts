@@ -19,7 +19,7 @@ import type {
 } from './types';
 
 const wsdlFolder = './resources';
-const outputFolder = './output';
+const outputFolder = './lib';
 
 const reservedWords = [
   'abstract',
