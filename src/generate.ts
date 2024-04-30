@@ -219,7 +219,7 @@ function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | E
           fields: toArray(
             ((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[]) ??
               // handle simple types here - adding enum values to fields
-              toArray((type as SimpleTypeNode).restriction.enumeration ?? [])
+              toArray((type as SimpleTypeNode).restriction?.enumeration ?? [])
           ),
         });
       }
