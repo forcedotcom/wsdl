@@ -114,10 +114,14 @@ function convertWsdlToTypescript(wsdl: string): string {
             explicitCharkey: true,
         },
         (err, result) => {
-        const arr = toArray((result.definitions as DefinitionsNode).types.schema)
-            arr.flatMap(a => a.simpleType).filter(x=>x).forEach(simple => output+= treatSimpleTypeNode(simple))
-            arr.flatMap(a => a.element).filter(x=>x).forEach(element => output+= treatElementNode(element))
-            output += treatComplexTypeNode(arr.flatMap<ComplexTypeNode>(a => a.complexType))
+        const arr = toArray((result.definitions as DefinitionsNode).types.schema);
+        const all = [
+            ...arr.flatMap(a => a.simpleType).filter(x=>x),
+            ...arr.flatMap(a => a.element).filter(x=>x),
+            ...arr.flatMap<ComplexTypeNode>(a => a.complexType).filter(x=>x)
+        ];
+
+        output += treatComplexTypeNode(all)
         },
     );
 
@@ -230,7 +234,12 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
                 const t = type as ComplexTypeNodeWithComplexContent;
                 typeMap.set(key, {parents: [t.complexContent.extension.$.base], fields: toArray(t.complexContent.extension.sequence?.element ?? []) as SequenceNode[]})
             }else{
-                typeMap.set(key, {parents: [], fields: toArray((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[] ?? []) })
+                typeMap.set(key, {
+                    parents: [], fields: toArray((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[] ??
+                        // handle simple types here - adding enum values to fields
+                        // @ts-ignore
+                        toArray(type.restriction?.enumeration ?? []))
+                })
             }
         } else {
             // we have this key, update it - use ! because we just ensured the map has it
@@ -239,28 +248,37 @@ function treatComplexTypeNode(complexTypeNodes: ComplexTypeNode[]): string {
                 // complex content case
                 const t = type as ComplexTypeNodeWithComplexContent;
                 currValue.parents.push(t.complexContent.extension.$.base)
-                currValue.fields.push(...toArray(t.complexContent.extension.sequence.element) as SequenceNode[])
+                currValue.fields.push(...toArray(t.complexContent.extension.sequence?.element) as SequenceNode[])
             }else{
                 // @ts-ignore
-                currValue.fields.concat((type as ComplexTypeNodeWithSequence).sequence?.element)
+                currValue.fields.concat((type as ComplexTypeNodeWithSequence).sequence?.element ?? type.restriction.enumeration)
             }
             typeMap.set(key, currValue)
         }
     })
 
     typeMap.forEach((info, type)=>{
-        complexNodeOutput += 'export type ' + type + ' = '
-        complexNodeOutput += info.parents.map(p => treatTypeName(p)).join(' & ')
-        if(info.parents.length){
-            complexNodeOutput+= ' & {\n'
-        }else{
-            complexNodeOutput+= '{\n'
+        if(info.fields.every(f=> 'value' in f.$)){
+            // we have an enum type
+            complexNodeOutput+= 'export type ' + type + ' = '
+            if(info.fields.length===0) complexNodeOutput+='string'
+            complexNodeOutput+= info.fields.map(f => '\''+f.$.value+'\''  ).join('\n      |')
+            complexNodeOutput+='\n\n'
+        } else {
+            complexNodeOutput += 'export type ' + type + ' = '
+            complexNodeOutput += info.parents.map(p => treatTypeName(p)).join(' & ')
+            if(info.parents.length){
+                complexNodeOutput+= ' & {\n'
+            }else {
+                complexNodeOutput += '{\n'
+            }
+            info.fields.filter(f=>f).map(f => {
+                if(!('value' in f.$)){
+                    complexNodeOutput+= treatAttribute(f)
+                }
+            })
+            complexNodeOutput+= '}\n\n'
         }
-
-        info.fields.filter(f=>f).map(f => {
-            complexNodeOutput+= treatAttribute(f)
-        })
-        complexNodeOutput+= '}\n\n'
     })
 
     return complexNodeOutput
@@ -291,7 +309,7 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 
     const {name: fieldName, type: fieldTypeXml, minOccurs, maxOccurs, nillable} = elementNode.$;
 
-    console.assert(fieldName !== undefined, 'A field name is undefined');
+    console.assert(fieldName !== undefined, 'A field name is undefined', elementNode.$);
     console.assert(fieldTypeXml !== undefined, 'A field type is undefined');
 
     const optional = (minOccurs === '0' || nillable === 'true') ? '?' : '';
