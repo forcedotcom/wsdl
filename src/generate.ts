@@ -5,6 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import * as fs from 'node:fs';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { parseString } from 'xml2js';
 import type {
   ComplexTypeNode,

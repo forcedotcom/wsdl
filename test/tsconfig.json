@@ -1,0 +1,3 @@
+{
+  "extends": "@salesforce/dev-config/tsconfig-test-strict-esm"
+}

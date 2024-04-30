@@ -11,7 +11,10 @@
   },
   "scripts": {
     "generate": "ts-node src/generate.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "wireit",
+    "prepack": "sf-prepack",
+    "build": "echo \"Nothing to build here\" && exit 0",
+    "test": "echo \"Nothing to test here\" && exit 0"
   },
   "keywords": [
     "salesforce",
@@ -25,7 +28,7 @@
       "url": "https://github.com/catalandres"
     }
   ],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "licenses": [
     {
       "type": "MIT",
@@ -36,10 +39,36 @@
     "output"
   ],
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@salesforce/dev-scripts": "^9.0.0",
+    "eslint-plugin-sf-plugin": "^1.18.3",
     "@types/xml2js": "^0.4.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "xml2js": "^0.6.2"
+  },
+  "dependencies": {},
+  "wireit": {
+    "format": {
+      "command": "prettier --write \"+(src|test|schemas)/**/*.+(ts|js|json)|command-snapshot.json\"",
+      "files": [
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "schemas/**/*.json",
+        "command-snapshot.json",
+        ".prettier*"
+      ],
+      "output": []
+    },
+    "lint": {
+      "command": "eslint src test --color --cache --cache-location .eslintcache",
+      "files": [
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "messages/**",
+        "**/.eslint*",
+        "**/tsconfig.json"
+      ],
+      "output": []
+    }
   }
 }
