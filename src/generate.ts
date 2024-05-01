@@ -277,16 +277,6 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 
   console.assert(fieldName !== undefined, 'A field name is undefined', elementNode.$);
   console.assert(fieldTypeXml !== undefined, 'A field type is undefined');
-  //  const type = toJsType(el.$.type, simpleTypes);
-  //   const isArray = el.$.maxOccurs === 'unbounded';
-  //   const nillable = (!isArray && el.$.minOccurs === 0) || el.$.nillable;
-  //   return isArray
-  //     ? nillable
-  //       ? ['?', type]
-  //       : [type]
-  //     : nillable
-  //     ? `?${type}`
-  //     : type;
 
   const isArray = maxOccurs === 'unbounded';
   const optional = (!isArray && minOccurs === '0') || nillable ? '?' : '';
@@ -294,8 +284,8 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 
   const fieldType = translateTypeName(fieldTypeXml ?? '') ?? 'any';
 
-  if (maxOccurs === 'unbounded') {
-    attributeOutput += fieldType + ' | ' + fieldType + '[]';
+  if (isArray) {
+    attributeOutput += fieldType + '[]';
   } else {
     attributeOutput += fieldType;
   }

@@ -99,36 +99,36 @@ export type wsdlToApexResponse = string;
 
 export type CompileAndTestRequest = {
   checkOnly: boolean;
-  classes: string | string[];
-  deleteClasses: string | string[];
-  deleteTriggers: string | string[];
+  classes: string[];
+  deleteClasses: string[];
+  deleteTriggers: string[];
   runTestsRequest?: RunTestsRequest;
-  triggers: string | string[];
+  triggers: string[];
 };
 
 export type RunTestsRequest = {
   allTests: boolean;
-  classes: string | string[];
+  classes: string[];
   maxFailedTests?: number;
   namespace: string;
-  packages: string | string[];
+  packages: string[];
   skipCodeCoverage?: boolean;
-  tests: TestsNode | TestsNode[];
+  tests: TestsNode[];
 };
 
 export type TestsNode = {
   classId: string;
   className: string;
-  testMethods: string | string[];
+  testMethods: string[];
 };
 
 export type CompileAndTestResult = {
-  classes: CompileClassResult | CompileClassResult[];
-  deleteClasses: DeleteApexResult | DeleteApexResult[];
-  deleteTriggers: DeleteApexResult | DeleteApexResult[];
+  classes: CompileClassResult[];
+  deleteClasses: DeleteApexResult[];
+  deleteTriggers: DeleteApexResult[];
   runTestsResult: RunTestsResult;
   success: boolean;
-  triggers: CompileTriggerResult | CompileTriggerResult[];
+  triggers: CompileTriggerResult[];
 };
 
 export type CompileClassResult = {
@@ -138,9 +138,9 @@ export type CompileClassResult = {
   line: number;
   name?: string;
   problem?: string;
-  problems?: CompileIssue | CompileIssue[];
+  problems?: CompileIssue[];
   success: boolean;
-  warnings?: CompileIssue | CompileIssue[];
+  warnings?: CompileIssue[];
 };
 
 export type CompileIssue = {
@@ -157,20 +157,20 @@ export type DeleteApexResult = {
 
 export type RunTestsResult = {
   apexLogId?: string;
-  codeCoverage: CodeCoverageResult | CodeCoverageResult[];
-  codeCoverageWarnings: CodeCoverageWarning | CodeCoverageWarning[];
-  failures: RunTestFailure | RunTestFailure[];
-  flowCoverage: FlowCoverageResult | FlowCoverageResult[];
-  flowCoverageWarnings: FlowCoverageWarning | FlowCoverageWarning[];
+  codeCoverage: CodeCoverageResult[];
+  codeCoverageWarnings: CodeCoverageWarning[];
+  failures: RunTestFailure[];
+  flowCoverage: FlowCoverageResult[];
+  flowCoverageWarnings: FlowCoverageWarning[];
   numFailures: number;
   numTestsRun: number;
-  successes: RunTestSuccess | RunTestSuccess[];
+  successes: RunTestSuccess[];
   totalTime: number;
 };
 
 export type CodeCoverageResult = {
   id: ID;
-  locationsNotCovered: CodeLocation | CodeLocation[];
+  locationsNotCovered: CodeLocation[];
   name: string;
   namespace?: string;
   numLocations: number;
@@ -205,7 +205,7 @@ export type RunTestFailure = {
 };
 
 export type FlowCoverageResult = {
-  elementsNotCovered: string | string[];
+  elementsNotCovered: string[];
   flowId: string;
   flowName: string;
   flowNamespace?: string;
@@ -237,9 +237,9 @@ export type CompileTriggerResult = {
   line: number;
   name?: string;
   problem?: string;
-  problems?: CompileIssue | CompileIssue[];
+  problems?: CompileIssue[];
   success: boolean;
-  warnings?: CompileIssue | CompileIssue[];
+  warnings?: CompileIssue[];
 };
 
 export type ExecuteAnonymousResult = {
@@ -253,7 +253,7 @@ export type ExecuteAnonymousResult = {
 };
 
 export type WsdlToApexInfo = {
-  mapping: NamespacePackagePair | NamespacePackagePair[];
+  mapping: NamespacePackagePair[];
   wsdl: string;
 };
 
@@ -263,8 +263,8 @@ export type NamespacePackagePair = {
 };
 
 export type WsdlToApexResult = {
-  apexScripts: string | string[];
-  errors: string | string[];
+  apexScripts: string[];
+  errors: string[];
   success: boolean;
 };
 

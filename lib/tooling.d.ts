@@ -8733,7 +8733,7 @@ export type AIApplication = Metadata &
   sObject & {
     developerName: string;
     masterLabel?: string;
-    predictionDefinitions: AIPredictionDefinition | AIPredictionDefinition[];
+    predictionDefinitions: AIPredictionDefinition[];
     status: AIApplicationStatus;
     type: AIApplicationType;
     AllManagedPackageMemberId?: ID;
@@ -8838,9 +8838,9 @@ export type AIModel = Metadata &
     failureReasonCode?: string;
     modelContent?: string;
     modelDef: string;
-    modelFactors: AIModelFactor | AIModelFactor[];
-    modelGraphs: AIModelGraph | AIModelGraph[];
-    modelMetrics: AIModelMetric | AIModelMetric[];
+    modelFactors: AIModelFactor[];
+    modelGraphs: AIModelGraph[];
+    modelMetrics: AIModelMetric[];
     priority?: number;
     scoringStatus: AIScoringStatus;
     trainingEndTime: Date;
@@ -8878,7 +8878,7 @@ export type AIModel = Metadata &
 
 export type AIModelFactor = sObject & {
   externalId?: string;
-  factorComponents: AIFactorComponent | AIFactorComponent[];
+  factorComponents: AIFactorComponent[];
   intensityType: AIIntensityType;
   intensityValue: number;
   lowerLimit: number;
@@ -8980,7 +8980,7 @@ export type AIModelMetric = sObject & {
 export type AIScoringModelDefVersion = Metadata &
   sObject & {
     aiScoringModelDefinition: string;
-    aiScoringSteps: AIScoringStep | AIScoringStep[];
+    aiScoringSteps: AIScoringStep[];
     developerName: string;
     masterLabel: string;
     modelMode: AIScoringModelDefVersionMode;
@@ -9053,8 +9053,8 @@ export type AIScoringModelDefinition = Metadata &
 
 export type AIUsecaseDefinition = Metadata &
   sObject & {
-    aiUsecaseFieldMappings: AIUsecaseFieldMapping | AIUsecaseFieldMapping[];
-    aiUsecaseModels: AIUsecaseModel | AIUsecaseModel[];
+    aiUsecaseFieldMappings: AIUsecaseFieldMapping[];
+    aiUsecaseModels: AIUsecaseModel[];
     creatorType: CreatorType;
     masterLabel: string;
     maximumInsightCount?: number;
@@ -9140,7 +9140,7 @@ export type AIUsecaseFieldMapping = sObject & {
 };
 
 export type AIUsecaseModel = sObject & {
-  aiFeatureExtractors: AIFeatureExtractor | AIFeatureExtractor[];
+  aiFeatureExtractors: AIFeatureExtractor[];
   arePredctGenInRealTime: boolean;
   defaultFeatureExtractor?: AIFeatureExtractor;
   developerName: string;
@@ -9251,7 +9251,7 @@ export type AccessControlPolicy = Metadata & {
 export type AccountForecastSettings = Metadata &
   sObject & {
     accountFilterId?: string;
-    accountForecastFormulas: AccountForecastFormula | AccountForecastFormula[];
+    accountForecastFormulas: AccountForecastFormula[];
     acctPrdctPrdFrcstVolCnt?: number;
     calculationFrequency: CalculationFrequency;
     displayDuration: number;
@@ -9331,7 +9331,7 @@ export type AccountForecastFormula = sObject & {
 
 export type ObjectMapping = sObject & {
   inputObject: string;
-  mappingFields: ObjectMappingField | ObjectMappingField[];
+  mappingFields: ObjectMappingField[];
   outputObject: string;
   AllManagedPackageMemberId?: ID;
   CreatedBy?: User;
@@ -9486,7 +9486,7 @@ export type ActionLauncherItemDef = Metadata &
   };
 
 export type ActionLinkGroupTemplate = Metadata & {
-  actionLinkTemplates: ActionLinkTemplate | ActionLinkTemplate[];
+  actionLinkTemplates: ActionLinkTemplate[];
   category: PlatformActionGroupCategory;
   executionsAllowed: ActionLinkExecutionsAllowed;
   hoursUntilExpiration?: number;
@@ -9510,8 +9510,8 @@ export type ActionLinkTemplate = {
 };
 
 export type ActionPlanTemplate = Metadata & {
-  actionPlanTemplateItem: ActionPlanTemplateItem | ActionPlanTemplateItem[];
-  actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency | ActionPlanTemplateItemDependency[];
+  actionPlanTemplateItem: ActionPlanTemplateItem[];
+  actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency[];
   description?: string;
   isAdHocItemCreationEnabled: boolean;
   name: string;
@@ -9520,7 +9520,7 @@ export type ActionPlanTemplate = Metadata & {
 };
 
 export type ActionPlanTemplateItem = {
-  actionPlanTemplateItemValue: ActionPlanTemplateItemValue | ActionPlanTemplateItemValue[];
+  actionPlanTemplateItemValue: ActionPlanTemplateItemValue[];
   displayOrder?: number;
   isRequired?: boolean;
   itemEntityType: string;
@@ -9577,8 +9577,8 @@ export type ActionableEventTypeDef = Metadata &
   sObject & {
     apiName: string;
     label: string;
-    listOfSubtypeApiNames: string | string[];
-    listOfSubtypeNames: string | string[];
+    listOfSubtypeApiNames: string[];
+    listOfSubtypeNames: string[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -9863,8 +9863,8 @@ export type AddOnDefinition = Metadata & {
   defaultLicenseDuration?: number;
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
-  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition | IncludedPlatformLicenseDefinition[];
-  includedUserLicenseDefinitions: IncludedUserLicenseDefinition | IncludedUserLicenseDefinition[];
+  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition[];
+  includedUserLicenseDefinitions: IncludedUserLicenseDefinition[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
@@ -9888,11 +9888,11 @@ export type AdvAccountForecastSet = Metadata &
     accountFieldName?: string;
     calculationFrequency?: AdvAcctFcstCalcFrequency;
     description?: string;
-    dimensions: AdvAcctForecastDimension | AdvAcctForecastDimension[];
-    displayGroups: AdvAcctFrcstDisplayGroup | AdvAcctFrcstDisplayGroup[];
-    forecastAdjPeriods: AdvAcctForecastAdjPeriod | AdvAcctForecastAdjPeriod[];
+    dimensions: AdvAcctForecastDimension[];
+    displayGroups: AdvAcctFrcstDisplayGroup[];
+    forecastAdjPeriods: AdvAcctForecastAdjPeriod[];
     forecastFactObjectName: string;
-    forecastFormulas: AdvAccountForecastFormula | AdvAccountForecastFormula[];
+    forecastFormulas: AdvAccountForecastFormula[];
     forecastPeriodGroupName: string;
     forecastQuantityFieldName?: string;
     forecastRevenueFieldName?: string;
@@ -9900,7 +9900,7 @@ export type AdvAccountForecastSet = Metadata &
     forecastSetName: string;
     forecastStatusFieldName?: string;
     generationDpeDefName?: string;
-    measureDefinitions: AdvAcctForecastMeasureDef | AdvAcctForecastMeasureDef[];
+    measureDefinitions: AdvAcctForecastMeasureDef[];
     periodFieldName?: string;
     recalculateDpeDefName?: string;
     regenerationDpeDefName?: string;
@@ -9975,7 +9975,7 @@ export type AdvAcctForecastDimension = sObject & {
 
 export type AdvAcctFrcstDisplayGroup = sObject & {
   advAcctFrcstDisplayGroupName: string;
-  displayGroupItems: AdvAcctFrcstDplyGroupItem | AdvAcctFrcstDplyGroupItem[];
+  displayGroupItems: AdvAcctFrcstDplyGroupItem[];
   displayGroupType?: AdvAcctFrcstDisplayGroupType;
   isDefault?: boolean;
   userProfileName?: string;
@@ -10116,7 +10116,7 @@ export type AdvAcctForecastDimSource = Metadata &
 export type AdvAcctForecastPeriodGroup = Metadata &
   sObject & {
     forecastPeriodGroupName: string;
-    forecastPeriods: AdvAccountForecastPeriod | AdvAccountForecastPeriod[];
+    forecastPeriods: AdvAccountForecastPeriod[];
     startPeriod: number;
     status: ForecastPeriodGroupStatus;
     AdvAcctForecastPeriodGroup?: QueryResult;
@@ -10167,7 +10167,7 @@ export type AdvancedObjectMapping = Metadata &
     client: FieldMappingClient;
     description?: string;
     label: string;
-    rows: AdvancedFieldMapping | AdvancedFieldMapping[];
+    rows: AdvancedFieldMapping[];
     sourceObject?: string;
     targetObject?: string;
     Client?: FieldMappingClient;
@@ -10200,7 +10200,7 @@ export type AdvancedFieldMapping = {
 export type AnalyticSnapshot = Metadata & {
   description?: string;
   groupColumn?: string;
-  mappings: AnalyticSnapshotMapping | AnalyticSnapshotMapping[];
+  mappings: AnalyticSnapshotMapping[];
   name: string;
   runningUser?: string;
   sourceReport: string;
@@ -10258,7 +10258,7 @@ export type AnimationRule = Metadata &
 export type ApexClass = Metadata &
   sObject & {
     apiVersion: number;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     status: ApexCodeUnitStatus;
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
@@ -10293,7 +10293,7 @@ export type ApexComponent = Metadata &
     apiVersion?: number;
     description?: string;
     label: string;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     ControllerKey?: string;
@@ -10321,7 +10321,7 @@ export type ApexPage = Metadata &
     confirmationTokenRequired?: boolean;
     description?: string;
     label: string;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
     ControllerKey?: string;
@@ -10348,8 +10348,8 @@ export type ApexPage = Metadata &
 
 export type ApexTestSuite = Metadata &
   sObject & {
-    testClassName: string | string[];
-    ApexClassIds?: ID | ID[];
+    testClassName: string[];
+    ApexClassIds?: ID[];
     ApexClassJunctions?: QueryResult;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -10365,7 +10365,7 @@ export type ApexTestSuite = Metadata &
 export type ApexTrigger = Metadata &
   sObject & {
     apiVersion: number;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     status: ApexCodeUnitStatus;
     AllManagedPackageMemberId?: ID;
     ApiVersion?: number;
@@ -10430,7 +10430,7 @@ export type Application = Metadata & {
 };
 
 export type ModuleRefs = {
-  moduleRef: ModuleRef | ModuleRef[];
+  moduleRef: ModuleRef[];
 };
 
 export type ModuleRef = {
@@ -10561,9 +10561,9 @@ export type AppointmentSchedulingPolicy = Metadata &
 export type ApprovalProcess = Metadata & {
   active: boolean;
   allowRecall?: boolean;
-  allowedSubmitters: ApprovalSubmitter | ApprovalSubmitter[];
+  allowedSubmitters: ApprovalSubmitter[];
   approvalPageFields?: ApprovalPageField;
-  approvalStep: ApprovalStep | ApprovalStep[];
+  approvalStep: ApprovalStep[];
   description?: string;
   emailTemplate?: string;
   enableMobileDeviceAccess?: boolean;
@@ -10588,7 +10588,7 @@ export type ApprovalSubmitter = {
 };
 
 export type ApprovalPageField = {
-  field: string | string[];
+  field: string[];
 };
 
 export type ApprovalStep = {
@@ -10605,7 +10605,7 @@ export type ApprovalStep = {
 };
 
 export type ApprovalAction = {
-  action: WorkflowActionReference | WorkflowActionReference[];
+  action: WorkflowActionReference[];
 };
 
 export type WorkflowActionReference = {
@@ -10614,7 +10614,7 @@ export type WorkflowActionReference = {
 };
 
 export type ApprovalStepApprover = {
-  approver: Approver | Approver[];
+  approver: Approver[];
   whenMultipleApprovers?: RoutingType;
 };
 
@@ -10625,7 +10625,7 @@ export type Approver = {
 
 export type ApprovalEntryCriteria = {
   booleanFilter?: string;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   formula?: string;
 };
 
@@ -10674,7 +10674,7 @@ export type AssessmentQuestionVersion = {
 };
 
 export type AssessmentQuestionSet = Metadata & {
-  assessmentQuestionDeveloperNames: string | string[];
+  assessmentQuestionDeveloperNames: string[];
   developerName: string;
   name: string;
 };
@@ -10682,7 +10682,7 @@ export type AssessmentQuestionSet = Metadata & {
 export type AssignmentRule = Metadata &
   sObject & {
     active?: boolean;
-    ruleEntry: RuleEntry | RuleEntry[];
+    ruleEntry: RuleEntry[];
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -10701,9 +10701,9 @@ export type RuleEntry = {
   booleanFilter?: string;
   businessHours?: string;
   businessHoursSource?: BusinessHoursSourceType;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   disableEscalationWhenModified?: boolean;
-  escalationAction: EscalationAction | EscalationAction[];
+  escalationAction: EscalationAction[];
   escalationStartTime?: EscalationStartTimeType;
   formula?: string;
   notifyCcRecipients?: boolean;
@@ -10711,7 +10711,7 @@ export type RuleEntry = {
   replyToEmail?: string;
   senderEmail?: string;
   senderName?: string;
-  team: string | string[];
+  team: string[];
   template?: string;
 };
 
@@ -10721,7 +10721,7 @@ export type EscalationAction = {
   assignedToType?: AssignToLookupValueType;
   minutesToEscalation?: number;
   notifyCaseOwner?: boolean;
-  notifyEmail: string | string[];
+  notifyEmail: string[];
   notifyTo?: string;
   notifyToTemplate?: string;
 };
@@ -10777,7 +10777,7 @@ export type AssistantContextItem = Metadata &
 export type AssistantDefinition = Metadata &
   sObject & {
     appVersionNumber?: number;
-    assistantDefinitionProfiles: AssistantDefinitionProfile | AssistantDefinitionProfile[];
+    assistantDefinitionProfiles: AssistantDefinitionProfile[];
     description?: string;
     developerName: string;
     masterLabel?: string;
@@ -10820,7 +10820,7 @@ export type AssistantDefinitionProfile = sObject & {
 
 export type AssistantSkillQuickAction = Metadata &
   sObject & {
-    assistantSkillQuickActionParams: AssistantSkillQuickActionParam | AssistantSkillQuickActionParam[];
+    assistantSkillQuickActionParams: AssistantSkillQuickActionParam[];
     description?: string;
     developerName: string;
     masterLabel?: string;
@@ -10879,7 +10879,7 @@ export type AssistantSkillQuickActionParam = sObject & {
 
 export type AssistantSkillSobjectAction = Metadata &
   sObject & {
-    assistantSkillSobjectParams: AssistantSkillSobjectParam | AssistantSkillSobjectParam[];
+    assistantSkillSobjectParams: AssistantSkillSobjectParam[];
     description?: string;
     developerName: string;
     masterLabel?: string;
@@ -10944,8 +10944,8 @@ export type AssistantSkillSobjectParam = sObject & {
 export type AssistantVersion = Metadata &
   sObject & {
     assistantDefinitionId: string;
-    assistantSkills: AssistantSkill | AssistantSkill[];
-    assistantVersionActions: AssistantVersionAction | AssistantVersionAction[];
+    assistantSkills: AssistantSkill[];
+    assistantVersionActions: AssistantVersionAction[];
     description?: string;
     developerName: string;
     masterLabel?: string;
@@ -10974,7 +10974,7 @@ export type AssistantVersion = Metadata &
   };
 
 export type AssistantSkill = sObject & {
-  assistantSkillIntents: AssistantSkillIntent | AssistantSkillIntent[];
+  assistantSkillIntents: AssistantSkillIntent[];
   description?: string;
   externalModel?: string;
   index?: number;
@@ -11060,7 +11060,7 @@ export type Audience = Metadata & {
 };
 
 export type AudienceCriteria = {
-  criterion: AudienceCriterion | AudienceCriterion[];
+  criterion: AudienceCriterion[];
 };
 
 export type AudienceCriterion = {
@@ -11086,7 +11086,7 @@ export type AudienceCriteriaValue = {
 };
 
 export type PersonalizationTargetInfos = {
-  target: PersonalizationTargetInfo | PersonalizationTargetInfo[];
+  target: PersonalizationTargetInfo[];
 };
 
 export type PersonalizationTargetInfo = {
@@ -11108,7 +11108,7 @@ export type AuraDefinitionBundle = Metadata &
     helperContent?: string;
     markup?: string;
     modelContent?: string;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     rendererContent?: string;
     styleContent?: string;
     testsuiteContent?: string;
@@ -11135,7 +11135,7 @@ export type AuraDefinitionBundle = Metadata &
   };
 
 export type AuraDefinitions = {
-  auraDefinition: AuraDefinition | AuraDefinition[];
+  auraDefinition: AuraDefinition[];
 };
 
 export type AuraDefinition = sObject & {
@@ -11193,7 +11193,7 @@ export type AuthProvider = Metadata & {
 export type AutoResponseRule = Metadata &
   sObject & {
     active?: boolean;
-    ruleEntry: RuleEntry | RuleEntry[];
+    ruleEntry: RuleEntry[];
     Active?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -11210,24 +11210,24 @@ export type AutoResponseRules = string;
 
 export type BatchCalcJobDefinition = Metadata &
   sObject & {
-    aggregates: BatchCalcJobAggregate | BatchCalcJobAggregate[];
-    appends: BatchCalcJobUnion | BatchCalcJobUnion[];
-    customNodes: BatchCalcJobCustomNode | BatchCalcJobCustomNode[];
+    aggregates: BatchCalcJobAggregate[];
+    appends: BatchCalcJobUnion[];
+    customNodes: BatchCalcJobCustomNode[];
     dataSpaceApiName?: string;
-    datasources: BatchCalcJobDatasource | BatchCalcJobDatasource[];
+    datasources: BatchCalcJobDatasource[];
     description?: string;
     executionPlatformType?: ExecutionPlatformType;
-    filters: BatchCalcJobFilter | BatchCalcJobFilter[];
-    forecasts: BatchCalcJobForecast | BatchCalcJobForecast[];
-    hierarchyPaths: BatchCalcJobHierarchyPath | BatchCalcJobHierarchyPath[];
+    filters: BatchCalcJobFilter[];
+    forecasts: BatchCalcJobForecast[];
+    hierarchyPaths: BatchCalcJobHierarchyPath[];
     isTemplate?: boolean;
-    joins: BatchCalcJobSourceJoin | BatchCalcJobSourceJoin[];
+    joins: BatchCalcJobSourceJoin[];
     label?: string;
-    parameters: BatchCalcJobParameter | BatchCalcJobParameter[];
+    parameters: BatchCalcJobParameter[];
     processType?: BatchCalcProcessType;
     status: BatchJobDefinitionStatus;
-    transforms: BatchCalcJobTransform | BatchCalcJobTransform[];
-    writebacks: BatchCalcJobWritebackObject | BatchCalcJobWritebackObject[];
+    transforms: BatchCalcJobTransform[];
+    writebacks: BatchCalcJobWritebackObject[];
     AllManagedPackageMemberId?: ID;
     BatchJobDefinition?: BatchJobDefinition;
     BatchJobDefinitionId?: ID;
@@ -11256,8 +11256,8 @@ export type BatchCalcJobDefinition = Metadata &
 
 export type BatchCalcJobAggregate = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobAggregateField | BatchCalcJobAggregateField[];
-  groupBy: string | string[];
+  fields: BatchCalcJobAggregateField[];
+  groupBy: string[];
   label: string;
   name: string;
   sourceName: string;
@@ -11273,8 +11273,8 @@ export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
   extensionNamespace: string;
   label: string;
   name: string;
-  parameters: BatchCalcJobCustomNodeParameter | BatchCalcJobCustomNodeParameter[];
-  sources: string | string[];
+  parameters: BatchCalcJobCustomNodeParameter[];
+  sources: string[];
 };
 
 export type BatchCalcJobCustomNodeParameter = {
@@ -11286,7 +11286,7 @@ export type BatchCalcJobCustomNodeParameter = {
 
 export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobDatasourceField | BatchCalcJobDatasourceField[];
+  fields: BatchCalcJobDatasourceField[];
   label: string;
   name: string;
   sourceName: string;
@@ -11302,7 +11302,7 @@ export type BatchCalcJobDatasourceField = {
 };
 
 export type BatchCalcJobFilter = BatchCalcJobAbstractMetadataValue & {
-  criteria: BatchCalcJobFilterCriteria | BatchCalcJobFilterCriteria[];
+  criteria: BatchCalcJobFilterCriteria[];
   description?: string;
   filterCondition?: string;
   filterParameterName?: string;
@@ -11322,13 +11322,13 @@ export type BatchCalcJobFilterCriteria = {
 
 export type BatchCalcJobForecast = BatchCalcJobAbstractMetadataValue & {
   accuracyPercent?: BatchCalcJobFrcstAccuracy;
-  aggregationFields: BtchCalcJobFrcstAggrFld | BtchCalcJobFrcstAggrFld[];
+  aggregationFields: BtchCalcJobFrcstAggrFld[];
   dateFieldName: string;
   description?: string;
   forecastModelType?: BatchCalcJobFrcstModel;
   forecastPeriodCount?: number;
   forecastPeriodType: BatchCalcJobFrcstPeriodType;
-  groupFields: BatchCalcJobFrcstGrpFld | BatchCalcJobFrcstGrpFld[];
+  groupFields: BatchCalcJobFrcstGrpFld[];
   label: string;
   name: string;
   periodStartDateName: string;
@@ -11370,8 +11370,8 @@ export type BatchCalcJobParameter = BatchCalcJobAbstractMetadataValue & {
 
 export type BatchCalcJobSourceJoin = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobJoinResultField | BatchCalcJobJoinResultField[];
-  joinKeys: BatchCalcJobJoinKey | BatchCalcJobJoinKey[];
+  fields: BatchCalcJobJoinResultField[];
+  joinKeys: BatchCalcJobJoinKey[];
   label: string;
   name: string;
   primarySourceName: string;
@@ -11392,12 +11392,12 @@ export type BatchCalcJobJoinKey = {
 
 export type BatchCalcJobTransform = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  droppedFields: BatchCalcJobTransformDroppedField | BatchCalcJobTransformDroppedField[];
-  expressionFields: BatchCalcJobTransformAddedField | BatchCalcJobTransformAddedField[];
+  droppedFields: BatchCalcJobTransformDroppedField[];
+  expressionFields: BatchCalcJobTransformAddedField[];
   label: string;
   name: string;
-  orderBy: BatchCalcJobOrderByField | BatchCalcJobOrderByField[];
-  partitionBy: string | string[];
+  orderBy: BatchCalcJobOrderByField[];
+  partitionBy: string[];
   sourceName: string;
   transformationType: BatchCalcJobTransformType;
 };
@@ -11424,13 +11424,13 @@ export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
   isDisjointedSchema?: boolean;
   label: string;
   name: string;
-  sources: string | string[];
+  sources: string[];
 };
 
 export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
   description?: string;
   externalIdFieldName?: string;
-  fields: BatchCalcJobWritebackMapping | BatchCalcJobWritebackMapping[];
+  fields: BatchCalcJobWritebackMapping[];
   filterCondition?: string;
   folderName?: string;
   isChangedRow?: boolean;
@@ -11462,8 +11462,8 @@ export type BatchCalcJobAggregateField = {
 
 export type BatchCalcJobProcessType = Metadata &
   sObject & {
-    customNodeConfigs: CustomNodeConfig | CustomNodeConfig[];
-    expressionFunctions: TransformExpressionFunction | TransformExpressionFunction[];
+    customNodeConfigs: CustomNodeConfig[];
+    expressionFunctions: TransformExpressionFunction[];
     isInternal: boolean;
     isListViewVisible: boolean;
     label: string;
@@ -11479,13 +11479,13 @@ export type BatchCalcJobProcessType = Metadata &
   };
 
 export type CustomNodeConfig = {
-  configVersions: CustomNodeConfigVersion | CustomNodeConfigVersion[];
+  configVersions: CustomNodeConfigVersion[];
   name: string;
   namespace: string;
 };
 
 export type CustomNodeConfigVersion = {
-  configParameters: CustomNodeConfigParameter | CustomNodeConfigParameter[];
+  configParameters: CustomNodeConfigParameter[];
   maximumRequiredSource: number;
   minimumRequiredSource: number;
   version: number;
@@ -11558,7 +11558,7 @@ export type BatchProcessJobDefinition = Metadata &
 export type BatchDataSource = sObject & {
   condition: string;
   criteria?: string;
-  filters: BatchDataSrcFilterCriteria | BatchDataSrcFilterCriteria[];
+  filters: BatchDataSrcFilterCriteria[];
   sourceObject: string;
   sourceObjectField?: string;
   BatchJobDefinition?: BatchJobDefinition;
@@ -11604,7 +11604,7 @@ export type BatchDataSrcFilterCriteria = sObject & {
 
 export type BenefitAction = Metadata &
   sObject & {
-    benefitActionParameters: BenefitActionParameter | BenefitActionParameter[];
+    benefitActionParameters: BenefitActionParameter[];
     description?: string;
     flowDefinition?: string;
     isActive: boolean;
@@ -11648,7 +11648,7 @@ export type BenefitActionParameter = sObject & {
   masterLabel: string;
   name?: string;
   objectName?: string;
-  parameterValues: BenefitActionParameterValue | BenefitActionParameterValue[];
+  parameterValues: BenefitActionParameterValue[];
   picklistName?: string;
   BenefitAction?: BenefitAction;
   BenefitActionId?: ID;
@@ -11718,15 +11718,15 @@ export type BldgEnrgyIntensityCnfg = Metadata &
 export type Bot = Metadata & {
   botMlDomain?: LocalMlDomain;
   botUser?: string;
-  botVersions: BotVersion | BotVersion[];
-  contextVariables: ConversationContextVariable | ConversationContextVariable[];
-  conversationChannelProviders: ConversationDefinitionChannelProvider | ConversationDefinitionChannelProvider[];
+  botVersions: BotVersion[];
+  contextVariables: ConversationContextVariable[];
+  conversationChannelProviders: ConversationDefinitionChannelProvider[];
   defaultOutboundFlow?: string;
   description?: string;
   iconUrl?: string;
   label?: string;
   logPrivateConversationData?: boolean;
-  pageContextVariables: PageContextVariable | PageContextVariable[];
+  pageContextVariables: PageContextVariable[];
   richContentEnabled?: boolean;
   sessionTimeout?: number;
   type?: BotType;
@@ -11734,8 +11734,8 @@ export type Bot = Metadata & {
 
 export type LocalMlDomain = {
   label: string;
-  mlIntents: MlIntent | MlIntent[];
-  mlSlotClasses: MlSlotClass | MlSlotClass[];
+  mlIntents: MlIntent[];
+  mlSlotClasses: MlSlotClass[];
   name: string;
 };
 
@@ -11743,8 +11743,8 @@ export type MlIntent = sObject & {
   description?: string;
   developerName: string;
   label: string;
-  mlIntentUtterances: MlIntentUtterance | MlIntentUtterance[];
-  relatedMlIntents: MlRelatedIntent | MlRelatedIntent[];
+  mlIntentUtterances: MlIntentUtterance[];
+  relatedMlIntents: MlRelatedIntent[];
   AllManagedPackageMemberId?: ID;
   ConversationDefinitionDialogs?: QueryResult;
   CreatedBy?: User;
@@ -11815,7 +11815,7 @@ export type MlSlotClass = sObject & {
   extractionRegex?: string;
   extractionType?: MlSlotClassExtractionType;
   label: string;
-  mlSlotClassValues: MlSlotClassValue | MlSlotClassValue[];
+  mlSlotClassValues: MlSlotClassValue[];
   AllManagedPackageMemberId?: ID;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -11843,7 +11843,7 @@ export type MlSlotClass = sObject & {
 
 export type MlSlotClassValue = sObject & {
   synonymGroup?: SynonymGroup;
-  synonymGroups: SynonymGroup | SynonymGroup[];
+  synonymGroups: SynonymGroup[];
   value: string;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -11859,27 +11859,27 @@ export type MlSlotClassValue = sObject & {
 };
 
 export type SynonymGroup = {
-  languages: Language | Language[];
-  terms: string | string[];
+  languages: Language[];
+  terms: string[];
 };
 
 export type BotVersion = Metadata &
   sObject & {
     articleAnswersGPTEnabled?: boolean;
-    botDialogGroups: BotDialogGroup | BotDialogGroup[];
-    botDialogs: BotDialog | BotDialog[];
+    botDialogGroups: BotDialogGroup[];
+    botDialogs: BotDialog[];
     citationsEnabled?: boolean;
-    conversationDefinitionPlanners: ConversationDefinitionPlanner | ConversationDefinitionPlanner[];
-    conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
-    conversationSystemDialogs: ConversationSystemDialog | ConversationSystemDialog[];
-    conversationVariables: ConversationVariable | ConversationVariable[];
+    conversationDefinitionPlanners: ConversationDefinitionPlanner[];
+    conversationGoals: ConversationDefinitionGoal[];
+    conversationSystemDialogs: ConversationSystemDialog[];
+    conversationVariables: ConversationVariable[];
     copilotPrimaryLanguage?: Language;
     entryDialog: string;
     intentDisambiguationEnabled?: boolean;
     intentV3Enabled?: boolean;
     knowledgeFallbackEnabled?: boolean;
     mainMenuDialog: string;
-    nlpProviders: ConversationDefinitionNlpProvider | ConversationDefinitionNlpProvider[];
+    nlpProviders: ConversationDefinitionNlpProvider[];
     responseDelayMilliseconds?: number;
     smallTalkEnabled?: boolean;
     status: BotStatusCode;
@@ -11936,7 +11936,7 @@ export type BotDialogGroup = {
 
 export type BotDialog = {
   botDialogGroup?: string;
-  botSteps: BotStep | BotStep[];
+  botSteps: BotStep[];
   description?: string;
   developerName: string;
   isPlaceholderDialog?: boolean;
@@ -11949,14 +11949,14 @@ export type BotDialog = {
 export type BotStep = {
   booleanFilter?: string;
   botInvocation?: BotInvocation;
-  botMessages: BotMessage | BotMessage[];
+  botMessages: BotMessage[];
   botNavigation?: BotNavigation;
-  botStepConditions: BotStepCondition | BotStepCondition[];
-  botSteps: BotStep | BotStep[];
+  botStepConditions: BotStepCondition[];
+  botSteps: BotStep[];
   botVariableOperation?: BotVariableOperation;
   conditionLogicType?: ConversationDefinitionLogicalOperatorType;
   conversationRecordLookup?: ConversationRecordLookup;
-  conversationStepGoalMappings: ConversationDefinitionStepGoalMapping | ConversationDefinitionStepGoalMapping[];
+  conversationStepGoalMappings: ConversationDefinitionStepGoalMapping[];
   conversationSystemMessage?: ConversationSystemMessage;
   messageDefinition?: ConversationDefinitionRichMessage;
   stepIdentifier?: string;
@@ -11966,7 +11966,7 @@ export type BotStep = {
 export type BotInvocation = {
   invocationActionName?: string;
   invocationActionType?: ConversationInvocableTargetType;
-  invocationMappings: BotInvocationMapping | BotInvocationMapping[];
+  invocationMappings: BotInvocationMapping[];
 };
 
 export type BotInvocationMapping = {
@@ -11984,7 +11984,7 @@ export type BotMessage = {
 };
 
 export type BotNavigation = {
-  botNavigationLinks: BotNavigationLink | BotNavigationLink[];
+  botNavigationLinks: BotNavigationLink[];
   type: BotNavigationType;
 };
 
@@ -12006,19 +12006,19 @@ export type BotVariableOperation = {
   askCollectIfSet?: boolean;
   autoSelectIfSingleChoice?: boolean;
   botInvocation?: BotInvocation;
-  botMessages: BotMessage | BotMessage[];
-  botQuickReplyOptions: BotQuickReplyOption | BotQuickReplyOption[];
-  botVariableOperands: BotVariableOperand | BotVariableOperand[];
+  botMessages: BotMessage[];
+  botQuickReplyOptions: BotQuickReplyOption[];
+  botVariableOperands: BotVariableOperand[];
   invalidInputBotNavigation?: BotNavigation;
   messageDefinition?: ConversationDefinitionRichMessage;
   optionalCollect?: boolean;
   quickReplyOptionTemplate?: string;
   quickReplyType?: BotQuickReplyType;
   quickReplyWidgetType?: BotWidgetType;
-  retryMessages: BotMessage | BotMessage[];
+  retryMessages: BotMessage[];
   sourceVariableName?: string;
   sourceVariableType?: ConversationVariableType;
-  successMessages: BotMessage | BotMessage[];
+  successMessages: BotMessage[];
   type: BotVariableOperationType;
   variableOperationIdentifier?: string;
 };
@@ -12039,7 +12039,7 @@ export type BotVariableOperand = {
 
 export type ConversationDefinitionRichMessage = sObject & {
   executionType?: ConversationMessageExecutionType;
-  messageDefinitionMappings: BotInvocationMapping | BotInvocationMapping[];
+  messageDefinitionMappings: BotInvocationMapping[];
   messageDefinitionName: string;
   ConversationInvocationMappings?: QueryResult;
   CreatedBy?: User;
@@ -12060,9 +12060,9 @@ export type ConversationDefinitionRichMessage = sObject & {
 
 export type ConversationRecordLookup = sObject & {
   SObjectType: string;
-  conditions: ConversationRecordLookupCondition | ConversationRecordLookupCondition[];
+  conditions: ConversationRecordLookupCondition[];
   filterLogic?: string;
-  lookupFields: ConversationRecordLookupField | ConversationRecordLookupField[];
+  lookupFields: ConversationRecordLookupField[];
   maxLookupResults: number;
   sortFieldName?: string;
   sortOrder?: SortOrder;
@@ -12144,7 +12144,7 @@ export type ConversationDefinitionStepGoalMapping = sObject & {
 };
 
 export type ConversationSystemMessage = sObject & {
-  systemMessageMappings: ConversationSystemMessageMapping | ConversationSystemMessageMapping[];
+  systemMessageMappings: ConversationSystemMessageMapping[];
   type: ConversationSystemMessageType;
   ConversationSystemMessageMappings?: QueryResult;
   CreatedBy?: User;
@@ -12240,7 +12240,7 @@ export type ConversationDefinitionNlpProvider = sObject & {
 
 export type ConversationContextVariable = {
   SObjectType?: string;
-  contextVariableMappings: ConversationContextVariableMapping | ConversationContextVariableMapping[];
+  contextVariableMappings: ConversationContextVariableMapping[];
   dataType: ConversationDataType;
   developerName: string;
   label: string;
@@ -12292,7 +12292,7 @@ export type PageContextVariable = {
 };
 
 export type BotBlock = Metadata & {
-  botBlockVersions: BotBlockVersion | BotBlockVersion[];
+  botBlockVersions: BotBlockVersion[];
   description?: string;
   icon?: string;
   masterLabel: string;
@@ -12300,10 +12300,10 @@ export type BotBlock = Metadata & {
 };
 
 export type BotBlockVersion = Metadata & {
-  botDialogs: BotDialog | BotDialog[];
-  conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
+  botDialogs: BotDialog[];
+  conversationGoals: ConversationDefinitionGoal[];
   conversationLanguages: string;
-  conversationVariables: ConversationVariable | ConversationVariable[];
+  conversationVariables: ConversationVariable[];
   description?: string;
   mlDomain: LocalMlDomain;
   permissionSet?: string;
@@ -12311,13 +12311,13 @@ export type BotBlockVersion = Metadata & {
 };
 
 export type BotTemplate = Metadata & {
-  botDialogGroups: BotDialogGroup | BotDialogGroup[];
-  botDialogs: BotDialog | BotDialog[];
-  contextVariables: ConversationContextVariable | ConversationContextVariable[];
-  conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
+  botDialogGroups: BotDialogGroup[];
+  botDialogs: BotDialog[];
+  contextVariables: ConversationContextVariable[];
+  conversationGoals: ConversationDefinitionGoal[];
   conversationLanguages: string;
-  conversationSystemDialogs: ConversationSystemDialog | ConversationSystemDialog[];
-  conversationVariables: ConversationVariable | ConversationVariable[];
+  conversationSystemDialogs: ConversationSystemDialog[];
+  conversationVariables: ConversationVariable[];
   description?: string;
   entryDialog?: string;
   icon?: string;
@@ -12331,7 +12331,7 @@ export type BotTemplate = Metadata & {
 
 export type BrandingSet = Metadata &
   sObject & {
-    brandingSetProperty: BrandingSetProperty | BrandingSetProperty[];
+    brandingSetProperty: BrandingSetProperty[];
     description?: string;
     masterLabel: string;
     type?: string;
@@ -12375,7 +12375,7 @@ export type BrandingSetProperty = sObject & {
 
 export type BriefcaseDefinition = Metadata &
   sObject & {
-    briefcaseRules: BriefcaseRule | BriefcaseRule[];
+    briefcaseRules: BriefcaseRule[];
     description?: string;
     isActive: boolean;
     masterLabel: string;
@@ -12403,13 +12403,13 @@ export type BriefcaseDefinition = Metadata &
   };
 
 export type BriefcaseRule = {
-  briefcaseRuleFilters: BriefcaseRuleFilter | BriefcaseRuleFilter[];
+  briefcaseRuleFilters: BriefcaseRuleFilter[];
   filterLogic?: string;
   isAscendingOrder?: boolean;
   orderBy?: string;
   queryScope?: FilterScope;
   recordLimit?: number;
-  relatedRules: BriefcaseRule | BriefcaseRule[];
+  relatedRules: BriefcaseRule[];
   relationshipField?: string;
   relationshipType?: BriefcaseRuleRelationshipType;
   targetEntity: string;
@@ -12467,7 +12467,7 @@ export type BusinessProcess = Metadata &
   sObject & {
     description?: string;
     isActive?: boolean;
-    values: PicklistValue | PicklistValue[];
+    values: PicklistValue[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -12493,7 +12493,7 @@ export type PicklistValue = Metadata & {
   valueName: string;
   allowEmail?: boolean;
   closed?: boolean;
-  controllingFieldValues: string | string[];
+  controllingFieldValues: string[];
   converted?: boolean;
   cssExposed?: boolean;
   forecastCategory?: ForecastCategories;
@@ -12514,7 +12514,7 @@ export type GlobalPicklistValue = Metadata & {
 
 export type BusinessProcessGroup = Metadata &
   sObject & {
-    businessProcessDefinitions: BusinessProcessDefinition | BusinessProcessDefinition[];
+    businessProcessDefinitions: BusinessProcessDefinition[];
     customerSatisfactionMetric: SurveyQuestionType;
     description?: string;
     masterLabel: string;
@@ -12539,7 +12539,7 @@ export type BusinessProcessGroup = Metadata &
   };
 
 export type BusinessProcessDefinition = sObject & {
-  businessProcessFeedbacks: BusinessProcessFeedback | BusinessProcessFeedback[];
+  businessProcessFeedbacks: BusinessProcessFeedback[];
   description?: string;
   developerName: string;
   masterLabel: string;
@@ -12593,10 +12593,10 @@ export type BusinessProcessTypeDefinition = Metadata & {
 
 export type CMSConnectSource = Metadata &
   sObject & {
-    cmsConnectAsset: CMSConnectAsset | CMSConnectAsset[];
-    cmsConnectLanguage: CMSConnectLanguage | CMSConnectLanguage[];
+    cmsConnectAsset: CMSConnectAsset[];
+    cmsConnectLanguage: CMSConnectLanguage[];
     cmsConnectPersonalization?: CMSConnectPersonalization;
-    cmsConnectResourceType: CMSConnectResourceType | CMSConnectResourceType[];
+    cmsConnectResourceType: CMSConnectResourceType[];
     connectionType: CMSSourceConnectionType;
     cssScope?: string;
     developerName: string;
@@ -12696,7 +12696,7 @@ export type CMSConnectPersonalization = sObject & {
 };
 
 export type CMSConnectResourceType = sObject & {
-  cmsConnectResourceDefinition: CMSConnectResourceDefinition | CMSConnectResourceDefinition[];
+  cmsConnectResourceDefinition: CMSConnectResourceDefinition[];
   developerName: string;
   masterLabel: string;
   resourceType: string;
@@ -12754,13 +12754,13 @@ export type CMSConnectResourceDefinition = sObject & {
 export type CallCenter = Metadata &
   sObject & {
     adapterUrl?: string;
-    contactCenterChannels: ContactCenterChannel | ContactCenterChannel[];
+    contactCenterChannels: ContactCenterChannel[];
     customSettings?: string;
     displayName: string;
     displayNameLabel: string;
     internalNameLabel: string;
-    sections: CallCenterSection | CallCenterSection[];
-    vendorCallCenterStatusMaps: VendorCallCenterStatusMap | VendorCallCenterStatusMap[];
+    sections: CallCenterSection[];
+    vendorCallCenterStatusMaps: VendorCallCenterStatusMap[];
     version?: string;
     AdapterUrl?: string;
     ContactCenterChannels?: QueryResult;
@@ -12800,7 +12800,7 @@ export type ContactCenterChannel = sObject & {
 };
 
 export type CallCenterSection = {
-  items: CallCenterItem | CallCenterItem[];
+  items: CallCenterItem[];
   label: string;
   name: string;
 };
@@ -12930,7 +12930,7 @@ export type CareBenefitVerifySettings = Metadata &
 export type CareRequestConfiguration = Metadata &
   sObject & {
     careRequestRecordType: string;
-    careRequestRecords: CareRequestRecords | CareRequestRecords[];
+    careRequestRecords: CareRequestRecords[];
     careRequestType: string;
     isActive?: boolean;
     isDefaultRecordType?: boolean;
@@ -13015,9 +13015,9 @@ export type ChannelLayout = Metadata &
   sObject & {
     doesExcludeFieldLabels?: boolean;
     doesExcludeFiles?: boolean;
-    enabledChannels: string | string[];
+    enabledChannels: string[];
     label: string;
-    layoutItems: ChannelLayoutItem | ChannelLayoutItem[];
+    layoutItems: ChannelLayoutItem[];
     recordType?: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -13145,7 +13145,7 @@ export type ClauseCatgConfiguration = Metadata &
 
 export type CleanDataService = Metadata &
   sObject & {
-    cleanRules: CleanRule | CleanRule[];
+    cleanRules: CleanRule[];
     description: string;
     masterLabel: string;
     matchEngine: string;
@@ -13175,7 +13175,7 @@ export type CleanRule = sObject & {
   bypassWorkflow: boolean;
   description: string;
   developerName: string;
-  fieldMappings: FieldMapping | FieldMapping[];
+  fieldMappings: FieldMapping[];
   masterLabel: string;
   matchRule: string;
   sourceSobjectType: string;
@@ -13212,7 +13212,7 @@ export type CleanRule = sObject & {
 export type FieldMapping = sObject & {
   SObjectType: string;
   developerName: string;
-  fieldMappingRows: FieldMappingRow | FieldMappingRow[];
+  fieldMappingRows: FieldMappingRow[];
   masterLabel: string;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -13234,7 +13234,7 @@ export type FieldMapping = sObject & {
 
 export type FieldMappingRow = sObject & {
   SObjectType: string;
-  fieldMappingFields: FieldMappingField | FieldMappingField[];
+  fieldMappingFields: FieldMappingField[];
   fieldName: string;
   mappingOperation: MappingOperation;
   CreatedBy?: User;
@@ -13276,7 +13276,7 @@ export type CloudServiceProvider = Metadata & {
   authParams: string;
   authType: AuthType;
   baseApiUrl: string;
-  cloudServiceProviderApis: CloudServiceProviderApi | CloudServiceProviderApi[];
+  cloudServiceProviderApis: CloudServiceProviderApi[];
   externalId: string;
   name: string;
   provisioningAutomationType?: ProvisioningAutomationType;
@@ -13321,16 +13321,16 @@ export type CodeBundle = Metadata &
 export type CommandAction = Metadata & {
   actionType: string;
   description?: string;
-  intents: CommandActionIntent | CommandActionIntent[];
+  intents: CommandActionIntent[];
   label: string;
-  parameters: CommandActionParam | CommandActionParam[];
-  responseTemplates: CommandActionResponse | CommandActionResponse[];
+  parameters: CommandActionParam[];
+  responseTemplates: CommandActionResponse[];
   target?: string;
 };
 
 export type CommandActionIntent = {
   phrase: string;
-  responseTemplates: CommandActionResponse | CommandActionResponse[];
+  responseTemplates: CommandActionResponse[];
 };
 
 export type CommandActionResponse = {
@@ -13364,8 +13364,8 @@ export type Community = Metadata & {
 };
 
 export type ReputationLevels = {
-  chatterAnswersReputationLevels: ChatterAnswersReputationLevel | ChatterAnswersReputationLevel[];
-  ideaReputationLevels: IdeaReputationLevel | IdeaReputationLevel[];
+  chatterAnswersReputationLevels: ChatterAnswersReputationLevel[];
+  ideaReputationLevels: IdeaReputationLevel[];
 };
 
 export type ChatterAnswersReputationLevel = {
@@ -13411,15 +13411,15 @@ export type CommunityAIModelMapping = Metadata &
 export type CommunityTemplateDefinition = Metadata &
   sObject & {
     baseTemplate?: CommunityBaseTemplate;
-    bundlesInfo: CommunityTemplateBundleInfo | CommunityTemplateBundleInfo[];
+    bundlesInfo: CommunityTemplateBundleInfo[];
     category: CommunityTemplateCategory;
     defaultBrandingSet?: string;
     defaultThemeDefinition: string;
     description?: string;
     enableExtendedCleanUpOnDelete?: boolean;
     masterLabel: string;
-    navigationLinkSet: NavigationLinkSet | NavigationLinkSet[];
-    pageSetting: CommunityTemplatePageSetting | CommunityTemplatePageSetting[];
+    navigationLinkSet: NavigationLinkSet[];
+    pageSetting: CommunityTemplatePageSetting[];
     publisher?: string;
     AllManagedPackageMemberId?: ID;
     BaseTemplate?: CommunityBaseTemplate;
@@ -13459,7 +13459,7 @@ export type CommunityTemplateBundleInfo = {
 export type CommunityThemeBundleInfo = string;
 
 export type NavigationLinkSet = {
-  navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+  navigationMenuItem: NavigationMenuItem[];
 };
 
 export type NavigationMenuItem = {
@@ -13479,7 +13479,7 @@ export type NavigationMenuItemBranding = {
 };
 
 export type NavigationSubMenu = {
-  navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+  navigationMenuItem: NavigationMenuItem[];
 };
 
 export type CommunityTemplatePageSetting = {
@@ -13489,15 +13489,15 @@ export type CommunityTemplatePageSetting = {
 
 export type CommunityThemeDefinition = Metadata &
   sObject & {
-    bundlesInfo: CommunityThemeBundleInfo | CommunityThemeBundleInfo[];
-    customThemeLayoutType: CommunityCustomThemeLayoutType | CommunityCustomThemeLayoutType[];
+    bundlesInfo: CommunityThemeBundleInfo[];
+    customThemeLayoutType: CommunityCustomThemeLayoutType[];
     defaultBrandingSet?: string;
     description?: string;
     enableExtendedCleanUpOnDelete?: boolean;
     masterLabel: string;
     publisher?: string;
-    themeRouteOverride: CommunityThemeRouteOverride | CommunityThemeRouteOverride[];
-    themeSetting: CommunityThemeSetting | CommunityThemeSetting[];
+    themeRouteOverride: CommunityThemeRouteOverride[];
+    themeSetting: CommunityThemeSetting[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -13541,7 +13541,7 @@ export type CommunityThemeSetting = {
 
 export type CompactLayout = Metadata &
   sObject & {
-    fields: string | string[];
+    fields: string[];
     label: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -13564,24 +13564,24 @@ export type CompactLayout = Metadata &
   };
 
 export type ConnectedApp = Metadata & {
-  attributes: ConnectedAppAttribute | ConnectedAppAttribute[];
+  attributes: ConnectedAppAttribute[];
   canvasConfig?: ConnectedAppCanvasConfig;
   contactEmail: string;
   contactPhone?: string;
   description?: string;
   iconUrl?: string;
   infoUrl?: string;
-  ipRanges: ConnectedAppIpRange | ConnectedAppIpRange[];
+  ipRanges: ConnectedAppIpRange[];
   label: string;
   logoUrl?: string;
   mobileAppConfig?: ConnectedAppMobileDetailConfig;
   mobileStartUrl?: string;
   oauthConfig?: ConnectedAppOauthConfig;
   oauthPolicy?: ConnectedAppOauthPolicy;
-  permissionSetName: string | string[];
+  permissionSetName: string[];
   plugin?: string;
   pluginExecutionUser?: string;
-  profileName: string | string[];
+  profileName: string[];
   samlConfig?: ConnectedAppSamlConfig;
   sessionPolicy?: ConnectedAppSessionPolicy;
   startUrl?: string;
@@ -13596,8 +13596,8 @@ export type ConnectedAppCanvasConfig = {
   accessMethod: AccessMethod;
   canvasUrl: string;
   lifecycleClass?: string;
-  locations: CanvasLocationOptions | CanvasLocationOptions[];
-  options: CanvasOptions | CanvasOptions[];
+  locations: CanvasLocationOptions[];
+  options: CanvasOptions[];
   samlInitiationMethod?: SamlInitiationMethod;
 };
 
@@ -13719,11 +13719,11 @@ export type ContentAsset = Metadata & {
 };
 
 export type ContentAssetRelationships = {
-  emailTemplate: ContentAssetLink | ContentAssetLink[];
-  insightsApplication: ContentAssetLink | ContentAssetLink[];
-  network: ContentAssetLink | ContentAssetLink[];
+  emailTemplate: ContentAssetLink[];
+  insightsApplication: ContentAssetLink[];
+  network: ContentAssetLink[];
   organization?: ContentAssetLink;
-  workspace: ContentAssetLink | ContentAssetLink[];
+  workspace: ContentAssetLink[];
 };
 
 export type ContentAssetLink = {
@@ -13733,7 +13733,7 @@ export type ContentAssetLink = {
 };
 
 export type ContentAssetVersions = {
-  version: ContentAssetVersion | ContentAssetVersion[];
+  version: ContentAssetVersion[];
 };
 
 export type ContentAssetVersion = {
@@ -13745,7 +13745,7 @@ export type ContentAssetVersion = {
 export type ContextDefinition = Metadata &
   sObject & {
     clonedFrom?: string;
-    contextDefinitionVersions: ContextDefinitionVersion | ContextDefinitionVersion[];
+    contextDefinitionVersions: ContextDefinitionVersion[];
     contextTtl?: number;
     description?: string;
     inheritedFrom?: string;
@@ -13778,8 +13778,8 @@ export type ContextDefinition = Metadata &
   };
 
 export type ContextDefinitionVersion = sObject & {
-  contextMappings: ContextMapping | ContextMapping[];
-  contextNodes: ContextNode | ContextNode[];
+  contextMappings: ContextMapping[];
+  contextNodes: ContextNode[];
   endDate?: string;
   isActive?: boolean;
   startDate: string;
@@ -13805,7 +13805,7 @@ export type ContextDefinitionVersion = sObject & {
 };
 
 export type ContextMapping = sObject & {
-  contextNodeMappings: ContextNodeMapping | ContextNodeMapping[];
+  contextNodeMappings: ContextNodeMapping[];
   default?: boolean;
   description?: string;
   inheritedFrom?: string;
@@ -13830,7 +13830,7 @@ export type ContextMapping = sObject & {
 };
 
 export type ContextNodeMapping = sObject & {
-  contextAttributeMappings: ContextAttributeMapping | ContextAttributeMapping[];
+  contextAttributeMappings: ContextAttributeMapping[];
   contextNode?: string;
   inheritedFrom?: string;
   object?: string;
@@ -13854,7 +13854,7 @@ export type ContextNodeMapping = sObject & {
 };
 
 export type ContextAttributeMapping = sObject & {
-  contextAttrHydrationDetails: ContextAttrHydrationDetail | ContextAttrHydrationDetail[];
+  contextAttrHydrationDetails: ContextAttrHydrationDetail[];
   contextAttribute?: string;
   contextInputAttributeName: string;
   inheritedFrom?: string;
@@ -13878,7 +13878,7 @@ export type ContextAttributeMapping = sObject & {
 };
 
 export type ContextAttrHydrationDetail = sObject & {
-  contextAttrHydrationDetails: ContextAttrHydrationDetail | ContextAttrHydrationDetail[];
+  contextAttrHydrationDetails: ContextAttrHydrationDetail[];
   inheritedFrom?: string;
   objectName: string;
   queryAttribute: string;
@@ -13903,8 +13903,8 @@ export type ContextAttrHydrationDetail = sObject & {
 };
 
 export type ContextNode = sObject & {
-  contextAttributes: ContextAttribute | ContextAttribute[];
-  contextTags: ContextTag | ContextTag[];
+  contextAttributes: ContextAttribute[];
+  contextTags: ContextTag[];
   inheritedFrom?: string;
   title: string;
   transposable?: boolean;
@@ -13929,7 +13929,7 @@ export type ContextNode = sObject & {
 };
 
 export type ContextAttribute = sObject & {
-  contextTags: ContextTag | ContextTag[];
+  contextTags: ContextTag[];
   dataType: ContextAttributeDataType;
   domainSet?: string;
   fieldType: ContextAttributeFieldType;
@@ -13985,7 +13985,7 @@ export type ContextTag = sObject & {
 
 export type ContractType = Metadata &
   sObject & {
-    contractTypeConfigs: ContractTypeConfig | ContractTypeConfig[];
+    contractTypeConfigs: ContractTypeConfig[];
     isDefault?: boolean;
     masterLabel: string;
     subTypes?: string;
@@ -14149,14 +14149,14 @@ export type ConversationChannelDefinition = Metadata &
 
 export type ConversationMessageDefinition = Metadata &
   sObject & {
-    constants: ConversationMessageConstant | ConversationMessageConstant[];
+    constants: ConversationMessageConstant[];
     description?: string;
     label: string;
     language?: string;
-    messageHandlers: ConversationMessageHandler | ConversationMessageHandler[];
-    messageLayouts: ConversationMessageLayout | ConversationMessageLayout[];
+    messageHandlers: ConversationMessageHandler[];
+    messageLayouts: ConversationMessageLayout[];
     optionsParameter?: ConversationMessageOptionsParameter;
-    parameters: ConversationMessageParameter | ConversationMessageParameter[];
+    parameters: ConversationMessageParameter[];
     type: ConversationMessageDefinitionType;
     ConversationMessageConstantValues?: QueryResult;
     ConversationMessageConstants?: QueryResult;
@@ -14183,9 +14183,9 @@ export type ConversationMessageDefinition = Metadata &
   };
 
 export type ConversationMessageConstant = sObject & {
-  compositeValues: ConversationMessageConstantCompositeValue | ConversationMessageConstantCompositeValue[];
+  compositeValues: ConversationMessageConstantCompositeValue[];
   constantType: ConversationMessageConstantType;
-  primitiveValues: ConversationMessageConstantPrimitiveValue | ConversationMessageConstantPrimitiveValue[];
+  primitiveValues: ConversationMessageConstantPrimitiveValue[];
   ConstantType?: ConversationMessageConstantType;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -14202,7 +14202,7 @@ export type ConversationMessageConstant = sObject & {
 };
 
 export type ConversationMessageConstantCompositeValue = {
-  constantItems: ConversationMessageConstant | ConversationMessageConstant[];
+  constantItems: ConversationMessageConstant[];
   identifier: string;
 };
 
@@ -14220,9 +14220,9 @@ export type ConversationMessageHandler = {
 };
 
 export type ConversationMessageLayout = sObject & {
-  externalTemplates: ConvMsgExternalTemplateVersion | ConvMsgExternalTemplateVersion[];
+  externalTemplates: ConvMsgExternalTemplateVersion[];
   formatType: ConversationMessageFormatType;
-  layoutItems: ConversationMessageLayoutItem | ConversationMessageLayoutItem[];
+  layoutItems: ConversationMessageLayoutItem[];
   messageType: ConversationMessageType;
   ConversationMessageLayouts?: QueryResult;
   CreatedBy?: User;
@@ -14267,14 +14267,14 @@ export type ConvMsgExternalTemplateVersion = sObject & {
 
 export type ConversationMessageLayoutItem = {
   collectionType: ConversationMessageCollectionType;
-  compositeValues: ConversationMessageLayoutCompositeValue | ConversationMessageLayoutCompositeValue[];
+  compositeValues: ConversationMessageLayoutCompositeValue[];
   name: string;
-  primitiveValues: ConversationMessageLayoutPrimitiveValue | ConversationMessageLayoutPrimitiveValue[];
+  primitiveValues: ConversationMessageLayoutPrimitiveValue[];
 };
 
 export type ConversationMessageLayoutCompositeValue = {
   compositeTypeName: string;
-  layoutItems: ConversationMessageLayoutItem | ConversationMessageLayoutItem[];
+  layoutItems: ConversationMessageLayoutItem[];
   valueSourceReference?: string;
 };
 
@@ -14283,7 +14283,7 @@ export type ConversationMessageLayoutPrimitiveValue = {
   fieldName?: string;
   formulaTemplate?: string;
   literalValue?: string;
-  mergeFields: ConversationMessageMergeField | ConversationMessageMergeField[];
+  mergeFields: ConversationMessageMergeField[];
   type: ConversationMessageLayoutValueType;
   valueFormula?: string;
   valueSourceReference?: string;
@@ -14303,13 +14303,13 @@ export type ConversationMessageOptionsParameter = {
 };
 
 export type ConversationMessageParameterCompositeDetails = {
-  compositeChildItems: ConversationMessageParameterCompositeDetails | ConversationMessageParameterCompositeDetails[];
+  compositeChildItems: ConversationMessageParameterCompositeDetails[];
   isList?: boolean;
   isRequired?: boolean;
   label?: string;
   maxListItems?: number;
   name?: string;
-  primitiveChildItems: ConversationMessageParameterPrimitiveDetails | ConversationMessageParameterPrimitiveDetails[];
+  primitiveChildItems: ConversationMessageParameterPrimitiveDetails[];
 };
 
 export type ConversationMessageParameterPrimitiveDetails = {
@@ -14454,12 +14454,12 @@ export type CspTrustedSite = Metadata &
 
 export type CustomApplication = Metadata &
   sObject & {
-    actionOverrides: AppActionOverride | AppActionOverride[];
+    actionOverrides: AppActionOverride[];
     brand?: AppBrand;
     consoleConfig?: ServiceCloudConsoleConfig;
     defaultLandingTab?: string;
     description?: string;
-    formFactors: FormFactor | FormFactor[];
+    formFactors: FormFactor[];
     isNavAutoTempTabsDisabled?: boolean;
     isNavPersonalizationDisabled?: boolean;
     isNavTabPersistenceDisabled?: boolean;
@@ -14469,11 +14469,11 @@ export type CustomApplication = Metadata &
     logo?: string;
     navType?: NavType;
     preferences?: AppPreferences;
-    profileActionOverrides: AppProfileActionOverride | AppProfileActionOverride[];
+    profileActionOverrides: AppProfileActionOverride[];
     setupExperience?: string;
-    subscriberTabs: string | string[];
+    subscriberTabs: string[];
     tabSetType?: string;
-    tabs: string | string[];
+    tabs: string[];
     uiType?: UiType;
     utilityBar?: string;
     workspaceConfig?: AppWorkspaceConfig;
@@ -14555,19 +14555,19 @@ export type ServiceCloudConsoleConfig = {
   listRefreshMethod: string;
   liveAgentConfig?: LiveAgentConfig;
   primaryTabColor?: string;
-  pushNotifications: PushNotification | PushNotification[];
+  pushNotifications: PushNotification[];
   tabLimitConfig?: TabLimitConfig;
-  whitelistedDomains: string | string[];
+  whitelistedDomains: string[];
 };
 
 export type AppComponentList = {
   alignment: string;
-  components: string | string[];
+  components: string[];
 };
 
 export type KeyboardShortcuts = {
-  customShortcuts: CustomShortcut | CustomShortcut[];
-  defaultShortcuts: DefaultShortcut | DefaultShortcut[];
+  customShortcuts: CustomShortcut[];
+  defaultShortcuts: DefaultShortcut[];
 };
 
 export type CustomShortcut = DefaultShortcut & {
@@ -14595,12 +14595,12 @@ export type LiveAgentConfig = {
   openNewContactSubtab?: boolean;
   openNewLeadSubtab?: boolean;
   openNewVFPageSubtab?: boolean;
-  pageNamesToOpen: string | string[];
+  pageNamesToOpen: string[];
   showKnowledgeArticles?: boolean;
 };
 
 export type PushNotification = {
-  fieldNames: string | string[];
+  fieldNames: string[];
   objectName: string;
 };
 
@@ -14656,7 +14656,7 @@ export type ProfileActionOverride = sObject & {
 };
 
 export type AppWorkspaceConfig = {
-  mappings: WorkspaceMapping | WorkspaceMapping[];
+  mappings: WorkspaceMapping[];
 };
 
 export type WorkspaceMapping = {
@@ -14678,7 +14678,7 @@ export type CustomApplicationComponent = Metadata & {
 };
 
 export type CustomFeedFilter = Metadata & {
-  criteria: FeedFilterCriterion | FeedFilterCriterion[];
+  criteria: FeedFilterCriterion[];
   description?: string;
   isProtected?: boolean;
   label: string;
@@ -14741,7 +14741,7 @@ export type CustomField = Metadata &
     startingNumber?: number;
     stripMarkup?: boolean;
     summarizedField?: string;
-    summaryFilterItems: FilterItem | FilterItem[];
+    summaryFilterItems: FilterItem[];
     summaryForeignKey?: string;
     summaryOperation?: SummaryOperations;
     trackFeedHistory?: boolean;
@@ -14784,7 +14784,7 @@ export type LookupFilter = sObject & {
   booleanFilter?: string;
   description?: string;
   errorMessage?: string;
-  filterItems: FilterItem | FilterItem[];
+  filterItems: FilterItem[];
   infoMessage?: string;
   isOptional: boolean;
   Active?: boolean;
@@ -14836,12 +14836,12 @@ export type ValueSet = {
   restricted?: boolean;
   valueSetDefinition?: ValueSetValuesDefinition;
   valueSetName?: string;
-  valueSettings: ValueSettings | ValueSettings[];
+  valueSettings: ValueSettings[];
 };
 
 export type ValueSetValuesDefinition = {
   sorted: boolean;
-  value: CustomValue | CustomValue[];
+  value: CustomValue[];
 };
 
 export type CustomValue = Metadata & {
@@ -14868,13 +14868,13 @@ export type StandardValue = CustomValue & {
 };
 
 export type ValueSettings = {
-  controllingFieldValue: string | string[];
+  controllingFieldValue: string[];
   valueName: string;
 };
 
 export type CustomHelpMenuSection = Metadata &
   sObject & {
-    customHelpMenuItems: CustomHelpMenuItem | CustomHelpMenuItem[];
+    customHelpMenuItems: CustomHelpMenuItem[];
     masterLabel: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -14919,7 +14919,7 @@ export type CustomMetadata = Metadata & {
   description?: string;
   label?: string;
   protected?: boolean;
-  values: CustomMetadataValue | CustomMetadataValue[];
+  values: CustomMetadataValue[];
 };
 
 export type CustomMetadataValue = {
@@ -14958,7 +14958,7 @@ export type CustomNotificationType = Metadata &
 
 export type CustomObject = Metadata &
   sObject & {
-    actionOverrides: ActionOverride | ActionOverride[];
+    actionOverrides: ActionOverride[];
     allowInChatterGroups?: boolean;
     compactLayoutAssignment?: string;
     customHelp?: string;
@@ -14993,7 +14993,7 @@ export type CustomObject = Metadata &
     mktDataModelAttributes?: MktDataModelAttributes;
     nameField?: CustomField;
     pluralLabel?: string;
-    profileSearchLayouts: ProfileSearchLayouts | ProfileSearchLayouts[];
+    profileSearchLayouts: ProfileSearchLayouts[];
     publishBehavior?: PlatformEventPublishBehavior;
     recordTypeTrackHistory?: boolean;
     searchLayouts?: SearchLayouts;
@@ -15041,21 +15041,21 @@ export type MktDataModelAttributes = {
 };
 
 export type ProfileSearchLayouts = {
-  fields: string | string[];
+  fields: string[];
   profileName?: string;
 };
 
 export type SearchLayouts = {
-  customTabListAdditionalFields: string | string[];
-  excludedStandardButtons: string | string[];
-  listViewButtons: string | string[];
-  lookupDialogsAdditionalFields: string | string[];
-  lookupFilterFields: string | string[];
-  lookupPhoneDialogsAdditionalFields: string | string[];
-  massQuickActions: string | string[];
-  searchFilterFields: string | string[];
-  searchResultsAdditionalFields: string | string[];
-  searchResultsCustomButtons: string | string[];
+  customTabListAdditionalFields: string[];
+  excludedStandardButtons: string[];
+  listViewButtons: string[];
+  lookupDialogsAdditionalFields: string[];
+  lookupFilterFields: string[];
+  lookupPhoneDialogsAdditionalFields: string[];
+  massQuickActions: string[];
+  searchFilterFields: string[];
+  searchResultsAdditionalFields: string[];
+  searchResultsCustomButtons: string[];
 };
 
 export type CustomPageWebLink = Metadata & {
@@ -15087,7 +15087,7 @@ export type CustomPermission = Metadata & {
   description?: string;
   isLicensed: boolean;
   label: string;
-  requiredPermission: CustomPermissionDependencyRequired | CustomPermissionDependencyRequired[];
+  requiredPermission: CustomPermissionDependencyRequired[];
 };
 
 export type CustomPermissionDependencyRequired = {
@@ -15117,7 +15117,7 @@ export type CustomSite = Metadata & {
   chatterAnswersRegistrationPage?: string;
   clickjackProtectionLevel: SiteClickjackProtectionLevel;
   contentSniffingProtection: boolean;
-  customWebAddresses: SiteWebAddress | SiteWebAddress[];
+  customWebAddresses: SiteWebAddress[];
   description?: string;
   enableAuraRequests?: boolean;
   favoriteIcon?: string;
@@ -15138,8 +15138,8 @@ export type CustomSite = Metadata & {
   serverIsDown?: string;
   siteAdmin?: string;
   siteGuestRecordDefaultOwner?: string;
-  siteIframeWhiteListUrls: SiteIframeWhiteListUrl | SiteIframeWhiteListUrl[];
-  siteRedirectMappings: SiteRedirectMapping | SiteRedirectMapping[];
+  siteIframeWhiteListUrls: SiteIframeWhiteListUrl[];
+  siteRedirectMappings: SiteRedirectMapping[];
   siteTemplate?: string;
   siteType: SiteType;
   subdomain?: string;
@@ -15211,7 +15211,7 @@ export type Dashboard = Metadata & {
   colorPalette?: ChartColorPalettes;
   dashboardChartTheme?: ChartTheme;
   dashboardColorPalette?: ChartColorPalettes;
-  dashboardFilters: DashboardFilter | DashboardFilter[];
+  dashboardFilters: DashboardFilter[];
   dashboardGridLayout?: DashboardGridLayout;
   dashboardResultRefreshedDate?: string;
   dashboardResultRunningUser?: string;
@@ -15232,17 +15232,17 @@ export type Dashboard = Metadata & {
 };
 
 export type DashboardFilter = {
-  dashboardFilterOptions: DashboardFilterOption | DashboardFilterOption[];
+  dashboardFilterOptions: DashboardFilterOption[];
   name: string;
 };
 
 export type DashboardFilterOption = {
   operator: DashboardFilterOperation;
-  values: string | string[];
+  values: string[];
 };
 
 export type DashboardGridLayout = {
-  dashboardGridComponents: DashboardGridComponent | DashboardGridComponent[];
+  dashboardGridComponents: DashboardGridComponent[];
   numberOfColumns: number;
   rowHeight: number;
 };
@@ -15260,13 +15260,13 @@ export type DashboardComponent = {
   chartAxisRange?: ChartRangeType;
   chartAxisRangeMax?: number;
   chartAxisRangeMin?: number;
-  chartSummary: ChartSummary | ChartSummary[];
+  chartSummary: ChartSummary[];
   componentChartTheme?: ChartTheme;
   componentType: DashboardComponentType;
-  dashboardComponentContents: DashboardComponentContent | DashboardComponentContent[];
-  dashboardDynamicValues: DashboardDynamicValue | DashboardDynamicValue[];
-  dashboardFilterColumns: DashboardFilterColumn | DashboardFilterColumn[];
-  dashboardTableColumn: DashboardTableColumn | DashboardTableColumn[];
+  dashboardComponentContents: DashboardComponentContent[];
+  dashboardDynamicValues: DashboardDynamicValue[];
+  dashboardFilterColumns: DashboardFilterColumn[];
+  dashboardTableColumn: DashboardTableColumn[];
   decimalPrecision?: number;
   displayUnits?: ChartUnits;
   drillDownUrl?: string;
@@ -15278,7 +15278,7 @@ export type DashboardComponent = {
   footer?: string;
   gaugeMax?: number;
   gaugeMin?: number;
-  groupingColumn: string | string[];
+  groupingColumn: string[];
   groupingSortProperties?: DashboardComponentGroupingSortProperties;
   header?: string;
   indicatorBreakpoint1?: number;
@@ -15344,7 +15344,7 @@ export type DashboardTableColumn = {
 
 export type DashboardFlexTableComponentProperties = {
   decimalPrecision?: number;
-  flexTableColumn: DashboardComponentColumn | DashboardComponentColumn[];
+  flexTableColumn: DashboardComponentColumn[];
   flexTableSortInfo?: DashboardComponentSortInfo;
   hideChatterPhotos?: boolean;
 };
@@ -15368,7 +15368,7 @@ export type DashboardComponentSortInfo = {
 };
 
 export type DashboardComponentGroupingSortProperties = {
-  groupingSorts: DashboardComponentGroupingSort | DashboardComponentGroupingSort[];
+  groupingSorts: DashboardComponentGroupingSort[];
 };
 
 export type DashboardComponentGroupingSort = {
@@ -15380,7 +15380,7 @@ export type DashboardComponentGroupingSort = {
 
 export type DashboardComponentSection = {
   columnSize: DashboardComponentSize;
-  components: DashboardComponent | DashboardComponent[];
+  components: DashboardComponent[];
 };
 
 export type DataCalcInsightTemplate = Metadata &
@@ -15430,13 +15430,13 @@ export type DataCategoryGroup = Metadata & {
 };
 
 export type DataCategory = {
-  dataCategory: DataCategory | DataCategory[];
+  dataCategory: DataCategory[];
   label: string;
   name: string;
 };
 
 export type ObjectUsage = {
-  object: string | string[];
+  object: string[];
 };
 
 export type DataConnectionParamTmpl = Metadata & {
@@ -15607,7 +15607,7 @@ export type DataPipeline = Metadata & {
 export type DataPlatform = Metadata &
   sObject & {
     dataConnectorType: string;
-    dataPlatDataSetBundles: DataPlatDataSetBundle | DataPlatDataSetBundle[];
+    dataPlatDataSetBundles: DataPlatDataSetBundle[];
     description?: string;
     forExportIntOrgName?: string;
     forImportIntOrgName?: string;
@@ -15643,7 +15643,7 @@ export type DataPlatform = Metadata &
 
 export type DataPlatDataSetBundle = sObject & {
   bundleType?: string;
-  dataPlatformDataSets: DataPlatformDataSet | DataPlatformDataSet[];
+  dataPlatformDataSets: DataPlatformDataSet[];
   description?: string;
   iconUri?: string;
   sortOrder?: number;
@@ -15942,7 +15942,7 @@ export type DataspaceScope = Metadata & {
   description?: string;
   isProtected?: boolean;
   masterLabel: string;
-  metadataGroups: DataspaceScopeSchemaAccess | DataspaceScopeSchemaAccess[];
+  metadataGroups: DataspaceScopeSchemaAccess[];
 };
 
 export type DataspaceScopeSchemaAccess = {
@@ -15985,7 +15985,7 @@ export type DecisionMatrixDefinition = Metadata &
 
 export type DecisionMatrixDefinitionVersion = Metadata &
   sObject & {
-    columns: DecisionMatrixDefinitionVersionColumn | DecisionMatrixDefinitionVersionColumn[];
+    columns: DecisionMatrixDefinitionVersionColumn[];
     decisionMatrixDefinition?: string;
     endDate?: Date;
     groupKeyValue?: string;
@@ -16035,8 +16035,8 @@ export type DecisionTable = Metadata &
     conditionCriteria?: string;
     conditionType?: DecisionTableConditionType;
     dataSourceType?: DecisionTableDataSourceType;
-    decisionTableParameters: DecisionTableParameter | DecisionTableParameter[];
-    decisionTableSourceCriterias: DecisionTableSourceCriteria | DecisionTableSourceCriteria[];
+    decisionTableParameters: DecisionTableParameter[];
+    decisionTableSourceCriterias: DecisionTableSourceCriteria[];
     description?: string;
     doesConsiderNullValue?: boolean;
     filterResultBy?: DecisionTableHitPolicy;
@@ -16157,7 +16157,7 @@ export type DecisionTableSourceCriteria = sObject & {
 export type DecisionTableDatasetLink = Metadata &
   sObject & {
     decisionTableName: string;
-    decisionTblDatasetParameters: DecisionTblDatasetParameter | DecisionTblDatasetParameter[];
+    decisionTblDatasetParameters: DecisionTblDatasetParameter[];
     description?: string;
     isDefault?: boolean;
     setupName: string;
@@ -16257,8 +16257,8 @@ export type FtestTopLevelWithDeclMd1 = Metadata &
     isProtected?: boolean;
     masterLabel: string;
     staticEnumField?: FTestTopLevelSelection;
-    typeOneItems: FtestDetailWithDeclMd1 | FtestDetailWithDeclMd1[];
-    typeTwoItems: FtestDetailWithDeclMd2 | FtestDetailWithDeclMd2[];
+    typeOneItems: FtestDetailWithDeclMd1[];
+    typeTwoItems: FtestDetailWithDeclMd2[];
     BooleanField?: boolean;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16297,7 +16297,7 @@ export type FtestDetailWithDeclMd1 = sObject & {
   enumOrIdField?: string;
   integerField: number;
   staticEnumField?: FTestTopLevelSelection;
-  subItems: FtestSubDetailWithDeclMd | FtestSubDetailWithDeclMd[];
+  subItems: FtestSubDetailWithDeclMd[];
   BooleanField?: boolean;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -16415,7 +16415,7 @@ export type SchedulingObjective = Metadata &
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
-    schedulingObjectiveParameters: SchedulingObjectiveParameter | SchedulingObjectiveParameter[];
+    schedulingObjectiveParameters: SchedulingObjectiveParameter[];
     schedulingObjectiveType: SchedulingObjectiveType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -16878,7 +16878,7 @@ export type SemanticModel = Metadata &
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
-    semanticModelContent: SemanticModelContent | SemanticModelContent[];
+    semanticModelContent: SemanticModelContent[];
     unrelatedDataObjectsQueryBehavior?: SemanticModelQueryUnrelatedDataObjectsType;
     AllManagedPackageMemberId?: ID;
     App?: string;
@@ -17050,7 +17050,7 @@ export type SchedulingRule = Metadata &
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
-    schedulingRuleParameters: SchedulingRuleParameter | SchedulingRuleParameter[];
+    schedulingRuleParameters: SchedulingRuleParameter[];
     schedulingRuleType: SchedulingRuleType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -17170,10 +17170,10 @@ export type SemanticDefinition = Metadata &
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
-    semanticCalcDimension: SemanticCalcDimension | SemanticCalcDimension[];
-    semanticCalcMeasurement: SemanticCalcMeasurement | SemanticCalcMeasurement[];
-    semanticDataObject: SemanticDataObject | SemanticDataObject[];
-    semanticRelationship: SemanticRelationship | SemanticRelationship[];
+    semanticCalcDimension: SemanticCalcDimension[];
+    semanticCalcMeasurement: SemanticCalcMeasurement[];
+    semanticDataObject: SemanticDataObject[];
+    semanticRelationship: SemanticRelationship[];
     type: SemanticDefinitionType;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -17267,14 +17267,14 @@ export type ShiftSegmentType = Metadata &
 
 export type DelegateGroup = Metadata &
   sObject & {
-    customObjects: string | string[];
-    groups: string | string[];
+    customObjects: string[];
+    groups: string[];
     label: string;
     loginAccess: boolean;
-    permissionSetGroups: string | string[];
-    permissionSets: string | string[];
-    profiles: string | string[];
-    roles: string | string[];
+    permissionSetGroups: string[];
+    permissionSets: string[];
+    profiles: string[];
+    roles: string[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -17524,18 +17524,18 @@ export type DuplicateRule = Metadata & {
   alertText?: string;
   description?: string;
   duplicateRuleFilter?: DuplicateRuleFilter;
-  duplicateRuleMatchRules?: DuplicateRuleMatchRule | DuplicateRuleMatchRule[];
+  duplicateRuleMatchRules?: DuplicateRuleMatchRule[];
   isActive: boolean;
   masterLabel: string;
-  operationsOnInsert: string | string[];
-  operationsOnUpdate: string | string[];
+  operationsOnInsert: string[];
+  operationsOnUpdate: string[];
   securityOption: DupeSecurityOptionType;
   sortOrder: number;
 };
 
 export type DuplicateRuleFilter = {
   booleanFilter?: string;
-  duplicateRuleFilterItems: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
+  duplicateRuleFilterItems: DuplicateRuleFilterItem[];
 };
 
 export type DuplicateRuleMatchRule = {
@@ -17623,8 +17623,8 @@ export type EditionDefinition = Metadata & {
   defaultLicenseDuration?: number;
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
-  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition | IncludedPlatformLicenseDefinition[];
-  includedUserLicenseDefinitions: IncludedUserLicenseDefinition | IncludedUserLicenseDefinition[];
+  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition[];
+  includedUserLicenseDefinitions: IncludedUserLicenseDefinition[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
@@ -17637,7 +17637,7 @@ export type EmailServicesFunction = Metadata & {
   authenticationFailureAction: EmailServicesErrorAction;
   authorizationFailureAction: EmailServicesErrorAction;
   authorizedSenders?: string;
-  emailServicesAddresses: EmailServicesAddress | EmailServicesAddress[];
+  emailServicesAddresses: EmailServicesAddress[];
   errorRoutingAddress?: string;
   functionInactiveAction: EmailServicesErrorAction;
   functionName: string;
@@ -17660,14 +17660,14 @@ export type EmailServicesAddress = {
 export type EmailTemplate = Metadata &
   sObject & {
     apiVersion?: number;
-    attachedDocuments: string | string[];
-    attachments: Attachment | Attachment[];
+    attachedDocuments: string[];
+    attachments: Attachment[];
     available: boolean;
     description?: string;
     encodingKey: Encoding;
     letterhead?: string;
     name: string;
-    packageVersions: PackageVersion | PackageVersion[];
+    packageVersions: PackageVersion[];
     pageDevName?: string;
     relatedEntityType?: string;
     style: EmailTemplateStyle;
@@ -17819,7 +17819,7 @@ export type EmbeddedServiceLiveAgent = Metadata &
   sObject & {
     avatarImg?: string;
     embeddedServiceConfig: string;
-    embeddedServiceQuickActions: EmbeddedServiceQuickAction | EmbeddedServiceQuickAction[];
+    embeddedServiceQuickActions: EmbeddedServiceQuickAction[];
     enabled: boolean;
     fontSize: EmbeddedServiceFontSize;
     isOfflineCaseEnabled?: boolean;
@@ -17930,11 +17930,11 @@ export type EntitlementProcess = Metadata & {
   description?: string;
   entryStartDateField?: string;
   exitCriteriaBooleanFilter?: string;
-  exitCriteriaFilterItems: FilterItem | FilterItem[];
+  exitCriteriaFilterItems: FilterItem[];
   exitCriteriaFormula?: string;
   isRecordTypeApplied?: boolean;
   isVersionDefault?: boolean;
-  milestones: EntitlementProcessMilestoneItem | EntitlementProcessMilestoneItem[];
+  milestones: EntitlementProcessMilestoneItem[];
   name?: string;
   recordType?: string;
   versionMaster?: string;
@@ -17945,18 +17945,18 @@ export type EntitlementProcess = Metadata & {
 export type EntitlementProcessMilestoneItem = {
   businessHours?: string;
   criteriaBooleanFilter?: string;
-  milestoneCriteriaFilterItems: FilterItem | FilterItem[];
+  milestoneCriteriaFilterItems: FilterItem[];
   milestoneCriteriaFormula?: string;
   milestoneName?: string;
   minutesCustomClass?: string;
   minutesToComplete?: number;
-  successActions: WorkflowActionReference | WorkflowActionReference[];
-  timeTriggers: EntitlementProcessMilestoneTimeTrigger | EntitlementProcessMilestoneTimeTrigger[];
+  successActions: WorkflowActionReference[];
+  timeTriggers: EntitlementProcessMilestoneTimeTrigger[];
   useCriteriaStartTime?: boolean;
 };
 
 export type EntitlementProcessMilestoneTimeTrigger = {
-  actions: WorkflowActionReference | WorkflowActionReference[];
+  actions: WorkflowActionReference[];
   timeLength?: number;
   workflowTimeTriggerUnit: MilestoneTimeUnits;
 };
@@ -17972,7 +17972,7 @@ export type EntitlementTemplate = Metadata & {
 
 export type EntityImplements = Metadata &
   sObject & {
-    fieldImplements: FieldImplements | FieldImplements[];
+    fieldImplements: FieldImplements[];
     isDefault?: boolean;
     isFullyMapped?: boolean;
     AllManagedPackageMemberId?: ID;
@@ -18016,13 +18016,13 @@ export type FieldImplements = sObject & {
 
 export type EscalationRule = Metadata & {
   active?: boolean;
-  ruleEntry: RuleEntry | RuleEntry[];
+  ruleEntry: RuleEntry[];
 };
 
 export type EscalationRules = string;
 
 export type EventDelivery = Metadata & {
-  eventParameters: EventParameterMap | EventParameterMap[];
+  eventParameters: EventParameterMap[];
   eventSubscription: string;
   referenceData?: string;
   type: EventDeliveryType;
@@ -18068,7 +18068,7 @@ export type EventRelayConfig = Metadata &
 
 export type EventSubscription = Metadata & {
   active?: boolean;
-  eventParameters: EventParameterMap | EventParameterMap[];
+  eventParameters: EventParameterMap[];
   eventType: string;
   referenceData: string;
 };
@@ -18081,7 +18081,7 @@ export type ExperienceBundle = Metadata & {
 };
 
 export type ExperienceResources = {
-  experienceResource: ExperienceResource | ExperienceResource[];
+  experienceResource: ExperienceResource[];
 };
 
 export type ExperienceResource = {
@@ -18100,7 +18100,7 @@ export type ExperienceContainer = Metadata & {
 export type ExperiencePropertyTypeBundle = Metadata & {
   description?: string;
   masterLabel: string;
-  resources: ExperiencePropertyTypeBundleResource | ExperiencePropertyTypeBundleResource[];
+  resources: ExperiencePropertyTypeBundleResource[];
 };
 
 export type ExperiencePropertyTypeBundleResource = {
@@ -18184,7 +18184,7 @@ export type ExplainabilityMsgTemplate = Metadata &
 
 export type ExpressionSetDefinition = Metadata &
   sObject & {
-    contextDefinitions: string | string[];
+    contextDefinitions: string[];
     description?: string;
     interfaceSourceType?: ExpsSetInterfaceSourceType;
     label: string;
@@ -18224,9 +18224,9 @@ export type ExpressionSetDefinitionVersion = Metadata &
     shouldShowExplExternally?: boolean;
     startDate: Date;
     status: ExpsSetStatus;
-    steps: ExpressionSetStep | ExpressionSetStep[];
+    steps: ExpressionSetStep[];
     uiTier?: boolean;
-    variables: ExpressionSetVariable | ExpressionSetVariable[];
+    variables: ExpressionSetVariable[];
     versionNumber: number;
     ActiveVersionSnapshotId?: ID;
     AllManagedPackageMemberId?: ID;
@@ -18264,14 +18264,14 @@ export type ExpressionSetStep = {
   decisionTable?: ExpressionSetDecisionTable;
   description?: string;
   failedExplainerTemplate?: string;
-  failedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  failedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   label: string;
   name: string;
   noResultExplainerTemplate?: string;
-  noResultMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  noResultMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   parentStep?: string;
   passedExplainerTemplate?: string;
-  passedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  passedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   resultIncluded?: boolean;
   sequenceNumber: number;
   shouldExposExecPathMsgOnly?: boolean;
@@ -18283,7 +18283,7 @@ export type ExpressionSetStep = {
 
 export type ExpressionSetAdvancedCondition = {
   conditionLogic: string;
-  criteria: ExpressionSetConditionCriteria | ExpressionSetConditionCriteria[];
+  criteria: ExpressionSetConditionCriteria[];
   errorMessage?: string;
   resultParameter?: string;
   successMessage?: string;
@@ -18316,7 +18316,7 @@ export type ExpressionSetConditionExpression = {
 };
 
 export type ExpressionSetCustomElement = {
-  parameters: ExpressionSetElementParameter | ExpressionSetElementParameter[];
+  parameters: ExpressionSetElementParameter[];
 };
 
 export type ExpressionSetElementParameter = {
@@ -18329,7 +18329,7 @@ export type ExpressionSetElementParameter = {
 
 export type ExpressionSetDecisionTable = {
   decisionTableName: string;
-  mappings: ExpressionSetElementParameter | ExpressionSetElementParameter[];
+  mappings: ExpressionSetElementParameter[];
   type: string;
 };
 
@@ -18347,7 +18347,7 @@ export type ExpressionSetVariable = {
   dataType: ExpsSetDataType;
   decimalPlaces?: number;
   description?: string;
-  fields: ExpressionSetVariableField | ExpressionSetVariableField[];
+  fields: ExpressionSetVariableField[];
   input?: boolean;
   lookupName?: string;
   lookupType?: ExpsSetVariableLookupType;
@@ -18362,7 +18362,7 @@ export type ExpressionSetVariable = {
 export type ExpressionSetVariableField = {
   dataType: ExpsSetDataType;
   decimalPlaces?: number;
-  fields: ExpressionSetVariableField | ExpressionSetVariableField[];
+  fields: ExpressionSetVariableField[];
   lookupName?: string;
   lookupType?: ExpsSetVariableLookupType;
   name: string;
@@ -18395,7 +18395,7 @@ export type ExpressionSetMessageToken = Metadata &
 export type ExpressionSetObjectAlias = Metadata &
   sObject & {
     dataType: ExpsSetObjectDataType;
-    mappings: ExpressionSetObjectAliasField | ExpressionSetObjectAliasField[];
+    mappings: ExpressionSetObjectAliasField[];
     objectApiName: string;
     usageType: ExpsSetProcessType;
     AllManagedPackageMemberId?: ID;
@@ -18541,7 +18541,7 @@ export type ExternalCredential = Metadata &
   sObject & {
     authenticationProtocol: AuthenticationProtocol;
     description?: string;
-    externalCredentialParameters: ExternalCredentialParameter | ExternalCredentialParameter[];
+    externalCredentialParameters: ExternalCredentialParameter[];
     label: string;
     AllManagedPackageMemberId?: ID;
     AuthenticationProtocol?: AuthenticationProtocol;
@@ -18610,7 +18610,7 @@ export type ExternalDataSource = Metadata &
     authProvider?: string;
     certificate?: string;
     customConfiguration?: string;
-    customHttpHeaders: CustomHttpHeader | CustomHttpHeader[];
+    customHttpHeaders: CustomHttpHeader[];
     endpoint?: string;
     isWritable?: boolean;
     label: string;
@@ -18854,7 +18854,7 @@ export type ExternalServiceRegistration = Metadata &
     label: string;
     namedCredential?: string;
     namedCredentialReference?: string;
-    operations: ExternalServiceOperation | ExternalServiceOperation[];
+    operations: ExternalServiceOperation[];
     providerAssetEndpoint?: string;
     registrationProviderType?: ExternalServiceRegistrationProviderType;
     schema?: string;
@@ -18979,7 +18979,7 @@ export type ExtlClntAppMobileSettings = Metadata & {
 export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
   clientCredentialsFlowUser?: string;
   commaSeparatedPermissionSet?: string;
-  customAttributes: ExtlClntAppOauthPoliciesAttribute | ExtlClntAppOauthPoliciesAttribute[];
+  customAttributes: ExtlClntAppOauthPoliciesAttribute[];
   externalClientApplication: string;
   ipRelaxationPolicyType?: string;
   isClientCredentialsFlowEnabled?: boolean;
@@ -19003,12 +19003,12 @@ export type ExtlClntAppOauthPoliciesAttribute = {
 
 export type ExtlClntAppOauthSettings = Metadata & {
   commaSeparatedOauthScopes?: string;
-  customAttributes: ExtlClntAppOauthSettingsAttribute | ExtlClntAppOauthSettingsAttribute[];
+  customAttributes: ExtlClntAppOauthSettingsAttribute[];
   externalClientApplication: string;
   label?: string;
   oauthLink?: string;
   singleLogoutUrl?: string;
-  trustedIpRanges: ExtlClntAppOauthIpRange | ExtlClntAppOauthIpRange[];
+  trustedIpRanges: ExtlClntAppOauthIpRange[];
 };
 
 export type ExtlClntAppOauthSettingsAttribute = {
@@ -19094,7 +19094,7 @@ export type FeatureParameterInteger = Metadata & {
 export type FieldRestrictionRule = Metadata &
   sObject & {
     active: boolean;
-    classification: string | string[];
+    classification: string[];
     classificationType?: ClassificationType;
     description?: string;
     enforcementType: EnforcementType;
@@ -19142,9 +19142,9 @@ export type FieldServiceMobileExtension = Metadata & {
 
 export type FieldSet = Metadata &
   sObject & {
-    availableFields: FieldSetItem | FieldSetItem[];
+    availableFields: FieldSetItem[];
     description: string;
-    displayedFields: FieldSetItem | FieldSetItem[];
+    displayedFields: FieldSetItem[];
     label: string;
     AggrCriteriaFieldsets?: QueryResult;
     CreatedBy?: User;
@@ -19186,8 +19186,8 @@ export type FieldSrcTrgtRelationship = Metadata & {
 export type FlexiPage = Metadata &
   sObject & {
     description?: string;
-    events: FlexiPageEvent | FlexiPageEvent[];
-    flexiPageRegions: FlexiPageRegion | FlexiPageRegion[];
+    events: FlexiPageEvent[];
+    flexiPageRegions: FlexiPageRegion[];
     masterLabel: string;
     parentFlexiPage?: string;
     platformActionlist?: PlatformActionList;
@@ -19222,9 +19222,9 @@ export type FlexiPage = Metadata &
 
 export type FlexiPageEvent = {
   sourceName: string;
-  sourceProperties: FlexiPageEventSourceProperty | FlexiPageEventSourceProperty[];
+  sourceProperties: FlexiPageEventSourceProperty[];
   sourceType: FlexipageEventSourceTypeEnum;
-  targets: FlexiPageEventTarget | FlexiPageEventTarget[];
+  targets: FlexiPageEventTarget[];
 };
 
 export type FlexiPageEventSourceProperty = {
@@ -19233,10 +19233,10 @@ export type FlexiPageEventSourceProperty = {
 };
 
 export type FlexiPageEventTarget = {
-  mappings: FlexiPageEventPropertyMapping | FlexiPageEventPropertyMapping[];
+  mappings: FlexiPageEventPropertyMapping[];
   method: string;
   name: string;
-  properties: FlexiPageEventTargetProperty | FlexiPageEventTargetProperty[];
+  properties: FlexiPageEventTargetProperty[];
   type: FlexipageEventTargetTypeEnum;
 };
 
@@ -19252,7 +19252,7 @@ export type FlexiPageEventTargetProperty = {
 
 export type FlexiPageRegion = {
   appendable?: RegionFlagStatus;
-  itemInstances: ItemInstance | ItemInstance[];
+  itemInstances: ItemInstance[];
   mode?: FlexiPageRegionMode;
   name: string;
   prependable?: RegionFlagStatus;
@@ -19266,10 +19266,10 @@ export type ItemInstance = {
 };
 
 export type ComponentInstance = {
-  componentInstanceProperties: ComponentInstanceProperty | ComponentInstanceProperty[];
+  componentInstanceProperties: ComponentInstanceProperty[];
   componentName: string;
   componentType?: ComponentInstanceType;
-  flexipageDataSources: FlexipageDataSource | FlexipageDataSource[];
+  flexipageDataSources: FlexipageDataSource[];
   identifier?: string;
   visibilityRule?: UiFormulaRule;
 };
@@ -19282,7 +19282,7 @@ export type ComponentInstanceProperty = {
 };
 
 export type ComponentInstancePropertyList = {
-  valueListItems: ComponentInstancePropertyListItem | ComponentInstancePropertyListItem[];
+  valueListItems: ComponentInstancePropertyListItem[];
 };
 
 export type ComponentInstancePropertyListItem = {
@@ -19292,7 +19292,7 @@ export type ComponentInstancePropertyListItem = {
 
 export type UiFormulaRule = sObject & {
   booleanFilter?: string;
-  criteria: UiFormulaCriterion | UiFormulaCriterion[];
+  criteria: UiFormulaCriterion[];
   AssociatedElement?: sObject;
   AssociatedElementId?: ID;
   BooleanFilter?: string;
@@ -19335,7 +19335,7 @@ export type UiFormulaCriterion = sObject & {
 
 export type FlexipageDataSource = {
   definition?: string;
-  flexipageDataSourceProperties: FlexipageDataSourceProperty | FlexipageDataSourceProperty[];
+  flexipageDataSourceProperties: FlexipageDataSourceProperty[];
   mode?: FlexipageDataSourceModeEnum;
   name: string;
   type: FlexipageDataSourceTypeEnum;
@@ -19347,7 +19347,7 @@ export type FlexipageDataSourceProperty = {
 };
 
 export type FieldInstance = {
-  fieldInstanceProperties: FieldInstanceProperty | FieldInstanceProperty[];
+  fieldInstanceProperties: FieldInstanceProperty[];
   fieldItem: string;
   identifier?: string;
   visibilityRule?: UiFormulaRule;
@@ -19360,7 +19360,7 @@ export type FieldInstanceProperty = {
 
 export type PlatformActionList = sObject & {
   actionListContext: PlatformActionListContext;
-  platformActionListItems: PlatformActionListItem | PlatformActionListItem[];
+  platformActionListItems: PlatformActionListItem[];
   relatedSourceEntity?: string;
   ActionListContext?: PlatformActionListContext;
   CreatedBy?: User;
@@ -19402,7 +19402,7 @@ export type PlatformActionListItem = sObject & {
 };
 
 export type QuickActionList = sObject & {
-  quickActionListItems: QuickActionListItem | QuickActionListItem[];
+  quickActionListItems: QuickActionListItem[];
   CreatedBy?: User;
   CreatedById?: ID;
   CreatedDate?: Date;
@@ -19434,11 +19434,11 @@ export type QuickActionListItem = sObject & {
 
 export type FlexiPageTemplateInstance = {
   componentType?: ComponentInstanceType;
-  flexipageDataSources: FlexipageDataSource | FlexipageDataSource[];
+  flexipageDataSources: FlexipageDataSource[];
   identifier?: string;
   name: string;
-  properties: ComponentInstanceProperty | ComponentInstanceProperty[];
-  schemaProperties: FlexiPageCompSchemaPropertyDef | FlexiPageCompSchemaPropertyDef[];
+  properties: ComponentInstanceProperty[];
+  schemaProperties: FlexiPageCompSchemaPropertyDef[];
 };
 
 export type FlexiPageCompSchemaPropertyDef = {
@@ -19451,50 +19451,50 @@ export type FlexiPageCompSchemaPropertyDef = {
 
 export type Flow = Metadata &
   sObject & {
-    actionCalls: FlowActionCall | FlowActionCall[];
-    apexPluginCalls: FlowApexPluginCall | FlowApexPluginCall[];
+    actionCalls: FlowActionCall[];
+    apexPluginCalls: FlowApexPluginCall[];
     apiVersion?: number;
-    assignments: FlowAssignment | FlowAssignment[];
-    choices: FlowChoice | FlowChoice[];
-    collectionProcessors: FlowCollectionProcessor | FlowCollectionProcessor[];
-    constants: FlowConstant | FlowConstant[];
-    customErrors: FlowCustomError | FlowCustomError[];
-    decisions: FlowDecision | FlowDecision[];
+    assignments: FlowAssignment[];
+    choices: FlowChoice[];
+    collectionProcessors: FlowCollectionProcessor[];
+    constants: FlowConstant[];
+    customErrors: FlowCustomError[];
+    decisions: FlowDecision[];
     description?: string;
-    dynamicChoiceSets: FlowDynamicChoiceSet | FlowDynamicChoiceSet[];
-    environments: FlowEnvironment | FlowEnvironment[];
-    formulas: FlowFormula | FlowFormula[];
+    dynamicChoiceSets: FlowDynamicChoiceSet[];
+    environments: FlowEnvironment[];
+    formulas: FlowFormula[];
     interviewLabel?: string;
     isAdditionalPermissionRequiredToRun?: boolean;
     isOverridable?: boolean;
     isTemplate?: boolean;
     label: string;
-    loops: FlowLoop | FlowLoop[];
+    loops: FlowLoop[];
     migratedFromWorkflowRuleName?: string;
-    orchestratedStages: FlowOrchestratedStage | FlowOrchestratedStage[];
+    orchestratedStages: FlowOrchestratedStage[];
     overriddenFlow?: string;
-    processMetadataValues: FlowMetadataValue | FlowMetadataValue[];
+    processMetadataValues: FlowMetadataValue[];
     processType?: FlowProcessType;
-    recordCreates: FlowRecordCreate | FlowRecordCreate[];
-    recordDeletes: FlowRecordDelete | FlowRecordDelete[];
-    recordLookups: FlowRecordLookup | FlowRecordLookup[];
-    recordRollbacks: FlowRecordRollback | FlowRecordRollback[];
-    recordUpdates: FlowRecordUpdate | FlowRecordUpdate[];
+    recordCreates: FlowRecordCreate[];
+    recordDeletes: FlowRecordDelete[];
+    recordLookups: FlowRecordLookup[];
+    recordRollbacks: FlowRecordRollback[];
+    recordUpdates: FlowRecordUpdate[];
     runInMode?: FlowRunInMode;
-    screens: FlowScreen | FlowScreen[];
+    screens: FlowScreen[];
     sourceTemplate?: string;
-    stages: FlowStage | FlowStage[];
+    stages: FlowStage[];
     start?: FlowStart;
     startElementReference?: string;
     status?: FlowVersionStatus;
-    steps: FlowStep | FlowStep[];
-    subflows: FlowSubflow | FlowSubflow[];
-    textTemplates: FlowTextTemplate | FlowTextTemplate[];
+    steps: FlowStep[];
+    subflows: FlowSubflow[];
+    textTemplates: FlowTextTemplate[];
     timeZoneSidKey?: string;
-    transforms: FlowTransform | FlowTransform[];
+    transforms: FlowTransform[];
     triggerOrder?: number;
-    variables: FlowVariable | FlowVariable[];
-    waits: FlowWait | FlowWait[];
+    variables: FlowVariable[];
+    waits: FlowWait[];
     ApiVersion?: number;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -19528,12 +19528,12 @@ export type FlowActionCall = FlowNode & {
   actionName?: string;
   actionType?: InvocableActionType;
   connector?: FlowConnector;
-  dataTypeMappings: FlowDataTypeMapping | FlowDataTypeMapping[];
+  dataTypeMappings: FlowDataTypeMapping[];
   faultConnector?: FlowConnector;
   flowTransactionModel?: FlowTransactionModel;
-  inputParameters: FlowActionCallInputParameter | FlowActionCallInputParameter[];
+  inputParameters: FlowActionCallInputParameter[];
   nameSegment?: string;
-  outputParameters: FlowActionCallOutputParameter | FlowActionCallOutputParameter[];
+  outputParameters: FlowActionCallOutputParameter[];
   storeOutputAutomatically?: boolean;
   versionSegment?: number;
 };
@@ -19551,7 +19551,7 @@ export type FlowElement = FlowBaseElement & {
 };
 
 export type FlowBaseElement = {
-  processMetadataValues: FlowMetadataValue | FlowMetadataValue[];
+  processMetadataValues: FlowMetadataValue[];
 };
 
 export type FlowMetadataValue = {
@@ -19679,9 +19679,9 @@ export type FlowScreenFieldOutputParameter = FlowBaseElement & {
 
 export type FlowScreenRule = FlowBaseElement & {
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   label: string;
-  ruleActions: FlowScreenRuleAction | FlowScreenRuleAction[];
+  ruleActions: FlowScreenRuleAction[];
 };
 
 export type FlowScreenRuleAction = FlowBaseElement & {
@@ -19693,7 +19693,7 @@ export type FlowScreenRuleAction = FlowBaseElement & {
 export type FlowScreenTrigger = FlowBaseElement & {
   eventName: string;
   eventSource: string;
-  handlers: FlowScreenTriggerHandler | FlowScreenTriggerHandler[];
+  handlers: FlowScreenTriggerHandler[];
 };
 
 export type FlowScreenTriggerHandler = FlowBaseElement & {
@@ -19746,11 +19746,11 @@ export type FlowSubflowOutputAssignment = FlowBaseElement & {
 };
 
 export type FlowTransformValue = FlowBaseElement & {
-  transformValueActions: FlowTransformValueAction | FlowTransformValueAction[];
+  transformValueActions: FlowTransformValueAction[];
 };
 
 export type FlowTransformValueAction = FlowBaseElement & {
-  inputParameters: FlowTransformValueActionInputParameter | FlowTransformValueActionInputParameter[];
+  inputParameters: FlowTransformValueActionInputParameter[];
   name?: string;
   outputFieldApiName?: string;
   transformType: FlowTransformValueActionType;
@@ -19764,7 +19764,7 @@ export type FlowTransformValueActionInputParameter = FlowBaseElement & {
 
 export type FlowVisibilityRule = FlowBaseElement & {
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
 };
 
 export type FlowWaitEventInputParameter = FlowBaseElement & {
@@ -19779,7 +19779,7 @@ export type FlowWaitEventOutputParameter = FlowBaseElement & {
 
 export type FlowCapability = FlowElement & {
   capabilityName: string;
-  inputs: FlowCapabilityInput | FlowCapabilityInput[];
+  inputs: FlowCapabilityInput[];
 };
 
 export type FlowCapabilityInput = FlowElement & {
@@ -19805,10 +19805,10 @@ export type FlowDynamicChoiceSet = FlowElement & {
   dataType: FlowDataType;
   displayField: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   limit?: number;
   object: string;
-  outputAssignments: FlowOutputFieldAssignment | FlowOutputFieldAssignment[];
+  outputAssignments: FlowOutputFieldAssignment[];
   picklistField?: string;
   picklistObject?: string;
   sortField?: string;
@@ -19824,7 +19824,7 @@ export type FlowFormula = FlowElement & {
 
 export type FlowRule = FlowElement & {
   conditionLogic: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   doesRequireRecordChangedToMeetCriteria?: boolean;
   label: string;
@@ -19844,29 +19844,29 @@ export type FlowScheduledPath = FlowElement & {
 export type FlowScreenAction = FlowElement & {
   actionName?: string;
   actionType?: InvocableActionType;
-  inputParameters: FlowScreenActionInputParameter | FlowScreenActionInputParameter[];
+  inputParameters: FlowScreenActionInputParameter[];
   label: string;
   nameSegment?: string;
   versionSegment?: number;
 };
 
 export type FlowScreenField = FlowElement & {
-  choiceReferences: string | string[];
+  choiceReferences: string[];
   dataType?: FlowDataType;
-  dataTypeMappings: FlowDataTypeMapping | FlowDataTypeMapping[];
+  dataTypeMappings: FlowDataTypeMapping[];
   defaultSelectedChoiceReference?: string;
   defaultValue?: FlowElementReferenceOrValue;
   extensionName?: string;
   fieldText?: string;
   fieldType: FlowScreenFieldType;
-  fields: FlowScreenField | FlowScreenField[];
+  fields: FlowScreenField[];
   helpText?: string;
-  inputParameters: FlowScreenFieldInputParameter | FlowScreenFieldInputParameter[];
+  inputParameters: FlowScreenFieldInputParameter[];
   inputsOnNextNavToAssocScrn?: FlowScreenFieldInputsRevisited;
   isRequired?: boolean;
   isVisible?: boolean;
   objectFieldReference?: string;
-  outputParameters: FlowScreenFieldOutputParameter | FlowScreenFieldOutputParameter[];
+  outputParameters: FlowScreenFieldOutputParameter[];
   regionContainerType?: FlowRegionContainerType;
   scale?: number;
   storeOutputAutomatically?: boolean;
@@ -19883,22 +19883,22 @@ export type FlowStage = FlowElement & {
 export type FlowStageStep = FlowElement & {
   actionName?: string;
   actionType?: InvocableActionType;
-  assignees: FlowStageStepAssignee | FlowStageStepAssignee[];
-  entryActionInputParameters: FlowStageStepEntryActionInputParameter | FlowStageStepEntryActionInputParameter[];
+  assignees: FlowStageStepAssignee[];
+  entryActionInputParameters: FlowStageStepEntryActionInputParameter[];
   entryActionName?: string;
-  entryActionOutputParameters: FlowStageStepEntryActionOutputParameter | FlowStageStepEntryActionOutputParameter[];
+  entryActionOutputParameters: FlowStageStepEntryActionOutputParameter[];
   entryActionType?: InvocableActionType;
   entryConditionLogic: string;
-  entryConditions: FlowCondition | FlowCondition[];
-  exitActionInputParameters: FlowStageStepExitActionInputParameter | FlowStageStepExitActionInputParameter[];
+  entryConditions: FlowCondition[];
+  exitActionInputParameters: FlowStageStepExitActionInputParameter[];
   exitActionName?: string;
-  exitActionOutputParameters: FlowStageStepExitActionOutputParameter | FlowStageStepExitActionOutputParameter[];
+  exitActionOutputParameters: FlowStageStepExitActionOutputParameter[];
   exitActionType?: InvocableActionType;
   exitConditionLogic?: string;
-  exitConditions: FlowCondition | FlowCondition[];
-  inputParameters: FlowStageStepInputParameter | FlowStageStepInputParameter[];
+  exitConditions: FlowCondition[];
+  inputParameters: FlowStageStepInputParameter[];
   label: string;
-  outputParameters: FlowStageStepOutputParameter | FlowStageStepOutputParameter[];
+  outputParameters: FlowStageStepOutputParameter[];
   requiresAsyncProcessing?: boolean;
   runAsUser?: boolean;
   stepSubtype?: FlowElementSubtype;
@@ -19923,18 +19923,18 @@ export type FlowVariable = FlowElement & {
 export type FlowWaitEvent = FlowElement & {
   associatedElement?: string;
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   eventType?: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
-  inputParameters: FlowWaitEventInputParameter | FlowWaitEventInputParameter[];
+  filters: FlowRecordFilter[];
+  inputParameters: FlowWaitEventInputParameter[];
   label: string;
   maxBatchSize?: number;
   object?: string;
   offset?: number;
   offsetUnit?: FlowScheduledPathOffsetUnit;
-  outputParameters: FlowWaitEventOutputParameter | FlowWaitEventOutputParameter[];
+  outputParameters: FlowWaitEventOutputParameter[];
   recordTriggerType?: RecordTriggerType;
   resumeDate?: Date;
   resumeDateReference?: string;
@@ -19945,12 +19945,12 @@ export type FlowApexPluginCall = FlowNode & {
   apexClass: string;
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
-  inputParameters: FlowApexPluginCallInputParameter | FlowApexPluginCallInputParameter[];
-  outputParameters: FlowApexPluginCallOutputParameter | FlowApexPluginCallOutputParameter[];
+  inputParameters: FlowApexPluginCallInputParameter[];
+  outputParameters: FlowApexPluginCallOutputParameter[];
 };
 
 export type FlowAssignment = FlowNode & {
-  assignmentItems: FlowAssignmentItem | FlowAssignmentItem[];
+  assignmentItems: FlowAssignmentItem[];
   connector?: FlowConnector;
 };
 
@@ -19959,25 +19959,25 @@ export type FlowCollectionProcessor = FlowNode & {
   collectionProcessorType: FlowCollectionProcessorType;
   collectionReference: string;
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   formula?: string;
   limit?: number;
-  mapItems: FlowCollectionMapItem | FlowCollectionMapItem[];
+  mapItems: FlowCollectionMapItem[];
   outputSObjectType?: string;
-  sortOptions: FlowCollectionSortOption | FlowCollectionSortOption[];
+  sortOptions: FlowCollectionSortOption[];
 };
 
 export type FlowCustomError = FlowNode & {
   description?: string;
   connector?: FlowConnector;
-  customErrorMessages: FlowCustomErrorMessage | FlowCustomErrorMessage[];
+  customErrorMessages: FlowCustomErrorMessage[];
 };
 
 export type FlowDecision = FlowNode & {
   defaultConnector?: FlowConnector;
   defaultConnectorLabel?: string;
-  rules: FlowRule | FlowRule[];
+  rules: FlowRule[];
 };
 
 export type FlowLoop = FlowNode & {
@@ -19990,21 +19990,21 @@ export type FlowLoop = FlowNode & {
 
 export type FlowOrchestratedStage = FlowNode & {
   connector?: FlowConnector;
-  exitActionInputParameters: FlowStageStepExitActionInputParameter | FlowStageStepExitActionInputParameter[];
+  exitActionInputParameters: FlowStageStepExitActionInputParameter[];
   exitActionName?: string;
-  exitActionOutputParameters: FlowStageStepExitActionOutputParameter | FlowStageStepExitActionOutputParameter[];
+  exitActionOutputParameters: FlowStageStepExitActionOutputParameter[];
   exitActionType?: InvocableActionType;
   exitConditionLogic?: string;
-  exitConditions: FlowCondition | FlowCondition[];
+  exitConditions: FlowCondition[];
   faultConnector?: FlowConnector;
-  stageSteps: FlowStageStep | FlowStageStep[];
+  stageSteps: FlowStageStep[];
 };
 
 export type FlowRecordCreate = FlowNode & {
   assignRecordIdToReference?: string;
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
-  inputAssignments: FlowInputFieldAssignment | FlowInputFieldAssignment[];
+  inputAssignments: FlowInputFieldAssignment[];
   inputReference?: string;
   object?: string;
   storeOutputAutomatically?: boolean;
@@ -20014,7 +20014,7 @@ export type FlowRecordDelete = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   inputReference?: string;
   object?: string;
 };
@@ -20024,12 +20024,12 @@ export type FlowRecordLookup = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   getFirstRecordOnly?: boolean;
   object?: string;
-  outputAssignments: FlowOutputFieldAssignment | FlowOutputFieldAssignment[];
+  outputAssignments: FlowOutputFieldAssignment[];
   outputReference?: string;
-  queriedFields: string | string[];
+  queriedFields: string[];
   sortField?: string;
   sortOrder?: SortOrder;
   storeOutputAutomatically?: boolean;
@@ -20043,38 +20043,38 @@ export type FlowRecordUpdate = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
-  inputAssignments: FlowInputFieldAssignment | FlowInputFieldAssignment[];
+  filters: FlowRecordFilter[];
+  inputAssignments: FlowInputFieldAssignment[];
   inputReference?: string;
   object?: string;
 };
 
 export type FlowScreen = FlowNode & {
-  actions: FlowScreenAction | FlowScreenAction[];
+  actions: FlowScreenAction[];
   allowBack?: boolean;
   allowFinish?: boolean;
   allowPause?: boolean;
   backButtonLabel?: string;
   connector?: FlowConnector;
-  fields: FlowScreenField | FlowScreenField[];
+  fields: FlowScreenField[];
   helpText?: string;
   nextOrFinishButtonLabel?: string;
   pauseButtonLabel?: string;
   pausedText?: string;
-  rules: FlowScreenRule | FlowScreenRule[];
+  rules: FlowScreenRule[];
   showFooter?: boolean;
   showHeader?: boolean;
-  triggers: FlowScreenTrigger | FlowScreenTrigger[];
+  triggers: FlowScreenTrigger[];
 };
 
 export type FlowStart = FlowNode & {
-  capabilityTypes: FlowCapability | FlowCapability[];
+  capabilityTypes: FlowCapability[];
   connector?: FlowConnector;
   doesRequireRecordChangedToMeetCriteria?: boolean;
   entryType?: FlowEntryType;
   filterFormula?: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   flowRunAsUser?: FlowRunAsUser;
   form?: string;
   object?: string;
@@ -20082,7 +20082,7 @@ export type FlowStart = FlowNode & {
   publishSegment?: boolean;
   recordTriggerType?: RecordTriggerType;
   schedule?: FlowSchedule;
-  scheduledPaths: FlowScheduledPath | FlowScheduledPath[];
+  scheduledPaths: FlowScheduledPath[];
   segment?: string;
   triggerType?: FlowTriggerType;
 };
@@ -20094,14 +20094,14 @@ export type FlowSchedule = {
 };
 
 export type FlowStep = FlowNode & {
-  connectors: FlowConnector | FlowConnector[];
+  connectors: FlowConnector[];
 };
 
 export type FlowSubflow = FlowNode & {
   connector?: FlowConnector;
   flowName?: string;
-  inputAssignments: FlowSubflowInputAssignment | FlowSubflowInputAssignment[];
-  outputAssignments: FlowSubflowOutputAssignment | FlowSubflowOutputAssignment[];
+  inputAssignments: FlowSubflowInputAssignment[];
+  outputAssignments: FlowSubflowOutputAssignment[];
   storeOutputAutomatically?: boolean;
 };
 
@@ -20112,7 +20112,7 @@ export type FlowTransform = FlowNode & {
   isCollection?: boolean;
   objectType?: string;
   scale?: number;
-  transformValues: FlowTransformValue | FlowTransformValue[];
+  transformValues: FlowTransformValue[];
 };
 
 export type FlowWait = FlowNode & {
@@ -20120,13 +20120,13 @@ export type FlowWait = FlowNode & {
   defaultConnectorLabel: string;
   faultConnector?: FlowConnector;
   timeZoneId?: string;
-  waitEvents: FlowWaitEvent | FlowWaitEvent[];
+  waitEvents: FlowWaitEvent[];
 };
 
 export type FlowCategory = Metadata &
   sObject & {
     description?: string;
-    flowCategoryItems: FlowCategoryItems | FlowCategoryItems[];
+    flowCategoryItems: FlowCategoryItems[];
     masterLabel: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -20181,11 +20181,11 @@ export type FlowDefinition = Metadata &
   };
 
 export type FlowElementSubtypeDefinition = Metadata & {
-  descriptionArguments: string | string[];
+  descriptionArguments: string[];
   elementType: FlowElementType;
   label: string;
-  labelArguments: string | string[];
-  labelPluralArguments: string | string[];
+  labelArguments: string[];
+  labelPluralArguments: string[];
   name: string;
 };
 
@@ -20193,7 +20193,7 @@ export type FlowEnvironmentDefinition = Metadata &
   sObject & {
     label: string;
     name: string;
-    screenFieldTypeBlockList: FlowScreenFieldType | FlowScreenFieldType[];
+    screenFieldTypeBlockList: FlowScreenFieldType[];
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -20207,7 +20207,7 @@ export type FlowTest = Metadata &
     description?: string;
     flowApiName: string;
     label: string;
-    testPoints: FlowTestPoint | FlowTestPoint[];
+    testPoints: FlowTestPoint[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -20229,13 +20229,13 @@ export type FlowTest = Metadata &
   };
 
 export type FlowTestPoint = {
-  assertions: FlowTestAssertion | FlowTestAssertion[];
+  assertions: FlowTestAssertion[];
   elementApiName: string;
-  parameters: FlowTestParameter | FlowTestParameter[];
+  parameters: FlowTestParameter[];
 };
 
 export type FlowTestAssertion = {
-  conditions: FlowTestCondition | FlowTestCondition[];
+  conditions: FlowTestCondition[];
   errorMessage?: string;
 };
 
@@ -20262,18 +20262,18 @@ export type FlowTestParameter = {
 
 export type FlowTriggerTypeDefinition = Metadata &
   sObject & {
-    actionTypes: InvocableActionType | InvocableActionType[];
-    elementSubtypeAllowList: string | string[];
-    elementTypes: FlowElementType | FlowElementType[];
+    actionTypes: InvocableActionType[];
+    elementSubtypeAllowList: string[];
+    elementTypes: FlowElementType[];
     flowStartNodeConfig: string;
     isRecordContextSupported: boolean;
     label: string;
     name: string;
-    subflowAllowList: FlowProcessType | FlowProcessType[];
-    supportedAssignmentOperators: FlowAssignmentOperator | FlowAssignmentOperator[];
-    supportedComparisonOperators: FlowComparisonOperator | FlowComparisonOperator[];
-    supportedFeatures: string | string[];
-    supportedFormulaFunctions: string | string[];
+    subflowAllowList: FlowProcessType[];
+    supportedAssignmentOperators: FlowAssignmentOperator[];
+    supportedComparisonOperators: FlowComparisonOperator[];
+    supportedFeatures: string[];
+    supportedFormulaFunctions: string[];
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -20284,7 +20284,7 @@ export type FlowTriggerTypeDefinition = Metadata &
 
 export type Folder = Metadata & {
   accessType?: FolderAccessTypes;
-  folderShares: FolderShare | FolderShare[];
+  folderShares: FolderShare[];
   name: string;
   publicFolderAccess?: PublicFolderAccess;
   sharedTo?: SharedTo;
@@ -20300,25 +20300,25 @@ export type SharedTo = {
   allCustomerPortalUsers?: string;
   allInternalUsers?: string;
   allPartnerUsers?: string;
-  channelProgramGroup: string | string[];
-  channelProgramGroups: string | string[];
-  group: string | string[];
-  groups: string | string[];
-  guestUser: string | string[];
-  managerSubordinates: string | string[];
-  managers: string | string[];
-  portalRole: string | string[];
-  portalRoleAndSubordinates: string | string[];
-  queue: string | string[];
-  role: string | string[];
-  roleAndSubordinates: string | string[];
-  roleAndSubordinatesInternal: string | string[];
-  roles: string | string[];
-  rolesAndSubordinates: string | string[];
-  territories: string | string[];
-  territoriesAndSubordinates: string | string[];
-  territory: string | string[];
-  territoryAndSubordinates: string | string[];
+  channelProgramGroup: string[];
+  channelProgramGroups: string[];
+  group: string[];
+  groups: string[];
+  guestUser: string[];
+  managerSubordinates: string[];
+  managers: string[];
+  portalRole: string[];
+  portalRoleAndSubordinates: string[];
+  queue: string[];
+  role: string[];
+  roleAndSubordinates: string[];
+  roleAndSubordinatesInternal: string[];
+  roles: string[];
+  rolesAndSubordinates: string[];
+  territories: string[];
+  territoriesAndSubordinates: string[];
+  territory: string[];
+  territoryAndSubordinates: string[];
 };
 
 export type DashboardFolder = string;
@@ -20669,8 +20669,8 @@ export type GenAiFunction = Metadata & {
 export type GenAiPlanner = Metadata & {
   capabilities?: string;
   description?: string;
-  genAiFunctions: GenAiPlannerFunctionDef | GenAiPlannerFunctionDef[];
-  genAiPlugins: GenAiPlannerFunctionDef | GenAiPlannerFunctionDef[];
+  genAiFunctions: GenAiPlannerFunctionDef[];
+  genAiPlugins: GenAiPlannerFunctionDef[];
   masterLabel: string;
   plannerType: PlannerType;
 };
@@ -20696,7 +20696,7 @@ export type GenAiPlannerFunctionDef = sObject & {
 export type GenAiPlugin = Metadata & {
   description?: string;
   developerName: string;
-  genAiFunctions: GenAiPluginFunctionDef | GenAiPluginFunctionDef[];
+  genAiFunctions: GenAiPluginFunctionDef[];
   masterLabel: string;
 };
 
@@ -20717,14 +20717,14 @@ export type GenAiPluginFunctionDef = sObject & {
 
 export type GlobalPicklist = Metadata & {
   description?: string;
-  globalPicklistValues: GlobalPicklistValue | GlobalPicklistValue[];
+  globalPicklistValues: GlobalPicklistValue[];
   masterLabel: string;
   sorted: boolean;
 };
 
 export type GlobalValueSet = Metadata &
   sObject & {
-    customValue: CustomValue | CustomValue[];
+    customValue: CustomValue[];
     description?: string;
     masterLabel: string;
     sorted: boolean;
@@ -20770,7 +20770,7 @@ export type HomePageComponent = Metadata &
   sObject & {
     body?: string;
     height?: number;
-    links: string | string[];
+    links: string[];
     page?: string;
     pageComponentType: PageComponentType;
     showLabel?: boolean;
@@ -20793,8 +20793,8 @@ export type HomePageComponent = Metadata &
 
 export type HomePageLayout = Metadata &
   sObject & {
-    narrowComponents: string | string[];
-    wideComponents: string | string[];
+    narrowComponents: string[];
+    wideComponents: string[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -20974,7 +20974,7 @@ export type InboundNetworkConnection = Metadata &
   sObject & {
     connectionType: ExternalConnectionType;
     description: string;
-    inboundNetworkConnProperties: InboundNetworkConnProperty | InboundNetworkConnProperty[];
+    inboundNetworkConnProperties: InboundNetworkConnProperty[];
     isActive: boolean;
     label: string;
     status: ExternalConnectionStatus;
@@ -21021,7 +21021,7 @@ export type InboundNetworkConnProperty = sObject & {
 
 export type Index = Metadata &
   sObject & {
-    fields: IndexField | IndexField[];
+    fields: IndexField[];
     label: string;
     minNumRequiredIndexedFields?: number;
     type?: string;
@@ -21085,7 +21085,7 @@ export type IntegrationProviderDef = Metadata &
     externalServiceRegistration?: string;
     fileBasedApexClass?: string;
     inputDataProcessor?: string;
-    integrationProviderAttributes: IntegrationProviderAttr | IntegrationProviderAttr[];
+    integrationProviderAttributes: IntegrationProviderAttr[];
     javaClassName?: string;
     outputDataProcessor?: string;
     providerLabel: string;
@@ -21198,7 +21198,7 @@ export type InternalOrganization = Metadata &
 export type KeywordList = Metadata &
   sObject & {
     description?: string;
-    keywords: Keyword | Keyword[];
+    keywords: Keyword[];
     masterLabel: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -21225,20 +21225,20 @@ export type Keyword = {
 
 export type Layout = Metadata &
   sObject & {
-    customButtons: string | string[];
+    customButtons: string[];
     customConsoleComponents?: CustomConsoleComponents;
     emailDefault?: boolean;
-    excludeButtons: string | string[];
+    excludeButtons: string[];
     feedLayout?: FeedLayout;
-    headers: LayoutHeader | LayoutHeader[];
-    layoutSections: LayoutSection | LayoutSection[];
+    headers: LayoutHeader[];
+    layoutSections: LayoutSection[];
     miniLayout?: MiniLayout;
-    multilineLayoutFields: string | string[];
+    multilineLayoutFields: string[];
     platformActionList?: PlatformActionList;
     quickActionList?: QuickActionList;
     relatedContent?: RelatedContent;
-    relatedLists: RelatedListItem | RelatedListItem[];
-    relatedObjects: string | string[];
+    relatedLists: RelatedListItem[];
+    relatedObjects: string[];
     runAssignmentRulesDefault?: boolean;
     showEmailCheckbox?: boolean;
     showHighlightsPanel?: boolean;
@@ -21272,14 +21272,14 @@ export type CustomConsoleComponents = {
 };
 
 export type PrimaryTabComponents = {
-  containers: Container | Container[];
+  containers: Container[];
 };
 
 export type Container = {
   height?: number;
   isContainerAutoSizeEnabled: boolean;
   region: string;
-  sidebarComponents: SidebarComponent | SidebarComponent[];
+  sidebarComponents: SidebarComponent[];
   style: string;
   unit: string;
   width?: number;
@@ -21293,7 +21293,7 @@ export type SidebarComponent = {
   label?: string;
   lookup?: string;
   page?: string;
-  relatedLists: RelatedList | RelatedList[];
+  relatedLists: RelatedList[];
   unit?: string;
   updateAction?: string;
   width?: number;
@@ -21305,19 +21305,19 @@ export type RelatedList = {
 };
 
 export type SubtabComponents = {
-  containers: Container | Container[];
+  containers: Container[];
 };
 
 export type FeedLayout = {
   autocollapsePublisher?: boolean;
   compactFeed?: boolean;
   feedFilterPosition?: FeedLayoutFilterPosition;
-  feedFilters: FeedLayoutFilter | FeedLayoutFilter[];
+  feedFilters: FeedLayoutFilter[];
   fullWidthFeed?: boolean;
   hideSidebar?: boolean;
   highlightExternalFeedItems?: boolean;
-  leftComponents: FeedLayoutComponent | FeedLayoutComponent[];
-  rightComponents: FeedLayoutComponent | FeedLayoutComponent[];
+  leftComponents: FeedLayoutComponent[];
+  rightComponents: FeedLayoutComponent[];
   useInlineFiltersInConsole?: boolean;
 };
 
@@ -21338,12 +21338,12 @@ export type LayoutSection = {
   detailHeading?: boolean;
   editHeading?: boolean;
   label?: string;
-  layoutColumns: LayoutColumn | LayoutColumn[];
+  layoutColumns: LayoutColumn[];
   style: LayoutSectionStyle;
 };
 
 export type LayoutColumn = {
-  layoutItems: LayoutItem | LayoutItem[];
+  layoutItems: LayoutItem[];
   reserved?: string;
 };
 
@@ -21389,22 +21389,22 @@ export type ReportChartComponentLayoutItem = {
 };
 
 export type MiniLayout = {
-  fields: string | string[];
-  relatedLists: RelatedListItem | RelatedListItem[];
+  fields: string[];
+  relatedLists: RelatedListItem[];
 };
 
 export type RelatedListItem = {
-  customButtons: string | string[];
-  excludeButtons: string | string[];
-  fields: string | string[];
-  quickActions: string | string[];
+  customButtons: string[];
+  excludeButtons: string[];
+  fields: string[];
+  quickActions: string[];
   relatedList: string;
   sortField?: string;
   sortOrder?: SortOrder;
 };
 
 export type RelatedContent = {
-  relatedContentItems: RelatedContentItem | RelatedContentItem[];
+  relatedContentItems: RelatedContentItem[];
 };
 
 export type RelatedContentItem = {
@@ -21416,7 +21416,7 @@ export type SummaryLayout = {
   sizeX: number;
   sizeY?: number;
   sizeZ?: number;
-  summaryLayoutItems: SummaryLayoutItem | SummaryLayoutItem[];
+  summaryLayoutItems: SummaryLayoutItem[];
   summaryLayoutStyle: SummaryLayoutStyle;
 };
 
@@ -21431,7 +21431,7 @@ export type SummaryLayoutItem = {
 export type LeadConvertSettings = Metadata &
   sObject & {
     allowOwnerChange?: boolean;
-    objectMapping: ObjectMapping | ObjectMapping[];
+    objectMapping: ObjectMapping[];
     opportunityCreationOptions?: VisibleOrRequired;
     AllowOwnerChange?: boolean;
     CreatedBy?: User;
@@ -21482,7 +21482,7 @@ export type LicenseDefinition = Metadata & {
   description?: string;
   isPublished: boolean;
   label: string;
-  licensedCustomPermissions: LicensedCustomPermissions | LicensedCustomPermissions[];
+  licensedCustomPermissions: LicensedCustomPermissions[];
   licensingAuthority: string;
   licensingAuthorityProvider: string;
   minPlatformVersion: number;
@@ -21500,9 +21500,9 @@ export type LicensedCustomPermissions = {
 export type LightningBolt = Metadata &
   sObject & {
     category: LightningBoltCategory;
-    lightningBoltFeatures: LightningBoltFeatures | LightningBoltFeatures[];
-    lightningBoltImages: LightningBoltImages | LightningBoltImages[];
-    lightningBoltItems: LightningBoltItems | LightningBoltItems[];
+    lightningBoltFeatures: LightningBoltFeatures[];
+    lightningBoltImages: LightningBoltImages[];
+    lightningBoltItems: LightningBoltItems[];
     masterLabel: string;
     publisher: string;
     summary: string;
@@ -21582,11 +21582,11 @@ export type LightningComponentBundle = Metadata &
   };
 
 export type Capabilities = {
-  capability: string | string[];
+  capability: string[];
 };
 
 export type LwcResources = {
-  lwcResource: LwcResource | LwcResource[];
+  lwcResource: LwcResource[];
 };
 
 export type LwcResource = {
@@ -21595,7 +21595,7 @@ export type LwcResource = {
 };
 
 export type Targets = {
-  target: string | string[];
+  target: string[];
 };
 
 export type LightningExperienceTheme = Metadata &
@@ -21631,7 +21631,7 @@ export type LightningMessageChannel = Metadata &
   sObject & {
     description?: string;
     isExposed?: boolean;
-    lightningMessageFields: LightningMessageField | LightningMessageField[];
+    lightningMessageFields: LightningMessageField[];
     masterLabel: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -21706,10 +21706,10 @@ export type LightningOnboardingConfig = Metadata &
 
 export type ListView = Metadata & {
   booleanFilter?: string;
-  columns: string | string[];
+  columns: string[];
   division?: string;
   filterScope: FilterScope;
-  filters: ListViewFilter | ListViewFilter[];
+  filters: ListViewFilter[];
   label: string;
   language?: Language;
   queue?: string;
@@ -21760,23 +21760,23 @@ export type AgentConfigAssignments = {
 };
 
 export type AgentConfigProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type AgentConfigUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type SupervisorAgentConfigSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type AgentConfigButtons = {
-  button: string | string[];
+  button: string[];
 };
 
 export type AgentConfigSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type LiveChatButton = Metadata &
@@ -21885,11 +21885,11 @@ export type LiveChatButton = Metadata &
   };
 
 export type LiveChatButtonDeployments = {
-  deployment: string | string[];
+  deployment: string[];
 };
 
 export type LiveChatButtonSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type LiveChatDeployment = Metadata & {
@@ -21907,7 +21907,7 @@ export type LiveChatDeployment = Metadata & {
 };
 
 export type LiveChatDeploymentDomainWhitelist = {
-  domain: string | string[];
+  domain: string[];
 };
 
 export type LiveChatSensitiveDataRule = Metadata & {
@@ -21948,7 +21948,7 @@ export type LocationUse = Metadata &
 
 export type LoyaltyProgramSetup = Metadata & {
   label?: string;
-  programProcesses: LoyaltyProgramProcess | LoyaltyProgramProcess[];
+  programProcesses: LoyaltyProgramProcess[];
 };
 
 export type LoyaltyProgramProcess = {
@@ -21957,10 +21957,10 @@ export type LoyaltyProgramProcess = {
   journalSubType?: string;
   journalType?: string;
   loyaltyTierGroup?: string;
-  parameters: LoyaltyProgramProcessParameter | LoyaltyProgramProcessParameter[];
+  parameters: LoyaltyProgramProcessParameter[];
   processName: string;
   processType: string;
-  rules: LoyaltyProgramProcessRule | LoyaltyProgramProcessRule[];
+  rules: LoyaltyProgramProcessRule[];
   status?: LoyaltyPgmProcStatus;
 };
 
@@ -21980,9 +21980,7 @@ export type LoyaltyProgramProcessParameter = {
 
 export type LoyaltyProgramProcessCondition = {
   conditionCriteria?: string;
-  conditionFilterCriteria:
-    | LoyaltyProgramProcessConditionFilterCriteria
-    | LoyaltyProgramProcessConditionFilterCriteria[];
+  conditionFilterCriteria: LoyaltyProgramProcessConditionFilterCriteria[];
   conditionName: string;
   conditionType?: LoyaltyPgmProcRuleType;
 };
@@ -21996,8 +21994,8 @@ export type LoyaltyProgramProcessConditionFilterCriteria = {
 };
 
 export type LoyaltyProgramProcessRule = {
-  actions: LoyaltyProgramProcessAction | LoyaltyProgramProcessAction[];
-  conditions: LoyaltyProgramProcessCondition | LoyaltyProgramProcessCondition[];
+  actions: LoyaltyProgramProcessAction[];
+  conditions: LoyaltyProgramProcessCondition[];
   description?: string;
   endDate?: Date;
   isProcessEligibilityRule?: boolean;
@@ -22006,12 +22004,12 @@ export type LoyaltyProgramProcessRule = {
   ruleName: string;
   startDate?: Date;
   status?: LoyaltyPgmProcRuleStatus;
-  stepMappings: LoyaltyProgramProcessRuleStepMapping | LoyaltyProgramProcessRuleStepMapping[];
+  stepMappings: LoyaltyProgramProcessRuleStepMapping[];
 };
 
 export type LoyaltyProgramProcessAction = {
   actionName: string;
-  actionParameters: LoyaltyProgramProcessActionParameter | LoyaltyProgramProcessActionParameter[];
+  actionParameters: LoyaltyProgramProcessActionParameter[];
   actionType: LoyaltyPgmProcActionType;
   crudActionType?: LoyaltyPgmProcCrudActType;
   decisionTable?: string;
@@ -22039,9 +22037,9 @@ export type MLDataDefinition = Metadata &
   sObject & {
     developerName: string;
     entityDeveloperName: string;
-    excludedFields: string | string[];
-    includedFields: string | string[];
-    joinFields: MLField | MLField[];
+    excludedFields: string[];
+    includedFields: string[];
+    joinFields: MLField[];
     parentDefinitionDevName: string;
     scoringFilter?: MLFilter;
     segmentFilter?: MLFilter;
@@ -22274,7 +22272,7 @@ export type ManagedContentType = Metadata &
   sObject & {
     description?: string;
     developerName: string;
-    managedContentNodeTypes: ManagedContentNodeType | ManagedContentNodeType[];
+    managedContentNodeTypes: ManagedContentNodeType[];
     masterLabel: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -22358,7 +22356,7 @@ export type ManagedEventSubscription = Metadata &
 
 export type MarketAudienceDefinition = Metadata &
   sObject & {
-    audienceContactPoints: AudienceContactPoint | AudienceContactPoint[];
+    audienceContactPoints: AudienceContactPoint[];
     audiencePackageOwner?: string;
     channels?: string;
     description?: string;
@@ -22366,7 +22364,7 @@ export type MarketAudienceDefinition = Metadata &
     isProtected?: boolean;
     lastAudienceExcludedCount?: number;
     lastAudienceMemberCount?: number;
-    marketAudienceFields: MarketAudienceField | MarketAudienceField[];
+    marketAudienceFields: MarketAudienceField[];
     masterLabel: string;
     status: MarketAudienceStatus;
     AudienceContactPoints?: QueryResult;
@@ -22479,7 +22477,7 @@ export type MarketingAppExtension = Metadata &
     description?: string;
     isActive?: boolean;
     isProtected?: boolean;
-    marketingAppExtActions: MarketingAppExtAction | MarketingAppExtAction[];
+    marketingAppExtActions: MarketingAppExtAction[];
     masterLabel: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -22539,7 +22537,7 @@ export type MatchingRule = Metadata &
     booleanFilter?: string;
     description?: string;
     label: string;
-    matchingRuleItems: MatchingRuleItem | MatchingRuleItem[];
+    matchingRuleItems: MatchingRuleItem[];
     ruleStatus: MatchingRuleStatus;
     AllManagedPackageMemberId?: ID;
     BooleanFilter?: string;
@@ -22576,15 +22574,15 @@ export type MatchingRuleItem = {
 
 export type MessagingChannel = Metadata &
   sObject & {
-    automatedResponses: MessagingAutoResponse | MessagingAutoResponse[];
-    customParameters: MessagingChannelCustomParameter | MessagingChannelCustomParameter[];
+    automatedResponses: MessagingAutoResponse[];
+    customParameters: MessagingChannelCustomParameter[];
     description?: string;
     masterLabel: string;
     messagingChannelType: MessagingChannelType;
     sessionHandlerFlow?: string;
     sessionHandlerQueue: string;
     sessionHandlerType: MessagingSessionHandlerType;
-    standardParameters: MessagingChannelStandardParameter | MessagingChannelStandardParameter[];
+    standardParameters: MessagingChannelStandardParameter[];
     ActionParameterMappings?: QueryResult;
     BusinessHours?: BusinessHours;
     BusinessHoursId?: ID;
@@ -22648,13 +22646,13 @@ export type MessagingAutoResponse = {
 };
 
 export type MessagingChannelCustomParameter = {
-  actionParameterMappings: MessagingChannelActionParameterMapping | MessagingChannelActionParameterMapping[];
+  actionParameterMappings: MessagingChannelActionParameterMapping[];
   externalParameterName: string;
   masterLabel: string;
   maxLength?: number;
   name: string;
   parameterDataType: FlowDataType;
-  parameterValueMappings: MessagingChannelParameterValueMapping | MessagingChannelParameterValueMapping[];
+  parameterValueMappings: MessagingChannelParameterValueMapping[];
 };
 
 export type MessagingChannelActionParameterMapping = sObject & {
@@ -22694,9 +22692,9 @@ export type MessagingChannelParameterValueMapping = sObject & {
 };
 
 export type MessagingChannelStandardParameter = {
-  actionParameterMappings: MessagingChannelActionParameterMapping | MessagingChannelActionParameterMapping[];
+  actionParameterMappings: MessagingChannelActionParameterMapping[];
   parameterType: MessagingChannelStandardParameterType;
-  parameterValueMappings: MessagingChannelParameterValueMapping | MessagingChannelParameterValueMapping[];
+  parameterValueMappings: MessagingChannelParameterValueMapping[];
 };
 
 export type MetadataForSettings = string;
@@ -22837,7 +22835,7 @@ export type AddressSettings = MetadataForSettings &
   };
 
 export type CountriesAndStates = sObject & {
-  countries: Country | Country[];
+  countries: Country[];
   DurableId?: string;
 };
 
@@ -22848,7 +22846,7 @@ export type Country = sObject & {
   label: string;
   orgDefault: boolean;
   standard: boolean;
-  states: State | State[];
+  states: State[];
   visible: boolean;
   Active?: boolean;
   DurableId?: string;
@@ -23130,8 +23128,8 @@ export type BotSettings = MetadataForSettings & {
 
 export type BusinessHoursSettings = MetadataForSettings &
   sObject & {
-    businessHours: BusinessHoursEntry | BusinessHoursEntry[];
-    holidays: Holiday | Holiday[];
+    businessHours: BusinessHoursEntry[];
+    holidays: Holiday[];
     DurableId?: string;
     FullName?: string;
     Metadata?: BusinessHoursSettings;
@@ -23139,13 +23137,13 @@ export type BusinessHoursSettings = MetadataForSettings &
 
 export type Holiday = {
   activityDate?: Date;
-  businessHours: string | string[];
+  businessHours: string[];
   description?: string;
   endTime?: Date;
   isRecurring?: boolean;
   name?: string;
   recurrenceDayOfMonth?: number;
-  recurrenceDayOfWeek: string | string[];
+  recurrenceDayOfWeek: string[];
   recurrenceDayOfWeekMask?: number;
   recurrenceEndDate?: Date;
   recurrenceInstance?: string;
@@ -23192,7 +23190,7 @@ export type CaseSettings = MetadataForSettings &
     caseCloseNotificationTemplate?: string;
     caseCommentNotificationTemplate?: string;
     caseCreateNotificationTemplate?: string;
-    caseFeedItemSettings: FeedItemSettings | FeedItemSettings[];
+    caseFeedItemSettings: FeedItemSettings[];
     caseFeedReadUnreadLtng?: boolean;
     caseMergeInLightning?: boolean;
     closeCaseThroughStatusChange?: boolean;
@@ -23320,7 +23318,7 @@ export type EmailToCaseSettings = sObject & {
   overEmailLimitAction?: EmailToCaseOnFailureActionType;
   preQuoteSignature?: boolean;
   replyWithNewContentOnly?: boolean;
-  routingAddresses: EmailToCaseRoutingAddress | EmailToCaseRoutingAddress[];
+  routingAddresses: EmailToCaseRoutingAddress[];
   showGeneratedEmailCheckbox?: boolean;
   unauthorizedSenderAction?: EmailToCaseOnFailureActionType;
   useEmailHeadersForThreading?: boolean;
@@ -24539,7 +24537,7 @@ export type EssentialsSettings = MetadataForSettings &
   };
 
 export type EventLogObjectSettings = MetadataForSettings & {
-  eventLogObjects: EventLogObject | EventLogObject[];
+  eventLogObjects: EventLogObject[];
 };
 
 export type EventLogObject = {
@@ -24619,12 +24617,12 @@ export type FieldServiceSettings = MetadataForSettings &
     isLocationHistoryEnabled?: boolean;
     mobileFeedbackEmails?: string;
     o2EngineEnabled?: boolean;
-    objectMappingItem: ObjectMappingItem | ObjectMappingItem[];
+    objectMappingItem: ObjectMappingItem[];
     optimizationServiceAccess?: boolean;
     serviceAppointmentsDueDateOffsetOrgValue?: number;
     workOrderDurationSource?: WorkOrderDurationSource;
-    workOrderLineItemSearchFields: string | string[];
-    workOrderSearchFields: string | string[];
+    workOrderLineItemSearchFields: string[];
+    workOrderSearchFields: string[];
     ApptAssistantExpiration?: number;
     ApptAssistantInfoUrl?: string;
     ApptAssistantRadiusUnitValue?: ApptAssistantRadiusUnit;
@@ -24668,7 +24666,7 @@ export type ObjectMappingItem = {
 
 export type FileUploadAndDownloadSecuritySettings = MetadataForSettings &
   sObject & {
-    dispositions: FileTypeDispositionAssignmentBean | FileTypeDispositionAssignmentBean[];
+    dispositions: FileTypeDispositionAssignmentBean[];
     noHtmlUploadAsAttachment: boolean;
     DurableId?: string;
     FullName?: string;
@@ -24756,14 +24754,14 @@ export type FlowSettings = MetadataForSettings &
 
 export type ForecastingObjectListSettings = MetadataForSettings &
   sObject & {
-    forecastingTypeObjectListSettings: ForecastingTypeObjectListSettings | ForecastingTypeObjectListSettings[];
+    forecastingTypeObjectListSettings: ForecastingTypeObjectListSettings[];
     DurableId?: string;
     FullName?: string;
     Metadata?: ForecastingObjectListSettings;
   };
 
 export type ForecastingTypeObjectListSettings = {
-  forecastingObjectListLabelMappings: ForecastingObjectListLabelMapping | ForecastingObjectListLabelMapping[];
+  forecastingObjectListLabelMappings: ForecastingObjectListLabelMapping[];
   forecastingObjectListSelectedSettings: ForecastingObjectListSelectedSettings;
   forecastingObjectListUnselectedSettings: ForecastingObjectListUnselectedSettings;
   forecastingTypeDeveloperName: string;
@@ -24775,22 +24773,22 @@ export type ForecastingObjectListLabelMapping = {
 };
 
 export type ForecastingObjectListSelectedSettings = sObject & {
-  field: string | string[];
+  field: string[];
   DurableId?: string;
   Field?: string;
 };
 
 export type ForecastingObjectListUnselectedSettings = {
-  field: string | string[];
+  field: string[];
 };
 
 export type ForecastingSettings = MetadataForSettings &
   sObject & {
     defaultToPersonalCurrency?: boolean;
     enableForecasts?: boolean;
-    forecastingCategoryMappings: ForecastingCategoryMapping | ForecastingCategoryMapping[];
-    forecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings | ForecastingDisplayedFamilySettings[];
-    forecastingTypeSettings: ForecastingTypeSettings | ForecastingTypeSettings[];
+    forecastingCategoryMappings: ForecastingCategoryMapping[];
+    forecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings[];
+    forecastingTypeSettings: ForecastingTypeSettings[];
     globalAdjustmentsSettings: AdjustmentsSettings;
     globalForecastRangeSettings: ForecastRangeSettings;
     globalQuotasSettings: QuotasSettings;
@@ -24806,7 +24804,7 @@ export type ForecastingSettings = MetadataForSettings &
 
 export type ForecastingCategoryMapping = {
   forecastingItemCategoryApiName: string;
-  weightedSourceCategories: WeightedSourceCategory | WeightedSourceCategory[];
+  weightedSourceCategories: WeightedSourceCategory[];
 };
 
 export type WeightedSourceCategory = {
@@ -24822,21 +24820,21 @@ export type ForecastingDisplayedFamilySettings = sObject & {
 
 export type ForecastingTypeSettings = sObject & {
   active: boolean;
-  displayedCategoryApiNames: string | string[];
-  forecastedCategoryApiNames: string | string[];
+  displayedCategoryApiNames: string[];
+  forecastedCategoryApiNames: string[];
   forecastingDateType: ForecastingDateType;
   hasProductFamily: boolean;
   isAmount: boolean;
   isAvailable: boolean;
   isQuantity: boolean;
-  managerAdjustableCategoryApiNames: string | string[];
+  managerAdjustableCategoryApiNames: string[];
   masterLabel: string;
   name: string;
-  opportunityListFieldsLabelMappings: OpportunityListFieldsLabelMapping | OpportunityListFieldsLabelMapping[];
+  opportunityListFieldsLabelMappings: OpportunityListFieldsLabelMapping[];
   opportunityListFieldsSelectedSettings: OpportunityListFieldsSelectedSettings;
   opportunityListFieldsUnselectedSettings: OpportunityListFieldsUnselectedSettings;
   opportunitySplitName?: string;
-  ownerAdjustableCategoryApiNames: string | string[];
+  ownerAdjustableCategoryApiNames: string[];
   territory2ModelName?: string;
   Active?: boolean;
   DisplayedCategoryApiNames?: string;
@@ -24868,13 +24866,13 @@ export type OpportunityListFieldsLabelMapping = sObject & {
 };
 
 export type OpportunityListFieldsSelectedSettings = sObject & {
-  field: string | string[];
+  field: string[];
   DurableId?: string;
   Field?: string;
 };
 
 export type OpportunityListFieldsUnselectedSettings = sObject & {
-  field: string | string[];
+  field: string[];
   DurableId?: string;
   Field?: string;
 };
@@ -25608,17 +25606,17 @@ export type KnowledgeCaseSettings = sObject & {
 };
 
 export type KnowledgeCommunitiesSettings = {
-  community: string | string[];
+  community: string[];
 };
 
 export type KnowledgeSitesSettings = sObject & {
-  site: string | string[];
+  site: string[];
   DurableId?: string;
   Site?: string;
 };
 
 export type KnowledgeLanguageSettings = sObject & {
-  language: KnowledgeLanguage | KnowledgeLanguage[];
+  language: KnowledgeLanguage[];
   DurableId?: string;
 };
 
@@ -25651,7 +25649,7 @@ export type KnowledgeSuggestedArticlesSettings = sObject & {
 };
 
 export type KnowledgeCaseFieldsSettings = sObject & {
-  field: KnowledgeCaseField | KnowledgeCaseField[];
+  field: KnowledgeCaseField[];
   DurableId?: string;
 };
 
@@ -25662,7 +25660,7 @@ export type KnowledgeCaseField = sObject & {
 };
 
 export type KnowledgeWorkOrderFieldsSettings = sObject & {
-  field: KnowledgeWorkOrderField | KnowledgeWorkOrderField[];
+  field: KnowledgeWorkOrderField[];
   DurableId?: string;
 };
 
@@ -25673,7 +25671,7 @@ export type KnowledgeWorkOrderField = sObject & {
 };
 
 export type KnowledgeWorkOrderLineItemFieldsSettings = sObject & {
-  field: KnowledgeWorkOrderLineItemField | KnowledgeWorkOrderLineItemField[];
+  field: KnowledgeWorkOrderLineItemField[];
   DurableId?: string;
 };
 
@@ -26096,8 +26094,8 @@ export type OpportunitySettings = MetadataForSettings &
   };
 
 export type FindSimilarOppFilter = sObject & {
-  similarOpportunitiesDisplayColumns: string | string[];
-  similarOpportunitiesMatchFields: string | string[];
+  similarOpportunitiesDisplayColumns: string[];
+  similarOpportunitiesMatchFields: string[];
   DurableId?: string;
   SimilarOpportunitiesDisplayColumns?: string;
   SimilarOpportunitiesMatchFields?: string;
@@ -26350,7 +26348,7 @@ export type QuoteSettings = MetadataForSettings &
 
 export type RealTimeEventSettings = MetadataForSettings &
   sObject & {
-    realTimeEvents: RealTimeEvent | RealTimeEvent[];
+    realTimeEvents: RealTimeEvent[];
     DurableId?: string;
     FullName?: string;
     Metadata?: RealTimeEventSettings;
@@ -26473,7 +26471,7 @@ export type SearchSettings = MetadataForSettings &
   };
 
 export type SearchSettingsByObject = sObject & {
-  searchSettingsByObject: ObjectSearchSetting | ObjectSearchSetting[];
+  searchSettingsByObject: ObjectSearchSetting[];
   DurableId?: string;
 };
 
@@ -26531,7 +26529,7 @@ export type SecuritySettings = MetadataForSettings &
   };
 
 export type NetworkAccess = sObject & {
-  ipRanges: IpRange | IpRange[];
+  ipRanges: IpRange[];
   DurableId?: string;
 };
 
@@ -26868,7 +26866,7 @@ export type Territory2Settings = MetadataForSettings &
     enableTerritoryManagement2?: boolean;
     opportunityFilterSettings?: Territory2SettingsOpportunityFilter;
     showTM2EnabledBanner?: boolean;
-    supportedObjects: Territory2SupportedObject | Territory2SupportedObject[];
+    supportedObjects: Territory2SupportedObject[];
     t2ForecastAccessLevel?: string;
     tm2BypassRealignAccInsert?: boolean;
     tm2EnableUserAssignmentLog?: boolean;
@@ -27169,7 +27167,7 @@ export type WorkDotComSettings = MetadataForSettings &
 export type MfgProgramTemplate = Metadata &
   sObject & {
     description?: string;
-    programTemplateItems: MfgProgramTemplateItem | MfgProgramTemplateItem[];
+    programTemplateItems: MfgProgramTemplateItem[];
     programTemplateName: string;
     status: MfgProgramTemplateStatus;
     CreatedBy?: User;
@@ -27428,8 +27426,8 @@ export type MlDomain = Metadata &
   sObject & {
     description?: string;
     label: string;
-    mlIntents: MlIntent | MlIntent[];
-    mlSlotClasses: MlSlotClass | MlSlotClass[];
+    mlIntents: MlIntent[];
+    mlSlotClasses: MlSlotClass[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27457,12 +27455,12 @@ export type MlModelArtifact = Metadata & {
   algorithmType?: MlAIModelAlgorithmType;
   description?: string;
   generativeModelType?: MlGenerativeModelType;
-  inputFeatures: MlModelInput | MlModelInput[];
+  inputFeatures: MlModelInput[];
   label: string;
-  modelCapabilities: MlGenerativeModelCapability | MlGenerativeModelCapability[];
+  modelCapabilities: MlGenerativeModelCapability[];
   modelType: MlModelType;
-  outputFeatures: MlModelOutput | MlModelOutput[];
-  parameters: MlParameterDefinition | MlParameterDefinition[];
+  outputFeatures: MlModelOutput[];
+  parameters: MlParameterDefinition[];
   predictionType?: MlModelPredictionType;
   runtimeType?: MlRuntimeType;
   sourceContainer?: string;
@@ -27479,7 +27477,7 @@ export type MlModelInput = {
   name: string;
   position?: number;
   type: string;
-  values: string | string[];
+  values: string[];
 };
 
 export type MlModelOutput = {
@@ -27494,20 +27492,20 @@ export type MlParameterDefinition = {
   continuousMinimum?: number;
   description?: string;
   discreteDefault?: string;
-  discreteValues: string | string[];
-  modelCapabilities: MlGenerativeModelCapability | MlGenerativeModelCapability[];
+  discreteValues: string[];
+  modelCapabilities: MlGenerativeModelCapability[];
   name: string;
   subtype: MlParameterSubtype;
   type: MlParameterType;
 };
 
 export type MlModelKit = Metadata & {
-  activatedModels: MlActivatedModel | MlActivatedModel[];
+  activatedModels: MlActivatedModel[];
   description?: string;
   label: string;
   objectiveType?: MlObjectiveType;
   outcomeGoal: MlOutcomeGoalType;
-  outputFeatures: MlModelOutput | MlModelOutput[];
+  outputFeatures: MlModelOutput[];
   predictionType?: MlModelPredictionType;
   status: MlModelKitStatus;
 };
@@ -27518,7 +27516,7 @@ export type MlActivatedModel = {
   model: string;
   modelCapability?: MlGenerativeModelCapability;
   name: string;
-  parameterOverrides: MlParameterOverride | MlParameterOverride[];
+  parameterOverrides: MlParameterOverride[];
   position: number;
   refreshEnabled?: boolean;
   status: MlActivatedModelStatus;
@@ -27551,12 +27549,12 @@ export type ModerationRule = Metadata &
     actionLimit?: number;
     active: boolean;
     description?: string;
-    entitiesAndFields: ModeratedEntityField | ModeratedEntityField[];
+    entitiesAndFields: ModeratedEntityField[];
     masterLabel: string;
     notifyLimit?: number;
     timePeriod?: RateLimitTimePeriod;
     type?: ModerationRuleType;
-    userCriteria: string | string[];
+    userCriteria: string[];
     userMessage?: string;
     Action?: ModerationRuleAction;
     ActionLimit?: number;
@@ -27600,7 +27598,7 @@ export type Module = Metadata & {
 };
 
 export type ModuleDependencies = {
-  moduleRef: ModuleRef | ModuleRef[];
+  moduleRef: ModuleRef[];
 };
 
 export type MyDomainDiscoverableLogin = Metadata & {
@@ -27630,7 +27628,7 @@ export type NamedCredential = Metadata &
     jwtTextSubject?: string;
     jwtValidityPeriodSeconds?: number;
     label: string;
-    namedCredentialParameters: NamedCredentialParameter | NamedCredentialParameter[];
+    namedCredentialParameters: NamedCredentialParameter[];
     namedCredentialType?: NamedCredentialType;
     oauthRefreshToken?: string;
     oauthScope?: string;
@@ -27727,7 +27725,7 @@ export type NavigationMenu = Metadata &
     container: string;
     containerType: string;
     label: string;
-    navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+    navigationMenuItem: NavigationMenuItem[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -27826,7 +27824,7 @@ export type NetworkAuthApiSettings = {
   doesForgotPasswordRequireAuth?: boolean;
   doesPwdlessLoginRequireAuth?: boolean;
   doesRegistrationRequireAuth?: boolean;
-  emailTmplsAllowlist: NetworkEmailTmplAllowlist | NetworkEmailTmplAllowlist[];
+  emailTmplsAllowlist: NetworkEmailTmplAllowlist[];
   isForgotPwdAllowed?: boolean;
   isForgotPwdEmailTemplateAllowlistingEnabled?: boolean;
   isHeadlessUserRegistrationAllowed?: boolean;
@@ -27848,8 +27846,8 @@ export type NetworkEmailTmplAllowlist = {
 };
 
 export type NetworkMemberGroup = {
-  permissionSet: string | string[];
-  profile: string | string[];
+  permissionSet: string[];
+  profile: string[];
 };
 
 export type NetworkPageOverride = {
@@ -27861,7 +27859,7 @@ export type NetworkPageOverride = {
 };
 
 export type RecommendationAudience = {
-  recommendationAudienceDetails: RecommendationAudienceDetail | RecommendationAudienceDetail[];
+  recommendationAudienceDetails: RecommendationAudienceDetail[];
 };
 
 export type RecommendationAudienceDetail = {
@@ -27871,7 +27869,7 @@ export type RecommendationAudienceDetail = {
 };
 
 export type RecommendationDefinition = {
-  recommendationDefinitionDetails: RecommendationDefinitionDetail | RecommendationDefinitionDetail[];
+  recommendationDefinitionDetails: RecommendationDefinitionDetail[];
 };
 
 export type RecommendationDefinitionDetail = {
@@ -27884,7 +27882,7 @@ export type RecommendationDefinitionDetail = {
 };
 
 export type ScheduledRecommendation = {
-  scheduledRecommendationDetails: ScheduledRecommendationDetail | ScheduledRecommendationDetail[];
+  scheduledRecommendationDetails: ScheduledRecommendationDetail[];
 };
 
 export type ScheduledRecommendationDetail = {
@@ -27895,7 +27893,7 @@ export type ScheduledRecommendationDetail = {
 };
 
 export type ReputationLevelDefinitions = {
-  level: ReputationLevel | ReputationLevel[];
+  level: ReputationLevel[];
 };
 
 export type ReputationLevel = {
@@ -27909,7 +27907,7 @@ export type ReputationBranding = {
 };
 
 export type ReputationPointsRules = {
-  pointsRule: ReputationPointsRule | ReputationPointsRule[];
+  pointsRule: ReputationPointsRule[];
 };
 
 export type ReputationPointsRule = {
@@ -27918,9 +27916,9 @@ export type ReputationPointsRule = {
 };
 
 export type NetworkTabSet = {
-  customTab: string | string[];
+  customTab: string[];
   defaultTab: string;
-  standardTab: string | string[];
+  standardTab: string[];
 };
 
 export type NetworkBranding = Metadata & {
@@ -27947,7 +27945,7 @@ export type NetworkBranding = Metadata & {
 };
 
 export type OauthCustomScope = Metadata & {
-  assignedTo: OauthCustomScopeApp | OauthCustomScopeApp[];
+  assignedTo: OauthCustomScopeApp[];
   description: string;
   developerName: string;
   isProtected?: boolean;
@@ -27962,7 +27960,7 @@ export type OauthCustomScopeApp = {
 export type OauthTokenExchangeHandler = Metadata & {
   description: string;
   developerName: string;
-  enablements: OauthTokenExchHandlerApp | OauthTokenExchHandlerApp[];
+  enablements: OauthTokenExchHandlerApp[];
   isAccessTokenSupported: boolean;
   isEnabled: boolean;
   isIdTokenSupported: boolean;
@@ -28026,7 +28024,7 @@ export type ObjectHierarchyRelationship = Metadata &
 
 export type ObjectSourceTargetMap = Metadata & {
   creationType?: DefinitionCreationType;
-  fieldSourceTargetMaps: FieldSourceTargetMap | FieldSourceTargetMap[];
+  fieldSourceTargetMaps: FieldSourceTargetMap[];
   masterLabel: string;
   sequenceNbr?: number;
   sourceObjectName: string;
@@ -28051,8 +28049,8 @@ export type OcrSampleDocument = Metadata &
     documentHeight?: number;
     documentType: string;
     masterLabel: string;
-    ocrSampleDocumentFields: OcrSampleDocumentField | OcrSampleDocumentField[];
-    ocrSampleDocumentPages: OcrSampleDocumentPage | OcrSampleDocumentPage[];
+    ocrSampleDocumentFields: OcrSampleDocumentField[];
+    ocrSampleDocumentPages: OcrSampleDocumentPage[];
     AllManagedPackageMemberId?: ID;
     ApplicationType?: OcrApplicationType;
     CreatedBy?: User;
@@ -28149,7 +28147,7 @@ export type OcrSampleDocumentPageItem = sObject & {
 
 export type OcrSampleDocumentPage = sObject & {
   ocrSampleDocument: string;
-  ocrSampleDocumentPageItems: OcrSampleDocumentPageItem | OcrSampleDocumentPageItem[];
+  ocrSampleDocumentPageItems: OcrSampleDocumentPageItem[];
   pageHeight?: number;
   pageNumber: number;
   AllManagedPackageMemberId?: ID;
@@ -28175,8 +28173,8 @@ export type OcrTemplate = Metadata &
     description?: string;
     documentType: string;
     masterLabel: string;
-    ocrTargetObjects: OcrTargetObject | OcrTargetObject[];
-    ocrTemplateSampleDocuments: OcrTemplateSampleDocument | OcrTemplateSampleDocument[];
+    ocrTargetObjects: OcrTargetObject[];
+    ocrTemplateSampleDocuments: OcrTemplateSampleDocument[];
     pageCount?: number;
     templateName: string;
     AllManagedPackageMemberId?: ID;
@@ -28204,7 +28202,7 @@ export type OcrTemplate = Metadata &
   };
 
 export type OcrTargetObject = sObject & {
-  ocrTargetObjFieldMappings: OcrTargetObjFieldMapping | OcrTargetObjFieldMapping[];
+  ocrTargetObjFieldMappings: OcrTargetObjFieldMapping[];
   targetObject: string;
   targetObjectRecordType?: string;
   AllManagedPackageMemberId?: ID;
@@ -28283,7 +28281,7 @@ export type OmniDataTransform = Metadata & {
   name: string;
   namespace?: string;
   nullInputsIncludedInOutput?: boolean;
-  omniDataTransformItem: OmniDataTransformItem | OmniDataTransformItem[];
+  omniDataTransformItem: OmniDataTransformItem[];
   outputParsingClass?: string;
   outputType?: string;
   overrideKey?: string;
@@ -28356,7 +28354,7 @@ export type OmniExtTrackingDef = Metadata &
     isActive: boolean;
     masterLabel: string;
     omniExtTrackingDefKey?: string;
-    omniExtTrackingEventDefs: OmniExtTrackingEventDef | OmniExtTrackingEventDef[];
+    omniExtTrackingEventDefs: OmniExtTrackingEventDef[];
     trackingFrameworkInformation: string;
     trackingServiceProvider: ExternalTrackingVendor;
     AllManagedPackageMemberId?: ID;
@@ -28437,7 +28435,7 @@ export type OmniIntegrationProcedure = Metadata & {
   lastPreviewPage?: string;
   name: string;
   nameSpace?: string;
-  omniProcessElements: OmniProcessElement | OmniProcessElement[];
+  omniProcessElements: OmniProcessElement[];
   omniProcessKey?: string;
   omniProcessType: OmniProcessType;
   overrideKey?: string;
@@ -28452,7 +28450,7 @@ export type OmniIntegrationProcedure = Metadata & {
 };
 
 export type OmniProcessElement = {
-  childElements: OmniProcessElement | OmniProcessElement[];
+  childElements: OmniProcessElement[];
   description?: string;
   designerCustomizationType?: string;
   discoveryFrameworkUsageType?: string;
@@ -28558,7 +28556,7 @@ export type OmniScript = Metadata & {
   lastPreviewPage?: string;
   name: string;
   nameSpace?: string;
-  omniProcessElements: OmniProcessElement | OmniProcessElement[];
+  omniProcessElements: OmniProcessElement[];
   omniProcessKey?: string;
   omniProcessType: OmniProcessType;
   overrideKey?: string;
@@ -28576,11 +28574,11 @@ export type OmniSupervisorConfig = Metadata &
   sObject & {
     isTimelineHidden: boolean;
     masterLabel: string;
-    omniSupervisorConfigAction: OmniSupervisorConfigAction | OmniSupervisorConfigAction[];
-    omniSupervisorConfigGroup: OmniSupervisorConfigGroup | OmniSupervisorConfigGroup[];
-    omniSupervisorConfigProfile: OmniSupervisorConfigProfile | OmniSupervisorConfigProfile[];
-    omniSupervisorConfigQueue: OmniSupervisorConfigQueue | OmniSupervisorConfigQueue[];
-    omniSupervisorConfigSkill: OmniSupervisorConfigSkill | OmniSupervisorConfigSkill[];
+    omniSupervisorConfigAction: OmniSupervisorConfigAction[];
+    omniSupervisorConfigGroup: OmniSupervisorConfigGroup[];
+    omniSupervisorConfigProfile: OmniSupervisorConfigProfile[];
+    omniSupervisorConfigQueue: OmniSupervisorConfigQueue[];
+    omniSupervisorConfigSkill: OmniSupervisorConfigSkill[];
     skillVisibility?: OmniSuperSkillVisibilityType;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -28665,7 +28663,7 @@ export type OmniTrackingGroup = Metadata &
     masterLabel: string;
     maxAgeInDays?: number;
     omniExtTrackingDef?: string;
-    omniTrackingComponentDefs: OmniTrackingComponentDef | OmniTrackingComponentDef[];
+    omniTrackingComponentDefs: OmniTrackingComponentDef[];
     omniTrackingGroupKey?: string;
     startDate?: Date;
     AllManagedPackageMemberId?: ID;
@@ -28718,9 +28716,9 @@ export type Orchestration = Metadata & {
 };
 
 export type OrchestrationContext = Metadata & {
-  datasets: OrchestrationContextDataset | OrchestrationContextDataset[];
+  datasets: OrchestrationContextDataset[];
   description?: string;
-  events: OrchestrationContextEvent | OrchestrationContextEvent[];
+  events: OrchestrationContextEvent[];
   imageFile: string;
   imageScale: number;
   masterLabel: string;
@@ -28747,7 +28745,7 @@ export type OutboundNetworkConnection = Metadata &
     description?: string;
     isActive: boolean;
     label: string;
-    outboundNetworkConnProperties: OutboundNetworkConnProperty | OutboundNetworkConnProperty[];
+    outboundNetworkConnProperties: OutboundNetworkConnProperty[];
     status: ExternalConnectionStatus;
     AllManagedPackageMemberId?: ID;
     ConnectionType?: ExternalConnectionType;
@@ -28803,7 +28801,7 @@ export type PathAssistant = Metadata &
     entityName: string;
     fieldName: string;
     masterLabel: string;
-    pathAssistantSteps: PathAssistantStep | PathAssistantStep[];
+    pathAssistantSteps: PathAssistantStep[];
     recordTypeName: string;
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
@@ -28832,7 +28830,7 @@ export type PathAssistant = Metadata &
   };
 
 export type PathAssistantStep = {
-  fieldNames: string | string[];
+  fieldNames: string[];
   info?: string;
   picklistValueName: string;
 };
@@ -28870,27 +28868,25 @@ export type PaymentGatewayProvider = Metadata &
 
 export type PermissionSet = Metadata &
   sObject & {
-    applicationVisibilities: PermissionSetApplicationVisibility | PermissionSetApplicationVisibility[];
-    classAccesses: PermissionSetApexClassAccess | PermissionSetApexClassAccess[];
-    customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess | PermissionSetCustomMetadataTypeAccess[];
-    customPermissions: PermissionSetCustomPermissions | PermissionSetCustomPermissions[];
-    customSettingAccesses: PermissionSetCustomSettingAccess | PermissionSetCustomSettingAccess[];
-    dataspaceScopes: DataspaceScopeAccess | DataspaceScopeAccess[];
+    applicationVisibilities: PermissionSetApplicationVisibility[];
+    classAccesses: PermissionSetApexClassAccess[];
+    customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess[];
+    customPermissions: PermissionSetCustomPermissions[];
+    customSettingAccesses: PermissionSetCustomSettingAccess[];
+    dataspaceScopes: DataspaceScopeAccess[];
     description?: string;
-    externalCredentialPrincipalAccesses:
-      | PermissionSetExternalCredentialPrincipalAccess
-      | PermissionSetExternalCredentialPrincipalAccess[];
-    externalDataSourceAccesses: PermissionSetExternalDataSourceAccess | PermissionSetExternalDataSourceAccess[];
-    fieldPermissions: PermissionSetFieldPermissions | PermissionSetFieldPermissions[];
-    flowAccesses: PermissionSetFlowAccess | PermissionSetFlowAccess[];
+    externalCredentialPrincipalAccesses: PermissionSetExternalCredentialPrincipalAccess[];
+    externalDataSourceAccesses: PermissionSetExternalDataSourceAccess[];
+    fieldPermissions: PermissionSetFieldPermissions[];
+    flowAccesses: PermissionSetFlowAccess[];
     hasActivationRequired?: boolean;
     label: string;
     license?: string;
-    objectPermissions: PermissionSetObjectPermissions | PermissionSetObjectPermissions[];
-    pageAccesses: PermissionSetApexPageAccess | PermissionSetApexPageAccess[];
-    recordTypeVisibilities: PermissionSetRecordTypeVisibility | PermissionSetRecordTypeVisibility[];
-    tabSettings: PermissionSetTabSetting | PermissionSetTabSetting[];
-    userPermissions: PermissionSetUserPermission | PermissionSetUserPermission[];
+    objectPermissions: PermissionSetObjectPermissions[];
+    pageAccesses: PermissionSetApexPageAccess[];
+    recordTypeVisibilities: PermissionSetRecordTypeVisibility[];
+    tabSettings: PermissionSetTabSetting[];
+    userPermissions: PermissionSetUserPermission[];
     AllManagedPackageMemberId?: ID;
     Assignments?: QueryResult;
     CreatedBy?: User;
@@ -31253,8 +31249,8 @@ export type PermissionSetGroup = Metadata &
     description?: string;
     hasActivationRequired?: boolean;
     label: string;
-    mutingPermissionSets: string | string[];
-    permissionSets: string | string[];
+    mutingPermissionSets: string[];
+    permissionSets: string[];
     status?: string;
     AllManagedPackageMemberId?: ID;
     Assignments?: QueryResult;
@@ -31280,7 +31276,7 @@ export type PermissionSetGroup = Metadata &
   };
 
 export type PermissionSetLicenseDefinition = Metadata & {
-  customPermissions: PermissionSetLicenseDefinitionCustomPermission | PermissionSetLicenseDefinitionCustomPermission[];
+  customPermissions: PermissionSetLicenseDefinitionCustomPermission[];
   isSupplementLicense?: boolean;
   label: string;
   licenseExpirationPolicy: LicenseExpirationPolicy;
@@ -31303,7 +31299,7 @@ export type PlatformCachePartition = Metadata &
     description?: string;
     isDefaultPartition: boolean;
     masterLabel: string;
-    platformCachePartitionTypes: PlatformCachePartitionType | PlatformCachePartitionType[];
+    platformCachePartitionTypes: PlatformCachePartitionType[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31375,7 +31371,7 @@ export type PlatformEventChannel = Metadata &
 
 export type PlatformEventChannelMember = Metadata &
   sObject & {
-    enrichedFields: EnrichedField | EnrichedField[];
+    enrichedFields: EnrichedField[];
     eventChannel: string;
     filterExpression?: string;
     selectedEntity: string;
@@ -31425,19 +31421,19 @@ export type PlatformLicenseDefinition = Metadata & {
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
   hasDynamicResourceGroupKey?: boolean;
-  includedFeatures: IncludedFeature | IncludedFeature[];
+  includedFeatures: IncludedFeature[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
   minPlatformVersion?: number;
   name: string;
-  settingItems: SettingItem | SettingItem[];
-  settingUsageDefinitions: SettingUsageDefinition | SettingUsageDefinition[];
+  settingItems: SettingItem[];
+  settingUsageDefinitions: SettingUsageDefinition[];
 };
 
 export type IncludedFeature = {
   name: string;
-  settingOverrides: SettingOverride | SettingOverride[];
+  settingOverrides: SettingOverride[];
 };
 
 export type SettingOverride = {
@@ -31493,7 +31489,7 @@ export type PostTemplate = Metadata &
   sObject & {
     default?: boolean;
     description?: string;
-    fields: string | string[];
+    fields: string[];
     label: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31515,9 +31511,9 @@ export type PriceRule = Metadata &
     effectiveDate?: Date;
     expirationDate?: Date;
     masterLabel: string;
-    priceRuleActions: PriceRuleAction | PriceRuleAction[];
-    priceRuleConditions: PriceRuleCondition | PriceRuleCondition[];
-    priceRuleExecutionStages: PriceRuleExecutionStage | PriceRuleExecutionStage[];
+    priceRuleActions: PriceRuleAction[];
+    priceRuleConditions: PriceRuleCondition[];
+    priceRuleExecutionStages: PriceRuleExecutionStage[];
     sequence: number;
     status: RuleStatus;
     AllManagedPackageMemberId?: ID;
@@ -31547,7 +31543,7 @@ export type PriceRule = Metadata &
 
 export type PriceRuleAction = {
   conditionVariable?: string;
-  priceRuleActionItems: PriceRuleActionItem | PriceRuleActionItem[];
+  priceRuleActionItems: PriceRuleActionItem[];
   sequence: number;
   targetObject?: string;
   type: TypeOfAction;
@@ -31568,7 +31564,7 @@ export type PriceRuleCondition = {
   aggregationType?: ConditionAggregationFunction;
   conditionVariable?: string;
   matchType: TargetEntityMatchType;
-  priceRuleConditionFilters: PriceRuleConditionFilter | PriceRuleConditionFilter[];
+  priceRuleConditionFilters: PriceRuleConditionFilter[];
   scope: ConditionType;
   sequence: number;
   targetObject: string;
@@ -31592,7 +31588,7 @@ export type PriceSheetDefinition = Metadata &
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
-    prcShtAttrDefinitions: PrcShtAttrDefinition | PrcShtAttrDefinition[];
+    prcShtAttrDefinitions: PrcShtAttrDefinition[];
     priceSheetEntity: string;
     status?: PriceSheetDefinitionStatus;
     CreatedBy?: User;
@@ -31662,7 +31658,7 @@ export type PricingRecipe = Metadata &
     isInternal?: boolean;
     isProtected?: boolean;
     masterLabel: string;
-    pricingRecipeTableMapping: PricingRecipeTableMapping | PricingRecipeTableMapping[];
+    pricingRecipeTableMapping: PricingRecipeTableMapping[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31747,30 +31743,30 @@ export type ProcessFlowMigration = Metadata &
 
 export type ProcessPalette = Metadata &
   sObject & {
-    allHeaderAutolayoutVisibility: boolean | boolean[];
-    allHeaderFreeformVisibility: boolean | boolean[];
-    allHeaderNames: string | string[];
-    allHeaderOrders: number | number[];
-    elementHeaders: string | string[];
-    elementOrders: number | number[];
-    elementSubtypeHeaders: string | string[];
-    elementSubtypeOrders: number | number[];
-    elementSubtypes: string | string[];
-    elementTypes: FlowElementType | FlowElementType[];
-    invocableActionHeaders: string | string[];
-    invocableActionIconNames: string | string[];
-    invocableActionIsCustoms: boolean | boolean[];
-    invocableActionOrders: number | number[];
-    invocableActions: InvocableActionType | InvocableActionType[];
+    allHeaderAutolayoutVisibility: boolean[];
+    allHeaderFreeformVisibility: boolean[];
+    allHeaderNames: string[];
+    allHeaderOrders: number[];
+    elementHeaders: string[];
+    elementOrders: number[];
+    elementSubtypeHeaders: string[];
+    elementSubtypeOrders: number[];
+    elementSubtypes: string[];
+    elementTypes: FlowElementType[];
+    invocableActionHeaders: string[];
+    invocableActionIconNames: string[];
+    invocableActionIsCustoms: boolean[];
+    invocableActionOrders: number[];
+    invocableActions: InvocableActionType[];
     name: string;
-    shortcutActionIconNames: string | string[];
-    shortcutDescriptions: string | string[];
-    shortcutEnumApiNames: string | string[];
-    shortcutEnumTypes: string | string[];
-    shortcutHeaders: string | string[];
-    shortcutIfActionIsCustom: boolean | boolean[];
-    shortcutLabels: string | string[];
-    shortcutOrders: number | number[];
+    shortcutActionIconNames: string[];
+    shortcutDescriptions: string[];
+    shortcutEnumApiNames: string[];
+    shortcutEnumTypes: string[];
+    shortcutHeaders: string[];
+    shortcutIfActionIsCustom: boolean[];
+    shortcutLabels: string[];
+    shortcutOrders: number[];
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -31779,23 +31775,23 @@ export type ProcessPalette = Metadata &
 
 export type ProcessTypeDefinition = Metadata &
   sObject & {
-    actionTypes: InvocableActionType | InvocableActionType[];
-    autoGeneratedRequiredVariables: FlowVariable | FlowVariable[];
+    actionTypes: InvocableActionType[];
+    autoGeneratedRequiredVariables: FlowVariable[];
     defaultFlowRuntimeApiVersion?: number;
-    elementSubtypeAllowList: string | string[];
-    elementTypes: FlowElementType | FlowElementType[];
-    flowDataTypeBlockList: FlowDataType | FlowDataType[];
+    elementSubtypeAllowList: string[];
+    elementTypes: FlowElementType[];
+    flowDataTypeBlockList: FlowDataType[];
     isFlowManaged: boolean;
     label: string;
-    lightningComponentMarkerInterfaces: string | string[];
+    lightningComponentMarkerInterfaces: string[];
     minApiVersionForRefreshedRecords?: number;
     minValidApiVersionForSave?: number;
     name: string;
-    screenFieldTypeBlockList: FlowScreenFieldType | FlowScreenFieldType[];
-    subflowAllowList: FlowProcessType | FlowProcessType[];
-    supportedFeatures: string | string[];
-    systemVariableBlockList: FlowSystemVariable | FlowSystemVariable[];
-    triggerTypeAllowList: FlowTriggerType | FlowTriggerType[];
+    screenFieldTypeBlockList: FlowScreenFieldType[];
+    subflowAllowList: FlowProcessType[];
+    supportedFeatures: string[];
+    systemVariableBlockList: FlowSystemVariable[];
+    triggerTypeAllowList: FlowTriggerType[];
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -31837,7 +31833,7 @@ export type ProductAttributeSet = Metadata &
     description?: string;
     developerName: string;
     masterLabel: string;
-    productAttributeSetItems: ProductAttributeSetItem | ProductAttributeSetItem[];
+    productAttributeSetItems: ProductAttributeSetItem[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -31935,27 +31931,27 @@ export type ProductSpecificationType = Metadata &
 
 export type Profile = Metadata &
   sObject & {
-    applicationVisibilities: ProfileApplicationVisibility | ProfileApplicationVisibility[];
-    categoryGroupVisibilities: ProfileCategoryGroupVisibility | ProfileCategoryGroupVisibility[];
-    classAccesses: ProfileApexClassAccess | ProfileApexClassAccess[];
+    applicationVisibilities: ProfileApplicationVisibility[];
+    categoryGroupVisibilities: ProfileCategoryGroupVisibility[];
+    classAccesses: ProfileApexClassAccess[];
     custom?: boolean;
-    customMetadataTypeAccesses: ProfileCustomMetadataTypeAccess | ProfileCustomMetadataTypeAccess[];
-    customPermissions: ProfileCustomPermissions | ProfileCustomPermissions[];
-    customSettingAccesses: ProfileCustomSettingAccess | ProfileCustomSettingAccess[];
+    customMetadataTypeAccesses: ProfileCustomMetadataTypeAccess[];
+    customPermissions: ProfileCustomPermissions[];
+    customSettingAccesses: ProfileCustomSettingAccess[];
     description?: string;
-    externalDataSourceAccesses: ProfileExternalDataSourceAccess | ProfileExternalDataSourceAccess[];
-    fieldPermissions: ProfileFieldLevelSecurity | ProfileFieldLevelSecurity[];
-    flowAccesses: ProfileFlowAccess | ProfileFlowAccess[];
-    loginFlows: LoginFlow | LoginFlow[];
+    externalDataSourceAccesses: ProfileExternalDataSourceAccess[];
+    fieldPermissions: ProfileFieldLevelSecurity[];
+    flowAccesses: ProfileFlowAccess[];
+    loginFlows: LoginFlow[];
     loginHours?: ProfileLoginHours;
-    loginIpRanges: ProfileLoginIpRange | ProfileLoginIpRange[];
-    objectPermissions: ProfileObjectPermissions | ProfileObjectPermissions[];
-    pageAccesses: ProfileApexPageAccess | ProfileApexPageAccess[];
-    profileActionOverrides: ProfileActionOverride | ProfileActionOverride[];
-    recordTypeVisibilities: ProfileRecordTypeVisibility | ProfileRecordTypeVisibility[];
-    tabVisibilities: ProfileTabVisibility | ProfileTabVisibility[];
+    loginIpRanges: ProfileLoginIpRange[];
+    objectPermissions: ProfileObjectPermissions[];
+    pageAccesses: ProfileApexPageAccess[];
+    profileActionOverrides: ProfileActionOverride[];
+    recordTypeVisibilities: ProfileRecordTypeVisibility[];
+    tabVisibilities: ProfileTabVisibility[];
     userLicense?: string;
-    userPermissions: ProfileUserPermission | ProfileUserPermission[];
+    userPermissions: ProfileUserPermission[];
     AdvAcctForecastAdjPeriodProfile?: QueryResult;
     AdvAcctFrcstDisplayGroupProfile?: QueryResult;
     AssistantDefinitionProfiles?: QueryResult;
@@ -31983,7 +31979,7 @@ export type ProfileApplicationVisibility = {
 };
 
 export type ProfileCategoryGroupVisibility = {
-  dataCategories: string | string[];
+  dataCategories: string[];
   dataCategoryGroup: string;
   visibility: CategoryGroupVisibility;
 };
@@ -32095,7 +32091,7 @@ export type ProfileUserPermission = {
 export type Prompt = Metadata &
   sObject & {
     masterLabel: string;
-    promptVersions: PromptVersion | PromptVersion[];
+    promptVersions: PromptVersion[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32234,7 +32230,7 @@ export type Queue = Metadata & {
   name: string;
   queueMembers?: QueueMembers;
   queueRoutingConfig?: string;
-  queueSobject: QueueSobject | QueueSobject[];
+  queueSobject: QueueSobject[];
 };
 
 export type QueueMembers = {
@@ -32246,23 +32242,23 @@ export type QueueMembers = {
 };
 
 export type PublicGroups = {
-  publicGroup: string | string[];
+  publicGroup: string[];
 };
 
 export type RoleAndSubordinates = {
-  roleAndSubordinate: string | string[];
+  roleAndSubordinate: string[];
 };
 
 export type RoleAndSubordinatesInternal = {
-  roleAndSubordinateInternal: string | string[];
+  roleAndSubordinateInternal: string[];
 };
 
 export type Roles = {
-  role: string | string[];
+  role: string[];
 };
 
 export type Users = {
-  user: string | string[];
+  user: string[];
 };
 
 export type QueueSobject = {
@@ -32273,7 +32269,7 @@ export type QuickAction = Metadata & {
   actionSubtype?: ActionSubtype;
   canvas?: string;
   description?: string;
-  fieldOverrides: FieldOverride | FieldOverride[];
+  fieldOverrides: FieldOverride[];
   flowDefinition?: string;
   height?: number;
   icon?: string;
@@ -32302,11 +32298,11 @@ export type FieldOverride = {
 
 export type QuickActionLayout = {
   layoutSectionStyle: LayoutSectionStyle;
-  quickActionLayoutColumns: QuickActionLayoutColumn | QuickActionLayoutColumn[];
+  quickActionLayoutColumns: QuickActionLayoutColumn[];
 };
 
 export type QuickActionLayoutColumn = {
-  quickActionLayoutItems: QuickActionLayoutItem | QuickActionLayoutItem[];
+  quickActionLayoutItems: QuickActionLayoutItem[];
 };
 
 export type QuickActionLayoutItem = {
@@ -32322,23 +32318,23 @@ export type QuickActionSendEmailOptions = {
 
 export type RecommendationStrategy = Metadata &
   sObject & {
-    actionContext: StrategyAction | StrategyAction[];
-    aiLoad: StrategyNodeAiLoad | StrategyNodeAiLoad[];
-    aiSort: StrategyNodeAiSort | StrategyNodeAiSort[];
+    actionContext: StrategyAction[];
+    aiLoad: StrategyNodeAiLoad[];
+    aiSort: StrategyNodeAiSort[];
     contextRecordType?: string;
     description?: string;
-    filter: StrategyNodeFilter | StrategyNodeFilter[];
-    if: StrategyNodeIf | StrategyNodeIf[];
-    invocableAction: StrategyNodeInvocableAction | StrategyNodeInvocableAction[];
+    filter: StrategyNodeFilter[];
+    if: StrategyNodeIf[];
+    invocableAction: StrategyNodeInvocableAction[];
     isTemplate?: boolean;
     label: string;
-    map: StrategyNodeMap | StrategyNodeMap[];
-    mutuallyExclusive: StrategyNodeExclusive | StrategyNodeExclusive[];
+    map: StrategyNodeMap[];
+    mutuallyExclusive: StrategyNodeExclusive[];
     onBehalfOfExpression?: string;
-    recommendationLimit: StrategyNodeRecommendationLimit | StrategyNodeRecommendationLimit[];
-    recommendationLoad: StrategyNodeRecommendationLoad | StrategyNodeRecommendationLoad[];
-    sort: StrategyNodeSort | StrategyNodeSort[];
-    union: StrategyNodeUnion | StrategyNodeUnion[];
+    recommendationLimit: StrategyNodeRecommendationLimit[];
+    recommendationLoad: StrategyNodeRecommendationLoad[];
+    sort: StrategyNodeSort[];
+    union: StrategyNodeUnion[];
     AllManagedPackageMemberId?: ID;
     ContextRecordType?: string;
     CreatedBy?: User;
@@ -32364,7 +32360,7 @@ export type RecommendationStrategy = Metadata &
 
 export type StrategyAction = {
   action: string;
-  argument: StrategyActionArg | StrategyActionArg[];
+  argument: StrategyActionArg[];
   description?: string;
   label?: string;
   name: string;
@@ -32390,7 +32386,7 @@ export type StrategyNodeUnionBase = StrategyNodeBase & {
 };
 
 export type StrategyNodeBase = {
-  childNode: string | string[];
+  childNode: string[];
   description?: string;
   label?: string;
   name: string;
@@ -32405,7 +32401,7 @@ export type StrategyNodeFilter = StrategyNodeUnionBase & {
 };
 
 export type StrategyNodeIf = StrategyNodeUnionBase & {
-  childNodeExpression: IfExpression | IfExpression[];
+  childNodeExpression: IfExpression[];
   onlyFirstMatch?: boolean;
 };
 
@@ -32416,7 +32412,7 @@ export type IfExpression = {
 
 export type StrategyNodeInvocableAction = StrategyNodeUnionBase & {
   action: string;
-  argument: StrategyNodeInvocableActionArg | StrategyNodeInvocableActionArg[];
+  argument: StrategyNodeInvocableActionArg[];
   isGenerator: boolean;
   type: InvocableActionType;
 };
@@ -32427,7 +32423,7 @@ export type StrategyNodeInvocableActionArg = {
 };
 
 export type StrategyNodeMap = StrategyNodeUnionBase & {
-  mapExpression: MapExpression | MapExpression[];
+  mapExpression: MapExpression[];
 };
 
 export type MapExpression = {
@@ -32437,16 +32433,16 @@ export type MapExpression = {
 };
 
 export type StrategyNodeRecommendationLimit = StrategyNodeUnionBase & {
-  filterMode: StrategyReactionType | StrategyReactionType[];
+  filterMode: StrategyReactionType[];
   lookbackDuration?: number;
   maxRecommendationCount?: number;
 };
 
 export type StrategyNodeRecommendationLoad = StrategyNodeUnionBase & {
-  condition: RecommendationLoadCondition | RecommendationLoadCondition[];
+  condition: RecommendationLoadCondition[];
   conditionLogic?: string;
   object: string;
-  sortField: StrategyNodeSortField | StrategyNodeSortField[];
+  sortField: StrategyNodeSortField[];
 };
 
 export type RecommendationLoadCondition = {
@@ -32467,22 +32463,22 @@ export type StrategyNodeSortField = {
 };
 
 export type StrategyNodeSort = StrategyNodeUnionBase & {
-  field: StrategyNodeSortField | StrategyNodeSortField[];
+  field: StrategyNodeSortField[];
 };
 
 export type StrategyNodeUnion = string;
 
 export type RecordActionDeployment = Metadata &
   sObject & {
-    channelConfigurations: RecordActionDeploymentChannel | RecordActionDeploymentChannel[];
+    channelConfigurations: RecordActionDeploymentChannel[];
     componentName?: ComponentName;
-    deploymentContexts: RecordActionDeploymentContext | RecordActionDeploymentContext[];
+    deploymentContexts: RecordActionDeploymentContext[];
     hasGuidedActions?: boolean;
     hasOmniscripts?: boolean;
     hasRecommendations?: boolean;
     masterLabel: string;
     recommendation?: RecordActionRecommendation;
-    selectableItems: RecordActionSelectableItem | RecordActionSelectableItem[];
+    selectableItems: RecordActionSelectableItem[];
     AllManagedPackageMemberId?: ID;
     ComponentName?: ComponentName;
     CreatedBy?: User;
@@ -32508,7 +32504,7 @@ export type RecordActionDeployment = Metadata &
 
 export type RecordActionDeploymentChannel = {
   channel: ChannelSource;
-  channelItems: RecordActionDefaultItem | RecordActionDefaultItem[];
+  channelItems: RecordActionDefaultItem[];
   isAutopopEnabled?: boolean;
 };
 
@@ -32552,7 +32548,7 @@ export type RecordAggregationDefinition = Metadata &
     batchProcessingDefinition?: string;
     description?: string;
     displayName: string;
-    recordAggregationObject: RecordAggregationObject | RecordAggregationObject[];
+    recordAggregationObject: RecordAggregationObject[];
     status: RecordAggregationDefinitionStatus;
     AggregateFromObject?: string;
     AggregateToObject?: string;
@@ -32587,8 +32583,8 @@ export type RecordAggregationObject = sObject & {
   developerName?: string;
   filterLogic?: string;
   masterLabel: string;
-  recordAggregationJoinCondition: RecordAggregationJoinCondition | RecordAggregationJoinCondition[];
-  recordAggregationObjectFilter: RecordAggregationObjectFilter | RecordAggregationObjectFilter[];
+  recordAggregationJoinCondition: RecordAggregationJoinCondition[];
+  recordAggregationObjectFilter: RecordAggregationObjectFilter[];
   AssociatedObject?: string;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -32689,7 +32685,7 @@ export type RecordType = Metadata &
     compactLayoutAssignment?: string;
     description?: string;
     label: string;
-    picklistValues: RecordTypePicklistValue | RecordTypePicklistValue[];
+    picklistValues: RecordTypePicklistValue[];
     BusinessProcessId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32715,7 +32711,7 @@ export type RecordType = Metadata &
 
 export type RecordTypePicklistValue = {
   picklist: string;
-  values: PicklistValue | PicklistValue[];
+  values: PicklistValue[];
 };
 
 export type RedirectWhitelistUrl = Metadata & {
@@ -32736,7 +32732,7 @@ export type RelationshipGraphDefinition = Metadata &
     isActive: boolean;
     isTemplate: boolean;
     masterLabel: string;
-    relationshipGraphDefVersions: RelationshipGraphDefVersion | RelationshipGraphDefVersion[];
+    relationshipGraphDefVersions: RelationshipGraphDefVersion[];
     AllManagedPackageMemberId?: ID;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -32773,28 +32769,28 @@ export type RemoteSiteSetting = Metadata & {
 };
 
 export type Report = Metadata & {
-  aggregates: ReportAggregate | ReportAggregate[];
+  aggregates: ReportAggregate[];
   blockInfo?: ReportBlockInfo;
-  buckets: ReportBucketField | ReportBucketField[];
+  buckets: ReportBucketField[];
   chart?: ReportChart;
-  colorRanges: ReportColorRange | ReportColorRange[];
-  columns: ReportColumn | ReportColumn[];
-  crossFilters: ReportCrossFilter | ReportCrossFilter[];
+  colorRanges: ReportColorRange[];
+  columns: ReportColumn[];
+  crossFilters: ReportCrossFilter[];
   currency?: CurrencyIsoCode;
-  customDetailFormulas: ReportCustomDetailFormula | ReportCustomDetailFormula[];
-  dataCategoryFilters: ReportDataCategoryFilter | ReportDataCategoryFilter[];
+  customDetailFormulas: ReportCustomDetailFormula[];
+  dataCategoryFilters: ReportDataCategoryFilter[];
   description?: string;
   division?: string;
   filter?: ReportFilter;
   folderName?: string;
   format: ReportFormat;
-  formattingRules: ReportFormattingRule | ReportFormattingRule[];
-  groupingsAcross: ReportGrouping | ReportGrouping[];
-  groupingsDown: ReportGrouping | ReportGrouping[];
+  formattingRules: ReportFormattingRule[];
+  groupingsAcross: ReportGrouping[];
+  groupingsDown: ReportGrouping[];
   historicalSelector?: ReportHistoricalSelector;
   name: string;
   numSubscriptions?: number;
-  params: ReportParam | ReportParam[];
+  params: ReportParam[];
   reportType: string;
   reportTypeApiName?: string;
   roleHierarchyFilter?: string;
@@ -32826,7 +32822,7 @@ export type ReportAggregate = {
 };
 
 export type ReportBlockInfo = {
-  aggregateReferences: ReportAggregateReference | ReportAggregateReference[];
+  aggregateReferences: ReportAggregateReference[];
   blockId: string;
   joinTable: string;
 };
@@ -32843,7 +32839,7 @@ export type ReportBucketField = {
   otherBucketLabel?: string;
   sourceColumnName: string;
   useOther?: boolean;
-  values: ReportBucketFieldValue | ReportBucketFieldValue[];
+  values: ReportBucketFieldValue[];
 };
 
 export type ReportBucketFieldValue = {
@@ -32854,7 +32850,7 @@ export type ReportChart = {
   backgroundColor1?: string;
   backgroundColor2?: string;
   backgroundFadeDir?: ChartBackgroundDirection;
-  chartSummaries: ChartSummary | ChartSummary[];
+  chartSummaries: ChartSummary[];
   chartType: ChartType;
   enableHoverLabels?: boolean;
   expandOthers?: boolean;
@@ -32888,14 +32884,14 @@ export type ReportColorRange = {
 };
 
 export type ReportColumn = {
-  aggregateTypes: ReportSummaryType | ReportSummaryType[];
+  aggregateTypes: ReportSummaryType[];
   field: string;
   reverseColors?: boolean;
   showChanges?: boolean;
 };
 
 export type ReportCrossFilter = {
-  criteriaItems: ReportFilterItem | ReportFilterItem[];
+  criteriaItems: ReportFilterItem[];
   operation: ObjectFilterOperator;
   primaryTableColumn: string;
   relatedTable: string;
@@ -32928,14 +32924,14 @@ export type ReportDataCategoryFilter = {
 
 export type ReportFilter = {
   booleanFilter?: string;
-  criteriaItems: ReportFilterItem | ReportFilterItem[];
+  criteriaItems: ReportFilterItem[];
   language?: Language;
 };
 
 export type ReportFormattingRule = {
   aggregate?: ReportSummaryType;
   columnName: string;
-  values: ReportFormattingRuleValue | ReportFormattingRuleValue[];
+  values: ReportFormattingRuleValue[];
 };
 
 export type ReportFormattingRuleValue = {
@@ -32953,7 +32949,7 @@ export type ReportGrouping = {
 };
 
 export type ReportHistoricalSelector = {
-  snapshot: string | string[];
+  snapshot: string[];
 };
 
 export type ReportParam = {
@@ -32976,7 +32972,7 @@ export type ReportType = Metadata & {
   description?: string;
   join?: ObjectRelationship;
   label: string;
-  sections: ReportLayoutSection | ReportLayoutSection[];
+  sections: ReportLayoutSection[];
 };
 
 export type ObjectRelationship = {
@@ -32986,7 +32982,7 @@ export type ObjectRelationship = {
 };
 
 export type ReportLayoutSection = {
-  columns: ReportTypeColumn | ReportTypeColumn[];
+  columns: ReportTypeColumn[];
   masterLabel: string;
 };
 
@@ -33059,7 +33055,7 @@ export type RuleLibraryDefinition = Metadata &
     contextRuleStatus: ContextRuleStatus;
     description?: string;
     label: string;
-    rulesetDefinitions: RulesetDefinition | RulesetDefinition[];
+    rulesetDefinitions: RulesetDefinition[];
     usageType: ContextRuleUsageType;
     BodyLength?: number;
     CompressedBodyLength?: number;
@@ -33090,7 +33086,7 @@ export type RulesetDefinition = Metadata &
     endDate?: Date;
     executionType: ExecutionType;
     label: string;
-    ruleDefinitions: RuleDefinition | RuleDefinition[];
+    ruleDefinitions: RuleDefinition[];
     startDate?: Date;
     status: ContextRuleStatus;
     CreatedBy?: User;
@@ -33111,8 +33107,8 @@ export type RulesetDefinition = Metadata &
 
 export type RuleDefinition = Metadata &
   sObject & {
-    actions: RuleAction | RuleAction[];
-    criteria: RuleFilterCriteria | RuleFilterCriteria[];
+    actions: RuleAction[];
+    criteria: RuleFilterCriteria[];
     description?: string;
     endDate?: Date;
     label: string;
@@ -33120,7 +33116,7 @@ export type RuleDefinition = Metadata &
     ruleStatus: ContextRuleStatus;
     sequenceNumber: number;
     startDate: Date;
-    variables: RuleReferenceVariable | RuleReferenceVariable[];
+    variables: RuleReferenceVariable[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -33138,7 +33134,7 @@ export type RuleDefinition = Metadata &
   };
 
 export type RuleAction = {
-  actionParameters: RuleActionParameter | RuleActionParameter[];
+  actionParameters: RuleActionParameter[];
   actionType: RuleActionType;
   name: string;
   sequenceNumber: number;
@@ -33153,9 +33149,9 @@ export type RuleActionParameter = {
 };
 
 export type RuleFilterCriteria = {
-  actions: RuleAction | RuleAction[];
+  actions: RuleAction[];
   conditionLogic: string;
-  conditions: RuleCondition | RuleCondition[];
+  conditions: RuleCondition[];
   executionSequence: number;
   name: string;
   parentFilterCriteria?: string;
@@ -33166,7 +33162,7 @@ export type RuleCondition = {
   name?: string;
   operator: RuleConditionOperator;
   sequenceNumber: number;
-  value: string | string[];
+  value: string[];
   valueType: VariableValueType;
   variable: string;
 };
@@ -33183,10 +33179,10 @@ export type RuleReferenceVariable = {
 export type SalesAgreementSettings = Metadata &
   sObject & {
     actualsCalculationMode: ActualsCalculationMode;
-    displayGroups: AdvAcctFrcstDisplayGroup | AdvAcctFrcstDisplayGroup[];
+    displayGroups: AdvAcctFrcstDisplayGroup[];
     displayedAgreementTermsMetrics: string;
     isOnlyApprovalProcessUsed: boolean;
-    measureDefinitions: AdvAcctForecastMeasureDef | AdvAcctForecastMeasureDef[];
+    measureDefinitions: AdvAcctForecastMeasureDef[];
     objectMapping?: ObjectMapping;
     primaryNotifEmailAddress?: string;
     renewalPeriodDayCount?: number;
@@ -33294,8 +33290,8 @@ export type ScoreCategory = Metadata &
     iconUrl: string;
     masterLabel: string;
     parentCategoryId?: string;
-    scoreCategoryCalcInsights: ScoreCategoryCalcInsight | ScoreCategoryCalcInsight[];
-    scoreRangeClassifications: ScoreRangeClassification | ScoreRangeClassification[];
+    scoreCategoryCalcInsights: ScoreCategoryCalcInsight[];
+    scoreRangeClassifications: ScoreRangeClassification[];
     AllManagedPackageMemberId?: ID;
     CategoryName?: string;
     ChildScoreCategories?: QueryResult;
@@ -33472,7 +33468,7 @@ export type SearchableObjDataSyncInfo = Metadata &
     lookupMappings?: ObjectMapping;
     masterLabel: string;
     parsingFieldSet?: FieldSet;
-    picklistMappings: ObjectMapping | ObjectMapping[];
+    picklistMappings: ObjectMapping[];
     scheduleFrequencyInHours?: string;
     searchableObject: string;
     CreatedBy?: User;
@@ -33562,9 +33558,9 @@ export type ServiceAISetupField = Metadata &
 export type ServiceProcess = Metadata & {
   description?: string;
   processLabel: string;
-  serviceProcessAttributes: ServiceProcessAttribute | ServiceProcessAttribute[];
-  serviceProcessDependencies: ServiceProcessDependency | ServiceProcessDependency[];
-  serviceProcessItemGroups: ServiceProcessItemGroup | ServiceProcessItemGroup[];
+  serviceProcessAttributes: ServiceProcessAttribute[];
+  serviceProcessDependencies: ServiceProcessDependency[];
+  serviceProcessItemGroups: ServiceProcessItemGroup[];
   shortDescription?: string;
   usageType: SvcCatalogItemUsageType;
 };
@@ -33643,10 +33639,10 @@ export type SharingReason = Metadata & {
 };
 
 export type SharingSet = Metadata & {
-  accessMappings: AccessMapping | AccessMapping[];
+  accessMappings: AccessMapping[];
   description?: string;
   name: string;
-  profiles: string | string[];
+  profiles: string[];
 };
 
 export type AccessMapping = {
@@ -33674,11 +33670,11 @@ export type SkillAssignments = {
 };
 
 export type SkillProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type SkillUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type SkillType = Metadata &
@@ -33770,7 +33766,7 @@ export type StandardValueSet = Metadata &
   sObject & {
     groupingStringEnum?: string;
     sorted: boolean;
-    standardValue: StandardValue | StandardValue[];
+    standardValue: StandardValue[];
     DurableId?: string;
     EnumOrId?: string;
     FullName?: string;
@@ -33931,7 +33927,7 @@ export type SvcCatalogCategory = Metadata &
 
 export type SvcCatalogFilterCriteria = Metadata &
   sObject & {
-    conditions: SvcCatalogFilterCondition | SvcCatalogFilterCondition[];
+    conditions: SvcCatalogFilterCondition[];
     criteriaRelation: CriteriaRelationshipType;
     description?: string;
     isActive?: boolean;
@@ -33973,7 +33969,7 @@ export type SvcCatalogFulfillmentFlow = Metadata &
     flow: string;
     icon?: string;
     isProtected?: boolean;
-    items: SvcCatalogFulfillFlowItem | SvcCatalogFulfillFlowItem[];
+    items: SvcCatalogFulfillFlowItem[];
     masterLabel: string;
     AllManagedPackageMemberId?: ID;
     ChangeNum?: number;
@@ -34015,13 +34011,13 @@ export type SvcCatalogFulfillFlowItem = sObject & {
 export type SvcCatalogItemDef = Metadata &
   sObject & {
     apiVersion?: number;
-    catalogFilterCriteria: SvcCatalogItemDefFiltrCrit | SvcCatalogItemDefFiltrCrit[];
-    categories: SvcCatalogCategoryItem | SvcCatalogCategoryItem[];
-    dataCategories: SvcCatalogItemDefDataCategorySelection | SvcCatalogItemDefDataCategorySelection[];
+    catalogFilterCriteria: SvcCatalogItemDefFiltrCrit[];
+    categories: SvcCatalogCategoryItem[];
+    dataCategories: SvcCatalogItemDefDataCategorySelection[];
     description?: string;
     fulfillmentFlow?: string;
     image?: string;
-    inputs: SvcCatalogItemAttribute | SvcCatalogItemAttribute[];
+    inputs: SvcCatalogItemAttribute[];
     internalNotes?: string;
     isFeatured?: boolean;
     isProtected?: boolean;
@@ -34102,7 +34098,7 @@ export type SvcCatalogItemAttribute = {
   minValue?: number;
   name: string;
   object?: string;
-  options: SvcCatalogItemAttrDetail | SvcCatalogItemAttrDetail[];
+  options: SvcCatalogItemAttrDetail[];
   type: SvcCatalogItemAttrType;
   value?: string;
 };
@@ -34114,7 +34110,7 @@ export type SvcCatalogItemAttrDetail = {
 };
 
 export type SynonymDictionary = Metadata & {
-  groups: SynonymGroup | SynonymGroup[];
+  groups: SynonymGroup[];
   isProtected?: boolean;
   label: string;
 };
@@ -34123,13 +34119,13 @@ export type Territory2 = Metadata & {
   accountAccessLevel?: string;
   caseAccessLevel?: string;
   contactAccessLevel?: string;
-  customFields: FieldValue | FieldValue[];
+  customFields: FieldValue[];
   description?: string;
   name: string;
-  objectAccessLevels: Territory2AccessLevel | Territory2AccessLevel[];
+  objectAccessLevels: Territory2AccessLevel[];
   opportunityAccessLevel?: string;
   parentTerritory?: string;
-  ruleAssociations: Territory2RuleAssociation | Territory2RuleAssociation[];
+  ruleAssociations: Territory2RuleAssociation[];
   territory2Type: string;
 };
 
@@ -34148,7 +34144,7 @@ export type Territory2RuleAssociation = {
 };
 
 export type Territory2Model = Metadata & {
-  customFields: FieldValue | FieldValue[];
+  customFields: FieldValue[];
   description?: string;
   name: string;
 };
@@ -34158,7 +34154,7 @@ export type Territory2Rule = Metadata & {
   booleanFilter?: string;
   name: string;
   objectType: string;
-  ruleItems: Territory2RuleItem | Territory2RuleItem[];
+  ruleItems: Territory2RuleItem[];
 };
 
 export type Territory2RuleItem = {
@@ -34180,7 +34176,7 @@ export type TimeSheetTemplate = Metadata &
     frequency: TimeSheetFrequency;
     masterLabel: string;
     startDate: Date;
-    timeSheetTemplateAssignments: TimeSheetTemplateAssignment | TimeSheetTemplateAssignment[];
+    timeSheetTemplateAssignments: TimeSheetTemplateAssignment[];
     workWeekEndDay: DaysOfWeek;
     workWeekStartDay: DaysOfWeek;
     Active?: boolean;
@@ -34312,7 +34308,7 @@ export type TransactionSecurityAction = {
   block: boolean;
   endSession: boolean;
   freezeUser: boolean;
-  notifications: TransactionSecurityNotification | TransactionSecurityNotification[];
+  notifications: TransactionSecurityNotification[];
   twoFactorAuthentication: boolean;
 };
 
@@ -34323,42 +34319,42 @@ export type TransactionSecurityNotification = {
 };
 
 export type Translations = Metadata & {
-  botBlocks: BotBlockTranslation | BotBlockTranslation[];
-  botTemplates: BotTemplateTranslation | BotTemplateTranslation[];
-  bots: BotTranslation | BotTranslation[];
-  customApplications: CustomApplicationTranslation | CustomApplicationTranslation[];
-  customLabels: CustomLabelTranslation | CustomLabelTranslation[];
-  customPageWebLinks: CustomPageWebLinkTranslation | CustomPageWebLinkTranslation[];
-  customTabs: CustomTabTranslation | CustomTabTranslation[];
-  desFieldTemplateMessages: ExplainabilityMsgTemplateFieldTranslation | ExplainabilityMsgTemplateFieldTranslation[];
-  flowDefinitions: FlowDefinitionTranslation | FlowDefinitionTranslation[];
-  identityVerificationCustomFieldLabels: IdentityVerificationFieldTranslation | IdentityVerificationFieldTranslation[];
-  pipelineInspMetricConfigs: PipelineInspMetricConfigTranslation | PipelineInspMetricConfigTranslation[];
-  prompts: PromptTranslation | PromptTranslation[];
-  quickActions: GlobalQuickActionTranslation | GlobalQuickActionTranslation[];
-  reportTypes: ReportTypeTranslation | ReportTypeTranslation[];
-  scontrols: ScontrolTranslation | ScontrolTranslation[];
+  botBlocks: BotBlockTranslation[];
+  botTemplates: BotTemplateTranslation[];
+  bots: BotTranslation[];
+  customApplications: CustomApplicationTranslation[];
+  customLabels: CustomLabelTranslation[];
+  customPageWebLinks: CustomPageWebLinkTranslation[];
+  customTabs: CustomTabTranslation[];
+  desFieldTemplateMessages: ExplainabilityMsgTemplateFieldTranslation[];
+  flowDefinitions: FlowDefinitionTranslation[];
+  identityVerificationCustomFieldLabels: IdentityVerificationFieldTranslation[];
+  pipelineInspMetricConfigs: PipelineInspMetricConfigTranslation[];
+  prompts: PromptTranslation[];
+  quickActions: GlobalQuickActionTranslation[];
+  reportTypes: ReportTypeTranslation[];
+  scontrols: ScontrolTranslation[];
 };
 
 export type BotBlockTranslation = {
-  botBlockVersions: BotBlockVersionTranslation | BotBlockVersionTranslation[];
+  botBlockVersions: BotBlockVersionTranslation[];
   fullName: string;
 };
 
 export type BotBlockVersionTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
 export type BotDialogTranslation = {
-  botSteps: BotStepTranslation | BotStepTranslation[];
+  botSteps: BotStepTranslation[];
   developerName: string;
   label?: string;
 };
 
 export type BotStepTranslation = {
-  botMessages: BotMessageTranslation | BotMessageTranslation[];
-  botSteps: BotStepTranslation | BotStepTranslation[];
+  botMessages: BotMessageTranslation[];
+  botSteps: BotStepTranslation[];
   botVariableOperation?: BotVariableOperationTranslation;
   stepIdentifier: string;
   type: BotStepType;
@@ -34370,11 +34366,11 @@ export type BotMessageTranslation = {
 };
 
 export type BotVariableOperationTranslation = {
-  botMessages: BotMessageTranslation | BotMessageTranslation[];
-  botQuickReplyOptions: BotQuickReplyOptionTranslation | BotQuickReplyOptionTranslation[];
+  botMessages: BotMessageTranslation[];
+  botQuickReplyOptions: BotQuickReplyOptionTranslation[];
   quickReplyOptionTemplate?: string;
-  retryMessages: BotMessageTranslation | BotMessageTranslation[];
-  successMessages: BotMessageTranslation | BotMessageTranslation[];
+  retryMessages: BotMessageTranslation[];
+  successMessages: BotMessageTranslation[];
   type: BotVariableOperationType;
   variableOperationIdentifier: string;
 };
@@ -34385,17 +34381,17 @@ export type BotQuickReplyOptionTranslation = {
 };
 
 export type BotTemplateTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
 export type BotTranslation = {
-  botVersions: BotVersionTranslation | BotVersionTranslation[];
+  botVersions: BotVersionTranslation[];
   fullName: string;
 };
 
 export type BotVersionTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
@@ -34428,19 +34424,19 @@ export type ExplainabilityMsgTemplateFieldTranslation = {
 };
 
 export type FlowDefinitionTranslation = {
-  flows: FlowTranslation | FlowTranslation[];
+  flows: FlowTranslation[];
   fullName: string;
   label?: string;
 };
 
 export type FlowTranslation = {
-  choices: FlowChoiceTranslation | FlowChoiceTranslation[];
-  customErrorMessages: FlowCustomErrorMessageTranslation | FlowCustomErrorMessageTranslation[];
+  choices: FlowChoiceTranslation[];
+  customErrorMessages: FlowCustomErrorMessageTranslation[];
   fullName?: string;
   label?: string;
-  screens: FlowScreenTranslation | FlowScreenTranslation[];
-  stages: FlowStageTranslation | FlowStageTranslation[];
-  textTemplates: FlowTextTemplateTranslation | FlowTextTemplateTranslation[];
+  screens: FlowScreenTranslation[];
+  stages: FlowStageTranslation[];
+  textTemplates: FlowTextTemplateTranslation[];
 };
 
 export type FlowChoiceTranslation = {
@@ -34466,7 +34462,7 @@ export type FlowCustomErrorMessageTranslation = {
 
 export type FlowScreenTranslation = {
   backButtonLabel?: string;
-  fields: FlowScreenFieldTranslation | FlowScreenFieldTranslation[];
+  fields: FlowScreenFieldTranslation[];
   helpText?: string;
   name: string;
   nextOrFinishButtonLabel?: string;
@@ -34477,7 +34473,7 @@ export type FlowScreenTranslation = {
 export type FlowScreenFieldTranslation = {
   fieldText?: string;
   helpText?: string;
-  inputParameters: FlowInputParameterTranslation | FlowInputParameterTranslation[];
+  inputParameters: FlowInputParameterTranslation[];
   name: string;
   validationRule?: FlowInputValidationRuleTranslation;
 };
@@ -34488,7 +34484,7 @@ export type FlowInputParameterTranslation = {
 };
 
 export type FlowFerovTranslation = {
-  complexValues: FlowComplexLiteralTranslation | FlowComplexLiteralTranslation[];
+  complexValues: FlowComplexLiteralTranslation[];
   stringValue?: string;
 };
 
@@ -34523,7 +34519,7 @@ export type PromptTranslation = {
   description?: string;
   label?: string;
   name: string;
-  promptVersions: PromptVersionTranslation | PromptVersionTranslation[];
+  promptVersions: PromptVersionTranslation[];
 };
 
 export type PromptVersionTranslation = {
@@ -34552,11 +34548,11 @@ export type ReportTypeTranslation = {
   description?: string;
   label?: string;
   name: string;
-  sections: ReportTypeSectionTranslation | ReportTypeSectionTranslation[];
+  sections: ReportTypeSectionTranslation[];
 };
 
 export type ReportTypeSectionTranslation = {
-  columns: ReportTypeColumnTranslation | ReportTypeColumnTranslation[];
+  columns: ReportTypeColumnTranslation[];
   label?: string;
   name: string;
 };
@@ -34573,7 +34569,7 @@ export type ScontrolTranslation = {
 
 export type UIObjectRelationConfig = Metadata &
   sObject & {
-    UIObjectRelationFieldConfigs: UIObjectRelationFieldConfig | UIObjectRelationFieldConfig[];
+    UIObjectRelationFieldConfigs: UIObjectRelationFieldConfig[];
     contextObject: string;
     contextObjectRecordType?: string;
     directRelationshipField?: string;
@@ -34671,8 +34667,8 @@ export type UserAccessPolicy = Metadata &
     masterLabel: string;
     status: UserAccessPolicyStatus;
     triggerType?: UserAccessPolicyTriggerType;
-    userAccessPolicyActions: UserAccessPolicyAction | UserAccessPolicyAction[];
-    userAccessPolicyFilters: UserAccessPolicyFilter | UserAccessPolicyFilter[];
+    userAccessPolicyActions: UserAccessPolicyAction[];
+    userAccessPolicyFilters: UserAccessPolicyFilter[];
     AllManagedPackageMemberId?: ID;
     BooleanFilter?: string;
     CreatedBy?: User;
@@ -34751,8 +34747,8 @@ export type UserCriteria = Metadata &
     description?: string;
     lastChatterActivityAgeInSeconds?: number;
     masterLabel: string;
-    profiles: string | string[];
-    userTypes: NetworkUserType | NetworkUserType[];
+    profiles: string[];
+    userTypes: NetworkUserType[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -34778,7 +34774,7 @@ export type UserLicenseDefinition = Metadata & {
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
   hasDynamicResourceGroupKey?: boolean;
-  includedFeatures: IncludedFeature | IncludedFeature[];
+  includedFeatures: IncludedFeature[];
   isPermissionSetLicense?: boolean;
   licenseKey?: string;
   licenseOwner?: string;
@@ -34787,9 +34783,9 @@ export type UserLicenseDefinition = Metadata & {
   managementTenantId?: string;
   minPlatformVersion?: number;
   name: string;
-  settingItems: SettingItem | SettingItem[];
-  settingUsageDefinitions: SettingUsageDefinition | SettingUsageDefinition[];
-  standardPermissionSets: StandardPermissionSet | StandardPermissionSet[];
+  settingItems: SettingItem[];
+  settingUsageDefinitions: SettingUsageDefinition[];
+  standardPermissionSets: StandardPermissionSet[];
 };
 
 export type StandardPermissionSet = {
@@ -34798,7 +34794,7 @@ export type StandardPermissionSet = {
   namespace?: string;
   profileKey?: string;
   requiredAccessCheck?: string;
-  settingValues: SettingValue | SettingValue[];
+  settingValues: SettingValue[];
 };
 
 export type SettingValue = {
@@ -34808,7 +34804,7 @@ export type SettingValue = {
 
 export type UserProfileSearchScope = Metadata &
   sObject & {
-    entityApiNames: string | string[];
+    entityApiNames: string[];
     profile?: string;
     CreatedBy?: User;
     CreatedById?: ID;
@@ -34963,8 +34959,8 @@ export type VisualizationPlugin = Metadata & {
   developerName: string;
   icon: string;
   masterLabel: string;
-  visualizationResources: VisualizationResource | VisualizationResource[];
-  visualizationTypes: VisualizationType | VisualizationType[];
+  visualizationResources: VisualizationResource[];
+  visualizationTypes: VisualizationType[];
 };
 
 export type VisualizationResource = {
@@ -34987,10 +34983,10 @@ export type WaveAnalyticAssetCollection = Metadata & {
   color: string;
   description?: string;
   folder?: string;
-  items: WaveAnalyticAssetCollectionItem | WaveAnalyticAssetCollectionItem[];
+  items: WaveAnalyticAssetCollectionItem[];
   label: string;
   masterLabel: string;
-  shares: FolderShare | FolderShare[];
+  shares: FolderShare[];
 };
 
 export type WaveAnalyticAssetCollectionItem = {
@@ -35004,7 +35000,7 @@ export type WaveApplication = Metadata & {
   description?: string;
   folder: string;
   masterLabel: string;
-  shares: FolderShare | FolderShare[];
+  shares: FolderShare[];
   templateOrigin?: string;
   templateVersion?: string;
 };
@@ -35036,7 +35032,7 @@ export type WaveDataset = Metadata & {
 
 export type WaveLens = Metadata & {
   application: string;
-  datasets: string | string[];
+  datasets: string[];
   dateVersion?: number;
   description?: string;
   masterLabel: string;
@@ -35078,10 +35074,10 @@ export type WaveXmd = Metadata & {
   dataset: string;
   datasetConnector?: string;
   datasetFullyQualifiedName?: string;
-  dates: WaveXmdDate | WaveXmdDate[];
-  dimensions: WaveXmdDimension | WaveXmdDimension[];
-  measures: WaveXmdMeasure | WaveXmdMeasure[];
-  organizations: WaveXmdOrganization | WaveXmdOrganization[];
+  dates: WaveXmdDate[];
+  dimensions: WaveXmdDimension[];
+  measures: WaveXmdMeasure[];
+  organizations: WaveXmdOrganization[];
   origin?: string;
   type?: string;
   waveVisualization?: string;
@@ -35116,8 +35112,8 @@ export type WaveXmdDate = {
 };
 
 export type WaveXmdDimension = {
-  conditionalFormatting: WaveXmdFormattingProperty | WaveXmdFormattingProperty[];
-  customActions: WaveXmdDimensionCustomAction | WaveXmdDimensionCustomAction[];
+  conditionalFormatting: WaveXmdFormattingProperty[];
+  customActions: WaveXmdDimensionCustomAction[];
   customActionsEnabled?: boolean;
   dateFormat?: string;
   defaultAction?: string;
@@ -35131,12 +35127,12 @@ export type WaveXmdDimension = {
   linkTemplate?: string;
   linkTemplateEnabled?: boolean;
   linkTooltip?: string;
-  members: WaveXmdDimensionMember | WaveXmdDimensionMember[];
+  members: WaveXmdDimensionMember[];
   origin?: string;
-  recordDisplayFields: WaveXmdRecordDisplayLookup | WaveXmdRecordDisplayLookup[];
+  recordDisplayFields: WaveXmdRecordDisplayLookup[];
   recordIdField?: string;
   recordOrganizationIdField?: string;
-  salesforceActions: WaveXmdDimensionSalesforceAction | WaveXmdDimensionSalesforceAction[];
+  salesforceActions: WaveXmdDimensionSalesforceAction[];
   salesforceActionsEnabled?: boolean;
   showDetailsDefaultFieldIndex?: number;
   showInExplorer?: boolean;
@@ -35144,8 +35140,8 @@ export type WaveXmdDimension = {
 };
 
 export type WaveXmdFormattingProperty = {
-  formattingBins: WaveXmdFormattingBin | WaveXmdFormattingBin[];
-  formattingPredicates: WaveXmdFormattingPredicate | WaveXmdFormattingPredicate[];
+  formattingBins: WaveXmdFormattingBin[];
+  formattingPredicates: WaveXmdFormattingPredicate[];
   property: string;
   referenceField: string;
   sortIndex: number;
@@ -35196,8 +35192,8 @@ export type WaveXmdDimensionSalesforceAction = {
 };
 
 export type WaveXmdMeasure = {
-  conditionalFormatting: WaveXmdFormattingProperty | WaveXmdFormattingProperty[];
-  currencies: WaveXmdMeasure | WaveXmdMeasure[];
+  conditionalFormatting: WaveXmdFormattingProperty[];
+  currencies: WaveXmdMeasure[];
   currencyCode?: string;
   dateFormat?: string;
   description?: string;
@@ -35406,7 +35402,7 @@ export type WorkSkillRouting = Metadata &
     isActive: boolean;
     masterLabel: string;
     relatedEntity: string;
-    workSkillRoutingAttributes: WorkSkillRoutingAttribute | WorkSkillRoutingAttribute[];
+    workSkillRoutingAttributes: WorkSkillRoutingAttribute[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35457,10 +35453,10 @@ export type WorkflowAction = string;
 
 export type WorkflowAlert = WorkflowAction &
   sObject & {
-    ccEmails: string | string[];
+    ccEmails: string[];
     description: string;
     protected: boolean;
-    recipients: WorkflowEmailRecipient | WorkflowEmailRecipient[];
+    recipients: WorkflowEmailRecipient[];
     senderAddress?: string;
     senderType?: ActionEmailSenderType;
     template: string;
@@ -35526,7 +35522,7 @@ export type WorkflowFieldUpdate = WorkflowAction &
 export type WorkflowFlowAction = WorkflowAction & {
   description?: string;
   flow: string;
-  flowInputs: WorkflowFlowActionParameter | WorkflowFlowActionParameter[];
+  flowInputs: WorkflowFlowActionParameter[];
   label: string;
   language?: string;
   protected: boolean;
@@ -35550,7 +35546,7 @@ export type WorkflowOutboundMessage = WorkflowAction &
     apiVersion: number;
     description?: string;
     endpointUrl: string;
-    fields: string | string[];
+    fields: string[];
     includeSessionId: boolean;
     integrationUser: string;
     name: string;
@@ -35612,15 +35608,15 @@ export type WorkflowTask = WorkflowAction &
 
 export type WorkflowRule = Metadata &
   sObject & {
-    actions: WorkflowActionReference | WorkflowActionReference[];
+    actions: WorkflowActionReference[];
     active: boolean;
     booleanFilter?: string;
-    criteriaItems: FilterItem | FilterItem[];
+    criteriaItems: FilterItem[];
     description?: string;
     failedMigrationToolVersion?: string;
     formula?: string;
     triggerType: WorkflowTriggerTypes;
-    workflowTimeTriggers: WorkflowTimeTrigger | WorkflowTimeTrigger[];
+    workflowTimeTriggers: WorkflowTimeTrigger[];
     CreatedBy?: User;
     CreatedById?: ID;
     CreatedDate?: Date;
@@ -35636,16 +35632,16 @@ export type WorkflowRule = Metadata &
   };
 
 export type WorkflowTimeTrigger = {
-  actions: WorkflowActionReference | WorkflowActionReference[];
+  actions: WorkflowActionReference[];
   offsetFromField?: string;
   timeLength?: string;
   workflowTimeTriggerUnit: WorkflowTimeUnits;
 };
 
 export type AIPredictionDefinition = sObject & {
-  dataDefinitions: AIDataDefinition | AIDataDefinition[];
+  dataDefinitions: AIDataDefinition[];
   description: string;
-  predictionTargets: AIPredictionTarget | AIPredictionTarget[];
+  predictionTargets: AIPredictionTarget[];
   status: AIPredictionDefinitionStatus;
   type: AIPredictionType;
   AllManagedPackageMemberId?: ID;
@@ -35672,8 +35668,8 @@ export type AIDataDefinition = sObject & {
   dataFilter?: AIFilterGroup;
   description?: string;
   fieldType?: AIManagedFieldType;
-  managedFields: AIManagedField | AIManagedField[];
-  modelDefinitions: AIModelDefinition | AIModelDefinition[];
+  managedFields: AIManagedField[];
+  modelDefinitions: AIModelDefinition[];
   AllManagedPackageMemberId?: ID;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -35722,7 +35718,7 @@ export type AIFilter = sObject & {
   rhFilter?: AIFilter;
   rhUnit?: AIFilterUnit;
   sortOrder?: number;
-  values: AIFilterValue | AIFilterValue[];
+  values: AIFilterValue[];
   AllManagedPackageMemberId?: ID;
   CreatedBy?: User;
   CreatedById?: ID;
@@ -35846,7 +35842,7 @@ export type AIModelDefinition = sObject & {
 };
 
 export type AIPredictionTarget = sObject & {
-  predictionExpressions: AIPredictionExpression | AIPredictionExpression[];
+  predictionExpressions: AIPredictionExpression[];
   pushbackField?: AIPredictionField;
   strategy?: AIPredictionStrategy;
   targetField?: AIPredictionField;
@@ -35918,7 +35914,7 @@ export type AppSettings = {
 };
 
 export type ArticleTypeChannelDisplay = {
-  articleTypeTemplates: ArticleTypeTemplate | ArticleTypeTemplate[];
+  articleTypeTemplates: ArticleTypeTemplate[];
 };
 
 export type ArticleTypeTemplate = {
@@ -35928,13 +35924,13 @@ export type ArticleTypeTemplate = {
 };
 
 export type CustomFieldTranslation = {
-  caseValues: ObjectNameCaseValue | ObjectNameCaseValue[];
+  caseValues: ObjectNameCaseValue[];
   gender?: Gender;
   help?: string;
   label?: string;
   lookupFilter?: LookupFilterTranslation;
   name: string;
-  picklistValues: PicklistValueTranslation | PicklistValueTranslation[];
+  picklistValues: PicklistValueTranslation[];
   relationshipLabel?: string;
   startsWith?: StartsWith;
 };
@@ -35962,14 +35958,14 @@ export type DiscoveryAIModel = Metadata & {
   classificationThreshold?: number;
   description?: string;
   label: string;
-  modelFields: DiscoveryModelField | DiscoveryModelField[];
+  modelFields: DiscoveryModelField[];
   modelRuntimeType: DiscoveryModelRuntimeType;
   predictedField: string;
   predictionType: DiscoveryPredictionType;
   sourceType: DiscoveryModelSourceType;
   status: DiscoveryAIModelStatus;
   trainingMetrics?: string;
-  transformations: DiscoveryModelTransform | DiscoveryModelTransform[];
+  transformations: DiscoveryModelTransform[];
 };
 
 export type DiscoveryModelField = {
@@ -35978,18 +35974,18 @@ export type DiscoveryModelField = {
   label: string;
   name: string;
   type: DiscoveryModelFieldType;
-  values: string | string[];
+  values: string[];
 };
 
 export type DiscoveryModelTransform = {
   config?: string;
-  sourceFieldNames: string | string[];
-  targetFieldNames: string | string[];
+  sourceFieldNames: string[];
+  targetFieldNames: string[];
   type: DiscoveryAIModelTransformationType;
 };
 
 export type DiscoveryCustomPrescribableFieldDefinition = {
-  filters: DiscoveryFilter | DiscoveryFilter[];
+  filters: DiscoveryFilter[];
   template?: string;
 };
 
@@ -35997,7 +35993,7 @@ export type DiscoveryFilter = {
   field: string;
   operator: DiscoveryFilterOperator;
   type?: DiscoveryFilterFieldType;
-  values: DiscoveryFilterValue | DiscoveryFilterValue[];
+  values: DiscoveryFilterValue[];
 };
 
 export type DiscoveryFilterValue = {
@@ -36009,11 +36005,11 @@ export type DiscoveryDeployedModel = {
   active: boolean;
   aiModel: string;
   classificationThreshold?: number;
-  fieldMappings: DiscoveryFieldMap | DiscoveryFieldMap[];
-  filters: DiscoveryFilter | DiscoveryFilter[];
+  fieldMappings: DiscoveryFieldMap[];
+  filters: DiscoveryFilter[];
   label: string;
   name: string;
-  prescribableFields: DiscoveryPrescribableField | DiscoveryPrescribableField[];
+  prescribableFields: DiscoveryPrescribableField[];
 };
 
 export type DiscoveryFieldMap = {
@@ -36026,21 +36022,21 @@ export type DiscoveryFieldMap = {
 };
 
 export type DiscoveryPrescribableField = {
-  customDefinitions: DiscoveryCustomPrescribableFieldDefinition | DiscoveryCustomPrescribableFieldDefinition[];
+  customDefinitions: DiscoveryCustomPrescribableFieldDefinition[];
   name: string;
 };
 
 export type DiscoveryGoal = Metadata & {
   active: boolean;
-  deployedModels: DiscoveryDeployedModel | DiscoveryDeployedModel[];
+  deployedModels: DiscoveryDeployedModel[];
   label: string;
-  modelCards: DiscoveryModelCard | DiscoveryModelCard[];
+  modelCards: DiscoveryModelCard[];
   outcome: DiscoveryGoalOutcome;
   predictionType: DiscoveryPredictionType;
   pushbackField?: string;
   pushbackType?: DiscoveryPushbackType;
   subscribedEntity?: string;
-  terminalStateFilters: DiscoveryFilter | DiscoveryFilter[];
+  terminalStateFilters: DiscoveryFilter[];
 };
 
 export type DiscoveryModelCard = {
@@ -36405,7 +36401,7 @@ export type LayoutSectionTranslation = {
 export type LayoutTranslation = {
   layout: string;
   layoutType?: string;
-  sections: LayoutSectionTranslation | LayoutSectionTranslation[];
+  sections: LayoutSectionTranslation[];
 };
 
 export type LocalizedValue = sObject & {
@@ -36470,7 +36466,7 @@ export type NotificationChannels = {
 };
 
 export type NotificationTypeSettings = {
-  appSettings: AppSettings | AppSettings[];
+  appSettings: AppSettings[];
   notificationChannels?: NotificationChannels;
   notificationType: string;
 };
@@ -36481,11 +36477,11 @@ export type PresenceConfigAssignments = {
 };
 
 export type PresenceConfigProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type PresenceConfigUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type PresenceDeclineReason = Metadata & {
@@ -36495,7 +36491,7 @@ export type PresenceDeclineReason = Metadata & {
 export type PresenceUserConfig = Metadata & {
   assignments?: PresenceConfigAssignments;
   capacity: number;
-  declineReasons: string | string[];
+  declineReasons: string[];
   enableAutoAccept?: boolean;
   enableDecline?: boolean;
   enableDeclineReason?: boolean;
@@ -36565,7 +36561,7 @@ export type QueueRoutingConfig = Metadata & {
   queueOverflowAssignee?: string;
   routingModel: RoutingModel;
   routingPriority: number;
-  skills: QueueRoutingConfigSkill | QueueRoutingConfigSkill[];
+  skills: QueueRoutingConfigSkill[];
   userOverflowAssignee?: string;
 };
 
@@ -36640,7 +36636,7 @@ export type ServiceChannel = Metadata & {
   maxExtensions?: string;
   relatedEntityType: string;
   secondaryRoutingPriorityField?: string;
-  serviceChannelFieldPriorities: ServiceChannelFieldPriority | ServiceChannelFieldPriority[];
+  serviceChannelFieldPriorities: ServiceChannelFieldPriority[];
 };
 
 export type ServiceChannelFieldPriority = {
@@ -36649,7 +36645,7 @@ export type ServiceChannelFieldPriority = {
 };
 
 export type ServiceChannelStatus = {
-  channel: string | string[];
+  channel: string[];
 };
 
 export type ServicePresenceStatus = Metadata & {
@@ -36726,7 +36722,7 @@ export type Package2VersionCodeCoveragePercentage = {
 };
 
 export type Package2VersionCodeCoveragePercentages = {
-  codeCovPercentages: Package2VersionCodeCoveragePercentage | Package2VersionCodeCoveragePercentage[];
+  codeCovPercentages: Package2VersionCodeCoveragePercentage[];
 };
 
 export type PackageUploadError = {
@@ -36734,7 +36730,7 @@ export type PackageUploadError = {
 };
 
 export type PackageUploadErrors = {
-  errors: PackageUploadError | PackageUploadError[];
+  errors: PackageUploadError[];
 };
 
 export type SubscriberPackageCspTrustedSite = {
@@ -36742,11 +36738,11 @@ export type SubscriberPackageCspTrustedSite = {
 };
 
 export type SubscriberPackageCspTrustedSites = {
-  settings: SubscriberPackageCspTrustedSite | SubscriberPackageCspTrustedSite[];
+  settings: SubscriberPackageCspTrustedSite[];
 };
 
 export type SubscriberPackageDependencies = {
-  ids: SubscriberPackageDependency | SubscriberPackageDependency[];
+  ids: SubscriberPackageDependency[];
 };
 
 export type SubscriberPackageDependency = {
@@ -36767,7 +36763,7 @@ export type SubscriberPackageInstallError = {
 };
 
 export type SubscriberPackageInstallErrors = {
-  errors: SubscriberPackageInstallError | SubscriberPackageInstallError[];
+  errors: SubscriberPackageInstallError[];
 };
 
 export type SubscriberPackageProfileMapping = {
@@ -36776,12 +36772,12 @@ export type SubscriberPackageProfileMapping = {
 };
 
 export type SubscriberPackageProfileMappings = {
-  profileMappings: SubscriberPackageProfileMapping | SubscriberPackageProfileMapping[];
+  profileMappings: SubscriberPackageProfileMapping[];
 };
 
 export type SubscriberPackageProfiles = {
-  destinationProfiles: SubscriberPackageDestinationProfile | SubscriberPackageDestinationProfile[];
-  sourceProfiles: SubscriberPackageSourceProfile | SubscriberPackageSourceProfile[];
+  destinationProfiles: SubscriberPackageDestinationProfile[];
+  sourceProfiles: SubscriberPackageSourceProfile[];
 };
 
 export type SubscriberPackageSourceProfile = {
@@ -36795,11 +36791,11 @@ export type SubscriberPackageRemoteSiteSetting = {
 };
 
 export type SubscriberPackageRemoteSiteSettings = {
-  settings: SubscriberPackageRemoteSiteSetting | SubscriberPackageRemoteSiteSetting[];
+  settings: SubscriberPackageRemoteSiteSetting[];
 };
 
 export type sObject = {
-  fieldsToNull?: string | string[];
+  fieldsToNull?: string[];
   Id?: ID;
 };
 
@@ -43906,16 +43902,16 @@ export type ZeroOrgDeployment = sObject & {
 export type ChangeOwnPasswordResult = string;
 
 export type SaveResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id: ID;
-  infos: Info | Info[];
+  infos: Info[];
   success: boolean;
-  warnings: Warning | Warning[];
+  warnings: Warning[];
 };
 
 export type Error = {
-  extendedErrorDetails: ExtendedErrorDetails | ExtendedErrorDetails[];
-  fields: string | string[];
+  extendedErrorDetails: ExtendedErrorDetails[];
+  fields: string[];
   message: string;
   statusCode: StatusCode;
 };
@@ -43925,19 +43921,19 @@ export type ExtendedErrorDetails = {
 };
 
 export type Info = {
-  extendedDetails: ExtendedErrorDetails | ExtendedErrorDetails[];
+  extendedDetails: ExtendedErrorDetails[];
   message: string;
   statusCode: StatusCode;
 };
 
 export type Warning = {
-  extendedDetails: ExtendedErrorDetails | ExtendedErrorDetails[];
+  extendedDetails: ExtendedErrorDetails[];
   message: string;
   statusCode: StatusCode;
 };
 
 export type DeleteResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id: ID;
   success: boolean;
 };
@@ -43945,7 +43941,7 @@ export type DeleteResult = {
 export type DescribeGlobalResult = {
   encoding: string;
   maxBatchSize: number;
-  sobjects: DescribeGlobalSObjectResult | DescribeGlobalSObjectResult[];
+  sobjects: DescribeGlobalSObjectResult[];
 };
 
 export type DescribeGlobalSObjectResult = {
@@ -43980,37 +43976,37 @@ export type DescribeGlobalSObjectResult = {
 };
 
 export type DescribeLayoutResult = {
-  layouts: DescribeLayout | DescribeLayout[];
+  layouts: DescribeLayout[];
 };
 
 export type DescribeLayout = {
   buttonLayoutSection?: DescribeLayoutButtonSection;
-  detailLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
-  editLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
+  detailLayoutSections: DescribeLayoutSection[];
+  editLayoutSections: DescribeLayoutSection[];
   feedView?: DescribeLayoutFeedView;
   highlightsPanelLayoutSection?: DescribeLayoutSection;
   id: ID;
-  multirowEditLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
-  offlineLinks: OfflineLink | OfflineLink[];
+  multirowEditLayoutSections: DescribeLayoutSection[];
+  offlineLinks: OfflineLink[];
   quickActionList?: DescribeQuickActionListResult;
   relatedContent?: RelatedContent;
-  relatedLists: RelatedList | RelatedList[];
-  saveOptions: DescribeLayoutSaveOption | DescribeLayoutSaveOption[];
+  relatedLists: RelatedList[];
+  saveOptions: DescribeLayoutSaveOption[];
 };
 
 export type DescribeLayoutButtonSection = {
-  detailButtons: DescribeLayoutButton | DescribeLayoutButton[];
+  detailButtons: DescribeLayoutButton[];
 };
 
 export type DescribeLayoutButton = {
   behavior?: WebLinkWindowType;
-  colors: DescribeColorResult | DescribeColorResult[];
+  colors: DescribeColorResult[];
   content?: string;
   contentSource?: WebLinkType;
   custom: boolean;
   encoding?: string;
   height?: number;
-  icons: DescribeIconResult | DescribeIconResult[];
+  icons: DescribeIconResult[];
   label: string;
   menubar: boolean;
   name: string;
@@ -44043,7 +44039,7 @@ export type DescribeLayoutSection = {
   collapsed: boolean;
   columns: number;
   heading?: string;
-  layoutRows: DescribeLayoutRow | DescribeLayoutRow[];
+  layoutRows: DescribeLayoutRow[];
   layoutSectionId?: ID;
   parentLayoutId: ID;
   rows: number;
@@ -44053,7 +44049,7 @@ export type DescribeLayoutSection = {
 };
 
 export type DescribeLayoutRow = {
-  layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
+  layoutItems: DescribeLayoutItem[];
   numItems: number;
 };
 
@@ -44061,7 +44057,7 @@ export type DescribeLayoutItem = {
   editableForNew: boolean;
   editableForUpdate: boolean;
   label: string;
-  layoutComponents: DescribeLayoutComponent | DescribeLayoutComponent[];
+  layoutComponents: DescribeLayoutComponent[];
   placeholder: boolean;
   required: boolean;
 };
@@ -44104,7 +44100,7 @@ export type ExpandedLookup = string;
 export type FieldComponent = string;
 
 export type FieldLayoutComponent = FieldComponent & {
-  components: DescribeLayoutComponent | DescribeLayoutComponent[];
+  components: DescribeLayoutComponent[];
   fieldType: string;
 };
 
@@ -44127,7 +44123,7 @@ export type VisualforcePage = DescribeLayoutComponent & {
 };
 
 export type DescribeLayoutFeedView = {
-  feedFilters: DescribeLayoutFeedFilter | DescribeLayoutFeedFilter[];
+  feedFilters: DescribeLayoutFeedFilter[];
 };
 
 export type DescribeLayoutFeedFilter = {
@@ -44139,14 +44135,14 @@ export type DescribeLayoutFeedFilter = {
 export type OfflineLink = string;
 
 export type DescribeQuickActionListResult = {
-  quickActionListItems: DescribeQuickActionListItemResult | DescribeQuickActionListItemResult[];
+  quickActionListItems: DescribeQuickActionListItemResult[];
 };
 
 export type DescribeQuickActionListItemResult = {
   accessLevelRequired?: ShareAccessLevel;
-  colors: DescribeColorResult | DescribeColorResult[];
+  colors: DescribeColorResult[];
   iconUrl?: string;
-  icons: DescribeIconResult | DescribeIconResult[];
+  icons: DescribeIconResult[];
   label: string;
   miniIconUrl: string;
   quickActionName: string;
@@ -44180,11 +44176,11 @@ export type DescribeLayoutSaveOption = {
 };
 
 export type DescribeSObjectResult = {
-  actionOverrides: ActionOverride | ActionOverride[];
+  actionOverrides: ActionOverride[];
   activateable: boolean;
   associateEntityType: string;
   associateParentEntity: string;
-  childRelationships: ChildRelationship | ChildRelationship[];
+  childRelationships: ChildRelationship[];
   createable: boolean;
   custom: boolean;
   customSetting: boolean;
@@ -44194,7 +44190,7 @@ export type DescribeSObjectResult = {
   deletable: boolean;
   deprecatedAndHidden: boolean;
   feedEnabled: boolean;
-  fields: Field | Field[];
+  fields: Field[];
   hasSubtypes: boolean;
   implementedBy: string;
   implementsInterfaces: string;
@@ -44209,15 +44205,15 @@ export type DescribeSObjectResult = {
   mergeable: boolean;
   mruEnabled: boolean;
   name: string;
-  namedLayoutInfos: NamedLayoutInfo | NamedLayoutInfo[];
+  namedLayoutInfos: NamedLayoutInfo[];
   networkScopeFieldName: string;
   queryable: boolean;
-  recordTypeInfos: RecordTypeInfo | RecordTypeInfo[];
+  recordTypeInfos: RecordTypeInfo[];
   replicateable: boolean;
   retrieveable: boolean;
   searchLayoutable?: boolean;
   searchable: boolean;
-  supportedScopes: ScopeInfo | ScopeInfo[];
+  supportedScopes: ScopeInfo[];
   triggerable?: boolean;
   undeletable: boolean;
   updateable: boolean;
@@ -44228,8 +44224,8 @@ export type ChildRelationship = {
   childSObject: string;
   deprecatedAndHidden: boolean;
   field: string;
-  junctionIdListNames: string | string[];
-  junctionReferenceTo: string | string[];
+  junctionIdListNames: string[];
+  junctionReferenceTo: string[];
   relationshipName?: string;
   restrictedDelete?: boolean;
 };
@@ -44275,11 +44271,11 @@ export type Field = {
   namePointing: boolean;
   nillable: boolean;
   permissionable: boolean;
-  picklistValues: PicklistEntry | PicklistEntry[];
+  picklistValues: PicklistEntry[];
   polymorphicForeignKey: boolean;
   precision: number;
   referenceTargetField?: string;
-  referenceTo: string | string[];
+  referenceTo: string[];
   relationshipName?: string;
   relationshipOrder?: number;
   restrictedDelete?: boolean;
@@ -44295,7 +44291,7 @@ export type Field = {
 };
 
 export type FilteredLookupInfo = {
-  controllingFields: string | string[];
+  controllingFields: string[];
   dependent: boolean;
   optionalFilter: boolean;
 };
@@ -44328,7 +44324,7 @@ export type ScopeInfo = {
 };
 
 export type DescribeSchemaResult = {
-  fields: SchemaField | SchemaField[];
+  fields: SchemaField[];
   keyPrefix: string;
   name: string;
 };
@@ -44345,7 +44341,7 @@ export type SchemaField = {
 };
 
 export type DescribeSoqlListViewsRequest = {
-  listViewParams: DescribeSoqlListViewParams | DescribeSoqlListViewParams[];
+  listViewParams: DescribeSoqlListViewParams[];
 };
 
 export type DescribeSoqlListViewParams = {
@@ -44354,13 +44350,13 @@ export type DescribeSoqlListViewParams = {
 };
 
 export type DescribeSoqlListViewResult = {
-  describeSoqlListViews: DescribeSoqlListView | DescribeSoqlListView[];
+  describeSoqlListViews: DescribeSoqlListView[];
 };
 
 export type DescribeSoqlListView = {
-  columns: ListViewColumn | ListViewColumn[];
+  columns: ListViewColumn[];
   id: ID;
-  orderBy: ListViewOrderBy | ListViewOrderBy[];
+  orderBy: ListViewOrderBy[];
   query: string;
   relatedEntityId?: string;
   scope?: string;
@@ -44394,11 +44390,11 @@ export type SoqlWhereCondition = string;
 export type SoqlCondition = SoqlWhereCondition & {
   field: string;
   operator: soqlOperator;
-  values: string | string[];
+  values: string[];
 };
 
 export type SoqlConditionGroup = SoqlWhereCondition & {
-  conditions: SoqlWhereCondition | SoqlWhereCondition[];
+  conditions: SoqlWhereCondition[];
   conjunction: soqlConjunction;
 };
 
@@ -44418,24 +44414,24 @@ export type DescribeValueTypeResult = {
   apiReadable: boolean;
   apiUpdatable: boolean;
   parentField?: ValueTypeField;
-  valueTypeFields: ValueTypeField | ValueTypeField[];
+  valueTypeFields: ValueTypeField[];
 };
 
 export type ValueTypeField = {
-  fields: ValueTypeField | ValueTypeField[];
-  foreignKeyDomain: string | string[];
+  fields: ValueTypeField[];
+  foreignKeyDomain: string[];
   isForeignKey: boolean;
   isNameField: boolean;
   minOccurs: number;
   name: string;
-  picklistValues: PicklistEntry | PicklistEntry[];
+  picklistValues: PicklistEntry[];
   soapType: string;
   valueRequired: boolean;
 };
 
 export type DescribeWorkitemActionResult = {
-  actions: AllowedWorkitemAction | AllowedWorkitemAction[];
-  errors: Error | Error[];
+  actions: AllowedWorkitemAction[];
+  errors: Error[];
   success: boolean;
   targetObjectId: ID;
   workitemId: ID;
@@ -44460,7 +44456,7 @@ export type ExecuteAnonymousResult = {
 };
 
 export type GetDeletedResult = {
-  deletedRecords: DeletedRecord | DeletedRecord[];
+  deletedRecords: DeletedRecord[];
   earliestDateAvailable: Date;
   latestDateCovered: Date;
 };
@@ -44475,7 +44471,7 @@ export type GetServerTimestampResult = {
 };
 
 export type GetUpdatedResult = {
-  ids: ID | ID[];
+  ids: ID[];
   latestDateCovered: Date;
 };
 
@@ -44508,7 +44504,7 @@ export type GetUserInfoResult = {
 };
 
 export type InvalidateSessionsResult = {
-  errors: Error | Error[];
+  errors: Error[];
   success: boolean;
 };
 
@@ -44529,43 +44525,43 @@ export type QueryResult = {
   entityTypeName: string;
   nextRecordsUrl?: string;
   queryLocator: QueryLocator;
-  records: sObject | sObject[];
+  records: sObject[];
   size: number;
   totalSize: number;
 };
 
 export type RunTestsRequest = {
   allTests: boolean;
-  classes: string | string[];
+  classes: string[];
   maxFailedTests?: number;
   namespace: string;
-  packages: string | string[];
+  packages: string[];
   skipCodeCoverage?: boolean;
-  tests: TestsNode | TestsNode[];
+  tests: TestsNode[];
 };
 
 export type TestsNode = {
   classId: string;
   className: string;
-  testMethods: string | string[];
+  testMethods: string[];
 };
 
 export type RunTestsResult = {
   apexLogId?: string;
-  codeCoverage: CodeCoverageResult | CodeCoverageResult[];
-  codeCoverageWarnings: CodeCoverageWarning | CodeCoverageWarning[];
-  failures: RunTestFailure | RunTestFailure[];
-  flowCoverage: FlowCoverageResult | FlowCoverageResult[];
-  flowCoverageWarnings: FlowCoverageWarning | FlowCoverageWarning[];
+  codeCoverage: CodeCoverageResult[];
+  codeCoverageWarnings: CodeCoverageWarning[];
+  failures: RunTestFailure[];
+  flowCoverage: FlowCoverageResult[];
+  flowCoverageWarnings: FlowCoverageWarning[];
   numFailures: number;
   numTestsRun: number;
-  successes: RunTestSuccess | RunTestSuccess[];
+  successes: RunTestSuccess[];
   totalTime: number;
 };
 
 export type CodeCoverageResult = {
   id: ID;
-  locationsNotCovered: CodeLocation | CodeLocation[];
+  locationsNotCovered: CodeLocation[];
   name: string;
   namespace?: string;
   numLocations: number;
@@ -44600,7 +44596,7 @@ export type RunTestFailure = {
 };
 
 export type FlowCoverageResult = {
-  elementsNotCovered: string | string[];
+  elementsNotCovered: string[];
   flowId: string;
   flowName: string;
   flowNamespace?: string;
@@ -44627,7 +44623,7 @@ export type RunTestSuccess = {
 
 export type SearchResult = {
   queryId: string;
-  searchRecords: SearchRecord | SearchRecord[];
+  searchRecords: SearchRecord[];
   searchResultsMetadata: SearchResultsMetadata;
 };
 
@@ -44644,7 +44640,7 @@ export type SearchRecordMetadata = {
 
 export type SearchSnippet = {
   text?: string;
-  wholeFields: NameValuePair | NameValuePair[];
+  wholeFields: NameValuePair[];
 };
 
 export type NameValuePair = {
@@ -44653,19 +44649,19 @@ export type NameValuePair = {
 };
 
 export type SearchResultsMetadata = {
-  entityLabelMetadata: LabelsSearchMetadata | LabelsSearchMetadata[];
-  entityMetadata: EntitySearchMetadata | EntitySearchMetadata[];
+  entityLabelMetadata: LabelsSearchMetadata[];
+  entityMetadata: EntitySearchMetadata[];
 };
 
 export type LabelsSearchMetadata = {
-  entityFieldLabels: NameValuePair | NameValuePair[];
+  entityFieldLabels: NameValuePair[];
   entityName: string;
 };
 
 export type EntitySearchMetadata = {
   entityName: string;
   errorMetadata?: EntityErrorMetadata;
-  fieldMetadata: FieldLevelSearchMetadata | FieldLevelSearchMetadata[];
+  fieldMetadata: FieldLevelSearchMetadata[];
   intentQueryMetadata?: EntityIntentQueryMetadata;
   searchPromotionMetadata?: EntitySearchPromotionMetadata;
   spellCorrectionMetadata?: EntitySpellCorrectionMetadata;
@@ -44700,11 +44696,11 @@ export type SetPasswordResult = string;
 
 export type UpsertResult = {
   created: boolean;
-  errors: Error | Error[];
+  errors: Error[];
   id: ID;
-  infos: Info | Info[];
+  infos: Info[];
   success: boolean;
-  warnings: Warning | Warning[];
+  warnings: Warning[];
 };
 
 export type LogInfo = {
@@ -44719,32 +44715,32 @@ export type Fact = {
 };
 
 export type SymbolTable = {
-  constructors: Constructor | Constructor[];
-  externalReferences: ExternalReference | ExternalReference[];
+  constructors: Constructor[];
+  externalReferences: ExternalReference[];
   id: string;
-  innerClasses: SymbolTable | SymbolTable[];
-  interfaces: string | string[];
-  methods: Method | Method[];
+  innerClasses: SymbolTable[];
+  interfaces: string[];
+  methods: Method[];
   name: string;
   namespace: string;
   parentClass: string;
-  properties: VisibilitySymbol | VisibilitySymbol[];
+  properties: VisibilitySymbol[];
   tableDeclaration: Symbol;
-  variables: Symbol | Symbol[];
+  variables: Symbol[];
 };
 
 export type Constructor = VisibilitySymbol & {
-  parameters: Parameter | Parameter[];
+  parameters: Parameter[];
 };
 
 export type VisibilitySymbol = string;
 
 export type Symbol = {
-  annotations: Annotation | Annotation[];
+  annotations: Annotation[];
   location: Position;
-  modifiers: string | string[];
+  modifiers: string[];
   name: string;
-  references: Position | Position[];
+  references: Position[];
   type: string;
 };
 
@@ -44767,37 +44763,37 @@ export type Method = Constructor & {
 };
 
 export type ExternalReference = {
-  methods: ExternalMethod | ExternalMethod[];
+  methods: ExternalMethod[];
   name: string;
   namespace: string;
-  references: Position | Position[];
-  variables: ExternalSymbol | ExternalSymbol[];
+  references: Position[];
+  variables: ExternalSymbol[];
 };
 
 export type ExternalMethod = ExternalConstructor & {
-  argTypes: string | string[];
+  argTypes: string[];
   isStatic: boolean;
   returnType: string;
 };
 
 export type ExternalConstructor = ExternalSymbol & {
   methodDoc: string;
-  parameters: Parameter | Parameter[];
+  parameters: Parameter[];
 };
 
 export type ExternalSymbol = {
   name: string;
-  references: Position | Position[];
+  references: Position[];
 };
 
 export type Coverage = {
-  coveredLines: number | number[];
-  uncoveredLines: number | number[];
+  coveredLines: number[];
+  uncoveredLines: number[];
 };
 
 export type HeapDump = {
   className: string;
-  extents: TypeExtent | TypeExtent[];
+  extents: TypeExtent[];
   heapDumpDate: Date;
   namespace: string;
 };
@@ -44805,8 +44801,8 @@ export type HeapDump = {
 export type TypeExtent = {
   collectionType: string;
   count: number;
-  definition: AttributeDefinition | AttributeDefinition[];
-  extent: HeapAddress | HeapAddress[];
+  definition: AttributeDefinition[];
+  extent: HeapAddress[];
   totalSize: number;
   typeName: string;
 };
@@ -44820,7 +44816,7 @@ export type HeapAddress = {
   address: string;
   isStatic: boolean;
   size: number;
-  symbols: string | string[];
+  symbols: string[];
   value: StateValue;
 };
 
@@ -44831,11 +44827,11 @@ export type BooleanValue = StateValue & {
 };
 
 export type ListValue = StateValue & {
-  value: StateValue | StateValue[];
+  value: StateValue[];
 };
 
 export type MapValue = StateValue & {
-  entry: MapEntry | MapEntry[];
+  entry: MapEntry[];
 };
 
 export type MapEntry = {
@@ -44848,7 +44844,7 @@ export type NumberValue = StateValue & {
 };
 
 export type SetValue = StateValue & {
-  value: StateValue | StateValue[];
+  value: StateValue[];
 };
 
 export type StringValue = StateValue & {
@@ -44863,11 +44859,11 @@ export type ApexResult = {
 export type SOQLResult = {
   queryError: string;
   queryMetadata: QueryResultMetadata;
-  queryResult: MapValue | MapValue[];
+  queryResult: MapValue[];
 };
 
 export type QueryResultMetadata = {
-  columnMetadata: QueryResultColumnMetadata | QueryResultColumnMetadata[];
+  columnMetadata: QueryResultColumnMetadata[];
   entityName: string;
   groupBy: boolean;
   idSelected: boolean;
@@ -44883,7 +44879,7 @@ export type QueryResultColumnMetadata = {
   displayName: string;
   foreignKeyName: string;
   insertable: boolean;
-  joinColumns: QueryResultColumnMetadata | QueryResultColumnMetadata[];
+  joinColumns: QueryResultColumnMetadata[];
   numberType: boolean;
   textType: boolean;
   updatable: boolean;
@@ -44898,8 +44894,8 @@ export type AggregateQueryResultColumnMetadata = string;
 export type PrimitiveQueryResultColumnMetadata = string;
 
 export type DeployDetails = {
-  componentFailures: DeployMessage | DeployMessage[];
-  componentSuccesses: DeployMessage | DeployMessage[];
+  componentFailures: DeployMessage[];
+  componentSuccesses: DeployMessage[];
   runTestResult?: RunTestsResult;
 };
 
@@ -44920,20 +44916,20 @@ export type DeployMessage = {
 };
 
 export type RecordTypesSupported = {
-  recordTypeInfos: RecordTypeInfo | RecordTypeInfo[];
+  recordTypeInfos: RecordTypeInfo[];
 };
 
 export type RelationshipReferenceTo = {
-  referenceTo: string | string[];
+  referenceTo: string[];
 };
 
 export type JunctionIdListNames = {
-  names: string | string[];
+  names: string[];
 };
 
 export type SearchLayoutButtonsDisplayed = {
   applicable: boolean;
-  buttons: SearchLayoutButton | SearchLayoutButton[];
+  buttons: SearchLayoutButton[];
 };
 
 export type SearchLayoutButton = {
@@ -44943,7 +44939,7 @@ export type SearchLayoutButton = {
 
 export type SearchLayoutFieldsDisplayed = {
   applicable: boolean;
-  fields: SearchLayoutField | SearchLayoutField[];
+  fields: SearchLayoutField[];
 };
 
 export type SearchLayoutField = {
@@ -44983,11 +44979,11 @@ export type OperationParameters = {
 };
 
 export type FieldsInfo = {
-  fieldsInfo: string | string[];
+  fieldsInfo: string[];
 };
 
 export type RelatedListsInfo = {
-  relatedListsInfo: SingleRelatedListInfo | SingleRelatedListInfo[];
+  relatedListsInfo: SingleRelatedListInfo[];
 };
 
 export type SingleRelatedListInfo = {

@@ -2456,7 +2456,7 @@ export type MalformedSearchFault = string;
 
 export type sObject = {
   type: string;
-  fieldsToNull?: string | string[];
+  fieldsToNull?: string[];
   Id?: ID;
 };
 
@@ -2479,7 +2479,7 @@ export type location = {
 export type QueryResult = {
   done: boolean;
   queryLocator?: QueryLocator;
-  records?: sObject | sObject[];
+  records?: sObject[];
   size: number;
 };
 
@@ -2489,7 +2489,7 @@ export type SetupBriefcaseResult = {
 
 export type SearchResult = {
   queryId?: string;
-  searchRecords: SearchRecord | SearchRecord[];
+  searchRecords: SearchRecord[];
   searchResultsMetadata?: SearchResultsMetadata;
 };
 
@@ -2506,23 +2506,23 @@ export type SearchRecordMetadata = {
 
 export type SearchSnippet = {
   text?: string;
-  wholeFields: NameValuePair | NameValuePair[];
+  wholeFields: NameValuePair[];
 };
 
 export type SearchResultsMetadata = {
-  entityLabelMetadata?: LabelsSearchMetadata | LabelsSearchMetadata[];
-  entityMetadata?: EntitySearchMetadata | EntitySearchMetadata[];
+  entityLabelMetadata?: LabelsSearchMetadata[];
+  entityMetadata?: EntitySearchMetadata[];
 };
 
 export type LabelsSearchMetadata = {
-  entityFieldLabels?: NameValuePair | NameValuePair[];
+  entityFieldLabels?: NameValuePair[];
   entityName?: string;
 };
 
 export type EntitySearchMetadata = {
   entityName?: string;
   errorMetadata?: EntityErrorMetadata;
-  fieldMetadata?: FieldLevelSearchMetadata | FieldLevelSearchMetadata[];
+  fieldMetadata?: FieldLevelSearchMetadata[];
   intentQueryMetadata?: EntityIntentQueryMetadata;
   searchPromotionMetadata?: EntitySearchPromotionMetadata;
   spellCorrectionMetadata?: EntitySpellCorrectionMetadata;
@@ -2554,20 +2554,20 @@ export type EntityErrorMetadata = {
 };
 
 export type RelationshipReferenceTo = {
-  referenceTo: string | string[];
+  referenceTo: string[];
 };
 
 export type RecordTypesSupported = {
-  recordTypeInfos: RecordTypeInfo | RecordTypeInfo[];
+  recordTypeInfos: RecordTypeInfo[];
 };
 
 export type JunctionIdListNames = {
-  names: string | string[];
+  names: string[];
 };
 
 export type SearchLayoutButtonsDisplayed = {
   applicable: boolean;
-  buttons: SearchLayoutButton | SearchLayoutButton[];
+  buttons: SearchLayoutButton[];
 };
 
 export type SearchLayoutButton = {
@@ -2577,7 +2577,7 @@ export type SearchLayoutButton = {
 
 export type SearchLayoutFieldsDisplayed = {
   applicable: boolean;
-  fields: SearchLayoutField | SearchLayoutField[];
+  fields: SearchLayoutField[];
 };
 
 export type SearchLayoutField = {
@@ -2594,7 +2594,7 @@ export type NameValuePair = {
 export type NameObjectValuePair = {
   isVisible?: boolean;
   name: string;
-  value: any | any[];
+  value: any[];
 };
 
 export type NameValueTypeTriple = {
@@ -2609,13 +2609,13 @@ export type SimpleNameObjectValuePair = {
 };
 
 export type FlowInterviewWrapperContext = {
-  inputs: SimpleNameObjectValuePair | SimpleNameObjectValuePair[];
+  inputs: SimpleNameObjectValuePair[];
   wrapperContextType: string;
 };
 
 export type StartFlowInterviewRequest = {
   flowName: string;
-  inputs: NameObjectValuePair | NameObjectValuePair[];
+  inputs: NameObjectValuePair[];
   versionId: string;
   debug?: FlowInterviewDebugInput;
   wrapperContext?: FlowInterviewWrapperContext;
@@ -2623,10 +2623,10 @@ export type StartFlowInterviewRequest = {
 
 export type NavigateFlowInterviewRequest = {
   action: string;
-  screenInputs: NameObjectValuePair | NameObjectValuePair[];
+  screenInputs: NameObjectValuePair[];
   state: string;
   debug?: FlowInterviewDebugInput;
-  lcErrors: NameValuePair | NameValuePair[];
+  lcErrors: NameValuePair[];
 };
 
 export type ResumeFlowInterviewRequest = {
@@ -2634,17 +2634,17 @@ export type ResumeFlowInterviewRequest = {
 };
 
 export type RunFlowTestInput = {
-  testIdOrName: string | string[];
+  testIdOrName: string[];
   showTrace?: boolean;
   flowVersionId: string;
 };
 
 export type RunFlowTestResult = {
-  assertionResults: FlowTestAssertionResult | FlowTestAssertionResult[];
+  assertionResults: FlowTestAssertionResult[];
   endDateTime: Date;
   flowTestId: string;
   flowTestName: string;
-  interviewErrors: string | string[];
+  interviewErrors: string[];
   interviewStatus: string;
   startDateTime: Date;
   status: string;
@@ -2664,7 +2664,7 @@ export type FlowAccessInput = {
 
 export type CanViewFlowResult = {
   canView: boolean;
-  errors?: Error | Error[];
+  errors?: Error[];
 };
 
 export type FlowInterviewAction = {
@@ -2676,22 +2676,22 @@ export type FlowTest = {
   description?: string;
   label: string;
   referenceFlow: string;
-  testPoints: FlowTestPoint | FlowTestPoint[];
+  testPoints: FlowTestPoint[];
 };
 
 export type FlowTestPoint = {
-  asserts: FlowTestAssert | FlowTestAssert[];
+  asserts: FlowTestAssert[];
   elementDeveloperName: string;
-  parameters: FlowTestParameter | FlowTestParameter[];
+  parameters: FlowTestParameter[];
 };
 
 export type FlowTestAssert = {
   assertErrorMessage?: string;
-  conditions: FlowTestCondition | FlowTestCondition[];
+  conditions: FlowTestCondition[];
 };
 
 export type FlowTestAssertionResult = {
-  conditionsText: string | string[];
+  conditionsText: string[];
   failMessage: string;
   errorMessage: string;
   status?: string;
@@ -2723,76 +2723,76 @@ export type GenerateFlowTestResult = {
 };
 
 export type NavigateFlowInterviewResult = {
-  activeStages: FlowInterviewStage | FlowInterviewStage[];
+  activeStages: FlowInterviewStage[];
   apiVersionRuntime?: number;
-  availableActions: FlowInterviewAction | FlowInterviewAction[];
+  availableActions: FlowInterviewAction[];
   currentFlowVersionId?: string;
   currentStage?: FlowInterviewStage;
   debug?: FlowInterviewDebugOutput;
-  errorMessages: string | string[];
+  errorMessages: string[];
   flowLabel: string;
-  formulas: FlowInterviewReactiveFormula | FlowInterviewReactiveFormula[];
+  formulas: FlowInterviewReactiveFormula[];
   guid: string;
   helpText?: string;
   interviewStatus: string;
   localActionName?: string;
-  localActionInputs: FlowInterviewLocalActionInput | FlowInterviewLocalActionInput[];
-  localActionOutputs: FlowInterviewLocalActionOutput | FlowInterviewLocalActionOutput[];
+  localActionInputs: FlowInterviewLocalActionInput[];
+  localActionOutputs: FlowInterviewLocalActionOutput[];
   locationName?: string;
-  outputVariables: FlowInterviewOutputVariable | FlowInterviewOutputVariable[];
+  outputVariables: FlowInterviewOutputVariable[];
   pausedText?: string;
-  reactiveActions: FlowInterviewReactiveAction | FlowInterviewReactiveAction[];
-  reactiveAssignments: FlowInterviewReactiveAssignment | FlowInterviewReactiveAssignment[];
-  reactiveDataProviders: FlowInterviewReactiveDataProvider | FlowInterviewReactiveDataProvider[];
-  reactiveTriggers: FlowInterviewReactiveTrigger | FlowInterviewReactiveTrigger[];
-  screenFields: FlowInterviewScreenField | FlowInterviewScreenField[];
+  reactiveActions: FlowInterviewReactiveAction[];
+  reactiveAssignments: FlowInterviewReactiveAssignment[];
+  reactiveDataProviders: FlowInterviewReactiveDataProvider[];
+  reactiveTriggers: FlowInterviewReactiveTrigger[];
+  screenFields: FlowInterviewScreenField[];
   showFooter: boolean;
   showHeader: boolean;
   state?: string;
 };
 
 export type FlowInterviewScreenField = {
-  choices: FlowInterviewChoice | FlowInterviewChoice[];
-  contextMap: NameValuePair | NameValuePair[];
+  choices: FlowInterviewChoice[];
+  contextMap: NameValuePair[];
   dataType: string;
-  errorMessages: string | string[];
+  errorMessages: string[];
   extensionName?: string;
   extensionType?: string;
-  fields: FlowInterviewScreenField | FlowInterviewScreenField[];
+  fields: FlowInterviewScreenField[];
   fieldType: string;
   helpText?: string;
-  inputs: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+  inputs: FlowInterviewScreenFieldInput[];
   isDisabled: boolean;
   isReactiveOnInit: boolean;
   isReadOnly: boolean;
   isRequired: boolean;
   isValidValue: boolean;
   label: string;
-  metadataValues: FlowInterviewMetadataValue | FlowInterviewMetadataValue[];
+  metadataValues: FlowInterviewMetadataValue[];
   name: string;
-  objectFieldReference?: FlowInterviewObjectFieldReference | FlowInterviewObjectFieldReference[];
-  outputs: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
+  objectFieldReference?: FlowInterviewObjectFieldReference[];
+  outputs: FlowInterviewScreenFieldOutput[];
   regionContainerType?: string;
   scale?: number;
   templateField?: FlowInterviewScreenField;
   triggersUpdate: boolean;
   value?: any;
-  valueSources: string | string[];
+  valueSources: string[];
   visibilityRule: string;
 };
 
 export type FlowInterviewReactiveTrigger = {
-  eventHandlers: FlowInterviewReactiveHandler | FlowInterviewReactiveHandler[];
+  eventHandlers: FlowInterviewReactiveHandler[];
   eventName: string;
-  eventSources: string | string[];
+  eventSources: string[];
 };
 
 export type FlowInterviewReactiveHandler = {
   actionName: string;
   actionType: string;
-  conditionContextMap: NameValueTypeTriple | NameValueTypeTriple[];
+  conditionContextMap: NameValueTypeTriple[];
   conditionExpression: string;
-  conditionSources: string | string[];
+  conditionSources: string[];
   initBehavior: string;
   lockLevel: string;
 };
@@ -2800,10 +2800,10 @@ export type FlowInterviewReactiveHandler = {
 export type FlowInterviewReactiveAction = {
   actionName: string;
   actionType: string;
-  inputs: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+  inputs: FlowInterviewScreenFieldInput[];
   name: string;
-  outputs: FlowInterviewScreenFieldOutput | FlowInterviewScreenFieldOutput[];
-  prefillValues: FlowInterviewScreenFieldInput | FlowInterviewScreenFieldInput[];
+  outputs: FlowInterviewScreenFieldOutput[];
+  prefillValues: FlowInterviewScreenFieldInput[];
 };
 
 export type FlowInterviewReactiveAssignment = {
@@ -2815,13 +2815,13 @@ export type FlowInterviewReactiveAssignment = {
 
 export type FlowInterviewReactiveDataProvider = {
   filterLogic: string;
-  filters: FlowInterviewReactiveDataProviderFilter | FlowInterviewReactiveDataProviderFilter[];
+  filters: FlowInterviewReactiveDataProviderFilter[];
   initBehavior: string;
   limit: number;
   name: string;
   objectSuperType?: string;
   objectType?: string;
-  prefillValue: any | any[];
+  prefillValue: any[];
   sortFieldName: string;
   sortOrder: string;
 };
@@ -2835,13 +2835,13 @@ export type FlowInterviewReactiveDataProviderFilter = {
 };
 
 export type FlowInterviewReactiveFormula = {
-  contextMap: NameValueTypeTriple | NameValueTypeTriple[];
+  contextMap: NameValueTypeTriple[];
   expression: string;
   formulaType: string;
   name: string;
   outputType: string;
   scale?: number;
-  valueSources: string | string[];
+  valueSources: string[];
 };
 
 export type FlowInterviewScreenFieldInput = {
@@ -2849,8 +2849,8 @@ export type FlowInterviewScreenFieldInput = {
   isCollection: boolean;
   name: string;
   objectType?: string;
-  value: any | any[];
-  valueSources: string | string[];
+  value: any[];
+  valueSources: string[];
 };
 
 export type FlowInterviewScreenFieldOutput = {
@@ -2865,7 +2865,7 @@ export type FlowInterviewLocalActionInput = {
   isCollection: boolean;
   name: string;
   objectType?: string;
-  value: any | any[];
+  value: any[];
 };
 
 export type FlowInterviewLocalActionOutput = {
@@ -2877,7 +2877,7 @@ export type FlowInterviewLocalActionOutput = {
 
 export type FlowInterviewMetadataValue = {
   name: string;
-  value: any | any[];
+  value: any[];
 };
 
 export type FlowInterviewReactiveChoiceSource = {
@@ -2899,7 +2899,7 @@ export type FlowInterviewChoice = {
 
 export type FlowInterviewChoiceUserInput = {
   dataType: string;
-  errorMessages: string | string[];
+  errorMessages: string[];
   isRequired: boolean;
   isValidValue: boolean;
   label: string;
@@ -2914,7 +2914,7 @@ export type FlowInterviewOutputVariable = {
   name: string;
   objectType?: string;
   flowName: string;
-  value: any | any[];
+  value: any[];
 };
 
 export type FlowInterviewStage = {
@@ -2934,17 +2934,17 @@ export type FlowInterviewDebugInput = {
 };
 
 export type FlowInterviewDebugWaitInput = {
-  eventOutputs: NameObjectValuePair | NameObjectValuePair[];
+  eventOutputs: NameObjectValuePair[];
   waitEventName?: string;
 };
 
 export type FlowInterviewDebugOutput = {
   trace?: string;
-  waitDebugOutput: FlowInterviewDebugWaitOutput | FlowInterviewDebugWaitOutput[];
+  waitDebugOutput: FlowInterviewDebugWaitOutput[];
 };
 
 export type FlowInterviewDebugWaitOutput = {
-  eventOutputs: NameObjectValuePair | NameObjectValuePair[];
+  eventOutputs: NameObjectValuePair[];
   waitEventName?: string;
 };
 
@@ -2962,12 +2962,12 @@ export type ClaimsMapping = {
 };
 
 export type GetUpdatedResult = {
-  ids: ID | ID[];
+  ids: ID[];
   latestDateCovered: Date;
 };
 
 export type GetDeletedResult = {
-  deletedRecords: DeletedRecord | DeletedRecord[];
+  deletedRecords: DeletedRecord[];
   earliestDateAvailable: Date;
   latestDateCovered: Date;
 };
@@ -2978,7 +2978,7 @@ export type DeletedRecord = {
 };
 
 export type OutlookSearchResult = {
-  records?: sObject | sObject[];
+  records?: sObject[];
   size: number;
 };
 
@@ -2995,14 +2995,14 @@ export type GetServerTimestampResult = {
 };
 
 export type ImpersonateUserResult = {
-  errors: Error | Error[];
+  errors: Error[];
   sessionId?: string;
   success: boolean;
   userId?: ID;
 };
 
 export type InvalidateSessionsResult = {
-  errors: Error | Error[];
+  errors: Error[];
   success: boolean;
 };
 
@@ -3015,7 +3015,7 @@ export type ResetPasswordResult = {
 };
 
 export type GetAccessInfoResult = {
-  accessMap: AccessMapping | AccessMapping[];
+  accessMap: AccessMapping[];
 };
 
 export type AccessMapping = {
@@ -3068,21 +3068,21 @@ export type ExtendedErrorDetails = {
 };
 
 export type Error = {
-  extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
-  fields?: string | string[];
+  extendedErrorDetails?: ExtendedErrorDetails[];
+  fields?: string[];
   message: string;
   statusCode: StatusCode;
 };
 
 export type SendEmailError = {
-  fields?: string | string[];
+  fields?: string[];
   message: string;
   statusCode: StatusCode;
   targetObjectId?: ID;
 };
 
 export type SaveResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
   success: boolean;
 };
@@ -3096,7 +3096,7 @@ export type RenderEmailTemplateError = {
 
 export type UpsertResult = {
   created: boolean;
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
   success: boolean;
 };
@@ -3104,9 +3104,9 @@ export type UpsertResult = {
 export type PerformQuickActionResult = {
   contextId?: ID;
   created: boolean;
-  errors: Error | Error[];
-  feedItemIds?: ID | ID[];
-  ids?: ID | ID[];
+  errors: Error[];
+  feedItemIds?: ID[];
+  ids?: ID[];
   success: boolean;
   successMessage?: string;
 };
@@ -3115,27 +3115,27 @@ export type QuickActionTemplateResult = {
   contextId?: string;
   defaultValueFormulas?: sObject;
   defaultValues?: sObject;
-  errors: Error | Error[];
+  errors: Error[];
   success: boolean;
 };
 
 export type MergeRequest = {
-  additionalInformationMap: AdditionalInformationMap | AdditionalInformationMap[];
+  additionalInformationMap: AdditionalInformationMap[];
   masterRecord: sObject;
-  recordToMergeIds: ID | ID[];
+  recordToMergeIds: ID[];
 };
 
 export type MergeResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
-  mergedRecordIds: ID | ID[];
+  mergedRecordIds: ID[];
   success: boolean;
-  updatedRelatedIds: ID | ID[];
+  updatedRelatedIds: ID[];
 };
 
 export type ProcessRequest = {
   comments?: string;
-  nextApproverIds?: ID | ID[];
+  nextApproverIds?: ID[];
 };
 
 export type ProcessSubmitRequest = ProcessRequest & {
@@ -3153,7 +3153,7 @@ export type ProcessWorkitemRequest = ProcessRequest & {
 export type PerformQuickActionRequest = {
   contextId?: ID;
   quickActionName: string;
-  records?: sObject | sObject[];
+  records?: sObject[];
 };
 
 export type DescribeAvailableQuickActionResult = {
@@ -3168,15 +3168,15 @@ export type DescribeQuickActionResult = {
   actionEnumOrId: string;
   canvasApplicationId?: ID;
   canvasApplicationName?: string;
-  colors: DescribeColor | DescribeColor[];
+  colors: DescribeColor[];
   contextSobjectType?: string;
-  defaultValues?: DescribeQuickActionDefaultValue | DescribeQuickActionDefaultValue[];
+  defaultValues?: DescribeQuickActionDefaultValue[];
   flowDevName?: string;
   flowRecordIdVar?: string;
   height?: number;
   iconName?: string;
   iconUrl?: string;
-  icons: DescribeIcon | DescribeIcon[];
+  icons: DescribeIcon[];
   label: string;
   layout?: DescribeLayoutSection;
   lightningComponentBundleId?: ID;
@@ -3213,18 +3213,18 @@ export type ProcessArticleRequest = ProcessWorkitemRequest & {
 };
 
 export type ProcessResult = {
-  actorIds?: ID | ID[];
+  actorIds?: ID[];
   entityId?: ID;
-  errors: Error | Error[];
+  errors: Error[];
   instanceId?: ID;
   instanceStatus?: string;
-  newWorkitemIds?: ID | ID[];
+  newWorkitemIds?: ID[];
   success: boolean;
 };
 
 export type DescribeWorkitemActionResult = {
-  actions: AllowedWorkitemAction | AllowedWorkitemAction[];
-  errors: Error | Error[];
+  actions: AllowedWorkitemAction[];
+  errors: Error[];
   success: boolean;
   targetObjectId: ID;
   workitemId: ID;
@@ -3239,26 +3239,26 @@ export type AllowedWorkitemAction = {
 };
 
 export type DeleteResult = {
-  errors?: Error | Error[];
+  errors?: Error[];
   id?: ID;
   success: boolean;
 };
 
 export type UndeleteResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
   success: boolean;
 };
 
 export type DeleteByExampleResult = {
   entity?: sObject;
-  errors?: Error | Error[];
+  errors?: Error[];
   rowCount?: number;
   success: boolean;
 };
 
 export type EmptyRecycleBinResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
   success: boolean;
 };
@@ -3286,7 +3286,7 @@ export type LeadConvert = {
 export type LeadConvertResult = {
   accountId?: ID;
   contactId?: ID;
-  errors: Error | Error[];
+  errors: Error[];
   leadId?: ID;
   opportunityId?: ID;
   relatedPersonAccountId?: ID;
@@ -3303,7 +3303,7 @@ export type AddCampaignMemberOptions = {
 };
 
 export type AddCampaignMemberResult = {
-  errors: Error | Error[];
+  errors: Error[];
   numInserts: number;
   numUpdates: number;
   saveError: string;
@@ -3311,11 +3311,11 @@ export type AddCampaignMemberResult = {
 };
 
 export type DescribeSObjectResult = {
-  actionOverrides?: ActionOverride | ActionOverride[];
+  actionOverrides?: ActionOverride[];
   activateable: boolean;
   associateEntityType?: string;
   associateParentEntity?: string;
-  childRelationships: ChildRelationship | ChildRelationship[];
+  childRelationships: ChildRelationship[];
   compactLayoutable: boolean;
   createable: boolean;
   custom: boolean;
@@ -3326,7 +3326,7 @@ export type DescribeSObjectResult = {
   deletable: boolean;
   deprecatedAndHidden: boolean;
   feedEnabled: boolean;
-  fields?: Field | Field[];
+  fields?: Field[];
   hasSubtypes: boolean;
   idEnabled: boolean;
   implementedBy?: string;
@@ -3342,15 +3342,15 @@ export type DescribeSObjectResult = {
   mergeable: boolean;
   mruEnabled: boolean;
   name: string;
-  namedLayoutInfos: NamedLayoutInfo | NamedLayoutInfo[];
+  namedLayoutInfos: NamedLayoutInfo[];
   networkScopeFieldName?: string;
   queryable: boolean;
-  recordTypeInfos: RecordTypeInfo | RecordTypeInfo[];
+  recordTypeInfos: RecordTypeInfo[];
   replicateable: boolean;
   retrieveable: boolean;
   searchLayoutable?: boolean;
   searchable: boolean;
-  supportedScopes?: ScopeInfo | ScopeInfo[];
+  supportedScopes?: ScopeInfo[];
   triggerable?: boolean;
   undeletable: boolean;
   updateable: boolean;
@@ -3362,7 +3362,7 @@ export type DescribeSObjectResult = {
 export type DescribePicklistResult = {
   defaultValue?: PicklistEntry;
   multiSelectable: boolean;
-  picklistValues: PicklistEntry | PicklistEntry[];
+  picklistValues: PicklistEntry[];
 };
 
 export type DescribePicklistsParam = {
@@ -3408,8 +3408,8 @@ export type ChildRelationship = {
   childSObject: string;
   deprecatedAndHidden: boolean;
   field: string;
-  junctionIdListNames?: string | string[];
-  junctionReferenceTo?: string | string[];
+  junctionIdListNames?: string[];
+  junctionReferenceTo?: string[];
   relationshipName?: string;
   restrictedDelete?: boolean;
 };
@@ -3417,7 +3417,7 @@ export type ChildRelationship = {
 export type DescribeGlobalResult = {
   encoding?: string;
   maxBatchSize: number;
-  sobjects: DescribeGlobalSObjectResult | DescribeGlobalSObjectResult[];
+  sobjects: DescribeGlobalSObjectResult[];
 };
 
 export type DescribeGlobalTheme = {
@@ -3426,7 +3426,7 @@ export type DescribeGlobalTheme = {
 };
 
 export type DiscoverSchemasResult = {
-  schemas: Schema | Schema[];
+  schemas: Schema[];
 };
 
 export type Schema = {
@@ -3434,7 +3434,7 @@ export type Schema = {
 };
 
 export type DescribeSchemaResult = {
-  fields: SchemaField | SchemaField[];
+  fields: SchemaField[];
   keyPrefix?: string;
   name: string;
 };
@@ -3456,30 +3456,30 @@ export type ScopeInfo = {
 };
 
 export type DurableIdList = {
-  ids: string | string[];
+  ids: string[];
 };
 
 export type StringList = {
-  values: string | string[];
+  values: string[];
 };
 
 export type ChangeEventHeader = {
   entityName: string;
-  recordIds: string | string[];
+  recordIds: string[];
   commitTimestamp: number;
   commitNumber: number;
   commitUser: string;
-  diffFields: string | string[];
+  diffFields: string[];
   changeType: changeEventType;
   changeOrigin: string;
   transactionKey: string;
   sequenceNumber: number;
-  nulledFields: string | string[];
-  changedFields: string | string[];
+  nulledFields: string[];
+  changedFields: string[];
 };
 
 export type FilteredLookupInfo = {
-  controllingFields: string | string[];
+  controllingFields: string[];
   dependent: boolean;
   optionalFilter: boolean;
 };
@@ -3525,12 +3525,12 @@ export type Field = {
   namePointing?: boolean;
   nillable: boolean;
   permissionable: boolean;
-  picklistValues?: PicklistEntry | PicklistEntry[];
+  picklistValues?: PicklistEntry[];
   polymorphicForeignKey: boolean;
   precision: number;
   queryByDistance: boolean;
   referenceTargetField?: string;
-  referenceTo?: string | string[];
+  referenceTo?: string[];
   relationshipName?: string;
   relationshipOrder?: number;
   restrictedDelete?: boolean;
@@ -3566,7 +3566,7 @@ export type DescribeDataCategoryGroupStructureResult = {
   label: string;
   name: string;
   sobject: string;
-  topCategories: DataCategory | DataCategory[];
+  topCategories: DataCategory[];
 };
 
 export type DataCategoryGroupSobjectTypePair = {
@@ -3575,7 +3575,7 @@ export type DataCategoryGroupSobjectTypePair = {
 };
 
 export type DataCategory = {
-  childCategories: DataCategory | DataCategory[];
+  childCategories: DataCategory[];
   label: string;
   name: string;
 };
@@ -3599,7 +3599,7 @@ export type CommonEventResult = {
 export type KnowledgeSettings = {
   defaultLanguage?: string;
   knowledgeEnabled: boolean;
-  languages: KnowledgeLanguageItem | KnowledgeLanguageItem[];
+  languages: KnowledgeLanguageItem[];
 };
 
 export type KnowledgeLanguageItem = {
@@ -3619,17 +3619,17 @@ export type AdditionalInformationMap = {
 };
 
 export type MatchRecord = {
-  additionalInformation: AdditionalInformationMap | AdditionalInformationMap[];
-  fieldDiffs: FieldDiff | FieldDiff[];
+  additionalInformation: AdditionalInformationMap[];
+  fieldDiffs: FieldDiff[];
   matchConfidence: number;
   record: sObject;
 };
 
 export type MatchResult = {
   entityType: string;
-  errors: Error | Error[];
+  errors: Error[];
   matchEngine: string;
-  matchRecords: MatchRecord | MatchRecord[];
+  matchRecords: MatchRecord[];
   rule: string;
   size: number;
   success: boolean;
@@ -3640,7 +3640,7 @@ export type DuplicateResult = {
   duplicateRule: string;
   duplicateRuleEntityType: string;
   errorMessage?: string;
-  matchResults: MatchResult | MatchResult[];
+  matchResults: MatchResult[];
 };
 
 export type DuplicateError = Error & {
@@ -3648,7 +3648,7 @@ export type DuplicateError = Error & {
 };
 
 export type DescribeNounResult = {
-  caseValues: NameCaseValue | NameCaseValue[];
+  caseValues: NameCaseValue[];
   developerName: string;
   gender?: Gender;
   name: string;
@@ -3666,7 +3666,7 @@ export type NameCaseValue = {
 
 export type ObjectMapping = {
   inputObject?: string;
-  objectMappingFields?: ObjectMappingField | ObjectMappingField[];
+  objectMappingFields?: ObjectMappingField[];
   outputObject?: string;
 };
 
@@ -3683,18 +3683,18 @@ export type DescribeDuplicateRuleResult = {
   active: boolean;
   alertMessage?: string;
   developerName: string;
-  duplicateFilters: DuplicateRuleFilter | DuplicateRuleFilter[];
-  duplicateRuleMatchInfos: DuplicateRuleMatchInfo | DuplicateRuleMatchInfo[];
+  duplicateFilters: DuplicateRuleFilter[];
+  duplicateRuleMatchInfos: DuplicateRuleMatchInfo[];
   name: string;
-  operationsOnInsert?: string | string[];
-  operationsOnUpdate?: string | string[];
+  operationsOnInsert?: string[];
+  operationsOnUpdate?: string[];
   securityOption?: DuplicateSecurityOptionType;
   sortOrder: number;
 };
 
 export type DuplicateRuleFilter = {
   booleanFilter: string;
-  filterItems: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
+  filterItems: DuplicateRuleFilterItem[];
   ruleCritera: string;
 };
 
@@ -3709,14 +3709,14 @@ export type DuplicateRuleMatchInfo = {
   entityType?: string;
   mapped: boolean;
   matchEngine?: string;
-  matchFields?: string | string[];
+  matchFields?: string[];
   matchRuleName?: string;
   objectMapping?: ObjectMapping;
 };
 
 export type FindDuplicatesResult = {
-  duplicateResults: DuplicateResult | DuplicateResult[];
-  errors: Error | Error[];
+  duplicateResults: DuplicateResult[];
+  errors: Error[];
   success: boolean;
 };
 
@@ -3725,19 +3725,19 @@ export type DescribeFlexiPageResult = {
   label: string;
   name: string;
   quickActionList?: DescribeQuickActionListResult;
-  regions: DescribeFlexiPageRegion | DescribeFlexiPageRegion[];
+  regions: DescribeFlexiPageRegion[];
   sobjectType?: string;
   template?: string;
   type: string;
 };
 
 export type DescribeFlexiPageRegion = {
-  components: DescribeComponentInstance | DescribeComponentInstance[];
+  components: DescribeComponentInstance[];
   name: string;
 };
 
 export type DescribeComponentInstance = {
-  properties: DescribeComponentInstanceProperty | DescribeComponentInstanceProperty[];
+  properties: DescribeComponentInstanceProperty[];
   typeName: string;
   typeNamespace: string;
 };
@@ -3755,13 +3755,13 @@ export type FlexipageContext = {
 };
 
 export type DescribeAppMenuResult = {
-  appMenuItems: DescribeAppMenuItem | DescribeAppMenuItem[];
+  appMenuItems: DescribeAppMenuItem[];
 };
 
 export type DescribeAppMenuItem = {
-  colors: DescribeColor | DescribeColor[];
+  colors: DescribeColor[];
   content: string;
-  icons: DescribeIcon | DescribeIcon[];
+  icons: DescribeIcon[];
   label: string;
   name: string;
   type: string;
@@ -3769,27 +3769,27 @@ export type DescribeAppMenuItem = {
 };
 
 export type DescribeThemeResult = {
-  themeItems: DescribeThemeItem | DescribeThemeItem[];
+  themeItems: DescribeThemeItem[];
 };
 
 export type DescribeThemeItem = {
-  colors: DescribeColor | DescribeColor[];
-  icons: DescribeIcon | DescribeIcon[];
+  colors: DescribeColor[];
+  icons: DescribeIcon[];
   name: string;
 };
 
 export type DescribeSoftphoneLayoutResult = {
-  callTypes: DescribeSoftphoneLayoutCallType | DescribeSoftphoneLayoutCallType[];
+  callTypes: DescribeSoftphoneLayoutCallType[];
   id: ID;
   name: string;
 };
 
 export type DescribeSoftphoneLayoutCallType = {
-  infoFields: DescribeSoftphoneLayoutInfoField | DescribeSoftphoneLayoutInfoField[];
+  infoFields: DescribeSoftphoneLayoutInfoField[];
   name: string;
-  screenPopOptions: DescribeSoftphoneScreenPopOption | DescribeSoftphoneScreenPopOption[];
+  screenPopOptions: DescribeSoftphoneScreenPopOption[];
   screenPopsOpenWithin?: string;
-  sections: DescribeSoftphoneLayoutSection | DescribeSoftphoneLayoutSection[];
+  sections: DescribeSoftphoneLayoutSection[];
 };
 
 export type DescribeSoftphoneScreenPopOption = {
@@ -3804,7 +3804,7 @@ export type DescribeSoftphoneLayoutInfoField = {
 
 export type DescribeSoftphoneLayoutSection = {
   entityApiName: string;
-  items: DescribeSoftphoneLayoutItem | DescribeSoftphoneLayoutItem[];
+  items: DescribeSoftphoneLayoutItem[];
 };
 
 export type DescribeSoftphoneLayoutItem = {
@@ -3812,16 +3812,16 @@ export type DescribeSoftphoneLayoutItem = {
 };
 
 export type DescribeCompactLayoutsResult = {
-  compactLayouts: DescribeCompactLayout | DescribeCompactLayout[];
+  compactLayouts: DescribeCompactLayout[];
   defaultCompactLayoutId: ID;
-  recordTypeCompactLayoutMappings: RecordTypeCompactLayoutMapping | RecordTypeCompactLayoutMapping[];
+  recordTypeCompactLayoutMappings: RecordTypeCompactLayoutMapping[];
 };
 
 export type DescribeCompactLayout = {
-  actions: DescribeLayoutButton | DescribeLayoutButton[];
-  fieldItems: DescribeLayoutItem | DescribeLayoutItem[];
+  actions: DescribeLayoutButton[];
+  fieldItems: DescribeLayoutItem[];
   id: ID;
-  imageItems: DescribeLayoutItem | DescribeLayoutItem[];
+  imageItems: DescribeLayoutItem[];
   label: string;
   name: string;
   objectType: string;
@@ -3836,24 +3836,24 @@ export type RecordTypeCompactLayoutMapping = {
 };
 
 export type DescribePathAssistantsResult = {
-  pathAssistants: DescribePathAssistant | DescribePathAssistant[];
+  pathAssistants: DescribePathAssistant[];
 };
 
 export type DescribePathAssistant = {
   active: boolean;
-  animationRule?: DescribeAnimationRule | DescribeAnimationRule[];
+  animationRule?: DescribeAnimationRule[];
   apiName: string;
   label: string;
   pathPicklistField: string;
-  picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
+  picklistsForRecordType?: PicklistForRecordType[];
   recordTypeId?: ID;
-  steps: DescribePathAssistantStep | DescribePathAssistantStep[];
+  steps: DescribePathAssistantStep[];
 };
 
 export type DescribePathAssistantStep = {
   closed: boolean;
   converted: boolean;
-  fields: DescribePathAssistantField | DescribePathAssistantField[];
+  fields: DescribePathAssistantField[];
   info?: string;
   layoutSection?: DescribeLayoutSection;
   picklistLabel: string;
@@ -3878,52 +3878,52 @@ export type DescribeAnimationRule = {
 };
 
 export type DescribeApprovalLayoutResult = {
-  approvalLayouts: DescribeApprovalLayout | DescribeApprovalLayout[];
+  approvalLayouts: DescribeApprovalLayout[];
 };
 
 export type DescribeApprovalLayout = {
   id: ID;
   label: string;
-  layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
+  layoutItems: DescribeLayoutItem[];
   name: string;
 };
 
 export type DescribeLayoutResult = {
-  layouts: DescribeLayout | DescribeLayout[];
-  recordTypeMappings: RecordTypeMapping | RecordTypeMapping[];
+  layouts: DescribeLayout[];
+  recordTypeMappings: RecordTypeMapping[];
   recordTypeSelectorRequired: boolean;
 };
 
 export type DescribeLayout = {
   buttonLayoutSection?: DescribeLayoutButtonSection;
-  detailLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
-  editLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
+  detailLayoutSections: DescribeLayoutSection[];
+  editLayoutSections: DescribeLayoutSection[];
   feedView?: DescribeLayoutFeedView;
   highlightsPanelLayoutSection?: DescribeLayoutSection;
   id?: ID;
-  multirowEditLayoutSections: DescribeLayoutSection | DescribeLayoutSection[];
-  offlineLinks: OfflineLink | OfflineLink[];
+  multirowEditLayoutSections: DescribeLayoutSection[];
+  offlineLinks: OfflineLink[];
   quickActionList?: DescribeQuickActionListResult;
   relatedContent?: RelatedContent;
-  relatedLists: RelatedList | RelatedList[];
-  saveOptions: DescribeLayoutSaveOption | DescribeLayoutSaveOption[];
+  relatedLists: RelatedList[];
+  saveOptions: DescribeLayoutSaveOption[];
 };
 
 export type DescribeMiniLayoutResult = {
-  layouts: DescribeLayout | DescribeLayout[];
-  recordTypeMappings: RecordTypeMapping | RecordTypeMapping[];
+  layouts: DescribeLayout[];
+  recordTypeMappings: RecordTypeMapping[];
   recordTypeSelectorRequired: boolean;
 };
 
 export type DescribeQuickActionListResult = {
-  quickActionListItems: DescribeQuickActionListItemResult | DescribeQuickActionListItemResult[];
+  quickActionListItems: DescribeQuickActionListItemResult[];
 };
 
 export type DescribeQuickActionListItemResult = {
   accessLevelRequired?: ShareAccessLevel;
-  colors: DescribeColor | DescribeColor[];
+  colors: DescribeColor[];
   iconUrl?: string;
-  icons: DescribeIcon | DescribeIcon[];
+  icons: DescribeIcon[];
   label: string;
   miniIconUrl: string;
   quickActionName: string;
@@ -3932,7 +3932,7 @@ export type DescribeQuickActionListItemResult = {
 };
 
 export type DescribeLayoutFeedView = {
-  feedFilters: DescribeLayoutFeedFilter | DescribeLayoutFeedFilter[];
+  feedFilters: DescribeLayoutFeedFilter[];
 };
 
 export type DescribeLayoutFeedFilter = {
@@ -3954,7 +3954,7 @@ export type DescribeLayoutSection = {
   collapsed: boolean;
   columns: number;
   heading?: string;
-  layoutRows: DescribeLayoutRow | DescribeLayoutRow[];
+  layoutRows: DescribeLayoutRow[];
   layoutSectionId?: ID;
   parentLayoutId: ID;
   rows: number;
@@ -3964,11 +3964,11 @@ export type DescribeLayoutSection = {
 };
 
 export type DescribeLayoutButtonSection = {
-  detailButtons: DescribeLayoutButton | DescribeLayoutButton[];
+  detailButtons: DescribeLayoutButton[];
 };
 
 export type DescribeLayoutRow = {
-  layoutItems: DescribeLayoutItem | DescribeLayoutItem[];
+  layoutItems: DescribeLayoutItem[];
   numItems: number;
 };
 
@@ -3976,20 +3976,20 @@ export type DescribeLayoutItem = {
   editableForNew: boolean;
   editableForUpdate: boolean;
   label?: string;
-  layoutComponents: DescribeLayoutComponent | DescribeLayoutComponent[];
+  layoutComponents: DescribeLayoutComponent[];
   placeholder: boolean;
   required: boolean;
 };
 
 export type DescribeLayoutButton = {
   behavior?: WebLinkWindowType;
-  colors: DescribeColor | DescribeColor[];
+  colors: DescribeColor[];
   content?: string;
   contentSource?: WebLinkType;
   custom: boolean;
   encoding?: string;
   height?: number;
-  icons: DescribeIcon | DescribeIcon[];
+  icons: DescribeIcon[];
   label?: string;
   menubar?: boolean;
   name?: string;
@@ -4016,7 +4016,7 @@ export type FieldComponent = DescribeLayoutComponent & {
 };
 
 export type FieldLayoutComponent = DescribeLayoutComponent & {
-  components: DescribeLayoutComponent | DescribeLayoutComponent[];
+  components: DescribeLayoutComponent[];
   fieldType: fieldType;
 };
 
@@ -4058,7 +4058,7 @@ export type AnalyticsCloudComponent = DescribeLayoutComponent & {
 };
 
 export type FieldCriteria = {
-  criteria: FieldCriterion | FieldCriterion[];
+  criteria: FieldCriterion[];
 };
 
 export type FieldCriterion = {
@@ -4093,17 +4093,17 @@ export type RecordTypeMapping = {
   layoutId: ID;
   master: boolean;
   name: string;
-  picklistsForRecordType?: PicklistForRecordType | PicklistForRecordType[];
+  picklistsForRecordType?: PicklistForRecordType[];
   recordTypeId?: ID;
 };
 
 export type PicklistForRecordType = {
   picklistName: string;
-  picklistValues?: PicklistEntry | PicklistEntry[];
+  picklistValues?: PicklistEntry[];
 };
 
 export type RelatedContent = {
-  relatedContentItems: DescribeRelatedContentItem | DescribeRelatedContentItem[];
+  relatedContentItems: DescribeRelatedContentItem[];
 };
 
 export type DescribeRelatedContentItem = {
@@ -4112,15 +4112,15 @@ export type DescribeRelatedContentItem = {
 
 export type RelatedList = {
   accessLevelRequiredForCreate?: ShareAccessLevel;
-  buttons?: DescribeLayoutButton | DescribeLayoutButton[];
-  columns: RelatedListColumn | RelatedListColumn[];
+  buttons?: DescribeLayoutButton[];
+  columns: RelatedListColumn[];
   custom: boolean;
   field?: string;
   label: string;
   limitRows: number;
   name: string;
   sobject?: string;
-  sort: RelatedListSort | RelatedListSort[];
+  sort: RelatedListSort[];
 };
 
 export type RelatedListColumn = {
@@ -4156,8 +4156,8 @@ export type EmailAttachment = {
 };
 
 export type HandledEmailMessage = {
-  attachments: EmailAttachment | EmailAttachment[];
-  headers: NameValuePair | NameValuePair[];
+  attachments: EmailAttachment[];
+  headers: NameValuePair[];
   htmlBody: string;
   subject: string;
   textBody: string;
@@ -4192,9 +4192,9 @@ export type SingleEmailMessage = Email & {
   bccAddresses?: string;
   ccAddresses?: string;
   charset?: string;
-  documentAttachments: ID | ID[];
-  entityAttachments: ID | ID[];
-  fileAttachments: EmailFileAttachment | EmailFileAttachment[];
+  documentAttachments: ID[];
+  entityAttachments: ID[];
+  fileAttachments: EmailFileAttachment[];
   htmlBody?: string;
   inReplyTo?: string;
   optOutPolicy?: SendEmailOptOutPolicy;
@@ -4211,12 +4211,12 @@ export type SingleEmailMessage = Email & {
 };
 
 export type SendEmailResult = {
-  errors: SendEmailError | SendEmailError[];
+  errors: SendEmailError[];
   success: boolean;
 };
 
 export type DescribeListViewResult = {
-  listViews: DescribeListView | DescribeListView[];
+  listViews: DescribeListView[];
 };
 
 export type DescribeListView = {
@@ -4224,10 +4224,10 @@ export type DescribeListView = {
   id: ID;
   limitRows: number;
   listViewAdvancedFilter?: string;
-  listViewColumns: DescribeColumn | DescribeColumn[];
-  listViewFilters: DescribeFilter | DescribeFilter[];
+  listViewColumns: DescribeColumn[];
+  listViewFilters: DescribeFilter[];
   listViewName: string;
-  listViewScopeFilters: DescribeFilter | DescribeFilter[];
+  listViewScopeFilters: DescribeFilter[];
   relatedEntityId?: ID;
   scope?: queryOptionsScope;
   scopeEntityId?: ID;
@@ -4238,7 +4238,7 @@ export type DescribeFilter = {
   column: string;
   negated: boolean;
   operator: string;
-  value: string | string[];
+  value: string[];
   valueSeparator: string;
 };
 
@@ -4257,7 +4257,7 @@ export type DescribeSort = {
 export type DescribeLookupLayoutResult = {
   label: string;
   limitRows: number;
-  lookupColumns: DescribeColumn | DescribeColumn[];
+  lookupColumns: DescribeColumn[];
 };
 
 export type ListViewColumn = {
@@ -4281,9 +4281,9 @@ export type ListViewOrderBy = {
 };
 
 export type DescribeSoqlListView = {
-  columns: ListViewColumn | ListViewColumn[];
+  columns: ListViewColumn[];
   id: ID;
-  orderBy: ListViewOrderBy | ListViewOrderBy[];
+  orderBy: ListViewOrderBy[];
   query: string;
   relatedEntityId?: ID;
   scope?: string;
@@ -4293,7 +4293,7 @@ export type DescribeSoqlListView = {
 };
 
 export type DescribeSoqlListViewsRequest = {
-  listViewParams: DescribeSoqlListViewParams | DescribeSoqlListViewParams[];
+  listViewParams: DescribeSoqlListViewParams[];
 };
 
 export type DescribeSoqlListViewParams = {
@@ -4302,29 +4302,29 @@ export type DescribeSoqlListViewParams = {
 };
 
 export type DescribeSoqlListViewResult = {
-  describeSoqlListViews: DescribeSoqlListView | DescribeSoqlListView[];
+  describeSoqlListViews: DescribeSoqlListView[];
 };
 
 export type ExecuteListViewRequest = {
   developerNameOrId: string;
   limit?: number;
   offset?: number;
-  orderBy: ListViewOrderBy | ListViewOrderBy[];
+  orderBy: ListViewOrderBy[];
   sobjectType: string;
 };
 
 export type ExecuteListViewResult = {
-  columns: ListViewColumn | ListViewColumn[];
+  columns: ListViewColumn[];
   developerName: string;
   done: boolean;
   id: ID;
   label: string;
-  records: ListViewRecord | ListViewRecord[];
+  records: ListViewRecord[];
   size: number;
 };
 
 export type ListViewRecord = {
-  columns: ListViewRecordColumn | ListViewRecordColumn[];
+  columns: ListViewRecordColumn[];
 };
 
 export type ListViewRecordColumn = {
@@ -4337,7 +4337,7 @@ export type SoqlWhereCondition = string;
 export type SoqlCondition = SoqlWhereCondition & {
   field: string;
   operator: soqlOperator;
-  values: string | string[];
+  values: string[];
 };
 
 export type SoqlNotCondition = SoqlWhereCondition & {
@@ -4345,7 +4345,7 @@ export type SoqlNotCondition = SoqlWhereCondition & {
 };
 
 export type SoqlConditionGroup = SoqlWhereCondition & {
-  conditions: SoqlWhereCondition | SoqlWhereCondition[];
+  conditions: SoqlWhereCondition[];
   conjunction: soqlConjunction;
 };
 
@@ -4360,7 +4360,7 @@ export type DescribeSearchLayoutResult = {
   label?: string;
   limitRows?: number;
   objectType: string;
-  searchColumns?: DescribeColumn | DescribeColumn[];
+  searchColumns?: DescribeColumn[];
 };
 
 export type DescribeSearchScopeOrderResult = {
@@ -4381,14 +4381,14 @@ export type DescribeTabSetResult = {
   namespace?: string;
   selected: boolean;
   tabSetId: string;
-  tabs: DescribeTab | DescribeTab[];
+  tabs: DescribeTab[];
 };
 
 export type DescribeTab = {
-  colors: DescribeColor | DescribeColor[];
+  colors: DescribeColor[];
   custom: boolean;
   iconUrl: string;
-  icons: DescribeIcon | DescribeIcon[];
+  icons: DescribeIcon[];
   label: string;
   miniIconUrl: string;
   name: string;
@@ -4419,7 +4419,7 @@ export type ActionOverride = {
 };
 
 export type ActivateResult = {
-  errors: Error | Error[];
+  errors: Error[];
   id?: ID;
   success: boolean;
 };
@@ -4430,11 +4430,11 @@ export type SnapshotItem = {
 };
 
 export type SnapshotResult = {
-  add: SnapshotItem | SnapshotItem[];
+  add: SnapshotItem[];
   fullSnapshot: boolean;
   id: ID;
   locator?: string;
-  remove: SnapshotItem | SnapshotItem[];
+  remove: SnapshotItem[];
 };
 
 export type SyncOfflineDataResult = {
@@ -4442,7 +4442,7 @@ export type SyncOfflineDataResult = {
   lastFullQuery: Date;
   lastQuery: Date;
   lastReset: Date;
-  removed: ID | ID[];
+  removed: ID[];
   timestamp: Date;
   token: string;
   updates: QueryResult;
@@ -4458,7 +4458,7 @@ export type EmailSyncEntity = {
   clientFolderName?: string;
   conflictResolution: EmailSyncConflictResolution;
   dataSetFilter?: string;
-  fieldMapping: EmailSyncFieldMapping | EmailSyncFieldMapping[];
+  fieldMapping: EmailSyncFieldMapping[];
   matchPreference?: EmailSyncMatchPreference;
   name: string;
   recordTypeId?: ID;
@@ -4472,7 +4472,7 @@ export type EmailSyncFieldMapping = {
   name: string;
   type: fieldType;
   usedForMatching: boolean;
-  valueMapping: EmailSyncFieldValueMapping | EmailSyncFieldValueMapping[];
+  valueMapping: EmailSyncFieldValueMapping[];
 };
 
 export type EmailSyncFieldValueMapping = {
@@ -4482,7 +4482,7 @@ export type EmailSyncFieldValueMapping = {
 
 export type EmailSyncRoutingAddress = {
   emailAddress: string;
-  fromAddressFilter: string | string[];
+  fromAddressFilter: string[];
   name: string;
 };
 
@@ -4490,13 +4490,13 @@ export type DescribeEmailSyncSettings = {
   addCase: boolean;
   addEmail: boolean;
   addEmailAttachment: boolean;
-  advancedSetting: EmailSyncAdvancedSetting | EmailSyncAdvancedSetting[];
+  advancedSetting: EmailSyncAdvancedSetting[];
   attachmentSizeLimit?: number;
   automaticallySyncOutlookObjects: boolean;
   cannotChangeClientSyncSetting: boolean;
   clientVersionNumber?: string;
-  emailToCaseRoutingAddress: EmailSyncRoutingAddress | EmailSyncRoutingAddress[];
-  entitySetting: EmailSyncEntity | EmailSyncEntity[];
+  emailToCaseRoutingAddress: EmailSyncRoutingAddress[];
+  entitySetting: EmailSyncEntity[];
   expandedRecurringEventSyncWindow: boolean;
   isSyncThrottlingEnabled: boolean;
   logActivityEmailAddress?: string;
@@ -4513,14 +4513,14 @@ export type DescribeMobileResult = {
   configured: boolean;
   defaultConfiguration: boolean;
   emailSyncSettings?: DescribeEmailSyncSettings;
-  feedEnabledObjects: DescribeMobileSObject | DescribeMobileSObject[];
-  mobileSObject: DescribeMobileSObject | DescribeMobileSObject[];
+  feedEnabledObjects: DescribeMobileSObject[];
+  mobileSObject: DescribeMobileSObject[];
   mobileSettings?: DescribeMobileSettings;
-  mobileView: DescribeMobileView | DescribeMobileView[];
-  mobileViewDispColumn: DescribeMobileViewDispColumn | DescribeMobileViewDispColumn[];
-  mobileViewFilter: DescribeMobileViewFilter | DescribeMobileViewFilter[];
-  mobileViewSortOrder: DescribeMobileViewSortOrder | DescribeMobileViewSortOrder[];
-  tabSet: DescribeTabSetResult | DescribeTabSetResult[];
+  mobileView: DescribeMobileView[];
+  mobileViewDispColumn: DescribeMobileViewDispColumn[];
+  mobileViewFilter: DescribeMobileViewFilter[];
+  mobileViewSortOrder: DescribeMobileViewSortOrder[];
+  tabSet: DescribeTabSetResult[];
 };
 
 export type DescribeMobileSObject = {
@@ -4575,14 +4575,14 @@ export type RenderEmailTemplateRequest = {
 };
 
 export type RenderEmailTemplateBodyResult = {
-  errors: RenderEmailTemplateError | RenderEmailTemplateError[];
+  errors: RenderEmailTemplateError[];
   mergedBody?: string;
   success: boolean;
 };
 
 export type RenderEmailTemplateResult = {
   bodyResults?: RenderEmailTemplateBodyResult;
-  errors: Error | Error[];
+  errors: Error[];
   success: boolean;
 };
 
@@ -4595,7 +4595,7 @@ export type RenderStoredEmailTemplateRequest = {
 };
 
 export type RenderStoredEmailTemplateResult = {
-  errors: Error | Error[];
+  errors: Error[];
   renderedEmail?: SingleEmailMessage;
   success: boolean;
 };
@@ -4641,7 +4641,7 @@ export type OwnerChangeOption = {
 export type ApiFault = {
   exceptionCode: ExceptionCode;
   exceptionMessage: string;
-  extendedErrorDetails?: ExtendedErrorDetails | ExtendedErrorDetails[];
+  extendedErrorDetails?: ExtendedErrorDetails[];
   upgradeURL?: string;
   upgradeMessage?: string;
 };

@@ -6718,8 +6718,8 @@ export type DeployResult = {
 };
 
 export type DeployDetails = {
-  componentFailures: DeployMessage | DeployMessage[];
-  componentSuccesses: DeployMessage | DeployMessage[];
+  componentFailures: DeployMessage[];
+  componentSuccesses: DeployMessage[];
   retrieveResult?: RetrieveResult;
   runTestResult?: RunTestsResult;
 };
@@ -6744,9 +6744,9 @@ export type RetrieveResult = {
   done: boolean;
   errorMessage?: string;
   errorStatusCode?: StatusCode;
-  fileProperties: FileProperties | FileProperties[];
+  fileProperties: FileProperties[];
   id: string;
-  messages: RetrieveMessage | RetrieveMessage[];
+  messages: RetrieveMessage[];
   status: RetrieveStatus;
   success: boolean;
   zipFile: string;
@@ -6774,28 +6774,28 @@ export type RetrieveMessage = {
 
 export type RunTestsResult = {
   apexLogId?: string;
-  codeCoverage: CodeCoverageResult | CodeCoverageResult[];
-  codeCoverageWarnings: CodeCoverageWarning | CodeCoverageWarning[];
-  failures: RunTestFailure | RunTestFailure[];
-  flowCoverage: FlowCoverageResult | FlowCoverageResult[];
-  flowCoverageWarnings: FlowCoverageWarning | FlowCoverageWarning[];
+  codeCoverage: CodeCoverageResult[];
+  codeCoverageWarnings: CodeCoverageWarning[];
+  failures: RunTestFailure[];
+  flowCoverage: FlowCoverageResult[];
+  flowCoverageWarnings: FlowCoverageWarning[];
   numFailures: number;
   numTestsRun: number;
-  successes: RunTestSuccess | RunTestSuccess[];
+  successes: RunTestSuccess[];
   totalTime: number;
 };
 
 export type CodeCoverageResult = {
-  dmlInfo: CodeLocation | CodeLocation[];
+  dmlInfo: CodeLocation[];
   id: ID;
-  locationsNotCovered: CodeLocation | CodeLocation[];
-  methodInfo: CodeLocation | CodeLocation[];
+  locationsNotCovered: CodeLocation[];
+  methodInfo: CodeLocation[];
   name: string;
   namespace?: string;
   numLocations: number;
   numLocationsNotCovered: number;
-  soqlInfo: CodeLocation | CodeLocation[];
-  soslInfo: CodeLocation | CodeLocation[];
+  soqlInfo: CodeLocation[];
+  soslInfo: CodeLocation[];
   type: string;
 };
 
@@ -6827,7 +6827,7 @@ export type RunTestFailure = {
 };
 
 export type FlowCoverageResult = {
-  elementsNotCovered: string | string[];
+  elementsNotCovered: string[];
   flowId: string;
   flowName: string;
   flowNamespace?: string;
@@ -6868,15 +6868,15 @@ export type Metadata = {
 export type AIApplication = Metadata & {
   developerName: string;
   masterLabel?: string;
-  predictionDefinitions: AIPredictionDefinition | AIPredictionDefinition[];
+  predictionDefinitions: AIPredictionDefinition[];
   status: AIApplicationStatus;
   type: AIApplicationType;
 };
 
 export type AIPredictionDefinition = {
-  dataDefinitions: AIDataDefinition | AIDataDefinition[];
+  dataDefinitions: AIDataDefinition[];
   description: string;
-  predictionTargets: AIPredictionTarget | AIPredictionTarget[];
+  predictionTargets: AIPredictionTarget[];
   status: AIPredictionDefinitionStatus;
   type: AIPredictionType;
 };
@@ -6885,8 +6885,8 @@ export type AIDataDefinition = {
   dataFilter?: AIFilterGroup;
   description?: string;
   fieldType?: AIManagedFieldType;
-  managedFields: AIManagedField | AIManagedField[];
-  modelDefinitions: AIModelDefinition | AIModelDefinition[];
+  managedFields: AIManagedField[];
+  modelDefinitions: AIModelDefinition[];
 };
 
 export type AIFilterGroup = {
@@ -6902,7 +6902,7 @@ export type AIFilter = {
   rhFilter?: AIFilter;
   rhUnit?: AIFilterUnit;
   sortOrder?: number;
-  values: AIFilterValue | AIFilterValue[];
+  values: AIFilterValue[];
 };
 
 export type AIPredictionField = {
@@ -6933,7 +6933,7 @@ export type AIModelDefinition = {
 };
 
 export type AIPredictionTarget = {
-  predictionExpressions: AIPredictionExpression | AIPredictionExpression[];
+  predictionExpressions: AIPredictionExpression[];
   pushbackField?: AIPredictionField;
   strategy?: AIPredictionStrategy;
   targetField?: AIPredictionField;
@@ -6972,9 +6972,9 @@ export type AIModel = Metadata & {
   failureReasonCode?: string;
   modelContent?: string;
   modelDef: string;
-  modelFactors: AIModelFactor | AIModelFactor[];
-  modelGraphs: AIModelGraph | AIModelGraph[];
-  modelMetrics: AIModelMetric | AIModelMetric[];
+  modelFactors: AIModelFactor[];
+  modelGraphs: AIModelGraph[];
+  modelMetrics: AIModelMetric[];
   priority?: number;
   scoringStatus: AIScoringStatus;
   trainingEndTime: Date;
@@ -6984,7 +6984,7 @@ export type AIModel = Metadata & {
 
 export type AIModelFactor = {
   externalId?: string;
-  factorComponents: AIFactorComponent | AIFactorComponent[];
+  factorComponents: AIFactorComponent[];
   intensityType: AIIntensityType;
   intensityValue: number;
   lowerLimit: number;
@@ -7025,7 +7025,7 @@ export type AIReplyRecommendationsSettings = Metadata & {
 
 export type AIScoringModelDefVersion = Metadata & {
   aiScoringModelDefinition: string;
-  aiScoringSteps: AIScoringStep | AIScoringStep[];
+  aiScoringSteps: AIScoringStep[];
   developerName: string;
   masterLabel: string;
   modelMode: AIScoringModelDefVersionMode;
@@ -7038,14 +7038,14 @@ export type AIScoringStep = {
 
 export type AIScoringModelDefinition = Metadata & {
   aiModelConfig: string;
-  aiScoringModelDefVersions: AIScoringModelDefVersion | AIScoringModelDefVersion[];
+  aiScoringModelDefVersions: AIScoringModelDefVersion[];
   description?: string;
   masterLabel: string;
 };
 
 export type AIUsecaseDefinition = Metadata & {
-  aiUsecaseFieldMappings: AIUsecaseFieldMapping | AIUsecaseFieldMapping[];
-  aiUsecaseModels: AIUsecaseModel | AIUsecaseModel[];
+  aiUsecaseFieldMappings: AIUsecaseFieldMapping[];
+  aiUsecaseModels: AIUsecaseModel[];
   creatorType: CreatorType;
   masterLabel: string;
   maximumInsightCount?: number;
@@ -7077,7 +7077,7 @@ export type AIUsecaseFieldMapping = {
 };
 
 export type AIUsecaseModel = {
-  aiFeatureExtractors: AIFeatureExtractor | AIFeatureExtractor[];
+  aiFeatureExtractors: AIFeatureExtractor[];
   arePredctGenInRealTime: boolean;
   defaultFeatureExtractor?: AIFeatureExtractor;
   developerName: string;
@@ -7099,7 +7099,7 @@ export type AIFeatureExtractor = {
 
 export type AccountForecastSettings = Metadata & {
   accountFilterId?: string;
-  accountForecastFormulas: AccountForecastFormula | AccountForecastFormula[];
+  accountForecastFormulas: AccountForecastFormula[];
   acctPrdctPrdFrcstVolCnt?: number;
   calculationFrequency: CalculationFrequency;
   displayDuration: number;
@@ -7129,7 +7129,7 @@ export type AccountForecastFormula = {
 
 export type ObjectMapping = {
   inputObject: string;
-  mappingFields: ObjectMappingField | ObjectMappingField[];
+  mappingFields: ObjectMappingField[];
   outputObject: string;
 };
 
@@ -7202,7 +7202,7 @@ export type ActionLauncherItemDef = Metadata & {
 };
 
 export type ActionLinkGroupTemplate = Metadata & {
-  actionLinkTemplates: ActionLinkTemplate | ActionLinkTemplate[];
+  actionLinkTemplates: ActionLinkTemplate[];
   category: PlatformActionGroupCategory;
   executionsAllowed: ActionLinkExecutionsAllowed;
   hoursUntilExpiration?: number;
@@ -7226,8 +7226,8 @@ export type ActionLinkTemplate = {
 };
 
 export type ActionPlanTemplate = Metadata & {
-  actionPlanTemplateItem: ActionPlanTemplateItem | ActionPlanTemplateItem[];
-  actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency | ActionPlanTemplateItemDependency[];
+  actionPlanTemplateItem: ActionPlanTemplateItem[];
+  actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency[];
   description?: string;
   isAdHocItemCreationEnabled: boolean;
   name: string;
@@ -7236,7 +7236,7 @@ export type ActionPlanTemplate = Metadata & {
 };
 
 export type ActionPlanTemplateItem = {
-  actionPlanTemplateItemValue: ActionPlanTemplateItemValue | ActionPlanTemplateItemValue[];
+  actionPlanTemplateItemValue: ActionPlanTemplateItemValue[];
   displayOrder?: number;
   isRequired?: boolean;
   itemEntityType: string;
@@ -7274,7 +7274,7 @@ export type ActionableEventOrchDef = Metadata & {
 
 export type ActionableEventTypeDef = Metadata & {
   apiName: string;
-  eventSubtypes: EventSubtype | EventSubtype[];
+  eventSubtypes: EventSubtype[];
   label: string;
 };
 
@@ -7396,8 +7396,8 @@ export type AddOnDefinition = Metadata & {
   defaultLicenseDuration?: number;
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
-  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition | IncludedPlatformLicenseDefinition[];
-  includedUserLicenseDefinitions: IncludedUserLicenseDefinition | IncludedUserLicenseDefinition[];
+  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition[];
+  includedUserLicenseDefinitions: IncludedUserLicenseDefinition[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
@@ -7421,7 +7421,7 @@ export type AddressSettings = Metadata & {
 };
 
 export type CountriesAndStates = {
-  countries: Country | Country[];
+  countries: Country[];
 };
 
 export type Country = {
@@ -7431,7 +7431,7 @@ export type Country = {
   label: string;
   orgDefault: boolean;
   standard: boolean;
-  states: State | State[];
+  states: State[];
   visible: boolean;
 };
 
@@ -7448,11 +7448,11 @@ export type AdvAccountForecastSet = Metadata & {
   accountFieldName?: string;
   calculationFrequency?: AdvAcctFcstCalcFrequency;
   description?: string;
-  dimensions: AdvAcctForecastDimension | AdvAcctForecastDimension[];
-  displayGroups: AdvAcctFrcstDisplayGroup | AdvAcctFrcstDisplayGroup[];
-  forecastAdjPeriods: AdvAcctForecastAdjPeriod | AdvAcctForecastAdjPeriod[];
+  dimensions: AdvAcctForecastDimension[];
+  displayGroups: AdvAcctFrcstDisplayGroup[];
+  forecastAdjPeriods: AdvAcctForecastAdjPeriod[];
   forecastFactObjectName: string;
-  forecastFormulas: AdvAccountForecastFormula | AdvAccountForecastFormula[];
+  forecastFormulas: AdvAccountForecastFormula[];
   forecastPeriodGroupName: string;
   forecastQuantityFieldName?: string;
   forecastRevenueFieldName?: string;
@@ -7460,7 +7460,7 @@ export type AdvAccountForecastSet = Metadata & {
   forecastSetName: string;
   forecastStatusFieldName?: string;
   generationDpeDefName?: string;
-  measureDefinitions: AdvAcctForecastMeasureDef | AdvAcctForecastMeasureDef[];
+  measureDefinitions: AdvAcctForecastMeasureDef[];
   periodFieldName?: string;
   recalculateDpeDefName?: string;
   regenerationDpeDefName?: string;
@@ -7478,7 +7478,7 @@ export type AdvAcctForecastDimension = {
 
 export type AdvAcctFrcstDisplayGroup = {
   advAcctFrcstDisplayGroupName: string;
-  displayGroupItems: AdvAcctFrcstDplyGroupItem | AdvAcctFrcstDplyGroupItem[];
+  displayGroupItems: AdvAcctFrcstDplyGroupItem[];
   displayGroupType?: AdvAcctFrcstDisplayGroupType;
   isDefault?: boolean;
   userProfileName?: string;
@@ -7521,7 +7521,7 @@ export type AdvAcctForecastDimSource = Metadata & {
 
 export type AdvAcctForecastPeriodGroup = Metadata & {
   forecastPeriodGroupName: string;
-  forecastPeriods: AdvAccountForecastPeriod | AdvAccountForecastPeriod[];
+  forecastPeriods: AdvAccountForecastPeriod[];
   startPeriod: number;
   status: ForecastPeriodGroupStatus;
 };
@@ -7536,7 +7536,7 @@ export type AdvancedObjectMapping = Metadata & {
   client: FieldMappingClient;
   description?: string;
   label: string;
-  rows: AdvancedFieldMapping | AdvancedFieldMapping[];
+  rows: AdvancedFieldMapping[];
   sourceObject?: string;
   targetObject?: string;
 };
@@ -7556,7 +7556,7 @@ export type Ai4mSettings = Metadata & {
 export type AnalyticSnapshot = Metadata & {
   description?: string;
   groupColumn?: string;
-  mappings: AnalyticSnapshotMapping | AnalyticSnapshotMapping[];
+  mappings: AnalyticSnapshotMapping[];
   name: string;
   runningUser?: string;
   sourceReport: string;
@@ -7671,7 +7671,7 @@ export type AnimationRule = Metadata & {
 };
 
 export type ApexEmailNotifications = Metadata & {
-  apexEmailNotification: ApexEmailNotification | ApexEmailNotification[];
+  apexEmailNotification: ApexEmailNotification[];
 };
 
 export type ApexEmailNotification = {
@@ -7698,7 +7698,7 @@ export type ApexSettings = Metadata & {
 };
 
 export type ApexTestSuite = Metadata & {
-  testClassName: string | string[];
+  testClassName: string[];
 };
 
 export type AppExperienceSettings = Metadata & {
@@ -7706,7 +7706,7 @@ export type AppExperienceSettings = Metadata & {
 };
 
 export type AppMenu = Metadata & {
-  appMenuItems: AppMenuItem | AppMenuItem[];
+  appMenuItems: AppMenuItem[];
 };
 
 export type AppMenuItem = {
@@ -7744,7 +7744,7 @@ export type Application = Metadata & {
 };
 
 export type ModuleRefs = {
-  moduleRef: ModuleRef | ModuleRef[];
+  moduleRef: ModuleRef[];
 };
 
 export type ModuleRef = {
@@ -7793,9 +7793,9 @@ export type AppointmentSchedulingPolicy = Metadata & {
 export type ApprovalProcess = Metadata & {
   active: boolean;
   allowRecall?: boolean;
-  allowedSubmitters: ApprovalSubmitter | ApprovalSubmitter[];
+  allowedSubmitters: ApprovalSubmitter[];
   approvalPageFields?: ApprovalPageField;
-  approvalStep: ApprovalStep | ApprovalStep[];
+  approvalStep: ApprovalStep[];
   description?: string;
   emailTemplate?: string;
   enableMobileDeviceAccess?: boolean;
@@ -7820,7 +7820,7 @@ export type ApprovalSubmitter = {
 };
 
 export type ApprovalPageField = {
-  field: string | string[];
+  field: string[];
 };
 
 export type ApprovalStep = {
@@ -7837,7 +7837,7 @@ export type ApprovalStep = {
 };
 
 export type ApprovalAction = {
-  action: WorkflowActionReference | WorkflowActionReference[];
+  action: WorkflowActionReference[];
 };
 
 export type WorkflowActionReference = {
@@ -7846,7 +7846,7 @@ export type WorkflowActionReference = {
 };
 
 export type ApprovalStepApprover = {
-  approver: Approver | Approver[];
+  approver: Approver[];
   whenMultipleApprovers?: RoutingType;
 };
 
@@ -7857,7 +7857,7 @@ export type Approver = {
 
 export type ApprovalEntryCriteria = {
   booleanFilter?: string;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   formula?: string;
 };
 
@@ -7906,14 +7906,14 @@ export type AssessmentQuestionVersion = {
 };
 
 export type AssessmentQuestionSet = Metadata & {
-  assessmentQuestionDeveloperNames: string | string[];
+  assessmentQuestionDeveloperNames: string[];
   developerName: string;
   name: string;
 };
 
 export type AssignmentRule = Metadata & {
   active?: boolean;
-  ruleEntry: RuleEntry | RuleEntry[];
+  ruleEntry: RuleEntry[];
 };
 
 export type RuleEntry = {
@@ -7922,9 +7922,9 @@ export type RuleEntry = {
   booleanFilter?: string;
   businessHours?: string;
   businessHoursSource?: BusinessHoursSourceType;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   disableEscalationWhenModified?: boolean;
-  escalationAction: EscalationAction | EscalationAction[];
+  escalationAction: EscalationAction[];
   escalationStartTime?: EscalationStartTimeType;
   formula?: string;
   notifyCcRecipients?: boolean;
@@ -7932,7 +7932,7 @@ export type RuleEntry = {
   replyToEmail?: string;
   senderEmail?: string;
   senderName?: string;
-  team: string | string[];
+  team: string[];
   template?: string;
 };
 
@@ -7942,13 +7942,13 @@ export type EscalationAction = {
   assignedToType?: AssignToLookupValueType;
   minutesToEscalation?: number;
   notifyCaseOwner?: boolean;
-  notifyEmail: string | string[];
+  notifyEmail: string[];
   notifyTo?: string;
   notifyToTemplate?: string;
 };
 
 export type AssignmentRules = Metadata & {
-  assignmentRule: AssignmentRule | AssignmentRule[];
+  assignmentRule: AssignmentRule[];
 };
 
 export type AssistantContextItem = Metadata & {
@@ -7967,7 +7967,7 @@ export type AssistantContextItem = Metadata & {
 
 export type AssistantDefinition = Metadata & {
   appVersionNumber?: number;
-  assistantDefinitionProfiles: AssistantDefinitionProfile | AssistantDefinitionProfile[];
+  assistantDefinitionProfiles: AssistantDefinitionProfile[];
   description?: string;
   developerName: string;
   masterLabel?: string;
@@ -7979,7 +7979,7 @@ export type AssistantDefinitionProfile = {
 };
 
 export type AssistantSkillQuickAction = Metadata & {
-  assistantSkillQuickActionParams: AssistantSkillQuickActionParam | AssistantSkillQuickActionParam[];
+  assistantSkillQuickActionParams: AssistantSkillQuickActionParam[];
   description?: string;
   developerName: string;
   masterLabel?: string;
@@ -7997,7 +7997,7 @@ export type AssistantSkillQuickActionParam = {
 };
 
 export type AssistantSkillSobjectAction = Metadata & {
-  assistantSkillSobjectParams: AssistantSkillSobjectParam | AssistantSkillSobjectParam[];
+  assistantSkillSobjectParams: AssistantSkillSobjectParam[];
   description?: string;
   developerName: string;
   masterLabel?: string;
@@ -8019,8 +8019,8 @@ export type AssistantSkillSobjectParam = {
 
 export type AssistantVersion = Metadata & {
   assistantDefinitionId: string;
-  assistantSkills: AssistantSkill | AssistantSkill[];
-  assistantVersionActions: AssistantVersionAction | AssistantVersionAction[];
+  assistantSkills: AssistantSkill[];
+  assistantVersionActions: AssistantVersionAction[];
   description?: string;
   developerName: string;
   masterLabel?: string;
@@ -8028,7 +8028,7 @@ export type AssistantVersion = Metadata & {
 };
 
 export type AssistantSkill = {
-  assistantSkillIntents: AssistantSkillIntent | AssistantSkillIntent[];
+  assistantSkillIntents: AssistantSkillIntent[];
   description?: string;
   externalModel?: string;
   index?: number;
@@ -8064,7 +8064,7 @@ export type Audience = Metadata & {
 };
 
 export type AudienceCriteria = {
-  criterion: AudienceCriterion | AudienceCriterion[];
+  criterion: AudienceCriterion[];
 };
 
 export type AudienceCriterion = {
@@ -8090,7 +8090,7 @@ export type AudienceCriteriaValue = {
 };
 
 export type PersonalizationTargetInfos = {
-  target: PersonalizationTargetInfo | PersonalizationTargetInfo[];
+  target: PersonalizationTargetInfo[];
 };
 
 export type PersonalizationTargetInfo = {
@@ -8111,7 +8111,7 @@ export type AuraDefinitionBundle = Metadata & {
   helperContent?: string;
   markup?: string;
   modelContent?: string;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
   rendererContent?: string;
   styleContent?: string;
   testsuiteContent?: string;
@@ -8119,7 +8119,7 @@ export type AuraDefinitionBundle = Metadata & {
 };
 
 export type AuraDefinitions = {
-  auraDefinition: AuraDefinition | AuraDefinition[];
+  auraDefinition: AuraDefinition[];
 };
 
 export type AuraDefinition = {
@@ -8167,11 +8167,11 @@ export type AuthProvider = Metadata & {
 
 export type AutoResponseRule = Metadata & {
   active?: boolean;
-  ruleEntry: RuleEntry | RuleEntry[];
+  ruleEntry: RuleEntry[];
 };
 
 export type AutoResponseRules = Metadata & {
-  autoResponseRule: AutoResponseRule | AutoResponseRule[];
+  autoResponseRule: AutoResponseRule[];
 };
 
 export type AutomatedContactsSettings = Metadata & {
@@ -8182,30 +8182,30 @@ export type AutomatedContactsSettings = Metadata & {
 };
 
 export type BatchCalcJobDefinition = Metadata & {
-  aggregates: BatchCalcJobAggregate | BatchCalcJobAggregate[];
-  appends: BatchCalcJobUnion | BatchCalcJobUnion[];
-  customNodes: BatchCalcJobCustomNode | BatchCalcJobCustomNode[];
+  aggregates: BatchCalcJobAggregate[];
+  appends: BatchCalcJobUnion[];
+  customNodes: BatchCalcJobCustomNode[];
   dataSpaceApiName?: string;
-  datasources: BatchCalcJobDatasource | BatchCalcJobDatasource[];
+  datasources: BatchCalcJobDatasource[];
   description?: string;
   executionPlatformType?: ExecutionPlatformType;
-  filters: BatchCalcJobFilter | BatchCalcJobFilter[];
-  forecasts: BatchCalcJobForecast | BatchCalcJobForecast[];
-  hierarchyPaths: BatchCalcJobHierarchyPath | BatchCalcJobHierarchyPath[];
+  filters: BatchCalcJobFilter[];
+  forecasts: BatchCalcJobForecast[];
+  hierarchyPaths: BatchCalcJobHierarchyPath[];
   isTemplate?: boolean;
-  joins: BatchCalcJobSourceJoin | BatchCalcJobSourceJoin[];
+  joins: BatchCalcJobSourceJoin[];
   label?: string;
-  parameters: BatchCalcJobParameter | BatchCalcJobParameter[];
+  parameters: BatchCalcJobParameter[];
   processType?: BatchCalcProcessType;
   status: BatchJobDefinitionStatus;
-  transforms: BatchCalcJobTransform | BatchCalcJobTransform[];
-  writebacks: BatchCalcJobWritebackObject | BatchCalcJobWritebackObject[];
+  transforms: BatchCalcJobTransform[];
+  writebacks: BatchCalcJobWritebackObject[];
 };
 
 export type BatchCalcJobAggregate = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobAggregateField | BatchCalcJobAggregateField[];
-  groupBy: string | string[];
+  fields: BatchCalcJobAggregateField[];
+  groupBy: string[];
   label: string;
   name: string;
   sourceName: string;
@@ -8221,8 +8221,8 @@ export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
   extensionNamespace: string;
   label: string;
   name: string;
-  parameters: BatchCalcJobCustomNodeParameter | BatchCalcJobCustomNodeParameter[];
-  sources: string | string[];
+  parameters: BatchCalcJobCustomNodeParameter[];
+  sources: string[];
 };
 
 export type BatchCalcJobCustomNodeParameter = {
@@ -8232,7 +8232,7 @@ export type BatchCalcJobCustomNodeParameter = {
 
 export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobDatasourceField | BatchCalcJobDatasourceField[];
+  fields: BatchCalcJobDatasourceField[];
   label: string;
   name: string;
   sourceName: string;
@@ -8246,7 +8246,7 @@ export type BatchCalcJobDatasourceField = {
 };
 
 export type BatchCalcJobFilter = BatchCalcJobAbstractMetadataValue & {
-  criteria: BatchCalcJobFilterCriteria | BatchCalcJobFilterCriteria[];
+  criteria: BatchCalcJobFilterCriteria[];
   description?: string;
   filterCondition?: string;
   filterParameterName?: string;
@@ -8266,13 +8266,13 @@ export type BatchCalcJobFilterCriteria = {
 
 export type BatchCalcJobForecast = BatchCalcJobAbstractMetadataValue & {
   accuracyPercent?: BatchCalcJobFrcstAccuracy;
-  aggregationFields: BtchCalcJobFrcstAggrFld | BtchCalcJobFrcstAggrFld[];
+  aggregationFields: BtchCalcJobFrcstAggrFld[];
   dateFieldName: string;
   description?: string;
   forecastModelType?: BatchCalcJobFrcstModel;
   forecastPeriodCount?: number;
   forecastPeriodType: BatchCalcJobFrcstPeriodType;
-  groupFields: BatchCalcJobFrcstGrpFld | BatchCalcJobFrcstGrpFld[];
+  groupFields: BatchCalcJobFrcstGrpFld[];
   label: string;
   name: string;
   periodStartDateName: string;
@@ -8314,8 +8314,8 @@ export type BatchCalcJobParameter = BatchCalcJobAbstractMetadataValue & {
 
 export type BatchCalcJobSourceJoin = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  fields: BatchCalcJobJoinResultField | BatchCalcJobJoinResultField[];
-  joinKeys: BatchCalcJobJoinKey | BatchCalcJobJoinKey[];
+  fields: BatchCalcJobJoinResultField[];
+  joinKeys: BatchCalcJobJoinKey[];
   label: string;
   name: string;
   primarySourceName: string;
@@ -8336,12 +8336,12 @@ export type BatchCalcJobJoinKey = {
 
 export type BatchCalcJobTransform = BatchCalcJobAbstractMetadataValue & {
   description?: string;
-  droppedFields: BatchCalcJobTransformDroppedField | BatchCalcJobTransformDroppedField[];
-  expressionFields: BatchCalcJobTransformAddedField | BatchCalcJobTransformAddedField[];
+  droppedFields: BatchCalcJobTransformDroppedField[];
+  expressionFields: BatchCalcJobTransformAddedField[];
   label: string;
   name: string;
-  orderBy: BatchCalcJobOrderByField | BatchCalcJobOrderByField[];
-  partitionBy: string | string[];
+  orderBy: BatchCalcJobOrderByField[];
+  partitionBy: string[];
   sourceName: string;
   transformationType: BatchCalcJobTransformType;
 };
@@ -8368,13 +8368,13 @@ export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
   isDisjointedSchema?: boolean;
   label: string;
   name: string;
-  sources: string | string[];
+  sources: string[];
 };
 
 export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
   description?: string;
   externalIdFieldName?: string;
-  fields: BatchCalcJobWritebackMapping | BatchCalcJobWritebackMapping[];
+  fields: BatchCalcJobWritebackMapping[];
   filterCondition?: string;
   folderName?: string;
   isChangedRow?: boolean;
@@ -8422,7 +8422,7 @@ export type BatchProcessJobDefinition = Metadata & {
 export type BatchDataSource = {
   condition: string;
   criteria?: string;
-  filters: BatchDataSrcFilterCriteria | BatchDataSrcFilterCriteria[];
+  filters: BatchDataSrcFilterCriteria[];
   sourceObject: string;
   sourceObjectField?: string;
 };
@@ -8437,7 +8437,7 @@ export type BatchDataSrcFilterCriteria = {
 };
 
 export type BenefitAction = Metadata & {
-  benefitActionParameters: BenefitActionParameter | BenefitActionParameter[];
+  benefitActionParameters: BenefitActionParameter[];
   description?: string;
   flowDefinition?: string;
   isActive: boolean;
@@ -8454,7 +8454,7 @@ export type BenefitActionParameter = {
   masterLabel: string;
   name?: string;
   objectName?: string;
-  parameterValues: BenefitActionParameterValue | BenefitActionParameterValue[];
+  parameterValues: BenefitActionParameterValue[];
   picklistName?: string;
 };
 
@@ -8482,15 +8482,15 @@ export type BlockchainSettings = Metadata & {
 export type Bot = Metadata & {
   botMlDomain?: LocalMlDomain;
   botUser?: string;
-  botVersions: BotVersion | BotVersion[];
-  contextVariables: ConversationContextVariable | ConversationContextVariable[];
-  conversationChannelProviders: ConversationDefinitionChannelProvider | ConversationDefinitionChannelProvider[];
+  botVersions: BotVersion[];
+  contextVariables: ConversationContextVariable[];
+  conversationChannelProviders: ConversationDefinitionChannelProvider[];
   defaultOutboundFlow?: string;
   description?: string;
   iconUrl?: string;
   label?: string;
   logPrivateConversationData?: boolean;
-  pageContextVariables: PageContextVariable | PageContextVariable[];
+  pageContextVariables: PageContextVariable[];
   richContentEnabled?: boolean;
   sessionTimeout?: number;
   type?: BotType;
@@ -8498,8 +8498,8 @@ export type Bot = Metadata & {
 
 export type LocalMlDomain = {
   label: string;
-  mlIntents: MlIntent | MlIntent[];
-  mlSlotClasses: MlSlotClass | MlSlotClass[];
+  mlIntents: MlIntent[];
+  mlSlotClasses: MlSlotClass[];
   name: string;
 };
 
@@ -8507,8 +8507,8 @@ export type MlIntent = {
   description?: string;
   developerName: string;
   label: string;
-  mlIntentUtterances: MlIntentUtterance | MlIntentUtterance[];
-  relatedMlIntents: MlRelatedIntent | MlRelatedIntent[];
+  mlIntentUtterances: MlIntentUtterance[];
+  relatedMlIntents: MlRelatedIntent[];
 };
 
 export type MlIntentUtterance = {
@@ -8527,36 +8527,36 @@ export type MlSlotClass = {
   extractionRegex?: string;
   extractionType?: MlSlotClassExtractionType;
   label: string;
-  mlSlotClassValues: MlSlotClassValue | MlSlotClassValue[];
+  mlSlotClassValues: MlSlotClassValue[];
 };
 
 export type MlSlotClassValue = {
   synonymGroup?: SynonymGroup;
-  synonymGroups: SynonymGroup | SynonymGroup[];
+  synonymGroups: SynonymGroup[];
   value: string;
 };
 
 export type SynonymGroup = {
-  languages: Language | Language[];
-  terms: string | string[];
+  languages: Language[];
+  terms: string[];
 };
 
 export type BotVersion = Metadata & {
   articleAnswersGPTEnabled?: boolean;
-  botDialogGroups: BotDialogGroup | BotDialogGroup[];
-  botDialogs: BotDialog | BotDialog[];
+  botDialogGroups: BotDialogGroup[];
+  botDialogs: BotDialog[];
   citationsEnabled?: boolean;
-  conversationDefinitionPlanners: ConversationDefinitionPlanner | ConversationDefinitionPlanner[];
-  conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
-  conversationSystemDialogs: ConversationSystemDialog | ConversationSystemDialog[];
-  conversationVariables: ConversationVariable | ConversationVariable[];
+  conversationDefinitionPlanners: ConversationDefinitionPlanner[];
+  conversationGoals: ConversationDefinitionGoal[];
+  conversationSystemDialogs: ConversationSystemDialog[];
+  conversationVariables: ConversationVariable[];
   copilotPrimaryLanguage?: Language;
   entryDialog: string;
   intentDisambiguationEnabled?: boolean;
   intentV3Enabled?: boolean;
   knowledgeFallbackEnabled?: boolean;
   mainMenuDialog: string;
-  nlpProviders: ConversationDefinitionNlpProvider | ConversationDefinitionNlpProvider[];
+  nlpProviders: ConversationDefinitionNlpProvider[];
   responseDelayMilliseconds?: number;
   smallTalkEnabled?: boolean;
   toneType?: GenAiBotToneType;
@@ -8570,7 +8570,7 @@ export type BotDialogGroup = {
 
 export type BotDialog = {
   botDialogGroup?: string;
-  botSteps: BotStep | BotStep[];
+  botSteps: BotStep[];
   description?: string;
   developerName: string;
   isPlaceholderDialog?: boolean;
@@ -8583,14 +8583,14 @@ export type BotDialog = {
 export type BotStep = {
   booleanFilter?: string;
   botInvocation?: BotInvocation;
-  botMessages: BotMessage | BotMessage[];
+  botMessages: BotMessage[];
   botNavigation?: BotNavigation;
-  botStepConditions: BotStepCondition | BotStepCondition[];
-  botSteps: BotStep | BotStep[];
+  botStepConditions: BotStepCondition[];
+  botSteps: BotStep[];
   botVariableOperation?: BotVariableOperation;
   conditionLogicType?: ConversationDefinitionLogicalOperatorType;
   conversationRecordLookup?: ConversationRecordLookup;
-  conversationStepGoalMappings: ConversationDefinitionStepGoalMapping | ConversationDefinitionStepGoalMapping[];
+  conversationStepGoalMappings: ConversationDefinitionStepGoalMapping[];
   conversationSystemMessage?: ConversationSystemMessage;
   messageDefinition?: ConversationDefinitionRichMessage;
   stepIdentifier?: string;
@@ -8600,7 +8600,7 @@ export type BotStep = {
 export type BotInvocation = {
   invocationActionName?: string;
   invocationActionType?: ConversationInvocableTargetType;
-  invocationMappings: BotInvocationMapping | BotInvocationMapping[];
+  invocationMappings: BotInvocationMapping[];
 };
 
 export type BotInvocationMapping = {
@@ -8618,7 +8618,7 @@ export type BotMessage = {
 };
 
 export type BotNavigation = {
-  botNavigationLinks: BotNavigationLink | BotNavigationLink[];
+  botNavigationLinks: BotNavigationLink[];
   type: BotNavigationType;
 };
 
@@ -8640,19 +8640,19 @@ export type BotVariableOperation = {
   askCollectIfSet?: boolean;
   autoSelectIfSingleChoice?: boolean;
   botInvocation?: BotInvocation;
-  botMessages: BotMessage | BotMessage[];
-  botQuickReplyOptions: BotQuickReplyOption | BotQuickReplyOption[];
-  botVariableOperands: BotVariableOperand | BotVariableOperand[];
+  botMessages: BotMessage[];
+  botQuickReplyOptions: BotQuickReplyOption[];
+  botVariableOperands: BotVariableOperand[];
   invalidInputBotNavigation?: BotNavigation;
   messageDefinition?: ConversationDefinitionRichMessage;
   optionalCollect?: boolean;
   quickReplyOptionTemplate?: string;
   quickReplyType?: BotQuickReplyType;
   quickReplyWidgetType?: BotWidgetType;
-  retryMessages: BotMessage | BotMessage[];
+  retryMessages: BotMessage[];
   sourceVariableName?: string;
   sourceVariableType?: ConversationVariableType;
-  successMessages: BotMessage | BotMessage[];
+  successMessages: BotMessage[];
   type: BotVariableOperationType;
   variableOperationIdentifier?: string;
 };
@@ -8673,15 +8673,15 @@ export type BotVariableOperand = {
 
 export type ConversationDefinitionRichMessage = {
   executionType?: ConversationMessageExecutionType;
-  messageDefinitionMappings: BotInvocationMapping | BotInvocationMapping[];
+  messageDefinitionMappings: BotInvocationMapping[];
   messageDefinitionName: string;
 };
 
 export type ConversationRecordLookup = {
   SObjectType: string;
-  conditions: ConversationRecordLookupCondition | ConversationRecordLookupCondition[];
+  conditions: ConversationRecordLookupCondition[];
   filterLogic?: string;
-  lookupFields: ConversationRecordLookupField | ConversationRecordLookupField[];
+  lookupFields: ConversationRecordLookupField[];
   maxLookupResults: number;
   sortFieldName?: string;
   sortOrder?: SortOrder;
@@ -8708,7 +8708,7 @@ export type ConversationDefinitionStepGoalMapping = {
 };
 
 export type ConversationSystemMessage = {
-  systemMessageMappings: ConversationSystemMessageMapping | ConversationSystemMessageMapping[];
+  systemMessageMappings: ConversationSystemMessageMapping[];
   type: ConversationSystemMessageType;
 };
 
@@ -8748,7 +8748,7 @@ export type ConversationDefinitionNlpProvider = {
 
 export type ConversationContextVariable = {
   SObjectType?: string;
-  contextVariableMappings: ConversationContextVariableMapping | ConversationContextVariableMapping[];
+  contextVariableMappings: ConversationContextVariableMapping[];
   dataType: ConversationDataType;
   developerName: string;
   label: string;
@@ -8774,7 +8774,7 @@ export type PageContextVariable = {
 };
 
 export type BotBlock = Metadata & {
-  botBlockVersions: BotBlockVersion | BotBlockVersion[];
+  botBlockVersions: BotBlockVersion[];
   description?: string;
   icon?: string;
   masterLabel: string;
@@ -8782,10 +8782,10 @@ export type BotBlock = Metadata & {
 };
 
 export type BotBlockVersion = Metadata & {
-  botDialogs: BotDialog | BotDialog[];
-  conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
+  botDialogs: BotDialog[];
+  conversationGoals: ConversationDefinitionGoal[];
   conversationLanguages: string;
-  conversationVariables: ConversationVariable | ConversationVariable[];
+  conversationVariables: ConversationVariable[];
   description?: string;
   mlDomain: LocalMlDomain;
   permissionSet?: string;
@@ -8797,13 +8797,13 @@ export type BotSettings = Metadata & {
 };
 
 export type BotTemplate = Metadata & {
-  botDialogGroups: BotDialogGroup | BotDialogGroup[];
-  botDialogs: BotDialog | BotDialog[];
-  contextVariables: ConversationContextVariable | ConversationContextVariable[];
-  conversationGoals: ConversationDefinitionGoal | ConversationDefinitionGoal[];
+  botDialogGroups: BotDialogGroup[];
+  botDialogs: BotDialog[];
+  contextVariables: ConversationContextVariable[];
+  conversationGoals: ConversationDefinitionGoal[];
   conversationLanguages: string;
-  conversationSystemDialogs: ConversationSystemDialog | ConversationSystemDialog[];
-  conversationVariables: ConversationVariable | ConversationVariable[];
+  conversationSystemDialogs: ConversationSystemDialog[];
+  conversationVariables: ConversationVariable[];
   description?: string;
   entryDialog?: string;
   icon?: string;
@@ -8816,7 +8816,7 @@ export type BotTemplate = Metadata & {
 };
 
 export type BrandingSet = Metadata & {
-  brandingSetProperty: BrandingSetProperty | BrandingSetProperty[];
+  brandingSetProperty: BrandingSetProperty[];
   description?: string;
   masterLabel: string;
   type?: string;
@@ -8828,7 +8828,7 @@ export type BrandingSetProperty = {
 };
 
 export type BriefcaseDefinition = Metadata & {
-  briefcaseRules: BriefcaseRule | BriefcaseRule[];
+  briefcaseRules: BriefcaseRule[];
   description?: string;
   isActive: boolean;
   masterLabel: string;
@@ -8836,13 +8836,13 @@ export type BriefcaseDefinition = Metadata & {
 };
 
 export type BriefcaseRule = {
-  briefcaseRuleFilters: BriefcaseRuleFilter | BriefcaseRuleFilter[];
+  briefcaseRuleFilters: BriefcaseRuleFilter[];
   filterLogic?: string;
   isAscendingOrder?: boolean;
   orderBy?: string;
   queryScope?: FilterScope;
   recordLimit?: number;
-  relatedRules: BriefcaseRule | BriefcaseRule[];
+  relatedRules: BriefcaseRule[];
   relationshipField?: string;
   relationshipType?: BriefcaseRuleRelationshipType;
   targetEntity: string;
@@ -8877,19 +8877,19 @@ export type BusinessHoursEntry = Metadata & {
 };
 
 export type BusinessHoursSettings = Metadata & {
-  businessHours: BusinessHoursEntry | BusinessHoursEntry[];
-  holidays: Holiday | Holiday[];
+  businessHours: BusinessHoursEntry[];
+  holidays: Holiday[];
 };
 
 export type Holiday = {
   activityDate?: Date;
-  businessHours: string | string[];
+  businessHours: string[];
   description?: string;
   endTime?: Date;
   isRecurring?: boolean;
   name?: string;
   recurrenceDayOfMonth?: number;
-  recurrenceDayOfWeek: string | string[];
+  recurrenceDayOfWeek: string[];
   recurrenceDayOfWeekMask?: number;
   recurrenceEndDate?: Date;
   recurrenceInstance?: string;
@@ -8903,7 +8903,7 @@ export type Holiday = {
 export type BusinessProcess = Metadata & {
   description?: string;
   isActive?: boolean;
-  values: PicklistValue | PicklistValue[];
+  values: PicklistValue[];
 };
 
 export type PicklistValue = Metadata & {
@@ -8913,7 +8913,7 @@ export type PicklistValue = Metadata & {
   isActive?: boolean;
   allowEmail?: boolean;
   closed?: boolean;
-  controllingFieldValues: string | string[];
+  controllingFieldValues: string[];
   converted?: boolean;
   cssExposed?: boolean;
   forecastCategory?: ForecastCategories;
@@ -8932,14 +8932,14 @@ export type GlobalPicklistValue = Metadata & {
 };
 
 export type BusinessProcessGroup = Metadata & {
-  businessProcessDefinitions: BusinessProcessDefinition | BusinessProcessDefinition[];
+  businessProcessDefinitions: BusinessProcessDefinition[];
   customerSatisfactionMetric: SurveyQuestionType;
   description?: string;
   masterLabel: string;
 };
 
 export type BusinessProcessDefinition = {
-  businessProcessFeedbacks: BusinessProcessFeedback | BusinessProcessFeedback[];
+  businessProcessFeedbacks: BusinessProcessFeedback[];
   description?: string;
   developerName: string;
   masterLabel: string;
@@ -8959,10 +8959,10 @@ export type BusinessProcessTypeDefinition = Metadata & {
 };
 
 export type CMSConnectSource = Metadata & {
-  cmsConnectAsset: CMSConnectAsset | CMSConnectAsset[];
-  cmsConnectLanguage: CMSConnectLanguage | CMSConnectLanguage[];
+  cmsConnectAsset: CMSConnectAsset[];
+  cmsConnectLanguage: CMSConnectLanguage[];
   cmsConnectPersonalization?: CMSConnectPersonalization;
-  cmsConnectResourceType: CMSConnectResourceType | CMSConnectResourceType[];
+  cmsConnectResourceType: CMSConnectResourceType[];
   connectionType: CMSSourceConnectionType;
   cssScope?: string;
   developerName: string;
@@ -8994,7 +8994,7 @@ export type CMSConnectPersonalization = {
 };
 
 export type CMSConnectResourceType = {
-  cmsConnectResourceDefinition: CMSConnectResourceDefinition | CMSConnectResourceDefinition[];
+  cmsConnectResourceDefinition: CMSConnectResourceDefinition[];
   developerName: string;
   masterLabel: string;
   resourceType: string;
@@ -9013,13 +9013,13 @@ export type CMSConnectResourceDefinition = {
 
 export type CallCenter = Metadata & {
   adapterUrl?: string;
-  contactCenterChannels: ContactCenterChannel | ContactCenterChannel[];
+  contactCenterChannels: ContactCenterChannel[];
   customSettings?: string;
   displayName: string;
   displayNameLabel: string;
   internalNameLabel: string;
-  sections: CallCenterSection | CallCenterSection[];
-  vendorCallCenterStatusMaps: VendorCallCenterStatusMap | VendorCallCenterStatusMap[];
+  sections: CallCenterSection[];
+  vendorCallCenterStatusMaps: VendorCallCenterStatusMap[];
   version?: string;
 };
 
@@ -9031,7 +9031,7 @@ export type ContactCenterChannel = {
 };
 
 export type CallCenterSection = {
-  items: CallCenterItem | CallCenterItem[];
+  items: CallCenterItem[];
   label: string;
   name: string;
 };
@@ -9121,7 +9121,7 @@ export type CareBenefitVerifySettings = Metadata & {
 
 export type CareRequestConfiguration = Metadata & {
   careRequestRecordType: string;
-  careRequestRecords: CareRequestRecords | CareRequestRecords[];
+  careRequestRecords: CareRequestRecords[];
   careRequestType: string;
   isActive?: boolean;
   isDefaultRecordType?: boolean;
@@ -9138,7 +9138,7 @@ export type CaseSettings = Metadata & {
   caseCloseNotificationTemplate?: string;
   caseCommentNotificationTemplate?: string;
   caseCreateNotificationTemplate?: string;
-  caseFeedItemSettings: FeedItemSettings | FeedItemSettings[];
+  caseFeedItemSettings: FeedItemSettings[];
   caseFeedReadUnreadLtng?: boolean;
   caseMergeInLightning?: boolean;
   closeCaseThroughStatusChange?: boolean;
@@ -9209,7 +9209,7 @@ export type EmailToCaseSettings = {
   overEmailLimitAction?: EmailToCaseOnFailureActionType;
   preQuoteSignature?: boolean;
   replyWithNewContentOnly?: boolean;
-  routingAddresses: EmailToCaseRoutingAddress | EmailToCaseRoutingAddress[];
+  routingAddresses: EmailToCaseRoutingAddress[];
   showGeneratedEmailCheckbox?: boolean;
   unauthorizedSenderAction?: EmailToCaseOnFailureActionType;
   useEmailHeadersForThreading?: boolean;
@@ -9248,9 +9248,9 @@ export type CaseSubjectParticle = Metadata & {
 export type ChannelLayout = Metadata & {
   doesExcludeFieldLabels?: boolean;
   doesExcludeFiles?: boolean;
-  enabledChannels: string | string[];
+  enabledChannels: string[];
   label: string;
-  layoutItems: ChannelLayoutItem | ChannelLayoutItem[];
+  layoutItems: ChannelLayoutItem[];
   recordType?: string;
 };
 
@@ -9344,7 +9344,7 @@ export type ClauseCatgConfiguration = Metadata & {
 };
 
 export type CleanDataService = Metadata & {
-  cleanRules: CleanRule | CleanRule[];
+  cleanRules: CleanRule[];
   description: string;
   masterLabel: string;
   matchEngine: string;
@@ -9356,7 +9356,7 @@ export type CleanRule = {
   bypassWorkflow: boolean;
   description: string;
   developerName: string;
-  fieldMappings: FieldMapping | FieldMapping[];
+  fieldMappings: FieldMapping[];
   masterLabel: string;
   matchRule: string;
   sourceSobjectType: string;
@@ -9367,13 +9367,13 @@ export type CleanRule = {
 export type FieldMapping = {
   SObjectType: string;
   developerName: string;
-  fieldMappingRows: FieldMappingRow | FieldMappingRow[];
+  fieldMappingRows: FieldMappingRow[];
   masterLabel: string;
 };
 
 export type FieldMappingRow = {
   SObjectType: string;
-  fieldMappingFields: FieldMappingField | FieldMappingField[];
+  fieldMappingFields: FieldMappingField[];
   fieldName: string;
   mappingOperation: MappingOperation;
 };
@@ -9388,7 +9388,7 @@ export type CloudServiceProvider = Metadata & {
   authParams: string;
   authType: AuthType;
   baseApiUrl: string;
-  cloudServiceProviderApis: CloudServiceProviderApi | CloudServiceProviderApi[];
+  cloudServiceProviderApis: CloudServiceProviderApi[];
   externalId: string;
   name: string;
   provisioningAutomationType?: ProvisioningAutomationType;
@@ -9410,16 +9410,16 @@ export type CloudServiceProviderApi = {
 export type CommandAction = Metadata & {
   actionType: string;
   description?: string;
-  intents: CommandActionIntent | CommandActionIntent[];
+  intents: CommandActionIntent[];
   label: string;
-  parameters: CommandActionParam | CommandActionParam[];
-  responseTemplates: CommandActionResponse | CommandActionResponse[];
+  parameters: CommandActionParam[];
+  responseTemplates: CommandActionResponse[];
   target?: string;
 };
 
 export type CommandActionIntent = {
   phrase: string;
-  responseTemplates: CommandActionResponse | CommandActionResponse[];
+  responseTemplates: CommandActionResponse[];
 };
 
 export type CommandActionResponse = {
@@ -9493,8 +9493,8 @@ export type Community = Metadata & {
 };
 
 export type ReputationLevels = {
-  chatterAnswersReputationLevels: ChatterAnswersReputationLevel | ChatterAnswersReputationLevel[];
-  ideaReputationLevels: IdeaReputationLevel | IdeaReputationLevel[];
+  chatterAnswersReputationLevels: ChatterAnswersReputationLevel[];
+  ideaReputationLevels: IdeaReputationLevel[];
 };
 
 export type ChatterAnswersReputationLevel = {
@@ -9518,15 +9518,15 @@ export type CommunityAIModelMapping = Metadata & {
 
 export type CommunityTemplateDefinition = Metadata & {
   baseTemplate?: CommunityBaseTemplate;
-  bundlesInfo: CommunityTemplateBundleInfo | CommunityTemplateBundleInfo[];
+  bundlesInfo: CommunityTemplateBundleInfo[];
   category: CommunityTemplateCategory;
   defaultBrandingSet?: string;
   defaultThemeDefinition: string;
   description?: string;
   enableExtendedCleanUpOnDelete?: boolean;
   masterLabel: string;
-  navigationLinkSet: NavigationLinkSet | NavigationLinkSet[];
-  pageSetting: CommunityTemplatePageSetting | CommunityTemplatePageSetting[];
+  navigationLinkSet: NavigationLinkSet[];
+  pageSetting: CommunityTemplatePageSetting[];
   publisher?: string;
 };
 
@@ -9541,7 +9541,7 @@ export type CommunityTemplateBundleInfo = {
 export type CommunityThemeBundleInfo = string;
 
 export type NavigationLinkSet = {
-  navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+  navigationMenuItem: NavigationMenuItem[];
 };
 
 export type NavigationMenuItem = {
@@ -9561,7 +9561,7 @@ export type NavigationMenuItemBranding = {
 };
 
 export type NavigationSubMenu = {
-  navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+  navigationMenuItem: NavigationMenuItem[];
 };
 
 export type CommunityTemplatePageSetting = {
@@ -9570,15 +9570,15 @@ export type CommunityTemplatePageSetting = {
 };
 
 export type CommunityThemeDefinition = Metadata & {
-  bundlesInfo: CommunityThemeBundleInfo | CommunityThemeBundleInfo[];
-  customThemeLayoutType: CommunityCustomThemeLayoutType | CommunityCustomThemeLayoutType[];
+  bundlesInfo: CommunityThemeBundleInfo[];
+  customThemeLayoutType: CommunityCustomThemeLayoutType[];
   defaultBrandingSet?: string;
   description?: string;
   enableExtendedCleanUpOnDelete?: boolean;
   masterLabel: string;
   publisher?: string;
-  themeRouteOverride: CommunityThemeRouteOverride | CommunityThemeRouteOverride[];
-  themeSetting: CommunityThemeSetting | CommunityThemeSetting[];
+  themeRouteOverride: CommunityThemeRouteOverride[];
+  themeSetting: CommunityThemeSetting[];
 };
 
 export type CommunityCustomThemeLayoutType = {
@@ -9600,7 +9600,7 @@ export type CommunityThemeSetting = {
 };
 
 export type CompactLayout = Metadata & {
-  fields: string | string[];
+  fields: string[];
   label: string;
 };
 
@@ -9615,7 +9615,7 @@ export type FiscalYearSettings = {
 };
 
 export type ConnectedApp = Metadata & {
-  attributes: ConnectedAppAttribute | ConnectedAppAttribute[];
+  attributes: ConnectedAppAttribute[];
   canvas?: CanvasMetadata;
   canvasConfig?: ConnectedAppCanvasConfig;
   contactEmail: string;
@@ -9623,17 +9623,17 @@ export type ConnectedApp = Metadata & {
   description?: string;
   iconUrl?: string;
   infoUrl?: string;
-  ipRanges: ConnectedAppIpRange | ConnectedAppIpRange[];
+  ipRanges: ConnectedAppIpRange[];
   label: string;
   logoUrl?: string;
   mobileAppConfig?: ConnectedAppMobileDetailConfig;
   mobileStartUrl?: string;
   oauthConfig?: ConnectedAppOauthConfig;
   oauthPolicy?: ConnectedAppOauthPolicy;
-  permissionSetName: string | string[];
+  permissionSetName: string[];
   plugin?: string;
   pluginExecutionUser?: string;
-  profileName: string | string[];
+  profileName: string[];
   samlConfig?: ConnectedAppSamlConfig;
   sessionPolicy?: ConnectedAppSessionPolicy;
   startUrl?: string;
@@ -9648,8 +9648,8 @@ export type ConnectedAppCanvasConfig = {
   accessMethod: AccessMethod;
   canvasUrl: string;
   lifecycleClass?: string;
-  locations: CanvasLocationOptions | CanvasLocationOptions[];
-  options: CanvasOptions | CanvasOptions[];
+  locations: CanvasLocationOptions[];
+  options: CanvasOptions[];
   samlInitiationMethod?: SamlInitiationMethod;
 };
 
@@ -9694,7 +9694,7 @@ export type ConnectedAppOauthConfig = {
   isSecretRequiredForTokenExchange?: boolean;
   isTokenExchangeEnabled?: boolean;
   oauthClientCredentialUser?: string;
-  scopes: ConnectedAppOauthAccessScope | ConnectedAppOauthAccessScope[];
+  scopes: ConnectedAppOauthAccessScope[];
   singleLogoutUrl?: string;
 };
 
@@ -9809,7 +9809,7 @@ export type ContentSettings = Metadata & {
 
 export type ContextDefinition = Metadata & {
   clonedFrom?: string;
-  contextDefinitionVersions: ContextDefinitionVersion | ContextDefinitionVersion[];
+  contextDefinitionVersions: ContextDefinitionVersion[];
   contextTtl?: number;
   description?: string;
   inheritedFrom?: string;
@@ -9820,8 +9820,8 @@ export type ContextDefinition = Metadata & {
 };
 
 export type ContextDefinitionVersion = {
-  contextMappings: ContextMapping | ContextMapping[];
-  contextNodes: ContextNode | ContextNode[];
+  contextMappings: ContextMapping[];
+  contextNodes: ContextNode[];
   endDate?: string;
   isActive?: boolean;
   startDate: string;
@@ -9829,7 +9829,7 @@ export type ContextDefinitionVersion = {
 };
 
 export type ContextMapping = {
-  contextNodeMappings: ContextNodeMapping | ContextNodeMapping[];
+  contextNodeMappings: ContextNodeMapping[];
   default?: boolean;
   description?: string;
   inheritedFrom?: string;
@@ -9837,36 +9837,36 @@ export type ContextMapping = {
 };
 
 export type ContextNodeMapping = {
-  contextAttributeMappings: ContextAttributeMapping | ContextAttributeMapping[];
+  contextAttributeMappings: ContextAttributeMapping[];
   contextNode?: string;
   inheritedFrom?: string;
   object?: string;
 };
 
 export type ContextAttributeMapping = {
-  contextAttrHydrationDetails: ContextAttrHydrationDetail | ContextAttrHydrationDetail[];
+  contextAttrHydrationDetails: ContextAttrHydrationDetail[];
   contextAttribute?: string;
   contextInputAttributeName: string;
   inheritedFrom?: string;
 };
 
 export type ContextAttrHydrationDetail = {
-  contextAttrHydrationDetails: ContextAttrHydrationDetail | ContextAttrHydrationDetail[];
+  contextAttrHydrationDetails: ContextAttrHydrationDetail[];
   inheritedFrom?: string;
   objectName: string;
   queryAttribute: string;
 };
 
 export type ContextNode = {
-  contextAttributes: ContextAttribute | ContextAttribute[];
-  contextTags: ContextTag | ContextTag[];
+  contextAttributes: ContextAttribute[];
+  contextTags: ContextTag[];
   inheritedFrom?: string;
   title: string;
   transposable?: boolean;
 };
 
 export type ContextAttribute = {
-  contextTags: ContextTag | ContextTag[];
+  contextTags: ContextTag[];
   dataType: ContextAttributeDataType;
   domainSet?: string;
   fieldType: ContextAttributeFieldType;
@@ -9891,7 +9891,7 @@ export type ContractSettings = Metadata & {
 };
 
 export type ContractType = Metadata & {
-  contractTypeConfigs: ContractTypeConfig | ContractTypeConfig[];
+  contractTypeConfigs: ContractTypeConfig[];
   isDefault?: boolean;
   masterLabel: string;
   subTypes?: string;
@@ -9943,25 +9943,25 @@ export type ConversationChannelDefinition = Metadata & {
 };
 
 export type ConversationMessageDefinition = Metadata & {
-  constants: ConversationMessageConstant | ConversationMessageConstant[];
+  constants: ConversationMessageConstant[];
   description?: string;
   label: string;
   language?: string;
-  messageHandlers: ConversationMessageHandler | ConversationMessageHandler[];
-  messageLayouts: ConversationMessageLayout | ConversationMessageLayout[];
+  messageHandlers: ConversationMessageHandler[];
+  messageLayouts: ConversationMessageLayout[];
   optionsParameter?: ConversationMessageOptionsParameter;
-  parameters: ConversationMessageParameter | ConversationMessageParameter[];
+  parameters: ConversationMessageParameter[];
   type: ConversationMessageDefinitionType;
 };
 
 export type ConversationMessageConstant = {
-  compositeValues: ConversationMessageConstantCompositeValue | ConversationMessageConstantCompositeValue[];
+  compositeValues: ConversationMessageConstantCompositeValue[];
   constantType: ConversationMessageConstantType;
-  primitiveValues: ConversationMessageConstantPrimitiveValue | ConversationMessageConstantPrimitiveValue[];
+  primitiveValues: ConversationMessageConstantPrimitiveValue[];
 };
 
 export type ConversationMessageConstantCompositeValue = {
-  constantItems: ConversationMessageConstant | ConversationMessageConstant[];
+  constantItems: ConversationMessageConstant[];
   identifier: string;
 };
 
@@ -9979,9 +9979,9 @@ export type ConversationMessageHandler = {
 };
 
 export type ConversationMessageLayout = {
-  externalTemplates: ConvMsgExternalTemplateVersion | ConvMsgExternalTemplateVersion[];
+  externalTemplates: ConvMsgExternalTemplateVersion[];
   formatType: ConversationMessageFormatType;
-  layoutItems: ConversationMessageLayoutItem | ConversationMessageLayoutItem[];
+  layoutItems: ConversationMessageLayoutItem[];
   messageType: ConversationMessageType;
 };
 
@@ -9996,14 +9996,14 @@ export type ConvMsgExternalTemplateVersion = {
 
 export type ConversationMessageLayoutItem = {
   collectionType: ConversationMessageCollectionType;
-  compositeValues: ConversationMessageLayoutCompositeValue | ConversationMessageLayoutCompositeValue[];
+  compositeValues: ConversationMessageLayoutCompositeValue[];
   name: string;
-  primitiveValues: ConversationMessageLayoutPrimitiveValue | ConversationMessageLayoutPrimitiveValue[];
+  primitiveValues: ConversationMessageLayoutPrimitiveValue[];
 };
 
 export type ConversationMessageLayoutCompositeValue = {
   compositeTypeName: string;
-  layoutItems: ConversationMessageLayoutItem | ConversationMessageLayoutItem[];
+  layoutItems: ConversationMessageLayoutItem[];
   valueSourceReference?: string;
 };
 
@@ -10012,7 +10012,7 @@ export type ConversationMessageLayoutPrimitiveValue = {
   fieldName?: string;
   formulaTemplate?: string;
   literalValue?: string;
-  mergeFields: ConversationMessageMergeField | ConversationMessageMergeField[];
+  mergeFields: ConversationMessageMergeField[];
   type: ConversationMessageLayoutValueType;
   valueFormula?: string;
   valueSourceReference?: string;
@@ -10032,13 +10032,13 @@ export type ConversationMessageOptionsParameter = {
 };
 
 export type ConversationMessageParameterCompositeDetails = {
-  compositeChildItems: ConversationMessageParameterCompositeDetails | ConversationMessageParameterCompositeDetails[];
+  compositeChildItems: ConversationMessageParameterCompositeDetails[];
   isList?: boolean;
   isRequired?: boolean;
   label?: string;
   maxListItems?: number;
   name?: string;
-  primitiveChildItems: ConversationMessageParameterPrimitiveDetails | ConversationMessageParameterPrimitiveDetails[];
+  primitiveChildItems: ConversationMessageParameterPrimitiveDetails[];
 };
 
 export type ConversationMessageParameterPrimitiveDetails = {
@@ -10131,12 +10131,12 @@ export type CustomAddressFieldSettings = Metadata & {
 };
 
 export type CustomApplication = Metadata & {
-  actionOverrides: AppActionOverride | AppActionOverride[];
+  actionOverrides: AppActionOverride[];
   brand?: AppBrand;
   consoleConfig?: ServiceCloudConsoleConfig;
   defaultLandingTab?: string;
   description?: string;
-  formFactors: FormFactor | FormFactor[];
+  formFactors: FormFactor[];
   isNavAutoTempTabsDisabled?: boolean;
   isNavPersonalizationDisabled?: boolean;
   isNavTabPersistenceDisabled?: boolean;
@@ -10146,11 +10146,11 @@ export type CustomApplication = Metadata & {
   logo?: string;
   navType?: NavType;
   preferences?: AppPreferences;
-  profileActionOverrides: AppProfileActionOverride | AppProfileActionOverride[];
+  profileActionOverrides: AppProfileActionOverride[];
   setupExperience?: string;
-  subscriberTabs: string | string[];
+  subscriberTabs: string[];
   tabSetType?: string;
-  tabs: string | string[];
+  tabs: string[];
   uiType?: UiType;
   utilityBar?: string;
   workspaceConfig?: AppWorkspaceConfig;
@@ -10187,19 +10187,19 @@ export type ServiceCloudConsoleConfig = {
   listRefreshMethod: string;
   liveAgentConfig?: LiveAgentConfig;
   primaryTabColor?: string;
-  pushNotifications: PushNotification | PushNotification[];
+  pushNotifications: PushNotification[];
   tabLimitConfig?: TabLimitConfig;
-  whitelistedDomains: string | string[];
+  whitelistedDomains: string[];
 };
 
 export type AppComponentList = {
   alignment: string;
-  components: string | string[];
+  components: string[];
 };
 
 export type KeyboardShortcuts = {
-  customShortcuts: CustomShortcut | CustomShortcut[];
-  defaultShortcuts: DefaultShortcut | DefaultShortcut[];
+  customShortcuts: CustomShortcut[];
+  defaultShortcuts: DefaultShortcut[];
 };
 
 export type CustomShortcut = DefaultShortcut & {
@@ -10227,12 +10227,12 @@ export type LiveAgentConfig = {
   openNewContactSubtab?: boolean;
   openNewLeadSubtab?: boolean;
   openNewVFPageSubtab?: boolean;
-  pageNamesToOpen: string | string[];
+  pageNamesToOpen: string[];
   showKnowledgeArticles?: boolean;
 };
 
 export type PushNotification = {
-  fieldNames: string | string[];
+  fieldNames: string[];
   objectName: string;
 };
 
@@ -10267,7 +10267,7 @@ export type ProfileActionOverride = {
 };
 
 export type AppWorkspaceConfig = {
-  mappings: WorkspaceMapping | WorkspaceMapping[];
+  mappings: WorkspaceMapping[];
 };
 
 export type WorkspaceMapping = {
@@ -10289,7 +10289,7 @@ export type CustomApplicationComponent = Metadata & {
 };
 
 export type CustomDataType = Metadata & {
-  customDataTypeComponents: CustomDataTypeComponent | CustomDataTypeComponent[];
+  customDataTypeComponents: CustomDataTypeComponent[];
   description?: string;
   displayFormula?: string;
   editComponentsOnSeparateLines?: boolean;
@@ -10311,7 +10311,7 @@ export type CustomDataTypeComponent = {
 };
 
 export type CustomFeedFilter = Metadata & {
-  criteria: FeedFilterCriterion | FeedFilterCriterion[];
+  criteria: FeedFilterCriterion[];
   description?: string;
   isProtected?: boolean;
   label: string;
@@ -10375,7 +10375,7 @@ export type CustomField = Metadata & {
   startingNumber?: number;
   stripMarkup?: boolean;
   summarizedField?: string;
-  summaryFilterItems: FilterItem | FilterItem[];
+  summaryFilterItems: FilterItem[];
   summaryForeignKey?: string;
   summaryOperation?: SummaryOperations;
   trackFeedHistory?: boolean;
@@ -10394,7 +10394,7 @@ export type LookupFilter = {
   booleanFilter?: string;
   description?: string;
   errorMessage?: string;
-  filterItems: FilterItem | FilterItem[];
+  filterItems: FilterItem[];
   infoMessage?: string;
   isOptional: boolean;
 };
@@ -10424,7 +10424,7 @@ export type MktDataModelFieldAttributes = {
 
 export type Picklist = {
   controllingField?: string;
-  picklistValues: PicklistValue | PicklistValue[];
+  picklistValues: PicklistValue[];
   restrictedPicklist?: boolean;
   sorted: boolean;
 };
@@ -10434,12 +10434,12 @@ export type ValueSet = {
   restricted?: boolean;
   valueSetDefinition?: ValueSetValuesDefinition;
   valueSetName?: string;
-  valueSettings: ValueSettings | ValueSettings[];
+  valueSettings: ValueSettings[];
 };
 
 export type ValueSetValuesDefinition = {
   sorted: boolean;
-  value: CustomValue | CustomValue[];
+  value: CustomValue[];
 };
 
 export type CustomValue = Metadata & {
@@ -10465,12 +10465,12 @@ export type StandardValue = CustomValue & {
 };
 
 export type ValueSettings = {
-  controllingFieldValue: string | string[];
+  controllingFieldValue: string[];
   valueName: string;
 };
 
 export type CustomHelpMenuSection = Metadata & {
-  customHelpMenuItems: CustomHelpMenuItem | CustomHelpMenuItem[];
+  customHelpMenuItems: CustomHelpMenuItem[];
   masterLabel: string;
 };
 
@@ -10493,14 +10493,14 @@ export type CustomLabel = Metadata & {
 };
 
 export type CustomLabels = Metadata & {
-  labels: CustomLabel | CustomLabel[];
+  labels: CustomLabel[];
 };
 
 export type CustomMetadata = Metadata & {
   description?: string;
   label?: string;
   protected?: boolean;
-  values: CustomMetadataValue | CustomMetadataValue[];
+  values: CustomMetadataValue[];
 };
 
 export type CustomMetadataValue = {
@@ -10518,12 +10518,12 @@ export type CustomNotificationType = Metadata & {
 };
 
 export type CustomObject = Metadata & {
-  actionOverrides: ActionOverride | ActionOverride[];
+  actionOverrides: ActionOverride[];
   allowInChatterGroups?: boolean;
   articleTypeChannelDisplay?: ArticleTypeChannelDisplay;
-  businessProcesses: BusinessProcess | BusinessProcess[];
+  businessProcesses: BusinessProcess[];
   compactLayoutAssignment?: string;
-  compactLayouts: CompactLayout | CompactLayout[];
+  compactLayouts: CompactLayout[];
   customHelp?: string;
   customHelpPage?: string;
   customSettingsType?: CustomSettingsType;
@@ -10549,35 +10549,35 @@ export type CustomObject = Metadata & {
   externalName?: string;
   externalRepository?: string;
   externalSharingModel?: SharingModel;
-  fieldSets: FieldSet | FieldSet[];
-  fields: CustomField | CustomField[];
+  fieldSets: FieldSet[];
+  fields: CustomField[];
   gender?: Gender;
   historyRetentionPolicy?: HistoryRetentionPolicy;
   household?: boolean;
-  indexes: Index | Index[];
+  indexes: Index[];
   label?: string;
-  listViews: ListView | ListView[];
+  listViews: ListView[];
   mktDataLakeAttributes?: MktDataLakeAttributes;
   mktDataModelAttributes?: MktDataModelAttributes;
   nameField?: CustomField;
   pluralLabel?: string;
-  profileSearchLayouts: ProfileSearchLayouts | ProfileSearchLayouts[];
+  profileSearchLayouts: ProfileSearchLayouts[];
   publishBehavior?: PlatformEventPublishBehavior;
   recordTypeTrackFeedHistory?: boolean;
   recordTypeTrackHistory?: boolean;
-  recordTypes: RecordType | RecordType[];
+  recordTypes: RecordType[];
   searchLayouts?: SearchLayouts;
   sharingModel?: SharingModel;
-  sharingReasons: SharingReason | SharingReason[];
-  sharingRecalculations: SharingRecalculation | SharingRecalculation[];
+  sharingReasons: SharingReason[];
+  sharingRecalculations: SharingRecalculation[];
   startsWith?: StartsWith;
-  validationRules: ValidationRule | ValidationRule[];
+  validationRules: ValidationRule[];
   visibility?: SetupObjectVisibility;
-  webLinks: WebLink | WebLink[];
+  webLinks: WebLink[];
 };
 
 export type ArticleTypeChannelDisplay = {
-  articleTypeTemplates: ArticleTypeTemplate | ArticleTypeTemplate[];
+  articleTypeTemplates: ArticleTypeTemplate[];
 };
 
 export type ArticleTypeTemplate = {
@@ -10587,9 +10587,9 @@ export type ArticleTypeTemplate = {
 };
 
 export type FieldSet = Metadata & {
-  availableFields: FieldSetItem | FieldSetItem[];
+  availableFields: FieldSetItem[];
   description: string;
-  displayedFields: FieldSetItem | FieldSetItem[];
+  displayedFields: FieldSetItem[];
   label: string;
 };
 
@@ -10608,7 +10608,7 @@ export type HistoryRetentionPolicy = {
 };
 
 export type Index = Metadata & {
-  fields: IndexField | IndexField[];
+  fields: IndexField[];
   label: string;
   minNumRequiredIndexedFields?: number;
   type?: string;
@@ -10621,10 +10621,10 @@ export type IndexField = {
 
 export type ListView = Metadata & {
   booleanFilter?: string;
-  columns: string | string[];
+  columns: string[];
   division?: string;
   filterScope: FilterScope;
-  filters: ListViewFilter | ListViewFilter[];
+  filters: ListViewFilter[];
   label: string;
   language?: Language;
   queue?: string;
@@ -10641,25 +10641,25 @@ export type SharedTo = {
   allCustomerPortalUsers?: string;
   allInternalUsers?: string;
   allPartnerUsers?: string;
-  channelProgramGroup: string | string[];
-  channelProgramGroups: string | string[];
-  group: string | string[];
-  groups: string | string[];
-  guestUser: string | string[];
-  managerSubordinates: string | string[];
-  managers: string | string[];
-  portalRole: string | string[];
-  portalRoleAndSubordinates: string | string[];
-  queue: string | string[];
-  role: string | string[];
-  roleAndSubordinates: string | string[];
-  roleAndSubordinatesInternal: string | string[];
-  roles: string | string[];
-  rolesAndSubordinates: string | string[];
-  territories: string | string[];
-  territoriesAndSubordinates: string | string[];
-  territory: string | string[];
-  territoryAndSubordinates: string | string[];
+  channelProgramGroup: string[];
+  channelProgramGroups: string[];
+  group: string[];
+  groups: string[];
+  guestUser: string[];
+  managerSubordinates: string[];
+  managers: string[];
+  portalRole: string[];
+  portalRoleAndSubordinates: string[];
+  queue: string[];
+  role: string[];
+  roleAndSubordinates: string[];
+  roleAndSubordinatesInternal: string[];
+  roles: string[];
+  rolesAndSubordinates: string[];
+  territories: string[];
+  territoriesAndSubordinates: string[];
+  territory: string[];
+  territoryAndSubordinates: string[];
 };
 
 export type MktDataLakeAttributes = {
@@ -10684,7 +10684,7 @@ export type MktDataModelAttributes = {
 };
 
 export type ProfileSearchLayouts = {
-  fields: string | string[];
+  fields: string[];
   profileName?: string;
 };
 
@@ -10694,25 +10694,25 @@ export type RecordType = Metadata & {
   compactLayoutAssignment?: string;
   description?: string;
   label: string;
-  picklistValues: RecordTypePicklistValue | RecordTypePicklistValue[];
+  picklistValues: RecordTypePicklistValue[];
 };
 
 export type RecordTypePicklistValue = {
   picklist: string;
-  values: PicklistValue | PicklistValue[];
+  values: PicklistValue[];
 };
 
 export type SearchLayouts = {
-  customTabListAdditionalFields: string | string[];
-  excludedStandardButtons: string | string[];
-  listViewButtons: string | string[];
-  lookupDialogsAdditionalFields: string | string[];
-  lookupFilterFields: string | string[];
-  lookupPhoneDialogsAdditionalFields: string | string[];
-  massQuickActions: string | string[];
-  searchFilterFields: string | string[];
-  searchResultsAdditionalFields: string | string[];
-  searchResultsCustomButtons: string | string[];
+  customTabListAdditionalFields: string[];
+  excludedStandardButtons: string[];
+  listViewButtons: string[];
+  lookupDialogsAdditionalFields: string[];
+  lookupFilterFields: string[];
+  lookupPhoneDialogsAdditionalFields: string[];
+  massQuickActions: string[];
+  searchFilterFields: string[];
+  searchResultsAdditionalFields: string[];
+  searchResultsCustomButtons: string[];
 };
 
 export type SharingReason = Metadata & {
@@ -10757,20 +10757,20 @@ export type WebLink = Metadata & {
 };
 
 export type CustomObjectTranslation = Metadata & {
-  caseValues: ObjectNameCaseValue | ObjectNameCaseValue[];
-  fieldSets: FieldSetTranslation | FieldSetTranslation[];
-  fields: CustomFieldTranslation | CustomFieldTranslation[];
+  caseValues: ObjectNameCaseValue[];
+  fieldSets: FieldSetTranslation[];
+  fields: CustomFieldTranslation[];
   gender?: Gender;
-  layouts: LayoutTranslation | LayoutTranslation[];
+  layouts: LayoutTranslation[];
   nameFieldLabel?: string;
-  quickActions: QuickActionTranslation | QuickActionTranslation[];
-  recordTypes: RecordTypeTranslation | RecordTypeTranslation[];
-  sharingReasons: SharingReasonTranslation | SharingReasonTranslation[];
-  standardFields: StandardFieldTranslation | StandardFieldTranslation[];
+  quickActions: QuickActionTranslation[];
+  recordTypes: RecordTypeTranslation[];
+  sharingReasons: SharingReasonTranslation[];
+  standardFields: StandardFieldTranslation[];
   startsWith?: StartsWith;
-  validationRules: ValidationRuleTranslation | ValidationRuleTranslation[];
-  webLinks: WebLinkTranslation | WebLinkTranslation[];
-  workflowTasks: WorkflowTaskTranslation | WorkflowTaskTranslation[];
+  validationRules: ValidationRuleTranslation[];
+  webLinks: WebLinkTranslation[];
+  workflowTasks: WorkflowTaskTranslation[];
 };
 
 export type ObjectNameCaseValue = {
@@ -10787,13 +10787,13 @@ export type FieldSetTranslation = {
 };
 
 export type CustomFieldTranslation = {
-  caseValues: ObjectNameCaseValue | ObjectNameCaseValue[];
+  caseValues: ObjectNameCaseValue[];
   gender?: Gender;
   help?: string;
   label?: string;
   lookupFilter?: LookupFilterTranslation;
   name: string;
-  picklistValues: PicklistValueTranslation | PicklistValueTranslation[];
+  picklistValues: PicklistValueTranslation[];
   relationshipLabel?: string;
   startsWith?: StartsWith;
 };
@@ -10811,7 +10811,7 @@ export type PicklistValueTranslation = {
 export type LayoutTranslation = {
   layout: string;
   layoutType?: string;
-  sections: LayoutSectionTranslation | LayoutSectionTranslation[];
+  sections: LayoutSectionTranslation[];
 };
 
 export type LayoutSectionTranslation = {
@@ -10886,7 +10886,7 @@ export type CustomPermission = Metadata & {
   description?: string;
   isLicensed: boolean;
   label: string;
-  requiredPermission: CustomPermissionDependencyRequired | CustomPermissionDependencyRequired[];
+  requiredPermission: CustomPermissionDependencyRequired[];
 };
 
 export type CustomPermissionDependencyRequired = {
@@ -10916,7 +10916,7 @@ export type CustomSite = Metadata & {
   chatterAnswersRegistrationPage?: string;
   clickjackProtectionLevel: SiteClickjackProtectionLevel;
   contentSniffingProtection: boolean;
-  customWebAddresses: SiteWebAddress | SiteWebAddress[];
+  customWebAddresses: SiteWebAddress[];
   description?: string;
   enableAuraRequests?: boolean;
   favoriteIcon?: string;
@@ -10937,8 +10937,8 @@ export type CustomSite = Metadata & {
   serverIsDown?: string;
   siteAdmin?: string;
   siteGuestRecordDefaultOwner?: string;
-  siteIframeWhiteListUrls: SiteIframeWhiteListUrl | SiteIframeWhiteListUrl[];
-  siteRedirectMappings: SiteRedirectMapping | SiteRedirectMapping[];
+  siteIframeWhiteListUrls: SiteIframeWhiteListUrl[];
+  siteRedirectMappings: SiteRedirectMapping[];
   siteTemplate?: string;
   siteType: SiteType;
   subdomain?: string;
@@ -10964,7 +10964,7 @@ export type SiteRedirectMapping = {
 };
 
 export type CustomTab = Metadata & {
-  actionOverrides: ActionOverride | ActionOverride[];
+  actionOverrides: ActionOverride[];
   auraComponent?: string;
   customObject?: boolean;
   description?: string;
@@ -10998,7 +10998,7 @@ export type Dashboard = Metadata & {
   colorPalette?: ChartColorPalettes;
   dashboardChartTheme?: ChartTheme;
   dashboardColorPalette?: ChartColorPalettes;
-  dashboardFilters: DashboardFilter | DashboardFilter[];
+  dashboardFilters: DashboardFilter[];
   dashboardGridLayout?: DashboardGridLayout;
   dashboardResultRefreshedDate?: string;
   dashboardResultRunningUser?: string;
@@ -11019,17 +11019,17 @@ export type Dashboard = Metadata & {
 };
 
 export type DashboardFilter = {
-  dashboardFilterOptions: DashboardFilterOption | DashboardFilterOption[];
+  dashboardFilterOptions: DashboardFilterOption[];
   name: string;
 };
 
 export type DashboardFilterOption = {
   operator: DashboardFilterOperation;
-  values: string | string[];
+  values: string[];
 };
 
 export type DashboardGridLayout = {
-  dashboardGridComponents: DashboardGridComponent | DashboardGridComponent[];
+  dashboardGridComponents: DashboardGridComponent[];
   numberOfColumns: number;
   rowHeight: number;
 };
@@ -11047,13 +11047,13 @@ export type DashboardComponent = {
   chartAxisRange?: ChartRangeType;
   chartAxisRangeMax?: number;
   chartAxisRangeMin?: number;
-  chartSummary: ChartSummary | ChartSummary[];
+  chartSummary: ChartSummary[];
   componentChartTheme?: ChartTheme;
   componentType: DashboardComponentType;
-  dashboardComponentContents: DashboardComponentContent | DashboardComponentContent[];
-  dashboardDynamicValues: DashboardDynamicValue | DashboardDynamicValue[];
-  dashboardFilterColumns: DashboardFilterColumn | DashboardFilterColumn[];
-  dashboardTableColumn: DashboardTableColumn | DashboardTableColumn[];
+  dashboardComponentContents: DashboardComponentContent[];
+  dashboardDynamicValues: DashboardDynamicValue[];
+  dashboardFilterColumns: DashboardFilterColumn[];
+  dashboardTableColumn: DashboardTableColumn[];
   decimalPrecision?: number;
   displayUnits?: ChartUnits;
   drillDownUrl?: string;
@@ -11065,7 +11065,7 @@ export type DashboardComponent = {
   footer?: string;
   gaugeMax?: number;
   gaugeMin?: number;
-  groupingColumn: string | string[];
+  groupingColumn: string[];
   groupingSortProperties?: DashboardComponentGroupingSortProperties;
   header?: string;
   indicatorBreakpoint1?: number;
@@ -11131,7 +11131,7 @@ export type DashboardTableColumn = {
 
 export type DashboardFlexTableComponentProperties = {
   decimalPrecision?: number;
-  flexTableColumn: DashboardComponentColumn | DashboardComponentColumn[];
+  flexTableColumn: DashboardComponentColumn[];
   flexTableSortInfo?: DashboardComponentSortInfo;
   hideChatterPhotos?: boolean;
 };
@@ -11155,7 +11155,7 @@ export type DashboardComponentSortInfo = {
 };
 
 export type DashboardComponentGroupingSortProperties = {
-  groupingSorts: DashboardComponentGroupingSort | DashboardComponentGroupingSort[];
+  groupingSorts: DashboardComponentGroupingSort[];
 };
 
 export type DashboardComponentGroupingSort = {
@@ -11167,7 +11167,7 @@ export type DashboardComponentGroupingSort = {
 
 export type DashboardComponentSection = {
   columnSize: DashboardComponentSize;
-  components: DashboardComponent | DashboardComponent[];
+  components: DashboardComponent[];
 };
 
 export type DataCalcInsightTemplate = Metadata & {
@@ -11191,13 +11191,13 @@ export type DataCategoryGroup = Metadata & {
 };
 
 export type DataCategory = {
-  dataCategory: DataCategory | DataCategory[];
+  dataCategory: DataCategory[];
   label: string;
   name: string;
 };
 
 export type ObjectUsage = {
-  object: string | string[];
+  object: string[];
 };
 
 export type DataConnectionParamTmpl = Metadata & {
@@ -11246,7 +11246,7 @@ export type DataKitObjectTemplate = Metadata & {
 export type DataModelTaxonomy = Metadata & {
   creationType?: DefinitionCreationType;
   dataModelType: DataModelType;
-  dataObjectCategories: DataObjectCategory | DataObjectCategory[];
+  dataObjectCategories: DataObjectCategory[];
   isProtected?: boolean;
   masterLabel: string;
   supplier: string;
@@ -11277,7 +11277,7 @@ export type DataPackageKitObject = Metadata & {
 
 export type DataPlatform = Metadata & {
   dataConnectorType: string;
-  dataPlatDataSetBundles: DataPlatDataSetBundle | DataPlatDataSetBundle[];
+  dataPlatDataSetBundles: DataPlatDataSetBundle[];
   description?: string;
   forExportIntOrgName?: string;
   forImportIntOrgName?: string;
@@ -11290,7 +11290,7 @@ export type DataPlatform = Metadata & {
 
 export type DataPlatDataSetBundle = {
   bundleType?: string;
-  dataPlatformDataSets: DataPlatformDataSet | DataPlatformDataSet[];
+  dataPlatformDataSets: DataPlatformDataSet[];
   description?: string;
   iconUri?: string;
   sortOrder?: number;
@@ -11338,7 +11338,7 @@ export type DataSourceField = Metadata & {
 
 export type DataSourceObject = Metadata & {
   dataSource: string;
-  dataSourceFields: DataSourceField | DataSourceField[];
+  dataSourceFields: DataSourceField[];
   externalRecordIdentifier?: string;
   masterLabel: string;
   objectType?: DataObjectType;
@@ -11382,7 +11382,7 @@ export type DataStreamDefinition = Metadata & {
 };
 
 export type DataStreamTemplate = Metadata & {
-  dataConnectionSourceParameters: DataConnectionParamTmpl | DataConnectionParamTmpl[];
+  dataConnectionSourceParameters: DataConnectionParamTmpl[];
   dataSourceBundleDefinition: string;
   dataSourceObject: string;
   masterLabel: string;
@@ -11396,7 +11396,7 @@ export type DataspaceScope = Metadata & {
   description?: string;
   isProtected?: boolean;
   masterLabel: string;
-  metadataGroups: DataspaceScopeSchemaAccess | DataspaceScopeSchemaAccess[];
+  metadataGroups: DataspaceScopeSchemaAccess[];
 };
 
 export type DataspaceScopeSchemaAccess = {
@@ -11410,11 +11410,11 @@ export type DecisionMatrixDefinition = Metadata & {
   processType?: ExpsSetProcessType;
   subGroupKey?: string;
   type?: DecisionMatrixType;
-  versions: DecisionMatrixDefinitionVersion | DecisionMatrixDefinitionVersion[];
+  versions: DecisionMatrixDefinitionVersion[];
 };
 
 export type DecisionMatrixDefinitionVersion = Metadata & {
-  columns: DecisionMatrixDefinitionVersionColumn | DecisionMatrixDefinitionVersionColumn[];
+  columns: DecisionMatrixDefinitionVersionColumn[];
   decisionMatrixDefinition?: string;
   endDate?: Date;
   groupKeyValue?: string;
@@ -11440,8 +11440,8 @@ export type DecisionTable = Metadata & {
   conditionCriteria?: string;
   conditionType?: DecisionTableConditionType;
   dataSourceType?: DecisionTableDataSourceType;
-  decisionTableParameters: DecisionTableParameter | DecisionTableParameter[];
-  decisionTableSourceCriterias: DecisionTableSourceCriteria | DecisionTableSourceCriteria[];
+  decisionTableParameters: DecisionTableParameter[];
+  decisionTableSourceCriterias: DecisionTableSourceCriteria[];
   description?: string;
   doesConsiderNullValue?: boolean;
   filterResultBy?: DecisionTableHitPolicy;
@@ -11482,7 +11482,7 @@ export type DecisionTableSourceCriteria = {
 
 export type DecisionTableDatasetLink = Metadata & {
   decisionTableName: string;
-  decisionTblDatasetParameters: DecisionTblDatasetParameter | DecisionTblDatasetParameter[];
+  decisionTblDatasetParameters: DecisionTblDatasetParameter[];
   description?: string;
   isDefault?: boolean;
   setupName: string;
@@ -11518,8 +11518,8 @@ export type FtestTopLevelWithDeclMd1 = Metadata & {
   isProtected?: boolean;
   masterLabel: string;
   staticEnumField?: FTestTopLevelSelection;
-  typeOneItems: FtestDetailWithDeclMd1 | FtestDetailWithDeclMd1[];
-  typeTwoItems: FtestDetailWithDeclMd2 | FtestDetailWithDeclMd2[];
+  typeOneItems: FtestDetailWithDeclMd1[];
+  typeTwoItems: FtestDetailWithDeclMd2[];
 };
 
 export type FtestDetailWithDeclMd1 = {
@@ -11535,7 +11535,7 @@ export type FtestDetailWithDeclMd1 = {
   enumOrIdField?: string;
   integerField: number;
   staticEnumField?: FTestTopLevelSelection;
-  subItems: FtestSubDetailWithDeclMd | FtestSubDetailWithDeclMd[];
+  subItems: FtestSubDetailWithDeclMd[];
 };
 
 export type FtestSubDetailWithDeclMd = {
@@ -11574,7 +11574,7 @@ export type SchedulingObjective = Metadata & {
   isProtected?: boolean;
   masterLabel: string;
   schedulingCategory: SchedulingCategory;
-  schedulingObjectiveParameters: SchedulingObjectiveParameter | SchedulingObjectiveParameter[];
+  schedulingObjectiveParameters: SchedulingObjectiveParameter[];
   schedulingObjectiveType: SchedulingObjectiveType;
 };
 
@@ -11674,7 +11674,7 @@ export type RecAlrtDataSrcExpSetDef = Metadata & {
 
 export type EmployeeDataSyncProfile = Metadata & {
   description?: string;
-  employeeDataSyncField: EmployeeDataSyncField | EmployeeDataSyncField[];
+  employeeDataSyncField: EmployeeDataSyncField[];
   isActive: boolean;
   isProtected?: boolean;
   masterLabel: string;
@@ -11742,7 +11742,7 @@ export type SemanticModel = Metadata & {
   description?: string;
   isProtected?: boolean;
   masterLabel: string;
-  semanticModelContent: SemanticModelContent | SemanticModelContent[];
+  semanticModelContent: SemanticModelContent[];
   unrelatedDataObjectsQueryBehavior?: SemanticModelQueryUnrelatedDataObjectsType;
 };
 
@@ -11756,8 +11756,8 @@ export type SlackFeatureSettings = Metadata & {
 };
 
 export type ActionableListDefinition = Metadata & {
-  actionableListDatasetColumns: ActionableListDatasetColumn | ActionableListDatasetColumn[];
-  actionableListMemberStatuses: ActionableListMemberStatus | ActionableListMemberStatus[];
+  actionableListDatasetColumns: ActionableListDatasetColumn[];
+  actionableListMemberStatuses: ActionableListMemberStatus[];
   batchCalcJobDefinition?: string;
   datasetName?: string;
   edgeMart?: string;
@@ -11823,7 +11823,7 @@ export type SchedulingRule = Metadata & {
   isProtected?: boolean;
   masterLabel: string;
   schedulingCategory: SchedulingCategory;
-  schedulingRuleParameters: SchedulingRuleParameter | SchedulingRuleParameter[];
+  schedulingRuleParameters: SchedulingRuleParameter[];
   schedulingRuleType: SchedulingRuleType;
 };
 
@@ -11880,10 +11880,10 @@ export type SemanticDefinition = Metadata & {
   description?: string;
   isProtected?: boolean;
   masterLabel: string;
-  semanticCalcDimension: SemanticCalcDimension | SemanticCalcDimension[];
-  semanticCalcMeasurement: SemanticCalcMeasurement | SemanticCalcMeasurement[];
-  semanticDataObject: SemanticDataObject | SemanticDataObject[];
-  semanticRelationship: SemanticRelationship | SemanticRelationship[];
+  semanticCalcDimension: SemanticCalcDimension[];
+  semanticCalcMeasurement: SemanticCalcMeasurement[];
+  semanticDataObject: SemanticDataObject[];
+  semanticRelationship: SemanticRelationship[];
   type: SemanticDefinitionType;
 };
 
@@ -12139,14 +12139,14 @@ export type OnlineSalesSettings = Metadata & {
 };
 
 export type DelegateGroup = Metadata & {
-  customObjects: string | string[];
-  groups: string | string[];
+  customObjects: string[];
+  groups: string[];
   label: string;
   loginAccess: boolean;
-  permissionSetGroups: string | string[];
-  permissionSets: string | string[];
-  profiles: string | string[];
-  roles: string | string[];
+  permissionSetGroups: string[];
+  permissionSets: string[];
+  profiles: string[];
+  roles: string[];
 };
 
 export type DeploymentSettings = Metadata & {
@@ -12156,7 +12156,7 @@ export type DeploymentSettings = Metadata & {
 export type DigitalExperienceBundle = Metadata & {
   description?: string;
   label: string;
-  spaceResources: DigitalExperience | DigitalExperience[];
+  spaceResources: DigitalExperience[];
 };
 
 export type DigitalExperience = MetadataWithContent & {
@@ -12180,7 +12180,7 @@ export type AccessControlPolicy = MetadataWithContent & {
 
 export type ApexClass = MetadataWithContent & {
   apiVersion: number;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
   status: ApexCodeUnitStatus;
 };
 
@@ -12188,7 +12188,7 @@ export type ApexComponent = MetadataWithContent & {
   apiVersion?: number;
   description?: string;
   label: string;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
 };
 
 export type ApexPage = MetadataWithContent & {
@@ -12197,12 +12197,12 @@ export type ApexPage = MetadataWithContent & {
   confirmationTokenRequired?: boolean;
   description?: string;
   label: string;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
 };
 
 export type ApexTrigger = MetadataWithContent & {
   apiVersion: number;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
   status: ApexCodeUnitStatus;
 };
 
@@ -12231,11 +12231,11 @@ export type ContentAsset = MetadataWithContent & {
 };
 
 export type ContentAssetRelationships = {
-  emailTemplate: ContentAssetLink | ContentAssetLink[];
-  insightsApplication: ContentAssetLink | ContentAssetLink[];
-  network: ContentAssetLink | ContentAssetLink[];
+  emailTemplate: ContentAssetLink[];
+  insightsApplication: ContentAssetLink[];
+  network: ContentAssetLink[];
   organization?: ContentAssetLink;
-  workspace: ContentAssetLink | ContentAssetLink[];
+  workspace: ContentAssetLink[];
 };
 
 export type ContentAssetLink = {
@@ -12245,7 +12245,7 @@ export type ContentAssetLink = {
 };
 
 export type ContentAssetVersions = {
-  version: ContentAssetVersion | ContentAssetVersion[];
+  version: ContentAssetVersion[];
 };
 
 export type ContentAssetVersion = {
@@ -12271,14 +12271,14 @@ export type DiscoveryAIModel = MetadataWithContent & {
   classificationThreshold?: number;
   description?: string;
   label: string;
-  modelFields: DiscoveryModelField | DiscoveryModelField[];
+  modelFields: DiscoveryModelField[];
   modelRuntimeType: DiscoveryModelRuntimeType;
   predictedField: string;
   predictionType: DiscoveryPredictionType;
   sourceType: DiscoveryModelSourceType;
   status: DiscoveryAIModelStatus;
   trainingMetrics?: string;
-  transformations: DiscoveryModelTransform | DiscoveryModelTransform[];
+  transformations: DiscoveryModelTransform[];
 };
 
 export type DiscoveryModelField = {
@@ -12287,13 +12287,13 @@ export type DiscoveryModelField = {
   label: string;
   name: string;
   type: DiscoveryModelFieldType;
-  values: string | string[];
+  values: string[];
 };
 
 export type DiscoveryModelTransform = {
   config?: string;
-  sourceFieldNames: string | string[];
-  targetFieldNames: string | string[];
+  sourceFieldNames: string[];
+  targetFieldNames: string[];
   type: DiscoveryAIModelTransformationType;
 };
 
@@ -12358,7 +12358,7 @@ export type DocumentTemplate = MetadataWithContent & {
 };
 
 export type EclairGeoData = MetadataWithContent & {
-  maps: EclairMap | EclairMap[];
+  maps: EclairMap[];
   masterLabel: string;
 };
 
@@ -12374,14 +12374,14 @@ export type EclairMap = {
 
 export type EmailTemplate = MetadataWithContent & {
   apiVersion?: number;
-  attachedDocuments: string | string[];
-  attachments: Attachment | Attachment[];
+  attachedDocuments: string[];
+  attachments: Attachment[];
   available: boolean;
   description?: string;
   encodingKey: Encoding;
   letterhead?: string;
   name: string;
-  packageVersions: PackageVersion | PackageVersion[];
+  packageVersions: PackageVersion[];
   pageDevName?: string;
   relatedEntityType?: string;
   style: EmailTemplateStyle;
@@ -12527,7 +12527,7 @@ export type WaveDataflow = MetadataWithContent & {
 
 export type WaveLens = MetadataWithContent & {
   application: string;
-  datasets: string | string[];
+  datasets: string[];
   dateVersion?: number;
   description?: string;
   masterLabel: string;
@@ -12588,26 +12588,26 @@ export type DisclosureType = Metadata & {
 
 export type DiscoveryGoal = Metadata & {
   active: boolean;
-  deployedModels: DiscoveryDeployedModel | DiscoveryDeployedModel[];
+  deployedModels: DiscoveryDeployedModel[];
   label: string;
-  modelCards: DiscoveryModelCard | DiscoveryModelCard[];
+  modelCards: DiscoveryModelCard[];
   outcome: DiscoveryGoalOutcome;
   predictionType: DiscoveryPredictionType;
   pushbackField?: string;
   pushbackType?: DiscoveryPushbackType;
   subscribedEntity?: string;
-  terminalStateFilters: DiscoveryFilter | DiscoveryFilter[];
+  terminalStateFilters: DiscoveryFilter[];
 };
 
 export type DiscoveryDeployedModel = {
   active: boolean;
   aiModel: string;
   classificationThreshold?: number;
-  fieldMappings: DiscoveryFieldMap | DiscoveryFieldMap[];
-  filters: DiscoveryFilter | DiscoveryFilter[];
+  fieldMappings: DiscoveryFieldMap[];
+  filters: DiscoveryFilter[];
   label: string;
   name: string;
-  prescribableFields: DiscoveryPrescribableField | DiscoveryPrescribableField[];
+  prescribableFields: DiscoveryPrescribableField[];
 };
 
 export type DiscoveryFieldMap = {
@@ -12623,7 +12623,7 @@ export type DiscoveryFilter = {
   field: string;
   operator: DiscoveryFilterOperator;
   type?: DiscoveryFilterFieldType;
-  values: DiscoveryFilterValue | DiscoveryFilterValue[];
+  values: DiscoveryFilterValue[];
 };
 
 export type DiscoveryFilterValue = {
@@ -12632,12 +12632,12 @@ export type DiscoveryFilterValue = {
 };
 
 export type DiscoveryPrescribableField = {
-  customDefinitions: DiscoveryCustomPrescribableFieldDefinition | DiscoveryCustomPrescribableFieldDefinition[];
+  customDefinitions: DiscoveryCustomPrescribableFieldDefinition[];
   name: string;
 };
 
 export type DiscoveryCustomPrescribableFieldDefinition = {
-  filters: DiscoveryFilter | DiscoveryFilter[];
+  filters: DiscoveryFilter[];
   template?: string;
 };
 
@@ -12688,18 +12688,18 @@ export type DuplicateRule = Metadata & {
   alertText?: string;
   description?: string;
   duplicateRuleFilter?: DuplicateRuleFilter;
-  duplicateRuleMatchRules?: DuplicateRuleMatchRule | DuplicateRuleMatchRule[];
+  duplicateRuleMatchRules?: DuplicateRuleMatchRule[];
   isActive: boolean;
   masterLabel: string;
-  operationsOnInsert: string | string[];
-  operationsOnUpdate: string | string[];
+  operationsOnInsert: string[];
+  operationsOnUpdate: string[];
   securityOption: DupeSecurityOptionType;
   sortOrder: number;
 };
 
 export type DuplicateRuleFilter = {
   booleanFilter?: string;
-  duplicateRuleFilterItems: DuplicateRuleFilterItem | DuplicateRuleFilterItem[];
+  duplicateRuleFilterItems: DuplicateRuleFilterItem[];
 };
 
 export type DuplicateRuleMatchRule = {
@@ -12758,8 +12758,8 @@ export type EditionDefinition = Metadata & {
   defaultLicenseDuration?: number;
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
-  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition | IncludedPlatformLicenseDefinition[];
-  includedUserLicenseDefinitions: IncludedUserLicenseDefinition | IncludedUserLicenseDefinition[];
+  includedPlatformLicenseDefinitions: IncludedPlatformLicenseDefinition[];
+  includedUserLicenseDefinitions: IncludedUserLicenseDefinition[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
@@ -12841,7 +12841,7 @@ export type EmailServicesFunction = Metadata & {
   authenticationFailureAction: EmailServicesErrorAction;
   authorizationFailureAction: EmailServicesErrorAction;
   authorizedSenders?: string;
-  emailServicesAddresses: EmailServicesAddress | EmailServicesAddress[];
+  emailServicesAddresses: EmailServicesAddress[];
   errorRoutingAddress?: string;
   functionInactiveAction: EmailServicesErrorAction;
   functionName: string;
@@ -12887,12 +12887,12 @@ export type EmbeddedServiceConfig = Metadata & {
   deploymentFeature: EmbeddedServiceDeploymentFeature;
   deploymentType: EmbeddedServiceDeploymentType;
   embeddedServiceAppointmentSettings?: EmbeddedServiceAppointmentSettings;
-  embeddedServiceCustomComponents: EmbeddedServiceCustomComponent | EmbeddedServiceCustomComponent[];
-  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel | EmbeddedServiceCustomLabel[];
-  embeddedServiceCustomizations: EmbeddedServiceCustomization | EmbeddedServiceCustomization[];
+  embeddedServiceCustomComponents: EmbeddedServiceCustomComponent[];
+  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
+  embeddedServiceCustomizations: EmbeddedServiceCustomization[];
   embeddedServiceFlowConfig?: EmbeddedServiceFlowConfig;
-  embeddedServiceFlows: EmbeddedServiceFlow | EmbeddedServiceFlow[];
-  embeddedServiceLayouts: EmbeddedServiceLayout | EmbeddedServiceLayout[];
+  embeddedServiceFlows: EmbeddedServiceFlow[];
+  embeddedServiceLayouts: EmbeddedServiceLayout[];
   isEnabled?: boolean;
   isTermsAndConditionsEnabled?: boolean;
   isTermsAndConditionsRequired?: boolean;
@@ -12925,7 +12925,7 @@ export type EmbeddedServiceCustomLabel = {
 export type EmbeddedServiceCustomization = {
   customizationName: string;
   description?: string;
-  embeddedServiceResources: EmbeddedServiceResource | EmbeddedServiceResource[];
+  embeddedServiceResources: EmbeddedServiceResource[];
 };
 
 export type EmbeddedServiceResource = {
@@ -12944,7 +12944,7 @@ export type EmbeddedServiceFlow = {
 };
 
 export type EmbeddedServiceLayout = {
-  embeddedServiceLayoutRules: EmbeddedServiceLayoutRule | EmbeddedServiceLayoutRule[];
+  embeddedServiceLayoutRules: EmbeddedServiceLayoutRule[];
   layout: string;
   layoutType?: EmbeddedServiceLayoutType;
 };
@@ -12967,7 +12967,7 @@ export type EmbeddedServiceFieldService = Metadata & {
 export type EmbeddedServiceLiveAgent = Metadata & {
   avatarImg?: string;
   embeddedServiceConfig: string;
-  embeddedServiceQuickActions: EmbeddedServiceQuickAction | EmbeddedServiceQuickAction[];
+  embeddedServiceQuickActions: EmbeddedServiceQuickAction[];
   enabled: boolean;
   fontSize: EmbeddedServiceFontSize;
   isOfflineCaseEnabled?: boolean;
@@ -12995,9 +12995,9 @@ export type EmbeddedServiceQuickAction = {
 
 export type EmbeddedServiceMenuSettings = Metadata & {
   branding?: string;
-  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel | EmbeddedServiceCustomLabel[];
-  embeddedServiceCustomizations: EmbeddedServiceCustomization | EmbeddedServiceCustomization[];
-  embeddedServiceMenuItems: EmbeddedServiceMenuItem | EmbeddedServiceMenuItem[];
+  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
+  embeddedServiceCustomizations: EmbeddedServiceCustomization[];
+  embeddedServiceMenuItems: EmbeddedServiceMenuItem[];
   isEnabled?: boolean;
   masterLabel?: string;
   site?: string;
@@ -13008,7 +13008,7 @@ export type EmbeddedServiceMenuItem = {
   channelType?: EmbeddedServiceChannelType;
   customUrl?: string;
   displayOrder?: number;
-  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel | EmbeddedServiceCustomLabel[];
+  embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
   iconUrl?: string;
   isDisplayedOnPageLoad: boolean;
   itemName: string;
@@ -13055,11 +13055,11 @@ export type EntitlementProcess = Metadata & {
   description?: string;
   entryStartDateField?: string;
   exitCriteriaBooleanFilter?: string;
-  exitCriteriaFilterItems: FilterItem | FilterItem[];
+  exitCriteriaFilterItems: FilterItem[];
   exitCriteriaFormula?: string;
   isRecordTypeApplied?: boolean;
   isVersionDefault?: boolean;
-  milestones: EntitlementProcessMilestoneItem | EntitlementProcessMilestoneItem[];
+  milestones: EntitlementProcessMilestoneItem[];
   name?: string;
   recordType?: string;
   versionMaster?: string;
@@ -13070,18 +13070,18 @@ export type EntitlementProcess = Metadata & {
 export type EntitlementProcessMilestoneItem = {
   businessHours?: string;
   criteriaBooleanFilter?: string;
-  milestoneCriteriaFilterItems: FilterItem | FilterItem[];
+  milestoneCriteriaFilterItems: FilterItem[];
   milestoneCriteriaFormula?: string;
   milestoneName?: string;
   minutesCustomClass?: string;
   minutesToComplete?: number;
-  successActions: WorkflowActionReference | WorkflowActionReference[];
-  timeTriggers: EntitlementProcessMilestoneTimeTrigger | EntitlementProcessMilestoneTimeTrigger[];
+  successActions: WorkflowActionReference[];
+  timeTriggers: EntitlementProcessMilestoneTimeTrigger[];
   useCriteriaStartTime?: boolean;
 };
 
 export type EntitlementProcessMilestoneTimeTrigger = {
-  actions: WorkflowActionReference | WorkflowActionReference[];
+  actions: WorkflowActionReference[];
   timeLength?: number;
   workflowTimeTriggerUnit: MilestoneTimeUnits;
 };
@@ -13112,7 +13112,7 @@ export type EntitlementTemplate = Metadata & {
 };
 
 export type EntityImplements = Metadata & {
-  fieldImplements: FieldImplements | FieldImplements[];
+  fieldImplements: FieldImplements[];
   isDefault?: boolean;
   isFullyMapped?: boolean;
 };
@@ -13124,11 +13124,11 @@ export type FieldImplements = {
 
 export type EscalationRule = Metadata & {
   active?: boolean;
-  ruleEntry: RuleEntry | RuleEntry[];
+  ruleEntry: RuleEntry[];
 };
 
 export type EscalationRules = Metadata & {
-  escalationRule: EscalationRule | EscalationRule[];
+  escalationRule: EscalationRule[];
 };
 
 export type EssentialsSettings = Metadata & {
@@ -13136,7 +13136,7 @@ export type EssentialsSettings = Metadata & {
 };
 
 export type EventDelivery = Metadata & {
-  eventParameters: EventParameterMap | EventParameterMap[];
+  eventParameters: EventParameterMap[];
   eventSubscription: string;
   referenceData?: string;
   type: EventDeliveryType;
@@ -13148,7 +13148,7 @@ export type EventParameterMap = {
 };
 
 export type EventLogObjectSettings = Metadata & {
-  eventLogObjects: EventLogObject | EventLogObject[];
+  eventLogObjects: EventLogObject[];
 };
 
 export type EventLogObject = {
@@ -13179,7 +13179,7 @@ export type EventSettings = Metadata & {
 
 export type EventSubscription = Metadata & {
   active?: boolean;
-  eventParameters: EventParameterMap | EventParameterMap[];
+  eventParameters: EventParameterMap[];
   eventType: string;
   referenceData: string;
 };
@@ -13192,7 +13192,7 @@ export type ExperienceBundle = Metadata & {
 };
 
 export type ExperienceResources = {
-  experienceResource: ExperienceResource | ExperienceResource[];
+  experienceResource: ExperienceResource[];
 };
 
 export type ExperienceResource = {
@@ -13215,7 +13215,7 @@ export type ExperienceContainer = Metadata & {
 export type ExperiencePropertyTypeBundle = Metadata & {
   description?: string;
   masterLabel: string;
-  resources: ExperiencePropertyTypeBundleResource | ExperiencePropertyTypeBundleResource[];
+  resources: ExperiencePropertyTypeBundleResource[];
 };
 
 export type ExperiencePropertyTypeBundleResource = {
@@ -13254,13 +13254,13 @@ export type ExplainabilityMsgTemplate = Metadata & {
 };
 
 export type ExpressionSetDefinition = Metadata & {
-  contextDefinitions: string | string[];
+  contextDefinitions: string[];
   description?: string;
   interfaceSourceType?: ExpsSetInterfaceSourceType;
   label: string;
   processType?: ExpsSetProcessType;
   template?: boolean;
-  versions: ExpressionSetDefinitionVersion | ExpressionSetDefinitionVersion[];
+  versions: ExpressionSetDefinitionVersion[];
 };
 
 export type ExpressionSetDefinitionVersion = Metadata & {
@@ -13271,9 +13271,9 @@ export type ExpressionSetDefinitionVersion = Metadata & {
   shouldShowExplExternally?: boolean;
   startDate: Date;
   status: ExpsSetStatus;
-  steps: ExpressionSetStep | ExpressionSetStep[];
+  steps: ExpressionSetStep[];
   uiTier?: boolean;
-  variables: ExpressionSetVariable | ExpressionSetVariable[];
+  variables: ExpressionSetVariable[];
   versionNumber: number;
 };
 
@@ -13287,14 +13287,14 @@ export type ExpressionSetStep = {
   decisionTable?: ExpressionSetDecisionTable;
   description?: string;
   failedExplainerTemplate?: string;
-  failedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  failedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   label: string;
   name: string;
   noResultExplainerTemplate?: string;
-  noResultMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  noResultMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   parentStep?: string;
   passedExplainerTemplate?: string;
-  passedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping | ExplainabilityMessageTemplateTokenMapping[];
+  passedMessageTokenMappings: ExplainabilityMessageTemplateTokenMapping[];
   resultIncluded?: boolean;
   sequenceNumber: number;
   shouldExposExecPathMsgOnly?: boolean;
@@ -13306,7 +13306,7 @@ export type ExpressionSetStep = {
 
 export type ExpressionSetAdvancedCondition = {
   conditionLogic: string;
-  criteria: ExpressionSetConditionCriteria | ExpressionSetConditionCriteria[];
+  criteria: ExpressionSetConditionCriteria[];
   errorMessage?: string;
   resultParameter?: string;
   successMessage?: string;
@@ -13339,7 +13339,7 @@ export type ExpressionSetConditionExpression = {
 };
 
 export type ExpressionSetCustomElement = {
-  parameters: ExpressionSetElementParameter | ExpressionSetElementParameter[];
+  parameters: ExpressionSetElementParameter[];
 };
 
 export type ExpressionSetElementParameter = {
@@ -13352,7 +13352,7 @@ export type ExpressionSetElementParameter = {
 
 export type ExpressionSetDecisionTable = {
   decisionTableName: string;
-  mappings: ExpressionSetElementParameter | ExpressionSetElementParameter[];
+  mappings: ExpressionSetElementParameter[];
   type: string;
 };
 
@@ -13370,7 +13370,7 @@ export type ExpressionSetVariable = {
   dataType: ExpsSetDataType;
   decimalPlaces?: number;
   description?: string;
-  fields: ExpressionSetVariableField | ExpressionSetVariableField[];
+  fields: ExpressionSetVariableField[];
   input?: boolean;
   lookupName?: string;
   lookupType?: ExpsSetVariableLookupType;
@@ -13385,7 +13385,7 @@ export type ExpressionSetVariable = {
 export type ExpressionSetVariableField = {
   dataType: ExpsSetDataType;
   decimalPlaces?: number;
-  fields: ExpressionSetVariableField | ExpressionSetVariableField[];
+  fields: ExpressionSetVariableField[];
   lookupName?: string;
   lookupType?: ExpsSetVariableLookupType;
   name: string;
@@ -13400,7 +13400,7 @@ export type ExpressionSetMessageToken = Metadata & {
 
 export type ExpressionSetObjectAlias = Metadata & {
   dataType: ExpsSetObjectDataType;
-  mappings: ExpressionSetObjectAliasField | ExpressionSetObjectAliasField[];
+  mappings: ExpressionSetObjectAliasField[];
   objectApiName: string;
   usageType: ExpsSetProcessType;
 };
@@ -13422,7 +13422,7 @@ export type ExtDataTranFieldTemplate = Metadata & {
 
 export type ExtDataTranObjectTemplate = Metadata & {
   dataSourceObject: string;
-  extDataTranFieldTemplates: ExtDataTranFieldTemplate | ExtDataTranFieldTemplate[];
+  extDataTranFieldTemplates: ExtDataTranFieldTemplate[];
   externalDataTranObject?: string;
   externalName?: string;
   masterLabel: string;
@@ -13461,7 +13461,7 @@ export type ExternalClientApplication = Metadata & {
 export type ExternalCredential = Metadata & {
   authenticationProtocol: AuthenticationProtocol;
   description?: string;
-  externalCredentialParameters: ExternalCredentialParameter | ExternalCredentialParameter[];
+  externalCredentialParameters: ExternalCredentialParameter[];
   label: string;
 };
 
@@ -13481,7 +13481,7 @@ export type ExternalDataConnector = Metadata & {
   dataConnectorConfiguration: string;
   dataConnectorType: DataConnectorType;
   dataPlatform: string;
-  externalDataTranObjects: ExternalDataTranObject | ExternalDataTranObject[];
+  externalDataTranObjects: ExternalDataTranObject[];
   masterLabel: string;
 };
 
@@ -13489,7 +13489,7 @@ export type ExternalDataTranObject = Metadata & {
   availabilityStatus: AvailabilityStatus;
   creationType: DefinitionCreationType;
   extDataTranObjectTemplate?: string;
-  externalDataTranFields: ExternalDataTranField | ExternalDataTranField[];
+  externalDataTranFields: ExternalDataTranField[];
   masterLabel: string;
   mktDataTranObject?: string;
   objectCategory: string;
@@ -13515,9 +13515,9 @@ export type ExternalDataSource = Metadata & {
   authProvider?: string;
   certificate?: string;
   customConfiguration?: string;
-  customHttpHeaders: CustomHttpHeader | CustomHttpHeader[];
+  customHttpHeaders: CustomHttpHeader[];
   endpoint?: string;
-  externalDataSrcDescriptors: ExternalDataSrcDescriptor | ExternalDataSrcDescriptor[];
+  externalDataSrcDescriptors: ExternalDataSrcDescriptor[];
   isWritable?: boolean;
   label: string;
   namedCredential?: string;
@@ -13566,7 +13566,7 @@ export type ExternalServiceRegistration = Metadata & {
   label: string;
   namedCredential?: string;
   namedCredentialReference?: string;
-  operations: ExternalServiceOperation | ExternalServiceOperation[];
+  operations: ExternalServiceOperation[];
   providerAssetEndpoint?: string;
   registrationProviderType?: ExternalServiceRegistrationProviderType;
   schema?: string;
@@ -13636,7 +13636,7 @@ export type ExtlClntAppMobileSettings = Metadata & {
 export type ExtlClntAppNotificationSettings = Metadata & {
   externalClientApplication: string;
   label: string;
-  notificationTypes: ExtlClntAppNotificationType | ExtlClntAppNotificationType[];
+  notificationTypes: ExtlClntAppNotificationType[];
 };
 
 export type ExtlClntAppNotificationType = {
@@ -13646,7 +13646,7 @@ export type ExtlClntAppNotificationType = {
 export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
   clientCredentialsFlowUser?: string;
   commaSeparatedPermissionSet?: string;
-  customAttributes: ExtlClntAppOauthPoliciesAttribute | ExtlClntAppOauthPoliciesAttribute[];
+  customAttributes: ExtlClntAppOauthPoliciesAttribute[];
   externalClientApplication: string;
   ipRelaxationPolicyType?: string;
   isClientCredentialsFlowEnabled?: boolean;
@@ -13670,12 +13670,12 @@ export type ExtlClntAppOauthPoliciesAttribute = {
 
 export type ExtlClntAppOauthSettings = Metadata & {
   commaSeparatedOauthScopes?: string;
-  customAttributes: ExtlClntAppOauthSettingsAttribute | ExtlClntAppOauthSettingsAttribute[];
+  customAttributes: ExtlClntAppOauthSettingsAttribute[];
   externalClientApplication: string;
   label?: string;
   oauthLink?: string;
   singleLogoutUrl?: string;
-  trustedIpRanges: ExtlClntAppOauthIpRange | ExtlClntAppOauthIpRange[];
+  trustedIpRanges: ExtlClntAppOauthIpRange[];
 };
 
 export type ExtlClntAppOauthSettingsAttribute = {
@@ -13740,7 +13740,7 @@ export type FeatureParameterInteger = Metadata & {
 
 export type FieldRestrictionRule = Metadata & {
   active: boolean;
-  classification: string | string[];
+  classification: string[];
   classificationType?: ClassificationType;
   description?: string;
   enforcementType: EnforcementType;
@@ -13778,12 +13778,12 @@ export type FieldServiceSettings = Metadata & {
   isLocationHistoryEnabled?: boolean;
   mobileFeedbackEmails?: string;
   o2EngineEnabled?: boolean;
-  objectMappingItem: ObjectMappingItem | ObjectMappingItem[];
+  objectMappingItem: ObjectMappingItem[];
   optimizationServiceAccess?: boolean;
   serviceAppointmentsDueDateOffsetOrgValue?: number;
   workOrderDurationSource?: WorkOrderDurationSource;
-  workOrderLineItemSearchFields: string | string[];
-  workOrderSearchFields: string | string[];
+  workOrderLineItemSearchFields: string[];
+  workOrderSearchFields: string[];
 };
 
 export type ObjectMappingItem = {
@@ -13801,7 +13801,7 @@ export type FieldSrcTrgtRelationship = Metadata & {
 };
 
 export type FileUploadAndDownloadSecuritySettings = Metadata & {
-  dispositions: FileTypeDispositionAssignmentBean | FileTypeDispositionAssignmentBean[];
+  dispositions: FileTypeDispositionAssignmentBean[];
   noHtmlUploadAsAttachment: boolean;
 };
 
@@ -13819,8 +13819,8 @@ export type FilesConnectSettings = Metadata & {
 
 export type FlexiPage = Metadata & {
   description?: string;
-  events: FlexiPageEvent | FlexiPageEvent[];
-  flexiPageRegions: FlexiPageRegion | FlexiPageRegion[];
+  events: FlexiPageEvent[];
+  flexiPageRegions: FlexiPageRegion[];
   masterLabel: string;
   parentFlexiPage?: string;
   platformActionlist?: PlatformActionList;
@@ -13832,9 +13832,9 @@ export type FlexiPage = Metadata & {
 
 export type FlexiPageEvent = {
   sourceName: string;
-  sourceProperties: FlexiPageEventSourceProperty | FlexiPageEventSourceProperty[];
+  sourceProperties: FlexiPageEventSourceProperty[];
   sourceType: FlexipageEventSourceTypeEnum;
-  targets: FlexiPageEventTarget | FlexiPageEventTarget[];
+  targets: FlexiPageEventTarget[];
 };
 
 export type FlexiPageEventSourceProperty = {
@@ -13843,10 +13843,10 @@ export type FlexiPageEventSourceProperty = {
 };
 
 export type FlexiPageEventTarget = {
-  mappings: FlexiPageEventPropertyMapping | FlexiPageEventPropertyMapping[];
+  mappings: FlexiPageEventPropertyMapping[];
   method: string;
   name: string;
-  properties: FlexiPageEventTargetProperty | FlexiPageEventTargetProperty[];
+  properties: FlexiPageEventTargetProperty[];
   type: FlexipageEventTargetTypeEnum;
 };
 
@@ -13862,7 +13862,7 @@ export type FlexiPageEventTargetProperty = {
 
 export type FlexiPageRegion = {
   appendable?: RegionFlagStatus;
-  itemInstances: ItemInstance | ItemInstance[];
+  itemInstances: ItemInstance[];
   mode?: FlexiPageRegionMode;
   name: string;
   prependable?: RegionFlagStatus;
@@ -13876,10 +13876,10 @@ export type ItemInstance = {
 };
 
 export type ComponentInstance = {
-  componentInstanceProperties: ComponentInstanceProperty | ComponentInstanceProperty[];
+  componentInstanceProperties: ComponentInstanceProperty[];
   componentName: string;
   componentType?: ComponentInstanceType;
-  flexipageDataSources: FlexipageDataSource | FlexipageDataSource[];
+  flexipageDataSources: FlexipageDataSource[];
   identifier?: string;
   visibilityRule?: UiFormulaRule;
 };
@@ -13892,7 +13892,7 @@ export type ComponentInstanceProperty = {
 };
 
 export type ComponentInstancePropertyList = {
-  valueListItems: ComponentInstancePropertyListItem | ComponentInstancePropertyListItem[];
+  valueListItems: ComponentInstancePropertyListItem[];
 };
 
 export type ComponentInstancePropertyListItem = {
@@ -13902,7 +13902,7 @@ export type ComponentInstancePropertyListItem = {
 
 export type UiFormulaRule = {
   booleanFilter?: string;
-  criteria: UiFormulaCriterion | UiFormulaCriterion[];
+  criteria: UiFormulaCriterion[];
 };
 
 export type UiFormulaCriterion = {
@@ -13913,7 +13913,7 @@ export type UiFormulaCriterion = {
 
 export type FlexipageDataSource = {
   definition?: string;
-  flexipageDataSourceProperties: FlexipageDataSourceProperty | FlexipageDataSourceProperty[];
+  flexipageDataSourceProperties: FlexipageDataSourceProperty[];
   mode?: FlexipageDataSourceModeEnum;
   name: string;
   type: FlexipageDataSourceTypeEnum;
@@ -13925,7 +13925,7 @@ export type FlexipageDataSourceProperty = {
 };
 
 export type FieldInstance = {
-  fieldInstanceProperties: FieldInstanceProperty | FieldInstanceProperty[];
+  fieldInstanceProperties: FieldInstanceProperty[];
   fieldItem: string;
   identifier?: string;
   visibilityRule?: UiFormulaRule;
@@ -13938,7 +13938,7 @@ export type FieldInstanceProperty = {
 
 export type PlatformActionList = {
   actionListContext: PlatformActionListContext;
-  platformActionListItems: PlatformActionListItem | PlatformActionListItem[];
+  platformActionListItems: PlatformActionListItem[];
   relatedSourceEntity?: string;
 };
 
@@ -13950,7 +13950,7 @@ export type PlatformActionListItem = {
 };
 
 export type QuickActionList = {
-  quickActionListItems: QuickActionListItem | QuickActionListItem[];
+  quickActionListItems: QuickActionListItem[];
 };
 
 export type QuickActionListItem = {
@@ -13959,11 +13959,11 @@ export type QuickActionListItem = {
 
 export type FlexiPageTemplateInstance = {
   componentType?: ComponentInstanceType;
-  flexipageDataSources: FlexipageDataSource | FlexipageDataSource[];
+  flexipageDataSources: FlexipageDataSource[];
   identifier?: string;
   name: string;
-  properties: ComponentInstanceProperty | ComponentInstanceProperty[];
-  schemaProperties: FlexiPageCompSchemaPropertyDef | FlexiPageCompSchemaPropertyDef[];
+  properties: ComponentInstanceProperty[];
+  schemaProperties: FlexiPageCompSchemaPropertyDef[];
 };
 
 export type FlexiPageCompSchemaPropertyDef = {
@@ -13975,62 +13975,62 @@ export type FlexiPageCompSchemaPropertyDef = {
 };
 
 export type Flow = Metadata & {
-  actionCalls: FlowActionCall | FlowActionCall[];
-  apexPluginCalls: FlowApexPluginCall | FlowApexPluginCall[];
+  actionCalls: FlowActionCall[];
+  apexPluginCalls: FlowApexPluginCall[];
   apiVersion?: number;
-  assignments: FlowAssignment | FlowAssignment[];
-  choices: FlowChoice | FlowChoice[];
-  collectionProcessors: FlowCollectionProcessor | FlowCollectionProcessor[];
-  constants: FlowConstant | FlowConstant[];
-  customErrors: FlowCustomError | FlowCustomError[];
-  decisions: FlowDecision | FlowDecision[];
+  assignments: FlowAssignment[];
+  choices: FlowChoice[];
+  collectionProcessors: FlowCollectionProcessor[];
+  constants: FlowConstant[];
+  customErrors: FlowCustomError[];
+  decisions: FlowDecision[];
   description?: string;
-  dynamicChoiceSets: FlowDynamicChoiceSet | FlowDynamicChoiceSet[];
-  environments: FlowEnvironment | FlowEnvironment[];
-  formulas: FlowFormula | FlowFormula[];
+  dynamicChoiceSets: FlowDynamicChoiceSet[];
+  environments: FlowEnvironment[];
+  formulas: FlowFormula[];
   interviewLabel?: string;
   isAdditionalPermissionRequiredToRun?: boolean;
   isOverridable?: boolean;
   isTemplate?: boolean;
   label: string;
-  loops: FlowLoop | FlowLoop[];
+  loops: FlowLoop[];
   migratedFromWorkflowRuleName?: string;
-  orchestratedStages: FlowOrchestratedStage | FlowOrchestratedStage[];
+  orchestratedStages: FlowOrchestratedStage[];
   overriddenFlow?: string;
-  processMetadataValues: FlowMetadataValue | FlowMetadataValue[];
+  processMetadataValues: FlowMetadataValue[];
   processType?: FlowProcessType;
-  recordCreates: FlowRecordCreate | FlowRecordCreate[];
-  recordDeletes: FlowRecordDelete | FlowRecordDelete[];
-  recordLookups: FlowRecordLookup | FlowRecordLookup[];
-  recordRollbacks: FlowRecordRollback | FlowRecordRollback[];
-  recordUpdates: FlowRecordUpdate | FlowRecordUpdate[];
+  recordCreates: FlowRecordCreate[];
+  recordDeletes: FlowRecordDelete[];
+  recordLookups: FlowRecordLookup[];
+  recordRollbacks: FlowRecordRollback[];
+  recordUpdates: FlowRecordUpdate[];
   runInMode?: FlowRunInMode;
-  screens: FlowScreen | FlowScreen[];
+  screens: FlowScreen[];
   sourceTemplate?: string;
-  stages: FlowStage | FlowStage[];
+  stages: FlowStage[];
   start?: FlowStart;
   startElementReference?: string;
   status?: FlowVersionStatus;
-  steps: FlowStep | FlowStep[];
-  subflows: FlowSubflow | FlowSubflow[];
-  textTemplates: FlowTextTemplate | FlowTextTemplate[];
+  steps: FlowStep[];
+  subflows: FlowSubflow[];
+  textTemplates: FlowTextTemplate[];
   timeZoneSidKey?: string;
-  transforms: FlowTransform | FlowTransform[];
+  transforms: FlowTransform[];
   triggerOrder?: number;
-  variables: FlowVariable | FlowVariable[];
-  waits: FlowWait | FlowWait[];
+  variables: FlowVariable[];
+  waits: FlowWait[];
 };
 
 export type FlowActionCall = FlowNode & {
   actionName?: string;
   actionType?: InvocableActionType;
   connector?: FlowConnector;
-  dataTypeMappings: FlowDataTypeMapping | FlowDataTypeMapping[];
+  dataTypeMappings: FlowDataTypeMapping[];
   faultConnector?: FlowConnector;
   flowTransactionModel?: FlowTransactionModel;
-  inputParameters: FlowActionCallInputParameter | FlowActionCallInputParameter[];
+  inputParameters: FlowActionCallInputParameter[];
   nameSegment?: string;
-  outputParameters: FlowActionCallOutputParameter | FlowActionCallOutputParameter[];
+  outputParameters: FlowActionCallOutputParameter[];
   storeOutputAutomatically?: boolean;
   versionSegment?: number;
 };
@@ -14048,7 +14048,7 @@ export type FlowElement = FlowBaseElement & {
 };
 
 export type FlowBaseElement = {
-  processMetadataValues: FlowMetadataValue | FlowMetadataValue[];
+  processMetadataValues: FlowMetadataValue[];
 };
 
 export type FlowMetadataValue = {
@@ -14176,9 +14176,9 @@ export type FlowScreenFieldOutputParameter = FlowBaseElement & {
 
 export type FlowScreenRule = FlowBaseElement & {
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   label: string;
-  ruleActions: FlowScreenRuleAction | FlowScreenRuleAction[];
+  ruleActions: FlowScreenRuleAction[];
 };
 
 export type FlowScreenRuleAction = FlowBaseElement & {
@@ -14190,7 +14190,7 @@ export type FlowScreenRuleAction = FlowBaseElement & {
 export type FlowScreenTrigger = FlowBaseElement & {
   eventName: string;
   eventSource: string;
-  handlers: FlowScreenTriggerHandler | FlowScreenTriggerHandler[];
+  handlers: FlowScreenTriggerHandler[];
 };
 
 export type FlowScreenTriggerHandler = FlowBaseElement & {
@@ -14243,11 +14243,11 @@ export type FlowSubflowOutputAssignment = FlowBaseElement & {
 };
 
 export type FlowTransformValue = FlowBaseElement & {
-  transformValueActions: FlowTransformValueAction | FlowTransformValueAction[];
+  transformValueActions: FlowTransformValueAction[];
 };
 
 export type FlowTransformValueAction = FlowBaseElement & {
-  inputParameters: FlowTransformValueActionInputParameter | FlowTransformValueActionInputParameter[];
+  inputParameters: FlowTransformValueActionInputParameter[];
   name?: string;
   outputFieldApiName?: string;
   transformType: FlowTransformValueActionType;
@@ -14261,7 +14261,7 @@ export type FlowTransformValueActionInputParameter = FlowBaseElement & {
 
 export type FlowVisibilityRule = FlowBaseElement & {
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
 };
 
 export type FlowWaitEventInputParameter = FlowBaseElement & {
@@ -14276,7 +14276,7 @@ export type FlowWaitEventOutputParameter = FlowBaseElement & {
 
 export type FlowCapability = FlowElement & {
   capabilityName: string;
-  inputs: FlowCapabilityInput | FlowCapabilityInput[];
+  inputs: FlowCapabilityInput[];
 };
 
 export type FlowCapabilityInput = FlowElement & {
@@ -14302,10 +14302,10 @@ export type FlowDynamicChoiceSet = FlowElement & {
   dataType: FlowDataType;
   displayField: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   limit?: number;
   object: string;
-  outputAssignments: FlowOutputFieldAssignment | FlowOutputFieldAssignment[];
+  outputAssignments: FlowOutputFieldAssignment[];
   picklistField?: string;
   picklistObject?: string;
   sortField?: string;
@@ -14321,7 +14321,7 @@ export type FlowFormula = FlowElement & {
 
 export type FlowRule = FlowElement & {
   conditionLogic: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   doesRequireRecordChangedToMeetCriteria?: boolean;
   label: string;
@@ -14341,29 +14341,29 @@ export type FlowScheduledPath = FlowElement & {
 export type FlowScreenAction = FlowElement & {
   actionName?: string;
   actionType?: InvocableActionType;
-  inputParameters: FlowScreenActionInputParameter | FlowScreenActionInputParameter[];
+  inputParameters: FlowScreenActionInputParameter[];
   label: string;
   nameSegment?: string;
   versionSegment?: number;
 };
 
 export type FlowScreenField = FlowElement & {
-  choiceReferences: string | string[];
+  choiceReferences: string[];
   dataType?: FlowDataType;
-  dataTypeMappings: FlowDataTypeMapping | FlowDataTypeMapping[];
+  dataTypeMappings: FlowDataTypeMapping[];
   defaultSelectedChoiceReference?: string;
   defaultValue?: FlowElementReferenceOrValue;
   extensionName?: string;
   fieldText?: string;
   fieldType: FlowScreenFieldType;
-  fields: FlowScreenField | FlowScreenField[];
+  fields: FlowScreenField[];
   helpText?: string;
-  inputParameters: FlowScreenFieldInputParameter | FlowScreenFieldInputParameter[];
+  inputParameters: FlowScreenFieldInputParameter[];
   inputsOnNextNavToAssocScrn?: FlowScreenFieldInputsRevisited;
   isRequired?: boolean;
   isVisible?: boolean;
   objectFieldReference?: string;
-  outputParameters: FlowScreenFieldOutputParameter | FlowScreenFieldOutputParameter[];
+  outputParameters: FlowScreenFieldOutputParameter[];
   regionContainerType?: FlowRegionContainerType;
   scale?: number;
   storeOutputAutomatically?: boolean;
@@ -14380,22 +14380,22 @@ export type FlowStage = FlowElement & {
 export type FlowStageStep = FlowElement & {
   actionName?: string;
   actionType?: InvocableActionType;
-  assignees: FlowStageStepAssignee | FlowStageStepAssignee[];
-  entryActionInputParameters: FlowStageStepEntryActionInputParameter | FlowStageStepEntryActionInputParameter[];
+  assignees: FlowStageStepAssignee[];
+  entryActionInputParameters: FlowStageStepEntryActionInputParameter[];
   entryActionName?: string;
-  entryActionOutputParameters: FlowStageStepEntryActionOutputParameter | FlowStageStepEntryActionOutputParameter[];
+  entryActionOutputParameters: FlowStageStepEntryActionOutputParameter[];
   entryActionType?: InvocableActionType;
   entryConditionLogic: string;
-  entryConditions: FlowCondition | FlowCondition[];
-  exitActionInputParameters: FlowStageStepExitActionInputParameter | FlowStageStepExitActionInputParameter[];
+  entryConditions: FlowCondition[];
+  exitActionInputParameters: FlowStageStepExitActionInputParameter[];
   exitActionName?: string;
-  exitActionOutputParameters: FlowStageStepExitActionOutputParameter | FlowStageStepExitActionOutputParameter[];
+  exitActionOutputParameters: FlowStageStepExitActionOutputParameter[];
   exitActionType?: InvocableActionType;
   exitConditionLogic?: string;
-  exitConditions: FlowCondition | FlowCondition[];
-  inputParameters: FlowStageStepInputParameter | FlowStageStepInputParameter[];
+  exitConditions: FlowCondition[];
+  inputParameters: FlowStageStepInputParameter[];
   label: string;
-  outputParameters: FlowStageStepOutputParameter | FlowStageStepOutputParameter[];
+  outputParameters: FlowStageStepOutputParameter[];
   requiresAsyncProcessing?: boolean;
   runAsUser?: boolean;
   stepSubtype?: FlowElementSubtype;
@@ -14420,18 +14420,18 @@ export type FlowVariable = FlowElement & {
 export type FlowWaitEvent = FlowElement & {
   associatedElement?: string;
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   eventType?: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
-  inputParameters: FlowWaitEventInputParameter | FlowWaitEventInputParameter[];
+  filters: FlowRecordFilter[];
+  inputParameters: FlowWaitEventInputParameter[];
   label: string;
   maxBatchSize?: number;
   object?: string;
   offset?: number;
   offsetUnit?: FlowScheduledPathOffsetUnit;
-  outputParameters: FlowWaitEventOutputParameter | FlowWaitEventOutputParameter[];
+  outputParameters: FlowWaitEventOutputParameter[];
   recordTriggerType?: RecordTriggerType;
   resumeDate?: Date;
   resumeDateReference?: string;
@@ -14442,12 +14442,12 @@ export type FlowApexPluginCall = FlowNode & {
   apexClass: string;
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
-  inputParameters: FlowApexPluginCallInputParameter | FlowApexPluginCallInputParameter[];
-  outputParameters: FlowApexPluginCallOutputParameter | FlowApexPluginCallOutputParameter[];
+  inputParameters: FlowApexPluginCallInputParameter[];
+  outputParameters: FlowApexPluginCallOutputParameter[];
 };
 
 export type FlowAssignment = FlowNode & {
-  assignmentItems: FlowAssignmentItem | FlowAssignmentItem[];
+  assignmentItems: FlowAssignmentItem[];
   connector?: FlowConnector;
 };
 
@@ -14456,25 +14456,25 @@ export type FlowCollectionProcessor = FlowNode & {
   collectionProcessorType: FlowCollectionProcessorType;
   collectionReference: string;
   conditionLogic?: string;
-  conditions: FlowCondition | FlowCondition[];
+  conditions: FlowCondition[];
   connector?: FlowConnector;
   formula?: string;
   limit?: number;
-  mapItems: FlowCollectionMapItem | FlowCollectionMapItem[];
+  mapItems: FlowCollectionMapItem[];
   outputSObjectType?: string;
-  sortOptions: FlowCollectionSortOption | FlowCollectionSortOption[];
+  sortOptions: FlowCollectionSortOption[];
 };
 
 export type FlowCustomError = FlowNode & {
   description?: string;
   connector?: FlowConnector;
-  customErrorMessages: FlowCustomErrorMessage | FlowCustomErrorMessage[];
+  customErrorMessages: FlowCustomErrorMessage[];
 };
 
 export type FlowDecision = FlowNode & {
   defaultConnector?: FlowConnector;
   defaultConnectorLabel?: string;
-  rules: FlowRule | FlowRule[];
+  rules: FlowRule[];
 };
 
 export type FlowLoop = FlowNode & {
@@ -14487,21 +14487,21 @@ export type FlowLoop = FlowNode & {
 
 export type FlowOrchestratedStage = FlowNode & {
   connector?: FlowConnector;
-  exitActionInputParameters: FlowStageStepExitActionInputParameter | FlowStageStepExitActionInputParameter[];
+  exitActionInputParameters: FlowStageStepExitActionInputParameter[];
   exitActionName?: string;
-  exitActionOutputParameters: FlowStageStepExitActionOutputParameter | FlowStageStepExitActionOutputParameter[];
+  exitActionOutputParameters: FlowStageStepExitActionOutputParameter[];
   exitActionType?: InvocableActionType;
   exitConditionLogic?: string;
-  exitConditions: FlowCondition | FlowCondition[];
+  exitConditions: FlowCondition[];
   faultConnector?: FlowConnector;
-  stageSteps: FlowStageStep | FlowStageStep[];
+  stageSteps: FlowStageStep[];
 };
 
 export type FlowRecordCreate = FlowNode & {
   assignRecordIdToReference?: string;
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
-  inputAssignments: FlowInputFieldAssignment | FlowInputFieldAssignment[];
+  inputAssignments: FlowInputFieldAssignment[];
   inputReference?: string;
   object?: string;
   storeOutputAutomatically?: boolean;
@@ -14511,7 +14511,7 @@ export type FlowRecordDelete = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   inputReference?: string;
   object?: string;
 };
@@ -14521,12 +14521,12 @@ export type FlowRecordLookup = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   getFirstRecordOnly?: boolean;
   object?: string;
-  outputAssignments: FlowOutputFieldAssignment | FlowOutputFieldAssignment[];
+  outputAssignments: FlowOutputFieldAssignment[];
   outputReference?: string;
-  queriedFields: string | string[];
+  queriedFields: string[];
   sortField?: string;
   sortOrder?: SortOrder;
   storeOutputAutomatically?: boolean;
@@ -14540,38 +14540,38 @@ export type FlowRecordUpdate = FlowNode & {
   connector?: FlowConnector;
   faultConnector?: FlowConnector;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
-  inputAssignments: FlowInputFieldAssignment | FlowInputFieldAssignment[];
+  filters: FlowRecordFilter[];
+  inputAssignments: FlowInputFieldAssignment[];
   inputReference?: string;
   object?: string;
 };
 
 export type FlowScreen = FlowNode & {
-  actions: FlowScreenAction | FlowScreenAction[];
+  actions: FlowScreenAction[];
   allowBack?: boolean;
   allowFinish?: boolean;
   allowPause?: boolean;
   backButtonLabel?: string;
   connector?: FlowConnector;
-  fields: FlowScreenField | FlowScreenField[];
+  fields: FlowScreenField[];
   helpText?: string;
   nextOrFinishButtonLabel?: string;
   pauseButtonLabel?: string;
   pausedText?: string;
-  rules: FlowScreenRule | FlowScreenRule[];
+  rules: FlowScreenRule[];
   showFooter?: boolean;
   showHeader?: boolean;
-  triggers: FlowScreenTrigger | FlowScreenTrigger[];
+  triggers: FlowScreenTrigger[];
 };
 
 export type FlowStart = FlowNode & {
-  capabilityTypes: FlowCapability | FlowCapability[];
+  capabilityTypes: FlowCapability[];
   connector?: FlowConnector;
   doesRequireRecordChangedToMeetCriteria?: boolean;
   entryType?: FlowEntryType;
   filterFormula?: string;
   filterLogic?: string;
-  filters: FlowRecordFilter | FlowRecordFilter[];
+  filters: FlowRecordFilter[];
   flowRunAsUser?: FlowRunAsUser;
   form?: string;
   object?: string;
@@ -14579,7 +14579,7 @@ export type FlowStart = FlowNode & {
   publishSegment?: boolean;
   recordTriggerType?: RecordTriggerType;
   schedule?: FlowSchedule;
-  scheduledPaths: FlowScheduledPath | FlowScheduledPath[];
+  scheduledPaths: FlowScheduledPath[];
   segment?: string;
   triggerType?: FlowTriggerType;
 };
@@ -14591,14 +14591,14 @@ export type FlowSchedule = {
 };
 
 export type FlowStep = FlowNode & {
-  connectors: FlowConnector | FlowConnector[];
+  connectors: FlowConnector[];
 };
 
 export type FlowSubflow = FlowNode & {
   connector?: FlowConnector;
   flowName?: string;
-  inputAssignments: FlowSubflowInputAssignment | FlowSubflowInputAssignment[];
-  outputAssignments: FlowSubflowOutputAssignment | FlowSubflowOutputAssignment[];
+  inputAssignments: FlowSubflowInputAssignment[];
+  outputAssignments: FlowSubflowOutputAssignment[];
   storeOutputAutomatically?: boolean;
 };
 
@@ -14609,7 +14609,7 @@ export type FlowTransform = FlowNode & {
   isCollection?: boolean;
   objectType?: string;
   scale?: number;
-  transformValues: FlowTransformValue | FlowTransformValue[];
+  transformValues: FlowTransformValue[];
 };
 
 export type FlowWait = FlowNode & {
@@ -14617,12 +14617,12 @@ export type FlowWait = FlowNode & {
   defaultConnectorLabel: string;
   faultConnector?: FlowConnector;
   timeZoneId?: string;
-  waitEvents: FlowWaitEvent | FlowWaitEvent[];
+  waitEvents: FlowWaitEvent[];
 };
 
 export type FlowCategory = Metadata & {
   description?: string;
-  flowCategoryItems: FlowCategoryItems | FlowCategoryItems[];
+  flowCategoryItems: FlowCategoryItems[];
   masterLabel: string;
 };
 
@@ -14667,17 +14667,17 @@ export type FlowTest = Metadata & {
   description?: string;
   flowApiName: string;
   label: string;
-  testPoints: FlowTestPoint | FlowTestPoint[];
+  testPoints: FlowTestPoint[];
 };
 
 export type FlowTestPoint = {
-  assertions: FlowTestAssertion | FlowTestAssertion[];
+  assertions: FlowTestAssertion[];
   elementApiName: string;
-  parameters: FlowTestParameter | FlowTestParameter[];
+  parameters: FlowTestParameter[];
 };
 
 export type FlowTestAssertion = {
-  conditions: FlowTestCondition | FlowTestCondition[];
+  conditions: FlowTestCondition[];
   errorMessage?: string;
 };
 
@@ -14704,7 +14704,7 @@ export type FlowTestParameter = {
 
 export type Folder = Metadata & {
   accessType?: FolderAccessTypes;
-  folderShares: FolderShare | FolderShare[];
+  folderShares: FolderShare[];
   name: string;
   publicFolderAccess?: PublicFolderAccess;
   sharedTo?: SharedTo;
@@ -14747,11 +14747,11 @@ export type ForecastingFilterCondition = Metadata & {
 };
 
 export type ForecastingObjectListSettings = Metadata & {
-  forecastingTypeObjectListSettings: ForecastingTypeObjectListSettings | ForecastingTypeObjectListSettings[];
+  forecastingTypeObjectListSettings: ForecastingTypeObjectListSettings[];
 };
 
 export type ForecastingTypeObjectListSettings = {
-  forecastingObjectListLabelMappings: ForecastingObjectListLabelMapping | ForecastingObjectListLabelMapping[];
+  forecastingObjectListLabelMappings: ForecastingObjectListLabelMapping[];
   forecastingObjectListSelectedSettings: ForecastingObjectListSelectedSettings;
   forecastingObjectListUnselectedSettings: ForecastingObjectListUnselectedSettings;
   forecastingTypeDeveloperName: string;
@@ -14763,19 +14763,19 @@ export type ForecastingObjectListLabelMapping = {
 };
 
 export type ForecastingObjectListSelectedSettings = {
-  field: string | string[];
+  field: string[];
 };
 
 export type ForecastingObjectListUnselectedSettings = {
-  field: string | string[];
+  field: string[];
 };
 
 export type ForecastingSettings = Metadata & {
   defaultToPersonalCurrency?: boolean;
   enableForecasts?: boolean;
-  forecastingCategoryMappings: ForecastingCategoryMapping | ForecastingCategoryMapping[];
-  forecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings | ForecastingDisplayedFamilySettings[];
-  forecastingTypeSettings: ForecastingTypeSettings | ForecastingTypeSettings[];
+  forecastingCategoryMappings: ForecastingCategoryMapping[];
+  forecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings[];
+  forecastingTypeSettings: ForecastingTypeSettings[];
   globalAdjustmentsSettings: AdjustmentsSettings;
   globalForecastRangeSettings: ForecastRangeSettings;
   globalQuotasSettings: QuotasSettings;
@@ -14783,7 +14783,7 @@ export type ForecastingSettings = Metadata & {
 
 export type ForecastingCategoryMapping = {
   forecastingItemCategoryApiName: string;
-  weightedSourceCategories: WeightedSourceCategory | WeightedSourceCategory[];
+  weightedSourceCategories: WeightedSourceCategory[];
 };
 
 export type WeightedSourceCategory = {
@@ -14797,21 +14797,21 @@ export type ForecastingDisplayedFamilySettings = {
 
 export type ForecastingTypeSettings = {
   active: boolean;
-  displayedCategoryApiNames: string | string[];
-  forecastedCategoryApiNames: string | string[];
+  displayedCategoryApiNames: string[];
+  forecastedCategoryApiNames: string[];
   forecastingDateType: ForecastingDateType;
   hasProductFamily: boolean;
   isAmount: boolean;
   isAvailable: boolean;
   isQuantity: boolean;
-  managerAdjustableCategoryApiNames: string | string[];
+  managerAdjustableCategoryApiNames: string[];
   masterLabel: string;
   name: string;
-  opportunityListFieldsLabelMappings: OpportunityListFieldsLabelMapping | OpportunityListFieldsLabelMapping[];
+  opportunityListFieldsLabelMappings: OpportunityListFieldsLabelMapping[];
   opportunityListFieldsSelectedSettings: OpportunityListFieldsSelectedSettings;
   opportunityListFieldsUnselectedSettings: OpportunityListFieldsUnselectedSettings;
   opportunitySplitName?: string;
-  ownerAdjustableCategoryApiNames: string | string[];
+  ownerAdjustableCategoryApiNames: string[];
   territory2ModelName?: string;
 };
 
@@ -14821,11 +14821,11 @@ export type OpportunityListFieldsLabelMapping = {
 };
 
 export type OpportunityListFieldsSelectedSettings = {
-  field: string | string[];
+  field: string[];
 };
 
 export type OpportunityListFieldsUnselectedSettings = {
-  field: string | string[];
+  field: string[];
 };
 
 export type AdjustmentsSettings = {
@@ -14983,8 +14983,8 @@ export type GenAiPlannerAttr = {
 export type GenAiPlanner = Metadata & {
   capabilities?: string;
   description?: string;
-  genAiFunctions: GenAiPlannerFunctionDef | GenAiPlannerFunctionDef[];
-  genAiPlugins: GenAiPlannerFunctionDef | GenAiPlannerFunctionDef[];
+  genAiFunctions: GenAiPlannerFunctionDef[];
+  genAiPlugins: GenAiPlannerFunctionDef[];
   masterLabel: string;
   plannerType: PlannerType;
 };
@@ -14997,7 +14997,7 @@ export type GenAiPlannerFunctionDef = {
 export type GenAiPlugin = Metadata & {
   description?: string;
   developerName: string;
-  genAiFunctions: GenAiPluginFunctionDef | GenAiPluginFunctionDef[];
+  genAiFunctions: GenAiPluginFunctionDef[];
   masterLabel: string;
 };
 
@@ -15007,20 +15007,20 @@ export type GenAiPluginFunctionDef = {
 
 export type GlobalPicklist = Metadata & {
   description?: string;
-  globalPicklistValues: GlobalPicklistValue | GlobalPicklistValue[];
+  globalPicklistValues: GlobalPicklistValue[];
   masterLabel: string;
   sorted: boolean;
 };
 
 export type GlobalValueSet = Metadata & {
-  customValue: CustomValue | CustomValue[];
+  customValue: CustomValue[];
   description?: string;
   masterLabel: string;
   sorted: boolean;
 };
 
 export type GlobalValueSetTranslation = Metadata & {
-  valueTranslation: ValueTranslation | ValueTranslation[];
+  valueTranslation: ValueTranslation[];
 };
 
 export type ValueTranslation = {
@@ -15068,7 +15068,7 @@ export type HighVelocitySalesSettings = Metadata & {
 export type HomePageComponent = Metadata & {
   body?: string;
   height?: number;
-  links: string | string[];
+  links: string[];
   page?: string;
   pageComponentType: PageComponentType;
   showLabel?: boolean;
@@ -15077,8 +15077,8 @@ export type HomePageComponent = Metadata & {
 };
 
 export type HomePageLayout = Metadata & {
-  narrowComponents: string | string[];
-  wideComponents: string | string[];
+  narrowComponents: string[];
+  wideComponents: string[];
 };
 
 export type IPAddressRange = Metadata & {
@@ -15115,7 +15115,7 @@ export type IdentityProviderSettings = Metadata & {
 };
 
 export type IdentityVerificationProcDef = Metadata & {
-  identityVerificationProcDtls: IdentityVerificationProcDtl | IdentityVerificationProcDtl[];
+  identityVerificationProcDtls: IdentityVerificationProcDtl[];
   masterLabel: string;
   searchLayoutType: IdentityVerificationSearchLayoutType;
 };
@@ -15125,7 +15125,7 @@ export type IdentityVerificationProcDtl = Metadata & {
   dataSourceType: IdentityVerificationDataSourceType;
   developerName: string;
   displayRecordFieldName?: string;
-  identityVerificationProcFlds: IdentityVerificationProcFld | IdentityVerificationProcFld[];
+  identityVerificationProcFlds: IdentityVerificationProcFld[];
   isActive?: boolean;
   isRetryAllowedAfterLimit?: boolean;
   linkedIdVerfProcessDet?: string;
@@ -15155,7 +15155,7 @@ export type IdentityVerificationProcFld = Metadata & {
 };
 
 export type IframeWhiteListUrlSettings = Metadata & {
-  iframeWhiteListUrls: IframeWhiteListUrl | IframeWhiteListUrl[];
+  iframeWhiteListUrls: IframeWhiteListUrl[];
 };
 
 export type IframeWhiteListUrl = {
@@ -15166,7 +15166,7 @@ export type IframeWhiteListUrl = {
 export type InboundNetworkConnection = Metadata & {
   connectionType: ExternalConnectionType;
   description: string;
-  inboundNetworkConnProperties: InboundNetworkConnProperty | InboundNetworkConnProperty[];
+  inboundNetworkConnProperties: InboundNetworkConnProperty[];
   isActive: boolean;
   label: string;
   status: ExternalConnectionStatus;
@@ -15436,7 +15436,7 @@ export type IntegrationProviderDef = Metadata & {
   externalServiceRegistration?: string;
   fileBasedApexClass?: string;
   inputDataProcessor?: string;
-  integrationProviderAttributes: IntegrationProviderAttr | IntegrationProviderAttr[];
+  integrationProviderAttributes: IntegrationProviderAttr[];
   javaClassName?: string;
   outputDataProcessor?: string;
   providerLabel: string;
@@ -15490,7 +15490,7 @@ export type IoTSettings = Metadata & {
 
 export type KeywordList = Metadata & {
   description?: string;
-  keywords: Keyword | Keyword[];
+  keywords: Keyword[];
   masterLabel: string;
 };
 
@@ -15546,15 +15546,15 @@ export type KnowledgeCaseSettings = {
 };
 
 export type KnowledgeCommunitiesSettings = {
-  community: string | string[];
+  community: string[];
 };
 
 export type KnowledgeSitesSettings = {
-  site: string | string[];
+  site: string[];
 };
 
 export type KnowledgeLanguageSettings = {
-  language: KnowledgeLanguage | KnowledgeLanguage[];
+  language: KnowledgeLanguage[];
 };
 
 export type KnowledgeLanguage = {
@@ -15574,7 +15574,7 @@ export type KnowledgeSuggestedArticlesSettings = {
 };
 
 export type KnowledgeCaseFieldsSettings = {
-  field: KnowledgeCaseField | KnowledgeCaseField[];
+  field: KnowledgeCaseField[];
 };
 
 export type KnowledgeCaseField = {
@@ -15582,7 +15582,7 @@ export type KnowledgeCaseField = {
 };
 
 export type KnowledgeWorkOrderFieldsSettings = {
-  field: KnowledgeWorkOrderField | KnowledgeWorkOrderField[];
+  field: KnowledgeWorkOrderField[];
 };
 
 export type KnowledgeWorkOrderField = {
@@ -15590,7 +15590,7 @@ export type KnowledgeWorkOrderField = {
 };
 
 export type KnowledgeWorkOrderLineItemFieldsSettings = {
-  field: KnowledgeWorkOrderLineItemField | KnowledgeWorkOrderLineItemField[];
+  field: KnowledgeWorkOrderLineItemField[];
 };
 
 export type KnowledgeWorkOrderLineItemField = {
@@ -15611,20 +15611,20 @@ export type LanguageSettings = Metadata & {
 };
 
 export type Layout = Metadata & {
-  customButtons: string | string[];
+  customButtons: string[];
   customConsoleComponents?: CustomConsoleComponents;
   emailDefault?: boolean;
-  excludeButtons: string | string[];
+  excludeButtons: string[];
   feedLayout?: FeedLayout;
-  headers: LayoutHeader | LayoutHeader[];
-  layoutSections: LayoutSection | LayoutSection[];
+  headers: LayoutHeader[];
+  layoutSections: LayoutSection[];
   miniLayout?: MiniLayout;
-  multilineLayoutFields: string | string[];
+  multilineLayoutFields: string[];
   platformActionList?: PlatformActionList;
   quickActionList?: QuickActionList;
   relatedContent?: RelatedContent;
-  relatedLists: RelatedListItem | RelatedListItem[];
-  relatedObjects: string | string[];
+  relatedLists: RelatedListItem[];
+  relatedObjects: string[];
   runAssignmentRulesDefault?: boolean;
   showEmailCheckbox?: boolean;
   showHighlightsPanel?: boolean;
@@ -15642,14 +15642,14 @@ export type CustomConsoleComponents = {
 };
 
 export type PrimaryTabComponents = {
-  containers: Container | Container[];
+  containers: Container[];
 };
 
 export type Container = {
   height?: number;
   isContainerAutoSizeEnabled: boolean;
   region: string;
-  sidebarComponents: SidebarComponent | SidebarComponent[];
+  sidebarComponents: SidebarComponent[];
   style: string;
   unit: string;
   width?: number;
@@ -15663,7 +15663,7 @@ export type SidebarComponent = {
   label?: string;
   lookup?: string;
   page?: string;
-  relatedLists: RelatedList | RelatedList[];
+  relatedLists: RelatedList[];
   unit?: string;
   updateAction?: string;
   width?: number;
@@ -15675,19 +15675,19 @@ export type RelatedList = {
 };
 
 export type SubtabComponents = {
-  containers: Container | Container[];
+  containers: Container[];
 };
 
 export type FeedLayout = {
   autocollapsePublisher?: boolean;
   compactFeed?: boolean;
   feedFilterPosition?: FeedLayoutFilterPosition;
-  feedFilters: FeedLayoutFilter | FeedLayoutFilter[];
+  feedFilters: FeedLayoutFilter[];
   fullWidthFeed?: boolean;
   hideSidebar?: boolean;
   highlightExternalFeedItems?: boolean;
-  leftComponents: FeedLayoutComponent | FeedLayoutComponent[];
-  rightComponents: FeedLayoutComponent | FeedLayoutComponent[];
+  leftComponents: FeedLayoutComponent[];
+  rightComponents: FeedLayoutComponent[];
   useInlineFiltersInConsole?: boolean;
 };
 
@@ -15708,12 +15708,12 @@ export type LayoutSection = {
   detailHeading?: boolean;
   editHeading?: boolean;
   label?: string;
-  layoutColumns: LayoutColumn | LayoutColumn[];
+  layoutColumns: LayoutColumn[];
   style: LayoutSectionStyle;
 };
 
 export type LayoutColumn = {
-  layoutItems: LayoutItem | LayoutItem[];
+  layoutItems: LayoutItem[];
   reserved?: string;
 };
 
@@ -15759,22 +15759,22 @@ export type ReportChartComponentLayoutItem = {
 };
 
 export type MiniLayout = {
-  fields: string | string[];
-  relatedLists: RelatedListItem | RelatedListItem[];
+  fields: string[];
+  relatedLists: RelatedListItem[];
 };
 
 export type RelatedListItem = {
-  customButtons: string | string[];
-  excludeButtons: string | string[];
-  fields: string | string[];
-  quickActions: string | string[];
+  customButtons: string[];
+  excludeButtons: string[];
+  fields: string[];
+  quickActions: string[];
   relatedList: string;
   sortField?: string;
   sortOrder?: SortOrder;
 };
 
 export type RelatedContent = {
-  relatedContentItems: RelatedContentItem | RelatedContentItem[];
+  relatedContentItems: RelatedContentItem[];
 };
 
 export type RelatedContentItem = {
@@ -15786,7 +15786,7 @@ export type SummaryLayout = {
   sizeX: number;
   sizeY?: number;
   sizeZ?: number;
-  summaryLayoutItems: SummaryLayoutItem | SummaryLayoutItem[];
+  summaryLayoutItems: SummaryLayoutItem[];
   summaryLayoutStyle: SummaryLayoutStyle;
 };
 
@@ -15812,7 +15812,7 @@ export type LeadConfigSettings = Metadata & {
 
 export type LeadConvertSettings = Metadata & {
   allowOwnerChange?: boolean;
-  objectMapping: ObjectMapping | ObjectMapping[];
+  objectMapping: ObjectMapping[];
   opportunityCreationOptions?: VisibleOrRequired;
 };
 
@@ -15847,7 +15847,7 @@ export type LicenseDefinition = Metadata & {
   description?: string;
   isPublished: boolean;
   label: string;
-  licensedCustomPermissions: LicensedCustomPermissions | LicensedCustomPermissions[];
+  licensedCustomPermissions: LicensedCustomPermissions[];
   licensingAuthority: string;
   licensingAuthorityProvider: string;
   minPlatformVersion: number;
@@ -15868,9 +15868,9 @@ export type LicensingSettings = Metadata & {
 
 export type LightningBolt = Metadata & {
   category: LightningBoltCategory;
-  lightningBoltFeatures: LightningBoltFeatures | LightningBoltFeatures[];
-  lightningBoltImages: LightningBoltImages | LightningBoltImages[];
-  lightningBoltItems: LightningBoltItems | LightningBoltItems[];
+  lightningBoltFeatures: LightningBoltFeatures[];
+  lightningBoltImages: LightningBoltImages[];
+  lightningBoltItems: LightningBoltItems[];
   masterLabel: string;
   publisher: string;
   summary: string;
@@ -15906,11 +15906,11 @@ export type LightningComponentBundle = Metadata & {
 };
 
 export type Capabilities = {
-  capability: string | string[];
+  capability: string[];
 };
 
 export type LwcResources = {
-  lwcResource: LwcResource | LwcResource[];
+  lwcResource: LwcResource[];
 };
 
 export type LwcResource = {
@@ -15919,7 +15919,7 @@ export type LwcResource = {
 };
 
 export type Targets = {
-  target: string | string[];
+  target: string[];
 };
 
 export type LightningExperienceSettings = Metadata & {
@@ -15979,7 +15979,7 @@ export type LightningExperienceTheme = Metadata & {
 export type LightningMessageChannel = Metadata & {
   description?: string;
   isExposed?: boolean;
-  lightningMessageFields: LightningMessageField | LightningMessageField[];
+  lightningMessageFields: LightningMessageField[];
   masterLabel: string;
 };
 
@@ -16042,23 +16042,23 @@ export type AgentConfigAssignments = {
 };
 
 export type AgentConfigProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type AgentConfigUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type SupervisorAgentConfigSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type AgentConfigButtons = {
-  button: string | string[];
+  button: string[];
 };
 
 export type AgentConfigSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type LiveChatButton = Metadata & {
@@ -16101,11 +16101,11 @@ export type LiveChatButton = Metadata & {
 };
 
 export type LiveChatButtonDeployments = {
-  deployment: string | string[];
+  deployment: string[];
 };
 
 export type LiveChatButtonSkills = {
-  skill: string | string[];
+  skill: string[];
 };
 
 export type LiveChatDeployment = Metadata & {
@@ -16123,7 +16123,7 @@ export type LiveChatDeployment = Metadata & {
 };
 
 export type LiveChatDeploymentDomainWhitelist = {
-  domain: string | string[];
+  domain: string[];
 };
 
 export type LiveChatSensitiveDataRule = Metadata & {
@@ -16153,7 +16153,7 @@ export type LocationUse = Metadata & {
 
 export type LoyaltyProgramSetup = Metadata & {
   label?: string;
-  programProcesses: LoyaltyProgramProcess | LoyaltyProgramProcess[];
+  programProcesses: LoyaltyProgramProcess[];
 };
 
 export type LoyaltyProgramProcess = {
@@ -16162,10 +16162,10 @@ export type LoyaltyProgramProcess = {
   journalSubType?: string;
   journalType?: string;
   loyaltyTierGroup?: string;
-  parameters: LoyaltyProgramProcessParameter | LoyaltyProgramProcessParameter[];
+  parameters: LoyaltyProgramProcessParameter[];
   processName: string;
   processType: string;
-  rules: LoyaltyProgramProcessRule | LoyaltyProgramProcessRule[];
+  rules: LoyaltyProgramProcessRule[];
   status?: LoyaltyPgmProcStatus;
 };
 
@@ -16185,9 +16185,7 @@ export type LoyaltyProgramProcessParameter = {
 
 export type LoyaltyProgramProcessCondition = {
   conditionCriteria?: string;
-  conditionFilterCriteria:
-    | LoyaltyProgramProcessConditionFilterCriteria
-    | LoyaltyProgramProcessConditionFilterCriteria[];
+  conditionFilterCriteria: LoyaltyProgramProcessConditionFilterCriteria[];
   conditionName: string;
   conditionType?: LoyaltyPgmProcRuleType;
 };
@@ -16201,8 +16199,8 @@ export type LoyaltyProgramProcessConditionFilterCriteria = {
 };
 
 export type LoyaltyProgramProcessRule = {
-  actions: LoyaltyProgramProcessAction | LoyaltyProgramProcessAction[];
-  conditions: LoyaltyProgramProcessCondition | LoyaltyProgramProcessCondition[];
+  actions: LoyaltyProgramProcessAction[];
+  conditions: LoyaltyProgramProcessCondition[];
   description?: string;
   endDate?: Date;
   isProcessEligibilityRule?: boolean;
@@ -16211,12 +16209,12 @@ export type LoyaltyProgramProcessRule = {
   ruleName: string;
   startDate?: Date;
   status?: LoyaltyPgmProcRuleStatus;
-  stepMappings: LoyaltyProgramProcessRuleStepMapping | LoyaltyProgramProcessRuleStepMapping[];
+  stepMappings: LoyaltyProgramProcessRuleStepMapping[];
 };
 
 export type LoyaltyProgramProcessAction = {
   actionName: string;
-  actionParameters: LoyaltyProgramProcessActionParameter | LoyaltyProgramProcessActionParameter[];
+  actionParameters: LoyaltyProgramProcessActionParameter[];
   actionType: LoyaltyPgmProcActionType;
   crudActionType?: LoyaltyPgmProcCrudActType;
   decisionTable?: string;
@@ -16243,9 +16241,9 @@ export type LoyaltyProgramProcessRuleStepMapping = {
 export type MLDataDefinition = Metadata & {
   developerName: string;
   entityDeveloperName: string;
-  excludedFields: string | string[];
-  includedFields: string | string[];
-  joinFields: MLField | MLField[];
+  excludedFields: string[];
+  includedFields: string[];
+  joinFields: MLField[];
   parentDefinitionDevName: string;
   scoringFilter?: MLFilter;
   segmentFilter?: MLFilter;
@@ -16323,7 +16321,7 @@ export type MacroSettings = Metadata & {
 export type ManagedContentType = Metadata & {
   description?: string;
   developerName: string;
-  managedContentNodeTypes: ManagedContentNodeType | ManagedContentNodeType[];
+  managedContentNodeTypes: ManagedContentNodeType[];
   masterLabel: string;
 };
 
@@ -16362,11 +16360,11 @@ export type ManagedTopic = Metadata & {
 };
 
 export type ManagedTopics = Metadata & {
-  managedTopic: ManagedTopic | ManagedTopic[];
+  managedTopic: ManagedTopic[];
 };
 
 export type MarketAudienceDefinition = Metadata & {
-  audienceContactPoints: AudienceContactPoint | AudienceContactPoint[];
+  audienceContactPoints: AudienceContactPoint[];
   audiencePackageOwner?: string;
   channels?: string;
   description?: string;
@@ -16374,7 +16372,7 @@ export type MarketAudienceDefinition = Metadata & {
   isProtected?: boolean;
   lastAudienceExcludedCount?: number;
   lastAudienceMemberCount?: number;
-  marketAudienceFields: MarketAudienceField | MarketAudienceField[];
+  marketAudienceFields: MarketAudienceField[];
   masterLabel: string;
   status: MarketAudienceStatus;
 };
@@ -16417,8 +16415,8 @@ export type MarketingAppExtension = Metadata & {
   description?: string;
   isActive?: boolean;
   isProtected?: boolean;
-  marketingAppExtActions: MarketingAppExtAction | MarketingAppExtAction[];
-  marketingAppExtActivities: MarketingAppExtActivity | MarketingAppExtActivity[];
+  marketingAppExtActions: MarketingAppExtAction[];
+  marketingAppExtActivities: MarketingAppExtActivity[];
   masterLabel: string;
 };
 
@@ -16437,7 +16435,7 @@ export type MatchingRule = Metadata & {
   booleanFilter?: string;
   description?: string;
   label: string;
-  matchingRuleItems: MatchingRuleItem | MatchingRuleItem[];
+  matchingRuleItems: MatchingRuleItem[];
   ruleStatus: MatchingRuleStatus;
 };
 
@@ -16448,7 +16446,7 @@ export type MatchingRuleItem = {
 };
 
 export type MatchingRules = Metadata & {
-  matchingRules: MatchingRule | MatchingRule[];
+  matchingRules: MatchingRule[];
 };
 
 export type MeetingsSettings = Metadata & {
@@ -16458,15 +16456,15 @@ export type MeetingsSettings = Metadata & {
 };
 
 export type MessagingChannel = Metadata & {
-  automatedResponses: MessagingAutoResponse | MessagingAutoResponse[];
-  customParameters: MessagingChannelCustomParameter | MessagingChannelCustomParameter[];
+  automatedResponses: MessagingAutoResponse[];
+  customParameters: MessagingChannelCustomParameter[];
   description?: string;
   masterLabel: string;
   messagingChannelType: MessagingChannelType;
   sessionHandlerFlow?: string;
   sessionHandlerQueue: string;
   sessionHandlerType: MessagingSessionHandlerType;
-  standardParameters: MessagingChannelStandardParameter | MessagingChannelStandardParameter[];
+  standardParameters: MessagingChannelStandardParameter[];
 };
 
 export type MessagingAutoResponse = {
@@ -16475,13 +16473,13 @@ export type MessagingAutoResponse = {
 };
 
 export type MessagingChannelCustomParameter = {
-  actionParameterMappings: MessagingChannelActionParameterMapping | MessagingChannelActionParameterMapping[];
+  actionParameterMappings: MessagingChannelActionParameterMapping[];
   externalParameterName: string;
   masterLabel: string;
   maxLength?: number;
   name: string;
   parameterDataType: FlowDataType;
-  parameterValueMappings: MessagingChannelParameterValueMapping | MessagingChannelParameterValueMapping[];
+  parameterValueMappings: MessagingChannelParameterValueMapping[];
 };
 
 export type MessagingChannelActionParameterMapping = {
@@ -16495,19 +16493,19 @@ export type MessagingChannelParameterValueMapping = {
 };
 
 export type MessagingChannelStandardParameter = {
-  actionParameterMappings: MessagingChannelActionParameterMapping | MessagingChannelActionParameterMapping[];
+  actionParameterMappings: MessagingChannelActionParameterMapping[];
   parameterType: MessagingChannelStandardParameterType;
-  parameterValueMappings: MessagingChannelParameterValueMapping | MessagingChannelParameterValueMapping[];
+  parameterValueMappings: MessagingChannelParameterValueMapping[];
 };
 
 export type MetadataGroup = Metadata & {
   description?: string;
-  mappings: string | string[];
+  mappings: string[];
 };
 
 export type MfgProgramTemplate = Metadata & {
   description?: string;
-  programTemplateItems: MfgProgramTemplateItem | MfgProgramTemplateItem[];
+  programTemplateItems: MfgProgramTemplateItem[];
   programTemplateName: string;
   status: MfgProgramTemplateStatus;
 };
@@ -16540,10 +16538,10 @@ export type MktDataConnection = Metadata & {
   connectionMethod: MktDataConnectionMethod;
   connectionStatus?: MktDataConnectionStatus;
   connectorName: string;
-  credentials: MktDataConnectionCred | MktDataConnectionCred[];
+  credentials: MktDataConnectionCred[];
   externalRecordIdentifier?: string;
   masterLabel: string;
-  parameters: MktDataConnectionParam | MktDataConnectionParam[];
+  parameters: MktDataConnectionParam[];
 };
 
 export type MktDataConnectionCred = Metadata & {
@@ -16582,7 +16580,7 @@ export type MktDataTranObject = Metadata & {
   dataSource: string;
   dataSourceObject: string;
   masterLabel: string;
-  mktDataTranFields: MktDataTranField | MktDataTranField[];
+  mktDataTranFields: MktDataTranField[];
   objectCategory: string;
 };
 
@@ -16594,20 +16592,20 @@ export type MktDatalakeSrcKeyQualifier = Metadata & {
 export type MlDomain = Metadata & {
   description?: string;
   label: string;
-  mlIntents: MlIntent | MlIntent[];
-  mlSlotClasses: MlSlotClass | MlSlotClass[];
+  mlIntents: MlIntent[];
+  mlSlotClasses: MlSlotClass[];
 };
 
 export type MlModelArtifact = Metadata & {
   algorithmType?: MlAIModelAlgorithmType;
   description?: string;
   generativeModelType?: MlGenerativeModelType;
-  inputFeatures: MlModelInput | MlModelInput[];
+  inputFeatures: MlModelInput[];
   label: string;
-  modelCapabilities: MlGenerativeModelCapability | MlGenerativeModelCapability[];
+  modelCapabilities: MlGenerativeModelCapability[];
   modelType: MlModelType;
-  outputFeatures: MlModelOutput | MlModelOutput[];
-  parameters: MlParameterDefinition | MlParameterDefinition[];
+  outputFeatures: MlModelOutput[];
+  parameters: MlParameterDefinition[];
   predictionType?: MlModelPredictionType;
   runtimeType?: MlRuntimeType;
   sourceContainer?: string;
@@ -16624,7 +16622,7 @@ export type MlModelInput = {
   name: string;
   position?: number;
   type: string;
-  values: string | string[];
+  values: string[];
 };
 
 export type MlModelOutput = {
@@ -16639,8 +16637,8 @@ export type MlParameterDefinition = {
   continuousMinimum?: number;
   description?: string;
   discreteDefault?: string;
-  discreteValues: string | string[];
-  modelCapabilities: MlGenerativeModelCapability | MlGenerativeModelCapability[];
+  discreteValues: string[];
+  modelCapabilities: MlGenerativeModelCapability[];
   name: string;
   subtype?: MlParameterSubtype;
   type: MlParameterType;
@@ -16648,7 +16646,7 @@ export type MlParameterDefinition = {
 
 export type MlModelConnection = Metadata & {
   deployStatus?: MlModelDeployStatus;
-  endpoints: MlModelEndpoint | MlModelEndpoint[];
+  endpoints: MlModelEndpoint[];
   externalSystemRegistry?: string;
   registeredModelApiName?: string;
   foundationalModelName?: string;
@@ -16665,7 +16663,7 @@ export type MlModelEndpoint = {
   name: string;
   namedCredential?: string;
   outputSchema?: MlModelSchema;
-  outputs: MlModelOutputEndpoint | MlModelOutputEndpoint[];
+  outputs: MlModelOutputEndpoint[];
   type?: MlModelEndpointType;
   url: string;
 };
@@ -16679,12 +16677,12 @@ export type MlModelOutputEndpoint = {
 };
 
 export type MlModelKit = Metadata & {
-  activatedModels: MlActivatedModel | MlActivatedModel[];
+  activatedModels: MlActivatedModel[];
   description?: string;
   label: string;
   objectiveType?: MlObjectiveType;
   outcomeGoal: MlOutcomeGoalType;
-  outputFeatures: MlModelOutput | MlModelOutput[];
+  outputFeatures: MlModelOutput[];
   predictionType?: MlModelPredictionType;
   status: MlModelKitStatus;
 };
@@ -16695,7 +16693,7 @@ export type MlActivatedModel = {
   model: string;
   modelCapability?: MlGenerativeModelCapability;
   name: string;
-  parameterOverrides: MlParameterOverride | MlParameterOverride[];
+  parameterOverrides: MlParameterOverride[];
   position: number;
   refreshEnabled?: boolean;
   status: MlActivatedModelStatus;
@@ -16749,12 +16747,12 @@ export type ModerationRule = Metadata & {
   actionLimit?: number;
   active: boolean;
   description?: string;
-  entitiesAndFields: ModeratedEntityField | ModeratedEntityField[];
+  entitiesAndFields: ModeratedEntityField[];
   masterLabel: string;
   notifyLimit?: number;
   timePeriod?: RateLimitTimePeriod;
   type?: ModerationRuleType;
-  userCriteria: string | string[];
+  userCriteria: string[];
   userMessage?: string;
 };
 
@@ -16770,16 +16768,16 @@ export type Module = Metadata & {
   moduleDependencies?: ModuleDependencies;
   moduleType: string;
   name: string;
-  types: PackageTypeMembers | PackageTypeMembers[];
+  types: PackageTypeMembers[];
   version?: string;
 };
 
 export type ModuleDependencies = {
-  moduleRef: ModuleRef | ModuleRef[];
+  moduleRef: ModuleRef[];
 };
 
 export type PackageTypeMembers = {
-  members: string | string[];
+  members: string[];
   name: string;
 };
 
@@ -16839,7 +16837,7 @@ export type NamedCredential = Metadata & {
   jwtTextSubject?: string;
   jwtValidityPeriodSeconds?: number;
   label: string;
-  namedCredentialParameters: NamedCredentialParameter | NamedCredentialParameter[];
+  namedCredentialParameters: NamedCredentialParameter[];
   namedCredentialType?: NamedCredentialType;
   oauthRefreshToken?: string;
   oauthScope?: string;
@@ -16866,7 +16864,7 @@ export type NavigationMenu = Metadata & {
   container: string;
   containerType: string;
   label: string;
-  navigationMenuItem: NavigationMenuItem | NavigationMenuItem[];
+  navigationMenuItem: NavigationMenuItem[];
 };
 
 export type Network = Metadata & {
@@ -16965,7 +16963,7 @@ export type NetworkAuthApiSettings = {
   doesForgotPasswordRequireAuth?: boolean;
   doesPwdlessLoginRequireAuth?: boolean;
   doesRegistrationRequireAuth?: boolean;
-  emailTmplsAllowlist: NetworkEmailTmplAllowlist | NetworkEmailTmplAllowlist[];
+  emailTmplsAllowlist: NetworkEmailTmplAllowlist[];
   isForgotPwdAllowed?: boolean;
   isForgotPwdEmailTemplateAllowlistingEnabled?: boolean;
   isHeadlessUserRegistrationAllowed?: boolean;
@@ -16987,8 +16985,8 @@ export type NetworkEmailTmplAllowlist = {
 };
 
 export type NetworkMemberGroup = {
-  permissionSet: string | string[];
-  profile: string | string[];
+  permissionSet: string[];
+  profile: string[];
 };
 
 export type NetworkPageOverride = {
@@ -17000,7 +16998,7 @@ export type NetworkPageOverride = {
 };
 
 export type RecommendationAudience = {
-  recommendationAudienceDetails: RecommendationAudienceDetail | RecommendationAudienceDetail[];
+  recommendationAudienceDetails: RecommendationAudienceDetail[];
 };
 
 export type RecommendationAudienceDetail = {
@@ -17010,7 +17008,7 @@ export type RecommendationAudienceDetail = {
 };
 
 export type RecommendationDefinition = {
-  recommendationDefinitionDetails: RecommendationDefinitionDetail | RecommendationDefinitionDetail[];
+  recommendationDefinitionDetails: RecommendationDefinitionDetail[];
 };
 
 export type RecommendationDefinitionDetail = {
@@ -17023,7 +17021,7 @@ export type RecommendationDefinitionDetail = {
 };
 
 export type ScheduledRecommendation = {
-  scheduledRecommendationDetails: ScheduledRecommendationDetail | ScheduledRecommendationDetail[];
+  scheduledRecommendationDetails: ScheduledRecommendationDetail[];
 };
 
 export type ScheduledRecommendationDetail = {
@@ -17034,7 +17032,7 @@ export type ScheduledRecommendationDetail = {
 };
 
 export type ReputationLevelDefinitions = {
-  level: ReputationLevel | ReputationLevel[];
+  level: ReputationLevel[];
 };
 
 export type ReputationLevel = {
@@ -17048,7 +17046,7 @@ export type ReputationBranding = {
 };
 
 export type ReputationPointsRules = {
-  pointsRule: ReputationPointsRule | ReputationPointsRule[];
+  pointsRule: ReputationPointsRule[];
 };
 
 export type ReputationPointsRule = {
@@ -17057,17 +17055,17 @@ export type ReputationPointsRule = {
 };
 
 export type NetworkTabSet = {
-  customTab: string | string[];
+  customTab: string[];
   defaultTab: string;
-  standardTab: string | string[];
+  standardTab: string[];
 };
 
 export type NotificationTypeConfig = Metadata & {
-  notificationTypeSettings: NotificationTypeSettings | NotificationTypeSettings[];
+  notificationTypeSettings: NotificationTypeSettings[];
 };
 
 export type NotificationTypeSettings = {
-  appSettings: AppSettings | AppSettings[];
+  appSettings: AppSettings[];
   notificationChannels?: NotificationChannels;
   notificationType: string;
 };
@@ -17090,7 +17088,7 @@ export type NotificationsSettings = Metadata & {
 };
 
 export type OauthCustomScope = Metadata & {
-  assignedTo: OauthCustomScopeApp | OauthCustomScopeApp[];
+  assignedTo: OauthCustomScopeApp[];
   description: string;
   developerName: string;
   isProtected?: boolean;
@@ -17112,7 +17110,7 @@ export type OauthOidcSettings = Metadata & {
 export type OauthTokenExchangeHandler = Metadata & {
   description: string;
   developerName: string;
-  enablements: OauthTokenExchHandlerApp | OauthTokenExchHandlerApp[];
+  enablements: OauthTokenExchHandlerApp[];
   isAccessTokenSupported: boolean;
   isEnabled: boolean;
   isIdTokenSupported: boolean;
@@ -17153,7 +17151,7 @@ export type ObjectLinkingSettings = Metadata & {
 
 export type ObjectSourceTargetMap = Metadata & {
   creationType?: DefinitionCreationType;
-  fieldSourceTargetMaps: FieldSourceTargetMap | FieldSourceTargetMap[];
+  fieldSourceTargetMaps: FieldSourceTargetMap[];
   masterLabel: string;
   sequenceNbr?: number;
   sourceObjectName: string;
@@ -17177,8 +17175,8 @@ export type OcrSampleDocument = Metadata & {
   documentHeight?: number;
   documentType: string;
   masterLabel: string;
-  ocrSampleDocumentFields: OcrSampleDocumentField | OcrSampleDocumentField[];
-  ocrSampleDocumentPages: OcrSampleDocumentPage | OcrSampleDocumentPage[];
+  ocrSampleDocumentFields: OcrSampleDocumentField[];
+  ocrSampleDocumentPages: OcrSampleDocumentPage[];
 };
 
 export type OcrSampleDocumentField = {
@@ -17207,7 +17205,7 @@ export type OcrSampleDocumentPageItem = {
 
 export type OcrSampleDocumentPage = {
   ocrSampleDocument: string;
-  ocrSampleDocumentPageItems: OcrSampleDocumentPageItem | OcrSampleDocumentPageItem[];
+  ocrSampleDocumentPageItems: OcrSampleDocumentPageItem[];
   pageHeight?: number;
   pageNumber: number;
 };
@@ -17217,14 +17215,14 @@ export type OcrTemplate = Metadata & {
   description?: string;
   documentType: string;
   masterLabel: string;
-  ocrTargetObjects: OcrTargetObject | OcrTargetObject[];
-  ocrTemplateSampleDocuments: OcrTemplateSampleDocument | OcrTemplateSampleDocument[];
+  ocrTargetObjects: OcrTargetObject[];
+  ocrTemplateSampleDocuments: OcrTemplateSampleDocument[];
   pageCount?: number;
   templateName: string;
 };
 
 export type OcrTargetObject = {
-  ocrTargetObjFieldMappings: OcrTargetObjFieldMapping | OcrTargetObjFieldMapping[];
+  ocrTargetObjFieldMappings: OcrTargetObjFieldMapping[];
   targetObject: string;
   targetObjectRecordType?: string;
 };
@@ -17268,7 +17266,7 @@ export type OmniDataTransform = Metadata & {
   name: string;
   namespace?: string;
   nullInputsIncludedInOutput?: boolean;
-  omniDataTransformItem: OmniDataTransformItem | OmniDataTransformItem[];
+  omniDataTransformItem: OmniDataTransformItem[];
   outputParsingClass?: string;
   outputType?: string;
   overrideKey?: string;
@@ -17340,7 +17338,7 @@ export type OmniExtTrackingDef = Metadata & {
   isActive: boolean;
   masterLabel: string;
   omniExtTrackingDefKey?: string;
-  omniExtTrackingEventDefs: OmniExtTrackingEventDef | OmniExtTrackingEventDef[];
+  omniExtTrackingEventDefs: OmniExtTrackingEventDef[];
   trackingFrameworkInformation: string;
   trackingServiceProvider: ExternalTrackingVendor;
 };
@@ -17372,7 +17370,7 @@ export type OmniIntegrationProcedure = Metadata & {
   lastPreviewPage?: string;
   name: string;
   nameSpace?: string;
-  omniProcessElements: OmniProcessElement | OmniProcessElement[];
+  omniProcessElements: OmniProcessElement[];
   omniProcessKey?: string;
   omniProcessType: OmniProcessType;
   overrideKey?: string;
@@ -17387,7 +17385,7 @@ export type OmniIntegrationProcedure = Metadata & {
 };
 
 export type OmniProcessElement = {
-  childElements: OmniProcessElement | OmniProcessElement[];
+  childElements: OmniProcessElement[];
   description?: string;
   designerCustomizationType?: string;
   discoveryFrameworkUsageType?: string;
@@ -17443,7 +17441,7 @@ export type OmniScript = Metadata & {
   lastPreviewPage?: string;
   name: string;
   nameSpace?: string;
-  omniProcessElements: OmniProcessElement | OmniProcessElement[];
+  omniProcessElements: OmniProcessElement[];
   omniProcessKey?: string;
   omniProcessType: OmniProcessType;
   overrideKey?: string;
@@ -17460,12 +17458,12 @@ export type OmniScript = Metadata & {
 export type OmniSupervisorConfig = Metadata & {
   isTimelineHidden: boolean;
   masterLabel: string;
-  omniSupervisorConfigAction: OmniSupervisorConfigAction | OmniSupervisorConfigAction[];
-  omniSupervisorConfigGroup: OmniSupervisorConfigGroup | OmniSupervisorConfigGroup[];
-  omniSupervisorConfigProfile: OmniSupervisorConfigProfile | OmniSupervisorConfigProfile[];
-  omniSupervisorConfigQueue: OmniSupervisorConfigQueue | OmniSupervisorConfigQueue[];
-  omniSupervisorConfigSkill: OmniSupervisorConfigSkill | OmniSupervisorConfigSkill[];
-  omniSupervisorConfigTab: OmniSupervisorConfigTab | OmniSupervisorConfigTab[];
+  omniSupervisorConfigAction: OmniSupervisorConfigAction[];
+  omniSupervisorConfigGroup: OmniSupervisorConfigGroup[];
+  omniSupervisorConfigProfile: OmniSupervisorConfigProfile[];
+  omniSupervisorConfigQueue: OmniSupervisorConfigQueue[];
+  omniSupervisorConfigSkill: OmniSupervisorConfigSkill[];
+  omniSupervisorConfigTab: OmniSupervisorConfigTab[];
   skillVisibility?: OmniSuperSkillVisibilityType;
 };
 
@@ -17516,7 +17514,7 @@ export type OmniTrackingGroup = Metadata & {
   masterLabel: string;
   maxAgeInDays?: number;
   omniExtTrackingDef?: string;
-  omniTrackingComponentDefs: OmniTrackingComponentDef | OmniTrackingComponentDef[];
+  omniTrackingComponentDefs: OmniTrackingComponentDef[];
   omniTrackingGroupKey?: string;
   startDate?: Date;
 };
@@ -17567,14 +17565,14 @@ export type OpportunitySettings = Metadata & {
 };
 
 export type FindSimilarOppFilter = {
-  similarOpportunitiesDisplayColumns: string | string[];
-  similarOpportunitiesMatchFields: string | string[];
+  similarOpportunitiesDisplayColumns: string[];
+  similarOpportunitiesMatchFields: string[];
 };
 
 export type OrchestrationContext = Metadata & {
-  datasets: OrchestrationContextDataset | OrchestrationContextDataset[];
+  datasets: OrchestrationContextDataset[];
   description?: string;
-  events: OrchestrationContextEvent | OrchestrationContextEvent[];
+  events: OrchestrationContextEvent[];
   imageFile: string;
   imageScale: number;
   masterLabel: string;
@@ -17623,7 +17621,7 @@ export type OutboundNetworkConnection = Metadata & {
   description?: string;
   isActive: boolean;
   label: string;
-  outboundNetworkConnProperties: OutboundNetworkConnProperty | OutboundNetworkConnProperty[];
+  outboundNetworkConnProperties: OutboundNetworkConnProperty[];
   status: ExternalConnectionStatus;
 };
 
@@ -17636,11 +17634,11 @@ export type Package = Metadata & {
   apiAccessLevel?: APIAccessLevel;
   description?: string;
   namespacePrefix?: string;
-  objectPermissions: ProfileObjectPermissions | ProfileObjectPermissions[];
+  objectPermissions: ProfileObjectPermissions[];
   packageType?: string;
   postInstallClass?: string;
   setupWeblink?: string;
-  types: PackageTypeMembers | PackageTypeMembers[];
+  types: PackageTypeMembers[];
   uninstallClass?: string;
   version: string;
 };
@@ -17693,12 +17691,12 @@ export type PathAssistant = Metadata & {
   entityName: string;
   fieldName: string;
   masterLabel: string;
-  pathAssistantSteps: PathAssistantStep | PathAssistantStep[];
+  pathAssistantSteps: PathAssistantStep[];
   recordTypeName: string;
 };
 
 export type PathAssistantStep = {
-  fieldNames: string | string[];
+  fieldNames: string[];
   info?: string;
   picklistValueName: string;
 };
@@ -17720,27 +17718,25 @@ export type PaymentsSettings = Metadata & {
 };
 
 export type PermissionSet = Metadata & {
-  applicationVisibilities: PermissionSetApplicationVisibility | PermissionSetApplicationVisibility[];
-  classAccesses: PermissionSetApexClassAccess | PermissionSetApexClassAccess[];
-  customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess | PermissionSetCustomMetadataTypeAccess[];
-  customPermissions: PermissionSetCustomPermissions | PermissionSetCustomPermissions[];
-  customSettingAccesses: PermissionSetCustomSettingAccess | PermissionSetCustomSettingAccess[];
-  dataspaceScopes: DataspaceScopeAccess | DataspaceScopeAccess[];
+  applicationVisibilities: PermissionSetApplicationVisibility[];
+  classAccesses: PermissionSetApexClassAccess[];
+  customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess[];
+  customPermissions: PermissionSetCustomPermissions[];
+  customSettingAccesses: PermissionSetCustomSettingAccess[];
+  dataspaceScopes: DataspaceScopeAccess[];
   description?: string;
-  externalCredentialPrincipalAccesses:
-    | PermissionSetExternalCredentialPrincipalAccess
-    | PermissionSetExternalCredentialPrincipalAccess[];
-  externalDataSourceAccesses: PermissionSetExternalDataSourceAccess | PermissionSetExternalDataSourceAccess[];
-  fieldPermissions: PermissionSetFieldPermissions | PermissionSetFieldPermissions[];
-  flowAccesses: PermissionSetFlowAccess | PermissionSetFlowAccess[];
+  externalCredentialPrincipalAccesses: PermissionSetExternalCredentialPrincipalAccess[];
+  externalDataSourceAccesses: PermissionSetExternalDataSourceAccess[];
+  fieldPermissions: PermissionSetFieldPermissions[];
+  flowAccesses: PermissionSetFlowAccess[];
   hasActivationRequired?: boolean;
   label: string;
   license?: string;
-  objectPermissions: PermissionSetObjectPermissions | PermissionSetObjectPermissions[];
-  pageAccesses: PermissionSetApexPageAccess | PermissionSetApexPageAccess[];
-  recordTypeVisibilities: PermissionSetRecordTypeVisibility | PermissionSetRecordTypeVisibility[];
-  tabSettings: PermissionSetTabSetting | PermissionSetTabSetting[];
-  userPermissions: PermissionSetUserPermission | PermissionSetUserPermission[];
+  objectPermissions: PermissionSetObjectPermissions[];
+  pageAccesses: PermissionSetApexPageAccess[];
+  recordTypeVisibilities: PermissionSetRecordTypeVisibility[];
+  tabSettings: PermissionSetTabSetting[];
+  userPermissions: PermissionSetUserPermission[];
 };
 
 export type PermissionSetApplicationVisibility = {
@@ -17846,13 +17842,13 @@ export type PermissionSetGroup = Metadata & {
   description?: string;
   hasActivationRequired?: boolean;
   label: string;
-  mutingPermissionSets: string | string[];
-  permissionSets: string | string[];
+  mutingPermissionSets: string[];
+  permissionSets: string[];
   status?: string;
 };
 
 export type PermissionSetLicenseDefinition = Metadata & {
-  customPermissions: PermissionSetLicenseDefinitionCustomPermission | PermissionSetLicenseDefinitionCustomPermission[];
+  customPermissions: PermissionSetLicenseDefinitionCustomPermission[];
   isSupplementLicense?: boolean;
   label: string;
   licenseExpirationPolicy: LicenseExpirationPolicy;
@@ -17878,7 +17874,7 @@ export type PlatformCachePartition = Metadata & {
   description?: string;
   isDefaultPartition: boolean;
   masterLabel: string;
-  platformCachePartitionTypes: PlatformCachePartitionType | PlatformCachePartitionType[];
+  platformCachePartitionTypes: PlatformCachePartitionType[];
 };
 
 export type PlatformCachePartitionType = {
@@ -17905,7 +17901,7 @@ export type PlatformEventChannel = Metadata & {
 };
 
 export type PlatformEventChannelMember = Metadata & {
-  enrichedFields: EnrichedField | EnrichedField[];
+  enrichedFields: EnrichedField[];
   eventChannel: string;
   filterExpression?: string;
   selectedEntity: string;
@@ -17921,19 +17917,19 @@ export type PlatformLicenseDefinition = Metadata & {
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
   hasDynamicResourceGroupKey?: boolean;
-  includedFeatures: IncludedFeature | IncludedFeature[];
+  includedFeatures: IncludedFeature[];
   licenseOwner?: string;
   managementServiceProvider?: string;
   managementTenantId?: string;
   minPlatformVersion?: number;
   name: string;
-  settingItems: SettingItem | SettingItem[];
-  settingUsageDefinitions: SettingUsageDefinition | SettingUsageDefinition[];
+  settingItems: SettingItem[];
+  settingUsageDefinitions: SettingUsageDefinition[];
 };
 
 export type IncludedFeature = {
   name: string;
-  settingOverrides: SettingOverride | SettingOverride[];
+  settingOverrides: SettingOverride[];
 };
 
 export type SettingOverride = {
@@ -17993,7 +17989,7 @@ export type PortalsSettings = Metadata & {
 export type PostTemplate = Metadata & {
   default?: boolean;
   description?: string;
-  fields: string | string[];
+  fields: string[];
   label: string;
 };
 
@@ -18009,7 +18005,7 @@ export type PresenceDeclineReason = Metadata & {
 export type PresenceUserConfig = Metadata & {
   assignments?: PresenceConfigAssignments;
   capacity: number;
-  declineReasons: string | string[];
+  declineReasons: string[];
   enableAutoAccept?: boolean;
   enableDecline?: boolean;
   enableDeclineReason?: boolean;
@@ -18028,11 +18024,11 @@ export type PresenceConfigAssignments = {
 };
 
 export type PresenceConfigProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type PresenceConfigUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type PriceRule = Metadata & {
@@ -18041,16 +18037,16 @@ export type PriceRule = Metadata & {
   effectiveDate?: Date;
   expirationDate?: Date;
   masterLabel: string;
-  priceRuleActions: PriceRuleAction | PriceRuleAction[];
-  priceRuleConditions: PriceRuleCondition | PriceRuleCondition[];
-  priceRuleExecutionStages: PriceRuleExecutionStage | PriceRuleExecutionStage[];
+  priceRuleActions: PriceRuleAction[];
+  priceRuleConditions: PriceRuleCondition[];
+  priceRuleExecutionStages: PriceRuleExecutionStage[];
   sequence: number;
   status: RuleStatus;
 };
 
 export type PriceRuleAction = {
   conditionVariable?: string;
-  priceRuleActionItems: PriceRuleActionItem | PriceRuleActionItem[];
+  priceRuleActionItems: PriceRuleActionItem[];
   sequence: number;
   targetObject?: string;
   type: TypeOfAction;
@@ -18071,7 +18067,7 @@ export type PriceRuleCondition = {
   aggregationType?: ConditionAggregationFunction;
   conditionVariable?: string;
   matchType: TargetEntityMatchType;
-  priceRuleConditionFilters: PriceRuleConditionFilter | PriceRuleConditionFilter[];
+  priceRuleConditionFilters: PriceRuleConditionFilter[];
   scope: ConditionType;
   sequence: number;
   targetObject: string;
@@ -18094,7 +18090,7 @@ export type PriceSheetDefinition = Metadata & {
   description?: string;
   isProtected?: boolean;
   masterLabel: string;
-  prcShtAttrDefinitions: PrcShtAttrDefinition | PrcShtAttrDefinition[];
+  prcShtAttrDefinitions: PrcShtAttrDefinition[];
   priceSheetEntity: string;
 };
 
@@ -18124,7 +18120,7 @@ export type PricingRecipe = Metadata & {
   isInternal?: boolean;
   isProtected?: boolean;
   masterLabel: string;
-  pricingRecipeTableMapping: PricingRecipeTableMapping | PricingRecipeTableMapping[];
+  pricingRecipeTableMapping: PricingRecipeTableMapping[];
 };
 
 export type PricingRecipeTableMapping = {
@@ -18169,7 +18165,7 @@ export type ProductAttributeSet = Metadata & {
   description?: string;
   developerName: string;
   masterLabel: string;
-  productAttributeSetItems: ProductAttributeSetItem | ProductAttributeSetItem[];
+  productAttributeSetItems: ProductAttributeSetItem[];
 };
 
 export type ProductAttributeSetItem = {
@@ -18201,28 +18197,28 @@ export type ProductSpecificationType = Metadata & {
 };
 
 export type Profile = Metadata & {
-  applicationVisibilities: ProfileApplicationVisibility | ProfileApplicationVisibility[];
-  categoryGroupVisibilities: ProfileCategoryGroupVisibility | ProfileCategoryGroupVisibility[];
-  classAccesses: ProfileApexClassAccess | ProfileApexClassAccess[];
+  applicationVisibilities: ProfileApplicationVisibility[];
+  categoryGroupVisibilities: ProfileCategoryGroupVisibility[];
+  classAccesses: ProfileApexClassAccess[];
   custom?: boolean;
-  customMetadataTypeAccesses: ProfileCustomMetadataTypeAccess | ProfileCustomMetadataTypeAccess[];
-  customPermissions: ProfileCustomPermissions | ProfileCustomPermissions[];
-  customSettingAccesses: ProfileCustomSettingAccess | ProfileCustomSettingAccess[];
+  customMetadataTypeAccesses: ProfileCustomMetadataTypeAccess[];
+  customPermissions: ProfileCustomPermissions[];
+  customSettingAccesses: ProfileCustomSettingAccess[];
   description?: string;
-  externalDataSourceAccesses: ProfileExternalDataSourceAccess | ProfileExternalDataSourceAccess[];
-  fieldPermissions: ProfileFieldLevelSecurity | ProfileFieldLevelSecurity[];
-  flowAccesses: ProfileFlowAccess | ProfileFlowAccess[];
-  layoutAssignments: ProfileLayoutAssignment | ProfileLayoutAssignment[];
-  loginFlows: LoginFlow | LoginFlow[];
+  externalDataSourceAccesses: ProfileExternalDataSourceAccess[];
+  fieldPermissions: ProfileFieldLevelSecurity[];
+  flowAccesses: ProfileFlowAccess[];
+  layoutAssignments: ProfileLayoutAssignment[];
+  loginFlows: LoginFlow[];
   loginHours?: ProfileLoginHours;
-  loginIpRanges: ProfileLoginIpRange | ProfileLoginIpRange[];
-  objectPermissions: ProfileObjectPermissions | ProfileObjectPermissions[];
-  pageAccesses: ProfileApexPageAccess | ProfileApexPageAccess[];
-  profileActionOverrides: ProfileActionOverride | ProfileActionOverride[];
-  recordTypeVisibilities: ProfileRecordTypeVisibility | ProfileRecordTypeVisibility[];
-  tabVisibilities: ProfileTabVisibility | ProfileTabVisibility[];
+  loginIpRanges: ProfileLoginIpRange[];
+  objectPermissions: ProfileObjectPermissions[];
+  pageAccesses: ProfileApexPageAccess[];
+  profileActionOverrides: ProfileActionOverride[];
+  recordTypeVisibilities: ProfileRecordTypeVisibility[];
+  tabVisibilities: ProfileTabVisibility[];
   userLicense?: string;
-  userPermissions: ProfileUserPermission | ProfileUserPermission[];
+  userPermissions: ProfileUserPermission[];
 };
 
 export type ProfileApplicationVisibility = {
@@ -18232,7 +18228,7 @@ export type ProfileApplicationVisibility = {
 };
 
 export type ProfileCategoryGroupVisibility = {
-  dataCategories: string | string[];
+  dataCategories: string[];
   dataCategoryGroup: string;
   visibility: CategoryGroupVisibility;
 };
@@ -18359,7 +18355,7 @@ export type ProfileSessionSetting = Metadata & {
 
 export type Prompt = Metadata & {
   masterLabel: string;
-  promptVersions: PromptVersion | PromptVersion[];
+  promptVersions: PromptVersion[];
 };
 
 export type PromptVersion = {
@@ -18418,7 +18414,7 @@ export type Queue = Metadata & {
   name: string;
   queueMembers?: QueueMembers;
   queueRoutingConfig?: string;
-  queueSobject: QueueSobject | QueueSobject[];
+  queueSobject: QueueSobject[];
 };
 
 export type QueueMembers = {
@@ -18430,23 +18426,23 @@ export type QueueMembers = {
 };
 
 export type PublicGroups = {
-  publicGroup: string | string[];
+  publicGroup: string[];
 };
 
 export type RoleAndSubordinates = {
-  roleAndSubordinate: string | string[];
+  roleAndSubordinate: string[];
 };
 
 export type RoleAndSubordinatesInternal = {
-  roleAndSubordinateInternal: string | string[];
+  roleAndSubordinateInternal: string[];
 };
 
 export type Roles = {
-  role: string | string[];
+  role: string[];
 };
 
 export type Users = {
-  user: string | string[];
+  user: string[];
 };
 
 export type QueueSobject = {
@@ -18464,7 +18460,7 @@ export type QueueRoutingConfig = Metadata & {
   queueOverflowAssignee?: string;
   routingModel: RoutingModel;
   routingPriority: number;
-  skills: QueueRoutingConfigSkill | QueueRoutingConfigSkill[];
+  skills: QueueRoutingConfigSkill[];
   userOverflowAssignee?: string;
 };
 
@@ -18476,7 +18472,7 @@ export type QuickAction = Metadata & {
   actionSubtype?: ActionSubtype;
   canvas?: string;
   description?: string;
-  fieldOverrides: FieldOverride | FieldOverride[];
+  fieldOverrides: FieldOverride[];
   flowDefinition?: string;
   height?: number;
   icon?: string;
@@ -18505,11 +18501,11 @@ export type FieldOverride = {
 
 export type QuickActionLayout = {
   layoutSectionStyle: LayoutSectionStyle;
-  quickActionLayoutColumns: QuickActionLayoutColumn | QuickActionLayoutColumn[];
+  quickActionLayoutColumns: QuickActionLayoutColumn[];
 };
 
 export type QuickActionLayoutColumn = {
-  quickActionLayoutItems: QuickActionLayoutItem | QuickActionLayoutItem[];
+  quickActionLayoutItems: QuickActionLayoutItem[];
 };
 
 export type QuickActionLayoutItem = {
@@ -18535,7 +18531,7 @@ export type QuoteSettings = Metadata & {
 };
 
 export type RealTimeEventSettings = Metadata & {
-  realTimeEvents: RealTimeEvent | RealTimeEvent[];
+  realTimeEvents: RealTimeEvent[];
 };
 
 export type RealTimeEvent = {
@@ -18549,28 +18545,28 @@ export type RecommendationBuilderSettings = Metadata & {
 };
 
 export type RecommendationStrategy = Metadata & {
-  actionContext: StrategyAction | StrategyAction[];
-  aiLoad: StrategyNodeAiLoad | StrategyNodeAiLoad[];
-  aiSort: StrategyNodeAiSort | StrategyNodeAiSort[];
+  actionContext: StrategyAction[];
+  aiLoad: StrategyNodeAiLoad[];
+  aiSort: StrategyNodeAiSort[];
   contextRecordType?: string;
   description?: string;
-  filter: StrategyNodeFilter | StrategyNodeFilter[];
-  if: StrategyNodeIf | StrategyNodeIf[];
-  invocableAction: StrategyNodeInvocableAction | StrategyNodeInvocableAction[];
+  filter: StrategyNodeFilter[];
+  if: StrategyNodeIf[];
+  invocableAction: StrategyNodeInvocableAction[];
   isTemplate?: boolean;
   label: string;
-  map: StrategyNodeMap | StrategyNodeMap[];
-  mutuallyExclusive: StrategyNodeExclusive | StrategyNodeExclusive[];
+  map: StrategyNodeMap[];
+  mutuallyExclusive: StrategyNodeExclusive[];
   onBehalfOfExpression?: string;
-  recommendationLimit: StrategyNodeRecommendationLimit | StrategyNodeRecommendationLimit[];
-  recommendationLoad: StrategyNodeRecommendationLoad | StrategyNodeRecommendationLoad[];
-  sort: StrategyNodeSort | StrategyNodeSort[];
-  union: StrategyNodeUnion | StrategyNodeUnion[];
+  recommendationLimit: StrategyNodeRecommendationLimit[];
+  recommendationLoad: StrategyNodeRecommendationLoad[];
+  sort: StrategyNodeSort[];
+  union: StrategyNodeUnion[];
 };
 
 export type StrategyAction = {
   action: string;
-  argument: StrategyActionArg | StrategyActionArg[];
+  argument: StrategyActionArg[];
   description?: string;
   label?: string;
   name: string;
@@ -18596,7 +18592,7 @@ export type StrategyNodeUnionBase = StrategyNodeBase & {
 };
 
 export type StrategyNodeBase = {
-  childNode: string | string[];
+  childNode: string[];
   description?: string;
   label?: string;
   name: string;
@@ -18611,7 +18607,7 @@ export type StrategyNodeFilter = StrategyNodeUnionBase & {
 };
 
 export type StrategyNodeIf = StrategyNodeUnionBase & {
-  childNodeExpression: IfExpression | IfExpression[];
+  childNodeExpression: IfExpression[];
   onlyFirstMatch?: boolean;
 };
 
@@ -18622,7 +18618,7 @@ export type IfExpression = {
 
 export type StrategyNodeInvocableAction = StrategyNodeUnionBase & {
   action: string;
-  argument: StrategyNodeInvocableActionArg | StrategyNodeInvocableActionArg[];
+  argument: StrategyNodeInvocableActionArg[];
   isGenerator: boolean;
   type: InvocableActionType;
 };
@@ -18633,7 +18629,7 @@ export type StrategyNodeInvocableActionArg = {
 };
 
 export type StrategyNodeMap = StrategyNodeUnionBase & {
-  mapExpression: MapExpression | MapExpression[];
+  mapExpression: MapExpression[];
 };
 
 export type MapExpression = {
@@ -18643,16 +18639,16 @@ export type MapExpression = {
 };
 
 export type StrategyNodeRecommendationLimit = StrategyNodeUnionBase & {
-  filterMode: StrategyReactionType | StrategyReactionType[];
+  filterMode: StrategyReactionType[];
   lookbackDuration?: number;
   maxRecommendationCount?: number;
 };
 
 export type StrategyNodeRecommendationLoad = StrategyNodeUnionBase & {
-  condition: RecommendationLoadCondition | RecommendationLoadCondition[];
+  condition: RecommendationLoadCondition[];
   conditionLogic?: string;
   object: string;
-  sortField: StrategyNodeSortField | StrategyNodeSortField[];
+  sortField: StrategyNodeSortField[];
 };
 
 export type RecommendationLoadCondition = {
@@ -18673,26 +18669,26 @@ export type StrategyNodeSortField = {
 };
 
 export type StrategyNodeSort = StrategyNodeUnionBase & {
-  field: StrategyNodeSortField | StrategyNodeSortField[];
+  field: StrategyNodeSortField[];
 };
 
 export type StrategyNodeUnion = string;
 
 export type RecordActionDeployment = Metadata & {
-  channelConfigurations: RecordActionDeploymentChannel | RecordActionDeploymentChannel[];
+  channelConfigurations: RecordActionDeploymentChannel[];
   componentName?: ComponentName;
-  deploymentContexts: RecordActionDeploymentContext | RecordActionDeploymentContext[];
+  deploymentContexts: RecordActionDeploymentContext[];
   hasGuidedActions?: boolean;
   hasOmniscripts?: boolean;
   hasRecommendations?: boolean;
   masterLabel: string;
   recommendation?: RecordActionRecommendation;
-  selectableItems: RecordActionSelectableItem | RecordActionSelectableItem[];
+  selectableItems: RecordActionSelectableItem[];
 };
 
 export type RecordActionDeploymentChannel = {
   channel: ChannelSource;
-  channelItems: RecordActionDefaultItem | RecordActionDefaultItem[];
+  channelItems: RecordActionDefaultItem[];
   isAutopopEnabled?: boolean;
 };
 
@@ -18735,7 +18731,7 @@ export type RecordAggregationDefinition = Metadata & {
   batchProcessingDefinition?: string;
   description?: string;
   displayName: string;
-  recordAggregationObject: RecordAggregationObject | RecordAggregationObject[];
+  recordAggregationObject: RecordAggregationObject[];
   status: RecordAggregationDefinitionStatus;
 };
 
@@ -18744,8 +18740,8 @@ export type RecordAggregationObject = {
   developerName?: string;
   filterLogic?: string;
   masterLabel: string;
-  recordAggregationJoinCondition: RecordAggregationJoinCondition | RecordAggregationJoinCondition[];
-  recordAggregationObjectFilter: RecordAggregationObjectFilter | RecordAggregationObjectFilter[];
+  recordAggregationJoinCondition: RecordAggregationJoinCondition[];
+  recordAggregationObjectFilter: RecordAggregationObjectFilter[];
 };
 
 export type RecordAggregationJoinCondition = {
@@ -18791,7 +18787,7 @@ export type RelationshipGraphDefinition = Metadata & {
   isActive: boolean;
   isTemplate: boolean;
   masterLabel: string;
-  relationshipGraphDefVersions: RelationshipGraphDefVersion | RelationshipGraphDefVersion[];
+  relationshipGraphDefVersions: RelationshipGraphDefVersion[];
 };
 
 export type RelationshipGraphDefVersion = {
@@ -18807,29 +18803,29 @@ export type RemoteSiteSetting = Metadata & {
 };
 
 export type Report = Metadata & {
-  aggregates: ReportAggregate | ReportAggregate[];
-  block: Report | Report[];
+  aggregates: ReportAggregate[];
+  block: Report[];
   blockInfo?: ReportBlockInfo;
-  buckets: ReportBucketField | ReportBucketField[];
+  buckets: ReportBucketField[];
   chart?: ReportChart;
-  colorRanges: ReportColorRange | ReportColorRange[];
-  columns: ReportColumn | ReportColumn[];
-  crossFilters: ReportCrossFilter | ReportCrossFilter[];
+  colorRanges: ReportColorRange[];
+  columns: ReportColumn[];
+  crossFilters: ReportCrossFilter[];
   currency?: CurrencyIsoCode;
-  customDetailFormulas: ReportCustomDetailFormula | ReportCustomDetailFormula[];
-  dataCategoryFilters: ReportDataCategoryFilter | ReportDataCategoryFilter[];
+  customDetailFormulas: ReportCustomDetailFormula[];
+  dataCategoryFilters: ReportDataCategoryFilter[];
   description?: string;
   division?: string;
   filter?: ReportFilter;
   folderName?: string;
   format: ReportFormat;
-  formattingRules: ReportFormattingRule | ReportFormattingRule[];
-  groupingsAcross: ReportGrouping | ReportGrouping[];
-  groupingsDown: ReportGrouping | ReportGrouping[];
+  formattingRules: ReportFormattingRule[];
+  groupingsAcross: ReportGrouping[];
+  groupingsDown: ReportGrouping[];
   historicalSelector?: ReportHistoricalSelector;
   name: string;
   numSubscriptions?: number;
-  params: ReportParam | ReportParam[];
+  params: ReportParam[];
   reportType: string;
   reportTypeApiName?: string;
   roleHierarchyFilter?: string;
@@ -18861,7 +18857,7 @@ export type ReportAggregate = {
 };
 
 export type ReportBlockInfo = {
-  aggregateReferences: ReportAggregateReference | ReportAggregateReference[];
+  aggregateReferences: ReportAggregateReference[];
   blockId: string;
   joinTable: string;
 };
@@ -18878,11 +18874,11 @@ export type ReportBucketField = {
   otherBucketLabel?: string;
   sourceColumnName: string;
   useOther?: boolean;
-  values: ReportBucketFieldValue | ReportBucketFieldValue[];
+  values: ReportBucketFieldValue[];
 };
 
 export type ReportBucketFieldValue = {
-  sourceValues: ReportBucketFieldSourceValue | ReportBucketFieldSourceValue[];
+  sourceValues: ReportBucketFieldSourceValue[];
   value: string;
 };
 
@@ -18896,7 +18892,7 @@ export type ReportChart = {
   backgroundColor1?: string;
   backgroundColor2?: string;
   backgroundFadeDir?: ChartBackgroundDirection;
-  chartSummaries: ChartSummary | ChartSummary[];
+  chartSummaries: ChartSummary[];
   chartType: ChartType;
   enableHoverLabels?: boolean;
   expandOthers?: boolean;
@@ -18930,14 +18926,14 @@ export type ReportColorRange = {
 };
 
 export type ReportColumn = {
-  aggregateTypes: ReportSummaryType | ReportSummaryType[];
+  aggregateTypes: ReportSummaryType[];
   field: string;
   reverseColors?: boolean;
   showChanges?: boolean;
 };
 
 export type ReportCrossFilter = {
-  criteriaItems: ReportFilterItem | ReportFilterItem[];
+  criteriaItems: ReportFilterItem[];
   operation: ObjectFilterOperator;
   primaryTableColumn: string;
   relatedTable: string;
@@ -18970,14 +18966,14 @@ export type ReportDataCategoryFilter = {
 
 export type ReportFilter = {
   booleanFilter?: string;
-  criteriaItems: ReportFilterItem | ReportFilterItem[];
+  criteriaItems: ReportFilterItem[];
   language?: Language;
 };
 
 export type ReportFormattingRule = {
   aggregate?: ReportSummaryType;
   columnName: string;
-  values: ReportFormattingRuleValue | ReportFormattingRuleValue[];
+  values: ReportFormattingRuleValue[];
 };
 
 export type ReportFormattingRuleValue = {
@@ -18995,7 +18991,7 @@ export type ReportGrouping = {
 };
 
 export type ReportHistoricalSelector = {
-  snapshot: string | string[];
+  snapshot: string[];
 };
 
 export type ReportParam = {
@@ -19018,7 +19014,7 @@ export type ReportType = Metadata & {
   description?: string;
   join?: ObjectRelationship;
   label: string;
-  sections: ReportLayoutSection | ReportLayoutSection[];
+  sections: ReportLayoutSection[];
 };
 
 export type ObjectRelationship = {
@@ -19028,7 +19024,7 @@ export type ObjectRelationship = {
 };
 
 export type ReportLayoutSection = {
-  columns: ReportTypeColumn | ReportTypeColumn[];
+  columns: ReportTypeColumn[];
   masterLabel: string;
 };
 
@@ -19080,8 +19076,8 @@ export type RuleLibraryDefinition = Metadata & {
   contextRuleStatus: ContextRuleStatus;
   description?: string;
   label: string;
-  ruleLibraryContextTags: RuleLibraryContextTag | RuleLibraryContextTag[];
-  rulesetDefinitions: RulesetDefinition | RulesetDefinition[];
+  ruleLibraryContextTags: RuleLibraryContextTag[];
+  rulesetDefinitions: RulesetDefinition[];
   usageType: ContextRuleUsageType;
 };
 
@@ -19096,16 +19092,16 @@ export type RulesetDefinition = {
   endDate?: Date;
   executionType: ExecutionType;
   label: string;
-  ruleDefinitions: RuleDefinition | RuleDefinition[];
+  ruleDefinitions: RuleDefinition[];
   startDate?: Date;
   status: ContextRuleStatus;
   usageType: string;
 };
 
 export type RuleDefinition = {
-  actions: RuleAction | RuleAction[];
+  actions: RuleAction[];
   apiName: string;
-  criteria: RuleFilterCriteria | RuleFilterCriteria[];
+  criteria: RuleFilterCriteria[];
   description?: string;
   endDate?: Date;
   label: string;
@@ -19114,11 +19110,11 @@ export type RuleDefinition = {
   startDate: Date;
   usageSubType?: string;
   usageType: string;
-  variables: RuleReferenceVariable | RuleReferenceVariable[];
+  variables: RuleReferenceVariable[];
 };
 
 export type RuleAction = {
-  actionParameters: RuleActionParameter | RuleActionParameter[];
+  actionParameters: RuleActionParameter[];
   actionType: RuleActionType;
   name: string;
   sequenceNumber: number;
@@ -19133,9 +19129,9 @@ export type RuleActionParameter = {
 };
 
 export type RuleFilterCriteria = {
-  actions: RuleAction | RuleAction[];
+  actions: RuleAction[];
   conditionLogic: string;
-  conditions: RuleCondition | RuleCondition[];
+  conditions: RuleCondition[];
   executionSequence: number;
   name: string;
   parentFilterCriteria?: string;
@@ -19147,7 +19143,7 @@ export type RuleCondition = {
   name?: string;
   operator: RuleConditionOperator;
   sequenceNumber: number;
-  value: string | string[];
+  value: string[];
   valueType: VariableValueType;
   variable: string;
 };
@@ -19167,10 +19163,10 @@ export type RuleReferenceVariable = {
 
 export type SalesAgreementSettings = Metadata & {
   actualsCalculationMode: ActualsCalculationMode;
-  displayGroups: AdvAcctFrcstDisplayGroup | AdvAcctFrcstDisplayGroup[];
+  displayGroups: AdvAcctFrcstDisplayGroup[];
   displayedAgreementTermsMetrics: string;
   isOnlyApprovalProcessUsed: boolean;
-  measureDefinitions: AdvAcctForecastMeasureDef | AdvAcctForecastMeasureDef[];
+  measureDefinitions: AdvAcctForecastMeasureDef[];
   objectMapping?: ObjectMapping;
   primaryNotifEmailAddress?: string;
   renewalPeriodDayCount?: number;
@@ -19214,7 +19210,7 @@ export type SamlSsoConfig = Metadata & {
 export type SchemaDefinition = Metadata & {
   description?: string;
   domainType: DomainType;
-  schemas: Schema | Schema[];
+  schemas: Schema[];
 };
 
 export type SchemaSettings = Metadata & {
@@ -19231,8 +19227,8 @@ export type ScoreCategory = Metadata & {
   iconUrl: string;
   masterLabel: string;
   parentCategoryId?: string;
-  scoreCategoryCalcInsights: ScoreCategoryCalcInsight | ScoreCategoryCalcInsight[];
-  scoreRangeClassifications: ScoreRangeClassification | ScoreRangeClassification[];
+  scoreCategoryCalcInsights: ScoreCategoryCalcInsight[];
+  scoreRangeClassifications: ScoreRangeClassification[];
 };
 
 export type ScoreCategoryCalcInsight = {
@@ -19309,7 +19305,7 @@ export type SearchSettings = Metadata & {
 };
 
 export type SearchSettingsByObject = {
-  searchSettingsByObject: ObjectSearchSetting | ObjectSearchSetting[];
+  searchSettingsByObject: ObjectSearchSetting[];
 };
 
 export type ObjectSearchSetting = {
@@ -19328,7 +19324,7 @@ export type SearchableObjDataSyncInfo = Metadata & {
   lookupMappings?: ObjectMapping;
   masterLabel: string;
   parsingFieldSet?: FieldSet;
-  picklistMappings: ObjectMapping | ObjectMapping[];
+  picklistMappings: ObjectMapping[];
   scheduleFrequencyInHours?: string;
   searchableObject: string;
 };
@@ -19352,7 +19348,7 @@ export type SecuritySettings = Metadata & {
 };
 
 export type NetworkAccess = {
-  ipRanges: IpRange | IpRange[];
+  ipRanges: IpRange[];
 };
 
 export type IpRange = {
@@ -19475,7 +19471,7 @@ export type ServiceChannel = Metadata & {
   maxExtensions?: string;
   relatedEntityType: string;
   secondaryRoutingPriorityField?: string;
-  serviceChannelFieldPriorities: ServiceChannelFieldPriority | ServiceChannelFieldPriority[];
+  serviceChannelFieldPriorities: ServiceChannelFieldPriority[];
 };
 
 export type ServiceChannelFieldPriority = {
@@ -19502,15 +19498,15 @@ export type ServicePresenceStatus = Metadata & {
 };
 
 export type ServiceChannelStatus = {
-  channel: string | string[];
+  channel: string[];
 };
 
 export type ServiceProcess = Metadata & {
   description?: string;
   processLabel: string;
-  serviceProcessAttributes: ServiceProcessAttribute | ServiceProcessAttribute[];
-  serviceProcessDependencies: ServiceProcessDependency | ServiceProcessDependency[];
-  serviceProcessItemGroups: ServiceProcessItemGroup | ServiceProcessItemGroup[];
+  serviceProcessAttributes: ServiceProcessAttribute[];
+  serviceProcessDependencies: ServiceProcessDependency[];
+  serviceProcessItemGroups: ServiceProcessItemGroup[];
   shortDescription?: string;
   usageType: SvcCatalogItemUsageType;
 };
@@ -19563,13 +19559,13 @@ export type AccountSharingRuleSettings = {
 
 export type SharingCriteriaRule = SharingBaseRule & {
   booleanFilter?: string;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   includeRecordsOwnedByAll: boolean;
 };
 
 export type SharingGuestRule = SharingBaseRule & {
   booleanFilter?: string;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   includeHVUOwnedRecords: boolean;
 };
 
@@ -19580,17 +19576,17 @@ export type SharingOwnerRule = SharingBaseRule & {
 export type SharingTerritoryRule = string;
 
 export type SharingRules = Metadata & {
-  sharingCriteriaRules: SharingCriteriaRule | SharingCriteriaRule[];
-  sharingGuestRules: SharingGuestRule | SharingGuestRule[];
-  sharingOwnerRules: SharingOwnerRule | SharingOwnerRule[];
-  sharingTerritoryRules: SharingTerritoryRule | SharingTerritoryRule[];
+  sharingCriteriaRules: SharingCriteriaRule[];
+  sharingGuestRules: SharingGuestRule[];
+  sharingOwnerRules: SharingOwnerRule[];
+  sharingTerritoryRules: SharingTerritoryRule[];
 };
 
 export type SharingSet = Metadata & {
-  accessMappings: AccessMapping | AccessMapping[];
+  accessMappings: AccessMapping[];
   description?: string;
   name: string;
-  profiles: string | string[];
+  profiles: string[];
 };
 
 export type AccessMapping = {
@@ -19640,11 +19636,11 @@ export type SkillAssignments = {
 };
 
 export type SkillProfileAssignments = {
-  profile: string | string[];
+  profile: string[];
 };
 
 export type SkillUserAssignments = {
-  user: string | string[];
+  user: string[];
 };
 
 export type SkillType = Metadata & {
@@ -19673,11 +19669,11 @@ export type SocialCustomerServiceSettings = Metadata & {
 export type StandardValueSet = Metadata & {
   groupingStringEnum?: string;
   sorted: boolean;
-  standardValue: StandardValue | StandardValue[];
+  standardValue: StandardValue[];
 };
 
 export type StandardValueSetTranslation = Metadata & {
-  valueTranslation: ValueTranslation | ValueTranslation[];
+  valueTranslation: ValueTranslation[];
 };
 
 export type StnryAssetEnvSrcCnfg = Metadata & {
@@ -19738,7 +19734,7 @@ export type SvcCatalogCategory = Metadata & {
 };
 
 export type SvcCatalogFilterCriteria = Metadata & {
-  conditions: SvcCatalogFilterCondition | SvcCatalogFilterCondition[];
+  conditions: SvcCatalogFilterCondition[];
   criteriaRelation: CriteriaRelationshipType;
   description?: string;
   isActive?: boolean;
@@ -19757,7 +19753,7 @@ export type SvcCatalogFulfillmentFlow = Metadata & {
   flow: string;
   icon?: string;
   isProtected?: boolean;
-  items: SvcCatalogFulfillFlowItem | SvcCatalogFulfillFlowItem[];
+  items: SvcCatalogFulfillFlowItem[];
   masterLabel: string;
 };
 
@@ -19775,13 +19771,13 @@ export type SvcCatalogFulfillFlowItem = {
 
 export type SvcCatalogItemDef = Metadata & {
   apiVersion?: number;
-  catalogFilterCriteria: SvcCatalogItemDefFiltrCrit | SvcCatalogItemDefFiltrCrit[];
-  categories: SvcCatalogCategoryItem | SvcCatalogCategoryItem[];
-  dataCategories: SvcCatalogItemDefDataCategorySelection | SvcCatalogItemDefDataCategorySelection[];
+  catalogFilterCriteria: SvcCatalogItemDefFiltrCrit[];
+  categories: SvcCatalogCategoryItem[];
+  dataCategories: SvcCatalogItemDefDataCategorySelection[];
   description?: string;
   fulfillmentFlow?: string;
   image?: string;
-  inputs: SvcCatalogItemAttribute | SvcCatalogItemAttribute[];
+  inputs: SvcCatalogItemAttribute[];
   internalNotes?: string;
   isFeatured?: boolean;
   isProtected?: boolean;
@@ -19815,7 +19811,7 @@ export type SvcCatalogItemAttribute = {
   minValue?: number;
   name: string;
   object?: string;
-  options: SvcCatalogItemAttrDetail | SvcCatalogItemAttrDetail[];
+  options: SvcCatalogItemAttrDetail[];
   type: SvcCatalogItemAttrType;
   value?: string;
 };
@@ -19827,7 +19823,7 @@ export type SvcCatalogItemAttrDetail = {
 };
 
 export type SynonymDictionary = Metadata & {
-  groups: SynonymGroup | SynonymGroup[];
+  groups: SynonymGroup[];
   isProtected?: boolean;
   label: string;
 };
@@ -19841,13 +19837,13 @@ export type Territory2 = Metadata & {
   accountAccessLevel?: string;
   caseAccessLevel?: string;
   contactAccessLevel?: string;
-  customFields: FieldValue | FieldValue[];
+  customFields: FieldValue[];
   description?: string;
   name: string;
-  objectAccessLevels: Territory2AccessLevel | Territory2AccessLevel[];
+  objectAccessLevels: Territory2AccessLevel[];
   opportunityAccessLevel?: string;
   parentTerritory?: string;
-  ruleAssociations: Territory2RuleAssociation | Territory2RuleAssociation[];
+  ruleAssociations: Territory2RuleAssociation[];
   territory2Type: string;
 };
 
@@ -19867,7 +19863,7 @@ export type Territory2RuleAssociation = {
 };
 
 export type Territory2Model = Metadata & {
-  customFields: FieldValue | FieldValue[];
+  customFields: FieldValue[];
   description?: string;
   name: string;
 };
@@ -19877,7 +19873,7 @@ export type Territory2Rule = Metadata & {
   booleanFilter?: string;
   name: string;
   objectType: string;
-  ruleItems: Territory2RuleItem | Territory2RuleItem[];
+  ruleItems: Territory2RuleItem[];
 };
 
 export type Territory2RuleItem = {
@@ -19894,7 +19890,7 @@ export type Territory2Settings = Metadata & {
   enableTerritoryManagement2?: boolean;
   opportunityFilterSettings?: Territory2SettingsOpportunityFilter;
   showTM2EnabledBanner?: boolean;
-  supportedObjects: Territory2SupportedObject | Territory2SupportedObject[];
+  supportedObjects: Territory2SupportedObject[];
   t2ForecastAccessLevel?: string;
   tm2BypassRealignAccInsert?: boolean;
   tm2EnableUserAssignmentLog?: boolean;
@@ -19924,7 +19920,7 @@ export type TimeSheetTemplate = Metadata & {
   frequency: TimeSheetFrequency;
   masterLabel: string;
   startDate: Date;
-  timeSheetTemplateAssignments: TimeSheetTemplateAssignment | TimeSheetTemplateAssignment[];
+  timeSheetTemplateAssignments: TimeSheetTemplateAssignment[];
   workWeekEndDay: DaysOfWeek;
   workWeekStartDay: DaysOfWeek;
 };
@@ -19972,7 +19968,7 @@ export type TransactionSecurityAction = {
   block: boolean;
   endSession: boolean;
   freezeUser: boolean;
-  notifications: TransactionSecurityNotification | TransactionSecurityNotification[];
+  notifications: TransactionSecurityNotification[];
   twoFactorAuthentication: boolean;
 };
 
@@ -19983,42 +19979,42 @@ export type TransactionSecurityNotification = {
 };
 
 export type Translations = Metadata & {
-  botBlocks: BotBlockTranslation | BotBlockTranslation[];
-  botTemplates: BotTemplateTranslation | BotTemplateTranslation[];
-  bots: BotTranslation | BotTranslation[];
-  customApplications: CustomApplicationTranslation | CustomApplicationTranslation[];
-  customLabels: CustomLabelTranslation | CustomLabelTranslation[];
-  customPageWebLinks: CustomPageWebLinkTranslation | CustomPageWebLinkTranslation[];
-  customTabs: CustomTabTranslation | CustomTabTranslation[];
-  desFieldTemplateMessages: ExplainabilityMsgTemplateFieldTranslation | ExplainabilityMsgTemplateFieldTranslation[];
-  flowDefinitions: FlowDefinitionTranslation | FlowDefinitionTranslation[];
-  identityVerificationCustomFieldLabels: IdentityVerificationFieldTranslation | IdentityVerificationFieldTranslation[];
-  pipelineInspMetricConfigs: PipelineInspMetricConfigTranslation | PipelineInspMetricConfigTranslation[];
-  prompts: PromptTranslation | PromptTranslation[];
-  quickActions: GlobalQuickActionTranslation | GlobalQuickActionTranslation[];
-  reportTypes: ReportTypeTranslation | ReportTypeTranslation[];
-  scontrols: ScontrolTranslation | ScontrolTranslation[];
+  botBlocks: BotBlockTranslation[];
+  botTemplates: BotTemplateTranslation[];
+  bots: BotTranslation[];
+  customApplications: CustomApplicationTranslation[];
+  customLabels: CustomLabelTranslation[];
+  customPageWebLinks: CustomPageWebLinkTranslation[];
+  customTabs: CustomTabTranslation[];
+  desFieldTemplateMessages: ExplainabilityMsgTemplateFieldTranslation[];
+  flowDefinitions: FlowDefinitionTranslation[];
+  identityVerificationCustomFieldLabels: IdentityVerificationFieldTranslation[];
+  pipelineInspMetricConfigs: PipelineInspMetricConfigTranslation[];
+  prompts: PromptTranslation[];
+  quickActions: GlobalQuickActionTranslation[];
+  reportTypes: ReportTypeTranslation[];
+  scontrols: ScontrolTranslation[];
 };
 
 export type BotBlockTranslation = {
-  botBlockVersions: BotBlockVersionTranslation | BotBlockVersionTranslation[];
+  botBlockVersions: BotBlockVersionTranslation[];
   fullName: string;
 };
 
 export type BotBlockVersionTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
 export type BotDialogTranslation = {
-  botSteps: BotStepTranslation | BotStepTranslation[];
+  botSteps: BotStepTranslation[];
   developerName: string;
   label?: string;
 };
 
 export type BotStepTranslation = {
-  botMessages: BotMessageTranslation | BotMessageTranslation[];
-  botSteps: BotStepTranslation | BotStepTranslation[];
+  botMessages: BotMessageTranslation[];
+  botSteps: BotStepTranslation[];
   botVariableOperation?: BotVariableOperationTranslation;
   stepIdentifier: string;
   type: BotStepType;
@@ -20030,11 +20026,11 @@ export type BotMessageTranslation = {
 };
 
 export type BotVariableOperationTranslation = {
-  botMessages: BotMessageTranslation | BotMessageTranslation[];
-  botQuickReplyOptions: BotQuickReplyOptionTranslation | BotQuickReplyOptionTranslation[];
+  botMessages: BotMessageTranslation[];
+  botQuickReplyOptions: BotQuickReplyOptionTranslation[];
   quickReplyOptionTemplate?: string;
-  retryMessages: BotMessageTranslation | BotMessageTranslation[];
-  successMessages: BotMessageTranslation | BotMessageTranslation[];
+  retryMessages: BotMessageTranslation[];
+  successMessages: BotMessageTranslation[];
   type: BotVariableOperationType;
   variableOperationIdentifier: string;
 };
@@ -20045,17 +20041,17 @@ export type BotQuickReplyOptionTranslation = {
 };
 
 export type BotTemplateTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
 export type BotTranslation = {
-  botVersions: BotVersionTranslation | BotVersionTranslation[];
+  botVersions: BotVersionTranslation[];
   fullName: string;
 };
 
 export type BotVersionTranslation = {
-  botDialogs: BotDialogTranslation | BotDialogTranslation[];
+  botDialogs: BotDialogTranslation[];
   fullName: string;
 };
 
@@ -20088,19 +20084,19 @@ export type ExplainabilityMsgTemplateFieldTranslation = {
 };
 
 export type FlowDefinitionTranslation = {
-  flows: FlowTranslation | FlowTranslation[];
+  flows: FlowTranslation[];
   fullName: string;
   label?: string;
 };
 
 export type FlowTranslation = {
-  choices: FlowChoiceTranslation | FlowChoiceTranslation[];
-  customErrorMessages: FlowCustomErrorMessageTranslation | FlowCustomErrorMessageTranslation[];
+  choices: FlowChoiceTranslation[];
+  customErrorMessages: FlowCustomErrorMessageTranslation[];
   fullName?: string;
   label?: string;
-  screens: FlowScreenTranslation | FlowScreenTranslation[];
-  stages: FlowStageTranslation | FlowStageTranslation[];
-  textTemplates: FlowTextTemplateTranslation | FlowTextTemplateTranslation[];
+  screens: FlowScreenTranslation[];
+  stages: FlowStageTranslation[];
+  textTemplates: FlowTextTemplateTranslation[];
 };
 
 export type FlowChoiceTranslation = {
@@ -20126,7 +20122,7 @@ export type FlowCustomErrorMessageTranslation = {
 
 export type FlowScreenTranslation = {
   backButtonLabel?: string;
-  fields: FlowScreenFieldTranslation | FlowScreenFieldTranslation[];
+  fields: FlowScreenFieldTranslation[];
   helpText?: string;
   name: string;
   nextOrFinishButtonLabel?: string;
@@ -20137,7 +20133,7 @@ export type FlowScreenTranslation = {
 export type FlowScreenFieldTranslation = {
   fieldText?: string;
   helpText?: string;
-  inputParameters: FlowInputParameterTranslation | FlowInputParameterTranslation[];
+  inputParameters: FlowInputParameterTranslation[];
   name: string;
   validationRule?: FlowInputValidationRuleTranslation;
 };
@@ -20148,7 +20144,7 @@ export type FlowInputParameterTranslation = {
 };
 
 export type FlowFerovTranslation = {
-  complexValues: FlowComplexLiteralTranslation | FlowComplexLiteralTranslation[];
+  complexValues: FlowComplexLiteralTranslation[];
   stringValue?: string;
 };
 
@@ -20183,7 +20179,7 @@ export type PromptTranslation = {
   description?: string;
   label?: string;
   name: string;
-  promptVersions: PromptVersionTranslation | PromptVersionTranslation[];
+  promptVersions: PromptVersionTranslation[];
 };
 
 export type PromptVersionTranslation = {
@@ -20212,11 +20208,11 @@ export type ReportTypeTranslation = {
   description?: string;
   label?: string;
   name: string;
-  sections: ReportTypeSectionTranslation | ReportTypeSectionTranslation[];
+  sections: ReportTypeSectionTranslation[];
 };
 
 export type ReportTypeSectionTranslation = {
-  columns: ReportTypeColumnTranslation | ReportTypeColumnTranslation[];
+  columns: ReportTypeColumnTranslation[];
   label?: string;
   name: string;
 };
@@ -20236,7 +20232,7 @@ export type TrialOrgSettings = Metadata & {
 };
 
 export type UIObjectRelationConfig = Metadata & {
-  UIObjectRelationFieldConfigs: UIObjectRelationFieldConfig | UIObjectRelationFieldConfig[];
+  UIObjectRelationFieldConfigs: UIObjectRelationFieldConfig[];
   contextObject: string;
   contextObjectRecordType?: string;
   directRelationshipField?: string;
@@ -20263,8 +20259,8 @@ export type UserAccessPolicy = Metadata & {
   masterLabel: string;
   status: UserAccessPolicyStatus;
   triggerType?: UserAccessPolicyTriggerType;
-  userAccessPolicyActions: UserAccessPolicyAction | UserAccessPolicyAction[];
-  userAccessPolicyFilters: UserAccessPolicyFilter | UserAccessPolicyFilter[];
+  userAccessPolicyActions: UserAccessPolicyAction[];
+  userAccessPolicyFilters: UserAccessPolicyFilter[];
 };
 
 export type UserAccessPolicyAction = {
@@ -20287,8 +20283,8 @@ export type UserCriteria = Metadata & {
   description?: string;
   lastChatterActivityAgeInSeconds?: number;
   masterLabel: string;
-  profiles: string | string[];
-  userTypes: NetworkUserType | NetworkUserType[];
+  profiles: string[];
+  userTypes: NetworkUserType[];
 };
 
 export type UserEngagementSettings = Metadata & {
@@ -20353,7 +20349,7 @@ export type UserLicenseDefinition = Metadata & {
   defaultStatus?: DefaultLicenseStatus;
   description?: string;
   hasDynamicResourceGroupKey?: boolean;
-  includedFeatures: IncludedFeature | IncludedFeature[];
+  includedFeatures: IncludedFeature[];
   isPermissionSetLicense?: boolean;
   licenseKey?: string;
   licenseOwner?: string;
@@ -20362,9 +20358,9 @@ export type UserLicenseDefinition = Metadata & {
   managementTenantId?: string;
   minPlatformVersion?: number;
   name: string;
-  settingItems: SettingItem | SettingItem[];
-  settingUsageDefinitions: SettingUsageDefinition | SettingUsageDefinition[];
-  standardPermissionSets: StandardPermissionSet | StandardPermissionSet[];
+  settingItems: SettingItem[];
+  settingUsageDefinitions: SettingUsageDefinition[];
+  standardPermissionSets: StandardPermissionSet[];
 };
 
 export type StandardPermissionSet = {
@@ -20373,7 +20369,7 @@ export type StandardPermissionSet = {
   namespace?: string;
   profileKey?: string;
   requiredAccessCheck?: string;
-  settingValues: SettingValue | SettingValue[];
+  settingValues: SettingValue[];
 };
 
 export type SettingValue = {
@@ -20401,7 +20397,7 @@ export type UserManagementSettings = Metadata & {
 };
 
 export type UserProfileSearchScope = Metadata & {
-  entityApiNames: string | string[];
+  entityApiNames: string[];
   profile?: string;
 };
 
@@ -20429,8 +20425,8 @@ export type VisualizationPlugin = Metadata & {
   developerName: string;
   icon: string;
   masterLabel: string;
-  visualizationResources: VisualizationResource | VisualizationResource[];
-  visualizationTypes: VisualizationType | VisualizationType[];
+  visualizationResources: VisualizationResource[];
+  visualizationTypes: VisualizationType[];
 };
 
 export type VisualizationResource = {
@@ -20470,10 +20466,10 @@ export type WaveAnalyticAssetCollection = Metadata & {
   color: string;
   description?: string;
   folder?: string;
-  items: WaveAnalyticAssetCollectionItem | WaveAnalyticAssetCollectionItem[];
+  items: WaveAnalyticAssetCollectionItem[];
   label: string;
   masterLabel: string;
-  shares: FolderShare | FolderShare[];
+  shares: FolderShare[];
 };
 
 export type WaveAnalyticAssetCollectionItem = {
@@ -20487,7 +20483,7 @@ export type WaveApplication = Metadata & {
   description?: string;
   folder: string;
   masterLabel: string;
-  shares: FolderShare | FolderShare[];
+  shares: FolderShare[];
   templateOrigin?: string;
   templateVersion?: string;
 };
@@ -20524,10 +20520,10 @@ export type WaveXmd = Metadata & {
   dataset: string;
   datasetConnector?: string;
   datasetFullyQualifiedName?: string;
-  dates: WaveXmdDate | WaveXmdDate[];
-  dimensions: WaveXmdDimension | WaveXmdDimension[];
-  measures: WaveXmdMeasure | WaveXmdMeasure[];
-  organizations: WaveXmdOrganization | WaveXmdOrganization[];
+  dates: WaveXmdDate[];
+  dimensions: WaveXmdDimension[];
+  measures: WaveXmdMeasure[];
+  organizations: WaveXmdOrganization[];
   origin?: string;
   type?: string;
   waveVisualization?: string;
@@ -20562,8 +20558,8 @@ export type WaveXmdDate = {
 };
 
 export type WaveXmdDimension = {
-  conditionalFormatting: WaveXmdFormattingProperty | WaveXmdFormattingProperty[];
-  customActions: WaveXmdDimensionCustomAction | WaveXmdDimensionCustomAction[];
+  conditionalFormatting: WaveXmdFormattingProperty[];
+  customActions: WaveXmdDimensionCustomAction[];
   customActionsEnabled?: boolean;
   dateFormat?: string;
   defaultAction?: string;
@@ -20577,12 +20573,12 @@ export type WaveXmdDimension = {
   linkTemplate?: string;
   linkTemplateEnabled?: boolean;
   linkTooltip?: string;
-  members: WaveXmdDimensionMember | WaveXmdDimensionMember[];
+  members: WaveXmdDimensionMember[];
   origin?: string;
-  recordDisplayFields: WaveXmdRecordDisplayLookup | WaveXmdRecordDisplayLookup[];
+  recordDisplayFields: WaveXmdRecordDisplayLookup[];
   recordIdField?: string;
   recordOrganizationIdField?: string;
-  salesforceActions: WaveXmdDimensionSalesforceAction | WaveXmdDimensionSalesforceAction[];
+  salesforceActions: WaveXmdDimensionSalesforceAction[];
   salesforceActionsEnabled?: boolean;
   showDetailsDefaultFieldIndex?: number;
   showInExplorer?: boolean;
@@ -20590,8 +20586,8 @@ export type WaveXmdDimension = {
 };
 
 export type WaveXmdFormattingProperty = {
-  formattingBins: WaveXmdFormattingBin | WaveXmdFormattingBin[];
-  formattingPredicates: WaveXmdFormattingPredicate | WaveXmdFormattingPredicate[];
+  formattingBins: WaveXmdFormattingBin[];
+  formattingPredicates: WaveXmdFormattingPredicate[];
   property: string;
   referenceField: string;
   sortIndex: number;
@@ -20642,8 +20638,8 @@ export type WaveXmdDimensionSalesforceAction = {
 };
 
 export type WaveXmdMeasure = {
-  conditionalFormatting: WaveXmdFormattingProperty | WaveXmdFormattingProperty[];
-  currencies: WaveXmdMeasure | WaveXmdMeasure[];
+  conditionalFormatting: WaveXmdFormattingProperty[];
+  currencies: WaveXmdMeasure[];
   currencyCode?: string;
   dateFormat?: string;
   description?: string;
@@ -20767,7 +20763,7 @@ export type WorkSkillRouting = Metadata & {
   isActive: boolean;
   masterLabel: string;
   relatedEntity: string;
-  workSkillRoutingAttributes: WorkSkillRoutingAttribute | WorkSkillRoutingAttribute[];
+  workSkillRoutingAttributes: WorkSkillRoutingAttribute[];
 };
 
 export type WorkSkillRoutingAttribute = {
@@ -20780,21 +20776,21 @@ export type WorkSkillRoutingAttribute = {
 };
 
 export type Workflow = Metadata & {
-  alerts: WorkflowAlert | WorkflowAlert[];
-  fieldUpdates: WorkflowFieldUpdate | WorkflowFieldUpdate[];
-  flowActions: WorkflowFlowAction | WorkflowFlowAction[];
-  knowledgePublishes: WorkflowKnowledgePublish | WorkflowKnowledgePublish[];
-  outboundMessages: WorkflowOutboundMessage | WorkflowOutboundMessage[];
-  rules: WorkflowRule | WorkflowRule[];
-  send: WorkflowSend | WorkflowSend[];
-  tasks: WorkflowTask | WorkflowTask[];
+  alerts: WorkflowAlert[];
+  fieldUpdates: WorkflowFieldUpdate[];
+  flowActions: WorkflowFlowAction[];
+  knowledgePublishes: WorkflowKnowledgePublish[];
+  outboundMessages: WorkflowOutboundMessage[];
+  rules: WorkflowRule[];
+  send: WorkflowSend[];
+  tasks: WorkflowTask[];
 };
 
 export type WorkflowAlert = WorkflowAction & {
-  ccEmails: string | string[];
+  ccEmails: string[];
   description: string;
   protected: boolean;
-  recipients: WorkflowEmailRecipient | WorkflowEmailRecipient[];
+  recipients: WorkflowEmailRecipient[];
   senderAddress?: string;
   senderType?: ActionEmailSenderType;
   template: string;
@@ -20820,7 +20816,7 @@ export type WorkflowFieldUpdate = WorkflowAction & {
 export type WorkflowFlowAction = WorkflowAction & {
   description?: string;
   flow: string;
-  flowInputs: WorkflowFlowActionParameter | WorkflowFlowActionParameter[];
+  flowInputs: WorkflowFlowActionParameter[];
   label: string;
   language?: string;
   protected: boolean;
@@ -20843,7 +20839,7 @@ export type WorkflowOutboundMessage = WorkflowAction & {
   apiVersion: number;
   description?: string;
   endpointUrl: string;
-  fields: string | string[];
+  fields: string[];
   includeSessionId: boolean;
   integrationUser: string;
   name: string;
@@ -20879,33 +20875,33 @@ export type WorkflowEmailRecipient = {
 };
 
 export type WorkflowRule = Metadata & {
-  actions: WorkflowActionReference | WorkflowActionReference[];
+  actions: WorkflowActionReference[];
   active: boolean;
   booleanFilter?: string;
-  criteriaItems: FilterItem | FilterItem[];
+  criteriaItems: FilterItem[];
   description?: string;
   failedMigrationToolVersion?: string;
   formula?: string;
   triggerType: WorkflowTriggerTypes;
-  workflowTimeTriggers: WorkflowTimeTrigger | WorkflowTimeTrigger[];
+  workflowTimeTriggers: WorkflowTimeTrigger[];
 };
 
 export type WorkflowTimeTrigger = {
-  actions: WorkflowActionReference | WorkflowActionReference[];
+  actions: WorkflowActionReference[];
   offsetFromField?: string;
   timeLength?: string;
   workflowTimeTriggerUnit: WorkflowTimeUnits;
 };
 
 export type SaveResult = {
-  errors: Error | Error[];
+  errors: Error[];
   fullName: string;
   success: boolean;
 };
 
 export type Error = {
-  extendedErrorDetails: ExtendedErrorDetails | ExtendedErrorDetails[];
-  fields: string | string[];
+  extendedErrorDetails: ExtendedErrorDetails[];
+  fields: string[];
   message: string;
   statusCode: StatusCode;
 };
@@ -20915,7 +20911,7 @@ export type ExtendedErrorDetails = {
 };
 
 export type DeleteResult = {
-  errors: Error | Error[];
+  errors: Error[];
   fullName: string;
   success: boolean;
 };
@@ -20928,20 +20924,20 @@ export type DeployOptions = {
   performRetrieve: boolean;
   purgeOnDelete: boolean;
   rollbackOnError: boolean;
-  runTests: string | string[];
+  runTests: string[];
   singlePackage: boolean;
   testLevel: TestLevel;
 };
 
 export type DescribeMetadataResult = {
-  metadataObjects: DescribeMetadataObject | DescribeMetadataObject[];
+  metadataObjects: DescribeMetadataObject[];
   organizationNamespace: string;
   partialSaveAllowed: boolean;
   testRequired: boolean;
 };
 
 export type DescribeMetadataObject = {
-  childXmlNames: string | string[];
+  childXmlNames: string[];
   directoryName: string;
   inFolder: boolean;
   metaFile: boolean;
@@ -20955,17 +20951,17 @@ export type DescribeValueTypeResult = {
   apiReadable: boolean;
   apiUpdatable: boolean;
   parentField?: ValueTypeField;
-  valueTypeFields: ValueTypeField | ValueTypeField[];
+  valueTypeFields: ValueTypeField[];
 };
 
 export type ValueTypeField = {
-  fields: ValueTypeField | ValueTypeField[];
-  foreignKeyDomain: string | string[];
+  fields: ValueTypeField[];
+  foreignKeyDomain: string[];
   isForeignKey: boolean;
   isNameField: boolean;
   minOccurs: number;
   name: string;
-  picklistValues: PicklistEntry | PicklistEntry[];
+  picklistValues: PicklistEntry[];
   soapType: string;
   valueRequired: boolean;
 };
@@ -20984,14 +20980,14 @@ export type ListMetadataQuery = {
 };
 
 export type ReadResult = {
-  records: Metadata | Metadata[];
+  records: Metadata[];
 };
 
 export type RetrieveRequest = {
   apiVersion: number;
-  packageNames: string | string[];
+  packageNames: string[];
   singlePackage: boolean;
-  specificFiles: string | string[];
+  specificFiles: string[];
   unpackaged?: Package;
 };
 
@@ -21002,7 +20998,7 @@ export type UpdateMetadata = {
 
 export type UpsertResult = {
   created: boolean;
-  errors: Error | Error[];
+  errors: Error[];
   fullName: string;
   success: boolean;
 };
