@@ -18,7 +18,7 @@
   },
   "scripts": {
     "generate": "ts-node src/generate.ts",
-    "lint": "wireit",
+    "lint": "eslint src --color --cache --cache-location .eslintcache",
     "prepack": "sf-prepack",
     "build": "echo \"Nothing to build here\" && exit 0",
     "test": "echo \"Nothing to test here\" && exit 0"
@@ -53,24 +53,5 @@
     "typescript": "^5.4.5",
     "xml2js": "^0.6.2"
   },
-  "dependencies": {},
-  "wireit": {
-    "format": {
-      "command": "prettier --write \"+src/**/*.+(ts|js|json)\"",
-      "files": [
-        "lib/**/*.ts",
-        ".prettier*"
-      ],
-      "output": []
-    },
-    "lint": {
-      "command": "eslint src --color --cache --cache-location .eslintcache",
-      "files": [
-        "lib/**/*.ts",
-        "**/.eslint*",
-        "**/tsconfig.json"
-      ],
-      "output": []
-    }
-  }
+  "dependencies": {}
 }
