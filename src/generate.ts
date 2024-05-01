@@ -199,7 +199,7 @@ function convertWsdlToTypescript(wsdl: string): string {
 */
 
 function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | ElementNode>): string {
-  let complexNodeOutput = '';
+  let output = '';
 
   const typeMap = new Map<string, { parents: string[]; fields: SequenceNode[] }>();
 
@@ -244,30 +244,42 @@ function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | E
   typeMap.forEach((info, type) => {
     if (info.fields.every((f) => 'value' in f.$)) {
       // we have an enum type
-      complexNodeOutput += 'export type ' + type + ' = ';
-      if (info.fields.length === 0) complexNodeOutput += 'string';
-      complexNodeOutput += info.fields.map((f) => "'" + f.$.value + "'").join('\n      |');
-      complexNodeOutput += '\n\n';
+      output += 'export type ' + type + ' = ';
+      if (info.fields.length === 0) output += 'string';
+      output += info.fields.map((f) => "'" + f.$.value + "'").join('\n      |');
+      output += '\n\n';
     } else {
-      complexNodeOutput += 'export type ' + type + ' = ';
-      complexNodeOutput += info.parents.map((p) => treatTypeName(p)).join(' & ');
+      output += 'export type ' + type + ' = ';
+      output += info.parents.map((p) => treatTypeName(p)).join(' & ');
       if (info.parents.length) {
-        complexNodeOutput += ' & {\n';
+        output += ' & {\n';
       } else {
-        complexNodeOutput += '{\n';
+        output += '{\n';
       }
       // there's a duplciate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
       // as well as fields that shouldn't be here !('value' in n.$')
       info.fields
         .filter((n, i) => info.fields.map((f) => f.$.name).indexOf(n.$.name) === i && !('value' in n.$))
         .map((f) => {
-          complexNodeOutput += treatAttribute(f);
+          output += treatAttribute(f);
         });
-      complexNodeOutput += '}\n\n';
+      output += '}\n\n';
     }
   });
 
-  return complexNodeOutput;
+  // write the ApiSchemaTypes type - everything below this can be removed if we deem it not necessary
+  // this is something jsforce was doing, that might make the transition away from types in jsforce easier
+
+  output += 'export type ApiSchemaTypes = {\n';
+
+  typeMap.forEach((info, type) => {
+    output += `\t${type}: ${type};\n`;
+  });
+  output += '}\n';
+
+  // remove to here
+
+  return output;
 }
 
 function treatAttribute(elementNode: NodeWithAttributes): string {
