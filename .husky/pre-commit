@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 yarn run generate
 yarn build
-yarn lint -- --fix && yarn pretty-quick --staged
+yarn lint && yarn pretty-quick --staged
 git add src

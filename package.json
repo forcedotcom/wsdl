@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "contains typescript types for salesforce objets",
   "repository": "forcedotcom/wsdl",
-
   "exports": {
     "./apex": "./lib/apex.js",
     "./metadata": "./lib/metadata.js",
@@ -16,10 +15,10 @@
   },
   "scripts": {
     "generate": "ts-node scripts/generate.ts",
-    "lint": "eslint src --color --cache --cache-location .eslintcache",
+    "lint": "eslint src --color --cache --cache-location .eslintcache --fix",
     "prepack": "sf-prepack",
     "build": "tsc -p . --pretty",
-    "test": "echo \"Nothing to test here\" && exit 0"
+    "test": "mocha test/**/*.test.ts"
   },
   "keywords": [
     "salesforce",
