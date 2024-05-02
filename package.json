@@ -2,25 +2,23 @@
   "name": "@salesforce/types",
   "version": "1.0.0",
   "description": "contains typescript types for salesforce objets",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/forcedotcom/wsdl"
-  },
+  "repository": "forcedotcom/wsdl",
+
   "exports": {
     "./apex": "./lib/apex.js",
     "./metadata": "./lib/metadata.js",
     "./partner": "./lib/partner.js",
     "./tooling": "./lib/tooling.js"
   },
-  "types": "./lib",
+  "types": "./src",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "generate": "ts-node src/generate.ts",
+    "generate": "ts-node scripts/generate.ts",
     "lint": "eslint src --color --cache --cache-location .eslintcache",
     "prepack": "sf-prepack",
-    "build": "echo \"Nothing to build here\" && exit 0",
+    "build": "tsc -p . --pretty",
     "test": "echo \"Nothing to test here\" && exit 0"
   },
   "keywords": [
@@ -43,7 +41,7 @@
     }
   ],
   "files": [
-    "lib"
+    "/lib"
   ],
   "devDependencies": {
     "@salesforce/dev-scripts": "^9.0.0",

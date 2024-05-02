@@ -5,7 +5,6 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import * as fs from 'node:fs';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { parseString } from 'xml2js';
 import type {
   ComplexTypeNode,
@@ -19,7 +18,7 @@ import type {
 } from './types';
 
 const wsdlFolder = './resources';
-const outputFolder = './lib';
+const outputFolder = './src';
 
 const reservedWords = [
   'abstract',
@@ -91,13 +90,12 @@ const reservedWords = [
 fs.readdirSync(wsdlFolder).forEach((wsdlFile) => {
   console.dir(wsdlFile);
 
-  const fileName = wsdlFile.split('.')[0];
-  const extension = wsdlFile.split('.')[1];
+  const [fileName, extension] = wsdlFile.split('.');
 
   if (extension === 'wsdl') {
-    const wsdl = fs.readFileSync(wsdlFolder + '/' + wsdlFile, 'utf-8');
+    const wsdl = fs.readFileSync(`${wsdlFolder}/${wsdlFile}`, 'utf-8');
     const ts = convertWsdlToTypescript(wsdl);
-    fs.writeFileSync(outputFolder + '/' + fileName + '.d.ts', ts);
+    fs.writeFileSync(`${outputFolder}/${fileName}.ts`, ts);
   }
 });
 
@@ -201,7 +199,7 @@ function convertWsdlToTypescript(wsdl: string): string {
 function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | ElementNode>): string {
   let output = '';
 
-  const typeMap = new Map<string, { parents: string[]; fields: SequenceNode[] }>();
+  const typeMap = new Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }>();
 
   source.map((type) => {
     const key = treatTypeName(type.$?.name ?? '');
@@ -234,7 +232,7 @@ function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | E
       } else {
         currValue.fields.concat(
           ((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[]) ??
-            (type as SimpleTypeNode).restriction.enumeration
+            ((type as SimpleTypeNode).restriction.enumeration as SequenceNode[])
         );
       }
       typeMap.set(key, currValue);
@@ -244,12 +242,12 @@ function treatComplexTypeNode(source: Array<SimpleTypeNode | ComplexTypeNode | E
   typeMap.forEach((info, type) => {
     if (info.fields.every((f) => 'value' in f.$)) {
       // we have an enum type
-      output += 'export type ' + type + ' = ';
+      output += `export type ${type} = `;
       if (info.fields.length === 0) output += 'string';
-      output += info.fields.map((f) => "'" + f.$.value + "'").join('\n      |');
+      output += info.fields.map((f) => `'${f.$.value}'`).join('\n      |');
       output += '\n\n';
     } else {
-      output += 'export type ' + type + ' = ';
+      output += `export type ${type} = `;
       output += info.parents.map((p) => treatTypeName(p)).join(' & ');
       if (info.parents.length) {
         output += ' & {\n';
@@ -292,12 +290,12 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 
   const isArray = maxOccurs === 'unbounded';
   const optional = (!isArray && minOccurs === '0') || nillable ? '?' : '';
-  attributeOutput += '    ' + fieldName + optional + ': ';
+  attributeOutput += `    ${fieldName}${optional}: `;
 
   const fieldType = translateTypeName(fieldTypeXml ?? '') ?? 'any';
 
   if (isArray) {
-    attributeOutput += fieldType + '[]';
+    attributeOutput += `${fieldType}[]`;
   } else {
     attributeOutput += fieldType;
   }
@@ -308,57 +306,49 @@ function treatAttribute(elementNode: NodeWithAttributes): string {
 }
 
 function translateTypeName(fieldTypeXml: string): string {
-  let fieldType = '';
-
   switch (fieldTypeXml) {
     case 'boolean': {
-      fieldType = 'boolean';
-      break;
+      return 'boolean';
     }
     case 'base64Binary':
     case 'string': {
-      fieldType = 'string';
-      break;
+      return 'string';
     }
 
     case 'double':
     case 'long':
     case 'int': {
-      fieldType = 'number';
-      break;
+      return 'number';
     }
 
     case 'dateTime':
     case 'time':
     case 'date': {
-      fieldType = 'Date';
-      break;
+      return 'Date';
     }
 
     case 'anyType': {
-      fieldType = 'any';
-      break;
+      return 'any';
     }
 
     default: {
       if (fieldTypeXml?.startsWith('tns_')) {
-        fieldType = fieldTypeXml?.replace('tns_', '');
+        return fieldTypeXml?.replace('tns_', '');
       } else if (fieldTypeXml?.startsWith('ens_')) {
-        fieldType = fieldTypeXml?.replace('ens_', '');
+        return fieldTypeXml?.replace('ens_', '');
       } else if (fieldTypeXml?.startsWith('mns_')) {
-        fieldType = fieldTypeXml?.replace('mns_', '');
+        return fieldTypeXml?.replace('mns_', '');
       } else if (fieldTypeXml?.startsWith('fns_')) {
-        fieldType = fieldTypeXml?.replace('fns_', '');
+        return fieldTypeXml?.replace('fns_', '');
       } else {
-        fieldType = 'any';
+        return 'any';
       }
     }
   }
-
-  return fieldType;
 }
 
-function treatTypeName(str: string): string {
+function treatTypeName(s: string): string {
+  let str = s;
   if (reservedWords.includes(str)) {
     str += '_';
   }
