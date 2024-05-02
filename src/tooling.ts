@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2023, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ */
 export type EmailToCaseRoutingAddressType = 'EmailToCase'
       |'Outlook'
       |'GmailOAuth'
@@ -45541,8 +45547,8 @@ export type SymbolTable = {
     namespace: string;
     parentClass: string;
     properties: VisibilitySymbol[];
-    tableDeclaration: Symbol;
-    variables: Symbol[];
+    tableDeclaration: symbol;
+    variables: symbol[];
 }
 
 export type Constructor = VisibilitySymbol & {
@@ -49005,7 +49011,7 @@ export type ApiSchemaTypes = {
 	SymbolTable: SymbolTable;
 	Constructor: Constructor;
 	VisibilitySymbol: VisibilitySymbol;
-	Symbol: Symbol;
+	Symbol: symbol;
 	Annotation: Annotation;
 	Position: Position;
 	Parameter: Parameter;
