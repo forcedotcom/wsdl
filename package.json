@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/types",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "contains typescript types for salesforce objets",
   "repository": "forcedotcom/wsdl",
   "exports": {
