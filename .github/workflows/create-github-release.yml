@@ -1,0 +1,22 @@
+name: create-github-release
+
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - "*"
+  workflow_dispatch:
+    inputs:
+      prerelease:
+        type: string
+        description: "Name to use for the prerelease: beta, dev, etc. NOTE: If this is already set in the package.json, it does not need to be passed in here."
+
+jobs:
+  release:
+    uses: salesforcecli/github-workflows/.github/workflows/create-github-release.yml@main
+    secrets: inherit
+    with:
+      prerelease: ${{ inputs.prerelease }}
+      skip-on-empty: ${{ github.event_name == 'push' }}
+

@@ -1,0 +1,54 @@
+{
+  "name": "@salesforce/types",
+  "version": "1.0.0",
+  "description": "contains typescript types for salesforce objets",
+  "repository": "forcedotcom/wsdl",
+  "exports": {
+    "./apex": "./lib/apex.js",
+    "./metadata": "./lib/metadata.js",
+    "./partner": "./lib/partner.js",
+    "./tooling": "./lib/tooling.js"
+  },
+  "types": "./src",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "generate": "ts-node scripts/generate.ts",
+    "lint": "eslint src --color --cache --cache-location .eslintcache --fix",
+    "prepack": "sf-prepack",
+    "build": "tsc -p . --pretty",
+    "test": "mocha test/**/*.test.ts"
+  },
+  "keywords": [
+    "salesforce",
+    "sf",
+    "metadata"
+  ],
+  "author": "Salesforce",
+  "contributors": [
+    {
+      "name": "Andrés Catalán",
+      "url": "https://github.com/catalandres"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/jsforce/jsforce/raw/master/LICENSE"
+    }
+  ],
+  "files": [
+    "/lib"
+  ],
+  "devDependencies": {
+    "@salesforce/dev-scripts": "^9.0.0",
+    "eslint-plugin-sf-plugin": "^1.18.3",
+    "@types/xml2js": "^0.4.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "xml2js": "^0.6.2"
+  },
+  "dependencies": {}
+}
