@@ -1,4 +1,13 @@
-# 1.1.0 (2024-05-02)
+# [1.2.0](https://github.com/forcedotcom/wsdl/compare/1.1.0...1.2.0) (2024-06-17)
+
+
+### Features
+
+* update wsdls for 250 release ([8d553e4](https://github.com/forcedotcom/wsdl/commit/8d553e47155d95e5370d440e219e3044356c0b97))
+
+
+
+# [1.1.0](https://github.com/forcedotcom/wsdl/compare/e100904cc6db5a420c1df52e3fe6ccbed7f99c74...1.1.0) (2024-05-02)
 
 
 ### Bug Fixes
