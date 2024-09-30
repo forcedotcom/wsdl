@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 61.0
+Salesforce.com Apex API version 62.0
 
 Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
 -->
@@ -177,7 +177,10 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="IndicatorResultFlow"/>
      <xsd:enumeration value="IndividualObjectLinkingFlow"/>
      <xsd:enumeration value="PromptFlow"/>
-     <xsd:enumeration value="AdvancedApproval"/>
+     <xsd:enumeration value="ApprovalWorkflow"/>
+     <xsd:enumeration value="DcvrFrameworkDataCaptureFlow"/>
+     <xsd:enumeration value="ActivitySmartMatchingFlow"/>
+     <xsd:enumeration value="ActionableEventManagementFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -340,6 +343,7 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
      <xsd:element name="majorNumber" type="xsd:int"/>
      <xsd:element name="minorNumber" type="xsd:int"/>
      <xsd:element name="namespace" type="xsd:string"/>
+     <xsd:element name="packageId" type="xsd:string"/>
     </xsd:sequence>
    </xsd:complexType>
    <xsd:element name="SessionHeader">
@@ -604,7 +608,7 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/61.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/62.0"/>
   </port>
  </service>
 </definitions>
