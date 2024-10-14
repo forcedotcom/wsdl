@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/forcedotcom/wsdl/compare/1.2.0...1.3.0) (2024-10-14)
+
+
+### Features
+
+* update wsdls for 252 release ([813c5de](https://github.com/forcedotcom/wsdl/commit/813c5dea7ebdebfe349a14fd41ac639708ab0fa5))
+
+
+
 # [1.2.0](https://github.com/forcedotcom/wsdl/compare/1.1.0...1.2.0) (2024-06-17)
 
 
