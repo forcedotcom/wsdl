@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 62.0
+Salesforce.com Apex API version 63.0
 
 Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
 -->
@@ -179,8 +179,10 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="PromptFlow"/>
      <xsd:enumeration value="ApprovalWorkflow"/>
      <xsd:enumeration value="DcvrFrameworkDataCaptureFlow"/>
-     <xsd:enumeration value="ActivitySmartMatchingFlow"/>
+     <xsd:enumeration value="ActivityObjectMatchingFlow"/>
      <xsd:enumeration value="ActionableEventManagementFlow"/>
+     <xsd:enumeration value="StageManagementEvaluationFlow"/>
+     <xsd:enumeration value="RpaFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -292,6 +294,7 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="System"/>
      <xsd:enumeration value="Wave"/>
      <xsd:enumeration value="Nba"/>
+     <xsd:enumeration value="Data_Access"/>
      <xsd:enumeration value="All"/>
     </xsd:restriction>
    </xsd:simpleType>
@@ -608,7 +611,7 @@ Copyright 2006-2024 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/62.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/63.0"/>
   </port>
  </service>
 </definitions>
