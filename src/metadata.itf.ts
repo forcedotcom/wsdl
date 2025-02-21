@@ -4,8944 +4,8947 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-export type DeployProblemType = 'Warning'
-      |'Error'
-      |'Info'
-
-export type ManageableState = 'released'
-      |'deleted'
-      |'deprecated'
-      |'installed'
-      |'beta'
-      |'unmanaged'
-      |'installedEditable'
-      |'deprecatedEditable'
-
-export type RetrieveStatus = 'Pending'
-      |'InProgress'
-      |'Succeeded'
-      |'Failed'
-
-export type FlowProcessType = 'AutoLaunchedFlow'
-      |'Flow'
-      |'Workflow'
-      |'CustomEvent'
-      |'InvocableProcess'
-      |'LoginFlow'
-      |'ActionPlan'
-      |'JourneyBuilderIntegration'
-      |'UserProvisioningFlow'
-      |'Survey'
-      |'SurveyEnrich'
-      |'Appointments'
-      |'FSCLending'
-      |'DigitalForm'
-      |'FieldServiceMobile'
-      |'OrchestrationFlow'
-      |'FieldServiceWeb'
-      |'TransactionSecurityFlow'
-      |'ContactRequestFlow'
-      |'ActionCadenceFlow'
-      |'ManagedContentFlow'
-      |'CheckoutFlow'
-      |'CartAsyncFlow'
-      |'DataCaptureFlow'
-      |'CustomerLifecycle'
-      |'Journey'
-      |'RecommendationStrategy'
-      |'Orchestrator'
-      |'RoutingFlow'
-      |'ServiceCatalogItemFlow'
-      |'EvaluationFlow'
-      |'LoyaltyManagementFlow'
-      |'ManagedContentAuthoringWorkflow'
-      |'ActionCadenceAutolaunchedFlow'
-      |'ActionCadenceStepFlow'
-      |'IndicatorResultFlow'
-      |'IndividualObjectLinkingFlow'
-      |'PromptFlow'
-      |'ApprovalWorkflow'
-      |'DcvrFrameworkDataCaptureFlow'
-      |'ActivityObjectMatchingFlow'
-      |'ActionableEventManagementFlow'
-      |'StageManagementEvaluationFlow'
-      |'RpaFlow'
-
-export type DeployStatus = 'Pending'
-      |'InProgress'
-      |'Succeeded'
-      |'SucceededPartial'
-      |'Failed'
-      |'Canceling'
-      |'Canceled'
-
-export type AsyncRequestState = 'Queued'
-      |'InProgress'
-      |'Completed'
-      |'Error'
-
-export type AIFilterUnit = 'Milliseconds'
-      |'Seconds'
-      |'Minutes'
-      |'Hours'
-      |'Days'
-      |'Weeks'
-      |'Months'
-      |'Years'
-
-export type AIFilterOperation = 'And'
-      |'Or'
-      |'Not'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'Equals'
-      |'NotEquals'
-      |'Add'
-      |'Subtract'
-      |'Multiply'
-      |'Divide'
-      |'IsNull'
-      |'IsNotNull'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'Concat'
-      |'DoesNotContain'
-      |'Between'
-      |'In'
-
-export type AISide = 'Left'
-      |'Right'
-
-export type AIValueType = 'Number'
-      |'String'
-      |'Boolean'
-      |'Date'
-      |'DateTime'
-      |'Supplier'
-      |'Currency'
-      |'Varchar'
-      |'Comparison'
-
-export type AIManagedFieldType = 'Included'
-      |'Excluded'
-
-export type AIModelDefinitionApprovalType = 'RequireApproval'
-      |'PreApproved'
-
-export type AIModelDefinitionStatus = 'Enabled'
-      |'Disabled'
-
-export type AIModelType = 'RandomForest'
-      |'LogisticRegression'
-      |'LinearRegression'
-      |'DecisionTree'
-      |'DeepLearningIntent'
-      |'DeepLearningNER'
-      |'GlobalDeepLearningIntent'
-      |'GlobalDeepLearningNER'
-      |'GlobalLanguageDetection'
-      |'BinaryClassification'
-      |'GeneralizedLinearModels'
-      |'GradientBoostedTrees'
-      |'LinearSupportVectorClassifiers'
-      |'MulticlassClassification'
-      |'NaiveBayes'
-      |'Regression'
-      |'XGBoost'
-      |'NeuralNet'
-      |'PopularityCount'
-
-export type AIPredictionStrategy = 'Maximize'
-      |'Minimize'
-
-export type AIPredictionDefinitionStatus = 'Enabled'
-      |'Disabled'
-
-export type AIPredictionType = 'ScoringSpecificOutcome'
-      |'BinaryClassification'
-      |'MulticlassClassification'
-      |'Regression'
-      |'LanguageDetection'
-      |'DeepLearningIntentClassification'
-      |'DeepLearningNameEntityRecognition'
-      |'GlobalDeepLearningIntentClassification'
-      |'GlobalDeepLearningNameEntityRecognition'
-
-export type AIApplicationStatus = 'Draft'
-      |'Migrated'
-      |'Enabled'
-      |'Disabled'
-
-export type AIApplicationType = 'Platform'
-      |'LeadScoring'
-      |'ForecastingPredictive'
-      |'CaseClassification'
-      |'PredictionBuilder'
-      |'Assistant'
-      |'Bots'
-      |'EPLite'
-      |'Discovery'
-      |'ReferralScoring'
-      |'IntelligentOffers'
-      |'CaseWrapUp'
-      |'VoiceWrapUp'
-      |'RecommendationBuilder'
-      |'OpportunityScoring'
-      |'SalesAILeadScoring'
-      |'ServiceCaseWrapUp'
-      |'ServiceCaseClassification'
-      |'KeyAccountIdentification'
-      |'OpportunityPushedOutInsight'
-      |'InvoiceLatePaymentRiskCalculation'
-      |'SalesAIOpportunityScoring'
-      |'SalesAIForecastingPredictive'
-      |'CallCaseWrapUp'
-      |'SalesAIOpportunityForecasting'
-      |'CustomizablePropensityScoring'
-      |'GenerativeIntelligence'
-      |'OmOrderRouting'
-
-export type AIScoringMode = 'Batch'
-      |'OnDemand'
-      |'Streaming'
-
-export type RecsOutputFieldName = 'Summary'
-      |'Issue'
-      |'Resolution'
-      |'IndividualEmailSummary'
-      |'CompleteEmailsSummary'
-
-export type ConfigStatus = 'Enabled'
-      |'Disabled'
-
-export type AIModelApproval = 'Pending'
-      |'Approved'
-      |'Rejected'
-
-export type AIModelMetricOperation = 'LessThan'
-      |'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'IsNull'
-      |'IsNotNull'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-
-export type AIIntensityType = 'Weight'
-      |'Importance'
-      |'Correlation'
-
-export type AIModelFactorType = 'Basic'
-      |'And'
-      |'Or'
-
-export type AIDataSetType = 'HoldOut'
-      |'Training'
-      |'Live'
-      |'Model'
-      |'Baseline'
-
-export type AIModelGraphType = 'ConfidencePlot'
-      |'LiftPlot'
-      |'PrecisionGraph'
-      |'RecallGraph'
-      |'HitRateGraph'
-      |'MeanReciprocalRankGraph'
-      |'DiscountedCumulativeGainsGraph'
-      |'NormalizedDiscountedCumulativeGainsGraph'
-      |'KBasedRankingGraph'
-      |'ConfusionMatrixPerThreshold'
-      |'RegressionErrorBands'
-      |'MultiClassMisclassifications'
-      |'MultiClassConfusionMatrixPerThreshold'
-
-export type AIMetricType = 'auROC'
-      |'Accuracy'
-      |'BalancedAccuracy'
-      |'Precision'
-      |'Recall'
-      |'FMeasure'
-      |'RootMeanSquaredError'
-      |'MeanAbsoluteError'
-      |'RSquared'
-      |'auPR'
-      |'PrecisionAtK'
-      |'RecallAtK'
-      |'HitRateAtK'
-      |'F1Score'
-      |'MeanPercentileRank'
-      |'MeanAbsoluteRank'
-      |'ExpectedTopPercentileRank'
-      |'ExpectedTopAbsoluteRank'
-      |'MeanReciprocalRankAtK'
-      |'DiscountedCumulativeGainAtK'
-      |'NormalizedDiscountedCumulativeGainsAtK'
-      |'AveragePrecision'
-      |'MeanAveragePrecisionAtK'
-      |'MeanReciprocalRank'
-      |'MeanTopReciprocalRank'
-      |'LiftBucket'
-
-export type AIScoringStatus = 'Enabled'
-      |'Disabled'
-
-export type AIScoringModelDefVersionMode = 'TRAIN'
-      |'DEPLOY'
-      |'TRAIN_AND_DEPLOY'
-
-export type MappedFieldType = 'FEATURE'
-      |'PREDICTION_SCORE'
-      |'INSIGHT'
-      |'SUGGESTION'
-      |'SECONDARY_RESPONSE_RECORD_ID'
-      |'RECOMMENDATION_RESPONSE_RECORD_ID'
-      |'RECOMMENDATION'
-      |'PREDICTION_SCORE_INPUT'
-
-export type BatchInputSourceType = 'CRMA'
-      |'Data_Cloud'
-
-export type ExtractorType = 'APEX'
-      |'JAVA'
-      |'HYBRID'
-
-export type FeatureInputType = 'Realtime_Input'
-      |'Sample_Input'
-      |'Batch_Input'
-      |'Batch_And_Realtime_Input'
-
-export type PredictionPlatform = 'Einstein_Discovery'
-      |'Default'
-      |'Data_Cloud'
-      |'Einstein_on_Data_Cloud'
-
-export type CreatorType = 'INTERNAL_USER'
-      |'SALESFORCE_ADMIN'
-
-export type RcmdSourceType = 'Next_Best_Action_Flow'
-      |'None'
-
-export type FormulaType = 'QUANTITY'
-      |'REVENUE'
-
-export type CalculationFrequency = 'Monthly'
-      |'Quarterly'
-
-export type ForecastFrequency = 'Monthly'
-      |'Quarterly'
-
-export type AccountingType = 'Revenue'
-      |'Expense'
-
-export type ExpectedCashFlowGrouping = 'GroupByFundAccount'
-      |'GroupByFundAndDueDate'
-
-export type PaidCashFlowGrouping = 'GroupBySummary'
-      |'GroupByFundAccount'
-
-export type PeriodTypes = 'Month'
-      |'Quarter'
-      |'Week'
-      |'Year'
-
-export type TeamMemberHierarchyType = 'ManagerHierarchy'
-      |'ForecastsHierarchy'
-
-export type ItemActionType = 'Omniscript'
-      |'Aura'
-      |'LWC'
-
-export type ItemCategory = 'dbBased'
-      |'fileBased'
-
-export type ActionLinkType = 'API'
-      |'APIAsync'
-      |'Download'
-      |'UI'
-
-export type ActionLinkHttpMethod = 'HttpDelete'
-      |'HttpHead'
-      |'HttpGet'
-      |'HttpPatch'
-      |'HttpPost'
-      |'HttpPut'
-
-export type ActionLinkUserVisibility = 'Creator'
-      |'Everyone'
-      |'EveryoneButCreator'
-      |'Manager'
-      |'CustomUser'
-      |'CustomExcludedUser'
-
-export type PlatformActionGroupCategory = 'Primary'
-      |'Overflow'
-
-export type ActionLinkExecutionsAllowed = 'Once'
-      |'OncePerUser'
-      |'Unlimited'
-
-export type ActionPlanTemplateType = 'Industries'
-      |'Retail'
-      |'Sales'
-      |'Service'
-      |'PrvdEngmtCompliance'
-
-export type ActivationFlowType = 'SEGMENT'
-      |'DMO'
-
-export type ActivationPlatformConnectorType = 'S3'
-      |'OAUTH'
-
-export type ActivationPlatformFileOutputFormat = 'CSV'
-      |'JSON'
-      |'PARQUET'
-
-export type ActivationPlatformFileOutputGrouping = 'PER_SEGMENT'
-      |'PER_ACCOUNT'
-
-export type ActivationPlatformPeriodicFullRefresh = 'REFRESH_30'
-      |'REFRESH_60'
-
-export type ActivationPlatformProcessingType = 'Batch'
-      |'Streaming'
-
-export type ActivationPlatformType = 'Advertising'
-      |'Publishing'
-      |'Analytics'
-      |'Marketing'
-      |'Technology'
-
-export type ActivationPlatformRefreshFrequency = 'FOUR'
-      |'TWELVE'
-      |'TWENTY_FOUR'
-
-export type ActivationPlatformRefreshMode = 'FULL'
-      |'INCREMENTAL'
-
-export type ActivationPlatformFieldDataType = 'Text'
-      |'Number'
-
-export type ActionableListKPIAggType = 'SUM'
-      |'COUNT'
-      |'MIN'
-      |'MAX'
-      |'AVG'
-
-export type ActionableListKPIStType = 'ACTIVE'
-      |'INACTIVE'
-
-export type ActivationPlatformIdentifierHashMethod = 'SHA1'
-      |'SHA256'
-      |'MD5'
-      |'NONE'
-
-export type ActivationPlatformIdentifierType = 'EMAIL'
-      |'PHONE'
-      |'OTT'
-      |'MAID'
-
-export type OAuthProviderType = 'GOOGLE'
-      |'FACEBOOK'
-      |'AMAZON'
-      |'LINKEDIN'
-      |'SNAPCHAT'
-      |'DV360'
-      |'META_CAPI'
-
-export type DefaultLicenseStatus = 'Active'
-      |'Trial'
-      |'Free'
-
-export type AdvAcctFcstCalcFrequency = 'Monthly'
-      |'Quarterly'
-      |'Yearly'
-      |'Weekly'
-
-export type AdvAcctFrcstDisplayGroupType = 'MEASURE'
-
-export type AdvAcctFcstFormulaType = 'QUANTITY'
-      |'REVENUE'
-
-export type AdvAcctFcstAggregationType = 'SUM'
-      |'MINIMUM'
-      |'MAXIMUM'
-      |'AVERAGE'
-
-export type AdvAcctFcstComputationMethod = 'DATA_PROCESSING_ENGINE_DEFINITION'
-      |'CUSTOM'
-      |'FORMULA'
-
-export type AdvAcctFcstMeasureType = 'QUANTITY'
-      |'REVENUE'
-
-export type AdvAccForecastSetStatus = 'Active'
-      |'Inactive'
-
-export type ForecastPeriodGroupStatus = 'Active'
-      |'Inactive'
-
-export type FieldMappingClient = 'PriceSheetPricing'
-      |'CustomFieldMappingPricing'
-
-export type AffinityScoreType = 'RFM'
-      |'CAP'
-
-export type ReportSummaryType = 'Sum'
-      |'Average'
-      |'Maximum'
-      |'Minimum'
-      |'Unique'
-      |'Median'
-      |'Noop'
-      |'None'
-
-export type ReportJobSourceTypes = 'tabular'
-      |'summary'
-      |'snapshot'
-
-export type AnalyticsWidgetType = 'visualization'
-      |'text'
-      |'filter'
-      |'parameter'
-      |'button'
-      |'metric'
-      |'container'
-
-export type AnalyticsActionType = 'recordaction'
-      |'flow'
-      |'navigate'
-
-export type AnalyticsActionEventType = 'click'
-      |'select'
-
-export type ApplicationObjectName = 'BusinessLicenseApplication'
-      |'IndividualApplication'
-
-export type ApplicationUsageType = 'LPI'
-      |'ERM'
-      |'HC'
-      |'EDU'
-      |'BA'
-      |'CCM'
-      |'Grantmaking'
-
-export type AppDomainUsageType = 'ExplainabilityService'
-
-export type PolicyApplicableDuration = 'ParameterBased'
-      |'Monthly'
-      |'Weekly'
-
-export type AssignmentPolicyType = 'loadBalancing'
-
-export type UtilizationFactor = 'TotalAppointmentDuration'
-      |'NumberOfAppointments'
-
-export type ProcessSubmitterType = 'group'
-      |'role'
-      |'user'
-      |'roleSubordinates'
-      |'roleSubordinatesInternal'
-      |'owner'
-      |'creator'
-      |'accountOwner'
-      |'ownerDelegate'
-      |'creatorDelegate'
-      |'accountOwnerDelegate'
-      |'partnerUser'
-      |'customerPortalUser'
-      |'portalRole'
-      |'portalRoleSubordinates'
-      |'allInternalUsers'
-
-export type WorkflowActionType = 'FieldUpdate'
-      |'KnowledgePublish'
-      |'Task'
-      |'Alert'
-      |'Send'
-      |'OutboundMessage'
-      |'FlowAction'
-      |'FlowAutomation'
-
-export type NextOwnerType = 'adhoc'
-      |'user'
-      |'userHierarchyField'
-      |'relatedUserField'
-      |'queue'
-      |'apexMethod'
-      |'PreviousApprover'
-      |'none'
-
-export type RoutingType = 'Unanimous'
-      |'FirstResponse'
-
-export type FilterOperation = 'equals'
-      |'notEqual'
-      |'lessThan'
-      |'greaterThan'
-      |'lessOrEqual'
-      |'greaterOrEqual'
-      |'contains'
-      |'notContain'
-      |'startsWith'
-      |'includes'
-      |'excludes'
-      |'within'
-
-export type StepCriteriaNotMetType = 'ApproveRecord'
-      |'RejectRecord'
-      |'GotoNextStep'
-
-export type StepRejectBehaviorType = 'RejectRequest'
-      |'BackToPrevious'
-
-export type RuleExprObjTargetType = 'Plugin'
-      |'PluginFunction'
-      |'Function'
-
-export type ExpressionCondition = 'AND'
-      |'OR'
-      |'CUSTOM'
-
-export type RecordEditabilityType = 'AdminOnly'
-      |'AdminOrCurrentApprover'
-
-export type AssignToLookupValueType = 'User'
-      |'Queue'
-
-export type BusinessHoursSourceType = 'None'
-      |'Case'
-      |'Static'
-
-export type EscalationStartTimeType = 'CaseCreation'
-      |'CaseLastModified'
-
-export type AssistantDefinitionStatus = 'DISABLED'
-      |'ENABLED'
-
-export type AssistantSkillSobjectActionType = 'CREATE'
-      |'UPDATE'
-      |'READ'
-
-export type AssistantSkillType = 'AGENDA'
-      |'SOBJECT'
-
-export type AudienceCriterionOperator = 'Equal'
-      |'NotEqual'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'Contains'
-      |'StartsWith'
-      |'Includes'
-      |'NotIncludes'
-
-export type AudienceCriterionType = 'Default'
-      |'Profile'
-      |'FieldBased'
-      |'GeoLocation'
-      |'Domain'
-      |'Permission'
-      |'Audience'
-
-export type FormulaFilterType = 'AllCriteriaMatch'
-      |'AnyCriterionMatches'
-      |'CustomLogicMatches'
-
-export type AuraBundleType = 'Application'
-      |'Component'
-      |'Event'
-      |'Interface'
-      |'Tokens'
-
-export type MuleSoftControlPlane = 'None'
-      |'US'
-      |'EU'
-
-export type AuthProviderType = 'Facebook'
-      |'Janrain'
-      |'Salesforce'
-      |'OpenIdConnect'
-      |'MicrosoftACS'
-      |'LinkedIn'
-      |'Twitter'
-      |'Google'
-      |'GitHub'
-      |'Custom'
-      |'Apple'
-      |'Evergreen'
-      |'Slack'
-      |'HubSpot'
-      |'Microsoft'
-      |'MuleSoft'
-      |'Bitbucket'
-
-export type BatchCalcJobCSVDelimiter = 'COMMA'
-      |'BACKQUOTE'
-      |'CARET'
-      |'PIPE'
-      |'SEMICOLON'
-      |'TAB'
-
-export type BatchCalcJobDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'MultiValue'
-
-export type BatchCalcJobFileSource = 'ContentManagement'
-
-export type BatchCalcJobDatasourceType = 'StandardObject'
-      |'Analytics'
-      |'DataModelObject'
-      |'CalculatedInsightsObject'
-      |'CRMObject'
-      |'CSV'
-      |'DataLakeObject'
-
-export type BatchCalcJobFilterOperator = 'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'DoesNotContain'
-      |'IsNull'
-      |'IsNotNull'
-      |'In'
-      |'NotIn'
-
-export type BatchCalcJobFrcstAccuracy = 'None'
-      |'Eighty'
-      |'NinetyFive'
-
-export type BatchCalcJobAggregateFunction = 'Unique'
-      |'Sum'
-      |'Max'
-      |'Min'
-      |'Avg'
-      |'Std'
-      |'StdP'
-      |'Var'
-      |'VarP'
-      |'Count'
-
-export type BatchCalcJobFrcstModel = 'Additive'
-      |'Multiplicative'
-      |'Auto'
-
-export type BatchCalcJobFrcstPeriodType = 'Year'
-      |'YearQuarter'
-      |'YearMonth'
-      |'YearWeek'
-      |'YearMonthDay'
-      |'FiscalYear'
-      |'FiscalYearQuarter'
-      |'FiscalYearMonth'
-      |'FiscalYearWeek'
-
-export type BatchCalcJobFrcstSeasonality = 'Auto'
-      |'None'
-      |'Two'
-      |'Three'
-      |'Four'
-      |'Five'
-      |'Six'
-      |'Seven'
-      |'Eight'
-      |'Nine'
-      |'Ten'
-      |'Eleven'
-      |'Twelve'
-      |'Thirteen'
-      |'Fourteen'
-      |'Fifteen'
-      |'Sixteen'
-      |'Seventeen'
-      |'Eighteen'
-      |'Nineteen'
-      |'Twenty'
-      |'TwentyOne'
-      |'TwentyTwo'
-      |'TwentyThree'
-      |'TwentyFour'
-
-export type BatchCalcJobParameterDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'Filter'
-      |'Expression'
-      |'FileIdentifier'
-
-export type BatchCalcJobSourceJoinType = 'LeftOuter'
-      |'RightOuter'
-      |'Inner'
-      |'Outer'
-
-export type BatchCalcJobOrderType = 'Ascending'
-      |'Descending'
-
-export type BatchCalcJobTransformType = 'Expression'
-      |'Slice'
-      |'ComputeRelative'
-
-export type BatchCalcJobWritebackOpn = 'Insert'
-      |'Update'
-      |'Upsert'
-      |'Delete'
-      |'Overwrite'
-
-export type BatchCalcJobWritebackType = 'sObject'
-      |'Analytics'
-      |'DataLakeObject'
-      |'DataModelObject'
-      |'CalculatedInsights'
-
-export type BatchCalcJobDefRunMode = 'Batch'
-      |'OnDemand'
-
-export type ExecutionPlatformType = 'CRMA'
-      |'CDP'
-      |'CORE'
-
-export type BatchCalcProcessType = 'DataProcessingEngine'
-      |'Rebates'
-      |'FSCHierarchyRollUp'
-      |'Loyalty'
-      |'AdvancedAccountForecast'
-      |'LoyaltyPartnerManagement'
-      |'LoyaltyPointsAggregation'
-      |'NetZero'
-      |'ProgramBasedBusiness'
-      |'ProviderSearch'
-      |'AccountingSubledger'
-      |'ActionableList'
-      |'DecisionMatrixDataUpload'
-      |'ProgramManagementRollups'
-      |'NetZeroHidden'
-      |'CriteriaBsdSearchAndFilter'
-      |'RecordAggregation'
-      |'Education'
-      |'CDPEnrichment'
-      |'CdpActionableList'
-      |'CSVCoreUpload'
-      |'BenefitManagement'
-      |'BillingSchedulesforInvoiceGeneration'
-      |'Recruitment'
-      |'NextGenForecasting'
-      |'InvoiceGeneration'
-      |'AccountingPeriodClosure'
-      |'PnmRosterFileUpload'
-      |'FinancialSummaryRollup'
-      |'PriceProtection'
-      |'Decisiontable'
-      |'UsageManagement'
-      |'TestProcessType'
-      |'ProductCatalogManagement'
-      |'ChannelInventoryManagement'
-      |'SalesAgreement'
-      |'LegalEntityAccountingPeriodClosureAdvanced'
-      |'LifeSciencesCommercialTerritoryAlignment'
-      |'RevenueTransactionManagement'
-      |'FundraisingRollups'
-      |'EmployeeService'
-
-export type BatchJobDefinitionStatus = 'Active'
-      |'Inactive'
-
-export type BenefitActionDataType = 'String'
-      |'Date'
-      |'DateTime'
-      |'Boolean'
-      |'Picklist'
-      |'EntityPicklist'
-      |'Number'
-
-export type BuildingEnergyIntensityType = 'BuildingEnergyIntensity'
-      |'RegionalBuildingEnergyIntensity'
-
-export type GenAiAgentType = 'Employee'
-      |'EinsteinSDR'
-      |'SalesEinsteinCoach'
-      |'Setup'
-      |'EinsteinServiceAgent'
-      |'Analytics'
-      |'BankingServiceAgent'
-      |'ServicePlanner'
-      |'BuyerAgent'
-
-export type Language = 'en_US'
-      |'de'
-      |'es'
-      |'fr'
-      |'it'
-      |'ja'
-      |'sv'
-      |'ko'
-      |'zh_TW'
-      |'zh_CN'
-      |'pt_BR'
-      |'nl_NL'
-      |'da'
-      |'th'
-      |'fi'
-      |'ru'
-      |'es_MX'
-      |'no'
-      |'hu'
-      |'pl'
-      |'cs'
-      |'tr'
-      |'in'
-      |'ro'
-      |'vi'
-      |'uk'
-      |'iw'
-      |'el'
-      |'bg'
-      |'en_GB'
-      |'ar'
-      |'sk'
-      |'pt_PT'
-      |'hr'
-      |'sl'
-      |'fr_CA'
-      |'ka'
-      |'sr'
-      |'sh'
-      |'en_AU'
-      |'en_MY'
-      |'en_IN'
-      |'en_PH'
-      |'en_CA'
-      |'ro_MD'
-      |'bs'
-      |'mk'
-      |'lv'
-      |'lt'
-      |'et'
-      |'sq'
-      |'sh_ME'
-      |'mt'
-      |'ga'
-      |'eu'
-      |'cy'
-      |'is'
-      |'cac'
-      |'quc'
-      |'cak'
-      |'ms'
-      |'tl'
-      |'lb'
-      |'rm'
-      |'hy'
-      |'hi'
-      |'ur'
-      |'bn'
-      |'de_AT'
-      |'de_CH'
-      |'ta'
-      |'ar_DZ'
-      |'ar_BH'
-      |'ar_EG'
-      |'ar_IQ'
-      |'ar_JO'
-      |'ar_KW'
-      |'ar_LB'
-      |'ar_LY'
-      |'ar_MA'
-      |'ar_OM'
-      |'ar_QA'
-      |'ar_SA'
-      |'ar_SD'
-      |'ar_SY'
-      |'ar_TN'
-      |'ar_AE'
-      |'ar_YE'
-      |'zh_SG'
-      |'zh_HK'
-      |'en_HK'
-      |'en_IE'
-      |'en_SG'
-      |'en_ZA'
-      |'fr_BE'
-      |'fr_LU'
-      |'fr_CH'
-      |'de_BE'
-      |'de_LU'
-      |'it_CH'
-      |'nl_BE'
-      |'es_AR'
-      |'es_BO'
-      |'es_CL'
-      |'es_CO'
-      |'es_CR'
-      |'es_DO'
-      |'es_EC'
-      |'es_SV'
-      |'es_GT'
-      |'es_HN'
-      |'es_NI'
-      |'es_PA'
-      |'es_PY'
-      |'es_PE'
-      |'es_PR'
-      |'es_US'
-      |'es_UY'
-      |'es_VE'
-      |'ca'
-      |'af'
-      |'sw'
-      |'zu'
-      |'xh'
-      |'te'
-      |'ml'
-      |'kn'
-      |'mr'
-      |'gu'
-      |'pa'
-      |'en_NZ'
-      |'mi'
-      |'my'
-      |'fa'
-      |'km'
-      |'am'
-      |'kk'
-      |'ht'
-      |'sm'
-      |'haw'
-      |'zh_MY'
-      |'ru_LT'
-      |'ru_PL'
-      |'ru_AM'
-      |'ru_KZ'
-      |'ru_KG'
-      |'ru_BY'
-      |'ru_MD'
-      |'ru_UA'
-      |'en_AE'
-      |'en_BE'
-      |'en_CY'
-      |'en_DE'
-      |'en_IL'
-      |'en_IT'
-      |'en_NL'
-      |'en_MT'
-      |'en_ES'
-      |'en_PL'
-      |'en_DK'
-      |'en_SE'
-      |'en_NO'
-      |'en_FR'
-      |'en_HU'
-      |'en_CZ'
-      |'en_SK'
-      |'en_RO'
-      |'en_CH'
-      |'en_AL'
-      |'en_AD'
-      |'en_AG'
-      |'en_AT'
-      |'en_BS'
-      |'en_BB'
-      |'en_BZ'
-      |'en_BA'
-      |'en_BG'
-      |'en_HR'
-      |'en_DM'
-      |'en_EE'
-      |'en_FI'
-      |'en_GI'
-      |'en_GR'
-      |'en_GD'
-      |'en_GY'
-      |'en_IS'
-      |'en_JM'
-      |'en_JP'
-      |'en_LV'
-      |'en_LI'
-      |'en_LT'
-      |'en_LU'
-      |'en_MC'
-      |'en_ME'
-      |'en_MK'
-      |'en_PT'
-      |'en_RS'
-      |'en_SI'
-      |'en_KR'
-      |'en_KN'
-      |'en_LC'
-      |'en_VC'
-      |'en_TW'
-      |'en_TH'
-      |'en_TT'
-      |'en_TR'
-      |'nl_SR'
-      |'fr_HT'
-      |'de_LI'
-      |'es_AD'
-      |'sv_FI'
-      |'el_CY'
-      |'fr_MA'
-      |'kl'
-      |'ji'
-      |'hmn'
-      |'eo'
-      |'iw_EO'
-
-export type MlSlotClassDataType = 'Text'
-      |'Number'
-      |'Boolean'
-      |'Date'
-      |'DateTime'
-      |'Currency'
-
-export type MlSlotClassExtractionType = 'Pattern'
-      |'Value'
-
-export type ConversationInvocableTargetType = 'apex'
-      |'flow'
-      |'standardInvocableAction'
-      |'logFeedback'
-      |'externalService'
-      |'logGoalAchieved'
-      |'logDisambiguation'
-      |'quickAction'
-      |'api'
-      |'botAction'
-
-export type BotInvocationMappingType = 'Input'
-      |'Output'
-      |'Error'
-
-export type ConversationVariableType = 'ConversationVariable'
-      |'ContextVariable'
-      |'PageContextVariable'
-
-export type BotNavigationType = 'Call'
-      |'Redirect'
-      |'TransferToAgent'
-      |'EndChat'
-
-export type BotStepConditionOperatorType = 'Equals'
-      |'NotEquals'
-      |'IsSet'
-      |'IsNotSet'
-      |'GreaterThan'
-      |'LessThan'
-      |'GreaterThanOrEqualTo'
-      |'LessThanOrEqualTo'
-
-export type ConversationVariableOperandSourceType = 'StandardConversationVariable'
-      |'ConversationVariable'
-      |'ContextVariable'
-      |'MlSlotClass'
-      |'StandardMlSlotClass'
-      |'Value'
-      |'BotDefinition'
-      |'Queue'
-      |'FlowDefinition'
-
-export type ConversationMessageExecutionType = 'Sync'
-      |'Async'
-
-export type BotQuickReplyType = 'Static'
-      |'Dynamic'
-
-export type BotWidgetType = 'Menu'
-      |'Buttons'
-
-export type BotVariableOperationType = 'Set'
-      |'Unset'
-      |'Collect'
-      |'SetConversationLanguage'
-      |'CollectAttachment'
-
-export type ConversationDefinitionLogicalOperatorType = 'And'
-      |'Or'
-
-export type SortOrder = 'Asc'
-      |'Desc'
-
-export type ConversationMappingType = 'Input'
-      |'Output'
-
-export type ConversationSystemMessageParamType = 'Transfer'
-
-export type ConversationSystemMessageType = 'Transfer'
-      |'EndChat'
-
-export type BotStepType = 'Navigation'
-      |'Invocation'
-      |'VariableOperation'
-      |'Message'
-      |'Wait'
-      |'Group'
-      |'SystemMessage'
-      |'RecordLookup'
-      |'RichMessage'
-      |'GoalStep'
-
-export type ConversationSystemDialogType = 'TransferFailed'
-      |'ErrorHandling'
-      |'KnowledgeFallback'
-      |'Disambiguation'
-      |'DisambiguationFailed'
-      |'KnowledgeAction'
-
-export type ConversationVariableCollectionType = 'List'
-
-export type ConversationDataType = 'Text'
-      |'Number'
-      |'Boolean'
-      |'Object'
-      |'Date'
-      |'DateTime'
-      |'Currency'
-      |'Id'
-
-export type ConversationVariableVisibilityType = 'Internal'
-      |'External'
-
-export type ConversationDefinitionNlpProviderType = 'EinsteinAi'
-      |'Apex'
-
-export type GenAiBotToneType = 'Casual'
-      |'Neutral'
-      |'Formal'
-
-export type MessageType = 'Text'
-      |'Facebook'
-      |'Line'
-      |'GoogleHome'
-      |'Alexa'
-      |'Omega'
-      |'AppleBusinessChat'
-      |'WeChat'
-      |'WebChat'
-      |'WhatsApp'
-      |'Phone'
-      |'EmbeddedMessaging'
-      |'Voice'
-      |'Custom'
-      |'InternalCopilot'
-
-export type BotType = 'Bot'
-      |'InternalCopilot'
-      |'ExternalCopilot'
-
-export type ConvDefBlockVersionStatus = 'Published'
-
-export type BriefcaseFilterOperator = 'e'
-      |'n'
-      |'l'
-      |'g'
-      |'m'
-      |'h'
-      |'s'
-      |'d'
-
-export type FilterScope = 'Everything'
-      |'Mine'
-      |'Queue'
-      |'Delegated'
-      |'MyTerritory'
-      |'MyTeamTerritory'
-      |'Team'
-      |'SalesTeam'
-      |'AssignedToMe'
-      |'MineAndMyGroups'
-      |'ScopingRule'
-
-export type BriefcaseRuleRelationshipType = 'ParentToChild'
-      |'ChildToParent'
-
-export type BriefcaseType = 'Standard'
-      |'HighVolume'
-
-export type ForecastCategories = 'Omitted'
-      |'Pipeline'
-      |'BestCase'
-      |'MostLikely'
-      |'Forecast'
-      |'Closed'
-
-export type ExpFeedbackCollType = 'SURVEY'
-      |'PHONE_CALL'
-
-export type SurveyQuestionType = 'MultiChoice'
-      |'RadioButton'
-      |'FreeText'
-      |'Date'
-      |'Rating'
-      |'CSAT'
-      |'Slider'
-      |'Picklist'
-      |'NPS'
-      |'StackRank'
-      |'Currency'
-      |'Number'
-      |'DateTime'
-      |'Toggle'
-      |'MultiSelectPicklist'
-      |'Image'
-      |'Boolean'
-      |'ShortText'
-      |'Attachment'
-      |'Matrix'
-
-export type CMSSourceConnectionType = 'Public'
-      |'Authenticated'
-
-export type CMSConnectionStatus = 'ACTIVE'
-      |'INACTIVE'
-
-export type CMSConnectionSourceType = 'AEM'
-      |'Drupal'
-      |'WordPress'
-      |'SDL'
-      |'Sitecore'
-      |'Other'
-
-export type FeedItemDisplayFormat = 'Default'
-      |'HideBlankLines'
-
-export type FeedItemType = 'TrackedChange'
-      |'UserStatus'
-      |'TextPost'
-      |'AdvancedTextPost'
-      |'LinkPost'
-      |'ContentPost'
-      |'DashboardComponentAlert'
-      |'PollPost'
-      |'RypplePost'
-      |'ProfileSkillPost'
-      |'DashboardComponentSnapshot'
-      |'TestItem'
-      |'ApprovalPost'
-      |'CaseCommentPost'
-      |'ReplyPost'
-      |'EmailMessageEvent'
-      |'CallLogPost'
-      |'ChangeStatusPost'
-      |'AttachArticleEvent'
-      |'MilestoneEvent'
-      |'ActivityEvent'
-      |'ChatTranscriptPost'
-      |'CollaborationGroupCreated'
-      |'AttachExternalDocumentEvent'
-      |'CollaborationGroupUnarchived'
-      |'SocialPost'
-      |'QuestionPost'
-      |'Undefined'
-      |'FacebookPost'
-      |'BasicTemplateFeedItem'
-      |'CreateRecordEvent'
-      |'CanvasPost'
-      |'AnnouncementPost'
-
-export type EmailToCaseOnFailureActionType = 'Bounce'
-      |'Discard'
-      |'Requeue'
-
-export type EmailToCaseRoutingAddressType = 'EmailToCase'
-      |'Outlook'
-      |'GmailOAuth'
-      |'E2cEasy'
-
-export type CaseSubjectParticleType = 'ProvidedString'
-      |'Source'
-      |'MessageType'
-      |'SocialHandle'
-      |'SocialNetwork'
-      |'Sentiment'
-      |'RealName'
-      |'Content'
-      |'PipeSeparator'
-      |'ColonSeparator'
-      |'HyphenSeparator'
-
-export type ActionForNoRecordFound = 'CreateNewRecordAndLink'
-      |'PromptAgent'
-
-export type ActionForSingleRecordFound = 'AutoLink'
-      |'PromptAgent'
-
-export type ChannelType = 'FacebookMessenger'
-      |'Text'
-      |'WeChat'
-      |'WhatsApp'
-      |'Phone'
-
-export type ObjectToLink = 'Contact'
-
-export type ChatterExtensionType = 'Lightning'
-
-export type EmbeddedServiceFeature = 'NotInUse'
-      |'Base'
-      |'LiveAgent'
-      |'FieldService'
-      |'Flows'
-      |'ChannelMenu'
-      |'EmbeddedMessaging'
-
-export type EmbeddedServiceLabelKey = 'LA_Container_Base_Close'
-      |'LA_Container_Base_Minimize'
-      |'LA_Container_Base_EndOfDialog'
-      |'LA_Container_Base_MinimizedContainerAssistiveText'
-      |'LA_Chat_Body_ChatWindowAgent'
-      |'LA_Chat_Body_InputTextPlaceholder'
-      |'LA_Chat_Body_AgentTypingUpdate'
-      |'LA_Chat_Body_Send'
-      |'LA_Chat_Body_ChatStartTime'
-      |'LA_Chat_Body_MessageAreaTransferred'
-      |'LA_Chat_Body_FileTransferCanceled'
-      |'LA_Chat_Body_FileTransferSuccess'
-      |'LA_Chat_Body_FileTransferFailure'
-      |'LA_Chat_Body_FileTransferRequested'
-      |'LA_Chat_Body_TransferFailed'
-      |'LA_Chat_ExtendedHeader_ShowExtendedHeader'
-      |'LA_Chat_ExtendedHeader_HideExtendedHeader'
-      |'LA_Chat_ExtendedHeader_ChatStateHeaderGreeting'
-      |'LA_Chat_ExtendedHeader_SaveTranscript'
-      |'LA_Chat_ExtendedHeader_EndChatAction'
-      |'LA_Chat_FileTransfer_FileUpload'
-      |'LA_Chat_FileTransfer_UploadFile'
-      |'LA_Chat_FileTransfer_SelectNewFile'
-      |'LA_Chat_FileTransfer_UsePreviousElementToUploadFile'
-      |'LA_Chat_FileTransfer_RemoveFile'
-      |'LA_Chat_Minimized_MessageNotification'
-      |'LA_Chat_Minimized_SingleMessageNotification'
-      |'LA_Chat_Minimized_AgentSaysNotification'
-      |'LA_Chat_Minimized_IdleTimeoutMinimizedWarning'
-      |'LA_Chat_Minimized_IdleTimeoutMinimizedEndChat'
-      |'LA_Chat_Ended_ChatEnd'
-      |'LA_Chat_Ended_ChatEndAgent'
-      |'LA_Chat_Ended_ChatEndConnection'
-      |'LA_Chat_Ended_ChatButtonClose'
-      |'LA_Chat_Ended_PostChatButton'
-      |'LA_Chat_Ended_IdleTimeoutEndChatMessage'
-      |'LA_Chat_Reconnecting_ReconnectingChasitorIssue'
-      |'LA_Chat_Reconnecting_ReconnectingMinimizedMessage'
-      |'LA_Chat_Timeout_IdleTimeoutWarningQuestion'
-      |'LA_Chat_AgentTransfer_BannerInProgressTransfer'
-      |'LA_Chat_AgentTransfer_MinimizedInProgressTransfer'
-      |'LA_Chat_AgentTransfer_BannerTransferred'
-      |'LA_Chat_AgentTransfer_BannerReconnected'
-      |'LA_Chat_CloseConfirmation_ChatStateHeader'
-      |'LA_Chat_CloseConfirmation_ChatStateBody'
-      |'LA_Chat_CloseConfirmation_ChatStateResume'
-      |'LA_Chat_CloseConfirmation_ChatStateEnd'
-      |'LA_Chat_UnseenMessage_UnseenMessage'
-      |'LA_Chat_UnseenMessage_SingleUnseenMessage'
-      |'LA_OfflineSupport_SupportForm_HeaderText'
-      |'LA_OfflineSupport_Error_ErrorDialogTitle'
-      |'LA_OfflineSupport_Error_ErrorDialogBody'
-      |'LA_OfflineSupport_Error_ErrorDialogButton'
-      |'LA_OfflineSupport_SupportForm_SupportFormTitle'
-      |'LA_OfflineSupport_SupportForm_SupportFormSubtitle'
-      |'LA_OfflineSupport_SupportForm_SupportFormButton'
-      |'LA_OfflineSupport_SupportForm_BannerAltText'
-      |'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogTitle'
-      |'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogBody'
-      |'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogButton'
-      |'LA_OfflineSupport_Minimized_ConfirmationMinimizedText'
-      |'LA_OfflineSupport_Minimized_ErrorMinimizedText'
-      |'LA_PostChat_Base_PostChat'
-      |'LA_PreChat_Base_LiveChat'
-      |'LA_PreChat_Base_Instructions'
-      |'LA_PreChat_Base_BannerAltText'
-      |'LA_PreChat_Base_PrechatAssistiveText'
-      |'LA_PreChat_Base_StartChat'
-      |'LA_PreChat_Base_FieldError'
-      |'LA_Waiting_WithoutQueuePos_WaitingGreeting'
-      |'LA_Waiting_WithoutQueuePos_WaitingDefaultName'
-      |'LA_Waiting_WithoutQueuePos_WaitingMessage'
-      |'LA_Waiting_WithoutQueuePos_WaitingCancelChatRequest'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosMessageFirstLine'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosMessageSecondLine'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosZeroMessage'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosConnectingMessage'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosMaxNumber'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageFirstLine'
-      |'LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageSecondLine'
-      |'LA_Waiting_Minimized_MinimizedWaitingMessage'
-      |'LA_Waiting_Minimized_MinimizedQueuePosMessage'
-      |'LA_Waiting_Minimized_MinimizedQueuePosZeroMessage'
-      |'LA_Waiting_Minimized_MinimizedQueuePosAssistiveMessage'
-      |'LA_Waiting_Minimized_MinimizedQueuePosZeroAssistiveMessage'
-      |'LA_Waiting_Error_ErrorNoAgentTitle'
-      |'LA_Waiting_Error_ErrorNoAgentHeader'
-      |'LA_Waiting_Error_ErrorNoAgentBodyApology'
-      |'LA_Waiting_Error_ErrorBlockedTitleAndHeader'
-      |'LA_Waiting_Error_ErrorBlockedBody'
-      |'LA_Waiting_Error_ErrorBlockedCloseButton'
-      |'LA_Waiting_Error_ErrorNoConnectionTitle'
-      |'LA_Waiting_Error_ErrorNoConnectionHeader'
-      |'LA_Waiting_Error_ErrorNoConnectionBodyApology'
-      |'LA_Waiting_Error_ErrorTryAgainButton'
-      |'LA_Waiting_Error_ErrorExitChatButton'
-      |'LA_Waiting_CloseConfirmation_WaitingStateHeader'
-      |'LA_Waiting_CloseConfirmation_WaitingStateBodyApology'
-      |'LA_Waiting_CloseConfirmation_WaitingStateLeave'
-      |'LA_Waiting_CloseConfirmation_WaitingStateContinue'
-      |'LA_Chat_Timeout_IdleTimeoutWarningRequest'
-      |'LA_Waiting_Error_ErrorNoAgentBodyRequest'
-      |'LA_Waiting_Error_ErrorNoConnectionBodyRequest'
-      |'LA_Waiting_CloseConfirmation_WaitingStateBodyWarning'
-      |'LA_General_CloseSessionWarningTitle'
-      |'LA_General_CloseSessionWarningBody'
-      |'LA_General_CloseSessionWarningButton'
-      |'LA_Chat_Body_ChooseOption'
-      |'LA_Waiting_Base_BannerAssistiveText'
-      |'LA_Chat_Group_Chat_HeaderTitle'
-      |'LA_Chat_Group_Chat_ExtendedHeaderGreeting'
-      |'LA_Chat_Group_Chat_AgentJoinedChat'
-      |'LA_Chat_Group_Chat_AgentLeftChat'
-      |'LA_Chat_Group_Chat_MinimizedStateMessage'
-      |'LA_Chat_WithQueuePos_QueuePosTransferringMessage'
-      |'LA_Chat_Ended_ChatEndChatbot'
-      |'LA_Chat_Body_InputTextAssistiveText'
-      |'LA_Waiting_Header_Text'
-      |'LA_PreChat_Terms_And_Conditions'
-      |'LA_PreChat_Base_Terms_And_Conditions_Acknowledgement'
-      |'FS_Container_Base_Back'
-      |'FS_Container_AuthenticationFailure_Title'
-      |'FS_Container_AuthenticationFailure_Body'
-      |'FS_Container_AuthenticationFailure_Button'
-      |'FS_AppointmentDetail_Error_AccessDenied'
-      |'FS_AppointmentDetail_Error_NoAppointmentFound'
-      |'FS_AppointmentDetail_Error_ButtonOK'
-      |'FS_AppointmentList_Base_ActiveAppointmentTab'
-      |'FS_AppointmentList_Base_ClosedAppointmentTab'
-      |'FS_AppointmentList_Base_Header'
-      |'FS_AppointmentList_Base_NewAppointmentButtonLabel'
-      |'FS_AppointmentList_Error_GenericErrorStatement'
-      |'FS_AppointmentList_Empty_NoAppointmentsTitleUpcomingTab'
-      |'FS_AppointmentList_Empty_NoAppointmentsDescriptionUpcomingTab'
-      |'FS_AppointmentList_Empty_NoAppointmentsTitlePastTab'
-      |'FS_AppointmentList_Empty_NoAppointmentsDescriptionPastTab'
-      |'FS_Confirmation_Base_Scheduled'
-      |'FS_Confirmation_Base_Assigned'
-      |'FS_Confirmation_Base_Arriving'
-      |'FS_Confirmation_Base_InProgress'
-      |'FS_Confirmation_Base_Dispatched'
-      |'FS_Confirmation_Base_Completed'
-      |'FS_Confirmation_Base_HeaderText'
-      |'FS_Confirmation_Base_AddCalendar'
-      |'FS_Confirmation_Base_ViewAppointment'
-      |'FS_Flows_Error_Title'
-      |'FS_Flows_Error_Body'
-      |'FS_Flows_Error_ConfirmButton'
-      |'FS_Flows_Error_CancelOrModifyError'
-      |'FS_Flows_NewAppointmentCloseConfirmation_Title'
-      |'FS_Flows_NewAppointmentCloseConfirmation_Body'
-      |'FS_Flows_NewAppointmentCloseConfirmation_ButtonClose'
-      |'FS_Flows_NewAppointmentCloseConfirmation_ButtonCancel'
-      |'FS_Flows_CancelAppointmentCloseConfirmation_Title'
-      |'FS_Flows_CancelAppointmentCloseConfirmation_Body'
-      |'FS_Flows_CancelAppointmentCloseConfirmation_ButtonClose'
-      |'FS_Flows_CancelAppointmentCloseConfirmation_ButtonCancel'
-      |'FS_Flows_CancelAppointmentCloseConfirmation_Footer'
-      |'FS_Flows_ModifyAppointmentCloseConfirmation_Title'
-      |'FS_Flows_ModifyAppointmentCloseConfirmation_Body'
-      |'FS_Flows_ModifyAppointmentCloseConfirmation_ButtonClose'
-      |'FS_Flows_ModifyAppointmentCloseConfirmation_ButtonCancel'
-      |'FS_Flows_ModifyAppointmentCloseConfirmation_Footer'
-      |'FS_Scheduling_Base_HeaderText'
-      |'FS_Scheduling_Base_RecommendedTab'
-      |'FS_Scheduling_Base_ByDateTab'
-      |'FS_Scheduling_Base_PreviousWeekAssistiveText'
-      |'FS_Scheduling_Base_NextWeekAssistiveText'
-      |'FS_Scheduling_Base_DatePickerAssistiveText'
-      |'FS_Scheduling_Error_UnexpectedError'
-      |'FS_Scheduling_Error_NoAvailableTimeslotsError'
-      |'FS_Scheduling_Error_NoAvailableTimeslotsByDateError'
-      |'FS_Welcome_Base_GreetingTitle'
-      |'FS_Welcome_Base_NewAppointmentButton'
-      |'FS_Welcome_Base_ExistingAppointmentsButton'
-      |'FS_Confirmation_Base_DoneButton'
-      |'FS_AppointmentList_Error_GenericErrorRequest'
-      |'FS_AppointmentHome_Base_CancelAppointmentButton'
-      |'FS_AppointmentHome_Base_ModifyAppointmentButton'
-      |'FS_AppointmentHome_Base_ErrorTitle'
-      |'FS_Scheduling_Base_TimePickerAssistiveText'
-      |'FS_ResourceDetail_Base_Header'
-      |'FS_AppointmentHome_Base_DefaultCardHeaderText'
-      |'FS_Error_Dialog_Title'
-      |'FS_Error_Dialog_Body'
-      |'FS_Error_Dialog_Confirm_Button'
-      |'CM_Container_Header_Primary_Greeting'
-      |'CM_Container_Header_Secondary_Greeting'
-      |'CM_Container_MenuItems_WebChatAvailable'
-      |'CM_Container_MenuItems_WebChatUnavailable'
-      |'CM_Container_MenuItems_WebChatLoading'
-      |'CM_Container_MenuItems_ChannelLabel'
-      |'CM_Container_Button_AssistiveText'
-      |'CM_Container_MenuItems_AssistiveText'
-      |'CM_Container_MenuItems_WebLinkNewTabAssistiveText'
-      |'CM_Container_MenuItems_EmbeddedMessagingChatLoading'
-      |'EM_Container_Base_DefaultHeaderText'
-      |'EM_Container_Base_Minimize'
-      |'EM_Container_Base_Close'
-      |'EM_Container_Base_CloseConversation'
-      |'EM_Container_Base_DefaultMinimizedText'
-      |'EM_Container_Base_MinimizedButtonAssistiveText'
-      |'EM_Container_Base_MinimizedNotifDismissButtonAssistiveText'
-      |'EM_Container_Base_HeaderGreetingAnnouncement'
-      |'EM_Container_Base_NinePlusUnseenMessageCount'
-      |'EM_Container_Base_ZeroUnseenMessagesAssistiveText'
-      |'EM_Container_Base_UnseenMessagesAssistiveText'
-      |'EM_Container_Base_NinePlusUnseenMessagesAssistiveText'
-      |'EM_Container_Base_InputFooterTextAreaPlaceHolder'
-      |'EM_Container_Base_PrechatFirstName'
-      |'EM_Container_Base_PrechatLastName'
-      |'EM_Container_Base_PrechatSubject'
-      |'EM_Container_Base_PrechatEmail'
-      |'EM_Container_Base_BeforeUnloadWarningMessage'
-      |'EM_Container_Base_StartBookendText'
-      |'EM_Container_Base_EndBookendText'
-      |'EM_Container_Base_ChatMessageMetadataAssistiveText'
-      |'EM_Container_Base_ParticipantJoinText'
-      |'EM_Container_Base_ParticipantLeaveText'
-      |'EM_Container_Base_InputFooterTextAreaAssistiveText'
-      |'EM_Container_Base_InputFooterSendButtonAssistiveText'
-      |'EM_Container_Base_PrechatStateSubmitButton'
-      |'EM_Container_Base_InvalidEmailFormFieldError'
-      |'EM_Container_Base_RequiredFormFieldError'
-      |'EM_Container_Base_NotificationDismissButtonText'
-      |'EM_Container_Base_ConversationEndedMinimizedText'
-      |'EM_Container_Base_ExpiredJWT'
-      |'EM_Chat_FileTransfer_SelectNewFileText'
-      |'EM_PreChat_Base_PrechatCustomFieldLabel'
-      |'EM_Chat_FileTransfer_FileSendingText'
-      |'EM_Chat_FileTransfer_DownloadFileButtonTitle'
-      |'EM_Chat_FileTransfer_SelectFileAttachmentButtonTitle'
-      |'EM_Chat_FileTransfer_CancelFileAttachmentButtonTitle'
-      |'EM_Chat_FileTransfer_DownloadFileButtonAssistiveText'
-      |'EM_Chat_FileTransfer_SelectFileAttachmentButtonAssistiveText'
-      |'EM_Chat_FileTransfer_CancelFileAttachmentButtonAssistiveText'
-      |'EM_Chat_ChatBody_Sent'
-      |'EM_Chat_ChatBody_Delivered'
-      |'EM_Chat_ChatBody_Read'
-      |'EM_Chat_ChoicesMessage_MenuAssistiveText'
-      |'EM_Chat_ChoicesSelectionResponse_PlaceholderText'
-      |'EM_Chat_ChoicesMessage_ButtonsAssistiveText'
-      |'EM_Container_Base_HeaderAnnouncementTransferRequestSuccess'
-      |'EM_Container_Base_HeaderAnnouncementTransferRequestFailure'
-      |'EM_Container_Base_SystemMessageTransferRequestSuccess'
-      |'EM_Container_Base_SystemMessageTransferRequestFailure'
-      |'EM_Container_Base_SystemMessageTransferRequestTryAgain'
-      |'EM_Chat_ChatBody_AgentTypingIndicator'
-      |'EM_Chat_ChatBody_ChatbotTypingIndicator'
-      |'EM_Container_Base_InputFooterTextAreaPlaceholderOnlyParticipant'
-      |'EM_Container_Base_AgentJoinAnnouncement'
-      |'EM_Container_Base_AgentLeaveAnnouncement'
-      |'EM_Container_Base_JWTExpiredAnnouncement'
-      |'EM_Container_Base_ParticipantJoinedText'
-      |'EM_Container_Base_ParticipantLeftText'
-      |'EM_Container_Base_NewMessageText'
-      |'EM_Container_Base_MultipleNewMessagesText'
-      |'EM_Container_Base_JwtExpiredText'
-      |'EM_Container_Base_TransferInitiatedText'
-      |'EM_Container_Base_TransferFailedText'
-      |'EM_Chat_ChatBody_NotSent'
-      |'EM_Chat_ChatBody_SpinnerDefaultAssistiveText'
-      |'EM_Chat_ChatBody_FetchMoreEntriesSpinnerAssistiveText'
-      |'EM_Container_Base_MinimizeButtonAssistiveText'
-      |'EM_Container_Base_CloseButtonAssistiveText'
-      |'EM_Container_Base_ConfirmationDialogMenuItemAssistiveText'
-      |'EM_Container_Base_MinimizedNotificationAssistiveText'
-      |'EM_Container_Base_MinimizedStateAssistiveText'
-      |'EM_Chat_ChatBody_NotRoutedToAgentRoutingResult'
-      |'EM_Container_Base_TitleNotificationSenderDisplayName'
-      |'EM_Container_Base_MessagingIframeTitle'
-      |'EM_Container_Base_FilePreviewIframeTitle'
-      |'EM_Container_Base_FilePreviewIframeCloseButtonTitle'
-      |'EM_Chat_ChatBody_MessageResendButtonText'
-      |'EM_Chat_ChatBody_EstimatedWaitTimeInMinute'
-      |'EM_Chat_ChatBody_EstimatedWaitTimeInMinutes'
-      |'EM_Container_Base_InputFooterEmojiButtonAssistiveText'
-      |'EM_Container_Base_InputFooterEmojiKeyboardAssistiveText'
-      |'EM_Container_Base_PostchatFrameTitle'
-      |'EM_Container_Base_PostchatHeaderText'
-      |'EM_Container_Base_PostchatHeaderBackButtonTitle'
-      |'EM_Container_Base_PostchatHeaderBackButtonAssistiveText'
-      |'EM_Container_Base_PostchatConfirmationDialogTitleText'
-      |'EM_Container_Base_PostchatConfirmationDialogBodyText'
-      |'EM_Container_Base_PostchatConfirmationDialogConfirmButton'
-      |'EM_Container_Base_PostchatConfirmationDialogCancelButton'
-      |'EM_Container_Base_JWTRetrievalFailureText'
-      |'EM_Chat_FileTransfer_MaximumNumberOfFilesAllowedErrorText'
-      |'EM_Chat_FileTransfer_UnsupportedFileTypeErrorText'
-      |'EM_Chat_FileTransfer_FileExceededSizeLimitErrorText'
-      |'EM_PreChat_ChoiceList_PrechatCustomFieldLabel'
-      |'EM_Container_Base_PrechatChoiceListValueNone'
-      |'EM_Container_Base_MenuButtonAssistiveText'
-      |'EM_Container_Base_CloseMenuButtonAssistiveText'
-      |'EM_Chat_ChatBody_Yesterday'
-      |'EM_PreChat_TermsAndConditions'
-      |'EM_Container_Base_ReconnectInProgress'
-      |'EM_Container_Base_ReconnectInProgressAssistiveText'
-      |'EM_Container_Base_MinimizedReconnectInProgress'
-      |'EM_Container_Base_PrechatTermsAndConditionsAcknowledgement'
-      |'EM_Container_Base_ChatWindowAssistiveText'
-      |'EM_Chat_SecureForms_FormButtonInitialStateAssistiveText'
-      |'EM_Chat_SecureForms_FormButtonInactiveStateAssistiveText'
-      |'EM_Chat_SecureForms_FormButtonPendingStateTitle'
-      |'EM_Chat_SecureForms_FormButtonErrorResponseStateTitle'
-      |'EM_Chat_SecureForms_FormButtonSuccessResponseStateTitle'
-      |'EM_Chat_SecureForms_OptionSelectInputSingleSelectInstruction'
-      |'EM_Chat_SecureForms_OptionSelectInputMultipleSelectInstruction'
-      |'EM_Chat_SecureForms_DatePickerInputSelectInstruction'
-      |'EM_Chat_SecureForms_TextInputSelectInstruction'
-      |'EM_Chat_SecureForms_RequiredInputMissing'
-      |'EM_Chat_SecureForms_RegexPatternMismatch'
-      |'EM_Chat_SecureForms_NextButtonLabel'
-      |'EM_Chat_SecureForms_BackButtonLabel'
-      |'EM_Chat_SecureForms_SubmitButtonLabel'
-      |'EM_Chat_SecureForms_ProgressBarAssistiveText'
-      |'EM_Chat_SecureForms_NextButtonDisabledAssistiveText'
-      |'EM_Chat_SecureForms_BackButtonDisabledAssistiveText'
-      |'EM_Chat_SecureForms_SubmitButtonDisabledAssistiveText'
-      |'EM_Chat_SecureForms_CloseConfirmationDialogTitleText'
-      |'EM_Chat_SecureForms_CloseConfirmationDialogBodyText'
-      |'EM_Chat_SecureForms_CloseConfirmationConfirmButtonLabel'
-      |'EM_Chat_SecureForms_CloseConfirmationCancelButtonLabel'
-      |'EM_Chat_SecureForms_RequiredSelectInputMissing'
-      |'EM_Chat_ChatBody_UnsupportedMessageTypeText'
-      |'EM_Container_Base_PrechatLoading'
-      |'EM_Container_Base_RequestTranscriptMenuOption'
-      |'EM_Container_Base_DownloadInProgressNotification'
-      |'EM_Container_Base_DownloadSuccessNotification'
-      |'EM_Container_Base_DownloadErrorNotification'
-      |'EM_Container_Base_CloseNotification'
-      |'EM_Chat_Carousels_PreviousCardButtonAssistiveText'
-      |'EM_Chat_Carousels_NextCardButtonAssistiveText'
-      |'EM_Chat_Carousels_CarouselDescriptionAssistiveText'
-      |'EM_Container_Base_InputFooterTextAreaPlaceHolderAwaitingResponse'
-      |'EM_Chat_FileTransfer_AttachedFilesAssistiveText'
-      |'EM_Chat_FileTransfer_RemoveAttachmentButton'
-      |'EM_Container_Base_InputFooterSendButton'
-      |'EM_Container_Base_InputFooterTextAreaAssistiveLabelText'
-      |'EM_Chat_FileTransfer_SendFileAttachmentAssistiveText'
-      |'EM_Fallback_FallbackMessage'
-      |'EM_Container_Base_EndSession'
-      |'EM_Container_Base_EndUserEndedChatText'
-      |'EM_Container_Base_AgentEndedChatText'
-      |'EM_Container_Base_ChatbotEndedChatText'
-      |'EM_Container_Error_GenericError'
-
-export type ClmCategoryUsageType = 'DisclosureCategory'
-      |'ContractClauseCategory'
-
-export type MappingOperation = 'Autofill'
-      |'Overwrite'
-
-export type CleanRuleStatus = 'Inactive'
-      |'Active'
-
-export type AuthType = 'SfdcXi'
-      |'HttpBasic'
-      |'MutualSsl'
-      |'Hmac'
-      |'C2c'
-      |'C2cCloud'
-      |'None'
-
-export type CloudServiceProviderApiType = 'Licenses'
-      |'Tenants'
-      |'Management'
-      |'Snapshots'
-      |'LicenseDefinitions'
-      |'TenantTrusts'
-      |'Usage'
-      |'Feature'
-      |'DigitalWalletProvisioning'
-      |'DigitalWalletConsumption'
-
-export type ProvisioningAutomationType = 'Manual'
-      |'EntitlementOnly'
-      |'Auto'
-
-export type ModelEntityType = 'QA'
-      |'ARTICLE'
-      |'CASE'
-
-export type ModelStatus = 'PUBLISHED'
-      |'DARK_LAUNCHED'
-      |'REJECTED'
-      |'PHASED_OUT'
-      |'VERIFIED'
-      |'NO_MODEL'
-
-export type CommunityBaseTemplate = 'c'
-
-export type CommunityTemplateBundleInfoType = 'Highlight'
-      |'PreviewImage'
-
-export type CommunityTemplateCategory = 'IT'
-      |'Marketing'
-      |'Sales'
-      |'Service'
-      |'Commerce'
-
-export type CommunityThemeLayoutType = 'Login'
-      |'Home'
-      |'Inner'
-      |'ServiceNotAvailable'
-
-export type AccessMethod = 'Get'
-      |'Post'
-
-export type CanvasLocationOptions = 'None'
-      |'Chatter'
-      |'UserProfile'
-      |'Visualforce'
-      |'Aura'
-      |'Publisher'
-      |'ChatterFeed'
-      |'ServiceDesk'
-      |'OpenCTI'
-      |'AppLauncher'
-      |'MobileNav'
-      |'PageLayout'
-
-export type CanvasOptions = 'HideShare'
-      |'HideHeader'
-      |'PersonalEnabled'
-
-export type SamlInitiationMethod = 'None'
-      |'IdpInitiated'
-      |'SpInitiated'
-
-export type DevicePlatformType = 'ios'
-      |'android'
-
-export type DeviceType = 'phone'
-      |'tablet'
-      |'minitablet'
-
-export type ConnectedAppOauthAccessScope = 'Basic'
-      |'Api'
-      |'Web'
-      |'Full'
-      |'Chatter'
-      |'CustomApplications'
-      |'RefreshToken'
-      |'OpenID'
-      |'Profile'
-      |'Email'
-      |'Address'
-      |'Phone'
-      |'OfflineAccess'
-      |'CustomPermissions'
-      |'Wave'
-      |'Eclair'
-      |'Pardot'
-      |'Lightning'
-      |'Content'
-      |'CDPIngest'
-      |'CDPProfile'
-      |'CDPQuery'
-      |'Chatbot'
-      |'CDPSegment'
-      |'CDPIdentityResolution'
-      |'CDPCalculatedInsight'
-      |'ForgotPassword'
-      |'UserRegistration'
-      |'SFAP'
-      |'Interaction'
-      |'CDP'
-      |'EinsteinGPT'
-      |'PwdlessLogin'
-
-export type SamlEncryptionType = 'AES_128'
-      |'AES_256'
-      |'Triple_Des'
-
-export type SamlIdpSLOBinding = 'RedirectBinding'
-      |'PostBinding'
-
-export type SamlNameIdFormatType = 'Unspecified'
-      |'EmailAddress'
-      |'Persistent'
-      |'Transient'
-
-export type SamlSigningAlgoType = 'SHA1'
-      |'SHA256'
-
-export type SamlSubjectType = 'Username'
-      |'FederationId'
-      |'UserId'
-      |'SpokeId'
-      |'CustomAttribute'
-      |'PersistentId'
-
-export type BannerFontFamily = 'Serif'
-      |'SansSerif'
-      |'Cursive'
-      |'Fantasy'
-      |'SystemUi'
-      |'UiSerif'
-      |'UiSansSerif'
-      |'UiMonospace'
-      |'UiRounded'
-      |'Fangsong'
-
-export type BannerPosition = 'Top'
-      |'Bottom'
-
-export type ContextMappingIntentType = 'hydration'
-      |'association'
-      |'persistence'
-      |'translation'
-
-export type ContextAttributeDataType = 'string'
-      |'number'
-      |'boolean'
-      |'date'
-      |'datetime'
-      |'percent'
-      |'picklist'
-      |'currency'
-      |'reference'
-      |'selfreference'
-
-export type ContextAttributeFieldType = 'input'
-      |'output'
-      |'inputoutput'
-      |'aggregate'
-
-export type ContextMappingType = 'Hydration'
-      |'Persistence'
-
-export type ContextUseCaseType = 'ContractCreationOrUpdation'
-      |'ContractExtraction'
-
-export type ContractConfigType = 'ContractDocumentDownloadOption'
-      |'WordTrackChangesDisplayColor'
-      |'InclWordTrackChgReconciliation'
-      |'InclWordTrackChgSectionContent'
-      |'CreateDocSectionsDocxTemplates'
-      |'AutoGenDocOnContractCreation'
-      |'AutoGenerateDocFileType'
-      |'ContractSignedStatus'
-      |'ContractSignatureDeclinedSts'
-      |'NotifyDocTemplateVerChgStatus'
-      |'DocuSignUseAccountDefaultNtfcn'
-      |'DocuSignReminderEnabled'
-      |'DocuSignReminderDelayinDays'
-      |'DocuSignReminderFrequency'
-      |'DocuSignExpireEnabled'
-      |'DocuSignExpiresAfter'
-      |'DocuSignExpireWarning'
-      |'DocuSignAccountBrand'
-      |'Append0ToAutoNbrEmbeddedSect'
-      |'DocumentFileNameFormat'
-      |'DefaultTemplateName'
-      |'AutoGenDocOnContractUpdate'
-      |'ContractSignatureVoidedStatus'
-      |'ContractSignatureExpiredStatus'
-      |'TrackContractRedlines'
-      |'DocumentTemplateFilterClass'
-      |'EmailNotificationOnDocumentGeneration'
-      |'ImportTargetContractStatus'
-      |'ActivateObligationsBasedOnContractStatus'
-      |'ExternalReviewRequired'
-      |'InternalReviewRequired'
-      |'CompareContractVersionsEnabled'
-      |'PrivateExternalReviewCompletionSite'
-      |'CheckInDocFileType'
-
-export type ContractUsageType = 'DocumentSetting'
-      |'Reconciliation'
-      |'SignatureSetting'
-      |'Redlining'
-      |'ObligationSetting'
-
-export type ConvIntelligenceActionType = 'LaunchNBA'
-      |'LaunchFlow'
-      |'AlertSupervisor'
-      |'AlertSupervisorAndAgent'
-
-export type ConvParticipantRole = 'Agent'
-      |'Customer'
-      |'AgentOrCustomer'
-
-export type ConvIntelligenceService = 'AmazonConnectContactLens'
-      |'KeywordMatch'
-      |'CXoneAgentAssistService'
-      |'VonageConversationalInsights'
-      |'EinsteinConversationIntelligenceSignals'
-
-export type ConvIntelligenceOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'GreaterThan'
-      |'In'
-
-export type ConvIntelligenceType = 'Category'
-      |'Keyword'
-      |'AgentSentiment'
-      |'CustomerSentiment'
-      |'Intent'
-
-export type RefreshFrequency = 'NO_REFRESH'
-      |'MONTHLY'
-
-export type ReportStatus = 'NEW'
-      |'TRAINING'
-      |'COMPLETED'
-      |'ERROR'
-      |'NOT_ENOUGH_DATA_AFTER_PARSING'
-      |'NOT_ENOUGH_DATA_WITH_CONTACT_REASON'
-      |'LOW_CLUSTER_QUALITY'
-
-export type SegmentationType = 'NO_FILTER'
-      |'SINGLE_OBJECT_FILTER'
-      |'CROSS_OBJECT_FILTER'
-
-export type CustomChannelConnectedAppType = 'Partner'
-      |'Customer'
-
-export type ConsentOwner = 'Salesforce'
-      |'Partner'
-
-export type RoutingOwner = 'Salesforce'
-      |'Partner'
-
-export type ConversationMessageConstantType = 'Title'
-      |'Url'
-      |'Image'
-      |'Options'
-      |'SubTitle'
-      |'Custom'
-
-export type ConversationMessageConstantValueType = 'Text'
-      |'Url'
-      |'ImageAsset'
-
-export type ConversationMessageValueType = 'Text'
-      |'Boolean'
-      |'Integer'
-      |'Double'
-      |'Date'
-      |'DateTime'
-      |'Url'
-      |'RecordId'
-      |'ImageId'
-      |'Composite'
-
-export type ConversationMessageContentCategory = 'Response'
-      |'Reminder'
-      |'Feedback'
-      |'OrderUpdate'
-      |'AccountUpdate'
-      |'PromotionalOutreach'
-      |'Authentication'
-
-export type ConversationMessageHandlerType = 'QuickAction'
-      |'AuthProvider'
-      |'PaymentProvider'
-      |'Attachment'
-
-export type ConvMsgExternalTemplateVersionStatus = 'Pending'
-      |'Rejected'
-      |'Approved'
-      |'Paused'
-      |'Disabled'
-      |'InAppeal'
-
-export type ConversationMessageFormatType = 'Text'
-      |'Attachments'
-      |'RichLink'
-      |'Media'
-      |'Buttons'
-      |'Carousel'
-      |'QuickReplies'
-      |'ListPicker'
-      |'TimePicker'
-      |'EncryptedOAuthToken'
-      |'Application'
-      |'Inputs'
-      |'WebView'
-      |'Payment'
-      |'ExternalTemplate'
-
-export type ConversationMessageCollectionType = 'None'
-      |'StaticList'
-      |'DynamicList'
-
-export type ConversationMessageMergeFieldType = 'ListTemplate'
-
-export type ConversationMessageLayoutValueType = 'Literal'
-      |'MediaAsset'
-      |'CompositeType'
-      |'SourceSobjectFieldValue'
-      |'SourceSobjectFormula'
-      |'SourcePrimitiveValue'
-      |'SourceCompositeType'
-      |'FormulaTemplate'
-      |'SourceSobjectField'
-
-export type ConversationMessageType = 'StaticContent'
-      |'Choices'
-      |'Form'
-      |'AuthenticationRequest'
-      |'PaymentRequest'
-
-export type ConversationMessageOptionsParameterType = 'RecordIdOptions'
-      |'TimeSlotOptions'
-      |'CustomPrimitiveOptions'
-      |'CustomCompositeOptions'
-
-export type ConversationMessageParameterType = 'RecordIds'
-      |'CustomPrimitive'
-      |'CustomComposite'
-
-export type ConversationMessageDefinitionType = 'RecordView'
-      |'RecordPicker'
-      |'Picklist'
-      |'TimePicker'
-      |'Link'
-      |'CustomMessage'
-      |'CustomPicker'
-      |'LegacyPicker'
-      |'AuthenticationRequest'
-      |'Action'
-      |'AutoResponse'
-      |'PaymentRequest'
-      |'Notification'
-
-export type ClientAuthMode = 'SSO'
-      |'Custom'
-      |'Mixed'
-
-export type ServerAuthMode = 'OAuth'
-      |'None'
-
-export type ConversationVendorType = 'ServiceCloudVoicePartner'
-      |'Amazon_Connect'
-      |'BringYourOwnChannelPartner'
-      |'BringYourOwnContactCenter'
-
-export type CspTrustedSiteContext = 'All'
-      |'LEX'
-      |'Communities'
-      |'FieldServiceMobileExtension'
-      |'VisualForce'
-
-export type FormFactor = 'Small'
-      |'Medium'
-      |'Large'
-
-export type ActionOverrideType = 'Default'
-      |'Standard'
-      |'Scontrol'
-      |'Visualforce'
-      |'Flexipage'
-      |'LightningComponent'
-
-export type NavType = 'Standard'
-      |'Console'
-
-export type UiType = 'Aloha'
-      |'Lightning'
-
-export type FieldType = 'AutoNumber'
-      |'Lookup'
-      |'MasterDetail'
-      |'Checkbox'
-      |'Currency'
-      |'Date'
-      |'DateTime'
-      |'Email'
-      |'Number'
-      |'Percent'
-      |'Phone'
-      |'Picklist'
-      |'MultiselectPicklist'
-      |'Text'
-      |'TextArea'
-      |'LongTextArea'
-      |'Html'
-      |'Url'
-      |'EncryptedText'
-      |'Summary'
-      |'Hierarchy'
-      |'File'
-      |'MetadataRelationship'
-      |'Location'
-      |'ExternalLookup'
-      |'IndirectLookup'
-      |'CustomDataType'
-      |'Time'
-      |'Address'
-      |'Array'
-
-export type FeedItemVisibility = 'AllUsers'
-      |'InternalUsers'
-
-export type DeleteConstraint = 'Cascade'
-      |'Restrict'
-      |'SetNull'
-
-export type ElementType = 'Float'
-
-export type EncryptionScheme = 'None'
-      |'ProbabilisticEncryption'
-      |'CaseSensitiveDeterministicEncryption'
-      |'CaseInsensitiveDeterministicEncryption'
-
-export type FieldManageability = 'DeveloperControlled'
-      |'SubscriberControlled'
-      |'Locked'
-
-export type TreatBlanksAs = 'BlankAsBlank'
-      |'BlankAsZero'
-
-export type EncryptedFieldMaskChar = 'asterisk'
-      |'X'
-
-export type EncryptedFieldMaskType = 'all'
-      |'creditCard'
-      |'ssn'
-      |'lastFour'
-      |'sin'
-      |'nino'
-
-export type DefinitionCreationType = 'Standard'
-      |'Custom'
-      |'System'
-      |'Derived'
-      |'Bridge'
-      |'Curated'
-      |'Segment_Membership'
-      |'Calculated_Insight'
-      |'Ml_Prediction'
-      |'Activation_Audience'
-      |'CG_Audience'
-      |'Ad_Audience_Insights'
-      |'Transform'
-      |'ADG'
-      |'External'
-      |'Vector_Embedding'
-      |'Chunk'
-      |'Directory_Table'
-      |'Semantic'
-      |'Problem_Records'
-
-export type UsageTag = 'NONE'
-      |'KEY_QUALIFIER'
-
-export type InvalidMergeActionType = 'Drop'
-      |'Keep'
-      |'Override'
-
-export type MktDataModelFieldUsageTag = 'None'
-      |'KeyQualifier'
-
-export type SummaryOperations = 'count'
-      |'sum'
-      |'min'
-      |'max'
-
-export type Channel = 'AllChannels'
-      |'App'
-      |'Pkb'
-      |'Csp'
-      |'Prm'
-
-export type Template = 'Page'
-      |'Tab'
-      |'Toc'
-
-export type CustomSettingsType = 'List'
-      |'Hierarchy'
-
-export type DeploymentStatus = 'InDevelopment'
-      |'Deployed'
-
-export type PlatformEventType = 'HighVolume'
-      |'StandardVolume'
-      |'ExternalEvent'
-
-export type SharingModel = 'Private'
-      |'Read'
-      |'ReadSelect'
-      |'ReadWrite'
-      |'ReadWriteTransfer'
-      |'FullAccess'
-      |'ControlledByParent'
-      |'ControlledByLeadOrContact'
-      |'ControlledByCampaign'
-
-export type Gender = 'Neuter'
-      |'Masculine'
-      |'Feminine'
-      |'AnimateMasculine'
-      |'ClassI'
-      |'ClassIII'
-      |'ClassV'
-      |'ClassVII'
-      |'ClassIX'
-      |'ClassXI'
-      |'ClassXIV'
-      |'ClassXV'
-      |'ClassXVI'
-      |'ClassXVII'
-      |'ClassXVIII'
-
-export type PlatformEventPublishBehavior = 'PublishAfterCommit'
-      |'PublishImmediately'
-
-export type StartsWith = 'Consonant'
-      |'Vowel'
-      |'Special'
-
-export type SetupObjectVisibility = 'PackageProtected'
-      |'Protected'
-      |'Public'
-
-export type WebLinkAvailability = 'online'
-      |'offline'
-
-export type WebLinkDisplayType = 'link'
-      |'button'
-      |'massActionButton'
-
-export type Encoding = 'UTF-8'
-      |'ISO-8859-1'
-      |'Shift_JIS'
-      |'ISO-2022-JP'
-      |'EUC-JP'
-      |'ks_c_5601-1987'
-      |'Big5'
-      |'GB2312'
-      |'Big5-HKSCS'
-      |'x-SJIS_0213'
-
-export type WebLinkType = 'url'
-      |'sControl'
-      |'javascript'
-      |'page'
-      |'flow'
-
-export type WebLinkWindowType = 'newWindow'
-      |'sidebar'
-      |'noSidebar'
-      |'replace'
-      |'onClickJavaScript'
-
-export type WebLinkPosition = 'fullScreen'
-      |'none'
-      |'topLeft'
-
-export type Article = 'None'
-      |'Indefinite'
-      |'Definite'
-
-export type CaseType = 'Nominative'
-      |'Accusative'
-      |'Genitive'
-      |'Dative'
-      |'Inessive'
-      |'Elative'
-      |'Illative'
-      |'Adessive'
-      |'Ablative'
-      |'Allative'
-      |'Essive'
-      |'Translative'
-      |'Partitive'
-      |'Objective'
-      |'Subjective'
-      |'Instrumental'
-      |'Prepositional'
-      |'Locative'
-      |'Vocative'
-      |'Sublative'
-      |'Superessive'
-      |'Delative'
-      |'Causalfinal'
-      |'Essiveformal'
-      |'Termanative'
-      |'Distributive'
-      |'Ergative'
-      |'Adverbial'
-      |'Abessive'
-      |'Comitative'
-
-export type Possessive = 'None'
-      |'First'
-      |'Second'
-
-export type SiteClickjackProtectionLevel = 'AllowAllFraming'
-      |'External'
-      |'SameOriginOnly'
-      |'NoFraming'
-
-export type SiteRedirect = 'Permanent'
-      |'Temporary'
-
-export type SiteType = 'Siteforce'
-      |'Visualforce'
-      |'ChatterNetwork'
-      |'ChatterNetworkPicasso'
-
-export type ChartBackgroundDirection = 'TopToBottom'
-      |'LeftToRight'
-      |'Diagonal'
-
-export type ChartTheme = 'light'
-      |'dark'
-
-export type ChartColorPalettes = 'Default'
-      |'gray'
-      |'colorSafe'
-      |'unity'
-      |'justice'
-      |'nightfall'
-      |'sunrise'
-      |'bluegrass'
-      |'tropic'
-      |'heat'
-      |'dusk'
-      |'pond'
-      |'watermelon'
-      |'fire'
-      |'water'
-      |'earth'
-      |'accessible'
-
-export type DashboardFilterOperation = 'equals'
-      |'notEqual'
-      |'lessThan'
-      |'greaterThan'
-      |'lessOrEqual'
-      |'greaterOrEqual'
-      |'contains'
-      |'notContain'
-      |'startsWith'
-      |'includes'
-      |'excludes'
-      |'between'
-
-export type ChartRangeType = 'Auto'
-      |'Manual'
-
-export type ChartAxis = 'x'
-      |'y'
-      |'y2'
-      |'r'
-
-export type DashboardComponentType = 'Bar'
-      |'BarGrouped'
-      |'BarStacked'
-      |'BarStacked100'
-      |'Column'
-      |'ColumnGrouped'
-      |'ColumnStacked'
-      |'ColumnStacked100'
-      |'Line'
-      |'LineGrouped'
-      |'Pie'
-      |'Table'
-      |'Metric'
-      |'Gauge'
-      |'LineCumulative'
-      |'LineGroupedCumulative'
-      |'Scontrol'
-      |'VisualforcePage'
-      |'Donut'
-      |'Funnel'
-      |'ColumnLine'
-      |'ColumnLineGrouped'
-      |'ColumnLineStacked'
-      |'ColumnLineStacked100'
-      |'Scatter'
-      |'ScatterGrouped'
-      |'FlexTable'
-      |'Image'
-      |'RichText'
-
-export type Fit = 'tile'
-      |'stretch'
-      |'original'
-      |'fitwidth'
-      |'fitheight'
-
-export type HorizontalAlignment = 'left'
-      |'center'
-      |'right'
-
-export type VerticalAlignment = 'top'
-      |'center'
-      |'bottom'
-
-export type DashboardComponentFilter = 'RowLabelAscending'
-      |'RowLabelDescending'
-      |'RowValueAscending'
-      |'RowValueDescending'
-
-export type ChartUnits = 'Auto'
-      |'Integer'
-      |'Hundreds'
-      |'Thousands'
-      |'Millions'
-      |'Billions'
-      |'Trillions'
-
-export type DashboardComponentColumnType = 'aggregate'
-      |'detail'
-      |'grouping'
-
-export type ChartLegendPosition = 'Right'
-      |'Bottom'
-      |'OnChart'
-
-export type DashboardType = 'SpecifiedUser'
-      |'LoggedInUser'
-      |'MyTeamUser'
-
-export type DashboardComponentSize = 'Narrow'
-      |'Medium'
-      |'Wide'
-
-export type CalculatedInsightCreationType = 'Custom'
-      |'System'
-
-export type CalculatedInsightDefinitionType = 'CALCULATED_METRIC'
-      |'EXTERNAL_METRIC'
-      |'STREAMING_METRIC'
-      |'GRAPH_METRIC'
-      |'HISTORY_METRIC'
-
-export type DataModelType = 'Source'
-      |'Transport'
-      |'Landing'
-      |'View'
-      |'Reference'
-
-export type AccelerationEnabled = 'YES'
-      |'NO'
-
-export type DataObjectType = 'Object'
-      |'Table'
-      |'Api'
-
-export type StorageType = 'LOCAL'
-      |'EXTERNAL'
-
-export type DataImportDataExtractMethods = 'FULL_REFRESH'
-      |'NUMERIC_CDC'
-      |'BINARY_CDC'
-      |'DATETIME_CDC'
-
-export type DataImportRefreshFrequency = 'NONE'
-      |'MINUTES_5'
-      |'MINUTES_15'
-      |'MINUTES_30'
-      |'HOURLY'
-      |'EVERY_4_HOURS'
-      |'EVERY_12_HOURS'
-      |'DAILY'
-      |'WEEKLY'
-      |'MONTHLY'
-      |'NOT_APPLICABLE'
-      |'BATCH'
-      |'STREAMING'
-
-export type DataImportRefreshMode = 'FULL_REFRESH'
-      |'UPSERT'
-      |'INCREMENTAL'
-      |'PARTIAL_UPDATE'
-      |'REPLACE'
-      |'NEAR_REAL_TIME_INCREMENTAL'
-      |'NOT_APPLICABLE'
-
-export type StreamType = 'INGEST'
-      |'DIRECT_ACCESS'
-      |'DIRECT_ACCESS_ACCELERATED'
-
-export type StreamingAppDataConnectorType = 'MobileApp'
-      |'WebApp'
-
-export type ExpsSetProcessType = 'Bre'
-      |'TransactionJournal'
-      |'TierProcessing'
-      |'CustomLoyalty'
-      |'TestProcess'
-      |'AiAcceleratorSubscriberChurnPrediction'
-      |'DefaultPricing'
-      |'RecordAlert'
-      |'ShipAndDebit'
-      |'WarrantyClaim'
-      |'ProductQualification'
-      |'ProductCategoryQualification'
-      |'EventOrchestration'
-      |'ComplianceControl'
-      |'FinancialServicesCloud'
-      |'DefaultRating'
-      |'LoopingProcessing'
-      |'CreditPointsToMembers'
-      |'DebitPointsFromMembers'
-      |'UpdateMemberDetails'
-      |'IssueVoucher'
-      |'CancelVoucher'
-      |'EnrollInPromotion'
-      |'UnenrollMember'
-      |'GetMemberPromotions'
-      |'OptOutPromotion'
-      |'PricingDiscovery'
-      |'PriceProtection'
-      |'Constraint'
-      |'RatingDiscovery'
-      |'PlanCostCalculation'
-      |'GpaCalculation'
-      |'Timesheet'
-      |'FulfillmentCondition'
-      |'StudentSuccess'
-
-export type DecisionMatrixType = 'Standard'
-      |'Grouped'
-
-export type DecisionMatrixColumnType = 'Input'
-      |'Output'
-
-export type DecisionMatrixDataType = 'Text'
-      |'Number'
-      |'NumberRange'
-      |'TextRange'
-      |'Currency'
-      |'Percent'
-      |'Boolean'
-
-export type DecisionMatrixDefStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-      |'InvalidDraft'
-      |'Obsolete'
-
-export type DecisionTableCollectOperator = 'None'
-      |'Sum'
-      |'Minimum'
-      |'Maximum'
-      |'Count'
-
-export type DecisionTableConditionType = 'All'
-      |'Any'
-      |'Custom'
-
-export type DecisionTableDataSourceType = 'SingleSobject'
-      |'MultipleSobjects'
-      |'CsvUpload'
-
-export type DTParameterDataType = 'String'
-      |'Number'
-      |'Date'
-      |'Boolean'
-      |'Percent'
-      |'Currency'
-      |'DateTime'
-
-export type DecisionTableOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessOrEqual'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'Matches'
-      |'ExistsIn'
-      |'DoesNotExistIn'
-      |'DoesNotMatch'
-      |'Contains'
-
-export type DecisionTableSortType = 'None'
-      |'AscNullFirst'
-      |'AscNullLast'
-      |'DescNullFirst'
-      |'DescNullLast'
-
-export type DecisionTableParameterType = 'INPUT'
-      |'OUTPUT'
-
-export type DTSourceCriteriaOperator = 'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'LessThan'
-      |'LessOrEqual'
-      |'Matches'
-      |'ExistsIn'
-      |'DoesNotExistIn'
-
-export type DTSourceCriteriaValueType = 'Literal'
-      |'Parameter'
-      |'Picklist'
-      |'Formula'
-      |'Lookup'
-
-export type DecisionTableExecutionType = 'Soql'
-      |'Hbpo'
-      |'Dmo'
-      |'Solr'
-      |'Hbase'
-
-export type DecisionTableHitPolicy = 'UniqueValues'
-      |'AnyValue'
-      |'Priority'
-      |'FirstMatch'
-      |'CollectOperator'
-      |'OutputOrder'
-      |'RuleOrder'
-
-export type DecisionTableRefreshStatus = 'Initiated'
-      |'Failed'
-      |'Completed'
-      |'InProgress'
-
-export type DecisionTableStatus = 'Draft'
-      |'Inactive'
-      |'Active'
-      |'ActivationInProgress'
-
-export type DecisionTableType = 'LowVolume'
-      |'HighVolume'
-      |'Advanced'
-      |'MediumVolume'
-      |'HighScaleExecution'
-
-export type DecisionTableUploadStatus = 'UploadInProgress'
-      |'Completed'
-      |'CompletedWithErrors'
-      |'Failed'
-
-export type FTestTopLevelSelection = 'SelOne'
-      |'SelTwo'
-      |'SelThree'
-
-export type SchedulingCategory = 'B'
-      |'A'
-
-export type SchedulingObjectiveType = 'AgentPreference'
-      |'BalanceShifts'
-      |'BalanceNonStandardShifts'
-
-export type ObjectiveParameterKey = 'DaysBack'
-      |'DaysAhead'
-
-export type FTestOnOffSelection = 'On'
-      |'Off'
-
-export type FTestSeasonSelection = 'Spring'
-      |'Summer'
-      |'Autumn'
-      |'Winter'
-
-export type PipelineInspectionMetric = 'TotalPipeline'
-      |'ClosedWon'
-      |'Commit'
-      |'MostLikely'
-      |'BestCase'
-      |'OpenPipeline'
-      |'ClosedLost'
-      |'MovedIn'
-      |'MovedOut'
-
-export type VirtualVisitComprehendServiceType = 'ComprehendService'
-      |'ComprehendMedicalService'
-
-export type VirtualVisitUsageType = 'CHIME'
-      |'INTELLIGENT_FORM_READER'
-      |'SENTIMENT_ANALYSIS'
-      |'KEY_PHRASE_EXTRACTION'
-      |'ENTITY_DETECTION'
-
-export type VirtualVisitVisitRegion = 'us-east-1'
-      |'us-east-2'
-      |'us-west-1'
-      |'us-west-2'
-      |'af-south-1'
-      |'ap-east-1'
-      |'ap-south-1'
-      |'ap-northeast-1'
-      |'ap-northeast-2'
-      |'ap-northeast-3'
-      |'ap-southeast-1'
-      |'ap-southeast-2'
-      |'ca-central-1'
-      |'eu-central-1'
-      |'eu-west-1'
-      |'eu-west-2'
-      |'eu-west-3'
-      |'eu-south-1'
-      |'eu-north-1'
-      |'me-south-1'
-      |'sa-east-1'
-
-export type MobileSecurityMobilePlatform = 'Android'
-      |'iOS'
-
-export type MobileSecurityPolicyRuleValueType = 'Boolean'
-      |'Text'
-      |'TextList'
-
-export type MobileSecurityPolicySeverityLevel = 'Warn'
-      |'Error'
-      |'Critical'
-      |'Info'
-
-export type MobileSecurityPolicyType = 'JailbrokenDevice'
-      |'MinimumOsVersion'
-      |'MaximumOsVersion'
-      |'MinimumSecurityPatchVersion'
-      |'ManInMiddle'
-      |'MinimumAppVersion'
-      |'MininumAppVersion'
-      |'MaximumAppVersion'
-      |'DevicePasscode'
-      |'BlockedDeviceList'
-      |'BlockCustomKeyboard'
-      |'BlockFileBackup'
-      |'Block3dTouch'
-      |'Screenshot'
-      |'LogScreenshot'
-      |'LogEmail'
-      |'LogPhonecall'
-      |'LogTextmessage'
-      |'LogPolicyResult'
-      |'BlockMicrophone'
-      |'BlockCamera'
-      |'MalwareDetection'
-      |'DisableUrlCaching'
-      |'MaxOffline'
-      |'LogoutAfterRestart'
-      |'LogoutOnBiometricChange'
-      |'BlockOsSharing'
-      |'BrowserUriScheme'
-      |'CheckBiometric'
-      |'BlockContacts'
-      |'BlockCalendar'
-      |'PhonecallUriScheme'
-      |'AllowedDeviceList'
-      |'LogCertPin'
-
-export type LearningAchievementType = 'LearningCourse'
-      |'LearningProgram'
-      |'AchievementGroup'
-      |'Skill'
-      |'Custom'
-
-export type RecordAlertDataSourceType = 'APEX'
-      |'BusinessRulesEngine'
-
-export type ExtensionPointName = 'Commerce_Domain_Cart_Calculate'
-      |'Commerce_Domain_Tax_CartCalculator'
-      |'Commerce_Domain_Inventory_CartCalculator'
-      |'Commerce_Domain_Promotions_CartCalculator'
-      |'Commerce_Domain_Promotions_ShippingCalculator'
-      |'Commerce_Domain_Pricing_CartCalculator'
-      |'Commerce_Domain_Shipping_CartCalculator'
-      |'Commerce_Domain_Inventory_Service'
-      |'Commerce_Domain_Pricing_Service'
-      |'Commerce_Domain_Tax_Service'
-      |'Commerce_Domain_Checkout_CreateOrder'
-      |'Commerce_Domain_Checkout_PlaceOrder'
-      |'Commerce_Domain_Shipping_SplitShipment'
-      |'Product_Inventory_CheckInventory'
-      |'CommerceDx_Pricing'
-      |'CommerceDx_Inventory'
-      |'CommerceDx_TicketProcessing'
-      |'Commerce_Integration_B2CEOrderImport'
-      |'Cart_Prices_Extension'
-      |'Checkout_CartSummary_ComputePromotions'
-      |'Checkout_CartSummary_PriceCart'
-      |'Checkout_Update_CalcCartSummary'
-      |'Checkout_CartSummary_Inventory'
-      |'Commerce_Domain_OrderManagement_Product'
-      |'CommerceDx_Endpoint_PricingSample_Service'
-      |'CommerceDx_Endpoint_InventorySample_Service'
-      |'Commerce_Endpoint_Account_Addresses'
-      |'Commerce_Endpoint_Account_Address'
-      |'Commerce_Endpoint_Catalog_Products'
-      |'Commerce_Endpoint_Catalog_Product'
-      |'Commerce_Endpoint_Search_Products'
-      |'Commerce_Endpoint_Search_ProductSearch'
-      |'Commerce_Endpoint_Search_ProductsByCategory'
-      |'Commerce_Endpoint_Cart_ItemCollection'
-      |'Commerce_Endpoint_Cart_Item'
-
-export type RegistryProviderType = 'Price'
-      |'Promotions'
-      |'Inventory'
-      |'Shipment'
-      |'Tax'
-      |'Extension'
-
-export type CustomFieldDisplayType = 'Dropdown'
-      |'ColorSwatch'
-      |'Pill'
-
-export type MappingBehaviorType = 'PointInTime'
-      |'CurrentValue'
-
-export type RRADJctObjFilterLogic = 'And'
-      |'Or'
-      |'Custom'
-
-export type RelatedRecordAccessDefShareTo = 'Internal'
-      |'External'
-      |'All'
-
-export type RRADSourceObjFilterLogic = 'And'
-      |'Or'
-      |'Custom'
-
-export type RelatedRecordAccessDefStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type RRADTargetObjFilterLogic = 'And'
-      |'Or'
-      |'Custom'
-
-export type RRAFObjectType = 'Source'
-      |'Target'
-      |'Junction'
-
-export type RRAFOperator = 'Equal'
-      |'Not_Equal'
-      |'Starts_With'
-      |'Contains'
-      |'Does_Not_Contain'
-      |'Less_Than'
-      |'Greater_Than'
-      |'Less_Or_Equal'
-      |'Greater_Or_Equal'
-      |'Include'
-      |'Exclude'
-      |'Within'
-
-export type ObjectAccessLevel = 'Edit'
-      |'Read'
-      |'None'
-
-export type MobileSecurityCertPinType = 'AuthServer'
-      |'Resource'
-
-export type ActionableListSourceType = 'CrmAnalytics'
-      |'DataCloudPlatform'
-
-export type ActionableListType = 'RetailStoreList'
-      |'HealthcareProviderList'
-
-export type DatasetColumnDataType = 'Dimensions'
-      |'Dates'
-      |'Measures'
-
-export type DatatableDataType = 'Boolean'
-      |'Currency'
-      |'Date'
-      |'DateTime'
-      |'Email'
-      |'Location'
-      |'Number'
-      |'Percent'
-      |'Phone'
-      |'Text'
-      |'Url'
-
-export type ProviderSearchObjectMapping = 'HealthcareProvider'
-      |'HealthcarePractitionerFacility'
-
-export type SourceSystemFieldRole = 'NotApplicable'
-      |'Patient'
-      |'ServiceProvider'
-      |'RemoteMonitoringPatient'
-      |'RemoteMonitoringDevice'
-
-export type CareLimitTypeMetricType = 'Money'
-      |'Percentage'
-      |'Amount'
-      |'Text'
-
-export type AssessmentConfigurationOption = 'Send'
-
-export type AssessmentType = 'DiscoveryFramework'
-
-export type SchedulingRuleType = 'M'
-      |'B'
-      |'W'
-      |'A'
-      |'RestTimeMinutes'
-      |'Q'
-      |'C'
-      |'LimitNonstandardShifts'
-
-export type SchedulingParameterKey = 'L'
-      |'R'
-      |'W'
-      |'T'
-      |'C'
-      |'ConsiderAbsence'
-      |'ConsiderSTM'
-
-export type CareProviderAfflType = 'HospitalAffiliation'
-
-export type AssociationType = 'BranchManagement'
-
-export type AssociationEventType = 'Create'
-      |'Update'
-
-export type AssociationStatusType = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type ShiftSegmentTypeCategory = 'Work'
-      |'Break'
-      |'NonWork'
-
-export type DgtAssetMgmtPrvdLghtCpntType = 'NONE'
-      |'DIGITAL_ASSET_MANAGER'
-
-export type ManagedContentSpaceModuleStatusEnum = 'ENABLED'
-      |'DISABLED'
-      |'ERROR'
-      |'INVALID'
-      |'STANDBY'
-      |'NOT_INSTALLED'
-
-export type ACPStatus = 'New'
-      |'Pending'
-      |'Deployed'
-
-export type ApexCodeUnitStatus = 'Inactive'
-      |'Active'
-      |'Deleted'
-
-export type ContentAssetFormat = 'Original'
-      |'ZippedVersions'
-
-export type ContentAssetAccess = 'VIEWER'
-      |'COLLABORATOR'
-      |'INFERRED'
-
-export type DataPipelineType = 'Pig'
-
-export type DiscoveryAlgorithmType = 'Glm'
-      |'Gbm'
-      |'Xgboost'
-      |'Drf'
-      |'Best'
-
-export type DiscoveryModelFieldType = 'Text'
-      |'Number'
-      |'Date'
-
-export type DiscoveryModelRuntimeType = 'Discovery'
-      |'H2O'
-      |'Py36Tensorflow244'
-      |'Py37Tensorflow270'
-      |'Py37Scikitlearn102'
-
-export type DiscoveryPredictionType = 'Unknown'
-      |'Regression'
-      |'Classification'
-      |'MulticlassClassification'
-
-export type DiscoveryModelSourceType = 'Discovery'
-      |'UserUpload'
-
-export type DiscoveryAIModelStatus = 'Disabled'
-      |'Uploading'
-      |'UploadFailed'
-      |'UploadCompleted'
-      |'Validating'
-      |'ValidationFailed'
-      |'ValidationCompleted'
-      |'Enabled'
-
-export type DiscoveryAIModelTransformationType = 'TypographicClustering'
-      |'SentimentAnalysis'
-      |'FreeTextClustering'
-      |'NumericalImputation'
-      |'CategoricalImputation'
-      |'TimeSeriesForecast'
-      |'ExtractMonthOfYear'
-      |'ExtractDayOfWeek'
-
-export type DiscoveryStoryAutopilotStatus = 'Enabled'
-      |'Disabled'
-
-export type DiscoveryStoryOutcomeGoal = 'Minimize'
-      |'Maximize'
-      |'None'
-
-export type DiscoveryStoryOutcomeType = 'Count'
-      |'Text'
-      |'Categorical'
-      |'Number'
-
-export type DiscoveryStorySourceType = 'AnalyticsDataset'
-      |'Report'
-      |'LiveDataset'
-
-export type DocumentGenerationMechanism = 'ClientSide'
-      |'ServerSide'
-
-export type DocumentTemplateStatus = 'Draft'
-      |'Active'
-      |'Archived'
-
-export type TargetTokenItemObject = 'OPPORTUNITY_LINE_ITEM'
-      |'ORDER_LINE_ITEM'
-      |'QUOTE_LINE_ITEM'
-
-export type TargetTokenObject = 'CONTRACT'
-      |'OPPORTUNITY'
-      |'ORDER'
-      |'QUOTE'
-
-export type TokenMappingMethodType = 'OmniDataTransform'
-      |'CustomClass'
-
-export type TokenMappingType = 'JSON'
-      |'SalesforceObject'
-
-export type DocumentTemplateType = 'Web'
-      |'MicrosoftWord'
-      |'MicrosoftPowerpoint'
-      |'Microsoft365Word'
-      |'HTMLArchive'
-
-export type DocumentTemplateUsageType = 'Contract_Lifecycle_Management'
-      |'Tearsheets'
-      |'Revenue_Lifecycle_Management'
-      |'Invoice'
-
-export type EmailTemplateStyle = 'none'
-      |'freeForm'
-      |'formalLetter'
-      |'promotionRight'
-      |'promotionLeft'
-      |'newsletter'
-      |'products'
-
-export type EmailTemplateType = 'text'
-      |'html'
-      |'custom'
-      |'visualforce'
-
-export type EmailTemplateUiType = 'Aloha'
-      |'SFX'
-      |'SFX_Sample'
-
-export type PlatformSchemaContentType = string
-
-export type SControlContentSource = 'HTML'
-      |'URL'
-      |'Snippet'
-
-export type StaticResourceCacheControl = 'Private'
-      |'Public'
-
-export type FlexiPageType = 'AppPage'
-      |'ObjectPage'
-      |'RecordPage'
-      |'HomePage'
-      |'ForecastingPage'
-      |'MailAppAppPage'
-      |'CommAppPage'
-      |'CommForgotPasswordPage'
-      |'CommLoginPage'
-      |'CommObjectPage'
-      |'CommQuickActionCreatePage'
-      |'CommRecordPage'
-      |'CommRelatedListPage'
-      |'CommSearchResultPage'
-      |'CommGlobalSearchResultPage'
-      |'CommSelfRegisterPage'
-      |'CommThemeLayoutPage'
-      |'UtilityBar'
-      |'RecordPreview'
-      |'EmbeddedServicePage'
-      |'CommCheckoutPage'
-      |'CommOrderConfirmationPage'
-      |'CommFlowPage'
-      |'EmailTemplatePage'
-      |'ApplicationLayout'
-      |'CommNoSearchResultsPage'
-      |'CommElectronicSignaturePage'
-      |'CommContractDocumentsPage'
-      |'CommContractDetailViewPage'
-      |'EmailContentPage'
-      |'ServiceDocument'
-      |'LandingPage'
-      |'CdpRecordPage'
-      |'SlackAppHome'
-      |'SlackMessage'
-      |'SlackModal'
-      |'SlackNotification'
-      |'EasyHomePage'
-      |'CardPage'
-      |'VoiceExtension'
-      |'ConfiguratorAppPage'
-      |'OmniSupervisorPage'
-      |'MobileAppPage'
-
-export type ViewTargetType = 'slack'
-
-export type AuthoringMode = 'OmniScriptForm'
-      |'Microsoft365Word'
-      |'OmniScriptAndMcrsft365Wrd'
-      |'GoogleDocs'
-      |'OmniscriptAndGoogleDocs'
-
-export type DiscoveryFieldMapSourceType = 'SalesforceField'
-      |'AnalyticsDatasetField'
-
-export type DiscoveryFilterOperator = 'Equal'
-      |'NotEqual'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'Between'
-      |'NotBetween'
-      |'InSet'
-      |'NotIn'
-      |'Contains'
-      |'StartsWith'
-      |'EndsWith'
-      |'IsNull'
-      |'IsNotNull'
-
-export type DiscoveryFilterFieldType = 'Text'
-      |'Number'
-      |'Date'
-      |'DateTime'
-      |'Boolean'
-
-export type DiscoveryFilterValueType = 'Constant'
-      |'PlaceHolder'
-
-export type DiscoveryOutcomeGoal = 'Minimize'
-      |'Maximize'
-      |'None'
-
-export type DiscoveryPushbackType = 'AiRecordInsight'
-      |'Direct'
-
-export type GenerationMechanism = 'ClientSide'
-      |'ServerSide'
-
-export type PreviewType = 'PDF'
-      |'Thumbnail'
-
-export type DupeActionType = 'Allow'
-      |'Block'
-
-export type DupeSecurityOptionType = 'EnforceSharingRules'
-      |'BypassSharingRules'
-
-export type ConfigType = 'AnchorString'
-      |'SignerRoles'
-      |'SyncFileSizeLimit'
-      |'CalloutTimeout'
-      |'EnvelopesLastPollDate'
-      |'CalloutNamedCredential'
-      |'eSignVendorAccountId'
-      |'RecipientsCustomClass'
-      |'DocumentsCustomClass'
-
-export type ConfigGroup = 'AnchorTabSetting'
-      |'EnvelopeObjectLimits'
-      |'CalloutConfigurationSetup'
-      |'Envelope'
-      |'eSignVendorAccount'
-      |'CustomClassSetting'
-
-export type Vendor = 'DocuSign'
-
-export type EmailServicesAttOptions = 'None'
-      |'TextOnly'
-      |'BinaryOnly'
-      |'All'
-      |'NoContent'
-
-export type EmailServicesErrorAction = 'UseSystemDefault'
-      |'Bounce'
-      |'Discard'
-      |'Requeue'
-
-export type EmbeddedServiceAuthMethod = 'CommunitiesLogin'
-      |'CustomLogin'
-
-export type EmbeddedServiceDeploymentFeature = 'None'
-      |'EmbeddedMessaging'
-      |'LiveAgent'
-      |'Flows'
-      |'FieldService'
-
-export type EmbeddedServiceDeploymentType = 'Web'
-      |'Mobile'
-      |'API'
-      |'InternalCopilot'
-
-export type EmbeddedServiceComponentBundleType = 'AuraDefinitionBundle'
-      |'LightningComponentBundle'
-
-export type EmbeddedServiceCustomComponentType = 'LA_Prechat'
-      |'LA_Minimized'
-      |'LA_PlainTextChatMessage'
-      |'LA_ChatHeader'
-      |'MIAW_Prechat'
-      |'MIAW_Header'
-      |'MIAW_TextMessage'
-
-export type EmbeddedServiceResourceType = 'SettingsFile'
-      |'ChatInvitation'
-
-export type EmbeddedServiceFlowType = 'FL_Flow'
-      |'FS_NewAppointment'
-      |'FS_ModifyAppointment'
-      |'FS_CancelAppointment'
-      |'LA_Survey'
-
-export type EmbeddedServiceFormDisplayContext = 'None'
-      |'Conversation'
-      |'Session'
-
-export type EmbeddedServiceFormFieldType = 'Text'
-      |'Email'
-      |'Phone'
-      |'Number'
-      |'Checkbox'
-      |'ChoiceList'
-
-export type MessagingChannelParameterType = 'Standard'
-      |'Custom'
-
-export type EmbeddedServiceLayoutType = 'FS_AppointmentHome'
-
-export type EmbeddedServiceQuickActionType = 'Prechat'
-      |'OfflineCase'
-
-export type EmbeddedServiceFontSize = 'Small'
-      |'Medium'
-      |'Large'
-
-export type EmbeddedServiceScenario = 'Sales'
-      |'Service'
-      |'Basic'
-
-export type EmbeddedServiceChannelType = 'EmbeddedServiceConfig'
-      |'MessagingChannel'
-      |'Phone'
-      |'CustomURL'
-      |'EmbeddedMessaging'
-
-export type EnablementAggregationType = 'Sum'
-      |'Count'
-      |'Average'
-
-export type EnablementFilterOperator = 'Equals'
-      |'DoesNotContain'
-      |'DoesNotEqual'
-      |'IsNull'
-      |'In'
-      |'NotIn'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'Contains'
-      |'StartsWith'
-      |'EndsWith'
-
-export type EnblProgramMeasureStatus = 'Draft'
-      |'Published'
-      |'Archived'
-
-export type ProgramExtContentDefProvider = 'Trailhead'
-
-export type EnblCompositeMilestoneType = 'Addition'
-      |'Division'
-      |'Percentage'
-
-export type ProgramTaskDefCategory = 'Exercise'
-      |'Milestone'
-
-export type MilestoneTimeUnits = 'Minutes'
-      |'Hours'
-      |'Days'
-
-export type EventDeliveryType = 'StartFlow'
-      |'ResumeFlow'
-
-export type EventRelayAdminState = 'RUN'
-      |'STOP'
-      |'PAUSE'
-      |'DELETE'
-
-export type EventRelayUsageType = 'AMAZON_EVENTBRIDGE'
-      |'INTERNAL_MANAGED_SUBSCRIPTIONS'
-      |'INTERNAL_REPLICATION'
-
-export type ExperienceContainerType = 'SFS'
-      |'SAPP'
-      |'TEST'
-      |'LEX'
-      |'SCMA'
-
-export type ActionLogSchemaType = 'Other'
-      |'ExpressionSet'
-
-export type EASAppType = 'PublicSector'
-      |'Loyalty'
-      |'HealthCloud'
-      |'IndustryServiceExcellence'
-      |'IndustriesPricing'
-      |'OmniAnalytics'
-      |'ActionableEventOrch'
-      |'IndustriesDroOrderProcess'
-      |'Compliance'
-
-export type EvaluationResult = 'Passed'
-      |'Failed'
-      |'NoResult'
-
-export type ExpressionSetStepType = 'Calculation'
-      |'Aggregation'
-      |'MatrixLookup'
-      |'ReferenceProcedure'
-      |'Condition'
-      |'DecisionTableLookup'
-      |'Branch'
-      |'BusinessElement'
-      |'ListEnabledGroup'
-      |'ListFilter'
-
-export type ExpsSetExecutionScale = 'Low'
-      |'High'
-
-export type ExpsSetInterfaceSourceType = 'PricingProcedure'
-      |'QualificationProcedure'
-      |'Sample'
-      |'EventOrchestration'
-      |'RatingProcedure'
-      |'DiscoveryProcedure'
-      |'Constraint'
-      |'RatingDiscoveryProcedure'
-      |'GpaCalculationProcedure'
-
-export type ExpsSetStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-      |'InvalidDraft'
-      |'Obsolete'
-
-export type BusinessKnowledgeModel = 'CreditPoints'
-      |'DebitPoints'
-      |'IssueVoucher'
-      |'IncreaseUsageForCumulativePromotion'
-      |'UpdateUsageForCumulativePromotion'
-      |'AssignParameterValues'
-      |'RunFlow'
-      |'GetOutputsFromDecisionTable'
-      |'UpdatePointBalance'
-      |'GetMemberPointBalance'
-      |'GetMemberTier'
-      |'BreAggregator'
-      |'GetOutputsFromDecisionMatrix'
-      |'GetMemberAttributesValues'
-      |'UpdateCurrentValueForMemberAttribute'
-      |'BreAggregatorAssignment'
-      |'Crud'
-      |'AssignBadgeToMember'
-      |'CheckMemberBadgeAssignment'
-      |'ChangeMemberTier'
-      |'RunProgramProcess'
-      |'GetMemberPromotions'
-      |'TestCustomElement'
-      |'AiAcceleratorSubscriberChurnPrediction'
-      |'RedeemVoucher'
-      |'ListPrice'
-      |'PriceAdjustmentMatrix'
-      |'SendMail'
-      |'VolumeDiscount'
-      |'GetUserData'
-      |'ListGroupCalculation'
-      |'RecordAlert'
-      |'AutomatedClaimsProcessingValidation'
-      |'EvaluateQualification'
-      |'EvaluateCategoryQualification'
-      |'EvaluateCategoryDisqualification'
-      |'SampleBusinessElementWithContext'
-      |'EvaluateDisqualification'
-      |'SampleDynamicCustomElement'
-      |'AttributeDiscount'
-      |'GroupingAndAggregatePricing'
-      |'ManualDiscount'
-      |'SubscriptionPricing'
-      |'Proration'
-      |'BundleDiscount'
-      |'ListGroup'
-      |'StopPricing'
-      |'PromotionsDiscount'
-      |'RoundingValues'
-      |'VolumeTierDiscount'
-      |'SampleCustomElementWithExpressionAndListFilter'
-      |'PricingSettings'
-      |'ApexAction'
-      |'DerivedPricing'
-      |'RecordAction'
-      |'IntegrationOrchestration'
-      |'FormulaBasedPricing'
-      |'ComplianceCheck'
-      |'DiscountDistributionService'
-      |'RatingVolumeDiscount'
-      |'BaseRate'
-      |'RatingAttributeDiscount'
-      |'RatingSetting'
-      |'RuleFetch'
-      |'MapProduct'
-      |'AssetDiscovery'
-      |'RatingTierDiscount'
-      |'AssignmentElement'
-      |'ComplianceControlLog'
-      |'CommercePricing'
-      |'MinimumPrice'
-      |'FormulaBasedRating'
-      |'GroupingAndAggregateRating'
-      |'RatingRoundingValues'
-      |'StopRating'
-      |'ManualRatingDiscount'
-      |'RateAdjustmentMatrix'
-      |'RateAssignment'
-      |'PriceGuidance'
-      |'RateCardResolution'
-      |'RateCardEntryResolution'
-      |'RateAdjustmentByTierResolution'
-      |'Constraint'
-      |'RateAdjustmentByAttributeResolution'
-      |'ApexListAction'
-      |'TermGpaCalculation'
-      |'TermGpaReporting'
-      |'MultiRecipientProductQualification'
-      |'NegotiatedRateCardEntryResolution'
-      |'UpsertRecord'
-      |'NegotiatedBaseRate'
-      |'BreakdownLineMapping'
-      |'NegotiatedTierAdjustment'
-      |'NegotiatedVolumeAdjustment'
-      |'DiscoverySettings'
-
-export type ExpsSetConditionOperator = 'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'Contains'
-      |'DoesNotContain'
-      |'IsNull'
-      |'IsNotNull'
-
-export type ExpsSetValueType = 'Literal'
-      |'Parameter'
-      |'PickList'
-      |'Formula'
-      |'Lookup'
-
-export type ExpsSetAggregationFunction = 'Sum'
-      |'Avg'
-      |'Min'
-      |'Max'
-      |'ListSum'
-      |'ListAvg'
-      |'ListSize'
-
-export type ExpsSetStepType = 'Condition'
-      |'AdvancedCondition'
-      |'Branch'
-      |'DefaultPath'
-      |'SubExpression'
-      |'BusinessKnowledgeModel'
-      |'ListGroup'
-      |'ListFilter'
-      |'AdvancedListFilter'
-
-export type ExpsSetDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'Sobject'
-      |'Boolean'
-      |'Percent'
-      |'Currency'
-      |'ActionOutput'
-      |'SubExpression'
-      |'DecisionMatrix'
-      |'DecisionTable'
-      |'Context'
-      |'ContextNode'
-      |'Picklist'
-
-export type ExpsSetVariableLookupType = 'SubExpression'
-      |'DecisionMatrix'
-      |'DecisionTable'
-
-export type ExpsSetVariableType = 'Variable'
-      |'Constant'
-      |'Formula'
-      |'ExecutableContextDefinitionTag'
-      |'ContextDynamicAttributeTag'
-
-export type ExpsSetObjectDataType = 'sObject'
-      |'JSON'
-
-export type ExternalBotType = 'Chatbot'
-
-export type ApplicationSourceType = 'REPLY_RECOMMENDATION'
-      |'ARTICLE_RECOMMENDATION'
-      |'UTTERANCE_RECOMMENDATION'
-      |'FAQ'
-      |'EAR_FOR_CONVERSATION'
-      |'USE_CASE_EXPLORER'
-      |'EAR_FOR_VOICE'
-      |'COPILOT_UTTERANCE_ANALYSIS'
-      |'FTEST'
-
-export type ExternalModelStatus = 'ENABLED'
-      |'DISABLED'
-      |'PAUSED'
-
-export type IdentityProviderAuthFlow = 'AuthorizationCode'
-      |'ClientCredentials'
-      |'JwtBearer'
-      |'SalesforceDefined'
-
-export type IdentityProviderAuthProtocol = 'OAuth'
-      |'SalesforceDefined'
-
-export type ExtlIdentityProviderParmType = 'AuthorizeUrl'
-      |'TokenUrl'
-      |'UrlQueryParameter'
-      |'HttpHeader'
-      |'ClientCertificate'
-      |'SigningCertificate'
-      |'RequestBodyParameter'
-      |'JwtBodyClaim'
-      |'JwtHeaderClaim'
-      |'CreatedByNamespace'
-      |'UserInfoUrl'
-      |'ClientAuthentication'
-      |'IdentityProviderOptions'
-      |'AuthorizeRequestQueryParameter'
-      |'TokenRequestQueryParameter'
-      |'TokenRequestBodyParameter'
-      |'TokenRequestHttpHeader'
-      |'RefreshRequestQueryParameter'
-      |'RefreshRequestBodyParameter'
-      |'RefreshRequestHttpHeader'
-      |'StandardExternalIdentityProvider'
-
-export type ExtlClntAppDistState = 'Local'
-      |'Packaged'
-      |'Managed'
-      |'AutoInstalled'
-
-export type ExtlClntAppManagedType = 'Local'
-      |'Global'
-
-export type AuthenticationProtocol = 'NoAuthentication'
-      |'Certificate'
-      |'Oauth'
-      |'Password'
-      |'NTLM'
-      |'AwsSv4'
-      |'Jwt'
-      |'JwtExchange'
-      |'C2c'
-      |'ApiKey'
-      |'Custom'
-      |'InternalOAuth'
-      |'OrgJwt'
-      |'Basic'
-
-export type ExternalCredentialParamType = 'ParameterGroup'
-      |'ExternalAuthIdentityProvider'
-      |'AuthProvider'
-      |'AuthProviderUrl'
-      |'AuthProviderUrlQueryParameter'
-      |'SigningCertificate'
-      |'FormulaVariable'
-      |'AuthProviderAuthParameter'
-      |'AuthParameter'
-      |'NamedPrincipal'
-      |'PerUserPrincipal'
-      |'AwsStsPrincipal'
-      |'GlobalNamedPrincipal'
-      |'SystemUserPrincipal'
-      |'AuthContext'
-      |'AuthQueryParameter'
-      |'AuthHeader'
-      |'AuthProtocolVariant'
-      |'JwtBodyClaim'
-      |'JwtHeaderClaim'
-      |'CreatedByNamespace'
-      |'AdditionalRefreshStatusCode'
-
-export type DataConnectionStatus = 'Connected'
-      |'Failed'
-      |'Disconnected'
-
-export type DataConnectorType = 'SalesforceMarketingCloud'
-      |'SalesforceCommerceCloud'
-      |'StreamingApp'
-      |'SalesforceDotCom'
-      |'AmazonS3'
-      |'SFTP'
-      |'UPLOAD'
-      |'IngestApi'
-      |'SalesforceInteractionStudio'
-      |'CuratedEntity'
-      |'DataCloud'
-      |'GoogleCloudStorage'
-      |'AzureBlob'
-      |'ExternalPlatform'
-      |'ConversationStorage'
-      |'Snowflake'
-      |'BIGQUERY'
-      |'REDSHIFT'
-      |'S3Arn'
-      |'ACCOUNTENGAGEMENT'
-
-export type AvailabilityStatus = 'Available'
-      |'In_Use'
-
-export type ExternalDataSrcDescSubtype = 'SchemaTableQualifiers'
-      |'SchemaTableMetadata'
-
-export type ExternalDataSrcDescType = 'Schema'
-
-export type ExternalPrincipalType = 'Anonymous'
-      |'PerUser'
-      |'NamedUser'
-      |'UserWithImpersonation'
-
-export type ExternalDataSourceType = 'AFPPAttribute'
-      |'Alert'
-      |'AmazonAthena'
-      |'AmazonDynamoDb'
-      |'ASPAttribute'
-      |'AssetAttribute'
-      |'bcpApp'
-      |'bcpAppMember'
-      |'bcpEntity'
-      |'bcpEntityPermission'
-      |'bcpEntityPermSet'
-      |'bcpField'
-      |'bcpFieldPermission'
-      |'bcpMember'
-      |'bcpParticipant'
-      |'bcpParticipantAccess'
-      |'bcpPermissionSet'
-      |'bcpRecAccApproval'
-      |'bcpRecordAccess'
-      |'bcpRelParticipant'
-      |'ContentHubAWSS3'
-      |'ContentHubBox'
-      |'ContentHubGDrive'
-      |'contentHubItem'
-      |'ContentHubMock'
-      |'ContentHubOneDriveGraph'
-      |'ContentHubPerf'
-      |'ContentHubQuip'
-      |'ContentHubSharepointOffice365'
-      |'ContentHubSharepointOneDrive'
-      |'CryptoTrEnvChgLogSnp'
-      |'Datacloud'
-      |'Datajourney'
-      |'DataMapperDS'
-      |'Engagement'
-      |'ExternalEvent'
-      |'FAAttribute'
-      |'FLAttribute'
-      |'FlexCardDS'
-      |'Ftest'
-      |'GraphQl'
-      |'IAItemProdtAttr'
-      |'Identity'
-      |'InsPolicyAttribute'
-      |'IntegrationProcdDS'
-      |'IPAAttribute'
-      |'IPCAttribute'
-      |'IPCvrBnftAttribute'
-      |'IPPAttribute'
-      |'Jigsaw'
-      |'MbrPromotionsViewDS'
-      |'OData'
-      |'OData4'
-      |'OData401'
-      |'OIAttribute'
-      |'OmniScriptDS'
-      |'OpenSearch'
-      |'OtbdEngmtTmplDS'
-      |'outgoingemail'
-      |'PrivacyCenterOrArchiveDataStore'
-      |'PromoRuleTempDS'
-      |'QLIAttribute'
-      |'Salesforce'
-      |'SAPAttribute'
-      |'SciApi'
-      |'SelectableEmailAddressView'
-      |'SfdcOrg'
-      |'SimpleURL'
-      |'Snowflake'
-      |'TrailheadEditWithId'
-      |'usermobileconfig'
-      |'usrconnectionstatus'
-      |'Wrapper'
-
-export type StorageDriveType = 'MicrosoftOneDrive'
-      |'GoogleDrive'
-
-export type TargetObject = 'All'
-      |'Contract'
-      |'DocumentTemplate'
-      |'Disclosure'
-      |'InfoLibraryExternalDocument'
-
-export type ExternalServiceRegistrationProviderType = 'MuleSoft'
-      |'Custom'
-      |'SchemaInferred'
-      |'Standard'
-      |'ExternalConnector'
-      |'Heroku'
-      |'Anypoint'
-      |'ApexRest'
-
-export type ExtlClntAppStartPage = 'None'
-      |'Custom'
-      |'OAuth'
-      |'SAML'
-
-export type ScreenLockTimeout = 'Never'
-      |'One'
-      |'Five'
-      |'Ten'
-      |'Thirty'
-      |'Sixty'
-      |'OneTwenty'
-      |'OneEighty'
-      |'TwoForty'
-
-export type PermittedUsersPolicyType = 'AllSelfAuthorized'
-      |'AdminApprovedPreAuthorized'
-
-export type PolicyAction = 'Block'
-      |'RaiseSessionLevel'
-
-export type RefreshTokenPolicyType = 'Infinite'
-      |'Zero'
-      |'SpecificLifetime'
-      |'SpecificInactivity'
-
-export type SessionSecurityLevel = 'LOW'
-      |'STANDARD'
-      |'HIGH_ASSURANCE'
-
-export type ApplePushEnvironmentType = 'Sandbox'
-      |'Production'
-
-export type PushServiceType = 'Apple'
-      |'Android'
-
-export type ExtlClntAppSamlEncryptType = 'AES_128'
-      |'AES_256'
-
-export type ExtlClntAppNameIdFormatType = 'Unspecified'
-      |'EmailAddress'
-      |'Persistent'
-      |'Transient'
-
-export type ExtlClntAppSamlSignAlgoType = 'SHA1'
-      |'SHA256'
-
-export type ExtlClntAppSamlBindingType = 'RedirectBinding'
-      |'PostBinding'
-
-export type ExtlClntAppSamlSubjectType = 'Username'
-      |'FederationId'
-      |'UserId'
-      |'SpokeId'
-      |'CustomAttribute'
-      |'PersistentId'
-
-export type FeatureParameterDataflowDirection = 'LmoToSubscriber'
-      |'SubscriberToLmo'
-      |'Provisioned'
-
-export type FieldMappingConfigProcessType = 'GiftEntry'
-      |'Incident'
-      |'Problem'
-      |'ChangeRequest'
-
-export type ClassificationType = 'ComplianceCategory'
-      |'FieldSet'
-
-export type EnforcementType = 'Scoping'
-      |'Restrict'
-      |'FieldRestrict'
-      |'D360_Restrict'
-
-export type ApptAssistantRadiusUnit = 'Kilometer'
-      |'Meter'
-      |'Mile'
-      |'Yard'
-
-export type MappingType = 'WorkPlans_WorkPlanTemplate_WorkPlan'
-      |'WorkPlans_WorkStepTemplate_WorkStep'
-      |'WorkPlans_WorkPlanTemplateEntry_WorkStep'
-
-export type WorkOrderDurationSource = 'WorkType'
-      |'TotalFromWorkPlan'
-      |'Custom'
-
-export type FieldSrcTrgtRelationshipOwner = 'SObject'
-      |'DataCloud'
-
-export type RelationshipCardinality = 'OneToOne'
-      |'ManyToOne'
-
-export type FileDownloadBehavior = 'DOWNLOAD'
-      |'EXECUTE_IN_BROWSER'
-      |'HYBRID'
-
-export type FileType = 'UNKNOWN'
-      |'PDF'
-      |'POWER_POINT'
-      |'POWER_POINT_X'
-      |'POWER_POINT_M'
-      |'POWER_POINT_T'
-      |'WORD'
-      |'WORD_X'
-      |'WORD_M'
-      |'WORD_T'
-      |'PPS'
-      |'PPSX'
-      |'EXCEL'
-      |'EXCEL_X'
-      |'EXCEL_M'
-      |'EXCEL_T'
-      |'GOOGLE_DOCUMENT'
-      |'GOOGLE_PRESENTATION'
-      |'GOOGLE_SPREADSHEET'
-      |'GOOGLE_DRAWING'
-      |'GOOGLE_FORM'
-      |'GOOGLE_SCRIPT'
-      |'LINK'
-      |'SLIDE'
-      |'AAC'
-      |'ACGI'
-      |'AI'
-      |'AMR'
-      |'AVI'
-      |'BMP'
-      |'BOXNOTE'
-      |'CSV'
-      |'EPS'
-      |'EXE'
-      |'FLASH'
-      |'GIF'
-      |'GZIP'
-      |'HTM'
-      |'HTML'
-      |'HTX'
-      |'JPEG'
-      |'JPE'
-      |'PJP'
-      |'PJPEG'
-      |'JFIF'
-      |'JPG'
-      |'JS'
-      |'JSON'
-      |'MHTM'
-      |'MHTML'
-      |'MP3'
-      |'M4A'
-      |'M4V'
-      |'MP4'
-      |'MPEG'
-      |'MPG'
-      |'MOV'
-      |'MSG'
-      |'ODP'
-      |'ODS'
-      |'ODT'
-      |'OGG'
-      |'OGV'
-      |'PNG'
-      |'PSD'
-      |'RTF'
-      |'QUIPDOC'
-      |'QUIPSHEET'
-      |'QUIPCHAT'
-      |'QUIPSLIDES'
-      |'QUIPTEMPLATE'
-      |'SHTM'
-      |'SHTML'
-      |'SNOTE'
-      |'MCONTENT'
-      |'STYPI'
-      |'SVG'
-      |'SVGZ'
-      |'JPGZ'
-      |'TEXT'
-      |'THTML'
-      |'USDZ'
-      |'VISIO'
-      |'VTT'
-      |'WMV'
-      |'WRF'
-      |'XML'
-      |'ZIP'
-      |'XZIP'
-      |'WMA'
-      |'XSN'
-      |'INSIGHT'
-      |'TRTF'
-      |'TXML'
-      |'WEBVIEW'
-      |'RFC822'
-      |'ASF'
-      |'DWG'
-      |'JAR'
-      |'XJS'
-      |'OPX'
-      |'XPSD'
-      |'TIF'
-      |'TIFF'
-      |'WAV'
-      |'CSS'
-      |'THUMB720BY480'
-      |'THUMB240BY180'
-      |'THUMB120BY90'
-      |'ALLTHUMBS'
-      |'PAGED_FLASH'
-      |'XMOB'
-      |'PACK'
-      |'C'
-      |'CPP'
-      |'WORDT'
-      |'INI'
-      |'JAVA'
-      |'LOG'
-      |'POWER_POINTT'
-      |'SQL'
-      |'XHTML'
-      |'EXCELT'
-      |'WEBP'
-      |'AVIF'
-      |'ICS'
-      |'CAF'
-      |'V3GP'
-      |'V3G2'
-
-export type FlexipageEventSourceTypeEnum = 'Component'
-
-export type FlexipageEventTargetTypeEnum = 'FlexipageServices'
-      |'LwcServices'
-      |'InvocableApexServices'
-      |'InvocableExternalServices'
-      |'ActionServices'
-      |'ViewServices'
-
-export type RegionFlagStatus = 'disabled'
-      |'enabled'
-
-export type ComponentInstancePropertyTypeEnum = 'decorator'
-
-export type ComponentInstanceType = 'Component'
-      |'Card'
-
-export type FlexipageDataSourceModeEnum = 'Create'
-      |'Edit'
-      |'View'
-
-export type FlexipageDataSourceTypeEnum = 'Record'
-      |'User'
-      |'Organization'
-      |'Apex'
-
-export type FlexiPageRegionMode = 'Append'
-      |'Prepend'
-      |'Replace'
-
-export type FlexiPageRegionType = 'Region'
-      |'Facet'
-      |'Background'
-
-export type PlatformActionListContext = 'ListView'
-      |'RelatedList'
-      |'ListViewRecord'
-      |'RelatedListRecord'
-      |'Record'
-      |'FeedElement'
-      |'Chatter'
-      |'Global'
-      |'Flexipage'
-      |'MruList'
-      |'MruRow'
-      |'RecordEdit'
-      |'Photo'
-      |'BannerPhoto'
-      |'ObjectHomeChart'
-      |'ListViewDefinition'
-      |'Dockable'
-      |'Lookup'
-      |'Assistant'
-      |'ActionDefinition'
-
-export type PlatformActionType = 'QuickAction'
-      |'StandardButton'
-      |'CustomButton'
-      |'ProductivityAction'
-      |'ActionLink'
-      |'InvocableAction'
-
-export type FlexipageSchemaPropType = 'boolean'
-      |'integer'
-      |'string'
-
-export type FlowComplexValueType = 'JoinDefinition'
-      |'ElementAndFieldReference'
-
-export type FlowDataType = 'Currency'
-      |'Date'
-      |'Number'
-      |'String'
-      |'Boolean'
-      |'SObject'
-      |'DateTime'
-      |'Picklist'
-      |'Multipicklist'
-      |'Apex'
-
-export type FlowTransformValueActionType = 'Map'
-      |'Count'
-      |'Sum'
-      |'GetItemByIndex'
-      |'InnerJoin'
-
-export type FlowAssignmentOperator = 'None'
-      |'Assign'
-      |'Add'
-      |'Subtract'
-      |'AddItem'
-      |'RemoveFirst'
-      |'RemoveBeforeFirst'
-      |'RemoveAfterFirst'
-      |'RemoveAll'
-      |'AddAtStart'
-      |'RemoveUncommon'
-      |'AssignCount'
-      |'RemovePosition'
-
-export type FlowComparisonOperator = 'None'
-      |'EqualTo'
-      |'NotEqualTo'
-      |'GreaterThan'
-      |'LessThan'
-      |'GreaterThanOrEqualTo'
-      |'LessThanOrEqualTo'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'IsNull'
-      |'IsChanged'
-      |'WasSet'
-      |'WasSelected'
-      |'WasVisited'
-      |'In'
-      |'NotIn'
-      |'IsBlank'
-      |'IsEmpty'
-
-export type FlowRecordFilterOperator = 'EqualTo'
-      |'NotEqualTo'
-      |'GreaterThan'
-      |'LessThan'
-      |'GreaterThanOrEqualTo'
-      |'LessThanOrEqualTo'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'IsNull'
-      |'IsChanged'
-      |'In'
-      |'NotIn'
-
-export type FlowStageStepAssigneeType = 'User'
-      |'Group'
-      |'Queue'
-      |'Invalid'
-
-export type FlowScheduledPathOffsetUnit = 'Hours'
-      |'Days'
-      |'Minutes'
-      |'Months'
-      |'Weeks'
-
-export type FlowScheduledPathType = 'AsyncAfterCommit'
-
-export type FlowScheduledPathTimeSource = 'RecordTriggerEvent'
-      |'RecordField'
-
-export type InvocableActionType = 'apex'
-      |'chatterPost'
-      |'contentWorkspaceEnableFolders'
-      |'emailAlert'
-      |'emailSimple'
-      |'emailSObject'
-      |'externalService'
-      |'externalConnector'
-      |'externalEvent'
-      |'salesforceAPIPlatform'
-      |'flow'
-      |'metricRefresh'
-      |'processCreateWorkitem'
-      |'processStartStep'
-      |'processStopInstance'
-      |'processStopStep'
-      |'quickAction'
-      |'submit'
-      |'thanks'
-      |'thunderResponse'
-      |'createServiceReport'
-      |'deployOrchestration'
-      |'createResponseEventAction'
-      |'sfdcOutputAction'
-      |'invokeOrchOutputFlow'
-      |'generateWorkOrders'
-      |'deactivateSessionPermSet'
-      |'activateSessionPermSet'
-      |'aggregateValue'
-      |'orchestrationTimer'
-      |'orchestrationDebugLog'
-      |'choosePricebook'
-      |'component'
-      |'lwcComponent'
-      |'liveMessageNotification'
-      |'scaleCacheAsyncRefresh'
-      |'skillsBasedRouting'
-      |'addSkillRequirements'
-      |'addScreenPop'
-      |'findMatchingIndividuals'
-      |'routeWork'
-      |'scvOutboundCall'
-      |'checkAvailabilityForRouting'
-      |'createCustomField'
-      |'assignTrailheadBadge'
-      |'insightFeedback'
-      |'publishKnowledgeArticles'
-      |'routingAddressVerification'
-      |'assignTargetToSalesCadence'
-      |'removeTargetFromSalesCadence'
-      |'modifyCadenceTrackerAttributes'
-      |'invocableApplyLeadAssignmentRules'
-      |'salesCadenceListenerBranchStepTranslator'
-      |'pauseSalesCadenceTracker'
-      |'resumeSalesCadenceTracker'
-      |'changeSalesCadenceTargetAssignee'
-      |'sendSalesCadenceEvent'
-      |'selectTemplateForSalesCadenceStepTracker'
-      |'assignKnowledgeArticles'
-      |'createDraftFromOnlineKnowledgeArticle'
-      |'archiveKnowledgeArticles'
-      |'restoreKnowledgeArticleVersion'
-      |'customNotificationAction'
-      |'broadcastRenderSlackMsgPreview'
-      |'submitDigitalFormResponse'
-      |'contactRequestAction'
-      |'saveAppointment'
-      |'saveAppointmentInvitationDetails'
-      |'createWaitlist'
-      |'getAvailableTime'
-      |'saveServiceAppointmentAttendees'
-      |'fetchAppointmentInfo'
-      |'scheduleAppointment'
-      |'getAppointmentDetails'
-      |'getServiceAppointments'
-      |'createApptPaymentLink'
-      |'deleteKnowledgeArticles'
-      |'submitKnowledgeArticleForTranslation'
-      |'einsteinEPLitePredictionAction'
-      |'cartToOrderAction'
-      |'orderToCartAction'
-      |'activateOrderAction'
-      |'refreshActualsCalculation'
-      |'cancelAppointment'
-      |'recalculateForecast'
-      |'getBenefitAndCalculateRebateAmount'
-      |'upsertCustomRebatePayout'
-      |'calculateRebateAmountAndUpsertPayout'
-      |'processRebatesBatchCalculationJob'
-      |'generateRebatePayoutPeriods'
-      |'calculateAdvancedAccountForecast'
-      |'processAccountForecasts'
-      |'managedContentReleasePublish'
-      |'editQuipDocument'
-      |'attachQuipDocumentToRecord'
-      |'createQuipDocument'
-      |'createQuipFolder'
-      |'addUsersToQuipDocument'
-      |'removeUsersFromQuipDocument'
-      |'copyQuipDocument'
-      |'addMessageToQuipDocument'
-      |'addQuipDocumentToFolder'
-      |'removeQuipDocumentFromFolder'
-      |'createQuipChat'
-      |'addMessageToQuipChat'
-      |'addUsersToQuipChat'
-      |'removeUsersFromQuipChat'
-      |'copyQuipContent'
-      |'lockQuipDocument'
-      |'lockQuipSection'
-      |'quipLivePaste'
-      |'exportQuipDocumentToPdf'
-      |'priceCart'
-      |'cartInitiateAsyncStep'
-      |'cartCompleteAsyncStep'
-      |'cancelCartAsyncOperation'
-      |'createCart'
-      |'addCartItem'
-      |'getCartItems'
-      |'getCartPromotions'
-      |'deleteCart'
-      |'cancelFulfillmentOrderItem'
-      |'createFulfillmentOrder'
-      |'createInvoiceFromFulfillmentOrder'
-      |'createFulfillmentOrders'
-      |'captureFunds'
-      |'createOrderPaymentSummary'
-      |'cancelOrderItemSummariesPreview'
-      |'cancelOrderItemSummariesSubmit'
-      |'createCreditMemoOrderSummary'
-      |'ensureFundsOrderSummaryAsync'
-      |'ensureRefundsOrderSummaryAsync'
-      |'returnOrderItemSummariesPreview'
-      |'returnOrderItemSummariesSubmit'
-      |'createReturnOrder'
-      |'createOrderSummary'
-      |'adjustOrderItemSummariesPreview'
-      |'adjustOrderItemSummariesSubmit'
-      |'addOrderItemSummarySubmit'
-      |'distributePickedQuantities'
-      |'createOrderFromQuote'
-      |'placeSalesTransaction'
-      |'createOrUpdateAssetFromOrder'
-      |'createBillingScheduleFromOrderItem'
-      |'changeFinancePeriodStatus'
-      |'applyPayment'
-      |'unapplyPayment'
-      |'paymentSale'
-      |'automateRefund'
-      |'createInvoiceFromOrder'
-      |'createOrUpdateAssetFromOrderItem'
-      |'createContract'
-      |'ociTransferReservation'
-      |'ociReleaseReservation'
-      |'ociGetAvailability'
-      |'ociFulfillReservation'
-      |'ociCreateReservation'
-      |'ociUpdateReservation'
-      |'orderRoutingRankByAverageDistance'
-      |'orderRoutingFindRoutesWithFewestSplits'
-      |'orderRoutingFindRoutesWithFewestSplitsUsingOCI'
-      |'holdFulfillmentOrderCapacity'
-      |'releaseHeldFulfillmentOrderCapacity'
-      |'confirmHeldFulfillmentOrderCapacity'
-      |'getFulfillmentOrderCapacityValues'
-      |'print'
-      |'exportSurveyResponses'
-      |'checkoutSessionAction'
-      |'checkCartInventoryAction'
-      |'calcCartTaxesAction'
-      |'calcCartShipmentAction'
-      |'calcCartPromotionsAction'
-      |'sendSurveyInvitation'
-      |'publishPardotContent'
-      |'storeReplyRecommendationsFeedback'
-      |'marketingEmail'
-      |'updateCheckoutSessionStateAction'
-      |'massUpdateAccountForecast'
-      |'massUpdateSalesAgreement'
-      |'buildWarrantyClaimContext'
-      |'decisionTableAction'
-      |'runDecisionMatrix'
-      |'createFinancialRecords'
-      |'addWorkPlans'
-      |'addWorkSteps'
-      |'generateWorkPlans'
-      |'deleteWorkPlans'
-      |'pardotGetListx'
-      |'pardotAddToListMembership'
-      |'getTier'
-      |'changeTier'
-      |'changeAllTierOrNone'
-      |'getPointsBalance'
-      |'updateAcctMgrTarget'
-      |'creditPoints'
-      |'debitPoints'
-      |'batchJobAction'
-      |'dataProcessingEngineAction'
-      |'adjustPointsAction'
-      |'cancelRedemption'
-      |'cancelAccrual'
-      |'addRebateMemberList'
-      |'saveRecommendationDecision'
-      |'outboundMessage'
-      |'internalTestAction'
-      |'internalTestAsyncAction'
-      |'internalTestConnectApiAction'
-      |'internalTestVersionedCustomAction'
-      |'internalTestCustomAction'
-      |'getDialerSoftphonePathSuffix'
-      |'performMultiLevelRollups'
-      |'rebatesProcessCSV'
-      |'processMemberBenefitAction'
-      |'assignMemberTierBenefits'
-      |'dynamicSendSurveyInvitation'
-      |'getIntelligentAccountSettingsToken'
-      |'issueVoucher'
-      |'setCheckoutDeliveryMethod'
-      |'refreshDecisionTable'
-      |'replaceAsset'
-      |'relocateAsset'
-      |'evaluationFlow'
-      |'stepInteractive'
-      |'stepBackground'
-      |'stepMuleSoft'
-      |'managedContentRoleStepInteractive'
-      |'managedContentVariantSetLockStepBackground'
-      |'managedContentVariantSetReadyStepBackground'
-      |'managedContentVariantAutoPublishStepBackground'
-      |'managedContentVariantAutoUnpublishStepBackground'
-      |'stepApproval'
-      |'generateKnowledgeLogData'
-      |'submitFailedRecordsBatchJob'
-      |'getEligibleProgramRebateTypes'
-      |'returnReturnOrderItems'
-      |'slackPostMessage'
-      |'slackUpdateMessage'
-      |'slackPinMessage'
-      |'slackCreateChannel'
-      |'slackInviteUsersToChannel'
-      |'slackUserInChannel'
-      |'slackUserInWorkspace'
-      |'slackCheckUsersAreConnectedToSlack'
-      |'slackArchiveChannel'
-      |'slackInviteUserToWorkspace'
-      |'slackGetConversationInfo'
-      |'slackAgentCreateCanvas'
-      |'slackAgentUpdateCanvas'
-      |'slackAgentSearch'
-      |'slackAgentGetUser'
-      |'slackAgentSendDirectMessage'
-      |'getLoyaltyPromotionBasedOnSalesforceCDP'
-      |'transferMemberPointsToGroups'
-      |'getLoyaltyPromotion'
-      |'createServiceDocument'
-      |'createArticleRecommendations'
-      |'discoveryPredict'
-      |'processProgramRebateTypeProducts'
-      |'fetchCaseClassificationRecommendations'
-      |'applyCaseClassificationRecommendations'
-      |'updateProgressForCumulativePromotionUsage'
-      |'updateAdvancedAccountForecastSetPartner'
-      |'swarmingCollaborationToolSettings'
-      |'getArticleSmartLinkUrl'
-      |'performSurveySentimentAnalysis'
-      |'pardotSlackCompletionActionNotification'
-      |'createClosePlan'
-      |'getProductPricing'
-      |'findPastCollaborators'
-      |'getDataRelatedToOpportunity'
-      |'calculateProjectedRebateAmount'
-      |'runProgramProcessForTransactionJournal'
-      |'goalAchievedAction'
-      |'buildIdentityVerification'
-      |'getVerificationData'
-      |'sendNotification'
-      |'uploadBlockchainData'
-      |'saveMemberVerificationSteps'
-      |'limitRepetitions'
-      |'slackSendMessageToLaunchFlow'
-      |'manageRecurringSchedules'
-      |'importRecordsFromCsvFile'
-      |'authorizePayment'
-      |'getMemberActiveSegments'
-      |'getAvailableSwarmObject'
-      |'runExpressionSet'
-      |'mergeLoyaltyProgramMembership'
-      |'unmergeLoyaltyProgramMembership'
-      |'massUpdateAdvAccountForecast'
-      |'runProgramProcess'
-      |'getAssessmentResponseSummary'
-      |'industriesSendApexAsyncRequest'
-      |'slackJoinChannel'
-      |'createInvoiceFromChangeOrders'
-      |'generateInboxSchedulingLink'
-      |'generateInboxMeetingTimes'
-      |'confirmInboxMeetingTime'
-      |'sendEmailMessage'
-      |'goToCadenceStep'
-      |'createBenefitDisbursement'
-      |'createCareProgramEnrolleeWorkOrderStep'
-      |'generateTransactionJournals'
-      |'cdpRefreshDataStream'
-      |'dataKitDeployComponentAction'
-      |'dataKitGetComponentAction'
-      |'generateMemberReferralCode'
-      |'cdpPublishSegment'
-      |'cdpValidateSegmentMember'
-      |'industriesSendExtAsyncRequest'
-      |'getDataCategoryDetails'
-      |'getDataCategoryGroups'
-      |'searchKnowledgeArticles'
-      |'knowledgeSearch'
-      |'answerQuestionsWithSalesforceDocumentation'
-      |'cdpPublishCalculatedInsight'
-      |'cdpRunBatchTransform'
-      |'cdpGetMlPrediction'
-      |'cdpMlPrediction'
-      |'einsteinRagDetectLanguage'
-      |'transformQueryForCase'
-      |'transformQueryForEmail'
-      |'transformQueryForConversation'
-      |'getEinsteinRetrieverResults'
-      |'cdpGetDataGraph'
-      |'cdpTriggerModelPredJob'
-      |'scheduleHomeVisit'
-      |'scheduleRecurringHomeVisit'
-      |'rescheduleRecurringHomeVisits'
-      |'createQuoteForHomeVisits'
-      |'generateAssessmentEnvelopeSignature'
-      |'sendChannelMessage'
-      |'createInvRsvForCart'
-      |'deleteInvRsvForCart'
-      |'initiateTextExtraction'
-      |'fetchActiveOcrTemplates'
-      |'fetchExtractedText'
-      |'createMaterialLineForSalesItem'
-      |'generateDisambiguationLogData'
-      |'cdpRunIdentityResolution'
-      |'handleResourceAbsence'
-      |'fetchRebateClaimDetails'
-      |'getNewProductPricingInfo'
-      |'calcPriceProtectPayoutAmt'
-      |'processGiftEntries'
-      |'saveCustomFieldsInGiftEntry'
-      |'processGiftCommitment'
-      |'pauseGiftCommitmentSchedule'
-      |'resumeGiftCommitmentSchedule'
-      |'closeGiftCommitment'
-      |'syncAccountAndContactPointAddr'
-      |'manageCustomGiftCmtSchds'
-      |'manageGiftDefaultDesignations'
-      |'manageRcrGiftCmtSchd'
-      |'updateProcessedGiftEntries'
-      |'createEnrichedPrompt'
-      |'manageFundraisingDefinitions'
-      |'assignEnablementProgram'
-      |'inviteToReorderPortal'
-      |'runRecordAggrBatchProcDef'
-      |'sendSmsMessage'
-      |'creaContactsFromGrpCensMembers'
-      |'creaPersAccountsFromGrpCensMbr'
-      |'creaUsersFromGrpCensusMembers'
-      |'enrollMembers'
-      |'createProducerCommissions'
-      |'findInsurancePolicy'
-      |'initiateAmendQuantity'
-      |'initiateAmendment'
-      |'initiateRenewal'
-      |'initiateCancellation'
-      |'manageGiftTrxnDesignations'
-      |'processReceivedDocument'
-      |'getEffAccountsForStoreUser'
-      |'getProductRecommendations'
-      |'b2bD2cGetOrderSummaries'
-      |'getB2cProductRecommendations'
-      |'getB2cOrderDetails'
-      |'generateOrderSummaryUrl'
-      |'createBenefitDisbursementForServiceAppointment'
-      |'getAssessments'
-      |'getAcademicTerm'
-      |'getIntrctnSumAndCarePlans'
-      |'getCalcInsightsData'
-      |'renewInsurancePolicy'
-      |'enrollLearner'
-      |'executeExprSetWithContext'
-      |'buildContext'
-      |'createClmContract'
-      |'createReport'
-      |'checkInContractDocumentVersion'
-      |'performContractAction'
-      |'sendContractForESignature'
-      |'unlockContractDocumentVersion'
-      |'getCntntDocDtlForCntrDocVer'
-      |'createContractDocumentVersion'
-      |'persistContextData'
-      |'createReferral'
-      |'createChatSession'
-      |'addOrderToCart'
-      |'generateUserInputs'
-      |'rateProducts'
-      |'getInsuranceQuoteDetails'
-      |'repriceInsuranceProduct'
-      |'createInsuranceQuote'
-      |'updateCareGapStatus'
-      |'sendConversationMessages'
-      |'initiateNaturalLangProcessing'
-      |'getRecordDetails'
-      |'getConversationTranscripts'
-      |'fetchBoostBuryRuleRecommendation'
-      |'createSearchBoostBuryRule'
-      |'captureUserFeedback'
-      |'previewCartToExchangeOrder'
-      |'submitCartToExchangeOrder'
-      |'dispatchReminders'
-      |'computeCleanEnergyApplnBen'
-      |'identifyRecordByName'
-      |'processReferralEvent'
-      |'submitOrder'
-      |'dataCloudIngestionApi'
-      |'getPaynowWebstoreId'
-      |'queryRecords'
-      |'queryRecordsWithAggregate'
-      |'registerGuestBuyer'
-      |'identifyObject'
-      |'scheduleGroupVisits'
-      |'createSubscriptionRecords'
-      |'generatePromptResponse'
-      |'getRelatedList'
-      |'webSearch'
-      |'getSimilarRecords'
-      |'einsteinGenerateMessages'
-      |'draftOrReviseEmail'
-      |'sendMeetingRequest'
-      |'reviewMyDay'
-      |'summarizeRecord'
-      |'einsteinCopilotUpdateRecord'
-      |'einsteinCopilotCreateRecord'
-      |'runSalesforcePricing'
-      |'processFirstPaymentBilling'
-      |'runSalesforceHeadlessPricing'
-      |'dstrEnergyAttrCertCredits'
-      |'getRecordFieldsAndValues'
-      |'createCommercePromotions'
-      |'createIntegrationPlan'
-      |'runIntegrationPlan'
-      |'exploreConversation'
-      |'draftServiceEmail'
-      |'getActivitySummary'
-      |'generateResearchStudyBlocks'
-      |'processCriteriaMatchingResp'
-      |'getForecastGuidance'
-      |'getForecastContext'
-      |'getForecastOpportunities'
-      |'getRecPrioData'
-      |'sendWhatsAppMessage'
-      |'lockRecord'
-      |'postDraftInvoiceBatchRun'
-      |'assignCndtToResearchStudyGroup'
-      |'postDraftInvoice'
-      |'getConvTscpForRecord'
-      |'recoverBillingSchedules'
-      |'checkOutContractDocVersion'
-      |'getContractDocumentVersions'
-      |'updateClmContracts'
-      |'draftAGiftProposal'
-      |'processDataUsingGenAi'
-      |'transformNlpActionResult'
-      |'getSalesAgreementDetails'
-      |'createConsent'
-      |'exportExternalRecordShare'
-      |'checkServiceCatalogItemEligibility'
-      |'createOrUpdtSvcCatalogRequest'
-      |'createCatalogItemRequest'
-      |'answerQuestionWithReports'
-      |'createEngagementsDetailsRep'
-      |'createBillingSchedulesFromBillingTransaction'
-      |'scheduleHomeVisitsManually'
-      |'analyticsSendDigestAsSlackMsg'
-      |'createUpdtPromUseAcruPromTmpl'
-      |'generateLoyaltyPromotionEmail'
-      |'getResourcesForMnlScheduling'
-      |'summarizeMedicationDetailsForPatient'
-      |'generateAnalyticsAssetsContent'
-      |'quoteToSA'
-      |'convertRecord'
-      |'getEngagements'
-      |'getFinclAccountsForAnAcct'
-      |'getFeeTrxnFromFinclAcct'
-      |'createCaseForFeeReversal'
-      |'api'
-      |'getDataForGrounding'
-      |'getActivityDetails'
-      |'pauseAds'
-      |'getLowPerformingAds'
-      |'getCampaignObjectives'
-      |'getChannelTypes'
-      |'getMetrics'
-      |'getActivitiesTimeline'
-      |'getBalancesFromFinancialAccounts'
-      |'getFinancialTransactions'
-      |'getCardDetailsForAccount'
-      |'createCaseToBlockCard'
-      |'createVisitForContextRecord'
-      |'getFinancialAccountAddresses'
-      |'createCaseForFinclAcctAddrUpdt'
-      |'getAndExplainObjectPermissions'
-      |'summarizeAppointmentNotes'
-      |'serializePreWorkBriefRecords'
-      |'summaryRefinement'
-      |'generateBrief'
-      |'saveBrief'
-      |'generateCampaignFromBrief'
-      |'saveCampaign'
-      |'summarizeCampaign'
-      |'generateOrRefineTextForProperty'
-      |'createOrRefineSectionWithContent'
-      |'summarizeMedicalHistoryForPatient'
-      |'researchRecord'
-      |'reviewBuyingCommittee'
-      |'getCaseInfoToSummarize'
-      |'getUsersFromEmailAddresses'
-      |'discoverySearchAction'
-      |'einsteinDecidePath'
-      |'dplyCustExprcIntelDataKitCmpnt'
-      |'generateCustomReportType'
-      |'associateRecordsWithActivity'
-      |'getAcctOpptyFromEmailAddr'
-      |'trgrOnOrderPlacement'
-      |'trgrOnWebCartAbandoned'
-      |'processWebStoreUserRgstr'
-      |'trgrOnSmsSubscription'
-      |'trgrOnWhatsAppSubscription'
-      |'trgrOnEmailSubscription'
-      |'trgrOnEmailOpenEngagement'
-      |'trgrOnEmailLinkClickEngagement'
-      |'trgrOnEmailBounceEngagement'
-      |'trgrOnSmsLinkClickEngagement'
-      |'trgrOnSmsDeliveryFailureEngagement'
-      |'trgrOnSmsResponseEngagement'
-      |'trgrOnWhatsAppResponseEngmt'
-      |'trgrOnWhatsAppReadEngagement'
-      |'trgrOnWhatsAppDeliveredEngagement'
-      |'trgrOnWhatsAppLinkClickEngmt'
-      |'trgrOnWhatsAppDlvrFailureEngmt'
-      |'explainFormula'
-      |'modifyFormula'
-      |'validateFormula'
-      |'publishActionableOrchSrcEvent'
-      |'createApptListFilter'
-      |'summarizeSchedulingIssues'
-      |'getAppointmentsToFillGaps'
-      |'assignApptForServiceResourceForFieldService'
-      |'scheduleServiceAppointment'
-      |'computeProducerSplits'
-      |'generateInvoiceDocuments'
-      |'forwardToBotOrAgent'
-      |'lookUpOrderSummary'
-      |'getBusinessObjectives'
-      |'formatInsightsForDisplay'
-      |'contextDataProvider'
-      |'prepareMeeting'
-      |'getAssetParticipantDetails'
-      |'recallApprovalSubmission'
-      |'reassignApprovalWorkItem'
-      |'reviewApprovalWorkItem'
-      |'overrideApprovalWorkItem'
-      |'cancelApprovalSubmission'
-      |'getCommercePromotionTemplates'
-      |'recommendFields'
-      |'identifyObjectByName'
-      |'getContcLeadsFromEmailAddr'
-      |'trgrOnFormSubmission'
-      |'trgrOnPaymentTransaction'
-      |'invokeRatingService'
-      |'recordTaxTransaction'
-      |'recordTaxReversal'
-      |'applyCredit'
-      |'unapplyCredit'
-      |'createFieldGnrnPromptTmplResp'
-      |'validateTimesheet'
-      |'applyUserDefinedLabel'
-      |'createAToDo'
-      |'createLabel'
-      |'logACall'
-      |'recommendComponents'
-      |'draftCaseResponse'
-      |'findSimilarCases'
-      |'summarizeEngagement'
-      |'getProductDetails'
-      |'groundingDataGenerator'
-      |'findProducts'
-      |'getProducts'
-      |'identifySObjectFieldProperties'
-      |'configureAgents'
-      |'scheduleEmail'
-      |'getAppointmentBookingSlots'
-      |'convertTimeZone'
-      |'updateAppointmentTimes'
-      |'getNewServiceAppointment'
-      |'getAndExplainUserPermissions'
-      |'computeConsumption'
-      |'createConsumptionAlert'
-      |'replenishInventoryUsingPolicy'
-      |'issueInsurancePolicy'
-      |'getCommerceStorefrontContext'
-      |'getRecordSummarizationPrompt'
-      |'findSimilarInteractions'
-      |'summarizeProductReviews'
-      |'getActiveApplicationReviewerIds'
-      |'dataModelSMEGenerateRequirementSection'
-      |'dataModelSMEGenerateDesignSection'
-      |'dataModelSMEGenerateBacklogSection'
-      |'dataModelSMECreateCustomMetadata'
-      |'submitSalesTransaction'
-      |'convertProspect'
-      |'migrateConnectedApp'
-      |'summarizeConnectedApp'
-      |'evalCmplValidationProcedure'
-      |'processConsumptionOverages'
-      |'analyzeMetric'
-      |'generateMetricInsights'
-      |'refineSemanticSubMetric'
-      |'analyzeSemanticDataModel'
-      |'serializeHierarchicalContextData'
-      |'getContextData'
-      |'generateAiAgentResponse'
-      |'freezeSalesTransaction'
-      |'invokeRule'
-      |'endorseInsurancePolicy'
-      |'savePaymentConfig'
-      |'unfreezeSalesTransaction'
-      |'identifyFieldByName'
-      |'getPersonalizationDecisions'
-      |'cancelInsurancePolicy'
-      |'getInsurancePolicy'
-      |'queryContextTags'
-      |'updateContextAttributes'
-      |'deleteContextCache'
-      |'getRecordAccessOfUser'
-      |'getPointOfNoReturnDetails'
-      |'rpa'
-      |'startRpaFlow'
-      |'scheduleSvcApptActnblEvntOrch'
-      |'trgrOnVoucherStsChgOtbdEngmt'
-      |'getGrndDataServiceRepliesEmail'
-      |'createOrderServiceAccount'
-      |'refreshUsageEntitlementBucket'
-      |'getLeaveBalance'
-      |'getGroupCensusMembers'
-      |'validateGroupCensusMembers'
-      |'saveGroupCensusMembersData'
-      |'createServiceRequestCase'
-      |'invokeSummaryCreationService'
-      |'identifyUserPermissionsByName'
-      |'getAgentConvTscp'
-      |'parseConvoAnalysis'
-      |'generateVerificationCode'
-      |'verifyCustomerCode'
-      |'getSvcProcessAttrData'
-      |'convertDateToDateTime'
-      |'createBulkRecords'
-      |'enhanceProductDescription'
-      |'flexipageRefineRequirements'
-      |'flexipageRefineDesign'
-      |'flexipageRefinePlan'
-      |'flexipageExecutePlan'
-      |'createUpdatePromUseSpendXTmpl'
-      |'createUpdatePromUseBuyXTmpl'
-      |'aslmHeadlessPricing'
-      |'raiseFlag'
-      |'apexRest'
-
-export type FlowScreenFieldType = 'DisplayText'
-      |'InputField'
-      |'LargeTextArea'
-      |'PasswordField'
-      |'RadioButtons'
-      |'DropdownBox'
-      |'MultiSelectCheckboxes'
-      |'MultiSelectPicklist'
-      |'ComponentInstance'
-      |'ComponentInput'
-      |'ComponentChoice'
-      |'ComponentMultiChoice'
-      |'ComponentDisplay'
-      |'Repeater'
-      |'RegionContainer'
-      |'Region'
-      |'ObjectProvided'
-
-export type FlowScreenFieldInputsRevisited = 'UseStoredValues'
-      |'ResetValues'
-
-export type FlowRegionContainerType = 'SectionWithHeader'
-      |'SectionWithoutHeader'
-
-export type FlowElementSubtype = 'SortCollectionProcessor'
-      |'RecommendationMapCollectionProcessor'
-      |'FilterCollectionProcessor'
-      |'WaitDate'
-      |'WaitUntilEvent'
-      |'WaitAttribute'
-      |'WaitDuration'
-      |'InteractiveStep'
-      |'BackgroundStep'
-      |'MuleSoftStep'
-      |'ManagedContentRoleInteractiveStep'
-      |'ManagedContentVariantSetLockBackgroundStep'
-      |'ManagedContentVariantSetReadyBackgroundStep'
-      |'ManagedContentVariantAutoPublishBackgroundStep'
-      |'ManagedContentVariantAutoUnpublishBackgroundStep'
-      |'AddPromptInstructions'
-      |'ApprovalStep'
-
-export type FlowWaitInteractionType = 'SmsResponse'
-      |'WhatsappResponse'
-
-export type RecordTriggerType = 'Update'
-      |'Create'
-      |'CreateAndUpdate'
-      |'Delete'
-      |'None'
-
-export type FlowCollectionProcessorType = 'SortCollectionProcessor'
-      |'RecommendationMapCollectionProcessor'
-      |'FilterCollectionProcessor'
-
-export type FlowExperimentType = 'Random'
-      |'Manual'
-      |'Automatic'
-
-export type IterationOrder = 'Asc'
-      |'Desc'
-
-export type FlowEntryType = 'Always'
-      |'AfterCompletion'
-
-export type FlowRunAsUser = 'TriggeringUser'
-      |'DefaultWorkflowUser'
-
-export type FlowStartFrequency = 'OnActivate'
-      |'Once'
-      |'Daily'
-      |'Weekly'
-
-export type FlowTriggerType = 'None'
-      |'Scheduled'
-      |'RecordBeforeSave'
-      |'RecordBeforeDelete'
-      |'RecordAfterSave'
-      |'PlatformEvent'
-      |'EventDrivenJourney'
-      |'Segment'
-      |'DataCloudDataChange'
-      |'FormSubmissionEvent'
-      |'Capability'
-      |'AutomationEvent'
-      |'ExternalSystemChange'
-      |'DataGraphDataChange'
-
-export type FlowTransactionModel = 'Automatic'
-      |'NewTransaction'
-      |'CurrentTransaction'
-
-export type FlowEnvironment = 'Default'
-      |'Slack'
-      |'Offline'
-
-export type FlowRunInMode = 'DefaultMode'
-      |'SystemModeWithSharing'
-      |'SystemModeWithoutSharing'
-
-export type FlowVersionStatus = 'Active'
-      |'Draft'
-      |'Obsolete'
-      |'InvalidDraft'
-
-export type FlowTestParameterType = 'InputTriggeringRecordInitial'
-      |'InputTriggeringRecordUpdated'
-      |'ScheduledPath'
-
-export type FolderAccessTypes = 'Shared'
-      |'Public'
-      |'Hidden'
-      |'PublicInternal'
-
-export type FolderShareAccessLevel = 'View'
-      |'EditAllContents'
-      |'Manage'
-
-export type FolderSharedToType = 'Group'
-      |'Role'
-      |'RoleAndSubordinates'
-      |'RoleAndSubordinatesInternal'
-      |'Manager'
-      |'ManagerAndSubordinatesInternal'
-      |'Organization'
-      |'Territory'
-      |'TerritoryAndSubordinates'
-      |'AllPrmUsers'
-      |'User'
-      |'PartnerUser'
-      |'AllCspUsers'
-      |'CustomerPortalUser'
-      |'PortalRole'
-      |'PortalRoleAndSubordinates'
-      |'ChannelProgramGroup'
-
-export type PublicFolderAccess = 'ReadOnly'
-      |'ReadWrite'
-
-export type ForecastingDateType = 'OpportunityCloseDate'
-      |'ProductDate'
-      |'ScheduleDate'
-      |'OLIMeasureCloseDateOnly'
-      |'ProductDateOnly'
-      |'ScheduleDateOnly'
-      |'OpportunityCustomDate'
-      |'OLIMeasureOppCustomDateOnly'
-
-export type DonorMatchingMethod = 'Duplicate_Management_Rules'
-      |'No_Matching'
-
-export type PlannerFunctionInvocableTargetType = 'apex'
-      |'flow'
-      |'standardInvocableAction'
-      |'generatePromptResponse'
-      |'externalService'
-      |'quickAction'
-      |'createCatalogItemRequest'
-      |'api'
-      |'apexRest'
-
-export type PlannerAttrMappingType = 'input'
-      |'output'
-
-export type AttributeType = 'CustomPluginFunctionAttribute'
-      |'StandardPluginFunctionInput'
-      |'StandardPluginFunctionOutput'
-
-export type AttributeMappingType = 'ActionAttribute'
-      |'Constant'
-      |'Variable'
-      |'ContextVariable'
-
-export type PluginType = 'Topic'
-
-export type GenAiAgentVariableType = 'Variable'
-      |'ContextVariable'
-      |'Attribute'
-
-export type GenAiRuleExpressionOperator = 'equal'
-      |'greaterThan'
-      |'greaterThanOrEqual'
-      |'lessThan'
-      |'lessThanOrEqual'
-      |'notEqual'
-      |'isEmpty'
-      |'isNotEmpty'
-
-export type ExpressionType = 'sel'
-      |'handlebars'
-
-export type PlannerType = 'AiCopilot__SequentialPlannerIntentClassifier'
-      |'AiCopilot__ReAct'
-      |'Atlas__SimpleReflective'
-      |'Atlas__Reflective'
-      |'Atlas__ConcurrentMultiAgentOrchestration'
-
-export type GenAiPromptTemplateStatus = 'Published'
-      |'Draft'
-
-export type GenAiPromptTemplateVisibilityType = 'Locked'
-      |'Internal'
-      |'API'
-      |'Global'
-
-export type GenAiPromptTemplateActvAccessLevel = 'Allowed'
-      |'Blocked'
-
-export type PageComponentType = 'links'
-      |'htmlArea'
-      |'imageOrNote'
-      |'visualforcePage'
-
-export type PageComponentWidth = 'narrow'
-      |'wide'
-
-export type IPAddressFeature = 'EmailIpFiltering'
-
-export type IPAddressUsageScope = 'Exclusion'
-      |'Inclusion'
-
-export type IconUsageType = 'PersonLifeEvent'
-      |'InsurancePolicy'
-      |'BusinessMilestone'
-      |'Interaction'
-      |'AssetMilestone'
-      |'FinancialAccountMilestone'
-
-export type IdentityVerificationDataSourceType = 'Salesforce'
-      |'External'
-
-export type IdentityVerificationProcFldDataSourceType = 'Salesforce'
-      |'External'
-
-export type IdentityVerificationProcFldFieldDataType = 'address'
-      |'checkbox'
-      |'currency'
-      |'dateonly'
-      |'datetime'
-      |'email'
-      |'number'
-      |'percent'
-      |'phone'
-      |'picklist'
-      |'reference'
-      |'text'
-      |'timeonly'
-      |'url'
-      |'other'
-
-export type IdentityVerificationProcFldFieldType = 'requiredVerifier'
-      |'optionalVerifier'
-      |'searchField'
-      |'resultField'
-      |'additionalResultField'
-      |'searchFilter'
-
-export type IdentityVerificationSearchType = 'Text-Based'
-      |'Object-Based'
-
-export type IdentityVerificationSearchLayoutType = 'Tab'
-      |'Stack'
-
-export type IFrameWhitelistContext = 'VisualforcePages'
-      |'Surveys'
-      |'DCH_ADDIN_APP'
-
-export type ExternalConnectionType = 'AwsPrivateLink'
-      |'DataCloudPrivateConnection'
-
-export type InboundConnPropertyName = 'LinkId'
-      |'Region'
-      |'AwsVpcEndpointId'
-      |'SourceIpRanges'
-
-export type ExternalConnectionStatus = 'Unprovisioned'
-      |'Allocating'
-      |'PendingAcceptance'
-      |'PendingActivation'
-      |'RejectedRemotely'
-      |'DeletedRemotely'
-      |'TeardownInProgress'
-      |'Ready'
-
-export type InsPolicyLifecycleProcess = 'Renew_Same_Carrier'
-      |'Renew_Different_Carrier'
-      |'Repurpose'
-      |'Endorse'
-      |'Cancel'
-
-export type InsRatePlanCmsnConfigCalcType = 'Flat'
-      |'Graded'
-
-export type AttrDataType = 'String'
-      |'Integer'
-      |'Double'
-      |'Date'
-      |'DateTime'
-      |'Percentage'
-      |'Boolean'
-
-export type DefinitionType = 'Apex'
-      |'LowCode'
-      |'Java'
-
-export type KnowledgeCaseEditor = 'simple'
-      |'standard'
-
-export type KnowledgeLanguageLookupValueType = 'User'
-      |'Queue'
-
-export type FeedLayoutFilterPosition = 'CenterDropDown'
-      |'LeftFixed'
-      |'LeftFloat'
-
-export type FeedLayoutFilterType = 'AllUpdates'
-      |'FeedItemType'
-      |'Custom'
-
-export type FeedLayoutComponentType = 'HelpAndToolLinks'
-      |'CustomButtons'
-      |'Following'
-      |'Followers'
-      |'CustomLinks'
-      |'Milestones'
-      |'SimilarCases'
-      |'CaseExperts'
-      |'Topics'
-      |'CaseUnifiedFiles'
-      |'Visualforce'
-
-export type LayoutHeader = 'PersonalTagging'
-      |'PublicTagging'
-
-export type UiBehavior = 'Edit'
-      |'Required'
-      |'Readonly'
-
-export type ReportChartComponentSize = 'SMALL'
-      |'MEDIUM'
-      |'LARGE'
-
-export type LayoutSectionStyle = 'TwoColumnsTopToBottom'
-      |'TwoColumnsLeftToRight'
-      |'OneColumn'
-      |'CustomLinks'
-
-export type SummaryLayoutStyle = 'Default'
-      |'QuoteTemplate'
-      |'DefaultQuoteTemplate'
-      |'ServiceReportTemplate'
-      |'ChildServiceReportTemplateStyle'
-      |'DefaultServiceReportTemplate'
-      |'CaseInteraction'
-      |'QuickActionLayoutLeftRight'
-      |'QuickActionLayoutTopDown'
-      |'PathAssistant'
-
-export type VisibleOrRequired = 'VisibleOptional'
-      |'VisibleRequired'
-      |'NotVisible'
-
-export type LetterheadHorizontalAlignment = 'None'
-      |'Left'
-      |'Center'
-      |'Right'
-
-export type LetterheadVerticalAlignment = 'None'
-      |'Top'
-      |'Middle'
-      |'Bottom'
-
-export type LifeSciAssignmentLevel = 'Profile'
-      |'User'
-
-export type LifeSciConfigCategoryType = 'DbSchema'
-      |'UISchema'
-      |'BlacklistEntity'
-      |'NavigationIcons'
-      |'ApplicationSettings'
-      |'SetupTestCategory'
-      |'TerritoryManagement'
-      |'ProfileBasedAppSettings'
-      |'SyncTransactionConfig'
-      |'LogSettings'
-      |'AccountDynamicListConfiguration'
-      |'AccountSearchSettings'
-      |'AccountFilterConfig'
-
-export type LifeSciConfigFieldDataType = 'TEXT'
-      |'LONGTEXT'
-      |'NUMBER'
-      |'BOOLEAN'
-      |'INTEGER'
-      |'DATE'
-      |'DATETIME'
-      |'PHONE'
-      |'PICKLIST'
-      |'URL'
-      |'OBJECT'
-      |'FIELD'
-
-export type LightningBoltCategory = 'Communications'
-      |'Education'
-      |'FinancialServices'
-      |'Government'
-      |'HealthcareLifeSciences'
-      |'Manufacturing'
-      |'Media'
-      |'Nonprofits'
-      |'ProfessionalServices'
-      |'RealEstate'
-      |'Retail'
-      |'TravelTransportationHospitality'
-      |'HighTech'
-      |'GeneralBusiness'
-
-export type LightningDesignSystemVersion = 'SLDS_v1'
-      |'SLDS_v2'
-
-export type SupervisorAgentStatusFilter = 'Online'
-      |'Away'
-      |'Offline'
-
-export type LiveChatButtonPresentation = 'Slide'
-      |'Fade'
-      |'Appear'
-      |'Custom'
-
-export type LiveChatButtonInviteEndPosition = 'TopLeft'
-      |'Top'
-      |'TopRight'
-      |'Left'
-      |'Center'
-      |'Right'
-      |'BottomLeft'
-      |'Bottom'
-      |'BottomRight'
-
-export type LiveChatButtonInviteStartPosition = 'TopLeft'
-      |'TopLeftTop'
-      |'Top'
-      |'TopRightTop'
-      |'TopRight'
-      |'TopRightRight'
-      |'Right'
-      |'BottomRightRight'
-      |'BottomRight'
-      |'BottomRightBottom'
-      |'Bottom'
-      |'BottomLeftBottom'
-      |'BottomLeft'
-      |'BottomLeftLeft'
-      |'Left'
-      |'TopLeftLeft'
-
-export type LiveChatButtonRoutingType = 'Choice'
-      |'LeastActive'
-      |'MostAvailable'
-
-export type LiveChatButtonType = 'Standard'
-      |'Invite'
-
-export type SensitiveDataActionType = 'Remove'
-      |'Replace'
-
-export type SensitiveDataRuleProcessing = 'Persist'
-      |'RealTime'
-
-export type SensitiveDataRuleVersion = 'ONE'
-      |'TWO'
-
-export type LoyaltyPgmProcExecutionType = 'RealTime'
-      |'Batch'
-      |'BatchAndRealTime'
-
-export type LoyaltyPgmProcCondOperator = 'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'Contains'
-      |'DoesNotContain'
-      |'IsNull'
-      |'IsNotNull'
-
-export type LoyaltyPgmProcCondType = 'Literal'
-      |'Parameter'
-      |'Formula'
-      |'Lookup'
-
-export type LoyaltyPgmProcRuleType = 'Condition'
-      |'Action'
-      |'ConditionGroup'
-      |'DefaultPath'
-
-export type LoyaltyPgmProcParmDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'Sobject'
-      |'Boolean'
-
-export type LoyaltyPgmProcParmType = 'Variable'
-      |'Constant'
-      |'Formula'
-
-export type LoyaltyPgmProcActParamOper = 'Equals'
-
-export type LoyaltyPgmProcActParamType = 'Literal'
-      |'Parameter'
-
-export type LoyaltyPgmProcActionType = 'CreditPoints'
-      |'DebitPoints'
-      |'IssueVoucher'
-      |'IncreaseUsageForCumulativePromotion'
-      |'UpdateUsageForCumulativePromotion'
-      |'AssignParameterValues'
-      |'RunFlow'
-      |'GetOutputsFromDecisionTable'
-      |'UpdatePointBalance'
-      |'GetMemberPointBalance'
-      |'GetMemberTier'
-      |'GetMemberAttributesValues'
-      |'UpdateCurrentValueForMemberAttribute'
-      |'RunProgramProcess'
-      |'Crud'
-      |'AssignBadgeToMember'
-      |'CheckMemberBadgeAssignment'
-      |'ChangeMemberTier'
-      |'GetMemberPromotions'
-      |'RedeemVoucher'
-      |'SendMail'
-
-export type LoyaltyPgmProcCrudActType = 'create'
-      |'update'
-
-export type LoyaltyPgmProcRuleStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type LoyaltyPgmProcStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type MLRelationType = 'Inner'
-      |'Leftouter'
-      |'Leftinner'
-      |'Full'
-
-export type MLFieldType = 'Prediction'
-      |'Pushback'
-      |'Included'
-      |'Excluded'
-      |'Join'
-      |'Related'
-      |'Expression'
-      |'SegmentExpression'
-      |'TrainingExpression'
-      |'ScoringExpression'
-      |'PositiveExpression'
-      |'NegativeExpression'
-      |'SourceDate'
-      |'Retriever'
-
-export type MLDataDefinitionType = 'Recipient'
-      |'Candidate'
-      |'Interaction'
-      |'Prediction'
-      |'Generative'
-
-export type MLGenerativeDefinitionStatus = 'Enabled'
-      |'Disabled'
-      |'Draft'
-
-export type MLGenerativeType = 'Standard'
-      |'Grounded'
-
-export type MLPredictionDefinitionStatus = 'Enabled'
-      |'Disabled'
-      |'Draft'
-
-export type MLRecommendationDefinitionStatus = 'Enabled'
-      |'Disabled'
-      |'Draft'
-
-export type MCNodeType = 'TEXT'
-      |'MTEXT'
-      |'RTE'
-      |'IMG'
-      |'NAMEFIELD'
-      |'MEDIA'
-      |'REFERENCE'
-      |'URL'
-      |'DATETIME'
-      |'DATE'
-      |'PHONE'
-      |'EMAIL'
-      |'ENCRYPTEDSTRING'
-      |'BOOLEAN'
-      |'CURRENCY'
-      |'INT'
-      |'DOUBLE'
-      |'PERCENT'
-      |'TIME'
-      |'ADDRESS'
-      |'LOCATION'
-
-export type EventSubscriptionReplayPreset = 'EARLIEST'
-      |'LATEST'
-
-export type EventSubscriptionAdminState = 'RUN'
-      |'STOP'
-      |'PAUSE'
-
-export type ContactPointType = 'Email'
-      |'Phone'
-      |'Web'
-      |'Social'
-      |'MailingAddress'
-      |'InPerson'
-      |'Video'
-
-export type AudienceFieldType = 'Boolean'
-      |'Text'
-      |'Encrypted'
-      |'Number'
-      |'Double'
-      |'Date'
-      |'DateTime'
-      |'Email'
-      |'Phone'
-      |'Time'
-      |'URL'
-
-export type MarketAudienceStatus = 'New'
-      |'Counting'
-      |'Activating'
-      |'Activated'
-      |'Disabled'
-      |'Error'
-
-export type MarketSegmentType = 'UI'
-      |'DBT'
-      |'Lookalike'
-      |'EinsteinGptSegmentsUI'
-      |'Waterfall'
-      |'Realtime'
-
-export type BlankValueBehavior = 'MatchBlanks'
-      |'NullNotAllowed'
-
-export type MatchingMethod = 'Exact'
-      |'FirstName'
-      |'LastName'
-      |'CompanyName'
-      |'Phone'
-      |'City'
-      |'Street'
-      |'Zip'
-      |'Title'
-
-export type MatchingRuleStatus = 'Inactive'
-      |'DeactivationFailed'
-      |'Activating'
-      |'Deactivating'
-      |'Active'
-      |'ActivationFailed'
-
-export type AutoResponseContentType = 'TextResponse'
-      |'MessageDefinition'
-
-export type MessagingAutoResponseType = 'InitialResponse'
-      |'AgentEngagedResponse'
-      |'AgentEndEngagementResponse'
-      |'OptInPrompt'
-      |'DoubleOptInPrompt'
-      |'EndUserInactiveResponse'
-      |'EndUserIdleResponse'
-      |'OptOutConfirmation'
-      |'CustomResponse'
-      |'HelpResponse'
-      |'OptInConfirmation'
-
-export type MessagingChannelConsentType = 'ImplicitOptIn'
-      |'ExplicitOptIn'
-      |'DoubleOptIn'
-
-export type MessagingChannelUsageDeploymentType = 'DigitalEngagementConversation'
-      |'UnifiedConversation'
-      |'MessagingEngagement'
-      |'MarketingJourneyBuilder'
-
-export type MessagingChannelTargetLookupValueType = 'Queue'
-      |'Intent'
-
-export type EmbeddedServiceAuthModeType = 'Auth'
-      |'UnAuth'
-
-export type MessagingAuthorizationType = 'PublicKeyCertificateSet'
-      |'AuthProvider'
-
-export type MessagingChannelType = 'EmbeddedMessaging'
-      |'InternalCopilot'
-      |'Voice'
-      |'Custom'
-      |'Facebook'
-      |'Line'
-      |'WhatsApp'
-      |'AppleMessagesForBusiness'
-
-export type MessagingKeywordType = 'OptIn'
-      |'DoubleOptIn'
-      |'OptOut'
-      |'Help'
-      |'Custom'
-
-export type MessagingSessionHandlerType = 'Queue'
-      |'Flow'
-      |'User'
-
-export type MessagingChannelStandardParameterType = 'FirstName'
-      |'LastName'
-      |'Email'
-      |'Subject'
-
-export type MfgProgramTransformationType = 'BusinessTransformation'
-      |'ForecastSetRelation'
-
-export type MfgProgramTemplateStatus = 'Active'
-      |'Inactive'
-      |'Draft'
-
-export type MilestoneTypeRecurrenceType = 'none'
-      |'recursIndependently'
-      |'recursChained'
-
-export type MktDataConnectionMethod = 'Ingress'
-      |'Egress'
-
-export type MktDataConnectionStatus = 'PROCESSING'
-      |'INACTIVE'
-      |'TESTING'
-      |'ACTIVE'
-      |'ERROR'
-      |'DELETING'
-      |'SCHEMA_REQUIRED'
-
-export type MlAIModelAlgorithmType = 'Unknown'
-      |'Glm'
-      |'Gbm'
-      |'Xgboost'
-      |'RandomForest'
-
-export type MlModelConnectorType = 'SAGEMAKER_DEPLOYED'
-      |'OPEN_AI'
-      |'AZURE_OPEN_AI'
-      |'GENERIC'
-      |'DATABRICKS'
-      |'VERTEX_AI'
-      |'ANTHROPIC'
-      |'BEDROCK'
-      |'OPEN_CONNECTOR'
-      |'SALESFORCE'
-
-export type MlModelDeployStatus = 'DRAFT'
-      |'REGISTERED'
-      |'ACTIVATED'
-      |'DEACTIVATED'
-      |'FAILED'
-
-export type MlGenerativeModelType = 'Text'
-
-export type MlGenerativeModelCapability = 'Completion'
-      |'ChatCompletion'
-      |'Embedding'
-
-export type MlModelCapability = 'Completion'
-      |'ChatCompletion'
-      |'Embedding'
-      |'Regression'
-      |'BinaryClassification'
-      |'MulticlassClassification'
-      |'Generic'
-
-export type MlModelType = 'Predictive'
-      |'Generative'
-      |'Unknown'
-
-export type MlParameterSubtype = 'Integer'
-      |'Double'
-      |'Picklist'
-
-export type MlParameterType = 'Discrete'
-      |'Continuous'
-
-export type MlModelPredictionType = 'Regression'
-      |'BinaryClassification'
-      |'MulticlassClassification'
-      |'Generic'
-
-export type MlRuntimeType = 'External'
-      |'Internal'
-
-export type MlModelSourceType = 'ModelConnector'
-      |'EdcNoCode'
-      |'OutOfTheBox'
-      |'FineTuned'
-
-export type MlAIModelType = 'ModelArtifact'
-      |'ConfiguredModel'
-
-export type MlModelEndpointType = 'REAL_TIME_INFERENCE'
-      |'BATCH_INFERENCE'
-
-export type MlInferenceFormat = 'JSON_DENSE'
-      |'CSV'
-      |'JSON_INSTANCES'
-      |'DATAFRAME_RECORDS'
-      |'DATAFRAME_SPLIT'
-      |'JSON'
-      |'COLUMNAR'
-
-export type ModerationRuleAction = 'Block'
-      |'FreezeAndNotify'
-      |'Review'
-      |'Replace'
-      |'Flag'
-
-export type RateLimitTimePeriod = 'Short'
-      |'Medium'
-
-export type ModerationRuleType = 'Content'
-      |'Rate'
-
-export type OrgDomainShard = 'none'
-      |'sandbox'
-      |'develop'
-      |'patch'
-      |'trailblaze'
-      |'scratch'
-      |'demo'
-      |'free'
-      |'bt'
-      |'sfdctest'
-      |'sfdcdot'
-      |'sfrestore'
-
-export type OrgDomainRedirectOption = 'Undeployed'
-      |'Redirect'
-      |'WarnOnRedirect'
-      |'NoRedirect'
-
-export type OrgDomainProdSuffix = 'MySalesforceLimited'
-      |'DatabaseLimited'
-      |'CloudforceLimited'
-      |'OrgLevelCertificateLimited'
-      |'Restricted1'
-      |'MySalesforce'
-      |'Restricted2'
-      |'OrgLevelCertificate'
-
-export type CalloutStatus = 'Enabled'
-      |'Disabled'
-
-export type NamedCredentialParamType = 'Url'
-      |'UrlQueryParameter'
-      |'HttpHeader'
-      |'HttpCookie'
-      |'ClientCertificate'
-      |'ServerCertificate'
-      |'FormulaVariable'
-      |'Authentication'
-      |'OutboundNetworkConnection'
-      |'AllowedManagedPackageNamespaces'
-      |'CreatedByNamespace'
-      |'CustomParameter'
-      |'StandardNamedCredentialType'
-      |'ManagedByFeature'
-      |'ManagedByComponent'
-      |'ConnectionStatus'
-
-export type NamedCredentialType = 'Legacy'
-      |'AnonymousEndpoint'
-      |'SecuredEndpoint'
-      |'PrivateEndpoint'
-      |'Credentials'
-      |'Standard'
-
-export type NetworkPageOverrideSetting = 'Designer'
-      |'VisualForce'
-      |'Standard'
-      |'Configurable'
-
-export type AudienceCriteriaType = 'CustomList'
-      |'MaxDaysInCommunity'
-
-export type RecommendationChannel = 'DefaultChannel'
-      |'CustomChannel1'
-      |'CustomChannel2'
-      |'CustomChannel3'
-      |'CustomChannel4'
-      |'CustomChannel5'
-
-export type SitesArchiveStatus = 'TemporarilyArchived'
-      |'Archived'
-      |'NotArchived'
-
-export type NetworkStatus = 'UnderConstruction'
-      |'Live'
-      |'DownForMaintenance'
-
-export type ObjHierarchyMappingType = 'ParentToParent'
-      |'ParentToChild'
-      |'ChildToChild'
-      |'Support'
-
-export type MappingUsageType = 'ConvertToSalesAgreement'
-      |'EligibleProgramRebateType'
-      |'MapJournalToMemberAggregate'
-      |'TransformationMapping'
-      |'CLMFieldMapping'
-
-export type OcrApplicationType = 'Industries'
-      |'EinsteinDocumentReader'
-
-export type ItemType = 'TABLE'
-
-export type OcrMappingType = 'FormField'
-      |'TableColumn'
-
-export type OmniDataTransformInputType = 'JSON'
-      |'XML'
-      |'SObject'
-      |'Custom'
-
-export type ODTItemFilterDataType = 'ADDRESS'
-      |'ANYTYPE'
-      |'BASE64'
-      |'BOOLEAN'
-      |'COMBOBOX'
-      |'CURRENCY'
-      |'DATACATEGORY'
-      |'GROUPREFERENCE'
-      |'DATE'
-      |'DATETIME'
-      |'DOUBLE'
-      |'EMAIL'
-      |'ENCRYPTEDSTRING'
-      |'ID'
-      |'INTEGER'
-      |'LONG'
-      |'MULTIPICKLIST'
-      |'PERCENT'
-      |'PHONE'
-      |'PICKLIST'
-      |'REFERENCE'
-      |'STRING'
-      |'TEXTAREA'
-      |'TIME'
-      |'URL'
-
-export type OmniAnalyticsComponentType = 'Omniscript'
-      |'Flexcard'
-
-export type ExternalTrackingVendor = 'Google'
-      |'Mixpanel'
-
-export type OmniProcessType = 'OmniScript'
-
-export type OmniSupervisorActionName = 'ChangeQueues'
-      |'ChangeSkills'
-      |'AssignLearning'
-      |'AWSDashboard'
-      |'ManageQueues'
-      |'CustomAction'
-      |'ChangeGroups'
-
-export type OmniSupervisorActionTab = 'AllAgents'
-      |'AgentDetails'
-      |'QueuesBacklog'
-      |'QueueDetails'
-      |'AssignedWork'
-      |'AssignedWorkDetails'
-      |'SkillsBacklog'
-      |'SkillDetails'
-
-export type OmniSupervisorTabType = 'Wallboard'
-      |'Agents'
-      |'QueuesBacklog'
-      |'AssignedWork'
-      |'SkillsBacklog'
-      |'FlexipageType'
-
-export type OmniSuperSkillVisibilityType = 'AllSkills'
-      |'AnySkill'
-
-export type OmniTrackingGroupType = 'Internal'
-      |'External'
-
-export type OmniUiCardType = 'Parent'
-      |'Child'
-
-export type OutboundConnPropertyName = 'LinkId'
-      |'Region'
-      |'AwsVpcEndpointId'
-      |'AwsVpcEndpointServiceName'
-      |'ProxyUrl'
-      |'DataCloudPrivateNetworkUrl'
-      |'DataCloudPrivateNetworkProvider'
-      |'DataCloudPrivateNetworkFunctionalDomain'
-      |'DataCloudPrivateNetworkFalconInstance'
-      |'DataCloudPrivateNetworkCustomUrls'
-      |'DataCloudPrivateNetworkAwsVpcEndpointId'
-      |'DataCloudPrivateNetworkAwsVpcEndpointServiceName'
-      |'DataCloudPrivateNetworkDefaultUrl'
-      |'DataCloudPrivateNetworkStatusCode'
-
-export type APIAccessLevel = 'Unrestricted'
-      |'Restricted'
-
-export type ParticipantRoleAccessLevel = 'None'
-      |'Read'
-      |'Edit'
-
-export type IdempotencySupportStatus = 'No'
-      |'Yes'
-
-export type PermissionSetTabVisibility = 'None'
-      |'Available'
-      |'Visible'
-
-export type LicenseExpirationPolicy = 'AllowNamespaceAccess'
-      |'BlockNamespaceAccess'
-
-export type PlatformCacheType = 'Session'
-      |'Organization'
-
-export type PlatformEventChannelType = 'event'
-      |'data'
-
-export type PlatformEventChannelEventType = 'custom'
-      |'standard'
-      |'monitoring'
-      |'data'
-
-export type Frequency = 'Daily'
-      |'Weekly'
-      |'Fortnightly'
-      |'Monthly'
-      |'Once'
-      |'Quarterly'
-      |'Yearly'
-
-export type PortalRoles = 'Executive'
-      |'Manager'
-      |'Worker'
-      |'PersonAccount'
-
-export type PortalType = 'CustomerSuccess'
-      |'Partner'
-      |'Network'
-
-export type ConditionLogic = 'All'
-
-export type InputValueType = 'Variable'
-      |'Expression'
-      |'String'
-
-export type TypeOfAction = 'Add'
-      |'Edit'
-      |'Delete'
-
-export type AccumulateResultCondInputType = 'Variable'
-      |'Expression'
-      |'String'
-
-export type AccumulateResultOperator = 'Any'
-      |'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessOrEqual'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-
-export type ConditionAggregationFunction = 'Sum'
-      |'Average'
-      |'Minimum'
-      |'Maximum'
-      |'Count'
-
-export type TargetEntityMatchType = 'Equals'
-
-export type ConditionFilterInputValueType = 'Variable'
-      |'String'
-      |'Expression'
-
-export type ConditionFilterOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessOrEqual'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'IsNull'
-      |'NotNull'
-
-export type ConditionType = 'SingleCriterion'
-      |'Aggregation'
-
-export type ExecutionStageOfPriceRule = 'PreCalculate'
-      |'Completion'
-
-export type RuleStatus = 'Draft'
-      |'Activated'
-      |'Deactivated'
-      |'Verified'
-      |'ActivationInProgress'
-      |'DeactivationInProgress'
-
-export type PriceSheetColumnType = 'Input'
-      |'Output'
-
-export type ProductFamilyUsageType = 'AccountForecasting'
-
-export type CategoryGroupVisibility = 'ALL'
-      |'NONE'
-      |'CUSTOM'
-
-export type LoginFlowType = 'UI'
-
-export type UiLoginFlowType = 'VisualWorkflow'
-      |'VisualForce'
-
-export type TabVisibility = 'Hidden'
-      |'DefaultOff'
-      |'DefaultOn'
-
-export type PromptDisplayPosition = 'TopLeft'
-      |'TopCenter'
-      |'TopRight'
-      |'BottomLeft'
-      |'BottomCenter'
-      |'BottomRight'
-      |'MiddleLeft'
-      |'MiddleCenter'
-      |'MiddleRight'
-
-export type PromptDisplayType = 'DockedComposer'
-      |'FloatingPanel'
-      |'Walkthrough'
-      |'Targeted'
-
-export type PromptElementRelativePosition = 'TopLeft'
-      |'TopCenter'
-      |'TopRight'
-      |'LeftTop'
-      |'LeftCenter'
-      |'LeftBottom'
-      |'RightTop'
-      |'RightCenter'
-      |'RightBottom'
-      |'BottomLeft'
-      |'BottomCenter'
-      |'BottomRight'
-
-export type PromptExperience = 'Lightning'
-      |'Site'
-
-export type PromptImageLocation = 'Top'
-      |'Bottom'
-      |'Left'
-      |'Right'
-
-export type PromptThemeColor = 'Theme1'
-      |'Theme2'
-      |'Theme3'
-      |'Theme4'
-
-export type PromptThemeSaturation = 'Dark'
-      |'Light'
-
-export type PromptUserAccess = 'Everyone'
-      |'SpecificPermissions'
-
-export type PromptUserProfileAccess = 'Everyone'
-      |'SpecificProfiles'
-
-export type PublicKeyCertificateSetType = 'JWKS'
-      |'JWKS_URL'
-
-export type CapacityType = 'INHERITED'
-      |'INTERRUPTIBLE'
-      |'NOT_INTERRUPTIBLE'
-
-export type RoutingModel = 'LEAST_ACTIVE'
-      |'MOST_AVAILABLE'
-      |'EXTERNAL_ROUTING'
-
-export type ActionSubtype = 'ScreenAction'
-      |'Action'
-
-export type QuickActionParameterType = 'Input'
-      |'Output'
-
-export type QuickActionLabel = 'Custom'
-      |'LogACall'
-      |'LogANote'
-      |'New'
-      |'NewRecordType'
-      |'Update'
-      |'UpdateRecordType'
-      |'NewChild'
-      |'NewChildRecordType'
-      |'CreateNew'
-      |'CreateNewRecordType'
-      |'SendEmail'
-      |'QuickRecordType'
-      |'Quick'
-      |'EditDescription'
-      |'Defer'
-      |'ChangeDueDate'
-      |'ChangePriority'
-      |'ChangeStatus'
-      |'SocialPost'
-      |'Escalate'
-      |'EscalateToRecord'
-      |'OfferFeedback'
-      |'RequestFeedback'
-      |'AddRecord'
-      |'AddMember'
-      |'Reply'
-      |'ReplyAll'
-      |'Forward'
-      |'ScheduleAppointment'
-      |'EnrollInProgram'
-      |'ModifyAppointment'
-      |'PatientDetails'
-      |'AcceptBroadcast'
-      |'SelectCoverage'
-      |'AssetHierarchy'
-      |'PartReturnRequest'
-      |'PerformCount'
-      |'ViewCoverage'
-      |'Quip'
-      |'SendConversationMessage'
-      |'NewQuote'
-      |'LaunchDataCapture'
-      |'RelocateAsset'
-      |'ReplaceAsset'
-
-export type QuickActionType = 'Create'
-      |'VisualforcePage'
-      |'Post'
-      |'SendEmail'
-      |'Email'
-      |'LogACall'
-      |'CaseComment'
-      |'ChangeStatus'
-      |'SocialPost'
-      |'Canvas'
-      |'Update'
-      |'MobileSmartActions'
-      |'MobileCreateFull'
-      |'ChangePriority'
-      |'ChangeDueDate'
-      |'LightningComponent'
-      |'LightningWebComponent'
-      |'Flow'
-      |'MobileExtension'
-      |'Quip'
-      |'SendConversationMessage'
-      |'Copilot'
-
-export type StrategyReactionType = 'Accepted'
-      |'Rejected'
-
-export type RecommendationConditionOperator = 'EQUALS'
-      |'GREATER_THAN'
-      |'GREATER_THAN_OR_EQUAL_TO'
-      |'LESS_THAN'
-      |'LESS_THAN_OR_EQUAL_TO'
-      |'NOT_EQUALS'
-      |'LIKE'
-      |'STARTS_WITH'
-      |'ENDS_WITH'
-      |'CONTAINS'
-
-export type RecommendationConditionValueType = 'TEXT'
-      |'NUMBER'
-      |'BOOLEAN'
-      |'DATE'
-      |'DATE_TIME'
-      |'TIME'
-
-export type ChannelSource = 'Other'
-      |'Phone'
-      |'Chat'
-
-export type PinnedAction = 'None'
-      |'Top'
-      |'Bottom'
-
-export type RecordActionType = 'Flow'
-      |'QuickAction'
-      |'Omniscript'
-      |'LWC'
-      |'WebLink'
-      |'SvcCatalogItemDef'
-
-export type ComponentName = 'ActionsAndRecommendations'
-      |'ActionLauncher'
-      |'BulkActionPanel'
-
-export type RecordAggregationDefinitionAggregationType = 'Record'
-
-export type RecordAggregationJoinConditionType = 'AggregateTo'
-      |'Intermediate'
-      |'AggregateFrom'
-
-export type RecordAggregationObjectFilterOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'Contains'
-      |'In'
-      |'NotIn'
-
-export type RecordAggregationDefinitionStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type ReportAggregateDatatype = 'currency'
-      |'percent'
-      |'number'
-
-export type ReportBucketFieldType = 'text'
-      |'number'
-      |'picklist'
-
-export type ReportFormulaNullTreatment = 'n'
-      |'z'
-
-export type ChartType = 'None'
-      |'Scatter'
-      |'ScatterGrouped'
-      |'Bubble'
-      |'BubbleGrouped'
-      |'HorizontalBar'
-      |'HorizontalBarGrouped'
-      |'HorizontalBarStacked'
-      |'HorizontalBarStackedTo100'
-      |'VerticalColumn'
-      |'VerticalColumnGrouped'
-      |'VerticalColumnStacked'
-      |'VerticalColumnStackedTo100'
-      |'Line'
-      |'LineGrouped'
-      |'LineCumulative'
-      |'LineCumulativeGrouped'
-      |'Pie'
-      |'Donut'
-      |'Funnel'
-      |'VerticalColumnLine'
-      |'VerticalColumnGroupedLine'
-      |'VerticalColumnStackedLine'
-      |'Plugin'
-
-export type ChartPosition = 'CHART_TOP'
-      |'CHART_BOTTOM'
-
-export type ReportChartSize = 'Tiny'
-      |'Small'
-      |'Medium'
-      |'Large'
-      |'Huge'
-
-export type ObjectFilterOperator = 'with'
-      |'without'
-
-export type CurrencyIsoCode = 'ADP'
-      |'AED'
-      |'AFA'
-      |'AFN'
-      |'ALL'
-      |'AMD'
-      |'ANG'
-      |'AOA'
-      |'ARS'
-      |'ATS'
-      |'AUD'
-      |'XAV'
-      |'AWG'
-      |'AZM'
-      |'AZN'
-      |'BAM'
-      |'BBD'
-      |'BDT'
-      |'BEF'
-      |'BGL'
-      |'BGN'
-      |'BHD'
-      |'BIF'
-      |'BMD'
-      |'BND'
-      |'BOB'
-      |'BOV'
-      |'BRB'
-      |'BRL'
-      |'BSD'
-      |'BTN'
-      |'BWP'
-      |'BYB'
-      |'BYN'
-      |'BYR'
-      |'BZD'
-      |'CAD'
-      |'CDF'
-      |'CHF'
-      |'CLF'
-      |'CLP'
-      |'CNH'
-      |'CNY'
-      |'COP'
-      |'CRC'
-      |'CSD'
-      |'CUC'
-      |'CUP'
-      |'CVE'
-      |'CYP'
-      |'CZK'
-      |'DEM'
-      |'DJF'
-      |'DKK'
-      |'DOP'
-      |'DZD'
-      |'ECS'
-      |'EEK'
-      |'EGP'
-      |'ERN'
-      |'ESP'
-      |'ETB'
-      |'EUR'
-      |'FIM'
-      |'FJD'
-      |'FKP'
-      |'XFL'
-      |'FRF'
-      |'GBP'
-      |'GBT'
-      |'GEL'
-      |'GHC'
-      |'GHS'
-      |'GIP'
-      |'GMD'
-      |'GNF'
-      |'GRD'
-      |'GTQ'
-      |'GWP'
-      |'GYD'
-      |'HKD'
-      |'HNL'
-      |'HRD'
-      |'HRK'
-      |'HTG'
-      |'HUF'
-      |'IDR'
-      |'IEP'
-      |'ILS'
-      |'INR'
-      |'IQD'
-      |'IRR'
-      |'ISK'
-      |'ITL'
-      |'JMD'
-      |'JOD'
-      |'JPY'
-      |'KES'
-      |'KGS'
-      |'KHR'
-      |'KMF'
-      |'KPW'
-      |'KRW'
-      |'KWD'
-      |'KYD'
-      |'KZT'
-      |'LAK'
-      |'LBP'
-      |'LKR'
-      |'LRD'
-      |'LSL'
-      |'LTL'
-      |'LUF'
-      |'LVL'
-      |'LYD'
-      |'MAD'
-      |'XMA'
-      |'MDL'
-      |'MGA'
-      |'MGF'
-      |'MKD'
-      |'MMK'
-      |'MNT'
-      |'MOP'
-      |'MRO'
-      |'MRU'
-      |'MTL'
-      |'MUR'
-      |'MVR'
-      |'MWK'
-      |'MXN'
-      |'MXV'
-      |'MYR'
-      |'MZM'
-      |'MZN'
-      |'NAD'
-      |'NGN'
-      |'NIO'
-      |'NLG'
-      |'NOK'
-      |'NPR'
-      |'NZD'
-      |'OMR'
-      |'PAB'
-      |'XPA'
-      |'PEN'
-      |'PGK'
-      |'PHP'
-      |'PKR'
-      |'PLN'
-      |'PTE'
-      |'PYG'
-      |'QAR'
-      |'RMB'
-      |'ROL'
-      |'RON'
-      |'RSD'
-      |'RUB'
-      |'RUR'
-      |'RWF'
-      |'SAR'
-      |'SBD'
-      |'SCR'
-      |'SDD'
-      |'SDG'
-      |'SEK'
-      |'SGD'
-      |'SHP'
-      |'SIT'
-      |'SKK'
-      |'SLE'
-      |'SLL'
-      |'XSO'
-      |'SOS'
-      |'SRD'
-      |'SRG'
-      |'SSP'
-      |'STD'
-      |'STN'
-      |'SUR'
-      |'SVC'
-      |'SYP'
-      |'SZL'
-      |'THB'
-      |'TJR'
-      |'TJS'
-      |'TMM'
-      |'TMT'
-      |'TND'
-      |'TOP'
-      |'TPE'
-      |'TRL'
-      |'TRY'
-      |'TTD'
-      |'TWD'
-      |'TZS'
-      |'UAH'
-      |'UGX'
-      |'USD'
-      |'UYU'
-      |'UZS'
-      |'VEB'
-      |'VEF'
-      |'VES'
-      |'VND'
-      |'VUV'
-      |'WST'
-      |'XAF'
-      |'XCD'
-      |'XCG'
-      |'XOF'
-      |'XPF'
-      |'YER'
-      |'YUM'
-      |'ZAR'
-      |'ZMK'
-      |'ZMW'
-      |'ZWD'
-      |'ZWG'
-      |'ZWL'
-      |'ZIG'
-
-export type DataCategoryFilterOperation = 'above'
-      |'below'
-      |'at'
-      |'aboveOrBelow'
-
-export type ReportFormat = 'MultiBlock'
-      |'Matrix'
-      |'Summary'
-      |'Tabular'
-
-export type ReportAggrType = 'Sum'
-      |'Average'
-      |'Maximum'
-      |'Minimum'
-      |'Unique'
-      |'RowCount'
-      |'Median'
-      |'Noop'
-
-export type UserDateGranularity = 'None'
-      |'Day'
-      |'Week'
-      |'Month'
-      |'Quarter'
-      |'Year'
-      |'FiscalQuarter'
-      |'FiscalYear'
-      |'MonthInYear'
-      |'DayInMonth'
-      |'FiscalPeriod'
-      |'FiscalWeek'
-
-export type ReportSortType = 'Column'
-      |'Aggregate'
-      |'CustomSummaryFormula'
-
-export type UserDateInterval = 'INTERVAL_CURRENT'
-      |'INTERVAL_CURNEXT1'
-      |'INTERVAL_CURPREV1'
-      |'INTERVAL_NEXT1'
-      |'INTERVAL_PREV1'
-      |'INTERVAL_CURNEXT3'
-      |'INTERVAL_CURFY'
-      |'INTERVAL_PREVFY'
-      |'INTERVAL_PREV2FY'
-      |'INTERVAL_AGO2FY'
-      |'INTERVAL_NEXTFY'
-      |'INTERVAL_PREVCURFY'
-      |'INTERVAL_PREVCUR2FY'
-      |'INTERVAL_CURNEXTFY'
-      |'INTERVAL_CUSTOM'
-      |'INTERVAL_YESTERDAY'
-      |'INTERVAL_TODAY'
-      |'INTERVAL_TOMORROW'
-      |'INTERVAL_LASTWEEK'
-      |'INTERVAL_THISWEEK'
-      |'INTERVAL_NEXTWEEK'
-      |'INTERVAL_LASTMONTH'
-      |'INTERVAL_THISMONTH'
-      |'INTERVAL_NEXTMONTH'
-      |'INTERVAL_LASTTHISMONTH'
-      |'INTERVAL_THISNEXTMONTH'
-      |'INTERVAL_CURRENTQ'
-      |'INTERVAL_CURNEXTQ'
-      |'INTERVAL_CURPREVQ'
-      |'INTERVAL_NEXTQ'
-      |'INTERVAL_PREVQ'
-      |'INTERVAL_CURNEXT3Q'
-      |'INTERVAL_CURY'
-      |'INTERVAL_PREVY'
-      |'INTERVAL_PREV2Y'
-      |'INTERVAL_AGO2Y'
-      |'INTERVAL_NEXTY'
-      |'INTERVAL_PREVCURY'
-      |'INTERVAL_PREVCUR2Y'
-      |'INTERVAL_CURNEXTY'
-      |'INTERVAL_LAST7'
-      |'INTERVAL_LAST30'
-      |'INTERVAL_LAST60'
-      |'INTERVAL_LAST90'
-      |'INTERVAL_LAST120'
-      |'INTERVAL_NEXT7'
-      |'INTERVAL_NEXT30'
-      |'INTERVAL_NEXT60'
-      |'INTERVAL_NEXT90'
-      |'INTERVAL_NEXT120'
-      |'LAST_FISCALWEEK'
-      |'THIS_FISCALWEEK'
-      |'NEXT_FISCALWEEK'
-      |'LAST_FISCALPERIOD'
-      |'THIS_FISCALPERIOD'
-      |'NEXT_FISCALPERIOD'
-      |'LASTTHIS_FISCALPERIOD'
-      |'THISNEXT_FISCALPERIOD'
-      |'CURRENT_ENTITLEMENT_PERIOD'
-      |'PREVIOUS_ENTITLEMENT_PERIOD'
-      |'PREVIOUS_TWO_ENTITLEMENT_PERIODS'
-      |'TWO_ENTITLEMENT_PERIODS_AGO'
-      |'CURRENT_AND_PREVIOUS_ENTITLEMENT_PERIOD'
-      |'CURRENT_AND_PREVIOUS_TWO_ENTITLEMENT_PERIODS'
-
-export type ReportTypeCategory = 'accounts'
-      |'opportunities'
-      |'forecasts'
-      |'cases'
-      |'leads'
-      |'campaigns'
-      |'activities'
-      |'busop'
-      |'products'
-      |'admin'
-      |'territory'
-      |'other'
-      |'content'
-      |'usage_entitlement'
-      |'wdc'
-      |'calibration'
-      |'territory2'
-      |'quotes'
-      |'individual'
-      |'employee'
-      |'data_cloud'
-      |'commerce'
-      |'flow'
-      |'semantic_model'
-
-export type ContextRuleStatus = 'Draft'
-      |'Inactive'
-      |'Active'
-      |'DeploymentInProgress'
-      |'DeploymentFailed'
-      |'ValidationInProgress'
-      |'ValidationFailed'
-      |'ValidationSucceeded'
-      |'ValidationInterrupted'
-      |'Obsolete'
-
-export type ExecutionType = 'Sequence'
-      |'Priority'
-
-export type VariableValueType = 'Literal'
-      |'Expression'
-      |'ReferenceRecord'
-      |'RuleReferenceVariable'
-      |'Path'
-      |'FilteredTag'
-
-export type RuleActionType = 'SetValue'
-      |'Auto-Add'
-      |'Auto-Remove'
-      |'SetQuantity'
-      |'SetAttribute'
-      |'Message'
-      |'SetDefaultProduct'
-      |'SetDefaultAttributeValue'
-      |'HideAttribute'
-      |'HideAttributeValue'
-      |'HideProduct'
-      |'DisableProduct'
-      |'DisableAttributeValue'
-
-export type ConditionMatchType = 'Any'
-      |'All'
-
-export type RuleConditionOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'Between'
-      |'IsNotNull'
-      |'IsNull'
-      |'Contains'
-      |'DoesNotContain'
-      |'In'
-      |'NotIn'
-      |'StartsWith'
-      |'EndsWith'
-      |'PathContains'
-
-export type RuleFilterCriteriaType = 'Aggregate'
-      |'Branch'
-      |'List'
-      |'Eligibility'
-      |'Boolean'
-      |'Exists'
-      |'NotExists'
-      |'Loop'
-
-export type RuleCondAggregateFunction = 'Sum'
-
-export type RuleRefVariableDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'Currency'
-      |'Boolean'
-      |'Percent'
-      |'RecordId'
-      |'Tuple'
-
-export type RuleRefVariableType = 'Constant'
-      |'Formula'
-      |'Tag'
-      |'Variable'
-      |'Attribute'
-      |'Accumulate'
-      |'FilteredTag'
-
-export type ContextRuleUsageType = 'UnifiedPromotions'
-      |'Default'
-      |'Configurator'
-      |'Dfo'
-      |'PriceGuidance'
-      |'Underwriting'
-
-export type ActualsCalculationMode = 'Manual'
-      |'Orders'
-      |'OrdersThroughContracts'
-      |'DataProcessingEngine'
-
-export type SamlIdentityLocationType = 'SubjectNameId'
-      |'Attribute'
-
-export type SamlIdentityType = 'Username'
-      |'FederationId'
-      |'UserId'
-
-export type SamlType = 'SAML1_1'
-      |'SAML2_0'
-
-export type SamlSpSLOBinding = 'RedirectBinding'
-      |'PostBinding'
-
-export type DomainType = 'FTest'
-      |'FTest2'
-
-export type SearchCriteriaConfigurationConfigurationType = 'DefaultSearch'
-      |'ClinicalTrialSearch'
-
-export type SearchCriteriaConfigurationFilterType = 'GROUPING_AND_AGGREGATION'
-      |'MULTIPLE_FIELDS'
-
-export type SearchCriteriaConfigurationResultDisplayFormat = 'LIST'
-      |'CARD'
-
-export type SearchResultActionScope = 'Global'
-
-export type SearchResultActionType = 'FlowDefinition'
-      |'OmniScript'
-      |'LightningWebComponent'
-
-export type Complexity = 'NoRestriction'
-      |'AlphaNumeric'
-      |'SpecialCharacters'
-      |'UpperLowerCaseNumeric'
-      |'UpperLowerCaseNumericSpecialCharacters'
-      |'Any3UpperLowerCaseNumericSpecialCharacters'
-
-export type Expiration = 'ThirtyDays'
-      |'SixtyDays'
-      |'NinetyDays'
-      |'SixMonths'
-      |'OneYear'
-      |'Never'
-
-export type LockoutInterval = 'FifteenMinutes'
-      |'ThirtyMinutes'
-      |'SixtyMinutes'
-      |'Forever'
-
-export type MaxLoginAttempts = 'ThreeAttempts'
-      |'FiveAttempts'
-      |'TenAttempts'
-      |'NoLimit'
-
-export type QuestionRestriction = 'None'
-      |'DoesNotContainPassword'
-
-export type SessionTimeout = 'TwentyFourHours'
-      |'TwelveHours'
-      |'EightHours'
-      |'FourHours'
-      |'TwoHours'
-      |'NinetyMinutes'
-      |'SixtyMinutes'
-      |'ThirtyMinutes'
-      |'FifteenMinutes'
-
-export type ServiceAISetupDefStatus = 'FIELDS_SELECTED'
-      |'TRAINING'
-      |'READY_TO_ACTIVATE'
-      |'SERVING'
-      |'RETIRED'
-      |'ARCHIVED'
-      |'READY_FOR_REVIEW'
-      |'TRAINING_FAILURE'
-      |'INVALID_TRAINING_FIELDS'
-
-export type ServiceAISetupFieldType = 'CASE_DESC'
-      |'CASE_SUBJ'
-      |'ARTICLE_TITLE'
-      |'ARTICLE_CONTENT'
-      |'ARTICLE_SUMMARY'
-      |'ARTICLE_ANSWER'
-      |'ARTICLE_QUESTION'
-
-export type SvcCtlgItemAttrAttributeType = 'Base'
-      |'Extended'
-
-export type SvcCatalogItemAttrDataType = 'Attachment'
-      |'Checkbox'
-      |'Currency'
-      |'Date'
-      |'Datetime'
-      |'DisplayText'
-      |'Email'
-      |'IPAddress'
-      |'Integer'
-      |'Lookup'
-      |'ListOfBoolean'
-      |'ListOfDouble'
-      |'ListOfInteger'
-      |'ListOfMaps'
-      |'ListOfString'
-      |'MultilineText'
-      |'Map'
-      |'Number'
-      |'NumericScale'
-      |'Picklist'
-      |'Percentage'
-      |'Queue'
-      |'SingleCheckbox'
-      |'SinglelineText'
-      |'Text'
-      |'Toggle'
-      |'URL'
-
-export type SvcCtlgItemDpndProcType = 'RequestForm'
-      |'FulfillmentFlow'
-      |'IntegrationDefinition'
-      |'Preprocessor'
-
-export type SvcCatalogItemDependencyType = 'PreprocessorApexClass'
-      |'FlowDefinition'
-      |'IntegrationProviderDef'
-      |'OmniScriptConfig'
-
-export type SvcCatalogItemUsageType = 'Employee'
-      |'CustomerService'
-      |'Industry'
-      |'FinancialServices'
-
-export type SlackRecordLayoutViewMode = 'recordcrud'
-      |'urlunfurling'
-
-export type CaseSubjectOption = 'SocialPostSource'
-      |'SocialPostContent'
-      |'BuildCustom'
-
-export type StageConditionOperator = 'Equals'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'LessThan'
-      |'LessOrEqual'
-      |'Contains'
-      |'NotEqualTo'
-      |'DoesNotContain'
-      |'StartsWith'
-
-export type StageCriteriaType = 'AND'
-      |'OR'
-      |'CUSTOMLOGIC'
-
-export type StageCriteriaExecType = 'CONDITION'
-      |'FLOW'
-
-export type StageUserPermission = 'ProcessOrder'
-      |'ManageClinicalTrials'
-      |'ParticipateClinicalTrials'
-      |'CoordinateClinicalTrials'
-      |'CoordinateClnclTrialExprcUsr'
-
-export type StationaryAssetType = 'CommercialBuilding'
-      |'DataCenter'
-
-export type UnitType = 'Volume'
-      |'Weight'
-      |'Energy'
-      |'Other'
-
-export type CriterionOperator = 'Equal'
-      |'NotEqual'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'Contains'
-      |'StartsWith'
-      |'Includes'
-      |'NotIncludes'
-
-export type CriteriaRelationshipType = 'AllConditionsAreMet'
-      |'AnyConditionIsMet'
-
-export type PropertyDisplayType = 'Lookup'
-      |'Picklist'
-      |'Text'
-      |'Checkbox'
-      |'Number'
-      |'Queue'
-      |'Date'
-      |'DateTime'
-
-export type SvcCatalogItemAttrType = 'FulfillmentInput'
-      |'UserQuestion'
-
-export type PublishStatusType = 'Draft'
-      |'Published'
-      |'PendingChanges'
-      |'Deprecated'
-
-export type TimeSheetFrequency = 'Daily'
-      |'Weekly'
-      |'EveryTwoWeeks'
-      |'TwiceAMonth'
-      |'Monthly'
-
-export type DaysOfWeek = 'Sunday'
-      |'Monday'
-      |'Tuesday'
-      |'Wednesday'
-      |'Thursday'
-      |'Friday'
-      |'Saturday'
-
-export type RuleEngine = 'StandardConfigurator'
-      |'AdvancedConfigurator'
-
-export type SaveType = 'Standard'
-
-export type TransactionSecurityEventName = 'ReportEvent'
-      |'ApiEvent'
-      |'AdminSetupEvent'
-      |'LoginEvent'
-      |'ListViewEvent'
-      |'CredentialStuffingEventStore'
-      |'ReportAnomalyEventStore'
-      |'SessionHijackingEventStore'
-      |'ApiAnomalyEventStore'
-      |'BulkApiResultEventStore'
-      |'PermissionSetEventStore'
-      |'FileEventStore'
-      |'GuestUserAnomalyEventStore'
-      |'LoginAsEvent'
-
-export type MonitoredEvents = 'AuditTrail'
-      |'Login'
-      |'Entity'
-      |'DataExport'
-      |'AccessResource'
-
-export type TxnSecurityPolicyType = 'CustomApexPolicy'
-      |'CustomConditionBuilderPolicy'
-
-export type ObjectRelationshipType = 'Direct'
-      |'Indirect'
-      |'Self'
-      |'InverseDirect'
-
-export type FormatType = 'ICON'
-
-export type UserAccessPolicyStatus = 'Design'
-      |'Testing'
-      |'Migrate'
-      |'Updating'
-      |'Failed'
-      |'Active'
-      |'Completed'
-
-export type UserAccessPolicyTriggerType = 'Create'
-      |'Update'
-      |'CreateAndUpdate'
-
-export type UserAccessPolicyActionType = 'Grant'
-      |'Revoke'
-
-export type UserAccessPolicyActionTargetType = 'PermissionSet'
-      |'PermissionSetGroup'
-      |'PermissionSetLicense'
-      |'PackageLicense'
-      |'Group'
-      |'Queue'
-
-export type UserAccessPolicyFilterOperation = 'equals'
-      |'equalsIgnoreCase'
-      |'notEquals'
-      |'in'
-      |'includes'
-
-export type UserAccessPolicyFilterTargetType = 'Group'
-      |'Queue'
-      |'PermissionSet'
-      |'PermissionSetGroup'
-      |'PermissionSetLicense'
-      |'Profile'
-      |'UserRole'
-      |'PackageLicense'
-      |'User'
-
-export type NetworkUserType = 'Internal'
-      |'Customer'
-      |'Partner'
-
-export type VehicleAssetType = 'FleetVehicle'
-      |'PrivateJet'
-
-export type VisualizationResourceType = 'js'
-      |'css'
-
-export type CountryIsoCode = 'AD'
-      |'AE'
-      |'AF'
-      |'AG'
-      |'AI'
-      |'AL'
-      |'AM'
-      |'AO'
-      |'AQ'
-      |'AR'
-      |'AT'
-      |'AU'
-      |'AW'
-      |'AX'
-      |'AZ'
-      |'BA'
-      |'BB'
-      |'BD'
-      |'BE'
-      |'BF'
-      |'BG'
-      |'BH'
-      |'BI'
-      |'BJ'
-      |'BL'
-      |'BM'
-      |'BN'
-      |'BO'
-      |'BQ'
-      |'BR'
-      |'BS'
-      |'BT'
-      |'BV'
-      |'BW'
-      |'BY'
-      |'BZ'
-      |'CA'
-      |'CC'
-      |'CD'
-      |'CF'
-      |'CG'
-      |'CH'
-      |'CI'
-      |'CK'
-      |'CL'
-      |'CM'
-      |'CN'
-      |'CO'
-      |'CR'
-      |'CV'
-      |'CW'
-      |'CX'
-      |'CY'
-      |'CZ'
-      |'DE'
-      |'DJ'
-      |'DK'
-      |'DM'
-      |'DO'
-      |'DZ'
-      |'EC'
-      |'EE'
-      |'EG'
-      |'EH'
-      |'ER'
-      |'ES'
-      |'ET'
-      |'FI'
-      |'FJ'
-      |'FK'
-      |'FO'
-      |'FR'
-      |'GA'
-      |'GB'
-      |'GD'
-      |'GE'
-      |'GF'
-      |'GG'
-      |'GH'
-      |'GI'
-      |'GL'
-      |'GM'
-      |'GN'
-      |'GP'
-      |'GQ'
-      |'GR'
-      |'GS'
-      |'GT'
-      |'GW'
-      |'GY'
-      |'HM'
-      |'HN'
-      |'HR'
-      |'HT'
-      |'HU'
-      |'ID'
-      |'IE'
-      |'IL'
-      |'IM'
-      |'IN'
-      |'IO'
-      |'IQ'
-      |'IS'
-      |'IT'
-      |'JE'
-      |'JM'
-      |'JO'
-      |'JP'
-      |'KE'
-      |'KG'
-      |'KH'
-      |'KI'
-      |'KM'
-      |'KN'
-      |'KR'
-      |'KW'
-      |'KY'
-      |'KZ'
-      |'LA'
-      |'LB'
-      |'LC'
-      |'LI'
-      |'LK'
-      |'LR'
-      |'LS'
-      |'LT'
-      |'LU'
-      |'LV'
-      |'LY'
-      |'MA'
-      |'MC'
-      |'MD'
-      |'ME'
-      |'MF'
-      |'MG'
-      |'MK'
-      |'ML'
-      |'MM'
-      |'MN'
-      |'MO'
-      |'MQ'
-      |'MR'
-      |'MS'
-      |'MT'
-      |'MU'
-      |'MV'
-      |'MW'
-      |'MX'
-      |'MY'
-      |'MZ'
-      |'NA'
-      |'NC'
-      |'NE'
-      |'NF'
-      |'NG'
-      |'NI'
-      |'NL'
-      |'NO'
-      |'NP'
-      |'NR'
-      |'NU'
-      |'NZ'
-      |'OM'
-      |'PA'
-      |'PE'
-      |'PF'
-      |'PG'
-      |'PH'
-      |'PK'
-      |'PL'
-      |'PM'
-      |'PN'
-      |'PS'
-      |'PT'
-      |'PY'
-      |'QA'
-      |'RE'
-      |'RO'
-      |'RS'
-      |'RU'
-      |'RW'
-      |'SA'
-      |'SB'
-      |'SC'
-      |'SE'
-      |'SG'
-      |'SH'
-      |'SI'
-      |'SJ'
-      |'SK'
-      |'SL'
-      |'SM'
-      |'SN'
-      |'SO'
-      |'SR'
-      |'SS'
-      |'ST'
-      |'SV'
-      |'SX'
-      |'SZ'
-      |'TC'
-      |'TD'
-      |'TF'
-      |'TG'
-      |'TH'
-      |'TJ'
-      |'TK'
-      |'TL'
-      |'TM'
-      |'TN'
-      |'TO'
-      |'TR'
-      |'TT'
-      |'TV'
-      |'TW'
-      |'TZ'
-      |'UA'
-      |'UG'
-      |'US'
-      |'UY'
-      |'UZ'
-      |'VA'
-      |'VC'
-      |'VE'
-      |'VG'
-      |'VN'
-      |'VU'
-      |'WF'
-      |'WS'
-      |'XK'
-      |'YE'
-      |'YT'
-      |'ZA'
-      |'ZM'
-      |'ZW'
-
-export type TaxLocaleType = 'Net'
-      |'Gross'
-      |'Automatic'
-
-export type OrderLifeCycleType = 'MANAGED'
-      |'UNMANAGED'
-
-export type PricingStrategy = 'LowestPrice'
-      |'Priority'
-
-export type ProductGrouping = 'BestMatch'
-      |'VariationParent'
-      |'NoGrouping'
-
-export type WebStoreType = 'B2B'
-      |'B2C'
-      |'B2CE'
-
-export type LookupValueType = 'User'
-      |'Queue'
-      |'RecordType'
-
-export type FieldUpdateOperation = 'Formula'
-      |'Literal'
-      |'Null'
-      |'NextValue'
-      |'PreviousValue'
-      |'LookupValue'
-
-export type KnowledgeWorkflowAction = 'PublishAsNew'
-      |'Publish'
-
-export type SendAction = 'Send'
-
-export type ActionTaskAssignedToTypes = 'user'
-      |'role'
-      |'opportunityTeam'
-      |'accountTeam'
-      |'owner'
-      |'accountOwner'
-      |'creator'
-      |'accountCreator'
-      |'partnerUser'
-      |'portalRole'
-
-export type ActionEmailRecipientTypes = 'group'
-      |'role'
-      |'user'
-      |'opportunityTeam'
-      |'accountTeam'
-      |'roleSubordinates'
-      |'owner'
-      |'creator'
-      |'partnerUser'
-      |'accountOwner'
-      |'customerPortalUser'
-      |'portalRole'
-      |'portalRoleSubordinates'
-      |'contactLookup'
-      |'userLookup'
-      |'roleSubordinatesInternal'
-      |'email'
-      |'caseTeam'
-      |'campaignMemberDerivedOwner'
-
-export type ActionEmailSenderType = 'CurrentUser'
-      |'OrgWideEmailAddress'
-      |'DefaultWorkflowUser'
-
-export type WorkflowTriggerTypes = 'onCreateOnly'
-      |'onCreateOrTriggeringUpdate'
-      |'onAllChanges'
-      |'OnRecursiveUpdate'
-
-export type WorkflowTimeUnits = 'Hours'
-      |'Days'
-
-export type ExtendedErrorCode = 'ACTIONCALLPATH_MISSING_NAME'
-      |'ACTIONCALL_DUPLICATE_INPUT_PARAM'
-      |'ACTIONCALL_DUPLICATE_OUTPUT_PARAM'
-      |'ACTIONCALL_FEATURE_NOT_SUPPORTED'
-      |'ACTIONCALL_INPUT_VALIDATION_FAILED'
-      |'ACTIONCALL_INVALID_INPUT_PARAM_NAME'
-      |'ACTIONCALL_INVALID_ISWAITUNTILCOMPLETED'
-      |'ACTIONCALL_INVALID_OFFSET'
-      |'ACTIONCALL_MISSING_EVENT_INFO'
-      |'ACTIONCALL_MISSING_NAME'
-      |'ACTIONCALL_MISSING_OFFSET'
-      |'ACTIONCALL_MISSING_REQUIRED_PARAM'
-      |'ACTIONCALL_MISSING_REQUIRED_TYPE'
-      |'ACTIONCALL_NOT_FOUND_WITH_NAME_AND_TYPE'
-      |'ACTIONCALL_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'ACTIONCALL_NOT_SUPPORTED_FOR_TRIGGERTYPE'
-      |'ACTIONCALL_OFFSET_NOT_SUPPORTED'
-      |'ACTIONCALL_TRANSACTION_MODEL_NOT_ALLOWED'
-      |'ACTIONCALL_TRANSACTION_MODEL_NOT_SUPPORTED'
-      |'ACTIONCALL_TRIGGERING_RECORD_MISMATCHED_OBJECTTYPE'
-      |'ACTION_BUTTON_NOT_SUPPORTED_FOR_API_VERSION_AT_RUNTIME'
-      |'ACTION_BUTTON_NOT_SUPPORTED_FOR_METADATA_API_VERSION'
-      |'ACTION_CALL_INPUT_SETUPREFTYPE_REQUIRES_SETUPREFVALUE'
-      |'ACTION_CALL_INVALID_ACTION_NAME_CONTENT'
-      |'ACTION_CALL_INVALID_CONFIGURATION'
-      |'ACTION_CALL_INVALID_INPUT_PARAM'
-      |'ACTION_CALL_INVALID_OUTPUT_PARAM'
-      |'ACTION_CALL_INVALID_VERSION'
-      |'ACTION_CALL_MISSING_ELEMENT_DEPENDENCIES'
-      |'ACTION_INPUT_PARAMETER_REQUIRES_ID_TYPE_FOR_SETUP_REFERENCE'
-      |'ACTION_INPUT_PARAMETER_TYPE_AND_SETUP_REFERENCE_TYPE_DO_NOT_MATCH'
-      |'ACTION_TYPE_REQUIRED_FOR_STEP'
-      |'ADDING_ATTACHMENT_QUESTIONS_ADDITION_TO_EXISTING_SURVEY'
-      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_ACTIVATION'
-      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_EXECUTION'
-      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_SAVE'
-      |'APEXCALLOUT_INPUT_DUPLICATE'
-      |'APEXCALLOUT_INPUT_INCOMPATIBLE_DATATYPE'
-      |'APEXCALLOUT_INVALID'
-      |'APEXCALLOUT_MISSING_CLASSNAME'
-      |'APEXCALLOUT_NOT_FOUND'
-      |'APEXCALLOUT_OUTPUT_INCOMPATIBLE_DATATYPE'
-      |'APEXCALLOUT_OUTPUT_INVALID'
-      |'APEXCALLOUT_REQUIRED_INPUT_MISSING'
-      |'APEXCLASS_MISSING_INTERFACE'
-      |'APEX_CLASS_VARIABLE_NOT_FOUND'
-      |'ASSIGNEE_AUTOPROC'
-      |'ASSIGNEE_REQUIRED_WHEN_SPECIFYING_RUN_AS_USER'
-      |'ASSIGNEE_USER_USERNAME'
-      |'ASSIGNMENTITEM_ELEMENT_MISSING_DATATYPE'
-      |'ASSIGNMENTITEM_ELEMENT_NOT_SUPPORTED'
-      |'ASSIGNMENTITEM_FIELD_INVALID_DATATYPE'
-      |'ASSIGNMENTITEM_FIELD_INVALID_DATATYPE_WITH_ELEMENT'
-      |'ASSIGNMENTITEM_INCOMPATIBLE_DATATYPES'
-      |'ASSIGNMENTITEM_INVALID_ASSIGNTOREFERENCE'
-      |'ASSIGNMENTITEM_INVALID_COLLECTION'
-      |'ASSIGNMENTITEM_INVALID_DATATYPE_IN_ELEMENT'
-      |'ASSIGNMENTITEM_INVALID_ELEMENTREFERENCE'
-      |'ASSIGNMENTITEM_INVALID_MERGE_FIELD'
-      |'ASSIGNMENTITEM_INVALID_OPERATOR'
-      |'ASSIGNMENTITEM_INVALID_REFERENCE'
-      |'ASSIGNMENTITEM_INVALID_VALUE'
-      |'ASSIGNMENTITEM_LEFT_DATATYPE_INVALID_FOR_OPERATOR'
-      |'ASSIGNMENTITEM_MODIFIES_NONVARIABLE'
-      |'ASSIGNMENTITEM_NONEXISTENT_REFERENCE'
-      |'ASSIGNMENTITEM_REQUIRED'
-      |'ASSIGNMENTITEM_RIGHT_DATATYPE_INVALID_FOR_OPERATOR'
-      |'ASYNC_ACTION_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'AUTOLAUNCHED_CHOICELOOKUP_NOT_SUPPORTED'
-      |'AUTOLAUNCHED_CHOICE_NOT_SUPPORTED'
-      |'AUTOLAUNCHED_SCREEN_NOT_SUPPORTED'
-      |'AUTOLAUNCHED_STEP_NOT_SUPPORTED'
-      |'AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE'
-      |'AUTOLAUNCHED_WAIT_NOT_SUPPORTED'
-      |'AUTOMATION_EVENT_PATH_EXPERIMENT_MISSING_ELEMENT_DEPENDENCIES'
-      |'BACKGROUND_STEPS_DETECT_ASYNC_PROCESSING'
-      |'BEFORE_SAVE_FLOW_RECORD_UPDATE_CANNOT_HAVE_FAULT_CONNECTOR'
-      |'BEFORE_SAVE_FLOW_RECORD_UPDATE_INVALID_REFERENCE'
-      |'BEFORE_SAVE_FLOW_RECORD_UPDATE_RELATED_RECORD_REQUIRES_INPUTASSIGNMENTS'
-      |'BEFORE_SAVE_FLOW_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS'
-      |'BOTH_START_NODE_AND_REFERENCE_FOUND'
-      |'CHOICEFIELD_DEFAULT_CHOICE_NOT_FOUND'
-      |'CHOICEFIELD_MISSING_CHOICE'
-      |'CHOICELOOKUP_DATATYPE_INCOMPATIBLE_WITH_CHOICEFIELD'
-      |'CHOICE_DATATYPE_INCOMPATIBLE_WITH_CHOICEFIELD'
-      |'CHOICE_LOOKUP_COLLECTION_REFERENCE_NULL'
-      |'CHOICE_LOOKUP_INVALID_COLLECTION_REFERENCE'
-      |'CHOICE_NOT_SUPPORTED_FOR_SCREENFIELDTYPE'
-      |'CHOICE_USED_MULTIPLE_TIMES_IN_SAME_FIELD'
-      |'COLLECTION_PROCESSOR_DUPLICATE_MAPITEM'
-      |'COLLECTION_PROCESSOR_INVALID_COLLECTION_REFERENCE'
-      |'COLLECTION_PROCESSOR_INVALID_CONFIGURATION'
-      |'COLLECTION_PROCESSOR_INVALID_OUTPUTSOBJECTTYPE'
-      |'COLLECTION_PROCESSOR_MAX_SORT_FIELDS_LIMIT_EXCEEDED'
-      |'COLLECTION_PROCESSOR_MISMATCHED_OBJECTTYPE'
-      |'COLLECTION_PROCESSOR_MISSING_MAP'
-      |'COLLECTION_PROCESSOR_MISSING_OUTPUTSOBJECTTYPE'
-      |'COLLECTION_PROCESSOR_MISSING_PARAMETER'
-      |'COLLECTION_PROCESSOR_MISSING_SORT'
-      |'COLLECTION_PROCESSOR_NOT_SUPPORTED_FOR_API_VERSION'
-      |'COLLECTION_PROCESSOR_REQUIRES_PERM'
-      |'COLLECTION_PROCESSOR_SORT_FIELD_INVALID_FOR_OBJECT'
-      |'COLLECTION_PROCESSOR_TYPE_NOT_SUPPORTED'
-      |'COLLECTION_PROCESSOR_VARIABLE_NULL'
-      |'CONDITIONAL_SCREENFIELD_VISIBILITY_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'CONDITIONAL_SCREEN_FIELD_VISIBILITY_NOT_SUPPORTED_FOR_SCREEN_FIELD'
-      |'CONDITION_BUILDER_MISSING_FLOW_VARIABLE'
-      |'CONDITION_BUILDER_MISSING_REQUIRED_PERMISSIONS'
-      |'CONDITION_BUILDER_UNSUPPORTED_FLOW_VARIABLE'
-      |'CONDITION_INVALID_LEFTOPERAND'
-      |'CONDITION_LOGIC_EXCEEDS_LIMIT'
-      |'CONDITION_LOGIC_INVALID'
-      |'CONDITION_LOGIC_MISSING'
-      |'CONDITION_MISSING_DATATYPE'
-      |'CONDITION_MISSING_OPERATOR'
-      |'CONDITION_OPERAND_DATATYPES_INCOMPATIBLE'
-      |'CONDITION_OPERAND_INCOMPATIBLE_WITH_ELEMENT'
-      |'CONDITION_OPERATOR_INCOMPATIBLE'
-      |'CONDITION_REFERENCED_ELEMENT_NOT_FOUND'
-      |'CONDITION_RIGHTOPERAND_NULL'
-      |'CONDITION_TRAVERSAL_TOO_DEEP'
-      |'CONNECTOR_MISSING_TARGET'
-      |'CONSTANT_INCLUDES_REFERENCES'
-      |'CONTENT_KEY_OR_ID_NOT_FOUND'
-      |'CUSTOMEVENTS_NOT_ENABLED'
-      |'CUSTOMEVENT_MISSING_PROCESSMETADATAVALUES'
-      |'CUSTOMEVENT_OBJECTTYPE_NOT_FOUND'
-      |'CUSTOMEVENT_OBJECTTYPE_NOT_SUPPORTED'
-      |'CUSTOMEVENT_PROCESSMETADATAVALUES_MISSING_NAME'
-      |'CUSTOMEVENT_PROCESSMETADATAVALUES_MORE_THAN_ONE_NAME'
-      |'CUSTOM_PROPERTY_INVALID_KEY'
-      |'CUSTOM_PROPERTY_INVALID_KEY_VALUE_PAIR'
-      |'CUSTOM_PROPERTY_INVALID_NAME'
-      |'CUSTOM_PROPERTY_INVALID_VALUE'
-      |'CUSTOM_PROPERTY_INVALID_VALUE_FOR_KEY'
-      |'CUSTOM_PROPERTY_NOT_SUPPORTED'
-      |'CUSTOM_PROPERTY_REQUIRED_KEY_MISSING'
-      |'DATATYPE_INVALID'
-      |'DATATYPE_MAPPING_BOTH_APEXCLASS_AND_SOBJECT_NOT_SUPPORTED'
-      |'DATATYPE_MISSING'
-      |'DATA_GRAPH_DATA_CHANGE_DEFAULT_DATA_SPACE_NOT_USED'
-      |'DATA_GRAPH_DATA_CHANGE_ROOT_DMO_MISMATCH'
-      |'DATA_GRAPH_DATA_CHANGE_TRIGGERING_DATA_GRAPH_NULL'
-      |'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED'
-      |'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED_FOR_PATH_EXPERIMENT'
-      |'DATA_TYPE_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'DATA_TYPE_NOT_SUPPORTED_IN_CONDITION'
-      |'DECISION_DEFAULT_CONNECTOR_MISSING_LABEL'
-      |'DECISION_MISSING_OUTCOME'
-      |'DETERMINATION_FLOW_ACTION_TYPE_REQUIRED'
-      |'DUPLICATE_CUSTOM_PROPERTY_NAME'
-      |'DUPLICATE_QUESTION_NOT_ALLOWED'
-      |'DYNAMIC_TYPE_MAPPING_MISSING'
-      |'EITHER_CONDITIONS_OR_ACTION_NOT_SUPPORTED'
-      |'ELEMENT_CONNECTS_TO_SELF'
-      |'ELEMENT_COORDINATES_INVALID'
-      |'ELEMENT_INVALID_CONNECTOR'
-      |'ELEMENT_INVALID_REFERENCE'
-      |'ELEMENT_INVALID_REFERENCE_FOR_CONFLICTING_FIELD_VALUE'
-      |'ELEMENT_MISSING_CONNECTOR'
-      |'ELEMENT_MISSING_LABEL'
-      |'ELEMENT_MISSING_NAME'
-      |'ELEMENT_MISSING_REFERENCE'
-      |'ELEMENT_MORE_THAN_ONE_FIELD'
-      |'ELEMENT_NAME_INVALID'
-      |'ELEMENT_NEVER_USED'
-      |'ELEMENT_NOT_SUPPORTED_IN_SUBFLOW_FOR_TRIGGER_TYPE'
-      |'ELEMENT_REQUIRES_PERM'
-      |'ELEMENT_SCALE_SMALLER_THAN_DEFAULTVALUE'
-      |'ELEMENT_SUBTYPE_NOT_SUPPORTED_FOR_ELEMENTTYPE'
-      |'ELEMENT_SUBTYPE_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'ELEMENT_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'ENTRY_CONDITION_CONFLICTING_FILTERS'
-      |'ENVIRONMENTS_VALUE_CHANGED'
-      |'ENVIRONMENT_PERMISSION_REQUIRED'
-      |'EXTERNAL_OBJECTS_NOT_SUPPORTED'
-      |'EXTERNAL_OBJECT_FIELDS_NOT_SUPPORTED'
-      |'EXTERNAL_SYSTEM_FLOW_INVALID_POLLING_FREQUENCY'
-      |'EX_AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE'
-      |'FAULT_CONNECTOR_NOT_SUPPORTED_FOR_PROCESS_TYPE'
-      |'FEATURE_DISABLED'
-      |'FIELDASSIGNMENT_FIELD_INCOMPATIBLE_DATATYPE'
-      |'FIELDASSIGNMENT_INVALID_DATATYPE'
-      |'FIELDASSIGNMENT_INVALID_ELEMENT'
-      |'FIELDASSIGNMENT_INVALID_REFERENCE'
-      |'FIELDASSIGNMENT_MULTIPLE_REFERENCES_SAME_FIELD'
-      |'FIELDASSIGNMENT_PICKLISTFIELD_INCOMPATIBLE_DATATYPE'
-      |'FIELDASSIGNMENT_REFERENCED_ELEMENT_MISSING_DATATYPE'
-      |'FIELDSERVICE_UNSUPPORTED_FIELD_TYPE'
-      |'FIELD_INVALID_VALUE'
-      |'FIELD_NOT_FOUND'
-      |'FIELD_RELATIONSHIP_NOT_SUPPORTED'
-      |'FIELD_REQUIRES_PERM'
-      |'FIELD_TYPE_NOT_SUPPORTED_AS_CHILD_OF_SCREENFIELD_REGION_OR_REGIONCONTAINER'
-      |'FIELD_TYPE_NOT_SUPPORTED_AS_PARENT'
-      |'FIELD_TYPE_UNSUPPORTED'
-      |'FIELD_VALUE_REQUIRES_PERM'
-      |'FLEXIPAGE_COMPONENT_ATTRIBUTE_EXPRESSION_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_ATTRIBUTE_GENERIC_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_ATTRIBUTE_MISSING_REQUIRED'
-      |'FLEXIPAGE_COMPONENT_ATTRIBUTE_TOO_LONG'
-      |'FLEXIPAGE_COMPONENT_CUSTOM_VALIDATION_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_DESIGN_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_EVENT_DUPLICATE_TARGET_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_EVENT_EMPTY_TARGET_MAPPING_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_EVENT_INVALID_FORMFACTOR_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_EVENT_INVALID_SERVICE_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_EVENT_SOURCE_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_MAX_LIMIT_EXCEPTION'
-      |'FLEXIPAGE_COMPONENT_RULE_VALIDATION_EXCEPTION'
-      |'FLEXIPAGE_DUPLICATE_PROPERTY_COMPONENT_EXCEPTION'
-      |'FLEXIPAGE_EVENT_ATTRIBUTE_GENERIC_EXCEPTION'
-      |'FLEXIPAGE_INVALID_ITEM_INSTANCE_TYPE_EXCEPTION'
-      |'FLEXIPAGE_INVALID_PROPERTY_TYPE_COMPONENT_EXCEPTION'
-      |'FLEXIPAGE_INVALID_PROPERTY_TYPE_EVENT_TARGET_EXCEPTION'
-      |'FLEXIPAGE_ITEM_INSTANCE_CUSTOM_VALIDATION_EXCEPTION'
-      |'FLEXIPAGE_MAX_INTERACTIONS_EXCEPTION'
-      |'FLEXIPAGE_PICKLIST_INVALID_VALUE_EXCEPTION'
-      |'FLEXIPAGE_RENAMED_COMPONENT_VALIDATION_EXCEPTION'
-      |'FLEXIPAGE_TEMPLATE_INVALID_SWITCH'
-      |'FLOW_ALREADY_OVERRIDDEN'
-      |'FLOW_CAPABILITY_INPUT_DATA_TYPE_INVALID'
-      |'FLOW_CAPABILITY_INPUT_INVALID'
-      |'FLOW_CAPABILITY_INPUT_MISSING'
-      |'FLOW_CAPABILITY_INVALID'
-      |'FLOW_CAPABILITY_MISSING'
-      |'FLOW_COMPLEX_VALUE_COLLECTION_TYPE_EXPECTED'
-      |'FLOW_COMPLEX_VALUE_INVALID'
-      |'FLOW_COMPLEX_VALUE_INVALID_JSON'
-      |'FLOW_COMPLEX_VALUE_INVALID_MERGE_FIELD'
-      |'FLOW_COMPLEX_VALUE_NOT_SUPPORTED'
-      |'FLOW_COMPLEX_VALUE_SCALAR_TYPE_EXPECTED'
-      |'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_INVALID'
-      |'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_MISSING'
-      |'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_INVALID'
-      |'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_MISSING'
-      |'FLOW_CONDITION_INVALID_FIELD'
-      |'FLOW_CONDITION_MISSING_FIELD'
-      |'FLOW_CONDITION_NESTING_LIMIT_EXCEEDED'
-      |'FLOW_CONTEXT_RECORD_ASSIGNMENT_VARIABLE_INVALID'
-      |'FLOW_CUSTOM_ERROR_COMPOUND_FIELD_NOT_SUPPORTED'
-      |'FLOW_CUSTOM_ERROR_EMPTY_MESSAGES_LIST'
-      |'FLOW_CUSTOM_ERROR_INVALID_OR_INCOMPLETE_FIELD'
-      |'FLOW_CUSTOM_ERROR_MULTIPLE_ERRORS_ON_FIELD'
-      |'FLOW_CUSTOM_ERROR_MULTIPLE_PAGE_ERRORS_EXCEPTION'
-      |'FLOW_CUSTOM_ERROR_NO_FIELD_SELECTION_FOR_FIELD_ERROR'
-      |'FLOW_ELEMENT_SCALE_LESS_THAN_ZERO'
-      |'FLOW_EXCEEDED_EXITRULE_MAX_COUNT'
-      |'FLOW_EXITRULE_EXECUTION_DELAY_WARNING'
-      |'FLOW_EXITRULE_WITH_NO_CONDITION'
-      |'FLOW_EXPERIMENT_DATA_GRAPH_NAME_NOT_SET'
-      |'FLOW_EXPERIMENT_DURATION_INVALID_VALUE'
-      |'FLOW_EXPERIMENT_DURATION_UNIT_INVALID_VALUE'
-      |'FLOW_EXPERIMENT_GO_TO_NOT_SUPPORTED'
-      |'FLOW_EXPERIMENT_INVALID_TOTAL_PATH_PERCENTAGE'
-      |'FLOW_EXPERIMENT_IS_NOT_ALLOWED_WITH_PENDING_DML'
-      |'FLOW_EXPERIMENT_NESTING_IN_SUBFLOW_NOT_SUPPORTED'
-      |'FLOW_EXPERIMENT_NESTING_NOT_SUPPORTED'
-      |'FLOW_EXPERIMENT_PATHS_COUNT_ABOVE_MAXIMUM'
-      |'FLOW_EXPERIMENT_PATHS_COUNT_BELOW_MINIMUM'
-      |'FLOW_EXPERIMENT_PATH_PERCENTAGE_INVALID'
-      |'FLOW_EXPERIMENT_PERSONALIZATION_SETUP_INCOMPLETE'
-      |'FLOW_EXPERIMENT_TEST_GROUP_NOT_SUPPORTED'
-      |'FLOW_EXPERIMENT_TEST_GROUP_PERCENTAGE_INVALID_VALUE'
-      |'FLOW_FORMULA_FIELD_MISSING'
-      |'FLOW_FORMULA_NOT_SUPPORTED'
-      |'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_CALLOUTS'
-      |'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_OBJECTS'
-      |'FLOW_INCLUDES_STEP'
-      |'FLOW_INLINE_TRANSFORM_API_VERSION_NOT_SUPPORTED'
-      |'FLOW_INLINE_TRANSFORM_NOT_SUPPORTED'
-      |'FLOW_INPUTPARAM_MISMATCHED_APEX_CLASS'
-      |'FLOW_INTERVIEW_BULK_EXECUTION'
-      |'FLOW_INTERVIEW_HANDLED_ERROR'
-      |'FLOW_INTERVIEW_INPUT_VALIDATION'
-      |'FLOW_INTERVIEW_INTERACTION_NOT_FOUND'
-      |'FLOW_INTERVIEW_INVALID_CHOICE_USER_INPUT'
-      |'FLOW_INTERVIEW_INVALID_FIELD_VALUE'
-      |'FLOW_INTERVIEW_INVALID_START_REQUEST'
-      |'FLOW_INTERVIEW_LIMIT_EXCEEDED'
-      |'FLOW_INTERVIEW_MISSING_CHOICE_FOR_REQUIRED_CHOICE_FIELD'
-      |'FLOW_INTERVIEW_MISSING_VALUE_FOR_REQUIRED_INPUT_FIELD'
-      |'FLOW_INTERVIEW_NAVIGATE'
-      |'FLOW_INTERVIEW_RANGE_VALIDATION'
-      |'FLOW_INTERVIEW_RECOVERABLE_ERROR'
-      |'FLOW_INTERVIEW_REGEX_VALIDATION'
-      |'FLOW_INTERVIEW_RESUME_INTERVIEW'
-      |'FLOW_INTERVIEW_SAVE_RESULT'
-      |'FLOW_INTERVIEW_SET_CHOICE_SELECTED'
-      |'FLOW_INTERVIEW_START_INTERVIEW'
-      |'FLOW_INTERVIEW_TYPE_CONVERSION'
-      |'FLOW_INVALID_EVENT_NAME'
-      |'FLOW_INVALID_EVENT_TYPE'
-      |'FLOW_INVALID_NAME'
-      |'FLOW_METRICS_NOT_SUPPORTED'
-      |'FLOW_NAME_USED_IN_OTHER_CLIENT'
-      |'FLOW_ORCHESTRATOR_FREEMIUM_PRODUCT'
-      |'FLOW_OVERRIDABLE_CANNOT_BE_OVERRIDE'
-      |'FLOW_OVERRIDABLE_CANNOT_BE_TEMPLATE'
-      |'FLOW_OVERRIDDEN_FLOW_INVALID_REFERENCE'
-      |'FLOW_OVERRIDE_EXTRA_VARIABLE'
-      |'FLOW_OVERRIDE_INCOMPATIBLE_PROCESS_TYPE'
-      |'FLOW_OVERRIDE_INCOMPATIBLE_TYPE'
-      |'FLOW_OVERRIDE_INCOMPATIBLE_VARIABLE'
-      |'FLOW_RECORD_LOOKUP_LIMIT_NOT_SUPPORTED'
-      |'FLOW_RECORD_LOOKUP_LIMIT_OUT_OF_RANGE'
-      |'FLOW_RECORD_PRIOR_AUTOLAUNCH_UPDATE_ONLY'
-      |'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_CREATE'
-      |'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_DELETE'
-      |'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_UPDATE'
-      |'FLOW_RECORD_PRIOR_READ_ONLY'
-      |'FLOW_REFERENCES_APEX_CLASS_NOT_IN_SAME_PACKAGE'
-      |'FLOW_RESOURCE_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'FLOW_RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED_FOR_RECORD_PRIOR'
-      |'FLOW_RUN_AS_SYSTEM_MODE_WITHOUT_CONTEXT_WARNING'
-      |'FLOW_RUN_AS_SYSTEM_MODE_WITH_CONTEXT_WARNING'
-      |'FLOW_SCHEDULED_PATH_ALLOWED_ONE_ASYNCAFTERCOMMIT_PATH'
-      |'FLOW_SCHEDULED_PATH_ASYNCAFTERCOMMIT_REQUIRES_RECORD_CHANGED_OR_ISCHANGED'
-      |'FLOW_SCHEDULED_PATH_CANNOT_USE_IS_CHANGED'
-      |'FLOW_SCHEDULED_PATH_INCOMPATIBLE_TIME_SOURCE'
-      |'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WHEN_DECISION_REQUIRES_RECORD_CHANGED'
-      |'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WITH_FLOW_TRIGGER_TYPE'
-      |'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WITH_RECORD_PRIOR'
-      |'FLOW_SCHEDULED_PATH_INVALID_BATCH_SIZE'
-      |'FLOW_SCHEDULED_PATH_INVALID_OFFSET'
-      |'FLOW_SCHEDULED_PATH_REQUIRED_FIELDS_MISSING'
-      |'FLOW_SCHEDULED_PATH_REQUIRES_DEFAULT_WORKFLOW_USER'
-      |'FLOW_SCHEDULED_PATH_REQUIRES_RECORD_CHANGED_TO_MEET_CRITERIA'
-      |'FLOW_SCHEDULE_INFORMATION_INCOMPLETE'
-      |'FLOW_SEGMENT_AND_DG_NOT_MATCH_ON_DMO'
-      |'FLOW_SOBJECT_VARIABLE_NOT_PERSISTED'
-      |'FLOW_SOURCE_TEMPLATE_INVALID_REFERENCE'
-      |'FLOW_STAGE_INCLUDES_REFERENCES'
-      |'FLOW_STAGE_ORDER_DUPLICATE'
-      |'FLOW_STAGE_ORDER_OUT_OF_RANGE'
-      |'FLOW_START_INPUT_INVALID_INPUT'
-      |'FLOW_START_INPUT_INVALID_TYPE'
-      |'FLOW_START_INPUT_NOT_ALLOWED'
-      |'FLOW_START_INPUT_REQUIRED'
-      |'FLOW_SYSTEM_VARIABLE_NOT_SUPPORTED_FOR_TRIGGERTYPE'
-      |'FLOW_TEST_API_NAME_DUPLICATED'
-      |'FLOW_TEST_ASSERTION_MISSING'
-      |'FLOW_TEST_ASSERTION_NOT_SUPPORTED'
-      |'FLOW_TEST_CONDITION_INCOMPATIBLE'
-      |'FLOW_TEST_CONDITION_INVALID_DATATYPE_MAPPING'
-      |'FLOW_TEST_CONDITION_LIMIT'
-      |'FLOW_TEST_CONDITION_NOT_SUPPORTED'
-      |'FLOW_TEST_DATATYPE_INVALID'
-      |'FLOW_TEST_FLOW_INVALID'
-      |'FLOW_TEST_IMMEDIATE_PATH_MISSING'
-      |'FLOW_TEST_MERGE_FIELD_INVALID'
-      |'FLOW_TEST_MERGE_FIELD_NOT_SUPPORTED'
-      |'FLOW_TEST_OPERATOR_INVALID'
-      |'FLOW_TEST_PARAMETER_DUPLICATED'
-      |'FLOW_TEST_PARAMETER_INCOMPATIBLE'
-      |'FLOW_TEST_PARAMETER_INVALID'
-      |'FLOW_TEST_PARAMETER_LEFTVALUEREFERENCE_INVALID'
-      |'FLOW_TEST_PARAMETER_MISSING'
-      |'FLOW_TEST_PARAMETER_NOT_SUPPORTED'
-      |'FLOW_TEST_PARAMETER_TYPE_INVALID'
-      |'FLOW_TEST_PARAMETER_VALUE_INVALID'
-      |'FLOW_TEST_PARAMETER_VALUE_MISSING'
-      |'FLOW_TEST_PARAMS_REQUIRED'
-      |'FLOW_TEST_POINTS_DUPLICATED'
-      |'FLOW_TEST_POINT_MISSING'
-      |'FLOW_TEST_POINT_NOT_SUPPORTED'
-      |'FLOW_TEST_PROCESSTYPE_INVALID'
-      |'FLOW_TEST_RIGHTVALUE_INVALID'
-      |'FLOW_TRANSFORM_AGGR_COLL_NUM_OF_REF'
-      |'FLOW_TRANSFORM_AGGR_SOURCE_INVALID'
-      |'FLOW_TRANSFORM_APEX_CLASS_INCOMPATIBLE'
-      |'FLOW_TRANSFORM_API_VERSION_NOT_SUPPORTED'
-      |'FLOW_TRANSFORM_ASSIGN_TO_REFERENCE_UNSUPPORTED'
-      |'FLOW_TRANSFORM_COLL_DEPTH_UP_TO_TWO'
-      |'FLOW_TRANSFORM_COLL_INVALID'
-      |'FLOW_TRANSFORM_COLL_UNAVAILABLE'
-      |'FLOW_TRANSFORM_COMPOUND_FIELD_UNSUPPORTED'
-      |'FLOW_TRANSFORM_ELEMENT_REFERENCE_INVALID'
-      |'FLOW_TRANSFORM_ELEMENT_REFERENCE_TYPE_INCOMPATIBLE'
-      |'FLOW_TRANSFORM_FIELD_INVALID'
-      |'FLOW_TRANSFORM_FIELD_MISSING_INPUT_PARAMETER'
-      |'FLOW_TRANSFORM_FMLAFOR_COLL_NOT_SUPP'
-      |'FLOW_TRANSFORM_FMLA_COLL_MULT_RSRC'
-      |'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_INVALID'
-      |'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_MISSING'
-      |'FLOW_TRANSFORM_INPUT_PARAM_DUPLICATED'
-      |'FLOW_TRANSFORM_INPUT_PARAM_INVALID'
-      |'FLOW_TRANSFORM_INPUT_PARAM_MISSING'
-      |'FLOW_TRANSFORM_INVALID_INPUT_PARAMETER_VALUE'
-      |'FLOW_TRANSFORM_INVALID_JOIN_KEYS'
-      |'FLOW_TRANSFORM_INVALID_MULTIPLE_TRANSFORM_VALUE_ACTIONS'
-      |'FLOW_TRANSFORM_INVALID_TARGET_FIELD'
-      |'FLOW_TRANSFORM_JOIN_DUPLICATE_SELECTED_FIELD'
-      |'FLOW_TRANSFORM_JOIN_INVALID_SELECTED_FIELD'
-      |'FLOW_TRANSFORM_JOIN_KEY_UNSUPPORTED'
-      |'FLOW_TRANSFORM_JOIN_MISSING_SELECTED_FIELDS'
-      |'FLOW_TRANSFORM_JOIN_NOT_SUPPORTED'
-      |'FLOW_TRANSFORM_MAP_COLL_MISSING'
-      |'FLOW_TRANSFORM_MAP_COLL_MISSING_SOURCE'
-      |'FLOW_TRANSFORM_MAP_COLL_MULT_SOURCE'
-      |'FLOW_TRANSFORM_MAP_COLL_NUM_OF_REF'
-      |'FLOW_TRANSFORM_MAP_COLL_RELA_RECORDS'
-      |'FLOW_TRANSFORM_MAP_COL_PRIMITIVE_INCOMPA'
-      |'FLOW_TRANSFORM_MAP_RSRC_TYPE_NOT_SUPPORTED'
-      |'FLOW_TRANSFORM_MAP_STATIC_VAL_COLL_MISSING'
-      |'FLOW_TRANSFORM_MISSING_JOIN_FIELD_MAPPING'
-      |'FLOW_TRANSFORM_OUTPUT_FIELD_API_NAME_INVALID'
-      |'FLOW_TRANSFORM_REQUIRES_AUTOMATIC_OUTPUT'
-      |'FLOW_TRANSFORM_SPLIT_JOIN_FIELD_MAPPING'
-      |'FLOW_TRANSFORM_SUM_SOURCE_TYPE_INVALID'
-      |'FLOW_TRANSFORM_TYPE_NAME_DUPLICATED'
-      |'FLOW_TRANSFORM_TYPE_NOT_SUPPORTED'
-      |'FLOW_TRANSFORM_UNEXPECTED_AUTO_PARAMS'
-      |'FLOW_TRANSFORM_VALUES_MISSING'
-      |'FLOW_TRANSFORM_VALUE_INVALID'
-      |'FLOW_TRANSFORM_VAL_NAME_NOT_SUPPORTED'
-      |'FLOW_TRANSFORM_VAL_REF_NOT_SUPPORTED'
-      |'FLOW_TRIGGER_DERIVED_FIELD_NOT_SUPPORTED'
-      |'FLOW_TRIGGER_ORDER_OUT_OF_BOUNDS'
-      |'FLOW_TRIGGER_TYPE_INCOMPATIBLE_WITH_RECORD_TRIGGER_TYPE'
-      |'FLOW_UPSERT_EXTERNAL_ID_FIELD_INVALID'
-      |'FLOW_UPSERT_EXTERNAL_ID_FIELD_NOT_UNIQUE'
-      |'FLOW_UPSERT_STANDARD_FIELD_INVALID'
-      |'FLOW_UPSERT_STANDARD_ID_FIELD_IDLOOKUP_FALSE'
-      |'FLOW_UPSERT_UNIQUE_ID_CONFLICT'
-      |'FORMULA_CMT_LIMIT_EXCEEDED'
-      |'FORMULA_EXPRESSION_INVALID'
-      |'FORM_ALREADY_IN_USE_BY_DRAFT_VERSION'
-      |'FORM_ALREADY_IN_USE_BY_FLOW'
-      |'FTEST_EXTENSION_CODE_FOR_TEST'
-      |'GLOBAL_VARIABLE_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'GOTO_NOT_SUPPORTED_FOR_PROCESS_TYPE'
-      |'HELP_TEXT_NOT_SUPPORTED_FOR_SCREEN_FIELD'
-      |'HTTP_METHOD_NOT_SUPPORTED'
-      |'INACCESSIBLE_EVENT_TYPE'
-      |'INCONSISTENT_ACTION_VERSIONS'
-      |'INCONSISTENT_DYNAMIC_TYPE_MAPPING'
-      |'INCONSISTENT_VALUE_FOR_DYNAMIC_VALUE_FIELD'
-      |'INDIVIDUAL_CONTACT_POINT_NOT_FOUND'
-      |'INDIVIDUAL_NOT_FOUND'
-      |'INPUTPARAM_CONFIGURATION_NOT_FOUND'
-      |'INPUTPARAM_INCOMPATIBLE_CONFIGURATION_ONLY'
-      |'INPUTPARAM_INCOMPATIBLE_DATATYPE'
-      |'INPUTPARAM_INCOMPATIBLE_WITH_COLLECTION_VARIABLE'
-      |'INPUTPARAM_INCOMPATIBLE_WITH_NONCOLLECTION_VARIABLE'
-      |'INPUTPARAM_MISMATCHED_OBJECTTYPE'
-      |'INPUTPARAM_VARIABLE_MISSING'
-      |'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_DYNAMIC_ACTION'
-      |'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_DYNAMIC_ACTION'
-      |'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'INSUFFICIENT_ACCESS_FOR_UPSERT'
-      |'INVALID_ACTION_TYPE_FOR_STEP'
-      |'INVALID_ASSIGNEE'
-      |'INVALID_CONTENT_TYPE'
-      |'INVALID_EMAIL_ADDRESS'
-      |'INVALID_ENVIRONMENTS_VALUE'
-      |'INVALID_FLOW'
-      |'INVALID_FLOW_INTERVIEW'
-      |'INVALID_ID'
-      |'INVALID_INPUT'
-      |'INVALID_OPERATION_TYPE'
-      |'INVALID_ORCH_ASSIGNEE_TYPE_FOR_PACKAGE'
-      |'INVALID_PROCESSTYPE_ENVIRONMENT_COMBINATION'
-      |'INVALID_QUERY_LOCATOR_FORMAT'
-      |'INVALID_REGEX_IN_SURVEY_QUESTIONS'
-      |'INVALID_RUN_CONTEXT'
-      |'INVALID_SEGMENT_STATUS_FOR_ACTIVATION'
-      |'INVALID_SENDER_TYPE'
-      |'INVALID_SETUP_REFERENCE_TYPE'
-      |'INVALID_STAGE_REFERENCE'
-      |'INVALID_STAGE_STEP_ASSIGNEE_TYPE'
-      |'INVALID_SURVEY_VARIABLE_NAME_OR_TYPE'
-      |'INVALID_TIME_ZONE'
-      |'INVALID_TYPE'
-      |'INVOCABLE_ACTION_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'LOCATOR_LOCATION_EXCEEDS_SIZE'
-      |'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_APEXCLASSTYPE'
-      |'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_DATATYPE'
-      |'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_OBJECTTYPE'
-      |'LOOP_ASSIGNNEXTVALUETO_MISSING'
-      |'LOOP_ASSIGNNEXTVALUETO_MISSING_VARIABLE'
-      |'LOOP_ASSIGNNEXTVALUETO_REFERENCE_NOT_FOUND'
-      |'LOOP_COLLECTION_ELEMENT_NOT_FOUND'
-      |'LOOP_COLLECTION_NOT_FOUND'
-      |'LOOP_COLLECTION_NOT_SUPPORTED_FOR_FIELD'
-      |'LOOP_MISSING_COLLECTION'
-      |'MANAGEDCONTENT_STATUS_INVALID'
-      |'MANUAL_VARIABLE_ASSIGNMENT_NOT_SUPPORTED'
-      |'MAX_CHILD_TYPES'
-      |'MAX_EXTERNAL_REFERENCES_IN_QUERY'
-      |'MAX_STATEMENT_SIZE'
-      |'MERGE_FIELD_NOT_SUPPORTED_IN_ACTION'
-      |'MESSAGING_API_ENTITLEMENT_REACHED'
-      |'MESSAGING_INACTIVE_CHANNEL'
-      |'MISSING_ASSIGNEE'
-      |'MISSING_ASSIGNEE_TYPE'
-      |'MISSING_EMAIL_RECIPIENTS'
-      |'MISSING_FLOW_TRANSFORM_SUM_FIELD'
-      |'MISSING_MULESOFT_STEP_ASSIGNEE'
-      |'MULTIPLE_ASSIGNEES_NOT_ALLOWED'
-      |'NON_EXPOSED_COMPONENT_IN_FLOW'
-      |'NON_GLOBAL_COMPONENT_IN_EXPORTED_FLOW'
-      |'NUMBER_OF_SCREENFIELD_REGIONS_EXCEEDS_LIMIT'
-      |'OBJECTTYPE_INVALID'
-      |'OBJECT_CANNOT_BE_CREATED'
-      |'OBJECT_CANNOT_BE_DELETED'
-      |'OBJECT_CANNOT_BE_QUERIED'
-      |'OBJECT_CANNOT_BE_UPDATED'
-      |'OBJECT_ENCRYPTED_FIELDS_NOT_SUPPORTED'
-      |'OBJECT_NOT_FOUND'
-      |'OBJECT_TYPE_DOES_NOT_EXIST'
-      |'OBJECT_TYPE_NOT_CDC_ENABLED'
-      |'ORCHESTRATION_CAN_ASSIGNEE_EDIT_NOT_SUPPORTED'
-      |'ORCHESTRATION_REQUIRESASYNCPROCESSING_NOT_SUPPORTED'
-      |'ORCHESTRATION_REQUIRESASYNCPROCESSING_REQUIRED'
-      |'ORCHESTRATION_STEP_LOCK_RECORD_NOT_SUPPORTED'
-      |'ORG_WIDE_EMAIL_INVALID'
-      |'ORG_WIDE_EMAIL_NOT_USED'
-      |'OUTPUTPARAM_ASSIGNTOREFERENCE_INVALID'
-      |'OUTPUTPARAM_ASSIGNTOREFERENCE_NOTFOUND'
-      |'OUTPUTPARAM_INCOMPATIBLE_DATATYPE'
-      |'OUTPUTPARAM_MISMATCHED_OBJECTTYPE'
-      |'OUTPUTPARAM_MISMATCHED_WITH_COLLECTION_VARIABLE'
-      |'OUTPUTPARAM_MISSING_ASSIGNTOREFERENCE'
-      |'OUTPUTPARAM_MISTMATCHED_WITH_NONCOLLECTION_VARIABLE'
-      |'PARAM_DATATYPE_NOT_SUPPORTED'
-      |'PAST_SCHEDULE_FLOW_WILL_NOT_RUN'
-      |'PLATFORM_EVENT_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER'
-      |'PRICE_ADJUSTMENT_TIER_VALIDATION_ERROR'
-      |'PROCESSMETADATAVALUES_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'PROCESSMETADATAVALUE_NONEXISTENT_ELEMENT'
-      |'PROCESSTYPE_COMPONENTTYPE_NOT_SUPPORTED'
-      |'PROCESSTYPE_ELEMENT_CONFIG_NOT_SUPPORTED'
-      |'PROCESSTYPE_ELEMENT_NOT_SUPPORTED'
-      |'PROCESSTYPE_EVALUATIONFLOW_REQUIRED'
-      |'PROCESSTYPE_NOT_SUPPORTED'
-      |'PROCESSTYPE_SCREEN_FIELDTYPE_NOT_SUPPORTED'
-      |'PROCESS_TYPE_ELEMENT_ATTRIBUTE_REQUIRED'
-      |'PROCESS_TYPE_INCOMPATIBLE'
-      |'PROGRESS_INDICATOR_NOT_SUPPORTED'
-      |'PROMPT_FLOW_CONTAINS_INVALID_VARIABLE'
-      |'PROMPT_FLOW_INPUT_TYPE_CONFLICT'
-      |'QUERY_LOCATOR_EXPIRED'
-      |'QUERY_LOCATOR_NOT_FOUND'
-      |'QUEUE_DOES_NOT_SUPPORT_ORCHESTRATION_WORK_ITEMS'
-      |'RECOMMENDATION_STRATEGY_EXCEPTION'
-      |'RECORDFILTER_ENCRYPTED_FIELDS_NOT_SUPPORTED'
-      |'RECORDFILTER_GEOLOCATION_FIELDS_NOT_SUPPORTED'
-      |'RECORDFILTER_INVALID_DATATYPE'
-      |'RECORDFILTER_INVALID_ELEMENT'
-      |'RECORDFILTER_INVALID_OPERATOR'
-      |'RECORDFILTER_INVALID_REFERENCE'
-      |'RECORDFILTER_MISSING_DATATYPE'
-      |'RECORDFILTER_MULTIPLE_QUERIES_SAME_FIELD'
-      |'RECORDFILTER_NON_PRIMITIVE'
-      |'RECORDLOOKUP_IDASSIGNMENT_VARIABLE_INCOMPATIBLE_DATATYPE'
-      |'RECORDLOOKUP_IDASSIGNMENT_VARIABLE_NOT_FOUND'
-      |'RECORDUPDATE_MISSING_FILTERS'
-      |'RECORD_CHANGE_LISTENER_CONDITIONS_NON_RECORD_GLOBAL_VARIABLE'
-      |'RECORD_CHANGE_LISTENER_CONDITIONS_NOT_SUPPORTED'
-      |'RECORD_CHANGE_LISTENER_CONDITIONS_THRESHOLD_BREACHED'
-      |'RECORD_CREATE_MISSING_FILTERS'
-      |'RECORD_PRIOR_VALUE_REMAIN_SAME_BEFORE_TRIGGER'
-      |'REFERENCED_ELEMENT_NOT_FOUND'
-      |'REFERENCE_NOT_SUPPORTED'
-      |'REPEATER_API_VERSION_NOT_SUPPORTED'
-      |'REPEATER_API_VERSION_UPGRADE'
-      |'REPEATER_COMPONENT_CURRENTLY_NOT_SUPPORTED'
-      |'REPEATER_DATA_SOURCE_INCOMPATIBLE_TYPE'
-      |'REPEATER_REMOVED_FIELD_INVALID'
-      |'REQUIRED_VARIABLE_INVALID'
-      |'REQUIRED_VARIABLE_MISSING'
-      |'RESOURCE_NOT_SUPPORTED'
-      |'RPA_FLOW_ROBOT_POOL_INFORMATION_INCOMPLETE'
-      |'RULE_MISSING_CONDITION'
-      |'RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED'
-      |'RUN_AS_USER_NOT_SUPPORTED'
-      |'RUN_AS_USER_REQUIRED_WHEN_SPECIFYING_ASSIGNEE'
-      |'SCHEDULE_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER'
-      |'SCREENACTION_CALLS_FLOW_WITH_INSECURE_RUN_AS_MODE'
-      |'SCREENACTION_INVALID_INPUT_PARAM'
-      |'SCREENACTION_MISSING_REQUIRED_NAME'
-      |'SCREENACTION_MISSING_REQUIRED_TYPE'
-      |'SCREENACTION_NOT_SUPPORTED_IN_ORG'
-      |'SCREENACTION_TRIGGER_EVENT_SOURCE_NOT_ON_SAME_SCREEN'
-      |'SCREENACTION_TRIGGER_HANDLER_EXCEEDS_CONDITION_LIMIT'
-      |'SCREENACTION_TRIGGER_HANDLER_NOT_VALID_SCREEN_ACTION'
-      |'SCREENACTION_TYPE_NOT_SUPPORTED_IN_ORG'
-      |'SCREENCOMPONENT_CONTAINS_VISIBILITY_RULE'
-      |'SCREENFIELD_API_VERSION_NOT_SUPPORTED'
-      |'SCREENFIELD_BOOLEAN_ISREQUIRED_IS_FALSE'
-      |'SCREENFIELD_CANNOT_HAVE_BOTH_DEFAULTVALUE_AND_DEFAULTSELECTEDCHOICEREFERENCE'
-      |'SCREENFIELD_DEFAULTVALUE_NOT_SUPPORTED'
-      |'SCREENFIELD_EXTENSION_DUPLICATE_INPUT_PARAM'
-      |'SCREENFIELD_EXTENSION_DUPLICATE_OUTPUT_PARAM'
-      |'SCREENFIELD_EXTENSION_IMPLEMENTATION_INVALID'
-      |'SCREENFIELD_EXTENSION_INPUT_ATTRIBUTE_INVALID'
-      |'SCREENFIELD_EXTENSION_NAME_INVALID'
-      |'SCREENFIELD_EXTENSION_NAME_MISSING'
-      |'SCREENFIELD_EXTENSION_NAME_NOT_SUPPORTED'
-      |'SCREENFIELD_EXTENSION_OUTPUT_ATTRIBUTE_INVALID'
-      |'SCREENFIELD_EXTENSION_REQUIRED_INPUT_MISSING'
-      |'SCREENFIELD_INPUTS_NOT_SUPPORTED'
-      |'SCREENFIELD_INPUTS_ON_NEXT_NAV_TO_ASSOC_SCRN_NOT_SUPPORTED'
-      |'SCREENFIELD_INVALID_DATATYPE'
-      |'SCREENFIELD_MULTISELECTCHOICE_SEMICOLON_NOT_SUPPORTED'
-      |'SCREENFIELD_OBJECTFIELDREFERENCE_INVALID_FORMAT'
-      |'SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_DEFAULTVALUE'
-      |'SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_HELPTEXT'
-      |'SCREENFIELD_OBJECTPROVIDED_INVALID_DATATYPE'
-      |'SCREENFIELD_OBJECTPROVIDED_ISREQUIRED_NOT_SUPPORTED'
-      |'SCREENFIELD_OBJECTPROVIDED_LIGHTNING_RUNTIME_DISABLED'
-      |'SCREENFIELD_OBJECTPROVIDED_MISSING_OBJECTFIELDREFERENCE'
-      |'SCREENFIELD_OUTPUTS_NOT_SUPPORTED'
-      |'SCREENFIELD_REGION_CONTAINS_DUPLICATE_INPUT_PARAMETER_VALUES'
-      |'SCREENFIELD_REGION_INPUT_PARAMETER_NOT_SUPPORTED'
-      |'SCREENFIELD_REGION_MISSING_REQUIRED_PERMISSIONS'
-      |'SCREENFIELD_REGION_NOT_IN_CONTAINER'
-      |'SCREENFIELD_REGION_REQUIRED_INPUT_PARAMETER_MISSING'
-      |'SCREENFIELD_REGION_WIDTH_SUM_EXCEEDS_LIMIT'
-      |'SCREENFIELD_REGION_WIDTH_VALUE_INVALID'
-      |'SCREENFIELD_TYPE_NOT_SUPPORTED'
-      |'SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_API_VERSION'
-      |'SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'SCREENFIELD_USERINPUT_NOT_SUPPORTED_FOR_CHOICETYPE'
-      |'SCREENFIELD_VALIDATIONRULE_NOT_SUPPORTED'
-      |'SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_ENVIRONMENT'
-      |'SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_EXTENSIONS_WITHOUT_OUTPUTS'
-      |'SCREENFOOTER_MERGEFIELD_NOT_SUPPORTED'
-      |'SCREENRULE_ACTION_INVALID_ATTRIBUTE'
-      |'SCREENRULE_ACTION_INVALID_ATTRIBUTE_FOR_API_VERSION'
-      |'SCREENRULE_ACTION_INVALID_VALUE'
-      |'SCREENRULE_ACTION_MISSING_ATTRIBUTE'
-      |'SCREENRULE_ACTION_MISSING_FIELDREFERENCE'
-      |'SCREENRULE_ACTION_MISSING_VALUE'
-      |'SCREENRULE_ATTRIBUTE_NOT_SUPPORTED_FOR_SCREENFIELD'
-      |'SCREENRULE_FIELD_NOT_FOUND_ON_SCREEN'
-      |'SCREENRULE_MISSING_ACTION'
-      |'SCREENRULE_NOT_SUPPORTED_IN_ORG'
-      |'SCREENRULE_SCREENFIELD_NOT_VISIBLE'
-      |'SCREENRULE_VISIBILITY_NOT_SUPPORTED_IN_ORG'
-      |'SCREEN_ACTION_NOT_FOUND_WITH_NAME_AND_TYPE'
-      |'SCREEN_ALLOWBACK_ALLOWFINISH_BOTH_FALSE'
-      |'SCREEN_CONTAINS_LIGHTNING_COMPONENT'
-      |'SCREEN_CONTAINS_REGION_CONTAINER_COMPONENT'
-      |'SCREEN_FIELD_REGION_CONTAINER_TYPE_INVALID_VALUE'
-      |'SCREEN_FIELD_REGION_CONTAINER_TYPE_MISSING'
-      |'SCREEN_FIELD_SECTION_HEADER_INVALID_VALUE'
-      |'SCREEN_FIELD_SECTION_HEADER_MISSING'
-      |'SCREEN_MISSING_FOOTER_AND_LIGHTNING_COMPONENT'
-      |'SCREEN_MISSING_LABEL'
-      |'SCREEN_MULTISELECTFIELD_DOESNT_SUPPORT_CHOICE_WITH_USERINPUT'
-      |'SCREEN_PAUSEDTEXT_NOT_SHOWN_WHEN_ALLOWPAUSE_IS_FALSE'
-      |'SEND_EMAIL_UNSUPPORTED'
-      |'SETTING_FIELD_MAKES_OTHER_FIELD_REQUIRED'
-      |'SETTING_FIELD_MAKES_OTHER_FIELD_UNSUPPORTED'
-      |'SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_UNSUPPORTED'
-      |'SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_VALUE_UNSUPPORTED'
-      |'SETUP_REFERENCE_ALLOWED_ONLY_IN_ACTION_INPUT'
-      |'SETUP_REFERENCE_TYPE_NOT_PACKAGEABLE'
-      |'SETUP_REFERENCE_VALUE_REQUIRES_DEVELOPER_NAMES'
-      |'SLACK_API_EXCEPTION_EXTENSION'
-      |'SOBJECT_ELEMENT_INCOMPATIBLE_DATATYPE'
-      |'SOBJECT_ELEMENT_MISMATCHED_OBJECTTYPE'
-      |'SORT_ENCRYPTED_FIELDS_NOT_SUPPORTED'
-      |'SORT_FIELD_MISSING'
-      |'SORT_FIELD_NOT_SUPPORTED'
-      |'SORT_GEOLOCATION_FIELDS_NOT_SUPPORTED'
-      |'SORT_LIMIT_INVALID'
-      |'SORT_ORDER_MISSING'
-      |'SPECIFIC_FIELD_VALUE_MAKES_OTHER_FIELD_REQUIRED'
-      |'SPECIFIC_FIELD_VALUE_MAKES_OTHER_FIELD_VALUE_REQUIRED'
-      |'STAGE_NAME_NOT_FULLY_QUALIFIED'
-      |'STAGE_STEP_ASSIGNEE_NOT_SUPPORTED'
-      |'START_ELEMENT_MISSING'
-      |'SUBFLOW_DESKTOP_DESIGNER_FLOWS_NOT_SUPPORTED'
-      |'SUBFLOW_DIFFERENT_RUNMODE'
-      |'SUBFLOW_INPUT_MISSING_NAME'
-      |'SUBFLOW_INPUT_MULTIPLE_ASSIGNMENTS_TO_ONE_VARIABLE'
-      |'SUBFLOW_INPUT_REFERENCES_FIELD_ON_SOBJECT_VARIABLE'
-      |'SUBFLOW_INPUT_VARIABLE_NOT_FOUND_IN_REFERENCEDFLOW'
-      |'SUBFLOW_INPUT_VARIABLE_NO_INPUT_ACCESS'
-      |'SUBFLOW_INVALID_NAME'
-      |'SUBFLOW_INVALID_REFERENCE'
-      |'SUBFLOW_MASTER_FLOW_TYPE_NOT_AUTOLAUNCHED'
-      |'SUBFLOW_MISSING_NAME'
-      |'SUBFLOW_NO_ACTIVE_VERSION'
-      |'SUBFLOW_OUTPUT_INCOMPATIBLE_DATATYPES'
-      |'SUBFLOW_OUTPUT_MISMATCHED_APEX_CLASS'
-      |'SUBFLOW_OUTPUT_MISMATCHED_COLLECTIONTYPES'
-      |'SUBFLOW_OUTPUT_MISMATCHED_OBJECTS'
-      |'SUBFLOW_OUTPUT_MISSING_ASSIGNTOREFERENCE'
-      |'SUBFLOW_OUTPUT_MISSING_NAME'
-      |'SUBFLOW_OUTPUT_MULTIPLE_ASSIGNMENTS_TO_ONE_VARIABLE'
-      |'SUBFLOW_OUTPUT_REFERENCES_FIELD_ON_SOBJECT_VARIABLE'
-      |'SUBFLOW_OUTPUT_TARGET_DOES_NOT_EXIST_IN_MASTER_FLOW'
-      |'SUBFLOW_OUTPUT_VARIABLE_NOT_FOUND_IN_MASTERFLOW'
-      |'SUBFLOW_OUTPUT_VARIABLE_NOT_FOUND_IN_REFERENCEDFLOW'
-      |'SUBFLOW_OUTPUT_VARIABLE_NO_OUTPUT_ACCESS'
-      |'SUBFLOW_PROCESSTYPE_NOT_SUPPORTED'
-      |'SUBFLOW_PROCESS_TYPE_INCOMPATIBLE'
-      |'SUBFLOW_REFERENCES_MASTERFLOW'
-      |'SURVEY_ADVANCED_CONDITION_LOGIC_NOT_SUPPORTED'
-      |'SURVEY_CHOICE_NOT_REFERENCED_BY_A_QUESTION'
-      |'SURVEY_CHOICE_REFERENCED_BY_MULTIPLE_QUESTIONS'
-      |'SURVEY_ELEMENT_NEVER_REACHED'
-      |'SURVEY_ENRICH_INVALID_CONFIGURATION'
-      |'SURVEY_INACTIVE_SUBFLOWS'
-      |'SURVEY_INVALID_ATTACHMENT_QUESTION_CONFIGURATION'
-      |'SURVEY_INVALID_CMT_CONFIGURED'
-      |'SURVEY_INVALID_CUSTOM_THANK_YOU_CONFIGURATION'
-      |'SURVEY_INVALID_LINK_TARGET_IN_QUESTION_LABEL'
-      |'SURVEY_INVALID_MATRIX_QUESTION_CONFIGURATION'
-      |'SURVEY_INVALID_MERGE_FIELD_CONFIGURATION'
-      |'SURVEY_INVALID_OUTPUT_VARIABLE'
-      |'SURVEY_MISSING_QUESTION_OR_SUBFLOW'
-      |'SURVEY_MISSING_REQUIRED_VARIABLES'
-      |'SURVEY_MULTIPLE_SCREENS_CANNOT_CONNECT_TO_SAME_DECISION'
-      |'SURVEY_NESTED_SUBFLOWS'
-      |'SURVEY_NONSURVEY_SUBFLOWS'
-      |'SURVEY_PAGE_CAN_HAVE_ONLY_ONE_QUESTION'
-      |'SURVEY_RULE_INVALID_LEFT_OPERAND'
-      |'SURVEY_RULE_INVALID_RIGHT_OPERAND'
-      |'SURVEY_SAVE_ERROR'
-      |'SURVEY_SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_QUESTION'
-      |'SURVEY_START_ELEMENT_INVALID'
-      |'SURVEY_VARIABLE_ACCESS_INVALID'
-      |'SYSTEM_MODE_NOT_ALLOWED'
-      |'SYSTEM_VARIABLE_MISSING_FIELD_REFERENCE'
-      |'TEMPLATED_PRVD_TYPE_INCOMPATIBLE_FLOW_TYPE'
-      |'TEMPLATED_SCREENFIELD_INFO_MISSING'
-      |'TEMPLATED_SCREENFIELD_INVALID'
-      |'TEMPLATED_SCREENFIELD_NOT_SUPPORTED'
-      |'TEMPLATED_SCREENFIELD_PROPERTIES_INVALID'
-      |'TEMPLATED_SCREENFIELD_PROPERTIES_MISSING'
-      |'TEMPLATED_SCREENFIELD_PRVD_TYPE_INVALID'
-      |'TEMPLATED_SCREENFIELD_RNDR_LWC_INVALID'
-      |'TEMPLATED_SCREEN_FIELD_REQUIRES_AUTOMATIC_OUTPUT'
-      |'TEMPORARY_QUERY_MORE_FAILURE'
-      |'TRIGGERED_FLOW_REDUNDANT_QUERY'
-      |'TRIGGERING_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS'
-      |'TRIGGER_ORDER_NOT_SUPPORTED'
-      |'TRIGGER_TYPE_CONTEXT_OBJECT_NOT_SUPPORTED'
-      |'TRIGGER_TYPE_ELEMENT_NOT_SUPPORTED'
-      |'TRIGGER_TYPE_INCOMPATIBLE_WITH_PROCESS_TYPE'
-      |'TRIGGER_TYPE_NOT_ALLOWED_FOR_SUBFLOW'
-      |'TYPE_MAPPING_DUPLICATED'
-      |'TYPE_MAPPING_NAME_MISSING'
-      |'TYPE_MAPPING_NOT_FOUND'
-      |'TYPE_MAPPING_NOT_SUPPORTED'
-      |'TYPE_MAPPING_NOT_SUPPORTED_FOR_API_VERSION'
-      |'TYPE_MAPPING_NOT_SUPPORTED_FOR_PROCESS_TYPE'
-      |'UNAUTHORIZED_USER_FOR_CURSOR'
-      |'UNEXPECTED_ERROR'
-      |'VALIDATION_EXCEPTION'
-      |'VALUE_CHAR_LIMIT_EXCEEDED'
-      |'VARIABLE_FIELD_IS_READ_ONLY'
-      |'VARIABLE_FIELD_NOT_SUPPORTED_FOR_DATATYPE'
-      |'VARIABLE_FIELD_NOT_SUPPORTED_FOR_DATATYPE_AND_COLLECTION'
-      |'VARIABLE_FIELD_REQUIRED_FOR_DATATYPE'
-      |'VARIABLE_NAME_IS_RESERVED_FOR_PROCESS_TYPE'
-      |'VARIABLE_SCALE_EXCEEDS_LIMIT'
-      |'VARIABLE_SCALE_NEGATIVE_INTEGER'
-      |'VARIABLE_SCALE_NULL'
-      |'VERSION_NOT_VALID'
-      |'VISIBILITY_RULE_EXCEEDS_CONDITION_LIMIT'
-      |'VISIBILITY_RULE_NOT_AVAILABLE_IN_ORG'
-      |'VISIBILITY_RULE_NOT_SUPPORTED_FOR_API_VERSION'
-      |'VISIBILITY_RULE_NOT_SUPPORTED_FOR_PROCESSTYPE'
-      |'VISIBILITY_RULE_NO_CONDITIONS'
-      |'WAITEVENT_BATCH_SIZE_NOT_SUPPORTED_FOR_EVENTTYPE'
-      |'WAITEVENT_CHANNEL_ACTIONCALL_MISMATCH'
-      |'WAITEVENT_DEFAULT_CONNECTOR_MISSING_LABEL'
-      |'WAITEVENT_DUPLICATE_INPUT_PARAM'
-      |'WAITEVENT_INPUT_NOT_SUPPORTED_FOR_EVENTTYPE'
-      |'WAITEVENT_INPUT_REQUIRES_LITERAL_VALUE'
-      |'WAITEVENT_INVALID_CONDITION_LOGIC'
-      |'WAITEVENT_INVALID_VALUE'
-      |'WAITEVENT_MISSING'
-      |'WAITEVENT_MISSING_CONNECTOR'
-      |'WAITEVENT_MISSING_EVENTTYPE'
-      |'WAITEVENT_NOT_SUCCEEDING_ACTIONCALL'
-      |'WAITEVENT_OBJECT_NOT_SUPPORTED_FOR_EVENTTYPE'
-      |'WAITEVENT_OUTPUT_NOT_SUPPORTED_FOR_EVENTTYPE'
-      |'WAITEVENT_RELATIVEALARM_INVALID_DATETIME_FIELD'
-      |'WAITEVENT_RELATIVEALARM_INVALID_FIELD'
-      |'WAITEVENT_RELATIVEALARM_INVALID_OBJECTTYPE'
-      |'WAITEVENT_RELATIVEALARM_INVALID_OFFSETNUMBER'
-      |'WAITEVENT_RELATIVEALARM_INVALID_OFFSETUNIT'
-      |'WAITEVENT_REQUIRED_INPUT_MISSING'
-      |'WAITEVENT_RESUME_DATE_IN_PAST'
-      |'WAITEVENT_TYPE_INVALID_OR_NOT_SUPPORTED'
-      |'WORKFLOW_MISSING_PROCESSMETADATAVALUES'
-      |'WORKFLOW_OBJECTTYPE_NOT_FOUND'
-      |'WORKFLOW_OBJECTTYPE_NOT_SUPPORTED'
-      |'WORKFLOW_OBJECTVARIABLE_AND_OLDOBJECTVARIABLE_REFERENCE_SAME_SOBJECT_VARIABLE'
-      |'WORKFLOW_OBJECTVARIABLE_DOESNT_SUPPORT_INPUT'
-      |'WORKFLOW_OLDOBJECTVARIABLE_DOESNT_SUPPORT_INPUT'
-      |'WORKFLOW_PROCESSMETADATAVALUES_MORE_THAN_ONE_NAME'
-      |'WORKFLOW_PROCESS_METADATAVALUES_MISSING_NAME'
-      |'WORKFLOW_RECURSIVECOUNTVARIABLE_DOESNT_SUPPORT_INPUT'
-      |'WORKFLOW_RULE_NOT_DEACTIVATED'
-      |'WORKFLOW_TRIGGERTYPE_INVALID_VALUE'
-
-export type TestLevel = 'NoTestRun'
-      |'RunSpecifiedTests'
-      |'RunLocalTests'
-      |'RunAllTestsInOrg'
-
-export type PerfOption = 'NONE'
-      |'MINIMUM'
-
-export type LogCategory = 'Db'
-      |'Workflow'
-      |'Validation'
-      |'Callout'
-      |'Apex_code'
-      |'Apex_profiling'
-      |'Visualforce'
-      |'System'
-      |'Wave'
-      |'Nba'
-      |'Data_access'
-      |'All'
-
-export type LogCategoryLevel = 'None'
-      |'Finest'
-      |'Finer'
-      |'Fine'
-      |'Debug'
-      |'Info'
-      |'Warn'
-      |'Error'
-
-export type LogType = 'None'
-      |'Debugonly'
-      |'Db'
-      |'Profiling'
-      |'Callout'
-      |'Detail'
-
-export type ID = string
-
-export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
-      |'ALL_OR_NONE_OPERATION_ROLLED_BACK'
-      |'ALREADY_APPLIED'
-      |'ALREADY_IN_PROCESS'
-      |'ALREADY_REDEEMED_VOUCHER'
-      |'APEX_DATA_ACCESS_RESTRICTION'
-      |'APEX_FAILED'
-      |'API_TASK_INVALID_REQUEST'
-      |'API_TASK_LIMIT_REACHED'
-      |'APPLICATION_ALREADY_EXISTS'
-      |'ASSIGNEE_TYPE_REQUIRED'
-      |'ATTRIBUTE_DEFINITION_LIMIT_EXCEEDED'
-      |'AURA_COMPILE_ERROR'
-      |'AUTH_PROVIDER_NEEDS_AUTH'
-      |'AUTH_PROVIDER_NOT_FOUND'
-      |'B2B_SEARCH_ADMIN_ERROR'
-      |'BAD_CUSTOM_ENTITY_PARENT_DOMAIN'
-      |'BAD_GATEWAY'
-      |'BAD_LIST_UNSUBSCRIBE_DATA'
-      |'BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED'
-      |'BLOCKED_EXCLUSIVE'
-      |'CANNOT_CASCADE_PRODUCT_ACTIVE'
-      |'CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD'
-      |'CANNOT_CHANGE_FIELD_TYPE_OF_REFERENCED_FIELD'
-      |'CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE'
-      |'CANNOT_DEACTIVATE_DIVISION'
-      |'CANNOT_DELETE_GLOBAL_ACTION_LIST'
-      |'CANNOT_DELETE_LAST_DATED_CONVERSION_RATE'
-      |'CANNOT_DELETE_MANAGED_OBJECT'
-      |'CANNOT_DISABLE_LAST_ADMIN'
-      |'CANNOT_ENABLE_IP_RESTRICT_REQUESTS'
-      |'CANNOT_EXECUTE_FLOW_TRIGGER'
-      |'CANNOT_FREEZE_SELF'
-      |'CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY'
-      |'CANNOT_MODIFY_MANAGED_OBJECT'
-      |'CANNOT_PASSWORD_LOCKOUT'
-      |'CANNOT_POST_TO_ARCHIVED_GROUP'
-      |'CANNOT_RENAME_APEX_REFERENCED_FIELD'
-      |'CANNOT_RENAME_APEX_REFERENCED_OBJECT'
-      |'CANNOT_RENAME_REFERENCED_FIELD'
-      |'CANNOT_RENAME_REFERENCED_OBJECT'
-      |'CANNOT_REPARENT_RECORD'
-      |'CANNOT_UPDATE_CONVERTED_LEAD'
-      |'CANNOT_UPDATE_IS_THIRD_PARTY'
-      |'CANNOT_UPDATE_PAYMENT_METHOD_SET'
-      |'CANT_DISABLE_CORP_CURRENCY'
-      |'CANT_UNSET_CORP_CURRENCY'
-      |'CART_DELIVERY_GROUP_NOT_FOUND'
-      |'CART_ITEM_LIMIT_EXCEEDED_FOR_COUPONS'
-      |'CART_ITEM_NOT_FOUND'
-      |'CART_NOT_FOUND'
-      |'CDS_UNCOMMITTED_WORK'
-      |'CHECKOUT_CONFLICT'
-      |'CHECKOUT_EXPIRED'
-      |'CHECKOUT_INVALIDATED'
-      |'CHECKOUT_LOCKED'
-      |'CHECKOUT_NOT_FOUND'
-      |'CHECKOUT_UNAUTHORIZED'
-      |'CHECKOUT_VALIDATION'
-      |'CHILD_SHARE_FAILS_PARENT'
-      |'CIRCULAR_DEPENDENCY'
-      |'CLEAN_SERVICE_ERROR'
-      |'CLM_INSUFFICIENT_ACCESS'
-      |'CLM_RECORD_NOT_FOUND'
-      |'CLONE_FIELD_INTEGRITY_EXCEPTION'
-      |'CLONE_NOT_SUPPORTED'
-      |'CMS_FOLDER_ITEM_MOVE_FAILED'
-      |'COLLISION_DETECTED'
-      |'COMMERCE_SEARCH_INDEXING_SYSTEM_ERROR'
-      |'COMMERCE_SEARCH_INVALID_RESOURCE'
-      |'COMMERCE_SEARCH_MQ_ERROR'
-      |'COMMERCE_SEARCH_PROVIDER_LIMIT_EXCEEDED'
-      |'COMMERCE_SEARCH_RESOURCE_NOT_FOUND'
-      |'COMMERCE_SEARCH_UNSUPPORTED_LANGUAGE_ERROR'
-      |'COMMERCIAL_CONTROL_ERROR'
-      |'COMMUNITY_NOT_ACCESSIBLE'
-      |'CONFLICT'
-      |'CONFLICTING_ENVIRONMENT_HUB_MEMBER'
-      |'CONFLICTING_SSO_USER_MAPPING'
-      |'CONTENT_NOT_FOUND'
-      |'CONTENT_SEARCH_NOT_ENABLED'
-      |'CONTENT_TYPE_DISABLED_FOR_API'
-      |'CONTENT_TYPE_NOT_FOUND'
-      |'COPILOT_INACTIVE_CONFIG'
-      |'COPILOT_SESSION_ENDED'
-      |'COUPON_REDEMPTION_LIMIT_EXCEEDED'
-      |'CT_DEPTH_LIMIT_EXCEEDED'
-      |'CT_DEVELOPER_NAME_NOT_UPDATABLE'
-      |'CT_ENTITY_DELETE_ERROR'
-      |'CT_ENTITY_SAVE_ERROR'
-      |'CT_INVALID_DEPTH'
-      |'CT_INVALID_QUERY_WORD'
-      |'CT_INVALID_TAXONOMY_ID'
-      |'CT_INVALID_TERM_ID'
-      |'CT_NONEMPTY_TERM_REFERENCE'
-      |'CT_PARENT_TERM_CYCLE'
-      |'CT_TERM_SEARCH_ERROR'
-      |'CUSTOM_APEX_ERROR'
-      |'CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED'
-      |'CUSTOM_ENTITY_OR_FIELD_LIMIT'
-      |'CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED'
-      |'CUSTOM_INDEX_EXISTS'
-      |'CUSTOM_LINK_LIMIT_EXCEEDED'
-      |'CUSTOM_METADATA_LIMIT_EXCEEDED'
-      |'CUSTOM_METADATA_REL_FIELD_MANAGEABILITY'
-      |'CUSTOM_SETTINGS_LIMIT_EXCEEDED'
-      |'CUSTOM_TAB_LIMIT_EXCEEDED'
-      |'DATAASSESSMENT_CONFIG_ASSESSMENT_IN_PROGRESS_ERROR'
-      |'DATAASSESSMENT_CONFIG_SERVICE_ERROR'
-      |'DATACLOUDADDRESS_NO_RECORDS_FOUND'
-      |'DATACLOUDADDRESS_PROCESSING_ERROR'
-      |'DATACLOUDADDRESS_SERVER_ERROR'
-      |'DATA_MAPPING_NOT_FOUND'
-      |'DATA_MAPPING_SCHEMA_NOT_FOUND'
-      |'DATA_TRANSFER_RECORD_LIMIT_EXCEEDED'
-      |'DATA_TRANSLATION_TOGGLED_BEFORE_INCREMENTAL_INDEX'
-      |'DATA_TYPE_NOT_SUPPORTED'
-      |'DATE_OUT_OF_RANGE'
-      |'DELETE_FAILED'
-      |'DELETE_NOT_ALLOWED'
-      |'DELETE_OPERATION_TOO_LARGE'
-      |'DELETE_REQUIRED_ON_CASCADE'
-      |'DEPENDENCY_EXISTS'
-      |'DOCUMENT_VERSION_EXISTS'
-      |'DUPLICATES_DETECTED'
-      |'DUPLICATE_CASE_SOLUTION'
-      |'DUPLICATE_COMM_NICKNAME'
-      |'DUPLICATE_CUSTOM_ENTITY_DEFINITION'
-      |'DUPLICATE_CUSTOM_TAB_MOTIF'
-      |'DUPLICATE_DEVELOPER_NAME'
-      |'DUPLICATE_EXTERNAL_ID'
-      |'DUPLICATE_MASTER_LABEL'
-      |'DUPLICATE_SENDER_DISPLAY_NAME'
-      |'DUPLICATE_USERNAME'
-      |'DUPLICATE_VALUE'
-      |'EMAIL_ADDRESS_BOUNCED'
-      |'EMAIL_EXTERNAL_TRANSPORT_CONNECTION_ERROR'
-      |'EMAIL_EXTERNAL_TRANSPORT_PERMISSION_ERROR'
-      |'EMAIL_EXTERNAL_TRANSPORT_TOKEN_ERROR'
-      |'EMAIL_EXTERNAL_TRANSPORT_TOO_LARGE_ERROR'
-      |'EMAIL_EXTERNAL_TRANSPORT_TOO_MANY_REQUESTS_ERROR'
-      |'EMAIL_EXTERNAL_TRANSPORT_UNKNOWN_ERROR'
-      |'EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR'
-      |'EMAIL_OPTED_OUT'
-      |'EMAIL_TEMPLATE_FORMULA_ERROR'
-      |'EMAIL_TEMPLATE_MERGEFIELD_ACCESS_ERROR'
-      |'EMAIL_TEMPLATE_MERGEFIELD_ERROR'
-      |'EMAIL_TEMPLATE_MERGEFIELD_VALUE_ERROR'
-      |'EMAIL_TEMPLATE_PROCESSING_ERROR'
-      |'EMPTY_CATALOG'
-      |'EMPTY_INGESTION_JOB'
-      |'EMPTY_SCONTROL_FILE_NAME'
-      |'ENHANCED_EMAIL_TEMPLATE_COMPILATION_ERROR'
-      |'ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE'
-      |'ENTITY_IS_ARCHIVED'
-      |'ENTITY_IS_DELETED'
-      |'ENTITY_IS_LOCKED'
-      |'ENTITY_SAVE_ERROR'
-      |'ENTITY_SAVE_VALIDATION_ERROR'
-      |'ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT'
-      |'ENVIRONMENT_HUB_MEMBERSHIP_ERROR_JOINING_HUB'
-      |'ENVIRONMENT_HUB_MEMBERSHIP_USER_ALREADY_IN_HUB'
-      |'ENVIRONMENT_HUB_MEMBERSHIP_USER_NOT_ORG_ADMIN'
-      |'ERROR_CALCULATING_EXPIRY_DATE'
-      |'ERROR_IN_MAILER'
-      |'EXCEEDED_MAX_SEMIJOIN_SUBSELECTS_WRITE'
-      |'EXCHANGE_WEB_SERVICES_URL_INVALID'
-      |'EXTERNAL_RESOURCE_FORBIDDEN'
-      |'FAILED_ACTIVATION'
-      |'FAILED_DUE_TO_OTHER_INPUTS'
-      |'FAILED_TO_RESOLVE_MAPPING'
-      |'FAILED_TO_RESOLVE_SCHEMA_INFORMATION'
-      |'FIELD_CUSTOM_VALIDATION_EXCEPTION'
-      |'FIELD_FILTER_VALIDATION_EXCEPTION'
-      |'FIELD_INTEGRITY_EXCEPTION'
-      |'FIELD_KEYWORD_LIST_MATCH_LIMIT'
-      |'FIELD_MAPPING_ERROR'
-      |'FIELD_MODERATION_RULE_BLOCK'
-      |'FIELD_NOT_UPDATABLE'
-      |'FILE_EXTENSION_NOT_ALLOWED'
-      |'FILE_SIZE_LIMIT_EXCEEDED'
-      |'FILTERED_LOOKUP_LIMIT_EXCEEDED'
-      |'FIND_DUPLICATES_ERROR'
-      |'FLOW_EXCEPTION'
-      |'FORBIDDEN_EXCEPTION'
-      |'FUNCTIONALITY_NOT_ENABLED'
-      |'GET_EINSTEIN_TENANT_ERROR'
-      |'GUEST_INSUFFICIENT_ACCESS'
-      |'HAS_PUBLIC_REFERENCES'
-      |'HTML_FILE_UPLOAD_NOT_ALLOWED'
-      |'IAS_AM_AUTH_BAD_REQUEST'
-      |'IAS_AM_AUTH_UNAUTHORIZED'
-      |'IAS_INVALID_AUTH'
-      |'IAS_INVALID_REQUEST_PARAMETER'
-      |'IAS_RECORD_DOES_NOT_EXIST'
-      |'IAS_TENANT_NOT_PROVISIONED'
-      |'IAS_UNCOMMITTED_WORK'
-      |'IMAGE_TOO_LARGE'
-      |'INACTIVE_CONTEXT_DEFINITION'
-      |'INACTIVE_OWNER_OR_USER'
-      |'INACTIVE_RULE_ERROR'
-      |'INDEX_ITEM_LIMIT_EXCEEDED'
-      |'INDEX_PAYLOAD_NOT_FOUND'
-      |'INDEX_SINGLE_PAYLOAD_SIZE_LIMIT_EXCEEDED'
-      |'INGESTION_JOB_RECORDS_LIMIT_EXCEEDED'
-      |'INGESTION_TOTAL_FILE_SIZE_LIMIT_EXCEEDED'
-      |'INPUTPARAM_INCOMPATIBLE_DATATYPE'
-      |'INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE'
-      |'INSUFFICIENT_ACCESS'
-      |'INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY'
-      |'INSUFFICIENT_ACCESS_OR_READONLY'
-      |'INSUFFICIENT_ACCESS_TO_INSIGHTSEXTERNALDATA'
-      |'INSUFFICIENT_BALANCE'
-      |'INSUFFICIENT_BENEFIT_REMAINING'
-      |'INSUFFICIENT_CREDITS'
-      |'INTEGRATION_CANCELLED'
-      |'INTERNAL_ERROR'
-      |'INVALID_ACCESS_LEVEL'
-      |'INVALID_ACCESS_TOKEN'
-      |'INVALID_ACCOUNT'
-      |'INVALID_ACTION_VERSION'
-      |'INVALID_API_INPUT'
-      |'INVALID_ARGUMENT_TYPE'
-      |'INVALID_ASSIGNEE_TYPE'
-      |'INVALID_ASSIGNMENT_RULE'
-      |'INVALID_AUTH_HEADER'
-      |'INVALID_BATCH_OPERATION'
-      |'INVALID_BUSINESS_HOURS_NAME'
-      |'INVALID_CATEGORY_NETWORK'
-      |'INVALID_CHECKOUT_INPUT'
-      |'INVALID_CONTACT'
-      |'INVALID_CONTENT_TYPE'
-      |'INVALID_CREDIT_CARD_INFO'
-      |'INVALID_CROSS_REFERENCE_KEY'
-      |'INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD'
-      |'INVALID_CURRENCY_CONV_RATE'
-      |'INVALID_CURRENCY_CORP_RATE'
-      |'INVALID_CURRENCY_ISO'
-      |'INVALID_DATASET_REFERENCE_INPUT'
-      |'INVALID_DATA_CATEGORY_GROUP_REFERENCE'
-      |'INVALID_DATA_URI'
-      |'INVALID_EBV_OPERATION'
-      |'INVALID_EMAIL_ADDRESS'
-      |'INVALID_EMPTY_KEY_OWNER'
-      |'INVALID_ENTITY_FOR_MATCH_ENGINE_ERROR'
-      |'INVALID_ENTITY_FOR_MATCH_OPERATION_ERROR'
-      |'INVALID_ENTITY_FOR_UPSERT'
-      |'INVALID_ENVIRONMENT_HUB_MEMBER'
-      |'INVALID_EVENT_DELIVERY'
-      |'INVALID_EVENT_INPUT'
-      |'INVALID_EVENT_SUBSCRIPTION'
-      |'INVALID_EXTENSION_ID'
-      |'INVALID_EXTERNAL_ID_FIELD_NAME'
-      |'INVALID_FIELD'
-      |'INVALID_FIELD_FOR_INSERT_UPDATE'
-      |'INVALID_FIELD_WHEN_USING_TEMPLATE'
-      |'INVALID_FILTER_ACTION'
-      |'INVALID_GOOGLE_DOCS_URL'
-      |'INVALID_ID_FIELD'
-      |'INVALID_INET_ADDRESS'
-      |'INVALID_INPUT'
-      |'INVALID_INPUT_FORMAT'
-      |'INVALID_KEY_FIELD_INPUT'
-      |'INVALID_LINEITEM_CLONE_STATE'
-      |'INVALID_MARKUP'
-      |'INVALID_MASTER_OR_TRANSLATED_SOLUTION'
-      |'INVALID_MERCHANT_ACCOUNT_MODE'
-      |'INVALID_MERCHANT_ACCOUNT_MODE_OR_STATUS'
-      |'INVALID_MERGE_RECORD'
-      |'INVALID_MESSAGE_ID_REFERENCE'
-      |'INVALID_NAMESPACE_PREFIX'
-      |'INVALID_OAUTH_URL'
-      |'INVALID_OPERATION'
-      |'INVALID_OPERATOR'
-      |'INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST'
-      |'INVALID_OWNER'
-      |'INVALID_PACKAGE_LICENSE'
-      |'INVALID_PACKAGE_VERSION'
-      |'INVALID_PARTNER_NETWORK_STATUS'
-      |'INVALID_PAYLOAD_VERSION'
-      |'INVALID_PERSON_ACCOUNT_OPERATION'
-      |'INVALID_PROFILE'
-      |'INVALID_PROMOTION'
-      |'INVALID_PROVIDER_TYPE'
-      |'INVALID_QUERY_KEY'
-      |'INVALID_QUERY_LOCATOR'
-      |'INVALID_QUERY_VALUE'
-      |'INVALID_READ_ONLY_USER_DML'
-      |'INVALID_RECEIVEDDOCUMENTID_ATTACHMENT'
-      |'INVALID_RECORD_ATTRIBUTE_VALUE'
-      |'INVALID_RECORD_TYPE'
-      |'INVALID_REFRESH_TOKEN'
-      |'INVALID_REORDER_PORTAL_RECORD_ASSOCIATION'
-      |'INVALID_REQUEST_STATE'
-      |'INVALID_RUNTIME_VALUE'
-      |'INVALID_SAVE_AS_ACTIVITY_FLAG'
-      |'INVALID_SCS_INBOUND_USER'
-      |'INVALID_SEARCH_PROVIDER_REQUEST'
-      |'INVALID_SESSION_ID'
-      |'INVALID_SETUP_OWNER'
-      |'INVALID_SIGNUP_COUNTRY'
-      |'INVALID_SIGNUP_OPTION'
-      |'INVALID_SITE_DELETE_EXCEPTION'
-      |'INVALID_SITE_FILE_IMPORTED_EXCEPTION'
-      |'INVALID_SITE_FILE_TYPE_EXCEPTION'
-      |'INVALID_SOURCE_OBJECT_ID'
-      |'INVALID_SOURCE_OBJECT_NAME'
-      |'INVALID_STATUS'
-      |'INVALID_SUBDOMAIN'
-      |'INVALID_TARGET_OBJECT_NAME'
-      |'INVALID_TEXT_REPRESENTATION'
-      |'INVALID_TYPE'
-      |'INVALID_TYPE_FOR_OPERATION'
-      |'INVALID_TYPE_ON_FIELD_IN_RECORD'
-      |'INVALID_UNMERGE_RECORD'
-      |'INVALID_USERID'
-      |'INVALID_USER_OBJECT'
-      |'IP_RANGE_LIMIT_EXCEEDED'
-      |'ITEM_NOT_FOUND'
-      |'JIGSAW_IMPORT_LIMIT_EXCEEDED'
-      |'LICENSE_LIMIT_EXCEEDED'
-      |'LIGHT_PORTAL_USER_EXCEPTION'
-      |'LIMIT_EXCEEDED'
-      |'LIST_PRICE_NOT_FOUND'
-      |'MALFORMED_ID'
-      |'MANAGER_NOT_DEFINED'
-      |'MAPPING_TYPE_NOT_SUPPORTED'
-      |'MASSMAIL_RETRY_LIMIT_EXCEEDED'
-      |'MASS_MAIL_LIMIT_EXCEEDED'
-      |'MATCH_DEFINITION_ERROR'
-      |'MATCH_OPERATION_ERROR'
-      |'MATCH_OPERATION_INVALID_ENGINE_ERROR'
-      |'MATCH_OPERATION_INVALID_RULE_ERROR'
-      |'MATCH_OPERATION_MISSING_ENGINE_ERROR'
-      |'MATCH_OPERATION_MISSING_OBJECT_TYPE_ERROR'
-      |'MATCH_OPERATION_MISSING_OPTIONS_ERROR'
-      |'MATCH_OPERATION_MISSING_RULE_ERROR'
-      |'MATCH_OPERATION_UNKNOWN_RULE_ERROR'
-      |'MATCH_OPERATION_UNSUPPORTED_VERSION_ERROR'
-      |'MATCH_PRECONDITION_FAILED'
-      |'MATCH_PRECONDITION_REQUIRED'
-      |'MATCH_RUNTIME_ERROR'
-      |'MATCH_SERVICE_ERROR'
-      |'MATCH_SERVICE_TIMED_OUT'
-      |'MATCH_SERVICE_UNAVAILABLE_ERROR'
-      |'MAXIMUM_CCEMAILS_EXCEEDED'
-      |'MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED'
-      |'MAXIMUM_HIERARCHY_CHILDREN_REACHED'
-      |'MAXIMUM_HIERARCHY_LEVELS_REACHED'
-      |'MAXIMUM_HIERARCHY_TREE_SIZE_REACHED'
-      |'MAXIMUM_SIZE_OF_ATTACHMENT'
-      |'MAXIMUM_SIZE_OF_DOCUMENT'
-      |'MAX_ACTIONS_PER_RULE_EXCEEDED'
-      |'MAX_ACTIVE_RULES_EXCEEDED'
-      |'MAX_APPROVAL_STEPS_EXCEEDED'
-      |'MAX_DEPTH_IN_FLOW_EXECUTION'
-      |'MAX_FORMULAS_PER_RULE_EXCEEDED'
-      |'MAX_LIMIT_EXCEEDED'
-      |'MAX_LOCALES_EXCEEDED'
-      |'MAX_RULES_EXCEEDED'
-      |'MAX_RULE_ENTRIES_EXCEEDED'
-      |'MAX_TASK_DESCRIPTION_EXCEEEDED'
-      |'MAX_TM_RULES_EXCEEDED'
-      |'MAX_TM_RULE_ITEMS_EXCEEDED'
-      |'MAX_TRIGGERS_EXCEEDED'
-      |'MCONTENT_TAXONOMY_GET_ERROR'
-      |'MCONTENT_TAXONOMY_PUBLISH_ERROR'
-      |'MCONTENT_TAXONOMY_UPDATE_ERROR'
-      |'MERGE_FAILED'
-      |'METADATA_FIELD_UPDATE_ERROR'
-      |'METHOD_NOT_ALLOWED'
-      |'MISMATCHING_TYPES'
-      |'MISSING_ARGUMENT'
-      |'MISSING_OMNI_PROCESS_ID'
-      |'MISSING_PAYMENTS_DEPENDENCY'
-      |'MISSING_PAY_NOW_SITE_URL_ORG_VALUE'
-      |'MISSING_RECEIVEDDOCUMENTID_ATTACHMENT'
-      |'MISSING_RECORD'
-      |'MIXED_DML_OPERATION'
-      |'MODEL_NOT_ACTIVE'
-      |'MULTIPLE_CONTENT_FOUND'
-      |'MULTIPLE_VOUCHERS'
-      |'NONUNIQUE_SHIPPING_ADDRESS'
-      |'NOT_FOUND'
-      |'NOT_RECOVERABLE_SEARCH_PROVIDER_ERROR'
-      |'NO_ACCESS_TOKEN'
-      |'NO_ACCESS_TOKEN_FROM_REFRESH'
-      |'NO_APPLICABLE_PROCESS'
-      |'NO_ATTACHMENT_PERMISSION'
-      |'NO_AUTH_PROVIDER'
-      |'NO_BUSINESS_HOURS_FOUND'
-      |'NO_INACTIVE_DIVISION_MEMBERS'
-      |'NO_INDEXABLE_PRODUCTS'
-      |'NO_INDEXABLE_PRODUCTS_IN_PARTIAL_BUILD'
-      |'NO_MASS_MAIL_PERMISSION'
-      |'NO_MESSAGE_TYPE_MESSAGES'
-      |'NO_PARTNER_PERMISSION'
-      |'NO_REFRESH_TOKEN'
-      |'NO_SEARCHABLE_PRODUCTS'
-      |'NO_SEARCH_ATTRIBUTES'
-      |'NO_SINGLE_MAIL_PERMISSION'
-      |'NO_SORT_PRICEBOOK_ASSOCIATED_ERROR'
-      |'NO_SUCH_USER_EXISTS'
-      |'NO_TOKEN_ENDPOINT'
-      |'NUMBER_OUTSIDE_VALID_RANGE'
-      |'NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED'
-      |'OCR_INVALID_REQUEST'
-      |'OPERATION_CONFLICT'
-      |'OPERATION_ENQUEUED'
-      |'OPERATION_WITH_CALLBACK_ENQUEUED'
-      |'OPTED_OUT_OF_MASS_MAIL'
-      |'OP_WITH_INVALID_USER_TYPE_EXCEPTION'
-      |'ORCHESTRATION_INVALID'
-      |'ORDER_MANAGEMENT_ACTION_NOT_ALLOWED'
-      |'ORDER_MANAGEMENT_INVALID_RECORD'
-      |'ORDER_MANAGEMENT_RECORD_EXISTS'
-      |'ORDER_MANAGEMENT_RECORD_NOT_FOUND'
-      |'ORG_SETTING_REQUIRED'
-      |'PACKAGE_DISABLED'
-      |'PACKAGE_LICENSE_REQUIRED'
-      |'PACKAGING_API_INSTALL_FAILED'
-      |'PACKAGING_API_UNINSTALL_FAILED'
-      |'PALI_INVALID_ACTION_ID'
-      |'PALI_INVALID_ACTION_NAME'
-      |'PALI_INVALID_ACTION_TYPE'
-      |'PAL_INVALID_ASSISTANT_RECOMMENDATION_TYPE_ID'
-      |'PAL_INVALID_ENTITY_ID'
-      |'PAL_INVALID_FLEXIPAGE_ID'
-      |'PAL_INVALID_LAYOUT_ID'
-      |'PAL_INVALID_PARAMETERS'
-      |'PARAMETER_TOO_LARGE'
-      |'PARTICIPANT_RELATIONSHIP_EXISTS'
-      |'PAYLOAD_SIZE_EXCEEDED'
-      |'PAYMENTS_TOO_MANY_REQUESTS_ERROR'
-      |'PAYMENT_GATEWAY_EXCEPTION'
-      |'PA_API_EXCEPTION'
-      |'PA_AXIS_FAULT'
-      |'PA_INVALID_ID_EXCEPTION'
-      |'PA_NO_ACCESS_EXCEPTION'
-      |'PA_NO_DATA_FOUND_EXCEPTION'
-      |'PA_URI_SYNTAX_EXCEPTION'
-      |'PA_VISIBLE_ACTIONS_FILTER_ORDERING_EXCEPTION'
-      |'PENDING_COMMIT'
-      |'PICKLIST_INACTIVE_VALUES_EXCEEDED'
-      |'PLATFORM_EVENT_ENCRYPTION_ERROR'
-      |'PLATFORM_EVENT_PUBLISHING_UNAVAILABLE'
-      |'PLATFORM_EVENT_PUBLISH_FAILED'
-      |'PORTAL_NO_ACCESS'
-      |'PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT'
-      |'PORTAL_USER_CREATION_RESTRICTED_WITH_ENCRYPTION'
-      |'PRICE_NOT_FOUND'
-      |'PRIVATE_CONTACT_ON_ASSET'
-      |'PROCESSING_HALTED'
-      |'PROGRAM_PROGRESS_NOT_ACTIVE'
-      |'PROMOTION_NOT_FOUND'
-      |'QA_INVALID_CREATE_FEED_ITEM'
-      |'QA_INVALID_SUCCESS_MESSAGE'
-      |'QUERY_REFINEMENT_VALUE_LIMIT_EXCEEDED'
-      |'QUERY_TIMEOUT'
-      |'QUERY_TOKEN_COUNT_LIMIT_EXCEEDED'
-      |'QUICK_ACTION_LIST_ITEM_NOT_ALLOWED'
-      |'QUICK_ACTION_LIST_NOT_ALLOWED'
-      |'RECORD_CREATION_FAILED'
-      |'RECORD_IN_USE_BY_WORKFLOW'
-      |'RECORD_LOCKED'
-      |'RECORD_MISSING_REQUIRED_FIELD'
-      |'RECORD_NOT_FOUND'
-      |'RECORD_TYPE_LIMIT_EXCEEDED'
-      |'RECORD_UPDATE_FAILED'
-      |'RECOVERABLE_SEARCH_PROVIDER_ERROR'
-      |'REFRESH_FAILED'
-      |'RELATED_ENTITY_FILTER_VALIDATION_EXCEPTION'
-      |'REL_FIELD_BAD_ACCESSIBILITY'
-      |'REPUTATION_MINIMUM_NUMBER_NOT_REACHED'
-      |'REQUEST_RUNNING_TOO_LONG'
-      |'REQUIRED_FEATURE_MISSING'
-      |'REQUIRED_FIELD_MISSING'
-      |'REQUIRE_CONNECTED_APP_SCS'
-      |'REQUIRE_CONNECTED_APP_SESSION_SCS'
-      |'REQUIRE_RUNAS_USER'
-      |'RESOURCE_NOT_AVAILABLE'
-      |'RETRIEVE_EXCHANGE_ATTACHMENT_FAILED'
-      |'RETRIEVE_EXCHANGE_EMAIL_FAILED'
-      |'RETRIEVE_EXCHANGE_EVENT_FAILED'
-      |'RETRIEVE_GOOGLE_EMAIL_FAILED'
-      |'RETRIEVE_GOOGLE_EVENT_FAILED'
-      |'RETRIEVE_USER_CONFIG_ERROR'
-      |'ROUTES_EVALUATION_LIMIT_EXCEEDED'
-      |'SALESFORCE_INBOX_TRANSPORT_CONNECTION_ERROR'
-      |'SALESFORCE_INBOX_TRANSPORT_INVALID_INPUT_ERROR'
-      |'SALESFORCE_INBOX_TRANSPORT_TOKEN_ERROR'
-      |'SALESFORCE_INBOX_TRANSPORT_UNKNOWN_ERROR'
-      |'SCHEMA_OBJECT_NOT_FOUND'
-      |'SCREEN_POP_REQUIRED_INPUT_MISSING'
-      |'SEARCH_INCLUDE_RULES_MAX_RULE_DEFINITION_LIMIT_EXCEEDED'
-      |'SEARCH_INCLUDE_RULES_MIN_RULE_DEFINITION_NOT_MET'
-      |'SEARCH_PROVIDER_PATH_LIMIT_EXCEEDED'
-      |'SEARCH_PROVIDER_REQUEST_RATE_EXCEEDED'
-      |'SEGMENT_COUNT_LIMIT_EXCEEDED'
-      |'SELF_REFERENCE_FROM_FLOW'
-      |'SELF_REFERENCE_FROM_TRIGGER'
-      |'SERVICE_PLAN_INVALID_DATA'
-      |'SERVICE_PLAN_MISSING_DATA'
-      |'SERVICE_PLAN_UNKNOWN_EXCEPTION'
-      |'SERVICE_UNAVAILABLE'
-      |'SESSION_EXPIRED'
-      |'SESSION_INVALIDATED'
-      |'SHARE_NEEDED_FOR_CHILD_OWNER'
-      |'SINGLE_EMAIL_LIMIT_EXCEEDED'
-      |'SLACK_API_ERROR'
-      |'SOCIAL_ACCOUNT_NOT_FOUND'
-      |'SOCIAL_ACTION_INVALID'
-      |'SOCIAL_PERSONA_NOT_FOUND'
-      |'SOCIAL_POST_INVALID'
-      |'SOCIAL_POST_NOT_FOUND'
-      |'SPECIFICATION_GENERATION_EXCEPTION'
-      |'STANDARD_PRICE_NOT_DEFINED'
-      |'STORAGE_LIMIT_EXCEEDED'
-      |'STOREFRONT_PST_NOT_ACCEPTED'
-      |'STRING_TOO_LONG'
-      |'STXN_FULFILLMENT_NOT_INFLIGHT'
-      |'SUBDOMAIN_IN_USE'
-      |'TABSET_LIMIT_EXCEEDED'
-      |'TEMPLATE_NOT_ACTIVE'
-      |'TEMPLATE_NOT_FOUND'
-      |'TENANT_GROUP_NOT_FOUND'
-      |'TERMS_OF_SERVICE_UNREAD'
-      |'TERRITORY_REALIGN_IN_PROGRESS'
-      |'TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET'
-      |'TEXT_TO_PICKLIST_VALUES_EXCEEDED'
-      |'TOO_MANY_APEX_REQUESTS'
-      |'TOO_MANY_ENUM_VALUE'
-      |'TOO_MANY_JOBS'
-      |'TOO_MANY_POSSIBLE_USERS_EXIST'
-      |'TRANSFER_REQUIRES_READ'
-      |'TXN_SECURITY_NO_ACCESS'
-      |'UISF_ENTITY_QUERY_FAILED'
-      |'UISF_NO_MAPPINGS_FOUND'
-      |'UISF_TOKEN_NOT_FOUND'
-      |'UISF_UNKNOWN_EXCEPTION'
-      |'UISF_USER_MAPPING_FAILED'
-      |'UNABLE_TO_LOCK_RECORD'
-      |'UNABLE_TO_LOCK_ROW'
-      |'UNABLE_TO_UNLOCK_RECORD'
-      |'UNABLE_TO_UPDATE_RECORD_LOCK'
-      |'UNAUTHORIZED_EXCEPTION'
-      |'UNAUTHORIZED_SEARCH_PROVIDER_REQUEST'
-      |'UNAVAILABLE_RECORDTYPE_EXCEPTION'
-      |'UNAVAILABLE_REF'
-      |'UNCOMMITTED_WORK'
-      |'UNDEFINED_MAPPING_DEFINITION'
-      |'UNDELETE_FAILED'
-      |'UNKNOWN_EXCEPTION'
-      |'UNKNOWN_TOKEN_ERROR'
-      |'UNPROCESSABLE_REQUEST'
-      |'UNQUALIFIED_CART'
-      |'UNRESOLVABLE_PAY_NOW_WEBSTORE'
-      |'UNSAFE_HTML_CONTENT'
-      |'UNSPECIFIED_EMAIL_ADDRESS'
-      |'UNSUPPORTED_APEX_TRIGGER_OPERATON'
-      |'UNSUPPORTED_MODE'
-      |'UNSUPPORTED_PAYMENT_GATEWAY_TYPE'
-      |'UNSUPPORTED_PAYMENT_REQUEST_TYPE'
-      |'UNSUPPORTED_SITE'
-      |'UNSUPPORTED_SITE_FILE_IMPORTED_EXCEPTION'
-      |'UNSUPPORTED_SOCIAL_PROVIDER'
-      |'UNVERIFIED_SENDER_ADDRESS'
-      |'UPDATE_GOOGLE_EMAIL_LABEL_FAILED'
-      |'USER_OWNS_PORTAL_ACCOUNT_EXCEPTION'
-      |'USER_WITHOUT_WEM_PERMISSION'
-      |'USER_WITH_APEX_SHARES_EXCEPTION'
-      |'VARIANT_NOT_FOUND'
-      |'VF_COMPILE_ERROR'
-      |'VOICE_CAPACITY_ERROR'
-      |'WEBLINK_SIZE_LIMIT_EXCEEDED'
-      |'WEBLINK_URL_INVALID'
-      |'WEM_SEGMENTS_CAN_NOT_HAVE_NON_ACTIVE_SEGMENT_TYPE'
-      |'WEM_SHIFT_SEGMENT_TIME_IS_OUTSIDE_OF_THE_SHIFT_DURATION'
-      |'WEM_USER_NOT_ORG_ADMIN'
-      |'WORKSPACE_NOT_FOUND'
-      |'WRONG_CONTROLLER_TYPE'
-      |'XCLEAN_DJ_MATCH_IGNORABLE_ERROR'
-      |'XCLEAN_DJ_MATCH_INTERNAL_DJ_ERROR'
-      |'XCLEAN_DJ_MATCH_NON_RETRIABLE_ERROR'
-      |'XCLEAN_DJ_MATCH_RETRIABLE_ERROR'
-      |'XCLEAN_DJ_MATCH_UNKNOWN_ERROR'
-      |'XCLEAN_UNEXPECTED_ERROR'
-
-export type AllOrNoneHeader = {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export enum DeployProblemType {'Warning',
+      'Error',
+      'Info'}
+
+export enum ManageableState {'released',
+      'deleted',
+      'deprecated',
+      'installed',
+      'beta',
+      'unmanaged',
+      'installedEditable',
+      'deprecatedEditable'}
+
+export enum RetrieveStatus {'Pending',
+      'InProgress',
+      'Succeeded',
+      'Failed'}
+
+export enum FlowProcessType {'AutoLaunchedFlow',
+      'Flow',
+      'Workflow',
+      'CustomEvent',
+      'InvocableProcess',
+      'LoginFlow',
+      'ActionPlan',
+      'JourneyBuilderIntegration',
+      'UserProvisioningFlow',
+      'Survey',
+      'SurveyEnrich',
+      'Appointments',
+      'FSCLending',
+      'DigitalForm',
+      'FieldServiceMobile',
+      'OrchestrationFlow',
+      'FieldServiceWeb',
+      'TransactionSecurityFlow',
+      'ContactRequestFlow',
+      'ActionCadenceFlow',
+      'ManagedContentFlow',
+      'CheckoutFlow',
+      'CartAsyncFlow',
+      'DataCaptureFlow',
+      'CustomerLifecycle',
+      'Journey',
+      'RecommendationStrategy',
+      'Orchestrator',
+      'RoutingFlow',
+      'ServiceCatalogItemFlow',
+      'EvaluationFlow',
+      'LoyaltyManagementFlow',
+      'ManagedContentAuthoringWorkflow',
+      'ActionCadenceAutolaunchedFlow',
+      'ActionCadenceStepFlow',
+      'IndicatorResultFlow',
+      'IndividualObjectLinkingFlow',
+      'PromptFlow',
+      'ApprovalWorkflow',
+      'DcvrFrameworkDataCaptureFlow',
+      'ActivityObjectMatchingFlow',
+      'ActionableEventManagementFlow',
+      'StageManagementEvaluationFlow',
+      'RpaFlow'}
+
+export enum DeployStatus {'Pending',
+      'InProgress',
+      'Succeeded',
+      'SucceededPartial',
+      'Failed',
+      'Canceling',
+      'Canceled'}
+
+export enum AsyncRequestState {'Queued',
+      'InProgress',
+      'Completed',
+      'Error'}
+
+export enum AIFilterUnit {'Milliseconds',
+      'Seconds',
+      'Minutes',
+      'Hours',
+      'Days',
+      'Weeks',
+      'Months',
+      'Years'}
+
+export enum AIFilterOperation {'And',
+      'Or',
+      'Not',
+      'LessThan',
+      'LessThanOrEqual',
+      'GreaterThan',
+      'GreaterThanOrEqual',
+      'Equals',
+      'NotEquals',
+      'Add',
+      'Subtract',
+      'Multiply',
+      'Divide',
+      'IsNull',
+      'IsNotNull',
+      'StartsWith',
+      'EndsWith',
+      'Contains',
+      'Concat',
+      'DoesNotContain',
+      'Between',
+      'In'}
+
+export enum AISide {'Left',
+      'Right'}
+
+export enum AIValueType {'Number',
+      'String',
+      'Boolean',
+      'Date',
+      'DateTime',
+      'Supplier',
+      'Currency',
+      'Varchar',
+      'Comparison'}
+
+export enum AIManagedFieldType {'Included',
+      'Excluded'}
+
+export enum AIModelDefinitionApprovalType {'RequireApproval',
+      'PreApproved'}
+
+export enum AIModelDefinitionStatus {'Enabled',
+      'Disabled'}
+
+export enum AIModelType {'RandomForest',
+      'LogisticRegression',
+      'LinearRegression',
+      'DecisionTree',
+      'DeepLearningIntent',
+      'DeepLearningNER',
+      'GlobalDeepLearningIntent',
+      'GlobalDeepLearningNER',
+      'GlobalLanguageDetection',
+      'BinaryClassification',
+      'GeneralizedLinearModels',
+      'GradientBoostedTrees',
+      'LinearSupportVectorClassifiers',
+      'MulticlassClassification',
+      'NaiveBayes',
+      'Regression',
+      'XGBoost',
+      'NeuralNet',
+      'PopularityCount'}
+
+export enum AIPredictionStrategy {'Maximize',
+      'Minimize'}
+
+export enum AIPredictionDefinitionStatus {'Enabled',
+      'Disabled'}
+
+export enum AIPredictionType {'ScoringSpecificOutcome',
+      'BinaryClassification',
+      'MulticlassClassification',
+      'Regression',
+      'LanguageDetection',
+      'DeepLearningIntentClassification',
+      'DeepLearningNameEntityRecognition',
+      'GlobalDeepLearningIntentClassification',
+      'GlobalDeepLearningNameEntityRecognition'}
+
+export enum AIApplicationStatus {'Draft',
+      'Migrated',
+      'Enabled',
+      'Disabled'}
+
+export enum AIApplicationType {'Platform',
+      'LeadScoring',
+      'ForecastingPredictive',
+      'CaseClassification',
+      'PredictionBuilder',
+      'Assistant',
+      'Bots',
+      'EPLite',
+      'Discovery',
+      'ReferralScoring',
+      'IntelligentOffers',
+      'CaseWrapUp',
+      'VoiceWrapUp',
+      'RecommendationBuilder',
+      'OpportunityScoring',
+      'SalesAILeadScoring',
+      'ServiceCaseWrapUp',
+      'ServiceCaseClassification',
+      'KeyAccountIdentification',
+      'OpportunityPushedOutInsight',
+      'InvoiceLatePaymentRiskCalculation',
+      'SalesAIOpportunityScoring',
+      'SalesAIForecastingPredictive',
+      'CallCaseWrapUp',
+      'SalesAIOpportunityForecasting',
+      'CustomizablePropensityScoring',
+      'GenerativeIntelligence',
+      'OmOrderRouting'}
+
+export enum AIScoringMode {'Batch',
+      'OnDemand',
+      'Streaming'}
+
+export enum RecsOutputFieldName {'Summary',
+      'Issue',
+      'Resolution',
+      'IndividualEmailSummary',
+      'CompleteEmailsSummary'}
+
+export enum ConfigStatus {'Enabled',
+      'Disabled'}
+
+export enum AIModelApproval {'Pending',
+      'Approved',
+      'Rejected'}
+
+export enum AIModelMetricOperation {'LessThan',
+      'Equals',
+      'NotEquals',
+      'GreaterThan',
+      'IsNull',
+      'IsNotNull',
+      'StartsWith',
+      'EndsWith',
+      'Contains'}
+
+export enum AIIntensityType {'Weight',
+      'Importance',
+      'Correlation'}
+
+export enum AIModelFactorType {'Basic',
+      'And',
+      'Or'}
+
+export enum AIDataSetType {'HoldOut',
+      'Training',
+      'Live',
+      'Model',
+      'Baseline'}
+
+export enum AIModelGraphType {'ConfidencePlot',
+      'LiftPlot',
+      'PrecisionGraph',
+      'RecallGraph',
+      'HitRateGraph',
+      'MeanReciprocalRankGraph',
+      'DiscountedCumulativeGainsGraph',
+      'NormalizedDiscountedCumulativeGainsGraph',
+      'KBasedRankingGraph',
+      'ConfusionMatrixPerThreshold',
+      'RegressionErrorBands',
+      'MultiClassMisclassifications',
+      'MultiClassConfusionMatrixPerThreshold'}
+
+export enum AIMetricType {'auROC',
+      'Accuracy',
+      'BalancedAccuracy',
+      'Precision',
+      'Recall',
+      'FMeasure',
+      'RootMeanSquaredError',
+      'MeanAbsoluteError',
+      'RSquared',
+      'auPR',
+      'PrecisionAtK',
+      'RecallAtK',
+      'HitRateAtK',
+      'F1Score',
+      'MeanPercentileRank',
+      'MeanAbsoluteRank',
+      'ExpectedTopPercentileRank',
+      'ExpectedTopAbsoluteRank',
+      'MeanReciprocalRankAtK',
+      'DiscountedCumulativeGainAtK',
+      'NormalizedDiscountedCumulativeGainsAtK',
+      'AveragePrecision',
+      'MeanAveragePrecisionAtK',
+      'MeanReciprocalRank',
+      'MeanTopReciprocalRank',
+      'LiftBucket'}
+
+export enum AIScoringStatus {'Enabled',
+      'Disabled'}
+
+export enum AIScoringModelDefVersionMode {'TRAIN',
+      'DEPLOY',
+      'TRAIN_AND_DEPLOY'}
+
+export enum MappedFieldType {'FEATURE',
+      'PREDICTION_SCORE',
+      'INSIGHT',
+      'SUGGESTION',
+      'SECONDARY_RESPONSE_RECORD_ID',
+      'RECOMMENDATION_RESPONSE_RECORD_ID',
+      'RECOMMENDATION',
+      'PREDICTION_SCORE_INPUT'}
+
+export enum BatchInputSourceType {'CRMA',
+      'Data_Cloud'}
+
+export enum ExtractorType {'APEX',
+      'JAVA',
+      'HYBRID'}
+
+export enum FeatureInputType {'Realtime_Input',
+      'Sample_Input',
+      'Batch_Input',
+      'Batch_And_Realtime_Input'}
+
+export enum PredictionPlatform {'Einstein_Discovery',
+      'Default',
+      'Data_Cloud',
+      'Einstein_on_Data_Cloud'}
+
+export enum CreatorType {'INTERNAL_USER',
+      'SALESFORCE_ADMIN'}
+
+export enum RcmdSourceType {'Next_Best_Action_Flow',
+      'None'}
+
+export enum FormulaType {'QUANTITY',
+      'REVENUE'}
+
+export enum CalculationFrequency {'Monthly',
+      'Quarterly'}
+
+export enum ForecastFrequency {'Monthly',
+      'Quarterly'}
+
+export enum AccountingType {'Revenue',
+      'Expense'}
+
+export enum ExpectedCashFlowGrouping {'GroupByFundAccount',
+      'GroupByFundAndDueDate'}
+
+export enum PaidCashFlowGrouping {'GroupBySummary',
+      'GroupByFundAccount'}
+
+export enum PeriodTypes {'Month',
+      'Quarter',
+      'Week',
+      'Year'}
+
+export enum TeamMemberHierarchyType {'ManagerHierarchy',
+      'ForecastsHierarchy'}
+
+export enum ItemActionType {'Omniscript',
+      'Aura',
+      'LWC'}
+
+export enum ItemCategory {'dbBased',
+      'fileBased'}
+
+export enum ActionLinkType {'API',
+      'APIAsync',
+      'Download',
+      'UI'}
+
+export enum ActionLinkHttpMethod {'HttpDelete',
+      'HttpHead',
+      'HttpGet',
+      'HttpPatch',
+      'HttpPost',
+      'HttpPut'}
+
+export enum ActionLinkUserVisibility {'Creator',
+      'Everyone',
+      'EveryoneButCreator',
+      'Manager',
+      'CustomUser',
+      'CustomExcludedUser'}
+
+export enum PlatformActionGroupCategory {'Primary',
+      'Overflow'}
+
+export enum ActionLinkExecutionsAllowed {'Once',
+      'OncePerUser',
+      'Unlimited'}
+
+export enum ActionPlanTemplateType {'Industries',
+      'Retail',
+      'Sales',
+      'Service',
+      'PrvdEngmtCompliance'}
+
+export enum ActivationFlowType {'SEGMENT',
+      'DMO'}
+
+export enum ActivationPlatformConnectorType {'S3',
+      'OAUTH'}
+
+export enum ActivationPlatformFileOutputFormat {'CSV',
+      'JSON',
+      'PARQUET'}
+
+export enum ActivationPlatformFileOutputGrouping {'PER_SEGMENT',
+      'PER_ACCOUNT'}
+
+export enum ActivationPlatformPeriodicFullRefresh {'REFRESH_30',
+      'REFRESH_60'}
+
+export enum ActivationPlatformProcessingType {'Batch',
+      'Streaming'}
+
+export enum ActivationPlatformType {'Advertising',
+      'Publishing',
+      'Analytics',
+      'Marketing',
+      'Technology'}
+
+export enum ActivationPlatformRefreshFrequency {'FOUR',
+      'TWELVE',
+      'TWENTY_FOUR'}
+
+export enum ActivationPlatformRefreshMode {'FULL',
+      'INCREMENTAL'}
+
+export enum ActivationPlatformFieldDataType {'Text',
+      'Number'}
+
+export enum ActionableListKPIAggType {'SUM',
+      'COUNT',
+      'MIN',
+      'MAX',
+      'AVG'}
+
+export enum ActionableListKPIStType {'ACTIVE',
+      'INACTIVE'}
+
+export enum ActivationPlatformIdentifierHashMethod {'SHA1',
+      'SHA256',
+      'MD5',
+      'NONE'}
+
+export enum ActivationPlatformIdentifierType {'EMAIL',
+      'PHONE',
+      'OTT',
+      'MAID'}
+
+export enum OAuthProviderType {'GOOGLE',
+      'FACEBOOK',
+      'AMAZON',
+      'LINKEDIN',
+      'SNAPCHAT',
+      'DV360',
+      'META_CAPI'}
+
+export enum DefaultLicenseStatus {'Active',
+      'Trial',
+      'Free'}
+
+export enum AdvAcctFcstCalcFrequency {'Monthly',
+      'Quarterly',
+      'Yearly',
+      'Weekly'}
+
+export enum AdvAcctFrcstDisplayGroupType {'MEASURE'}
+
+export enum AdvAcctFcstFormulaType {'QUANTITY',
+      'REVENUE'}
+
+export enum AdvAcctFcstAggregationType {'SUM',
+      'MINIMUM',
+      'MAXIMUM',
+      'AVERAGE'}
+
+export enum AdvAcctFcstComputationMethod {'DATA_PROCESSING_ENGINE_DEFINITION',
+      'CUSTOM',
+      'FORMULA'}
+
+export enum AdvAcctFcstMeasureType {'QUANTITY',
+      'REVENUE'}
+
+export enum AdvAccForecastSetStatus {'Active',
+      'Inactive'}
+
+export enum ForecastPeriodGroupStatus {'Active',
+      'Inactive'}
+
+export enum FieldMappingClient {'PriceSheetPricing',
+      'CustomFieldMappingPricing'}
+
+export enum AffinityScoreType {'RFM',
+      'CAP'}
+
+export enum ReportSummaryType {'Sum',
+      'Average',
+      'Maximum',
+      'Minimum',
+      'Unique',
+      'Median',
+      'Noop',
+      'None'}
+
+export enum ReportJobSourceTypes {'tabular',
+      'summary',
+      'snapshot'}
+
+export enum AnalyticsWidgetType {'visualization',
+      'text',
+      'filter',
+      'parameter',
+      'button',
+      'metric',
+      'container'}
+
+export enum AnalyticsActionType {'recordaction',
+      'flow',
+      'navigate'}
+
+export enum AnalyticsActionEventType {'click',
+      'select'}
+
+export enum ApplicationObjectName {'BusinessLicenseApplication',
+      'IndividualApplication'}
+
+export enum ApplicationUsageType {'LPI',
+      'ERM',
+      'HC',
+      'EDU',
+      'BA',
+      'CCM',
+      'Grantmaking'}
+
+export enum AppDomainUsageType {'ExplainabilityService'}
+
+export enum PolicyApplicableDuration {'ParameterBased',
+      'Monthly',
+      'Weekly'}
+
+export enum AssignmentPolicyType {'loadBalancing'}
+
+export enum UtilizationFactor {'TotalAppointmentDuration',
+      'NumberOfAppointments'}
+
+export enum ProcessSubmitterType {'group',
+      'role',
+      'user',
+      'roleSubordinates',
+      'roleSubordinatesInternal',
+      'owner',
+      'creator',
+      'accountOwner',
+      'ownerDelegate',
+      'creatorDelegate',
+      'accountOwnerDelegate',
+      'partnerUser',
+      'customerPortalUser',
+      'portalRole',
+      'portalRoleSubordinates',
+      'allInternalUsers'}
+
+export enum WorkflowActionType {'FieldUpdate',
+      'KnowledgePublish',
+      'Task',
+      'Alert',
+      'Send',
+      'OutboundMessage',
+      'FlowAction',
+      'FlowAutomation'}
+
+export enum NextOwnerType {'adhoc',
+      'user',
+      'userHierarchyField',
+      'relatedUserField',
+      'queue',
+      'apexMethod',
+      'PreviousApprover',
+      'none'}
+
+export enum RoutingType {'Unanimous',
+      'FirstResponse'}
+
+export enum FilterOperation {'equals',
+      'notEqual',
+      'lessThan',
+      'greaterThan',
+      'lessOrEqual',
+      'greaterOrEqual',
+      'contains',
+      'notContain',
+      'startsWith',
+      'includes',
+      'excludes',
+      'within'}
+
+export enum StepCriteriaNotMetType {'ApproveRecord',
+      'RejectRecord',
+      'GotoNextStep'}
+
+export enum StepRejectBehaviorType {'RejectRequest',
+      'BackToPrevious'}
+
+export enum RuleExprObjTargetType {'Plugin',
+      'PluginFunction',
+      'Function'}
+
+export enum ExpressionCondition {'AND',
+      'OR',
+      'CUSTOM'}
+
+export enum RecordEditabilityType {'AdminOnly',
+      'AdminOrCurrentApprover'}
+
+export enum AssignToLookupValueType {'User',
+      'Queue'}
+
+export enum BusinessHoursSourceType {'None',
+      'Case',
+      'Static'}
+
+export enum EscalationStartTimeType {'CaseCreation',
+      'CaseLastModified'}
+
+export enum AssistantDefinitionStatus {'DISABLED',
+      'ENABLED'}
+
+export enum AssistantSkillSobjectActionType {'CREATE',
+      'UPDATE',
+      'READ'}
+
+export enum AssistantSkillType {'AGENDA',
+      'SOBJECT'}
+
+export enum AudienceCriterionOperator {'Equal',
+      'NotEqual',
+      'GreaterThan',
+      'GreaterThanOrEqual',
+      'LessThan',
+      'LessThanOrEqual',
+      'Contains',
+      'StartsWith',
+      'Includes',
+      'NotIncludes'}
+
+export enum AudienceCriterionType {'Default',
+      'Profile',
+      'FieldBased',
+      'GeoLocation',
+      'Domain',
+      'Permission',
+      'Audience'}
+
+export enum FormulaFilterType {'AllCriteriaMatch',
+      'AnyCriterionMatches',
+      'CustomLogicMatches'}
+
+export enum AuraBundleType {'Application',
+      'Component',
+      'Event',
+      'Interface',
+      'Tokens'}
+
+export enum MuleSoftControlPlane {'None',
+      'US',
+      'EU'}
+
+export enum AuthProviderType {'Facebook',
+      'Janrain',
+      'Salesforce',
+      'OpenIdConnect',
+      'MicrosoftACS',
+      'LinkedIn',
+      'Twitter',
+      'Google',
+      'GitHub',
+      'Custom',
+      'Apple',
+      'Evergreen',
+      'Slack',
+      'HubSpot',
+      'Microsoft',
+      'MuleSoft',
+      'Bitbucket'}
+
+export enum BatchCalcJobCSVDelimiter {'COMMA',
+      'BACKQUOTE',
+      'CARET',
+      'PIPE',
+      'SEMICOLON',
+      'TAB'}
+
+export enum BatchCalcJobDataType {'Text',
+      'Numeric',
+      'Date',
+      'DateTime',
+      'MultiValue'}
+
+export enum BatchCalcJobFileSource {'ContentManagement'}
+
+export enum BatchCalcJobDatasourceType {'StandardObject',
+      'Analytics',
+      'DataModelObject',
+      'CalculatedInsightsObject',
+      'CRMObject',
+      'CSV',
+      'DataLakeObject'}
+
+export enum BatchCalcJobFilterOperator {'Equals',
+      'NotEquals',
+      'GreaterThan',
+      'GreaterThanOrEquals',
+      'LessThan',
+      'LessThanOrEquals',
+      'StartsWith',
+      'EndsWith',
+      'Contains',
+      'DoesNotContain',
+      'IsNull',
+      'IsNotNull',
+      'In',
+      'NotIn'}
+
+export enum BatchCalcJobFrcstAccuracy {'None',
+      'Eighty',
+      'NinetyFive'}
+
+export enum BatchCalcJobAggregateFunction {'Unique',
+      'Sum',
+      'Max',
+      'Min',
+      'Avg',
+      'Std',
+      'StdP',
+      'Var',
+      'VarP',
+      'Count'}
+
+export enum BatchCalcJobFrcstModel {'Additive',
+      'Multiplicative',
+      'Auto'}
+
+export enum BatchCalcJobFrcstPeriodType {'Year',
+      'YearQuarter',
+      'YearMonth',
+      'YearWeek',
+      'YearMonthDay',
+      'FiscalYear',
+      'FiscalYearQuarter',
+      'FiscalYearMonth',
+      'FiscalYearWeek'}
+
+export enum BatchCalcJobFrcstSeasonality {'Auto',
+      'None',
+      'Two',
+      'Three',
+      'Four',
+      'Five',
+      'Six',
+      'Seven',
+      'Eight',
+      'Nine',
+      'Ten',
+      'Eleven',
+      'Twelve',
+      'Thirteen',
+      'Fourteen',
+      'Fifteen',
+      'Sixteen',
+      'Seventeen',
+      'Eighteen',
+      'Nineteen',
+      'Twenty',
+      'TwentyOne',
+      'TwentyTwo',
+      'TwentyThree',
+      'TwentyFour'}
+
+export enum BatchCalcJobParameterDataType {'Text',
+      'Numeric',
+      'Date',
+      'DateTime',
+      'Filter',
+      'Expression',
+      'FileIdentifier'}
+
+export enum BatchCalcJobSourceJoinType {'LeftOuter',
+      'RightOuter',
+      'Inner',
+      'Outer'}
+
+export enum BatchCalcJobOrderType {'Ascending',
+      'Descending'}
+
+export enum BatchCalcJobTransformType {'Expression',
+      'Slice',
+      'ComputeRelative'}
+
+export enum BatchCalcJobWritebackOpn {'Insert',
+      'Update',
+      'Upsert',
+      'Delete',
+      'Overwrite'}
+
+export enum BatchCalcJobWritebackType {'sObject',
+      'Analytics',
+      'DataLakeObject',
+      'DataModelObject',
+      'CalculatedInsights'}
+
+export enum BatchCalcJobDefRunMode {'Batch',
+      'OnDemand'}
+
+export enum ExecutionPlatformType {'CRMA',
+      'CDP',
+      'CORE'}
+
+export enum BatchCalcProcessType {'DataProcessingEngine',
+      'Rebates',
+      'FSCHierarchyRollUp',
+      'Loyalty',
+      'AdvancedAccountForecast',
+      'LoyaltyPartnerManagement',
+      'LoyaltyPointsAggregation',
+      'NetZero',
+      'ProgramBasedBusiness',
+      'ProviderSearch',
+      'AccountingSubledger',
+      'ActionableList',
+      'DecisionMatrixDataUpload',
+      'ProgramManagementRollups',
+      'NetZeroHidden',
+      'CriteriaBsdSearchAndFilter',
+      'RecordAggregation',
+      'Education',
+      'CDPEnrichment',
+      'CdpActionableList',
+      'CSVCoreUpload',
+      'BenefitManagement',
+      'BillingSchedulesforInvoiceGeneration',
+      'Recruitment',
+      'NextGenForecasting',
+      'InvoiceGeneration',
+      'AccountingPeriodClosure',
+      'PnmRosterFileUpload',
+      'FinancialSummaryRollup',
+      'PriceProtection',
+      'Decisiontable',
+      'UsageManagement',
+      'TestProcessType',
+      'ProductCatalogManagement',
+      'ChannelInventoryManagement',
+      'SalesAgreement',
+      'LegalEntityAccountingPeriodClosureAdvanced',
+      'LifeSciencesCommercialTerritoryAlignment',
+      'RevenueTransactionManagement',
+      'FundraisingRollups',
+      'EmployeeService'}
+
+export enum BatchJobDefinitionStatus {'Active',
+      'Inactive'}
+
+export enum BenefitActionDataType {'String',
+      'Date',
+      'DateTime',
+      'Boolean',
+      'Picklist',
+      'EntityPicklist',
+      'Number'}
+
+export enum BuildingEnergyIntensityType {'BuildingEnergyIntensity',
+      'RegionalBuildingEnergyIntensity'}
+
+export enum GenAiAgentType {'Employee',
+      'EinsteinSDR',
+      'SalesEinsteinCoach',
+      'Setup',
+      'EinsteinServiceAgent',
+      'Analytics',
+      'BankingServiceAgent',
+      'ServicePlanner',
+      'BuyerAgent'}
+
+export enum Language {'en_US',
+      'de',
+      'es',
+      'fr',
+      'it',
+      'ja',
+      'sv',
+      'ko',
+      'zh_TW',
+      'zh_CN',
+      'pt_BR',
+      'nl_NL',
+      'da',
+      'th',
+      'fi',
+      'ru',
+      'es_MX',
+      'no',
+      'hu',
+      'pl',
+      'cs',
+      'tr',
+      'in',
+      'ro',
+      'vi',
+      'uk',
+      'iw',
+      'el',
+      'bg',
+      'en_GB',
+      'ar',
+      'sk',
+      'pt_PT',
+      'hr',
+      'sl',
+      'fr_CA',
+      'ka',
+      'sr',
+      'sh',
+      'en_AU',
+      'en_MY',
+      'en_IN',
+      'en_PH',
+      'en_CA',
+      'ro_MD',
+      'bs',
+      'mk',
+      'lv',
+      'lt',
+      'et',
+      'sq',
+      'sh_ME',
+      'mt',
+      'ga',
+      'eu',
+      'cy',
+      'is',
+      'cac',
+      'quc',
+      'cak',
+      'ms',
+      'tl',
+      'lb',
+      'rm',
+      'hy',
+      'hi',
+      'ur',
+      'bn',
+      'de_AT',
+      'de_CH',
+      'ta',
+      'ar_DZ',
+      'ar_BH',
+      'ar_EG',
+      'ar_IQ',
+      'ar_JO',
+      'ar_KW',
+      'ar_LB',
+      'ar_LY',
+      'ar_MA',
+      'ar_OM',
+      'ar_QA',
+      'ar_SA',
+      'ar_SD',
+      'ar_SY',
+      'ar_TN',
+      'ar_AE',
+      'ar_YE',
+      'zh_SG',
+      'zh_HK',
+      'en_HK',
+      'en_IE',
+      'en_SG',
+      'en_ZA',
+      'fr_BE',
+      'fr_LU',
+      'fr_CH',
+      'de_BE',
+      'de_LU',
+      'it_CH',
+      'nl_BE',
+      'es_AR',
+      'es_BO',
+      'es_CL',
+      'es_CO',
+      'es_CR',
+      'es_DO',
+      'es_EC',
+      'es_SV',
+      'es_GT',
+      'es_HN',
+      'es_NI',
+      'es_PA',
+      'es_PY',
+      'es_PE',
+      'es_PR',
+      'es_US',
+      'es_UY',
+      'es_VE',
+      'ca',
+      'af',
+      'sw',
+      'zu',
+      'xh',
+      'te',
+      'ml',
+      'kn',
+      'mr',
+      'gu',
+      'pa',
+      'en_NZ',
+      'mi',
+      'my',
+      'fa',
+      'km',
+      'am',
+      'kk',
+      'ht',
+      'sm',
+      'haw',
+      'zh_MY',
+      'ru_LT',
+      'ru_PL',
+      'ru_AM',
+      'ru_KZ',
+      'ru_KG',
+      'ru_BY',
+      'ru_MD',
+      'ru_UA',
+      'en_AE',
+      'en_BE',
+      'en_CY',
+      'en_DE',
+      'en_IL',
+      'en_IT',
+      'en_NL',
+      'en_MT',
+      'en_ES',
+      'en_PL',
+      'en_DK',
+      'en_SE',
+      'en_NO',
+      'en_FR',
+      'en_HU',
+      'en_CZ',
+      'en_SK',
+      'en_RO',
+      'en_CH',
+      'en_AL',
+      'en_AD',
+      'en_AG',
+      'en_AT',
+      'en_BS',
+      'en_BB',
+      'en_BZ',
+      'en_BA',
+      'en_BG',
+      'en_HR',
+      'en_DM',
+      'en_EE',
+      'en_FI',
+      'en_GI',
+      'en_GR',
+      'en_GD',
+      'en_GY',
+      'en_IS',
+      'en_JM',
+      'en_JP',
+      'en_LV',
+      'en_LI',
+      'en_LT',
+      'en_LU',
+      'en_MC',
+      'en_ME',
+      'en_MK',
+      'en_PT',
+      'en_RS',
+      'en_SI',
+      'en_KR',
+      'en_KN',
+      'en_LC',
+      'en_VC',
+      'en_TW',
+      'en_TH',
+      'en_TT',
+      'en_TR',
+      'nl_SR',
+      'fr_HT',
+      'de_LI',
+      'es_AD',
+      'sv_FI',
+      'el_CY',
+      'fr_MA',
+      'kl',
+      'ji',
+      'hmn',
+      'eo',
+      'iw_EO'}
+
+export enum MlSlotClassDataType {'Text',
+      'Number',
+      'Boolean',
+      'Date',
+      'DateTime',
+      'Currency'}
+
+export enum MlSlotClassExtractionType {'Pattern',
+      'Value'}
+
+export enum ConversationInvocableTargetType {'apex',
+      'flow',
+      'standardInvocableAction',
+      'logFeedback',
+      'externalService',
+      'logGoalAchieved',
+      'logDisambiguation',
+      'quickAction',
+      'api',
+      'botAction'}
+
+export enum BotInvocationMappingType {'Input',
+      'Output',
+      'Error'}
+
+export enum ConversationVariableType {'ConversationVariable',
+      'ContextVariable',
+      'PageContextVariable'}
+
+export enum BotNavigationType {'Call',
+      'Redirect',
+      'TransferToAgent',
+      'EndChat'}
+
+export enum BotStepConditionOperatorType {'Equals',
+      'NotEquals',
+      'IsSet',
+      'IsNotSet',
+      'GreaterThan',
+      'LessThan',
+      'GreaterThanOrEqualTo',
+      'LessThanOrEqualTo'}
+
+export enum ConversationVariableOperandSourceType {'StandardConversationVariable',
+      'ConversationVariable',
+      'ContextVariable',
+      'MlSlotClass',
+      'StandardMlSlotClass',
+      'Value',
+      'BotDefinition',
+      'Queue',
+      'FlowDefinition'}
+
+export enum ConversationMessageExecutionType {'Sync',
+      'Async'}
+
+export enum BotQuickReplyType {'Static',
+      'Dynamic'}
+
+export enum BotWidgetType {'Menu',
+      'Buttons'}
+
+export enum BotVariableOperationType {'Set',
+      'Unset',
+      'Collect',
+      'SetConversationLanguage',
+      'CollectAttachment'}
+
+export enum ConversationDefinitionLogicalOperatorType {'And',
+      'Or'}
+
+export enum SortOrder {'Asc',
+      'Desc'}
+
+export enum ConversationMappingType {'Input',
+      'Output'}
+
+export enum ConversationSystemMessageParamType {'Transfer'}
+
+export enum ConversationSystemMessageType {'Transfer',
+      'EndChat'}
+
+export enum BotStepType {'Navigation',
+      'Invocation',
+      'VariableOperation',
+      'Message',
+      'Wait',
+      'Group',
+      'SystemMessage',
+      'RecordLookup',
+      'RichMessage',
+      'GoalStep'}
+
+export enum ConversationSystemDialogType {'TransferFailed',
+      'ErrorHandling',
+      'KnowledgeFallback',
+      'Disambiguation',
+      'DisambiguationFailed',
+      'KnowledgeAction'}
+
+export enum ConversationVariableCollectionType {'List'}
+
+export enum ConversationDataType {'Text',
+      'Number',
+      'Boolean',
+      'Object',
+      'Date',
+      'DateTime',
+      'Currency',
+      'Id'}
+
+export enum ConversationVariableVisibilityType {'Internal',
+      'External'}
+
+export enum ConversationDefinitionNlpProviderType {'EinsteinAi',
+      'Apex'}
+
+export enum GenAiBotToneType {'Casual',
+      'Neutral',
+      'Formal'}
+
+export enum MessageType {'Text',
+      'Facebook',
+      'Line',
+      'GoogleHome',
+      'Alexa',
+      'Omega',
+      'AppleBusinessChat',
+      'WeChat',
+      'WebChat',
+      'WhatsApp',
+      'Phone',
+      'EmbeddedMessaging',
+      'Voice',
+      'Custom',
+      'InternalCopilot'}
+
+export enum BotType {'Bot',
+      'InternalCopilot',
+      'ExternalCopilot'}
+
+export enum ConvDefBlockVersionStatus {'Published'}
+
+export enum BriefcaseFilterOperator {'e',
+      'n',
+      'l',
+      'g',
+      'm',
+      'h',
+      's',
+      'd'}
+
+export enum FilterScope {'Everything',
+      'Mine',
+      'Queue',
+      'Delegated',
+      'MyTerritory',
+      'MyTeamTerritory',
+      'Team',
+      'SalesTeam',
+      'AssignedToMe',
+      'MineAndMyGroups',
+      'ScopingRule'}
+
+export enum BriefcaseRuleRelationshipType {'ParentToChild',
+      'ChildToParent'}
+
+export enum BriefcaseType {'Standard',
+      'HighVolume'}
+
+export enum ForecastCategories {'Omitted',
+      'Pipeline',
+      'BestCase',
+      'MostLikely',
+      'Forecast',
+      'Closed'}
+
+export enum ExpFeedbackCollType {'SURVEY',
+      'PHONE_CALL'}
+
+export enum SurveyQuestionType {'MultiChoice',
+      'RadioButton',
+      'FreeText',
+      'Date',
+      'Rating',
+      'CSAT',
+      'Slider',
+      'Picklist',
+      'NPS',
+      'StackRank',
+      'Currency',
+      'Number',
+      'DateTime',
+      'Toggle',
+      'MultiSelectPicklist',
+      'Image',
+      'Boolean',
+      'ShortText',
+      'Attachment',
+      'Matrix'}
+
+export enum CMSSourceConnectionType {'Public',
+      'Authenticated'}
+
+export enum CMSConnectionStatus {'ACTIVE',
+      'INACTIVE'}
+
+export enum CMSConnectionSourceType {'AEM',
+      'Drupal',
+      'WordPress',
+      'SDL',
+      'Sitecore',
+      'Other'}
+
+export enum FeedItemDisplayFormat {'Default',
+      'HideBlankLines'}
+
+export enum FeedItemType {'TrackedChange',
+      'UserStatus',
+      'TextPost',
+      'AdvancedTextPost',
+      'LinkPost',
+      'ContentPost',
+      'DashboardComponentAlert',
+      'PollPost',
+      'RypplePost',
+      'ProfileSkillPost',
+      'DashboardComponentSnapshot',
+      'TestItem',
+      'ApprovalPost',
+      'CaseCommentPost',
+      'ReplyPost',
+      'EmailMessageEvent',
+      'CallLogPost',
+      'ChangeStatusPost',
+      'AttachArticleEvent',
+      'MilestoneEvent',
+      'ActivityEvent',
+      'ChatTranscriptPost',
+      'CollaborationGroupCreated',
+      'AttachExternalDocumentEvent',
+      'CollaborationGroupUnarchived',
+      'SocialPost',
+      'QuestionPost',
+      'Undefined',
+      'FacebookPost',
+      'BasicTemplateFeedItem',
+      'CreateRecordEvent',
+      'CanvasPost',
+      'AnnouncementPost'}
+
+export enum EmailToCaseOnFailureActionType {'Bounce',
+      'Discard',
+      'Requeue'}
+
+export enum EmailToCaseRoutingAddressType {'EmailToCase',
+      'Outlook',
+      'GmailOAuth',
+      'E2cEasy'}
+
+export enum CaseSubjectParticleType {'ProvidedString',
+      'Source',
+      'MessageType',
+      'SocialHandle',
+      'SocialNetwork',
+      'Sentiment',
+      'RealName',
+      'Content',
+      'PipeSeparator',
+      'ColonSeparator',
+      'HyphenSeparator'}
+
+export enum ActionForNoRecordFound {'CreateNewRecordAndLink',
+      'PromptAgent'}
+
+export enum ActionForSingleRecordFound {'AutoLink',
+      'PromptAgent'}
+
+export enum ChannelType {'FacebookMessenger',
+      'Text',
+      'WeChat',
+      'WhatsApp',
+      'Phone'}
+
+export enum ObjectToLink {'Contact'}
+
+export enum ChatterExtensionType {'Lightning'}
+
+export enum EmbeddedServiceFeature {'NotInUse',
+      'Base',
+      'LiveAgent',
+      'FieldService',
+      'Flows',
+      'ChannelMenu',
+      'EmbeddedMessaging'}
+
+export enum EmbeddedServiceLabelKey {'LA_Container_Base_Close',
+      'LA_Container_Base_Minimize',
+      'LA_Container_Base_EndOfDialog',
+      'LA_Container_Base_MinimizedContainerAssistiveText',
+      'LA_Chat_Body_ChatWindowAgent',
+      'LA_Chat_Body_InputTextPlaceholder',
+      'LA_Chat_Body_AgentTypingUpdate',
+      'LA_Chat_Body_Send',
+      'LA_Chat_Body_ChatStartTime',
+      'LA_Chat_Body_MessageAreaTransferred',
+      'LA_Chat_Body_FileTransferCanceled',
+      'LA_Chat_Body_FileTransferSuccess',
+      'LA_Chat_Body_FileTransferFailure',
+      'LA_Chat_Body_FileTransferRequested',
+      'LA_Chat_Body_TransferFailed',
+      'LA_Chat_ExtendedHeader_ShowExtendedHeader',
+      'LA_Chat_ExtendedHeader_HideExtendedHeader',
+      'LA_Chat_ExtendedHeader_ChatStateHeaderGreeting',
+      'LA_Chat_ExtendedHeader_SaveTranscript',
+      'LA_Chat_ExtendedHeader_EndChatAction',
+      'LA_Chat_FileTransfer_FileUpload',
+      'LA_Chat_FileTransfer_UploadFile',
+      'LA_Chat_FileTransfer_SelectNewFile',
+      'LA_Chat_FileTransfer_UsePreviousElementToUploadFile',
+      'LA_Chat_FileTransfer_RemoveFile',
+      'LA_Chat_Minimized_MessageNotification',
+      'LA_Chat_Minimized_SingleMessageNotification',
+      'LA_Chat_Minimized_AgentSaysNotification',
+      'LA_Chat_Minimized_IdleTimeoutMinimizedWarning',
+      'LA_Chat_Minimized_IdleTimeoutMinimizedEndChat',
+      'LA_Chat_Ended_ChatEnd',
+      'LA_Chat_Ended_ChatEndAgent',
+      'LA_Chat_Ended_ChatEndConnection',
+      'LA_Chat_Ended_ChatButtonClose',
+      'LA_Chat_Ended_PostChatButton',
+      'LA_Chat_Ended_IdleTimeoutEndChatMessage',
+      'LA_Chat_Reconnecting_ReconnectingChasitorIssue',
+      'LA_Chat_Reconnecting_ReconnectingMinimizedMessage',
+      'LA_Chat_Timeout_IdleTimeoutWarningQuestion',
+      'LA_Chat_AgentTransfer_BannerInProgressTransfer',
+      'LA_Chat_AgentTransfer_MinimizedInProgressTransfer',
+      'LA_Chat_AgentTransfer_BannerTransferred',
+      'LA_Chat_AgentTransfer_BannerReconnected',
+      'LA_Chat_CloseConfirmation_ChatStateHeader',
+      'LA_Chat_CloseConfirmation_ChatStateBody',
+      'LA_Chat_CloseConfirmation_ChatStateResume',
+      'LA_Chat_CloseConfirmation_ChatStateEnd',
+      'LA_Chat_UnseenMessage_UnseenMessage',
+      'LA_Chat_UnseenMessage_SingleUnseenMessage',
+      'LA_OfflineSupport_SupportForm_HeaderText',
+      'LA_OfflineSupport_Error_ErrorDialogTitle',
+      'LA_OfflineSupport_Error_ErrorDialogBody',
+      'LA_OfflineSupport_Error_ErrorDialogButton',
+      'LA_OfflineSupport_SupportForm_SupportFormTitle',
+      'LA_OfflineSupport_SupportForm_SupportFormSubtitle',
+      'LA_OfflineSupport_SupportForm_SupportFormButton',
+      'LA_OfflineSupport_SupportForm_BannerAltText',
+      'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogTitle',
+      'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogBody',
+      'LA_OfflineSupport_CloseConfirmation_ConfirmationDialogButton',
+      'LA_OfflineSupport_Minimized_ConfirmationMinimizedText',
+      'LA_OfflineSupport_Minimized_ErrorMinimizedText',
+      'LA_PostChat_Base_PostChat',
+      'LA_PreChat_Base_LiveChat',
+      'LA_PreChat_Base_Instructions',
+      'LA_PreChat_Base_BannerAltText',
+      'LA_PreChat_Base_PrechatAssistiveText',
+      'LA_PreChat_Base_StartChat',
+      'LA_PreChat_Base_FieldError',
+      'LA_Waiting_WithoutQueuePos_WaitingGreeting',
+      'LA_Waiting_WithoutQueuePos_WaitingDefaultName',
+      'LA_Waiting_WithoutQueuePos_WaitingMessage',
+      'LA_Waiting_WithoutQueuePos_WaitingCancelChatRequest',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosMessageFirstLine',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosMessageSecondLine',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosZeroMessage',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosConnectingMessage',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosMaxNumber',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageFirstLine',
+      'LA_Waiting_WithQueuePos_WaitingQueuePosMaxMessageSecondLine',
+      'LA_Waiting_Minimized_MinimizedWaitingMessage',
+      'LA_Waiting_Minimized_MinimizedQueuePosMessage',
+      'LA_Waiting_Minimized_MinimizedQueuePosZeroMessage',
+      'LA_Waiting_Minimized_MinimizedQueuePosAssistiveMessage',
+      'LA_Waiting_Minimized_MinimizedQueuePosZeroAssistiveMessage',
+      'LA_Waiting_Error_ErrorNoAgentTitle',
+      'LA_Waiting_Error_ErrorNoAgentHeader',
+      'LA_Waiting_Error_ErrorNoAgentBodyApology',
+      'LA_Waiting_Error_ErrorBlockedTitleAndHeader',
+      'LA_Waiting_Error_ErrorBlockedBody',
+      'LA_Waiting_Error_ErrorBlockedCloseButton',
+      'LA_Waiting_Error_ErrorNoConnectionTitle',
+      'LA_Waiting_Error_ErrorNoConnectionHeader',
+      'LA_Waiting_Error_ErrorNoConnectionBodyApology',
+      'LA_Waiting_Error_ErrorTryAgainButton',
+      'LA_Waiting_Error_ErrorExitChatButton',
+      'LA_Waiting_CloseConfirmation_WaitingStateHeader',
+      'LA_Waiting_CloseConfirmation_WaitingStateBodyApology',
+      'LA_Waiting_CloseConfirmation_WaitingStateLeave',
+      'LA_Waiting_CloseConfirmation_WaitingStateContinue',
+      'LA_Chat_Timeout_IdleTimeoutWarningRequest',
+      'LA_Waiting_Error_ErrorNoAgentBodyRequest',
+      'LA_Waiting_Error_ErrorNoConnectionBodyRequest',
+      'LA_Waiting_CloseConfirmation_WaitingStateBodyWarning',
+      'LA_General_CloseSessionWarningTitle',
+      'LA_General_CloseSessionWarningBody',
+      'LA_General_CloseSessionWarningButton',
+      'LA_Chat_Body_ChooseOption',
+      'LA_Waiting_Base_BannerAssistiveText',
+      'LA_Chat_Group_Chat_HeaderTitle',
+      'LA_Chat_Group_Chat_ExtendedHeaderGreeting',
+      'LA_Chat_Group_Chat_AgentJoinedChat',
+      'LA_Chat_Group_Chat_AgentLeftChat',
+      'LA_Chat_Group_Chat_MinimizedStateMessage',
+      'LA_Chat_WithQueuePos_QueuePosTransferringMessage',
+      'LA_Chat_Ended_ChatEndChatbot',
+      'LA_Chat_Body_InputTextAssistiveText',
+      'LA_Waiting_Header_Text',
+      'LA_PreChat_Terms_And_Conditions',
+      'LA_PreChat_Base_Terms_And_Conditions_Acknowledgement',
+      'FS_Container_Base_Back',
+      'FS_Container_AuthenticationFailure_Title',
+      'FS_Container_AuthenticationFailure_Body',
+      'FS_Container_AuthenticationFailure_Button',
+      'FS_AppointmentDetail_Error_AccessDenied',
+      'FS_AppointmentDetail_Error_NoAppointmentFound',
+      'FS_AppointmentDetail_Error_ButtonOK',
+      'FS_AppointmentList_Base_ActiveAppointmentTab',
+      'FS_AppointmentList_Base_ClosedAppointmentTab',
+      'FS_AppointmentList_Base_Header',
+      'FS_AppointmentList_Base_NewAppointmentButtonLabel',
+      'FS_AppointmentList_Error_GenericErrorStatement',
+      'FS_AppointmentList_Empty_NoAppointmentsTitleUpcomingTab',
+      'FS_AppointmentList_Empty_NoAppointmentsDescriptionUpcomingTab',
+      'FS_AppointmentList_Empty_NoAppointmentsTitlePastTab',
+      'FS_AppointmentList_Empty_NoAppointmentsDescriptionPastTab',
+      'FS_Confirmation_Base_Scheduled',
+      'FS_Confirmation_Base_Assigned',
+      'FS_Confirmation_Base_Arriving',
+      'FS_Confirmation_Base_InProgress',
+      'FS_Confirmation_Base_Dispatched',
+      'FS_Confirmation_Base_Completed',
+      'FS_Confirmation_Base_HeaderText',
+      'FS_Confirmation_Base_AddCalendar',
+      'FS_Confirmation_Base_ViewAppointment',
+      'FS_Flows_Error_Title',
+      'FS_Flows_Error_Body',
+      'FS_Flows_Error_ConfirmButton',
+      'FS_Flows_Error_CancelOrModifyError',
+      'FS_Flows_NewAppointmentCloseConfirmation_Title',
+      'FS_Flows_NewAppointmentCloseConfirmation_Body',
+      'FS_Flows_NewAppointmentCloseConfirmation_ButtonClose',
+      'FS_Flows_NewAppointmentCloseConfirmation_ButtonCancel',
+      'FS_Flows_CancelAppointmentCloseConfirmation_Title',
+      'FS_Flows_CancelAppointmentCloseConfirmation_Body',
+      'FS_Flows_CancelAppointmentCloseConfirmation_ButtonClose',
+      'FS_Flows_CancelAppointmentCloseConfirmation_ButtonCancel',
+      'FS_Flows_CancelAppointmentCloseConfirmation_Footer',
+      'FS_Flows_ModifyAppointmentCloseConfirmation_Title',
+      'FS_Flows_ModifyAppointmentCloseConfirmation_Body',
+      'FS_Flows_ModifyAppointmentCloseConfirmation_ButtonClose',
+      'FS_Flows_ModifyAppointmentCloseConfirmation_ButtonCancel',
+      'FS_Flows_ModifyAppointmentCloseConfirmation_Footer',
+      'FS_Scheduling_Base_HeaderText',
+      'FS_Scheduling_Base_RecommendedTab',
+      'FS_Scheduling_Base_ByDateTab',
+      'FS_Scheduling_Base_PreviousWeekAssistiveText',
+      'FS_Scheduling_Base_NextWeekAssistiveText',
+      'FS_Scheduling_Base_DatePickerAssistiveText',
+      'FS_Scheduling_Error_UnexpectedError',
+      'FS_Scheduling_Error_NoAvailableTimeslotsError',
+      'FS_Scheduling_Error_NoAvailableTimeslotsByDateError',
+      'FS_Welcome_Base_GreetingTitle',
+      'FS_Welcome_Base_NewAppointmentButton',
+      'FS_Welcome_Base_ExistingAppointmentsButton',
+      'FS_Confirmation_Base_DoneButton',
+      'FS_AppointmentList_Error_GenericErrorRequest',
+      'FS_AppointmentHome_Base_CancelAppointmentButton',
+      'FS_AppointmentHome_Base_ModifyAppointmentButton',
+      'FS_AppointmentHome_Base_ErrorTitle',
+      'FS_Scheduling_Base_TimePickerAssistiveText',
+      'FS_ResourceDetail_Base_Header',
+      'FS_AppointmentHome_Base_DefaultCardHeaderText',
+      'FS_Error_Dialog_Title',
+      'FS_Error_Dialog_Body',
+      'FS_Error_Dialog_Confirm_Button',
+      'CM_Container_Header_Primary_Greeting',
+      'CM_Container_Header_Secondary_Greeting',
+      'CM_Container_MenuItems_WebChatAvailable',
+      'CM_Container_MenuItems_WebChatUnavailable',
+      'CM_Container_MenuItems_WebChatLoading',
+      'CM_Container_MenuItems_ChannelLabel',
+      'CM_Container_Button_AssistiveText',
+      'CM_Container_MenuItems_AssistiveText',
+      'CM_Container_MenuItems_WebLinkNewTabAssistiveText',
+      'CM_Container_MenuItems_EmbeddedMessagingChatLoading',
+      'EM_Container_Base_DefaultHeaderText',
+      'EM_Container_Base_Minimize',
+      'EM_Container_Base_Close',
+      'EM_Container_Base_CloseConversation',
+      'EM_Container_Base_DefaultMinimizedText',
+      'EM_Container_Base_MinimizedButtonAssistiveText',
+      'EM_Container_Base_MinimizedNotifDismissButtonAssistiveText',
+      'EM_Container_Base_HeaderGreetingAnnouncement',
+      'EM_Container_Base_NinePlusUnseenMessageCount',
+      'EM_Container_Base_ZeroUnseenMessagesAssistiveText',
+      'EM_Container_Base_UnseenMessagesAssistiveText',
+      'EM_Container_Base_NinePlusUnseenMessagesAssistiveText',
+      'EM_Container_Base_InputFooterTextAreaPlaceHolder',
+      'EM_Container_Base_PrechatFirstName',
+      'EM_Container_Base_PrechatLastName',
+      'EM_Container_Base_PrechatSubject',
+      'EM_Container_Base_PrechatEmail',
+      'EM_Container_Base_BeforeUnloadWarningMessage',
+      'EM_Container_Base_StartBookendText',
+      'EM_Container_Base_EndBookendText',
+      'EM_Container_Base_ChatMessageMetadataAssistiveText',
+      'EM_Container_Base_ParticipantJoinText',
+      'EM_Container_Base_ParticipantLeaveText',
+      'EM_Container_Base_InputFooterTextAreaAssistiveText',
+      'EM_Container_Base_InputFooterSendButtonAssistiveText',
+      'EM_Container_Base_PrechatStateSubmitButton',
+      'EM_Container_Base_InvalidEmailFormFieldError',
+      'EM_Container_Base_RequiredFormFieldError',
+      'EM_Container_Base_NotificationDismissButtonText',
+      'EM_Container_Base_ConversationEndedMinimizedText',
+      'EM_Container_Base_ExpiredJWT',
+      'EM_Chat_FileTransfer_SelectNewFileText',
+      'EM_PreChat_Base_PrechatCustomFieldLabel',
+      'EM_Chat_FileTransfer_FileSendingText',
+      'EM_Chat_FileTransfer_DownloadFileButtonTitle',
+      'EM_Chat_FileTransfer_SelectFileAttachmentButtonTitle',
+      'EM_Chat_FileTransfer_CancelFileAttachmentButtonTitle',
+      'EM_Chat_FileTransfer_DownloadFileButtonAssistiveText',
+      'EM_Chat_FileTransfer_SelectFileAttachmentButtonAssistiveText',
+      'EM_Chat_FileTransfer_CancelFileAttachmentButtonAssistiveText',
+      'EM_Chat_ChatBody_Sent',
+      'EM_Chat_ChatBody_Delivered',
+      'EM_Chat_ChatBody_Read',
+      'EM_Chat_ChoicesMessage_MenuAssistiveText',
+      'EM_Chat_ChoicesSelectionResponse_PlaceholderText',
+      'EM_Chat_ChoicesMessage_ButtonsAssistiveText',
+      'EM_Container_Base_HeaderAnnouncementTransferRequestSuccess',
+      'EM_Container_Base_HeaderAnnouncementTransferRequestFailure',
+      'EM_Container_Base_SystemMessageTransferRequestSuccess',
+      'EM_Container_Base_SystemMessageTransferRequestFailure',
+      'EM_Container_Base_SystemMessageTransferRequestTryAgain',
+      'EM_Chat_ChatBody_AgentTypingIndicator',
+      'EM_Chat_ChatBody_ChatbotTypingIndicator',
+      'EM_Container_Base_InputFooterTextAreaPlaceholderOnlyParticipant',
+      'EM_Container_Base_AgentJoinAnnouncement',
+      'EM_Container_Base_AgentLeaveAnnouncement',
+      'EM_Container_Base_JWTExpiredAnnouncement',
+      'EM_Container_Base_ParticipantJoinedText',
+      'EM_Container_Base_ParticipantLeftText',
+      'EM_Container_Base_NewMessageText',
+      'EM_Container_Base_MultipleNewMessagesText',
+      'EM_Container_Base_JwtExpiredText',
+      'EM_Container_Base_TransferInitiatedText',
+      'EM_Container_Base_TransferFailedText',
+      'EM_Chat_ChatBody_NotSent',
+      'EM_Chat_ChatBody_SpinnerDefaultAssistiveText',
+      'EM_Chat_ChatBody_FetchMoreEntriesSpinnerAssistiveText',
+      'EM_Container_Base_MinimizeButtonAssistiveText',
+      'EM_Container_Base_CloseButtonAssistiveText',
+      'EM_Container_Base_ConfirmationDialogMenuItemAssistiveText',
+      'EM_Container_Base_MinimizedNotificationAssistiveText',
+      'EM_Container_Base_MinimizedStateAssistiveText',
+      'EM_Chat_ChatBody_NotRoutedToAgentRoutingResult',
+      'EM_Container_Base_TitleNotificationSenderDisplayName',
+      'EM_Container_Base_MessagingIframeTitle',
+      'EM_Container_Base_FilePreviewIframeTitle',
+      'EM_Container_Base_FilePreviewIframeCloseButtonTitle',
+      'EM_Chat_ChatBody_MessageResendButtonText',
+      'EM_Chat_ChatBody_EstimatedWaitTimeInMinute',
+      'EM_Chat_ChatBody_EstimatedWaitTimeInMinutes',
+      'EM_Container_Base_InputFooterEmojiButtonAssistiveText',
+      'EM_Container_Base_InputFooterEmojiKeyboardAssistiveText',
+      'EM_Container_Base_PostchatFrameTitle',
+      'EM_Container_Base_PostchatHeaderText',
+      'EM_Container_Base_PostchatHeaderBackButtonTitle',
+      'EM_Container_Base_PostchatHeaderBackButtonAssistiveText',
+      'EM_Container_Base_PostchatConfirmationDialogTitleText',
+      'EM_Container_Base_PostchatConfirmationDialogBodyText',
+      'EM_Container_Base_PostchatConfirmationDialogConfirmButton',
+      'EM_Container_Base_PostchatConfirmationDialogCancelButton',
+      'EM_Container_Base_JWTRetrievalFailureText',
+      'EM_Chat_FileTransfer_MaximumNumberOfFilesAllowedErrorText',
+      'EM_Chat_FileTransfer_UnsupportedFileTypeErrorText',
+      'EM_Chat_FileTransfer_FileExceededSizeLimitErrorText',
+      'EM_PreChat_ChoiceList_PrechatCustomFieldLabel',
+      'EM_Container_Base_PrechatChoiceListValueNone',
+      'EM_Container_Base_MenuButtonAssistiveText',
+      'EM_Container_Base_CloseMenuButtonAssistiveText',
+      'EM_Chat_ChatBody_Yesterday',
+      'EM_PreChat_TermsAndConditions',
+      'EM_Container_Base_ReconnectInProgress',
+      'EM_Container_Base_ReconnectInProgressAssistiveText',
+      'EM_Container_Base_MinimizedReconnectInProgress',
+      'EM_Container_Base_PrechatTermsAndConditionsAcknowledgement',
+      'EM_Container_Base_ChatWindowAssistiveText',
+      'EM_Chat_SecureForms_FormButtonInitialStateAssistiveText',
+      'EM_Chat_SecureForms_FormButtonInactiveStateAssistiveText',
+      'EM_Chat_SecureForms_FormButtonPendingStateTitle',
+      'EM_Chat_SecureForms_FormButtonErrorResponseStateTitle',
+      'EM_Chat_SecureForms_FormButtonSuccessResponseStateTitle',
+      'EM_Chat_SecureForms_OptionSelectInputSingleSelectInstruction',
+      'EM_Chat_SecureForms_OptionSelectInputMultipleSelectInstruction',
+      'EM_Chat_SecureForms_DatePickerInputSelectInstruction',
+      'EM_Chat_SecureForms_TextInputSelectInstruction',
+      'EM_Chat_SecureForms_RequiredInputMissing',
+      'EM_Chat_SecureForms_RegexPatternMismatch',
+      'EM_Chat_SecureForms_NextButtonLabel',
+      'EM_Chat_SecureForms_BackButtonLabel',
+      'EM_Chat_SecureForms_SubmitButtonLabel',
+      'EM_Chat_SecureForms_ProgressBarAssistiveText',
+      'EM_Chat_SecureForms_NextButtonDisabledAssistiveText',
+      'EM_Chat_SecureForms_BackButtonDisabledAssistiveText',
+      'EM_Chat_SecureForms_SubmitButtonDisabledAssistiveText',
+      'EM_Chat_SecureForms_CloseConfirmationDialogTitleText',
+      'EM_Chat_SecureForms_CloseConfirmationDialogBodyText',
+      'EM_Chat_SecureForms_CloseConfirmationConfirmButtonLabel',
+      'EM_Chat_SecureForms_CloseConfirmationCancelButtonLabel',
+      'EM_Chat_SecureForms_RequiredSelectInputMissing',
+      'EM_Chat_ChatBody_UnsupportedMessageTypeText',
+      'EM_Container_Base_PrechatLoading',
+      'EM_Container_Base_RequestTranscriptMenuOption',
+      'EM_Container_Base_DownloadInProgressNotification',
+      'EM_Container_Base_DownloadSuccessNotification',
+      'EM_Container_Base_DownloadErrorNotification',
+      'EM_Container_Base_CloseNotification',
+      'EM_Chat_Carousels_PreviousCardButtonAssistiveText',
+      'EM_Chat_Carousels_NextCardButtonAssistiveText',
+      'EM_Chat_Carousels_CarouselDescriptionAssistiveText',
+      'EM_Container_Base_InputFooterTextAreaPlaceHolderAwaitingResponse',
+      'EM_Chat_FileTransfer_AttachedFilesAssistiveText',
+      'EM_Chat_FileTransfer_RemoveAttachmentButton',
+      'EM_Container_Base_InputFooterSendButton',
+      'EM_Container_Base_InputFooterTextAreaAssistiveLabelText',
+      'EM_Chat_FileTransfer_SendFileAttachmentAssistiveText',
+      'EM_Fallback_FallbackMessage',
+      'EM_Container_Base_EndSession',
+      'EM_Container_Base_EndUserEndedChatText',
+      'EM_Container_Base_AgentEndedChatText',
+      'EM_Container_Base_ChatbotEndedChatText',
+      'EM_Container_Error_GenericError'}
+
+export enum ClmCategoryUsageType {'DisclosureCategory',
+      'ContractClauseCategory'}
+
+export enum MappingOperation {'Autofill',
+      'Overwrite'}
+
+export enum CleanRuleStatus {'Inactive',
+      'Active'}
+
+export enum AuthType {'SfdcXi',
+      'HttpBasic',
+      'MutualSsl',
+      'Hmac',
+      'C2c',
+      'C2cCloud',
+      'None'}
+
+export enum CloudServiceProviderApiType {'Licenses',
+      'Tenants',
+      'Management',
+      'Snapshots',
+      'LicenseDefinitions',
+      'TenantTrusts',
+      'Usage',
+      'Feature',
+      'DigitalWalletProvisioning',
+      'DigitalWalletConsumption'}
+
+export enum ProvisioningAutomationType {'Manual',
+      'EntitlementOnly',
+      'Auto'}
+
+export enum ModelEntityType {'QA',
+      'ARTICLE',
+      'CASE'}
+
+export enum ModelStatus {'PUBLISHED',
+      'DARK_LAUNCHED',
+      'REJECTED',
+      'PHASED_OUT',
+      'VERIFIED',
+      'NO_MODEL'}
+
+export enum CommunityBaseTemplate {'c'}
+
+export enum CommunityTemplateBundleInfoType {'Highlight',
+      'PreviewImage'}
+
+export enum CommunityTemplateCategory {'IT',
+      'Marketing',
+      'Sales',
+      'Service',
+      'Commerce'}
+
+export enum CommunityThemeLayoutType {'Login',
+      'Home',
+      'Inner',
+      'ServiceNotAvailable'}
+
+export enum AccessMethod {'Get',
+      'Post'}
+
+export enum CanvasLocationOptions {'None',
+      'Chatter',
+      'UserProfile',
+      'Visualforce',
+      'Aura',
+      'Publisher',
+      'ChatterFeed',
+      'ServiceDesk',
+      'OpenCTI',
+      'AppLauncher',
+      'MobileNav',
+      'PageLayout'}
+
+export enum CanvasOptions {'HideShare',
+      'HideHeader',
+      'PersonalEnabled'}
+
+export enum SamlInitiationMethod {'None',
+      'IdpInitiated',
+      'SpInitiated'}
+
+export enum DevicePlatformType {'ios',
+      'android'}
+
+export enum DeviceType {'phone',
+      'tablet',
+      'minitablet'}
+
+export enum ConnectedAppOauthAccessScope {'Basic',
+      'Api',
+      'Web',
+      'Full',
+      'Chatter',
+      'CustomApplications',
+      'RefreshToken',
+      'OpenID',
+      'Profile',
+      'Email',
+      'Address',
+      'Phone',
+      'OfflineAccess',
+      'CustomPermissions',
+      'Wave',
+      'Eclair',
+      'Pardot',
+      'Lightning',
+      'Content',
+      'CDPIngest',
+      'CDPProfile',
+      'CDPQuery',
+      'Chatbot',
+      'CDPSegment',
+      'CDPIdentityResolution',
+      'CDPCalculatedInsight',
+      'ForgotPassword',
+      'UserRegistration',
+      'SFAP',
+      'Interaction',
+      'CDP',
+      'EinsteinGPT',
+      'PwdlessLogin'}
+
+export enum SamlEncryptionType {'AES_128',
+      'AES_256',
+      'Triple_Des'}
+
+export enum SamlIdpSLOBinding {'RedirectBinding',
+      'PostBinding'}
+
+export enum SamlNameIdFormatType {'Unspecified',
+      'EmailAddress',
+      'Persistent',
+      'Transient'}
+
+export enum SamlSigningAlgoType {'SHA1',
+      'SHA256'}
+
+export enum SamlSubjectType {'Username',
+      'FederationId',
+      'UserId',
+      'SpokeId',
+      'CustomAttribute',
+      'PersistentId'}
+
+export enum BannerFontFamily {'Serif',
+      'SansSerif',
+      'Cursive',
+      'Fantasy',
+      'SystemUi',
+      'UiSerif',
+      'UiSansSerif',
+      'UiMonospace',
+      'UiRounded',
+      'Fangsong'}
+
+export enum BannerPosition {'Top',
+      'Bottom'}
+
+export enum ContextMappingIntentType {'hydration',
+      'association',
+      'persistence',
+      'translation'}
+
+export enum ContextAttributeDataType {'string',
+      'number',
+      'boolean',
+      'date',
+      'datetime',
+      'percent',
+      'picklist',
+      'currency',
+      'reference',
+      'selfreference'}
+
+export enum ContextAttributeFieldType {'input',
+      'output',
+      'inputoutput',
+      'aggregate'}
+
+export enum ContextMappingType {'Hydration',
+      'Persistence'}
+
+export enum ContextUseCaseType {'ContractCreationOrUpdation',
+      'ContractExtraction'}
+
+export enum ContractConfigType {'ContractDocumentDownloadOption',
+      'WordTrackChangesDisplayColor',
+      'InclWordTrackChgReconciliation',
+      'InclWordTrackChgSectionContent',
+      'CreateDocSectionsDocxTemplates',
+      'AutoGenDocOnContractCreation',
+      'AutoGenerateDocFileType',
+      'ContractSignedStatus',
+      'ContractSignatureDeclinedSts',
+      'NotifyDocTemplateVerChgStatus',
+      'DocuSignUseAccountDefaultNtfcn',
+      'DocuSignReminderEnabled',
+      'DocuSignReminderDelayinDays',
+      'DocuSignReminderFrequency',
+      'DocuSignExpireEnabled',
+      'DocuSignExpiresAfter',
+      'DocuSignExpireWarning',
+      'DocuSignAccountBrand',
+      'Append0ToAutoNbrEmbeddedSect',
+      'DocumentFileNameFormat',
+      'DefaultTemplateName',
+      'AutoGenDocOnContractUpdate',
+      'ContractSignatureVoidedStatus',
+      'ContractSignatureExpiredStatus',
+      'TrackContractRedlines',
+      'DocumentTemplateFilterClass',
+      'EmailNotificationOnDocumentGeneration',
+      'ImportTargetContractStatus',
+      'ActivateObligationsBasedOnContractStatus',
+      'ExternalReviewRequired',
+      'InternalReviewRequired',
+      'CompareContractVersionsEnabled',
+      'PrivateExternalReviewCompletionSite',
+      'CheckInDocFileType'}
+
+export enum ContractUsageType {'DocumentSetting',
+      'Reconciliation',
+      'SignatureSetting',
+      'Redlining',
+      'ObligationSetting'}
+
+export enum ConvIntelligenceActionType {'LaunchNBA',
+      'LaunchFlow',
+      'AlertSupervisor',
+      'AlertSupervisorAndAgent'}
+
+export enum ConvParticipantRole {'Agent',
+      'Customer',
+      'AgentOrCustomer'}
+
+export enum ConvIntelligenceService {'AmazonConnectContactLens',
+      'KeywordMatch',
+      'CXoneAgentAssistService',
+      'VonageConversationalInsights',
+      'EinsteinConversationIntelligenceSignals'}
+
+export enum ConvIntelligenceOperator {'Equals',
+      'NotEquals',
+      'LessThan',
+      'GreaterThan',
+      'In'}
+
+export enum ConvIntelligenceType {'Category',
+      'Keyword',
+      'AgentSentiment',
+      'CustomerSentiment',
+      'Intent'}
+
+export enum RefreshFrequency {'NO_REFRESH',
+      'MONTHLY'}
+
+export enum ReportStatus {'NEW',
+      'TRAINING',
+      'COMPLETED',
+      'ERROR',
+      'NOT_ENOUGH_DATA_AFTER_PARSING',
+      'NOT_ENOUGH_DATA_WITH_CONTACT_REASON',
+      'LOW_CLUSTER_QUALITY'}
+
+export enum SegmentationType {'NO_FILTER',
+      'SINGLE_OBJECT_FILTER',
+      'CROSS_OBJECT_FILTER'}
+
+export enum CustomChannelConnectedAppType {'Partner',
+      'Customer'}
+
+export enum ConsentOwner {'Salesforce',
+      'Partner'}
+
+export enum RoutingOwner {'Salesforce',
+      'Partner'}
+
+export enum ConversationMessageConstantType {'Title',
+      'Url',
+      'Image',
+      'Options',
+      'SubTitle',
+      'Custom'}
+
+export enum ConversationMessageConstantValueType {'Text',
+      'Url',
+      'ImageAsset'}
+
+export enum ConversationMessageValueType {'Text',
+      'Boolean',
+      'Integer',
+      'Double',
+      'Date',
+      'DateTime',
+      'Url',
+      'RecordId',
+      'ImageId',
+      'Composite'}
+
+export enum ConversationMessageContentCategory {'Response',
+      'Reminder',
+      'Feedback',
+      'OrderUpdate',
+      'AccountUpdate',
+      'PromotionalOutreach',
+      'Authentication'}
+
+export enum ConversationMessageHandlerType {'QuickAction',
+      'AuthProvider',
+      'PaymentProvider',
+      'Attachment'}
+
+export enum ConvMsgExternalTemplateVersionStatus {'Pending',
+      'Rejected',
+      'Approved',
+      'Paused',
+      'Disabled',
+      'InAppeal'}
+
+export enum ConversationMessageFormatType {'Text',
+      'Attachments',
+      'RichLink',
+      'Media',
+      'Buttons',
+      'Carousel',
+      'QuickReplies',
+      'ListPicker',
+      'TimePicker',
+      'EncryptedOAuthToken',
+      'Application',
+      'Inputs',
+      'WebView',
+      'Payment',
+      'ExternalTemplate'}
+
+export enum ConversationMessageCollectionType {'None',
+      'StaticList',
+      'DynamicList'}
+
+export enum ConversationMessageMergeFieldType {'ListTemplate'}
+
+export enum ConversationMessageLayoutValueType {'Literal',
+      'MediaAsset',
+      'CompositeType',
+      'SourceSobjectFieldValue',
+      'SourceSobjectFormula',
+      'SourcePrimitiveValue',
+      'SourceCompositeType',
+      'FormulaTemplate',
+      'SourceSobjectField'}
+
+export enum ConversationMessageType {'StaticContent',
+      'Choices',
+      'Form',
+      'AuthenticationRequest',
+      'PaymentRequest'}
+
+export enum ConversationMessageOptionsParameterType {'RecordIdOptions',
+      'TimeSlotOptions',
+      'CustomPrimitiveOptions',
+      'CustomCompositeOptions'}
+
+export enum ConversationMessageParameterType {'RecordIds',
+      'CustomPrimitive',
+      'CustomComposite'}
+
+export enum ConversationMessageDefinitionType {'RecordView',
+      'RecordPicker',
+      'Picklist',
+      'TimePicker',
+      'Link',
+      'CustomMessage',
+      'CustomPicker',
+      'LegacyPicker',
+      'AuthenticationRequest',
+      'Action',
+      'AutoResponse',
+      'PaymentRequest',
+      'Notification'}
+
+export enum ClientAuthMode {'SSO',
+      'Custom',
+      'Mixed'}
+
+export enum ServerAuthMode {'OAuth',
+      'None'}
+
+export enum ConversationVendorType {'ServiceCloudVoicePartner',
+      'Amazon_Connect',
+      'BringYourOwnChannelPartner',
+      'BringYourOwnContactCenter'}
+
+export enum CspTrustedSiteContext {'All',
+      'LEX',
+      'Communities',
+      'FieldServiceMobileExtension',
+      'VisualForce'}
+
+export enum FormFactor {'Small',
+      'Medium',
+      'Large'}
+
+export enum ActionOverrideType {'Default',
+      'Standard',
+      'Scontrol',
+      'Visualforce',
+      'Flexipage',
+      'LightningComponent'}
+
+export enum NavType {'Standard',
+      'Console'}
+
+export enum UiType {'Aloha',
+      'Lightning'}
+
+export enum FieldType {'AutoNumber',
+      'Lookup',
+      'MasterDetail',
+      'Checkbox',
+      'Currency',
+      'Date',
+      'DateTime',
+      'Email',
+      'Number',
+      'Percent',
+      'Phone',
+      'Picklist',
+      'MultiselectPicklist',
+      'Text',
+      'TextArea',
+      'LongTextArea',
+      'Html',
+      'Url',
+      'EncryptedText',
+      'Summary',
+      'Hierarchy',
+      'File',
+      'MetadataRelationship',
+      'Location',
+      'ExternalLookup',
+      'IndirectLookup',
+      'CustomDataType',
+      'Time',
+      'Address',
+      'Array'}
+
+export enum FeedItemVisibility {'AllUsers',
+      'InternalUsers'}
+
+export enum DeleteConstraint {'Cascade',
+      'Restrict',
+      'SetNull'}
+
+export enum ElementType {'Float'}
+
+export enum EncryptionScheme {'None',
+      'ProbabilisticEncryption',
+      'CaseSensitiveDeterministicEncryption',
+      'CaseInsensitiveDeterministicEncryption'}
+
+export enum FieldManageability {'DeveloperControlled',
+      'SubscriberControlled',
+      'Locked'}
+
+export enum TreatBlanksAs {'BlankAsBlank',
+      'BlankAsZero'}
+
+export enum EncryptedFieldMaskChar {'asterisk',
+      'X'}
+
+export enum EncryptedFieldMaskType {'all',
+      'creditCard',
+      'ssn',
+      'lastFour',
+      'sin',
+      'nino'}
+
+export enum DefinitionCreationType {'Standard',
+      'Custom',
+      'System',
+      'Derived',
+      'Bridge',
+      'Curated',
+      'Segment_Membership',
+      'Calculated_Insight',
+      'Ml_Prediction',
+      'Activation_Audience',
+      'CG_Audience',
+      'Ad_Audience_Insights',
+      'Transform',
+      'ADG',
+      'External',
+      'Vector_Embedding',
+      'Chunk',
+      'Directory_Table',
+      'Semantic',
+      'Problem_Records'}
+
+export enum UsageTag {'NONE',
+      'KEY_QUALIFIER'}
+
+export enum InvalidMergeActionType {'Drop',
+      'Keep',
+      'Override'}
+
+export enum MktDataModelFieldUsageTag {'None',
+      'KeyQualifier'}
+
+export enum SummaryOperations {'count',
+      'sum',
+      'min',
+      'max'}
+
+export enum Channel {'AllChannels',
+      'App',
+      'Pkb',
+      'Csp',
+      'Prm'}
+
+export enum Template {'Page',
+      'Tab',
+      'Toc'}
+
+export enum CustomSettingsType {'List',
+      'Hierarchy'}
+
+export enum DeploymentStatus {'InDevelopment',
+      'Deployed'}
+
+export enum PlatformEventType {'HighVolume',
+      'StandardVolume',
+      'ExternalEvent'}
+
+export enum SharingModel {'Private',
+      'Read',
+      'ReadSelect',
+      'ReadWrite',
+      'ReadWriteTransfer',
+      'FullAccess',
+      'ControlledByParent',
+      'ControlledByLeadOrContact',
+      'ControlledByCampaign'}
+
+export enum Gender {'Neuter',
+      'Masculine',
+      'Feminine',
+      'AnimateMasculine',
+      'ClassI',
+      'ClassIII',
+      'ClassV',
+      'ClassVII',
+      'ClassIX',
+      'ClassXI',
+      'ClassXIV',
+      'ClassXV',
+      'ClassXVI',
+      'ClassXVII',
+      'ClassXVIII'}
+
+export enum PlatformEventPublishBehavior {'PublishAfterCommit',
+      'PublishImmediately'}
+
+export enum StartsWith {'Consonant',
+      'Vowel',
+      'Special'}
+
+export enum SetupObjectVisibility {'PackageProtected',
+      'Protected',
+      'Public'}
+
+export enum WebLinkAvailability {'online',
+      'offline'}
+
+export enum WebLinkDisplayType {'link',
+      'button',
+      'massActionButton'}
+
+export enum Encoding {'UTF-8',
+      'ISO-8859-1',
+      'Shift_JIS',
+      'ISO-2022-JP',
+      'EUC-JP',
+      'ks_c_5601-1987',
+      'Big5',
+      'GB2312',
+      'Big5-HKSCS',
+      'x-SJIS_0213'}
+
+export enum WebLinkType {'url',
+      'sControl',
+      'javascript',
+      'page',
+      'flow'}
+
+export enum WebLinkWindowType {'newWindow',
+      'sidebar',
+      'noSidebar',
+      'replace',
+      'onClickJavaScript'}
+
+export enum WebLinkPosition {'fullScreen',
+      'none',
+      'topLeft'}
+
+export enum Article {'None',
+      'Indefinite',
+      'Definite'}
+
+export enum CaseType {'Nominative',
+      'Accusative',
+      'Genitive',
+      'Dative',
+      'Inessive',
+      'Elative',
+      'Illative',
+      'Adessive',
+      'Ablative',
+      'Allative',
+      'Essive',
+      'Translative',
+      'Partitive',
+      'Objective',
+      'Subjective',
+      'Instrumental',
+      'Prepositional',
+      'Locative',
+      'Vocative',
+      'Sublative',
+      'Superessive',
+      'Delative',
+      'Causalfinal',
+      'Essiveformal',
+      'Termanative',
+      'Distributive',
+      'Ergative',
+      'Adverbial',
+      'Abessive',
+      'Comitative'}
+
+export enum Possessive {'None',
+      'First',
+      'Second'}
+
+export enum SiteClickjackProtectionLevel {'AllowAllFraming',
+      'External',
+      'SameOriginOnly',
+      'NoFraming'}
+
+export enum SiteRedirect {'Permanent',
+      'Temporary'}
+
+export enum SiteType {'Siteforce',
+      'Visualforce',
+      'ChatterNetwork',
+      'ChatterNetworkPicasso'}
+
+export enum ChartBackgroundDirection {'TopToBottom',
+      'LeftToRight',
+      'Diagonal'}
+
+export enum ChartTheme {'light',
+      'dark'}
+
+export enum ChartColorPalettes {'Default',
+      'gray',
+      'colorSafe',
+      'unity',
+      'justice',
+      'nightfall',
+      'sunrise',
+      'bluegrass',
+      'tropic',
+      'heat',
+      'dusk',
+      'pond',
+      'watermelon',
+      'fire',
+      'water',
+      'earth',
+      'accessible'}
+
+export enum DashboardFilterOperation {'equals',
+      'notEqual',
+      'lessThan',
+      'greaterThan',
+      'lessOrEqual',
+      'greaterOrEqual',
+      'contains',
+      'notContain',
+      'startsWith',
+      'includes',
+      'excludes',
+      'between'}
+
+export enum ChartRangeType {'Auto',
+      'Manual'}
+
+export enum ChartAxis {'x',
+      'y',
+      'y2',
+      'r'}
+
+export enum DashboardComponentType {'Bar',
+      'BarGrouped',
+      'BarStacked',
+      'BarStacked100',
+      'Column',
+      'ColumnGrouped',
+      'ColumnStacked',
+      'ColumnStacked100',
+      'Line',
+      'LineGrouped',
+      'Pie',
+      'Table',
+      'Metric',
+      'Gauge',
+      'LineCumulative',
+      'LineGroupedCumulative',
+      'Scontrol',
+      'VisualforcePage',
+      'Donut',
+      'Funnel',
+      'ColumnLine',
+      'ColumnLineGrouped',
+      'ColumnLineStacked',
+      'ColumnLineStacked100',
+      'Scatter',
+      'ScatterGrouped',
+      'FlexTable',
+      'Image',
+      'RichText'}
+
+export enum Fit {'tile',
+      'stretch',
+      'original',
+      'fitwidth',
+      'fitheight'}
+
+export enum HorizontalAlignment {'left',
+      'center',
+      'right'}
+
+export enum VerticalAlignment {'top',
+      'center',
+      'bottom'}
+
+export enum DashboardComponentFilter {'RowLabelAscending',
+      'RowLabelDescending',
+      'RowValueAscending',
+      'RowValueDescending'}
+
+export enum ChartUnits {'Auto',
+      'Integer',
+      'Hundreds',
+      'Thousands',
+      'Millions',
+      'Billions',
+      'Trillions'}
+
+export enum DashboardComponentColumnType {'aggregate',
+      'detail',
+      'grouping'}
+
+export enum ChartLegendPosition {'Right',
+      'Bottom',
+      'OnChart'}
+
+export enum DashboardType {'SpecifiedUser',
+      'LoggedInUser',
+      'MyTeamUser'}
+
+export enum DashboardComponentSize {'Narrow',
+      'Medium',
+      'Wide'}
+
+export enum CalculatedInsightCreationType {'Custom',
+      'System'}
+
+export enum CalculatedInsightDefinitionType {'CALCULATED_METRIC',
+      'EXTERNAL_METRIC',
+      'STREAMING_METRIC',
+      'GRAPH_METRIC',
+      'HISTORY_METRIC'}
+
+export enum DataModelType {'Source',
+      'Transport',
+      'Landing',
+      'View',
+      'Reference'}
+
+export enum AccelerationEnabled {'YES',
+      'NO'}
+
+export enum DataObjectType {'Object',
+      'Table',
+      'Api'}
+
+export enum StorageType {'LOCAL',
+      'EXTERNAL'}
+
+export enum DataImportDataExtractMethods {'FULL_REFRESH',
+      'NUMERIC_CDC',
+      'BINARY_CDC',
+      'DATETIME_CDC'}
+
+export enum DataImportRefreshFrequency {'NONE',
+      'MINUTES_5',
+      'MINUTES_15',
+      'MINUTES_30',
+      'HOURLY',
+      'EVERY_4_HOURS',
+      'EVERY_12_HOURS',
+      'DAILY',
+      'WEEKLY',
+      'MONTHLY',
+      'NOT_APPLICABLE',
+      'BATCH',
+      'STREAMING'}
+
+export enum DataImportRefreshMode {'FULL_REFRESH',
+      'UPSERT',
+      'INCREMENTAL',
+      'PARTIAL_UPDATE',
+      'REPLACE',
+      'NEAR_REAL_TIME_INCREMENTAL',
+      'NOT_APPLICABLE'}
+
+export enum StreamType {'INGEST',
+      'DIRECT_ACCESS',
+      'DIRECT_ACCESS_ACCELERATED'}
+
+export enum StreamingAppDataConnectorType {'MobileApp',
+      'WebApp'}
+
+export enum ExpsSetProcessType {'Bre',
+      'TransactionJournal',
+      'TierProcessing',
+      'CustomLoyalty',
+      'TestProcess',
+      'AiAcceleratorSubscriberChurnPrediction',
+      'DefaultPricing',
+      'RecordAlert',
+      'ShipAndDebit',
+      'WarrantyClaim',
+      'ProductQualification',
+      'ProductCategoryQualification',
+      'EventOrchestration',
+      'ComplianceControl',
+      'FinancialServicesCloud',
+      'DefaultRating',
+      'LoopingProcessing',
+      'CreditPointsToMembers',
+      'DebitPointsFromMembers',
+      'UpdateMemberDetails',
+      'IssueVoucher',
+      'CancelVoucher',
+      'EnrollInPromotion',
+      'UnenrollMember',
+      'GetMemberPromotions',
+      'OptOutPromotion',
+      'PricingDiscovery',
+      'PriceProtection',
+      'Constraint',
+      'RatingDiscovery',
+      'PlanCostCalculation',
+      'GpaCalculation',
+      'Timesheet',
+      'FulfillmentCondition',
+      'StudentSuccess'}
+
+export enum DecisionMatrixType {'Standard',
+      'Grouped'}
+
+export enum DecisionMatrixColumnType {'Input',
+      'Output'}
+
+export enum DecisionMatrixDataType {'Text',
+      'Number',
+      'NumberRange',
+      'TextRange',
+      'Currency',
+      'Percent',
+      'Boolean'}
+
+export enum DecisionMatrixDefStatus {'Draft',
+      'Active',
+      'Inactive',
+      'InvalidDraft',
+      'Obsolete'}
+
+export enum DecisionTableCollectOperator {'None',
+      'Sum',
+      'Minimum',
+      'Maximum',
+      'Count'}
+
+export enum DecisionTableConditionType {'All',
+      'Any',
+      'Custom'}
+
+export enum DecisionTableDataSourceType {'SingleSobject',
+      'MultipleSobjects',
+      'CsvUpload'}
+
+export enum DTParameterDataType {'String',
+      'Number',
+      'Date',
+      'Boolean',
+      'Percent',
+      'Currency',
+      'DateTime'}
+
+export enum DecisionTableOperator {'Equals',
+      'NotEquals',
+      'LessThan',
+      'LessOrEqual',
+      'GreaterThan',
+      'GreaterOrEqual',
+      'Matches',
+      'ExistsIn',
+      'DoesNotExistIn',
+      'DoesNotMatch',
+      'Contains'}
+
+export enum DecisionTableSortType {'None',
+      'AscNullFirst',
+      'AscNullLast',
+      'DescNullFirst',
+      'DescNullLast'}
+
+export enum DecisionTableParameterType {'INPUT',
+      'OUTPUT'}
+
+export enum DTSourceCriteriaOperator {'Equals',
+      'NotEquals',
+      'GreaterThan',
+      'GreaterOrEqual',
+      'LessThan',
+      'LessOrEqual',
+      'Matches',
+      'ExistsIn',
+      'DoesNotExistIn'}
+
+export enum DTSourceCriteriaValueType {'Literal',
+      'Parameter',
+      'Picklist',
+      'Formula',
+      'Lookup'}
+
+export enum DecisionTableExecutionType {'Soql',
+      'Hbpo',
+      'Dmo',
+      'Solr',
+      'Hbase'}
+
+export enum DecisionTableHitPolicy {'UniqueValues',
+      'AnyValue',
+      'Priority',
+      'FirstMatch',
+      'CollectOperator',
+      'OutputOrder',
+      'RuleOrder'}
+
+export enum DecisionTableRefreshStatus {'Initiated',
+      'Failed',
+      'Completed',
+      'InProgress'}
+
+export enum DecisionTableStatus {'Draft',
+      'Inactive',
+      'Active',
+      'ActivationInProgress'}
+
+export enum DecisionTableType {'LowVolume',
+      'HighVolume',
+      'Advanced',
+      'MediumVolume',
+      'HighScaleExecution'}
+
+export enum DecisionTableUploadStatus {'UploadInProgress',
+      'Completed',
+      'CompletedWithErrors',
+      'Failed'}
+
+export enum FTestTopLevelSelection {'SelOne',
+      'SelTwo',
+      'SelThree'}
+
+export enum SchedulingCategory {'B',
+      'A'}
+
+export enum SchedulingObjectiveType {'AgentPreference',
+      'BalanceShifts',
+      'BalanceNonStandardShifts'}
+
+export enum ObjectiveParameterKey {'DaysBack',
+      'DaysAhead'}
+
+export enum FTestOnOffSelection {'On',
+      'Off'}
+
+export enum FTestSeasonSelection {'Spring',
+      'Summer',
+      'Autumn',
+      'Winter'}
+
+export enum PipelineInspectionMetric {'TotalPipeline',
+      'ClosedWon',
+      'Commit',
+      'MostLikely',
+      'BestCase',
+      'OpenPipeline',
+      'ClosedLost',
+      'MovedIn',
+      'MovedOut'}
+
+export enum VirtualVisitComprehendServiceType {'ComprehendService',
+      'ComprehendMedicalService'}
+
+export enum VirtualVisitUsageType {'CHIME',
+      'INTELLIGENT_FORM_READER',
+      'SENTIMENT_ANALYSIS',
+      'KEY_PHRASE_EXTRACTION',
+      'ENTITY_DETECTION'}
+
+export enum VirtualVisitVisitRegion {'us-east-1',
+      'us-east-2',
+      'us-west-1',
+      'us-west-2',
+      'af-south-1',
+      'ap-east-1',
+      'ap-south-1',
+      'ap-northeast-1',
+      'ap-northeast-2',
+      'ap-northeast-3',
+      'ap-southeast-1',
+      'ap-southeast-2',
+      'ca-central-1',
+      'eu-central-1',
+      'eu-west-1',
+      'eu-west-2',
+      'eu-west-3',
+      'eu-south-1',
+      'eu-north-1',
+      'me-south-1',
+      'sa-east-1'}
+
+export enum MobileSecurityMobilePlatform {'Android',
+      'iOS'}
+
+export enum MobileSecurityPolicyRuleValueType {'Boolean',
+      'Text',
+      'TextList'}
+
+export enum MobileSecurityPolicySeverityLevel {'Warn',
+      'Error',
+      'Critical',
+      'Info'}
+
+export enum MobileSecurityPolicyType {'JailbrokenDevice',
+      'MinimumOsVersion',
+      'MaximumOsVersion',
+      'MinimumSecurityPatchVersion',
+      'ManInMiddle',
+      'MinimumAppVersion',
+      'MininumAppVersion',
+      'MaximumAppVersion',
+      'DevicePasscode',
+      'BlockedDeviceList',
+      'BlockCustomKeyboard',
+      'BlockFileBackup',
+      'Block3dTouch',
+      'Screenshot',
+      'LogScreenshot',
+      'LogEmail',
+      'LogPhonecall',
+      'LogTextmessage',
+      'LogPolicyResult',
+      'BlockMicrophone',
+      'BlockCamera',
+      'MalwareDetection',
+      'DisableUrlCaching',
+      'MaxOffline',
+      'LogoutAfterRestart',
+      'LogoutOnBiometricChange',
+      'BlockOsSharing',
+      'BrowserUriScheme',
+      'CheckBiometric',
+      'BlockContacts',
+      'BlockCalendar',
+      'PhonecallUriScheme',
+      'AllowedDeviceList',
+      'LogCertPin'}
+
+export enum LearningAchievementType {'LearningCourse',
+      'LearningProgram',
+      'AchievementGroup',
+      'Skill',
+      'Custom'}
+
+export enum RecordAlertDataSourceType {'APEX',
+      'BusinessRulesEngine'}
+
+export enum ExtensionPointName {'Commerce_Domain_Cart_Calculate',
+      'Commerce_Domain_Tax_CartCalculator',
+      'Commerce_Domain_Inventory_CartCalculator',
+      'Commerce_Domain_Promotions_CartCalculator',
+      'Commerce_Domain_Promotions_ShippingCalculator',
+      'Commerce_Domain_Pricing_CartCalculator',
+      'Commerce_Domain_Shipping_CartCalculator',
+      'Commerce_Domain_Inventory_Service',
+      'Commerce_Domain_Pricing_Service',
+      'Commerce_Domain_Tax_Service',
+      'Commerce_Domain_Checkout_CreateOrder',
+      'Commerce_Domain_Checkout_PlaceOrder',
+      'Commerce_Domain_Shipping_SplitShipment',
+      'Product_Inventory_CheckInventory',
+      'CommerceDx_Pricing',
+      'CommerceDx_Inventory',
+      'CommerceDx_TicketProcessing',
+      'Commerce_Integration_B2CEOrderImport',
+      'Cart_Prices_Extension',
+      'Checkout_CartSummary_ComputePromotions',
+      'Checkout_CartSummary_PriceCart',
+      'Checkout_Update_CalcCartSummary',
+      'Checkout_CartSummary_Inventory',
+      'Commerce_Domain_OrderManagement_Product',
+      'CommerceDx_Endpoint_PricingSample_Service',
+      'CommerceDx_Endpoint_InventorySample_Service',
+      'Commerce_Endpoint_Account_Addresses',
+      'Commerce_Endpoint_Account_Address',
+      'Commerce_Endpoint_Catalog_Products',
+      'Commerce_Endpoint_Catalog_Product',
+      'Commerce_Endpoint_Search_Products',
+      'Commerce_Endpoint_Search_ProductSearch',
+      'Commerce_Endpoint_Search_ProductsByCategory',
+      'Commerce_Endpoint_Cart_ItemCollection',
+      'Commerce_Endpoint_Cart_Item'}
+
+export enum RegistryProviderType {'Price',
+      'Promotions',
+      'Inventory',
+      'Shipment',
+      'Tax',
+      'Extension'}
+
+export enum CustomFieldDisplayType {'Dropdown',
+      'ColorSwatch',
+      'Pill'}
+
+export enum MappingBehaviorType {'PointInTime',
+      'CurrentValue'}
+
+export enum RRADJctObjFilterLogic {'And',
+      'Or',
+      'Custom'}
+
+export enum RelatedRecordAccessDefShareTo {'Internal',
+      'External',
+      'All'}
+
+export enum RRADSourceObjFilterLogic {'And',
+      'Or',
+      'Custom'}
+
+export enum RelatedRecordAccessDefStatus {'Draft',
+      'Active',
+      'Inactive'}
+
+export enum RRADTargetObjFilterLogic {'And',
+      'Or',
+      'Custom'}
+
+export enum RRAFObjectType {'Source',
+      'Target',
+      'Junction'}
+
+export enum RRAFOperator {'Equal',
+      'Not_Equal',
+      'Starts_With',
+      'Contains',
+      'Does_Not_Contain',
+      'Less_Than',
+      'Greater_Than',
+      'Less_Or_Equal',
+      'Greater_Or_Equal',
+      'Include',
+      'Exclude',
+      'Within'}
+
+export enum ObjectAccessLevel {'Edit',
+      'Read',
+      'None'}
+
+export enum MobileSecurityCertPinType {'AuthServer',
+      'Resource'}
+
+export enum ActionableListSourceType {'CrmAnalytics',
+      'DataCloudPlatform'}
+
+export enum ActionableListType {'RetailStoreList',
+      'HealthcareProviderList'}
+
+export enum DatasetColumnDataType {'Dimensions',
+      'Dates',
+      'Measures'}
+
+export enum DatatableDataType {'Boolean',
+      'Currency',
+      'Date',
+      'DateTime',
+      'Email',
+      'Location',
+      'Number',
+      'Percent',
+      'Phone',
+      'Text',
+      'Url'}
+
+export enum ProviderSearchObjectMapping {'HealthcareProvider',
+      'HealthcarePractitionerFacility'}
+
+export enum SourceSystemFieldRole {'NotApplicable',
+      'Patient',
+      'ServiceProvider',
+      'RemoteMonitoringPatient',
+      'RemoteMonitoringDevice'}
+
+export enum CareLimitTypeMetricType {'Money',
+      'Percentage',
+      'Amount',
+      'Text'}
+
+export enum AssessmentConfigurationOption {'Send'}
+
+export enum AssessmentType {'DiscoveryFramework'}
+
+export enum SchedulingRuleType {'M',
+      'B',
+      'W',
+      'A',
+      'RestTimeMinutes',
+      'Q',
+      'C',
+      'LimitNonstandardShifts'}
+
+export enum SchedulingParameterKey {'L',
+      'R',
+      'W',
+      'T',
+      'C',
+      'ConsiderAbsence',
+      'ConsiderSTM'}
+
+export enum CareProviderAfflType {'HospitalAffiliation'}
+
+export enum AssociationType {'BranchManagement'}
+
+export enum AssociationEventType {'Create',
+      'Update'}
+
+export enum AssociationStatusType {'Draft',
+      'Active',
+      'Inactive'}
+
+export enum ShiftSegmentTypeCategory {'Work',
+      'Break',
+      'NonWork'}
+
+export enum DgtAssetMgmtPrvdLghtCpntType {'NONE',
+      'DIGITAL_ASSET_MANAGER'}
+
+export enum ManagedContentSpaceModuleStatusEnum {'ENABLED',
+      'DISABLED',
+      'ERROR',
+      'INVALID',
+      'STANDBY',
+      'NOT_INSTALLED'}
+
+export enum ACPStatus {'New',
+      'Pending',
+      'Deployed'}
+
+export enum ApexCodeUnitStatus {'Inactive',
+      'Active',
+      'Deleted'}
+
+export enum ContentAssetFormat {'Original',
+      'ZippedVersions'}
+
+export enum ContentAssetAccess {'VIEWER',
+      'COLLABORATOR',
+      'INFERRED'}
+
+export enum DataPipelineType {'Pig'}
+
+export enum DiscoveryAlgorithmType {'Glm',
+      'Gbm',
+      'Xgboost',
+      'Drf',
+      'Best'}
+
+export enum DiscoveryModelFieldType {'Text',
+      'Number',
+      'Date'}
+
+export enum DiscoveryModelRuntimeType {'Discovery',
+      'H2O',
+      'Py36Tensorflow244',
+      'Py37Tensorflow270',
+      'Py37Scikitlearn102'}
+
+export enum DiscoveryPredictionType {'Unknown',
+      'Regression',
+      'Classification',
+      'MulticlassClassification'}
+
+export enum DiscoveryModelSourceType {'Discovery',
+      'UserUpload'}
+
+export enum DiscoveryAIModelStatus {'Disabled',
+      'Uploading',
+      'UploadFailed',
+      'UploadCompleted',
+      'Validating',
+      'ValidationFailed',
+      'ValidationCompleted',
+      'Enabled'}
+
+export enum DiscoveryAIModelTransformationType {'TypographicClustering',
+      'SentimentAnalysis',
+      'FreeTextClustering',
+      'NumericalImputation',
+      'CategoricalImputation',
+      'TimeSeriesForecast',
+      'ExtractMonthOfYear',
+      'ExtractDayOfWeek'}
+
+export enum DiscoveryStoryAutopilotStatus {'Enabled',
+      'Disabled'}
+
+export enum DiscoveryStoryOutcomeGoal {'Minimize',
+      'Maximize',
+      'None'}
+
+export enum DiscoveryStoryOutcomeType {'Count',
+      'Text',
+      'Categorical',
+      'Number'}
+
+export enum DiscoveryStorySourceType {'AnalyticsDataset',
+      'Report',
+      'LiveDataset'}
+
+export enum DocumentGenerationMechanism {'ClientSide',
+      'ServerSide'}
+
+export enum DocumentTemplateStatus {'Draft',
+      'Active',
+      'Archived'}
+
+export enum TargetTokenItemObject {'OPPORTUNITY_LINE_ITEM',
+      'ORDER_LINE_ITEM',
+      'QUOTE_LINE_ITEM'}
+
+export enum TargetTokenObject {'CONTRACT',
+      'OPPORTUNITY',
+      'ORDER',
+      'QUOTE'}
+
+export enum TokenMappingMethodType {'OmniDataTransform',
+      'CustomClass'}
+
+export enum TokenMappingType {'JSON',
+      'SalesforceObject'}
+
+export enum DocumentTemplateType {'Web',
+      'MicrosoftWord',
+      'MicrosoftPowerpoint',
+      'Microsoft365Word',
+      'HTMLArchive'}
+
+export enum DocumentTemplateUsageType {'Contract_Lifecycle_Management',
+      'Tearsheets',
+      'Revenue_Lifecycle_Management',
+      'Invoice'}
+
+export enum EmailTemplateStyle {'none',
+      'freeForm',
+      'formalLetter',
+      'promotionRight',
+      'promotionLeft',
+      'newsletter',
+      'products'}
+
+export enum EmailTemplateType {'text',
+      'html',
+      'custom',
+      'visualforce'}
+
+export enum EmailTemplateUiType {'Aloha',
+      'SFX',
+      'SFX_Sample'}
+
+export interface PlatformSchemaContentType {
+}
+
+export enum SControlContentSource {'HTML',
+      'URL',
+      'Snippet'}
+
+export enum StaticResourceCacheControl {'Private',
+      'Public'}
+
+export enum FlexiPageType {'AppPage',
+      'ObjectPage',
+      'RecordPage',
+      'HomePage',
+      'ForecastingPage',
+      'MailAppAppPage',
+      'CommAppPage',
+      'CommForgotPasswordPage',
+      'CommLoginPage',
+      'CommObjectPage',
+      'CommQuickActionCreatePage',
+      'CommRecordPage',
+      'CommRelatedListPage',
+      'CommSearchResultPage',
+      'CommGlobalSearchResultPage',
+      'CommSelfRegisterPage',
+      'CommThemeLayoutPage',
+      'UtilityBar',
+      'RecordPreview',
+      'EmbeddedServicePage',
+      'CommCheckoutPage',
+      'CommOrderConfirmationPage',
+      'CommFlowPage',
+      'EmailTemplatePage',
+      'ApplicationLayout',
+      'CommNoSearchResultsPage',
+      'CommElectronicSignaturePage',
+      'CommContractDocumentsPage',
+      'CommContractDetailViewPage',
+      'EmailContentPage',
+      'ServiceDocument',
+      'LandingPage',
+      'CdpRecordPage',
+      'SlackAppHome',
+      'SlackMessage',
+      'SlackModal',
+      'SlackNotification',
+      'EasyHomePage',
+      'CardPage',
+      'VoiceExtension',
+      'ConfiguratorAppPage',
+      'OmniSupervisorPage',
+      'MobileAppPage'}
+
+export enum ViewTargetType {'slack'}
+
+export enum AuthoringMode {'OmniScriptForm',
+      'Microsoft365Word',
+      'OmniScriptAndMcrsft365Wrd',
+      'GoogleDocs',
+      'OmniscriptAndGoogleDocs'}
+
+export enum DiscoveryFieldMapSourceType {'SalesforceField',
+      'AnalyticsDatasetField'}
+
+export enum DiscoveryFilterOperator {'Equal',
+      'NotEqual',
+      'GreaterThan',
+      'GreaterThanOrEqual',
+      'LessThan',
+      'LessThanOrEqual',
+      'Between',
+      'NotBetween',
+      'InSet',
+      'NotIn',
+      'Contains',
+      'StartsWith',
+      'EndsWith',
+      'IsNull',
+      'IsNotNull'}
+
+export enum DiscoveryFilterFieldType {'Text',
+      'Number',
+      'Date',
+      'DateTime',
+      'Boolean'}
+
+export enum DiscoveryFilterValueType {'Constant',
+      'PlaceHolder'}
+
+export enum DiscoveryOutcomeGoal {'Minimize',
+      'Maximize',
+      'None'}
+
+export enum DiscoveryPushbackType {'AiRecordInsight',
+      'Direct'}
+
+export enum GenerationMechanism {'ClientSide',
+      'ServerSide'}
+
+export enum PreviewType {'PDF',
+      'Thumbnail'}
+
+export enum DupeActionType {'Allow',
+      'Block'}
+
+export enum DupeSecurityOptionType {'EnforceSharingRules',
+      'BypassSharingRules'}
+
+export enum ConfigType {'AnchorString',
+      'SignerRoles',
+      'SyncFileSizeLimit',
+      'CalloutTimeout',
+      'EnvelopesLastPollDate',
+      'CalloutNamedCredential',
+      'eSignVendorAccountId',
+      'RecipientsCustomClass',
+      'DocumentsCustomClass'}
+
+export enum ConfigGroup {'AnchorTabSetting',
+      'EnvelopeObjectLimits',
+      'CalloutConfigurationSetup',
+      'Envelope',
+      'eSignVendorAccount',
+      'CustomClassSetting'}
+
+export enum Vendor {'DocuSign'}
+
+export enum EmailServicesAttOptions {'None',
+      'TextOnly',
+      'BinaryOnly',
+      'All',
+      'NoContent'}
+
+export enum EmailServicesErrorAction {'UseSystemDefault',
+      'Bounce',
+      'Discard',
+      'Requeue'}
+
+export enum EmbeddedServiceAuthMethod {'CommunitiesLogin',
+      'CustomLogin'}
+
+export enum EmbeddedServiceDeploymentFeature {'None',
+      'EmbeddedMessaging',
+      'LiveAgent',
+      'Flows',
+      'FieldService'}
+
+export enum EmbeddedServiceDeploymentType {'Web',
+      'Mobile',
+      'API',
+      'InternalCopilot'}
+
+export enum EmbeddedServiceComponentBundleType {'AuraDefinitionBundle',
+      'LightningComponentBundle'}
+
+export enum EmbeddedServiceCustomComponentType {'LA_Prechat',
+      'LA_Minimized',
+      'LA_PlainTextChatMessage',
+      'LA_ChatHeader',
+      'MIAW_Prechat',
+      'MIAW_Header',
+      'MIAW_TextMessage'}
+
+export enum EmbeddedServiceResourceType {'SettingsFile',
+      'ChatInvitation'}
+
+export enum EmbeddedServiceFlowType {'FL_Flow',
+      'FS_NewAppointment',
+      'FS_ModifyAppointment',
+      'FS_CancelAppointment',
+      'LA_Survey'}
+
+export enum EmbeddedServiceFormDisplayContext {'None',
+      'Conversation',
+      'Session'}
+
+export enum EmbeddedServiceFormFieldType {'Text',
+      'Email',
+      'Phone',
+      'Number',
+      'Checkbox',
+      'ChoiceList'}
+
+export enum MessagingChannelParameterType {'Standard',
+      'Custom'}
+
+export enum EmbeddedServiceLayoutType {'FS_AppointmentHome'}
+
+export enum EmbeddedServiceQuickActionType {'Prechat',
+      'OfflineCase'}
+
+export enum EmbeddedServiceFontSize {'Small',
+      'Medium',
+      'Large'}
+
+export enum EmbeddedServiceScenario {'Sales',
+      'Service',
+      'Basic'}
+
+export enum EmbeddedServiceChannelType {'EmbeddedServiceConfig',
+      'MessagingChannel',
+      'Phone',
+      'CustomURL',
+      'EmbeddedMessaging'}
+
+export enum EnablementAggregationType {'Sum',
+      'Count',
+      'Average'}
+
+export enum EnablementFilterOperator {'Equals',
+      'DoesNotContain',
+      'DoesNotEqual',
+      'IsNull',
+      'In',
+      'NotIn',
+      'GreaterThan',
+      'GreaterThanOrEqual',
+      'LessThan',
+      'LessThanOrEqual',
+      'Contains',
+      'StartsWith',
+      'EndsWith'}
+
+export enum EnblProgramMeasureStatus {'Draft',
+      'Published',
+      'Archived'}
+
+export enum ProgramExtContentDefProvider {'Trailhead'}
+
+export enum EnblCompositeMilestoneType {'Addition',
+      'Division',
+      'Percentage'}
+
+export enum ProgramTaskDefCategory {'Exercise',
+      'Milestone'}
+
+export enum MilestoneTimeUnits {'Minutes',
+      'Hours',
+      'Days'}
+
+export enum EventDeliveryType {'StartFlow',
+      'ResumeFlow'}
+
+export enum EventRelayAdminState {'RUN',
+      'STOP',
+      'PAUSE',
+      'DELETE'}
+
+export enum EventRelayUsageType {'AMAZON_EVENTBRIDGE',
+      'INTERNAL_MANAGED_SUBSCRIPTIONS',
+      'INTERNAL_REPLICATION'}
+
+export enum ExperienceContainerType {'SFS',
+      'SAPP',
+      'TEST',
+      'LEX',
+      'SCMA'}
+
+export enum ActionLogSchemaType {'Other',
+      'ExpressionSet'}
+
+export enum EASAppType {'PublicSector',
+      'Loyalty',
+      'HealthCloud',
+      'IndustryServiceExcellence',
+      'IndustriesPricing',
+      'OmniAnalytics',
+      'ActionableEventOrch',
+      'IndustriesDroOrderProcess',
+      'Compliance'}
+
+export enum EvaluationResult {'Passed',
+      'Failed',
+      'NoResult'}
+
+export enum ExpressionSetStepType {'Calculation',
+      'Aggregation',
+      'MatrixLookup',
+      'ReferenceProcedure',
+      'Condition',
+      'DecisionTableLookup',
+      'Branch',
+      'BusinessElement',
+      'ListEnabledGroup',
+      'ListFilter'}
+
+export enum ExpsSetExecutionScale {'Low',
+      'High'}
+
+export enum ExpsSetInterfaceSourceType {'PricingProcedure',
+      'QualificationProcedure',
+      'Sample',
+      'EventOrchestration',
+      'RatingProcedure',
+      'DiscoveryProcedure',
+      'Constraint',
+      'RatingDiscoveryProcedure',
+      'GpaCalculationProcedure'}
+
+export enum ExpsSetStatus {'Draft',
+      'Active',
+      'Inactive',
+      'InvalidDraft',
+      'Obsolete'}
+
+export enum BusinessKnowledgeModel {'CreditPoints',
+      'DebitPoints',
+      'IssueVoucher',
+      'IncreaseUsageForCumulativePromotion',
+      'UpdateUsageForCumulativePromotion',
+      'AssignParameterValues',
+      'RunFlow',
+      'GetOutputsFromDecisionTable',
+      'UpdatePointBalance',
+      'GetMemberPointBalance',
+      'GetMemberTier',
+      'BreAggregator',
+      'GetOutputsFromDecisionMatrix',
+      'GetMemberAttributesValues',
+      'UpdateCurrentValueForMemberAttribute',
+      'BreAggregatorAssignment',
+      'Crud',
+      'AssignBadgeToMember',
+      'CheckMemberBadgeAssignment',
+      'ChangeMemberTier',
+      'RunProgramProcess',
+      'GetMemberPromotions',
+      'TestCustomElement',
+      'AiAcceleratorSubscriberChurnPrediction',
+      'RedeemVoucher',
+      'ListPrice',
+      'PriceAdjustmentMatrix',
+      'SendMail',
+      'VolumeDiscount',
+      'GetUserData',
+      'ListGroupCalculation',
+      'RecordAlert',
+      'AutomatedClaimsProcessingValidation',
+      'EvaluateQualification',
+      'EvaluateCategoryQualification',
+      'EvaluateCategoryDisqualification',
+      'SampleBusinessElementWithContext',
+      'EvaluateDisqualification',
+      'SampleDynamicCustomElement',
+      'AttributeDiscount',
+      'GroupingAndAggregatePricing',
+      'ManualDiscount',
+      'SubscriptionPricing',
+      'Proration',
+      'BundleDiscount',
+      'ListGroup',
+      'StopPricing',
+      'PromotionsDiscount',
+      'RoundingValues',
+      'VolumeTierDiscount',
+      'SampleCustomElementWithExpressionAndListFilter',
+      'PricingSettings',
+      'ApexAction',
+      'DerivedPricing',
+      'RecordAction',
+      'IntegrationOrchestration',
+      'FormulaBasedPricing',
+      'ComplianceCheck',
+      'DiscountDistributionService',
+      'RatingVolumeDiscount',
+      'BaseRate',
+      'RatingAttributeDiscount',
+      'RatingSetting',
+      'RuleFetch',
+      'MapProduct',
+      'AssetDiscovery',
+      'RatingTierDiscount',
+      'AssignmentElement',
+      'ComplianceControlLog',
+      'CommercePricing',
+      'MinimumPrice',
+      'FormulaBasedRating',
+      'GroupingAndAggregateRating',
+      'RatingRoundingValues',
+      'StopRating',
+      'ManualRatingDiscount',
+      'RateAdjustmentMatrix',
+      'RateAssignment',
+      'PriceGuidance',
+      'RateCardResolution',
+      'RateCardEntryResolution',
+      'RateAdjustmentByTierResolution',
+      'Constraint',
+      'RateAdjustmentByAttributeResolution',
+      'ApexListAction',
+      'TermGpaCalculation',
+      'TermGpaReporting',
+      'MultiRecipientProductQualification',
+      'NegotiatedRateCardEntryResolution',
+      'UpsertRecord',
+      'NegotiatedBaseRate',
+      'BreakdownLineMapping',
+      'NegotiatedTierAdjustment',
+      'NegotiatedVolumeAdjustment',
+      'DiscoverySettings'}
+
+export enum ExpsSetConditionOperator {'Equals',
+      'NotEquals',
+      'GreaterThan',
+      'GreaterThanOrEquals',
+      'LessThan',
+      'LessThanOrEquals',
+      'Contains',
+      'DoesNotContain',
+      'IsNull',
+      'IsNotNull'}
+
+export enum ExpsSetValueType {'Literal',
+      'Parameter',
+      'PickList',
+      'Formula',
+      'Lookup'}
+
+export enum ExpsSetAggregationFunction {'Sum',
+      'Avg',
+      'Min',
+      'Max',
+      'ListSum',
+      'ListAvg',
+      'ListSize'}
+
+export enum ExpsSetStepType {'Condition',
+      'AdvancedCondition',
+      'Branch',
+      'DefaultPath',
+      'SubExpression',
+      'BusinessKnowledgeModel',
+      'ListGroup',
+      'ListFilter',
+      'AdvancedListFilter'}
+
+export enum ExpsSetDataType {'Text',
+      'Numeric',
+      'Date',
+      'DateTime',
+      'Sobject',
+      'Boolean',
+      'Percent',
+      'Currency',
+      'ActionOutput',
+      'SubExpression',
+      'DecisionMatrix',
+      'DecisionTable',
+      'Context',
+      'ContextNode',
+      'Picklist'}
+
+export enum ExpsSetVariableLookupType {'SubExpression',
+      'DecisionMatrix',
+      'DecisionTable'}
+
+export enum ExpsSetVariableType {'Variable',
+      'Constant',
+      'Formula',
+      'ExecutableContextDefinitionTag',
+      'ContextDynamicAttributeTag'}
+
+export enum ExpsSetObjectDataType {'sObject',
+      'JSON'}
+
+export enum ExternalBotType {'Chatbot'}
+
+export enum ApplicationSourceType {'REPLY_RECOMMENDATION',
+      'ARTICLE_RECOMMENDATION',
+      'UTTERANCE_RECOMMENDATION',
+      'FAQ',
+      'EAR_FOR_CONVERSATION',
+      'USE_CASE_EXPLORER',
+      'EAR_FOR_VOICE',
+      'COPILOT_UTTERANCE_ANALYSIS',
+      'FTEST'}
+
+export enum ExternalModelStatus {'ENABLED',
+      'DISABLED',
+      'PAUSED'}
+
+export enum IdentityProviderAuthFlow {'AuthorizationCode',
+      'ClientCredentials',
+      'JwtBearer',
+      'SalesforceDefined'}
+
+export enum IdentityProviderAuthProtocol {'OAuth',
+      'SalesforceDefined'}
+
+export enum ExtlIdentityProviderParmType {'AuthorizeUrl',
+      'TokenUrl',
+      'UrlQueryParameter',
+      'HttpHeader',
+      'ClientCertificate',
+      'SigningCertificate',
+      'RequestBodyParameter',
+      'JwtBodyClaim',
+      'JwtHeaderClaim',
+      'CreatedByNamespace',
+      'UserInfoUrl',
+      'ClientAuthentication',
+      'IdentityProviderOptions',
+      'AuthorizeRequestQueryParameter',
+      'TokenRequestQueryParameter',
+      'TokenRequestBodyParameter',
+      'TokenRequestHttpHeader',
+      'RefreshRequestQueryParameter',
+      'RefreshRequestBodyParameter',
+      'RefreshRequestHttpHeader',
+      'StandardExternalIdentityProvider'}
+
+export enum ExtlClntAppDistState {'Local',
+      'Packaged',
+      'Managed',
+      'AutoInstalled'}
+
+export enum ExtlClntAppManagedType {'Local',
+      'Global'}
+
+export enum AuthenticationProtocol {'NoAuthentication',
+      'Certificate',
+      'Oauth',
+      'Password',
+      'NTLM',
+      'AwsSv4',
+      'Jwt',
+      'JwtExchange',
+      'C2c',
+      'ApiKey',
+      'Custom',
+      'InternalOAuth',
+      'OrgJwt',
+      'Basic'}
+
+export enum ExternalCredentialParamType {'ParameterGroup',
+      'ExternalAuthIdentityProvider',
+      'AuthProvider',
+      'AuthProviderUrl',
+      'AuthProviderUrlQueryParameter',
+      'SigningCertificate',
+      'FormulaVariable',
+      'AuthProviderAuthParameter',
+      'AuthParameter',
+      'NamedPrincipal',
+      'PerUserPrincipal',
+      'AwsStsPrincipal',
+      'GlobalNamedPrincipal',
+      'SystemUserPrincipal',
+      'AuthContext',
+      'AuthQueryParameter',
+      'AuthHeader',
+      'AuthProtocolVariant',
+      'JwtBodyClaim',
+      'JwtHeaderClaim',
+      'CreatedByNamespace',
+      'AdditionalRefreshStatusCode'}
+
+export enum DataConnectionStatus {'Connected',
+      'Failed',
+      'Disconnected'}
+
+export enum DataConnectorType {'SalesforceMarketingCloud',
+      'SalesforceCommerceCloud',
+      'StreamingApp',
+      'SalesforceDotCom',
+      'AmazonS3',
+      'SFTP',
+      'UPLOAD',
+      'IngestApi',
+      'SalesforceInteractionStudio',
+      'CuratedEntity',
+      'DataCloud',
+      'GoogleCloudStorage',
+      'AzureBlob',
+      'ExternalPlatform',
+      'ConversationStorage',
+      'Snowflake',
+      'BIGQUERY',
+      'REDSHIFT',
+      'S3Arn',
+      'ACCOUNTENGAGEMENT'}
+
+export enum AvailabilityStatus {'Available',
+      'In_Use'}
+
+export enum ExternalDataSrcDescSubtype {'SchemaTableQualifiers',
+      'SchemaTableMetadata'}
+
+export enum ExternalDataSrcDescType {'Schema'}
+
+export enum ExternalPrincipalType {'Anonymous',
+      'PerUser',
+      'NamedUser',
+      'UserWithImpersonation'}
+
+export enum ExternalDataSourceType {'AFPPAttribute',
+      'Alert',
+      'AmazonAthena',
+      'AmazonDynamoDb',
+      'ASPAttribute',
+      'AssetAttribute',
+      'bcpApp',
+      'bcpAppMember',
+      'bcpEntity',
+      'bcpEntityPermission',
+      'bcpEntityPermSet',
+      'bcpField',
+      'bcpFieldPermission',
+      'bcpMember',
+      'bcpParticipant',
+      'bcpParticipantAccess',
+      'bcpPermissionSet',
+      'bcpRecAccApproval',
+      'bcpRecordAccess',
+      'bcpRelParticipant',
+      'ContentHubAWSS3',
+      'ContentHubBox',
+      'ContentHubGDrive',
+      'contentHubItem',
+      'ContentHubMock',
+      'ContentHubOneDriveGraph',
+      'ContentHubPerf',
+      'ContentHubQuip',
+      'ContentHubSharepointOffice365',
+      'ContentHubSharepointOneDrive',
+      'CryptoTrEnvChgLogSnp',
+      'Datacloud',
+      'Datajourney',
+      'DataMapperDS',
+      'Engagement',
+      'ExternalEvent',
+      'FAAttribute',
+      'FLAttribute',
+      'FlexCardDS',
+      'Ftest',
+      'GraphQl',
+      'IAItemProdtAttr',
+      'Identity',
+      'InsPolicyAttribute',
+      'IntegrationProcdDS',
+      'IPAAttribute',
+      'IPCAttribute',
+      'IPCvrBnftAttribute',
+      'IPPAttribute',
+      'Jigsaw',
+      'MbrPromotionsViewDS',
+      'OData',
+      'OData4',
+      'OData401',
+      'OIAttribute',
+      'OmniScriptDS',
+      'OpenSearch',
+      'OtbdEngmtTmplDS',
+      'outgoingemail',
+      'PrivacyCenterOrArchiveDataStore',
+      'PromoRuleTempDS',
+      'QLIAttribute',
+      'Salesforce',
+      'SAPAttribute',
+      'SciApi',
+      'SelectableEmailAddressView',
+      'SfdcOrg',
+      'SimpleURL',
+      'Snowflake',
+      'TrailheadEditWithId',
+      'usermobileconfig',
+      'usrconnectionstatus',
+      'Wrapper'}
+
+export enum StorageDriveType {'MicrosoftOneDrive',
+      'GoogleDrive'}
+
+export enum TargetObject {'All',
+      'Contract',
+      'DocumentTemplate',
+      'Disclosure',
+      'InfoLibraryExternalDocument'}
+
+export enum ExternalServiceRegistrationProviderType {'MuleSoft',
+      'Custom',
+      'SchemaInferred',
+      'Standard',
+      'ExternalConnector',
+      'Heroku',
+      'Anypoint',
+      'ApexRest'}
+
+export enum ExtlClntAppStartPage {'None',
+      'Custom',
+      'OAuth',
+      'SAML'}
+
+export enum ScreenLockTimeout {'Never',
+      'One',
+      'Five',
+      'Ten',
+      'Thirty',
+      'Sixty',
+      'OneTwenty',
+      'OneEighty',
+      'TwoForty'}
+
+export enum PermittedUsersPolicyType {'AllSelfAuthorized',
+      'AdminApprovedPreAuthorized'}
+
+export enum PolicyAction {'Block',
+      'RaiseSessionLevel'}
+
+export enum RefreshTokenPolicyType {'Infinite',
+      'Zero',
+      'SpecificLifetime',
+      'SpecificInactivity'}
+
+export enum SessionSecurityLevel {'LOW',
+      'STANDARD',
+      'HIGH_ASSURANCE'}
+
+export enum ApplePushEnvironmentType {'Sandbox',
+      'Production'}
+
+export enum PushServiceType {'Apple',
+      'Android'}
+
+export enum ExtlClntAppSamlEncryptType {'AES_128',
+      'AES_256'}
+
+export enum ExtlClntAppNameIdFormatType {'Unspecified',
+      'EmailAddress',
+      'Persistent',
+      'Transient'}
+
+export enum ExtlClntAppSamlSignAlgoType {'SHA1',
+      'SHA256'}
+
+export enum ExtlClntAppSamlBindingType {'RedirectBinding',
+      'PostBinding'}
+
+export enum ExtlClntAppSamlSubjectType {'Username',
+      'FederationId',
+      'UserId',
+      'SpokeId',
+      'CustomAttribute',
+      'PersistentId'}
+
+export enum FeatureParameterDataflowDirection {'LmoToSubscriber',
+      'SubscriberToLmo',
+      'Provisioned'}
+
+export enum FieldMappingConfigProcessType {'GiftEntry',
+      'Incident',
+      'Problem',
+      'ChangeRequest'}
+
+export enum ClassificationType {'ComplianceCategory',
+      'FieldSet'}
+
+export enum EnforcementType {'Scoping',
+      'Restrict',
+      'FieldRestrict',
+      'D360_Restrict'}
+
+export enum ApptAssistantRadiusUnit {'Kilometer',
+      'Meter',
+      'Mile',
+      'Yard'}
+
+export enum MappingType {'WorkPlans_WorkPlanTemplate_WorkPlan',
+      'WorkPlans_WorkStepTemplate_WorkStep',
+      'WorkPlans_WorkPlanTemplateEntry_WorkStep'}
+
+export enum WorkOrderDurationSource {'WorkType',
+      'TotalFromWorkPlan',
+      'Custom'}
+
+export enum FieldSrcTrgtRelationshipOwner {'SObject',
+      'DataCloud'}
+
+export enum RelationshipCardinality {'OneToOne',
+      'ManyToOne'}
+
+export enum FileDownloadBehavior {'DOWNLOAD',
+      'EXECUTE_IN_BROWSER',
+      'HYBRID'}
+
+export enum FileType {'UNKNOWN',
+      'PDF',
+      'POWER_POINT',
+      'POWER_POINT_X',
+      'POWER_POINT_M',
+      'POWER_POINT_T',
+      'WORD',
+      'WORD_X',
+      'WORD_M',
+      'WORD_T',
+      'PPS',
+      'PPSX',
+      'EXCEL',
+      'EXCEL_X',
+      'EXCEL_M',
+      'EXCEL_T',
+      'GOOGLE_DOCUMENT',
+      'GOOGLE_PRESENTATION',
+      'GOOGLE_SPREADSHEET',
+      'GOOGLE_DRAWING',
+      'GOOGLE_FORM',
+      'GOOGLE_SCRIPT',
+      'LINK',
+      'SLIDE',
+      'AAC',
+      'ACGI',
+      'AI',
+      'AMR',
+      'AVI',
+      'BMP',
+      'BOXNOTE',
+      'CSV',
+      'EPS',
+      'EXE',
+      'FLASH',
+      'GIF',
+      'GZIP',
+      'HTM',
+      'HTML',
+      'HTX',
+      'JPEG',
+      'JPE',
+      'PJP',
+      'PJPEG',
+      'JFIF',
+      'JPG',
+      'JS',
+      'JSON',
+      'MHTM',
+      'MHTML',
+      'MP3',
+      'M4A',
+      'M4V',
+      'MP4',
+      'MPEG',
+      'MPG',
+      'MOV',
+      'MSG',
+      'ODP',
+      'ODS',
+      'ODT',
+      'OGG',
+      'OGV',
+      'PNG',
+      'PSD',
+      'RTF',
+      'QUIPDOC',
+      'QUIPSHEET',
+      'QUIPCHAT',
+      'QUIPSLIDES',
+      'QUIPTEMPLATE',
+      'SHTM',
+      'SHTML',
+      'SNOTE',
+      'MCONTENT',
+      'STYPI',
+      'SVG',
+      'SVGZ',
+      'JPGZ',
+      'TEXT',
+      'THTML',
+      'USDZ',
+      'VISIO',
+      'VTT',
+      'WMV',
+      'WRF',
+      'XML',
+      'ZIP',
+      'XZIP',
+      'WMA',
+      'XSN',
+      'INSIGHT',
+      'TRTF',
+      'TXML',
+      'WEBVIEW',
+      'RFC822',
+      'ASF',
+      'DWG',
+      'JAR',
+      'XJS',
+      'OPX',
+      'XPSD',
+      'TIF',
+      'TIFF',
+      'WAV',
+      'CSS',
+      'THUMB720BY480',
+      'THUMB240BY180',
+      'THUMB120BY90',
+      'ALLTHUMBS',
+      'PAGED_FLASH',
+      'XMOB',
+      'PACK',
+      'C',
+      'CPP',
+      'WORDT',
+      'INI',
+      'JAVA',
+      'LOG',
+      'POWER_POINTT',
+      'SQL',
+      'XHTML',
+      'EXCELT',
+      'WEBP',
+      'AVIF',
+      'ICS',
+      'CAF',
+      'V3GP',
+      'V3G2'}
+
+export enum FlexipageEventSourceTypeEnum {'Component'}
+
+export enum FlexipageEventTargetTypeEnum {'FlexipageServices',
+      'LwcServices',
+      'InvocableApexServices',
+      'InvocableExternalServices',
+      'ActionServices',
+      'ViewServices'}
+
+export enum RegionFlagStatus {'disabled',
+      'enabled'}
+
+export enum ComponentInstancePropertyTypeEnum {'decorator'}
+
+export enum ComponentInstanceType {'Component',
+      'Card'}
+
+export enum FlexipageDataSourceModeEnum {'Create',
+      'Edit',
+      'View'}
+
+export enum FlexipageDataSourceTypeEnum {'Record',
+      'User',
+      'Organization',
+      'Apex'}
+
+export enum FlexiPageRegionMode {'Append',
+      'Prepend',
+      'Replace'}
+
+export enum FlexiPageRegionType {'Region',
+      'Facet',
+      'Background'}
+
+export enum PlatformActionListContext {'ListView',
+      'RelatedList',
+      'ListViewRecord',
+      'RelatedListRecord',
+      'Record',
+      'FeedElement',
+      'Chatter',
+      'Global',
+      'Flexipage',
+      'MruList',
+      'MruRow',
+      'RecordEdit',
+      'Photo',
+      'BannerPhoto',
+      'ObjectHomeChart',
+      'ListViewDefinition',
+      'Dockable',
+      'Lookup',
+      'Assistant',
+      'ActionDefinition'}
+
+export enum PlatformActionType {'QuickAction',
+      'StandardButton',
+      'CustomButton',
+      'ProductivityAction',
+      'ActionLink',
+      'InvocableAction'}
+
+export enum FlexipageSchemaPropType {'boolean',
+      'integer',
+      'string'}
+
+export enum FlowComplexValueType {'JoinDefinition',
+      'ElementAndFieldReference'}
+
+export enum FlowDataType {'Currency',
+      'Date',
+      'Number',
+      'String',
+      'Boolean',
+      'SObject',
+      'DateTime',
+      'Picklist',
+      'Multipicklist',
+      'Apex'}
+
+export enum FlowTransformValueActionType {'Map',
+      'Count',
+      'Sum',
+      'GetItemByIndex',
+      'InnerJoin'}
+
+export enum FlowAssignmentOperator {'None',
+      'Assign',
+      'Add',
+      'Subtract',
+      'AddItem',
+      'RemoveFirst',
+      'RemoveBeforeFirst',
+      'RemoveAfterFirst',
+      'RemoveAll',
+      'AddAtStart',
+      'RemoveUncommon',
+      'AssignCount',
+      'RemovePosition'}
+
+export enum FlowComparisonOperator {'None',
+      'EqualTo',
+      'NotEqualTo',
+      'GreaterThan',
+      'LessThan',
+      'GreaterThanOrEqualTo',
+      'LessThanOrEqualTo',
+      'StartsWith',
+      'EndsWith',
+      'Contains',
+      'IsNull',
+      'IsChanged',
+      'WasSet',
+      'WasSelected',
+      'WasVisited',
+      'In',
+      'NotIn',
+      'IsBlank',
+      'IsEmpty'}
+
+export enum FlowRecordFilterOperator {'EqualTo',
+      'NotEqualTo',
+      'GreaterThan',
+      'LessThan',
+      'GreaterThanOrEqualTo',
+      'LessThanOrEqualTo',
+      'StartsWith',
+      'EndsWith',
+      'Contains',
+      'IsNull',
+      'IsChanged',
+      'In',
+      'NotIn'}
+
+export enum FlowStageStepAssigneeType {'User',
+      'Group',
+      'Queue',
+      'Invalid'}
+
+export enum FlowScheduledPathOffsetUnit {'Hours',
+      'Days',
+      'Minutes',
+      'Months',
+      'Weeks'}
+
+export enum FlowScheduledPathType {'AsyncAfterCommit'}
+
+export enum FlowScheduledPathTimeSource {'RecordTriggerEvent',
+      'RecordField'}
+
+export enum InvocableActionType {'apex',
+      'chatterPost',
+      'contentWorkspaceEnableFolders',
+      'emailAlert',
+      'emailSimple',
+      'emailSObject',
+      'externalService',
+      'externalConnector',
+      'externalEvent',
+      'salesforceAPIPlatform',
+      'flow',
+      'metricRefresh',
+      'processCreateWorkitem',
+      'processStartStep',
+      'processStopInstance',
+      'processStopStep',
+      'quickAction',
+      'submit',
+      'thanks',
+      'thunderResponse',
+      'createServiceReport',
+      'deployOrchestration',
+      'createResponseEventAction',
+      'sfdcOutputAction',
+      'invokeOrchOutputFlow',
+      'generateWorkOrders',
+      'deactivateSessionPermSet',
+      'activateSessionPermSet',
+      'aggregateValue',
+      'orchestrationTimer',
+      'orchestrationDebugLog',
+      'choosePricebook',
+      'component',
+      'lwcComponent',
+      'liveMessageNotification',
+      'scaleCacheAsyncRefresh',
+      'skillsBasedRouting',
+      'addSkillRequirements',
+      'addScreenPop',
+      'findMatchingIndividuals',
+      'routeWork',
+      'scvOutboundCall',
+      'checkAvailabilityForRouting',
+      'createCustomField',
+      'assignTrailheadBadge',
+      'insightFeedback',
+      'publishKnowledgeArticles',
+      'routingAddressVerification',
+      'assignTargetToSalesCadence',
+      'removeTargetFromSalesCadence',
+      'modifyCadenceTrackerAttributes',
+      'invocableApplyLeadAssignmentRules',
+      'salesCadenceListenerBranchStepTranslator',
+      'pauseSalesCadenceTracker',
+      'resumeSalesCadenceTracker',
+      'changeSalesCadenceTargetAssignee',
+      'sendSalesCadenceEvent',
+      'selectTemplateForSalesCadenceStepTracker',
+      'assignKnowledgeArticles',
+      'createDraftFromOnlineKnowledgeArticle',
+      'archiveKnowledgeArticles',
+      'restoreKnowledgeArticleVersion',
+      'customNotificationAction',
+      'broadcastRenderSlackMsgPreview',
+      'submitDigitalFormResponse',
+      'contactRequestAction',
+      'saveAppointment',
+      'saveAppointmentInvitationDetails',
+      'createWaitlist',
+      'getAvailableTime',
+      'saveServiceAppointmentAttendees',
+      'fetchAppointmentInfo',
+      'scheduleAppointment',
+      'getAppointmentDetails',
+      'getServiceAppointments',
+      'createApptPaymentLink',
+      'deleteKnowledgeArticles',
+      'submitKnowledgeArticleForTranslation',
+      'einsteinEPLitePredictionAction',
+      'cartToOrderAction',
+      'orderToCartAction',
+      'activateOrderAction',
+      'refreshActualsCalculation',
+      'cancelAppointment',
+      'recalculateForecast',
+      'getBenefitAndCalculateRebateAmount',
+      'upsertCustomRebatePayout',
+      'calculateRebateAmountAndUpsertPayout',
+      'processRebatesBatchCalculationJob',
+      'generateRebatePayoutPeriods',
+      'calculateAdvancedAccountForecast',
+      'processAccountForecasts',
+      'managedContentReleasePublish',
+      'editQuipDocument',
+      'attachQuipDocumentToRecord',
+      'createQuipDocument',
+      'createQuipFolder',
+      'addUsersToQuipDocument',
+      'removeUsersFromQuipDocument',
+      'copyQuipDocument',
+      'addMessageToQuipDocument',
+      'addQuipDocumentToFolder',
+      'removeQuipDocumentFromFolder',
+      'createQuipChat',
+      'addMessageToQuipChat',
+      'addUsersToQuipChat',
+      'removeUsersFromQuipChat',
+      'copyQuipContent',
+      'lockQuipDocument',
+      'lockQuipSection',
+      'quipLivePaste',
+      'exportQuipDocumentToPdf',
+      'priceCart',
+      'cartInitiateAsyncStep',
+      'cartCompleteAsyncStep',
+      'cancelCartAsyncOperation',
+      'createCart',
+      'addCartItem',
+      'getCartItems',
+      'getCartPromotions',
+      'deleteCart',
+      'cancelFulfillmentOrderItem',
+      'createFulfillmentOrder',
+      'createInvoiceFromFulfillmentOrder',
+      'createFulfillmentOrders',
+      'captureFunds',
+      'createOrderPaymentSummary',
+      'cancelOrderItemSummariesPreview',
+      'cancelOrderItemSummariesSubmit',
+      'createCreditMemoOrderSummary',
+      'ensureFundsOrderSummaryAsync',
+      'ensureRefundsOrderSummaryAsync',
+      'returnOrderItemSummariesPreview',
+      'returnOrderItemSummariesSubmit',
+      'createReturnOrder',
+      'createOrderSummary',
+      'adjustOrderItemSummariesPreview',
+      'adjustOrderItemSummariesSubmit',
+      'addOrderItemSummarySubmit',
+      'distributePickedQuantities',
+      'createOrderFromQuote',
+      'placeSalesTransaction',
+      'createOrUpdateAssetFromOrder',
+      'createBillingScheduleFromOrderItem',
+      'changeFinancePeriodStatus',
+      'applyPayment',
+      'unapplyPayment',
+      'paymentSale',
+      'automateRefund',
+      'createInvoiceFromOrder',
+      'createOrUpdateAssetFromOrderItem',
+      'createContract',
+      'ociTransferReservation',
+      'ociReleaseReservation',
+      'ociGetAvailability',
+      'ociFulfillReservation',
+      'ociCreateReservation',
+      'ociUpdateReservation',
+      'orderRoutingRankByAverageDistance',
+      'orderRoutingFindRoutesWithFewestSplits',
+      'orderRoutingFindRoutesWithFewestSplitsUsingOCI',
+      'holdFulfillmentOrderCapacity',
+      'releaseHeldFulfillmentOrderCapacity',
+      'confirmHeldFulfillmentOrderCapacity',
+      'getFulfillmentOrderCapacityValues',
+      'print',
+      'exportSurveyResponses',
+      'checkoutSessionAction',
+      'checkCartInventoryAction',
+      'calcCartTaxesAction',
+      'calcCartShipmentAction',
+      'calcCartPromotionsAction',
+      'sendSurveyInvitation',
+      'publishPardotContent',
+      'storeReplyRecommendationsFeedback',
+      'marketingEmail',
+      'updateCheckoutSessionStateAction',
+      'massUpdateAccountForecast',
+      'massUpdateSalesAgreement',
+      'buildWarrantyClaimContext',
+      'decisionTableAction',
+      'runDecisionMatrix',
+      'createFinancialRecords',
+      'addWorkPlans',
+      'addWorkSteps',
+      'generateWorkPlans',
+      'deleteWorkPlans',
+      'pardotGetListx',
+      'pardotAddToListMembership',
+      'getTier',
+      'changeTier',
+      'changeAllTierOrNone',
+      'getPointsBalance',
+      'updateAcctMgrTarget',
+      'creditPoints',
+      'debitPoints',
+      'batchJobAction',
+      'dataProcessingEngineAction',
+      'adjustPointsAction',
+      'cancelRedemption',
+      'cancelAccrual',
+      'addRebateMemberList',
+      'saveRecommendationDecision',
+      'outboundMessage',
+      'internalTestAction',
+      'internalTestAsyncAction',
+      'internalTestConnectApiAction',
+      'internalTestVersionedCustomAction',
+      'internalTestCustomAction',
+      'getDialerSoftphonePathSuffix',
+      'performMultiLevelRollups',
+      'rebatesProcessCSV',
+      'processMemberBenefitAction',
+      'assignMemberTierBenefits',
+      'dynamicSendSurveyInvitation',
+      'getIntelligentAccountSettingsToken',
+      'issueVoucher',
+      'setCheckoutDeliveryMethod',
+      'refreshDecisionTable',
+      'replaceAsset',
+      'relocateAsset',
+      'evaluationFlow',
+      'stepInteractive',
+      'stepBackground',
+      'stepMuleSoft',
+      'managedContentRoleStepInteractive',
+      'managedContentVariantSetLockStepBackground',
+      'managedContentVariantSetReadyStepBackground',
+      'managedContentVariantAutoPublishStepBackground',
+      'managedContentVariantAutoUnpublishStepBackground',
+      'stepApproval',
+      'generateKnowledgeLogData',
+      'submitFailedRecordsBatchJob',
+      'getEligibleProgramRebateTypes',
+      'returnReturnOrderItems',
+      'slackPostMessage',
+      'slackUpdateMessage',
+      'slackPinMessage',
+      'slackCreateChannel',
+      'slackInviteUsersToChannel',
+      'slackUserInChannel',
+      'slackUserInWorkspace',
+      'slackCheckUsersAreConnectedToSlack',
+      'slackArchiveChannel',
+      'slackInviteUserToWorkspace',
+      'slackGetConversationInfo',
+      'slackAgentCreateCanvas',
+      'slackAgentUpdateCanvas',
+      'slackAgentSearch',
+      'slackAgentGetUser',
+      'slackAgentSendDirectMessage',
+      'getLoyaltyPromotionBasedOnSalesforceCDP',
+      'transferMemberPointsToGroups',
+      'getLoyaltyPromotion',
+      'createServiceDocument',
+      'createArticleRecommendations',
+      'discoveryPredict',
+      'processProgramRebateTypeProducts',
+      'fetchCaseClassificationRecommendations',
+      'applyCaseClassificationRecommendations',
+      'updateProgressForCumulativePromotionUsage',
+      'updateAdvancedAccountForecastSetPartner',
+      'swarmingCollaborationToolSettings',
+      'getArticleSmartLinkUrl',
+      'performSurveySentimentAnalysis',
+      'pardotSlackCompletionActionNotification',
+      'createClosePlan',
+      'getProductPricing',
+      'findPastCollaborators',
+      'getDataRelatedToOpportunity',
+      'calculateProjectedRebateAmount',
+      'runProgramProcessForTransactionJournal',
+      'goalAchievedAction',
+      'buildIdentityVerification',
+      'getVerificationData',
+      'sendNotification',
+      'uploadBlockchainData',
+      'saveMemberVerificationSteps',
+      'limitRepetitions',
+      'slackSendMessageToLaunchFlow',
+      'manageRecurringSchedules',
+      'importRecordsFromCsvFile',
+      'authorizePayment',
+      'getMemberActiveSegments',
+      'getAvailableSwarmObject',
+      'runExpressionSet',
+      'mergeLoyaltyProgramMembership',
+      'unmergeLoyaltyProgramMembership',
+      'massUpdateAdvAccountForecast',
+      'runProgramProcess',
+      'getAssessmentResponseSummary',
+      'industriesSendApexAsyncRequest',
+      'slackJoinChannel',
+      'createInvoiceFromChangeOrders',
+      'generateInboxSchedulingLink',
+      'generateInboxMeetingTimes',
+      'confirmInboxMeetingTime',
+      'sendEmailMessage',
+      'goToCadenceStep',
+      'createBenefitDisbursement',
+      'createCareProgramEnrolleeWorkOrderStep',
+      'generateTransactionJournals',
+      'cdpRefreshDataStream',
+      'dataKitDeployComponentAction',
+      'dataKitGetComponentAction',
+      'generateMemberReferralCode',
+      'cdpPublishSegment',
+      'cdpValidateSegmentMember',
+      'industriesSendExtAsyncRequest',
+      'getDataCategoryDetails',
+      'getDataCategoryGroups',
+      'searchKnowledgeArticles',
+      'knowledgeSearch',
+      'answerQuestionsWithSalesforceDocumentation',
+      'cdpPublishCalculatedInsight',
+      'cdpRunBatchTransform',
+      'cdpGetMlPrediction',
+      'cdpMlPrediction',
+      'einsteinRagDetectLanguage',
+      'transformQueryForCase',
+      'transformQueryForEmail',
+      'transformQueryForConversation',
+      'getEinsteinRetrieverResults',
+      'cdpGetDataGraph',
+      'cdpTriggerModelPredJob',
+      'scheduleHomeVisit',
+      'scheduleRecurringHomeVisit',
+      'rescheduleRecurringHomeVisits',
+      'createQuoteForHomeVisits',
+      'generateAssessmentEnvelopeSignature',
+      'sendChannelMessage',
+      'createInvRsvForCart',
+      'deleteInvRsvForCart',
+      'initiateTextExtraction',
+      'fetchActiveOcrTemplates',
+      'fetchExtractedText',
+      'createMaterialLineForSalesItem',
+      'generateDisambiguationLogData',
+      'cdpRunIdentityResolution',
+      'handleResourceAbsence',
+      'fetchRebateClaimDetails',
+      'getNewProductPricingInfo',
+      'calcPriceProtectPayoutAmt',
+      'processGiftEntries',
+      'saveCustomFieldsInGiftEntry',
+      'processGiftCommitment',
+      'pauseGiftCommitmentSchedule',
+      'resumeGiftCommitmentSchedule',
+      'closeGiftCommitment',
+      'syncAccountAndContactPointAddr',
+      'manageCustomGiftCmtSchds',
+      'manageGiftDefaultDesignations',
+      'manageRcrGiftCmtSchd',
+      'updateProcessedGiftEntries',
+      'createEnrichedPrompt',
+      'manageFundraisingDefinitions',
+      'assignEnablementProgram',
+      'inviteToReorderPortal',
+      'runRecordAggrBatchProcDef',
+      'sendSmsMessage',
+      'creaContactsFromGrpCensMembers',
+      'creaPersAccountsFromGrpCensMbr',
+      'creaUsersFromGrpCensusMembers',
+      'enrollMembers',
+      'createProducerCommissions',
+      'findInsurancePolicy',
+      'initiateAmendQuantity',
+      'initiateAmendment',
+      'initiateRenewal',
+      'initiateCancellation',
+      'manageGiftTrxnDesignations',
+      'processReceivedDocument',
+      'getEffAccountsForStoreUser',
+      'getProductRecommendations',
+      'b2bD2cGetOrderSummaries',
+      'getB2cProductRecommendations',
+      'getB2cOrderDetails',
+      'generateOrderSummaryUrl',
+      'createBenefitDisbursementForServiceAppointment',
+      'getAssessments',
+      'getAcademicTerm',
+      'getIntrctnSumAndCarePlans',
+      'getCalcInsightsData',
+      'renewInsurancePolicy',
+      'enrollLearner',
+      'executeExprSetWithContext',
+      'buildContext',
+      'createClmContract',
+      'createReport',
+      'checkInContractDocumentVersion',
+      'performContractAction',
+      'sendContractForESignature',
+      'unlockContractDocumentVersion',
+      'getCntntDocDtlForCntrDocVer',
+      'createContractDocumentVersion',
+      'persistContextData',
+      'createReferral',
+      'createChatSession',
+      'addOrderToCart',
+      'generateUserInputs',
+      'rateProducts',
+      'getInsuranceQuoteDetails',
+      'repriceInsuranceProduct',
+      'createInsuranceQuote',
+      'updateCareGapStatus',
+      'sendConversationMessages',
+      'initiateNaturalLangProcessing',
+      'getRecordDetails',
+      'getConversationTranscripts',
+      'fetchBoostBuryRuleRecommendation',
+      'createSearchBoostBuryRule',
+      'captureUserFeedback',
+      'previewCartToExchangeOrder',
+      'submitCartToExchangeOrder',
+      'dispatchReminders',
+      'computeCleanEnergyApplnBen',
+      'identifyRecordByName',
+      'processReferralEvent',
+      'submitOrder',
+      'dataCloudIngestionApi',
+      'getPaynowWebstoreId',
+      'queryRecords',
+      'queryRecordsWithAggregate',
+      'registerGuestBuyer',
+      'identifyObject',
+      'scheduleGroupVisits',
+      'createSubscriptionRecords',
+      'generatePromptResponse',
+      'getRelatedList',
+      'webSearch',
+      'getSimilarRecords',
+      'einsteinGenerateMessages',
+      'draftOrReviseEmail',
+      'sendMeetingRequest',
+      'reviewMyDay',
+      'summarizeRecord',
+      'einsteinCopilotUpdateRecord',
+      'einsteinCopilotCreateRecord',
+      'runSalesforcePricing',
+      'processFirstPaymentBilling',
+      'runSalesforceHeadlessPricing',
+      'dstrEnergyAttrCertCredits',
+      'getRecordFieldsAndValues',
+      'createCommercePromotions',
+      'createIntegrationPlan',
+      'runIntegrationPlan',
+      'exploreConversation',
+      'draftServiceEmail',
+      'getActivitySummary',
+      'generateResearchStudyBlocks',
+      'processCriteriaMatchingResp',
+      'getForecastGuidance',
+      'getForecastContext',
+      'getForecastOpportunities',
+      'getRecPrioData',
+      'sendWhatsAppMessage',
+      'lockRecord',
+      'postDraftInvoiceBatchRun',
+      'assignCndtToResearchStudyGroup',
+      'postDraftInvoice',
+      'getConvTscpForRecord',
+      'recoverBillingSchedules',
+      'checkOutContractDocVersion',
+      'getContractDocumentVersions',
+      'updateClmContracts',
+      'draftAGiftProposal',
+      'processDataUsingGenAi',
+      'transformNlpActionResult',
+      'getSalesAgreementDetails',
+      'createConsent',
+      'exportExternalRecordShare',
+      'checkServiceCatalogItemEligibility',
+      'createOrUpdtSvcCatalogRequest',
+      'createCatalogItemRequest',
+      'answerQuestionWithReports',
+      'createEngagementsDetailsRep',
+      'createBillingSchedulesFromBillingTransaction',
+      'scheduleHomeVisitsManually',
+      'analyticsSendDigestAsSlackMsg',
+      'createUpdtPromUseAcruPromTmpl',
+      'generateLoyaltyPromotionEmail',
+      'getResourcesForMnlScheduling',
+      'summarizeMedicationDetailsForPatient',
+      'generateAnalyticsAssetsContent',
+      'quoteToSA',
+      'convertRecord',
+      'getEngagements',
+      'getFinclAccountsForAnAcct',
+      'getFeeTrxnFromFinclAcct',
+      'createCaseForFeeReversal',
+      'api',
+      'getDataForGrounding',
+      'getActivityDetails',
+      'pauseAds',
+      'getLowPerformingAds',
+      'getCampaignObjectives',
+      'getChannelTypes',
+      'getMetrics',
+      'getActivitiesTimeline',
+      'getBalancesFromFinancialAccounts',
+      'getFinancialTransactions',
+      'getCardDetailsForAccount',
+      'createCaseToBlockCard',
+      'createVisitForContextRecord',
+      'getFinancialAccountAddresses',
+      'createCaseForFinclAcctAddrUpdt',
+      'getAndExplainObjectPermissions',
+      'summarizeAppointmentNotes',
+      'serializePreWorkBriefRecords',
+      'summaryRefinement',
+      'generateBrief',
+      'saveBrief',
+      'generateCampaignFromBrief',
+      'saveCampaign',
+      'summarizeCampaign',
+      'generateOrRefineTextForProperty',
+      'createOrRefineSectionWithContent',
+      'summarizeMedicalHistoryForPatient',
+      'researchRecord',
+      'reviewBuyingCommittee',
+      'getCaseInfoToSummarize',
+      'getUsersFromEmailAddresses',
+      'discoverySearchAction',
+      'einsteinDecidePath',
+      'dplyCustExprcIntelDataKitCmpnt',
+      'generateCustomReportType',
+      'associateRecordsWithActivity',
+      'getAcctOpptyFromEmailAddr',
+      'trgrOnOrderPlacement',
+      'trgrOnWebCartAbandoned',
+      'processWebStoreUserRgstr',
+      'trgrOnSmsSubscription',
+      'trgrOnWhatsAppSubscription',
+      'trgrOnEmailSubscription',
+      'trgrOnEmailOpenEngagement',
+      'trgrOnEmailLinkClickEngagement',
+      'trgrOnEmailBounceEngagement',
+      'trgrOnSmsLinkClickEngagement',
+      'trgrOnSmsDeliveryFailureEngagement',
+      'trgrOnSmsResponseEngagement',
+      'trgrOnWhatsAppResponseEngmt',
+      'trgrOnWhatsAppReadEngagement',
+      'trgrOnWhatsAppDeliveredEngagement',
+      'trgrOnWhatsAppLinkClickEngmt',
+      'trgrOnWhatsAppDlvrFailureEngmt',
+      'explainFormula',
+      'modifyFormula',
+      'validateFormula',
+      'publishActionableOrchSrcEvent',
+      'createApptListFilter',
+      'summarizeSchedulingIssues',
+      'getAppointmentsToFillGaps',
+      'assignApptForServiceResourceForFieldService',
+      'scheduleServiceAppointment',
+      'computeProducerSplits',
+      'generateInvoiceDocuments',
+      'forwardToBotOrAgent',
+      'lookUpOrderSummary',
+      'getBusinessObjectives',
+      'formatInsightsForDisplay',
+      'contextDataProvider',
+      'prepareMeeting',
+      'getAssetParticipantDetails',
+      'recallApprovalSubmission',
+      'reassignApprovalWorkItem',
+      'reviewApprovalWorkItem',
+      'overrideApprovalWorkItem',
+      'cancelApprovalSubmission',
+      'getCommercePromotionTemplates',
+      'recommendFields',
+      'identifyObjectByName',
+      'getContcLeadsFromEmailAddr',
+      'trgrOnFormSubmission',
+      'trgrOnPaymentTransaction',
+      'invokeRatingService',
+      'recordTaxTransaction',
+      'recordTaxReversal',
+      'applyCredit',
+      'unapplyCredit',
+      'createFieldGnrnPromptTmplResp',
+      'validateTimesheet',
+      'applyUserDefinedLabel',
+      'createAToDo',
+      'createLabel',
+      'logACall',
+      'recommendComponents',
+      'draftCaseResponse',
+      'findSimilarCases',
+      'summarizeEngagement',
+      'getProductDetails',
+      'groundingDataGenerator',
+      'findProducts',
+      'getProducts',
+      'identifySObjectFieldProperties',
+      'configureAgents',
+      'scheduleEmail',
+      'getAppointmentBookingSlots',
+      'convertTimeZone',
+      'updateAppointmentTimes',
+      'getNewServiceAppointment',
+      'getAndExplainUserPermissions',
+      'computeConsumption',
+      'createConsumptionAlert',
+      'replenishInventoryUsingPolicy',
+      'issueInsurancePolicy',
+      'getCommerceStorefrontContext',
+      'getRecordSummarizationPrompt',
+      'findSimilarInteractions',
+      'summarizeProductReviews',
+      'getActiveApplicationReviewerIds',
+      'dataModelSMEGenerateRequirementSection',
+      'dataModelSMEGenerateDesignSection',
+      'dataModelSMEGenerateBacklogSection',
+      'dataModelSMECreateCustomMetadata',
+      'submitSalesTransaction',
+      'convertProspect',
+      'migrateConnectedApp',
+      'summarizeConnectedApp',
+      'evalCmplValidationProcedure',
+      'processConsumptionOverages',
+      'analyzeMetric',
+      'generateMetricInsights',
+      'refineSemanticSubMetric',
+      'analyzeSemanticDataModel',
+      'serializeHierarchicalContextData',
+      'getContextData',
+      'generateAiAgentResponse',
+      'freezeSalesTransaction',
+      'invokeRule',
+      'endorseInsurancePolicy',
+      'savePaymentConfig',
+      'unfreezeSalesTransaction',
+      'identifyFieldByName',
+      'getPersonalizationDecisions',
+      'cancelInsurancePolicy',
+      'getInsurancePolicy',
+      'queryContextTags',
+      'updateContextAttributes',
+      'deleteContextCache',
+      'getRecordAccessOfUser',
+      'getPointOfNoReturnDetails',
+      'rpa',
+      'startRpaFlow',
+      'scheduleSvcApptActnblEvntOrch',
+      'trgrOnVoucherStsChgOtbdEngmt',
+      'getGrndDataServiceRepliesEmail',
+      'createOrderServiceAccount',
+      'refreshUsageEntitlementBucket',
+      'getLeaveBalance',
+      'getGroupCensusMembers',
+      'validateGroupCensusMembers',
+      'saveGroupCensusMembersData',
+      'createServiceRequestCase',
+      'invokeSummaryCreationService',
+      'identifyUserPermissionsByName',
+      'getAgentConvTscp',
+      'parseConvoAnalysis',
+      'generateVerificationCode',
+      'verifyCustomerCode',
+      'getSvcProcessAttrData',
+      'convertDateToDateTime',
+      'createBulkRecords',
+      'enhanceProductDescription',
+      'flexipageRefineRequirements',
+      'flexipageRefineDesign',
+      'flexipageRefinePlan',
+      'flexipageExecutePlan',
+      'createUpdatePromUseSpendXTmpl',
+      'createUpdatePromUseBuyXTmpl',
+      'aslmHeadlessPricing',
+      'raiseFlag',
+      'apexRest'}
+
+export enum FlowScreenFieldType {'DisplayText',
+      'InputField',
+      'LargeTextArea',
+      'PasswordField',
+      'RadioButtons',
+      'DropdownBox',
+      'MultiSelectCheckboxes',
+      'MultiSelectPicklist',
+      'ComponentInstance',
+      'ComponentInput',
+      'ComponentChoice',
+      'ComponentMultiChoice',
+      'ComponentDisplay',
+      'Repeater',
+      'RegionContainer',
+      'Region',
+      'ObjectProvided'}
+
+export enum FlowScreenFieldInputsRevisited {'UseStoredValues',
+      'ResetValues'}
+
+export enum FlowRegionContainerType {'SectionWithHeader',
+      'SectionWithoutHeader'}
+
+export enum FlowElementSubtype {'SortCollectionProcessor',
+      'RecommendationMapCollectionProcessor',
+      'FilterCollectionProcessor',
+      'WaitDate',
+      'WaitUntilEvent',
+      'WaitAttribute',
+      'WaitDuration',
+      'InteractiveStep',
+      'BackgroundStep',
+      'MuleSoftStep',
+      'ManagedContentRoleInteractiveStep',
+      'ManagedContentVariantSetLockBackgroundStep',
+      'ManagedContentVariantSetReadyBackgroundStep',
+      'ManagedContentVariantAutoPublishBackgroundStep',
+      'ManagedContentVariantAutoUnpublishBackgroundStep',
+      'AddPromptInstructions',
+      'ApprovalStep'}
+
+export enum FlowWaitInteractionType {'SmsResponse',
+      'WhatsappResponse'}
+
+export enum RecordTriggerType {'Update',
+      'Create',
+      'CreateAndUpdate',
+      'Delete',
+      'None'}
+
+export enum FlowCollectionProcessorType {'SortCollectionProcessor',
+      'RecommendationMapCollectionProcessor',
+      'FilterCollectionProcessor'}
+
+export enum FlowExperimentType {'Random',
+      'Manual',
+      'Automatic'}
+
+export enum IterationOrder {'Asc',
+      'Desc'}
+
+export enum FlowEntryType {'Always',
+      'AfterCompletion'}
+
+export enum FlowRunAsUser {'TriggeringUser',
+      'DefaultWorkflowUser'}
+
+export enum FlowStartFrequency {'OnActivate',
+      'Once',
+      'Daily',
+      'Weekly'}
+
+export enum FlowTriggerType {'None',
+      'Scheduled',
+      'RecordBeforeSave',
+      'RecordBeforeDelete',
+      'RecordAfterSave',
+      'PlatformEvent',
+      'EventDrivenJourney',
+      'Segment',
+      'DataCloudDataChange',
+      'FormSubmissionEvent',
+      'Capability',
+      'AutomationEvent',
+      'ExternalSystemChange',
+      'DataGraphDataChange'}
+
+export enum FlowTransactionModel {'Automatic',
+      'NewTransaction',
+      'CurrentTransaction'}
+
+export enum FlowEnvironment {'Default',
+      'Slack',
+      'Offline'}
+
+export enum FlowRunInMode {'DefaultMode',
+      'SystemModeWithSharing',
+      'SystemModeWithoutSharing'}
+
+export enum FlowVersionStatus {'Active',
+      'Draft',
+      'Obsolete',
+      'InvalidDraft'}
+
+export enum FlowTestParameterType {'InputTriggeringRecordInitial',
+      'InputTriggeringRecordUpdated',
+      'ScheduledPath'}
+
+export enum FolderAccessTypes {'Shared',
+      'Public',
+      'Hidden',
+      'PublicInternal'}
+
+export enum FolderShareAccessLevel {'View',
+      'EditAllContents',
+      'Manage'}
+
+export enum FolderSharedToType {'Group',
+      'Role',
+      'RoleAndSubordinates',
+      'RoleAndSubordinatesInternal',
+      'Manager',
+      'ManagerAndSubordinatesInternal',
+      'Organization',
+      'Territory',
+      'TerritoryAndSubordinates',
+      'AllPrmUsers',
+      'User',
+      'PartnerUser',
+      'AllCspUsers',
+      'CustomerPortalUser',
+      'PortalRole',
+      'PortalRoleAndSubordinates',
+      'ChannelProgramGroup'}
+
+export enum PublicFolderAccess {'ReadOnly',
+      'ReadWrite'}
+
+export enum ForecastingDateType {'OpportunityCloseDate',
+      'ProductDate',
+      'ScheduleDate',
+      'OLIMeasureCloseDateOnly',
+      'ProductDateOnly',
+      'ScheduleDateOnly',
+      'OpportunityCustomDate',
+      'OLIMeasureOppCustomDateOnly'}
+
+export enum DonorMatchingMethod {'Duplicate_Management_Rules',
+      'No_Matching'}
+
+export enum PlannerFunctionInvocableTargetType {'apex',
+      'flow',
+      'standardInvocableAction',
+      'generatePromptResponse',
+      'externalService',
+      'quickAction',
+      'createCatalogItemRequest',
+      'api',
+      'apexRest'}
+
+export enum PlannerAttrMappingType {'input',
+      'output'}
+
+export enum AttributeType {'CustomPluginFunctionAttribute',
+      'StandardPluginFunctionInput',
+      'StandardPluginFunctionOutput'}
+
+export enum AttributeMappingType {'ActionAttribute',
+      'Constant',
+      'Variable',
+      'ContextVariable'}
+
+export enum PluginType {'Topic'}
+
+export enum GenAiAgentVariableType {'Variable',
+      'ContextVariable',
+      'Attribute'}
+
+export enum GenAiRuleExpressionOperator {'equal',
+      'greaterThan',
+      'greaterThanOrEqual',
+      'lessThan',
+      'lessThanOrEqual',
+      'notEqual',
+      'isEmpty',
+      'isNotEmpty'}
+
+export enum ExpressionType {'sel',
+      'handlebars'}
+
+export enum PlannerType {'AiCopilot__SequentialPlannerIntentClassifier',
+      'AiCopilot__ReAct',
+      'Atlas__SimpleReflective',
+      'Atlas__Reflective',
+      'Atlas__ConcurrentMultiAgentOrchestration'}
+
+export enum GenAiPromptTemplateStatus {'Published',
+      'Draft'}
+
+export enum GenAiPromptTemplateVisibilityType {'Locked',
+      'Internal',
+      'API',
+      'Global'}
+
+export enum GenAiPromptTemplateActvAccessLevel {'Allowed',
+      'Blocked'}
+
+export enum PageComponentType {'links',
+      'htmlArea',
+      'imageOrNote',
+      'visualforcePage'}
+
+export enum PageComponentWidth {'narrow',
+      'wide'}
+
+export enum IPAddressFeature {'EmailIpFiltering'}
+
+export enum IPAddressUsageScope {'Exclusion',
+      'Inclusion'}
+
+export enum IconUsageType {'PersonLifeEvent',
+      'InsurancePolicy',
+      'BusinessMilestone',
+      'Interaction',
+      'AssetMilestone',
+      'FinancialAccountMilestone'}
+
+export enum IdentityVerificationDataSourceType {'Salesforce',
+      'External'}
+
+export enum IdentityVerificationProcFldDataSourceType {'Salesforce',
+      'External'}
+
+export enum IdentityVerificationProcFldFieldDataType {'address',
+      'checkbox',
+      'currency',
+      'dateonly',
+      'datetime',
+      'email',
+      'number',
+      'percent',
+      'phone',
+      'picklist',
+      'reference',
+      'text',
+      'timeonly',
+      'url',
+      'other'}
+
+export enum IdentityVerificationProcFldFieldType {'requiredVerifier',
+      'optionalVerifier',
+      'searchField',
+      'resultField',
+      'additionalResultField',
+      'searchFilter'}
+
+export enum IdentityVerificationSearchType {'Text-Based',
+      'Object-Based'}
+
+export enum IdentityVerificationSearchLayoutType {'Tab',
+      'Stack'}
+
+export enum IFrameWhitelistContext {'VisualforcePages',
+      'Surveys',
+      'DCH_ADDIN_APP'}
+
+export enum ExternalConnectionType {'AwsPrivateLink',
+      'DataCloudPrivateConnection'}
+
+export enum InboundConnPropertyName {'LinkId',
+      'Region',
+      'AwsVpcEndpointId',
+      'SourceIpRanges'}
+
+export enum ExternalConnectionStatus {'Unprovisioned',
+      'Allocating',
+      'PendingAcceptance',
+      'PendingActivation',
+      'RejectedRemotely',
+      'DeletedRemotely',
+      'TeardownInProgress',
+      'Ready'}
+
+export enum InsPolicyLifecycleProcess {'Renew_Same_Carrier',
+      'Renew_Different_Carrier',
+      'Repurpose',
+      'Endorse',
+      'Cancel'}
+
+export enum InsRatePlanCmsnConfigCalcType {'Flat',
+      'Graded'}
+
+export enum AttrDataType {'String',
+      'Integer',
+      'Double',
+      'Date',
+      'DateTime',
+      'Percentage',
+      'Boolean'}
+
+export enum DefinitionType {'Apex',
+      'LowCode',
+      'Java'}
+
+export enum KnowledgeCaseEditor {'simple',
+      'standard'}
+
+export enum KnowledgeLanguageLookupValueType {'User',
+      'Queue'}
+
+export enum FeedLayoutFilterPosition {'CenterDropDown',
+      'LeftFixed',
+      'LeftFloat'}
+
+export enum FeedLayoutFilterType {'AllUpdates',
+      'FeedItemType',
+      'Custom'}
+
+export enum FeedLayoutComponentType {'HelpAndToolLinks',
+      'CustomButtons',
+      'Following',
+      'Followers',
+      'CustomLinks',
+      'Milestones',
+      'SimilarCases',
+      'CaseExperts',
+      'Topics',
+      'CaseUnifiedFiles',
+      'Visualforce'}
+
+export enum LayoutHeader {'PersonalTagging',
+      'PublicTagging'}
+
+export enum UiBehavior {'Edit',
+      'Required',
+      'Readonly'}
+
+export enum ReportChartComponentSize {'SMALL',
+      'MEDIUM',
+      'LARGE'}
+
+export enum LayoutSectionStyle {'TwoColumnsTopToBottom',
+      'TwoColumnsLeftToRight',
+      'OneColumn',
+      'CustomLinks'}
+
+export enum SummaryLayoutStyle {'Default',
+      'QuoteTemplate',
+      'DefaultQuoteTemplate',
+      'ServiceReportTemplate',
+      'ChildServiceReportTemplateStyle',
+      'DefaultServiceReportTemplate',
+      'CaseInteraction',
+      'QuickActionLayoutLeftRight',
+      'QuickActionLayoutTopDown',
+      'PathAssistant'}
+
+export enum VisibleOrRequired {'VisibleOptional',
+      'VisibleRequired',
+      'NotVisible'}
+
+export enum LetterheadHorizontalAlignment {'None',
+      'Left',
+      'Center',
+      'Right'}
+
+export enum LetterheadVerticalAlignment {'None',
+      'Top',
+      'Middle',
+      'Bottom'}
+
+export enum LifeSciAssignmentLevel {'Profile',
+      'User'}
+
+export enum LifeSciConfigCategoryType {'DbSchema',
+      'UISchema',
+      'BlacklistEntity',
+      'NavigationIcons',
+      'ApplicationSettings',
+      'SetupTestCategory',
+      'TerritoryManagement',
+      'ProfileBasedAppSettings',
+      'SyncTransactionConfig',
+      'LogSettings',
+      'AccountDynamicListConfiguration',
+      'AccountSearchSettings',
+      'AccountFilterConfig'}
+
+export enum LifeSciConfigFieldDataType {'TEXT',
+      'LONGTEXT',
+      'NUMBER',
+      'BOOLEAN',
+      'INTEGER',
+      'DATE',
+      'DATETIME',
+      'PHONE',
+      'PICKLIST',
+      'URL',
+      'OBJECT',
+      'FIELD'}
+
+export enum LightningBoltCategory {'Communications',
+      'Education',
+      'FinancialServices',
+      'Government',
+      'HealthcareLifeSciences',
+      'Manufacturing',
+      'Media',
+      'Nonprofits',
+      'ProfessionalServices',
+      'RealEstate',
+      'Retail',
+      'TravelTransportationHospitality',
+      'HighTech',
+      'GeneralBusiness'}
+
+export enum LightningDesignSystemVersion {'SLDS_v1',
+      'SLDS_v2'}
+
+export enum SupervisorAgentStatusFilter {'Online',
+      'Away',
+      'Offline'}
+
+export enum LiveChatButtonPresentation {'Slide',
+      'Fade',
+      'Appear',
+      'Custom'}
+
+export enum LiveChatButtonInviteEndPosition {'TopLeft',
+      'Top',
+      'TopRight',
+      'Left',
+      'Center',
+      'Right',
+      'BottomLeft',
+      'Bottom',
+      'BottomRight'}
+
+export enum LiveChatButtonInviteStartPosition {'TopLeft',
+      'TopLeftTop',
+      'Top',
+      'TopRightTop',
+      'TopRight',
+      'TopRightRight',
+      'Right',
+      'BottomRightRight',
+      'BottomRight',
+      'BottomRightBottom',
+      'Bottom',
+      'BottomLeftBottom',
+      'BottomLeft',
+      'BottomLeftLeft',
+      'Left',
+      'TopLeftLeft'}
+
+export enum LiveChatButtonRoutingType {'Choice',
+      'LeastActive',
+      'MostAvailable'}
+
+export enum LiveChatButtonType {'Standard',
+      'Invite'}
+
+export enum SensitiveDataActionType {'Remove',
+      'Replace'}
+
+export enum SensitiveDataRuleProcessing {'Persist',
+      'RealTime'}
+
+export enum SensitiveDataRuleVersion {'ONE',
+      'TWO'}
+
+export enum LoyaltyPgmProcExecutionType {'RealTime',
+      'Batch',
+      'BatchAndRealTime'}
+
+export enum LoyaltyPgmProcCondOperator {'Equals',
+      'NotEquals',
+      'GreaterThan',
+      'GreaterThanOrEquals',
+      'LessThan',
+      'LessThanOrEquals',
+      'Contains',
+      'DoesNotContain',
+      'IsNull',
+      'IsNotNull'}
+
+export enum LoyaltyPgmProcCondType {'Literal',
+      'Parameter',
+      'Formula',
+      'Lookup'}
+
+export enum LoyaltyPgmProcRuleType {'Condition',
+      'Action',
+      'ConditionGroup',
+      'DefaultPath'}
+
+export enum LoyaltyPgmProcParmDataType {'Text',
+      'Numeric',
+      'Date',
+      'DateTime',
+      'Sobject',
+      'Boolean'}
+
+export enum LoyaltyPgmProcParmType {'Variable',
+      'Constant',
+      'Formula'}
+
+export enum LoyaltyPgmProcActParamOper {'Equals'}
+
+export enum LoyaltyPgmProcActParamType {'Literal',
+      'Parameter'}
+
+export enum LoyaltyPgmProcActionType {'CreditPoints',
+      'DebitPoints',
+      'IssueVoucher',
+      'IncreaseUsageForCumulativePromotion',
+      'UpdateUsageForCumulativePromotion',
+      'AssignParameterValues',
+      'RunFlow',
+      'GetOutputsFromDecisionTable',
+      'UpdatePointBalance',
+      'GetMemberPointBalance',
+      'GetMemberTier',
+      'GetMemberAttributesValues',
+      'UpdateCurrentValueForMemberAttribute',
+      'RunProgramProcess',
+      'Crud',
+      'AssignBadgeToMember',
+      'CheckMemberBadgeAssignment',
+      'ChangeMemberTier',
+      'GetMemberPromotions',
+      'RedeemVoucher',
+      'SendMail'}
+
+export enum LoyaltyPgmProcCrudActType {'create',
+      'update'}
+
+export enum LoyaltyPgmProcRuleStatus {'Draft',
+      'Active',
+      'Inactive'}
+
+export enum LoyaltyPgmProcStatus {'Draft',
+      'Active',
+      'Inactive'}
+
+export enum MLRelationType {'Inner',
+      'Leftouter',
+      'Leftinner',
+      'Full'}
+
+export enum MLFieldType {'Prediction',
+      'Pushback',
+      'Included',
+      'Excluded',
+      'Join',
+      'Related',
+      'Expression',
+      'SegmentExpression',
+      'TrainingExpression',
+      'ScoringExpression',
+      'PositiveExpression',
+      'NegativeExpression',
+      'SourceDate',
+      'Retriever'}
+
+export enum MLDataDefinitionType {'Recipient',
+      'Candidate',
+      'Interaction',
+      'Prediction',
+      'Generative'}
+
+export enum MLGenerativeDefinitionStatus {'Enabled',
+      'Disabled',
+      'Draft'}
+
+export enum MLGenerativeType {'Standard',
+      'Grounded'}
+
+export enum MLPredictionDefinitionStatus {'Enabled',
+      'Disabled',
+      'Draft'}
+
+export enum MLRecommendationDefinitionStatus {'Enabled',
+      'Disabled',
+      'Draft'}
+
+export enum MCNodeType {'TEXT',
+      'MTEXT',
+      'RTE',
+      'IMG',
+      'NAMEFIELD',
+      'MEDIA',
+      'REFERENCE',
+      'URL',
+      'DATETIME',
+      'DATE',
+      'PHONE',
+      'EMAIL',
+      'ENCRYPTEDSTRING',
+      'BOOLEAN',
+      'CURRENCY',
+      'INT',
+      'DOUBLE',
+      'PERCENT',
+      'TIME',
+      'ADDRESS',
+      'LOCATION'}
+
+export enum EventSubscriptionReplayPreset {'EARLIEST',
+      'LATEST'}
+
+export enum EventSubscriptionAdminState {'RUN',
+      'STOP',
+      'PAUSE'}
+
+export enum ContactPointType {'Email',
+      'Phone',
+      'Web',
+      'Social',
+      'MailingAddress',
+      'InPerson',
+      'Video'}
+
+export enum AudienceFieldType {'Boolean',
+      'Text',
+      'Encrypted',
+      'Number',
+      'Double',
+      'Date',
+      'DateTime',
+      'Email',
+      'Phone',
+      'Time',
+      'URL'}
+
+export enum MarketAudienceStatus {'New',
+      'Counting',
+      'Activating',
+      'Activated',
+      'Disabled',
+      'Error'}
+
+export enum MarketSegmentType {'UI',
+      'DBT',
+      'Lookalike',
+      'EinsteinGptSegmentsUI',
+      'Waterfall',
+      'Realtime'}
+
+export enum BlankValueBehavior {'MatchBlanks',
+      'NullNotAllowed'}
+
+export enum MatchingMethod {'Exact',
+      'FirstName',
+      'LastName',
+      'CompanyName',
+      'Phone',
+      'City',
+      'Street',
+      'Zip',
+      'Title'}
+
+export enum MatchingRuleStatus {'Inactive',
+      'DeactivationFailed',
+      'Activating',
+      'Deactivating',
+      'Active',
+      'ActivationFailed'}
+
+export enum AutoResponseContentType {'TextResponse',
+      'MessageDefinition'}
+
+export enum MessagingAutoResponseType {'InitialResponse',
+      'AgentEngagedResponse',
+      'AgentEndEngagementResponse',
+      'OptInPrompt',
+      'DoubleOptInPrompt',
+      'EndUserInactiveResponse',
+      'EndUserIdleResponse',
+      'OptOutConfirmation',
+      'CustomResponse',
+      'HelpResponse',
+      'OptInConfirmation'}
+
+export enum MessagingChannelConsentType {'ImplicitOptIn',
+      'ExplicitOptIn',
+      'DoubleOptIn'}
+
+export enum MessagingChannelUsageDeploymentType {'DigitalEngagementConversation',
+      'UnifiedConversation',
+      'MessagingEngagement',
+      'MarketingJourneyBuilder'}
+
+export enum MessagingChannelTargetLookupValueType {'Queue',
+      'Intent'}
+
+export enum EmbeddedServiceAuthModeType {'Auth',
+      'UnAuth'}
+
+export enum MessagingAuthorizationType {'PublicKeyCertificateSet',
+      'AuthProvider'}
+
+export enum MessagingChannelType {'EmbeddedMessaging',
+      'InternalCopilot',
+      'Voice',
+      'Custom',
+      'Facebook',
+      'Line',
+      'WhatsApp',
+      'AppleMessagesForBusiness'}
+
+export enum MessagingKeywordType {'OptIn',
+      'DoubleOptIn',
+      'OptOut',
+      'Help',
+      'Custom'}
+
+export enum MessagingSessionHandlerType {'Queue',
+      'Flow',
+      'User'}
+
+export enum MessagingChannelStandardParameterType {'FirstName',
+      'LastName',
+      'Email',
+      'Subject'}
+
+export enum MfgProgramTransformationType {'BusinessTransformation',
+      'ForecastSetRelation'}
+
+export enum MfgProgramTemplateStatus {'Active',
+      'Inactive',
+      'Draft'}
+
+export enum MilestoneTypeRecurrenceType {'none',
+      'recursIndependently',
+      'recursChained'}
+
+export enum MktDataConnectionMethod {'Ingress',
+      'Egress'}
+
+export enum MktDataConnectionStatus {'PROCESSING',
+      'INACTIVE',
+      'TESTING',
+      'ACTIVE',
+      'ERROR',
+      'DELETING',
+      'SCHEMA_REQUIRED'}
+
+export enum MlAIModelAlgorithmType {'Unknown',
+      'Glm',
+      'Gbm',
+      'Xgboost',
+      'RandomForest'}
+
+export enum MlModelConnectorType {'SAGEMAKER_DEPLOYED',
+      'OPEN_AI',
+      'AZURE_OPEN_AI',
+      'GENERIC',
+      'DATABRICKS',
+      'VERTEX_AI',
+      'ANTHROPIC',
+      'BEDROCK',
+      'OPEN_CONNECTOR',
+      'SALESFORCE'}
+
+export enum MlModelDeployStatus {'DRAFT',
+      'REGISTERED',
+      'ACTIVATED',
+      'DEACTIVATED',
+      'FAILED'}
+
+export enum MlGenerativeModelType {'Text'}
+
+export enum MlGenerativeModelCapability {'Completion',
+      'ChatCompletion',
+      'Embedding'}
+
+export enum MlModelCapability {'Completion',
+      'ChatCompletion',
+      'Embedding',
+      'Regression',
+      'BinaryClassification',
+      'MulticlassClassification',
+      'Generic'}
+
+export enum MlModelType {'Predictive',
+      'Generative',
+      'Unknown'}
+
+export enum MlParameterSubtype {'Integer',
+      'Double',
+      'Picklist'}
+
+export enum MlParameterType {'Discrete',
+      'Continuous'}
+
+export enum MlModelPredictionType {'Regression',
+      'BinaryClassification',
+      'MulticlassClassification',
+      'Generic'}
+
+export enum MlRuntimeType {'External',
+      'Internal'}
+
+export enum MlModelSourceType {'ModelConnector',
+      'EdcNoCode',
+      'OutOfTheBox',
+      'FineTuned'}
+
+export enum MlAIModelType {'ModelArtifact',
+      'ConfiguredModel'}
+
+export enum MlModelEndpointType {'REAL_TIME_INFERENCE',
+      'BATCH_INFERENCE'}
+
+export enum MlInferenceFormat {'JSON_DENSE',
+      'CSV',
+      'JSON_INSTANCES',
+      'DATAFRAME_RECORDS',
+      'DATAFRAME_SPLIT',
+      'JSON',
+      'COLUMNAR'}
+
+export enum ModerationRuleAction {'Block',
+      'FreezeAndNotify',
+      'Review',
+      'Replace',
+      'Flag'}
+
+export enum RateLimitTimePeriod {'Short',
+      'Medium'}
+
+export enum ModerationRuleType {'Content',
+      'Rate'}
+
+export enum OrgDomainShard {'none',
+      'sandbox',
+      'develop',
+      'patch',
+      'trailblaze',
+      'scratch',
+      'demo',
+      'free',
+      'bt',
+      'sfdctest',
+      'sfdcdot',
+      'sfrestore'}
+
+export enum OrgDomainRedirectOption {'Undeployed',
+      'Redirect',
+      'WarnOnRedirect',
+      'NoRedirect'}
+
+export enum OrgDomainProdSuffix {'MySalesforceLimited',
+      'DatabaseLimited',
+      'CloudforceLimited',
+      'OrgLevelCertificateLimited',
+      'Restricted1',
+      'MySalesforce',
+      'Restricted2',
+      'OrgLevelCertificate'}
+
+export enum CalloutStatus {'Enabled',
+      'Disabled'}
+
+export enum NamedCredentialParamType {'Url',
+      'UrlQueryParameter',
+      'HttpHeader',
+      'HttpCookie',
+      'ClientCertificate',
+      'ServerCertificate',
+      'FormulaVariable',
+      'Authentication',
+      'OutboundNetworkConnection',
+      'AllowedManagedPackageNamespaces',
+      'CreatedByNamespace',
+      'CustomParameter',
+      'StandardNamedCredentialType',
+      'ManagedByFeature',
+      'ManagedByComponent',
+      'ConnectionStatus'}
+
+export enum NamedCredentialType {'Legacy',
+      'AnonymousEndpoint',
+      'SecuredEndpoint',
+      'PrivateEndpoint',
+      'Credentials',
+      'Standard'}
+
+export enum NetworkPageOverrideSetting {'Designer',
+      'VisualForce',
+      'Standard',
+      'Configurable'}
+
+export enum AudienceCriteriaType {'CustomList',
+      'MaxDaysInCommunity'}
+
+export enum RecommendationChannel {'DefaultChannel',
+      'CustomChannel1',
+      'CustomChannel2',
+      'CustomChannel3',
+      'CustomChannel4',
+      'CustomChannel5'}
+
+export enum SitesArchiveStatus {'TemporarilyArchived',
+      'Archived',
+      'NotArchived'}
+
+export enum NetworkStatus {'UnderConstruction',
+      'Live',
+      'DownForMaintenance'}
+
+export enum ObjHierarchyMappingType {'ParentToParent',
+      'ParentToChild',
+      'ChildToChild',
+      'Support'}
+
+export enum MappingUsageType {'ConvertToSalesAgreement',
+      'EligibleProgramRebateType',
+      'MapJournalToMemberAggregate',
+      'TransformationMapping',
+      'CLMFieldMapping'}
+
+export enum OcrApplicationType {'Industries',
+      'EinsteinDocumentReader'}
+
+export enum ItemType {'TABLE'}
+
+export enum OcrMappingType {'FormField',
+      'TableColumn'}
+
+export enum OmniDataTransformInputType {'JSON',
+      'XML',
+      'SObject',
+      'Custom'}
+
+export enum ODTItemFilterDataType {'ADDRESS',
+      'ANYTYPE',
+      'BASE64',
+      'BOOLEAN',
+      'COMBOBOX',
+      'CURRENCY',
+      'DATACATEGORY',
+      'GROUPREFERENCE',
+      'DATE',
+      'DATETIME',
+      'DOUBLE',
+      'EMAIL',
+      'ENCRYPTEDSTRING',
+      'ID',
+      'INTEGER',
+      'LONG',
+      'MULTIPICKLIST',
+      'PERCENT',
+      'PHONE',
+      'PICKLIST',
+      'REFERENCE',
+      'STRING',
+      'TEXTAREA',
+      'TIME',
+      'URL'}
+
+export enum OmniAnalyticsComponentType {'Omniscript',
+      'Flexcard'}
+
+export enum ExternalTrackingVendor {'Google',
+      'Mixpanel'}
+
+export enum OmniProcessType {'OmniScript'}
+
+export enum OmniSupervisorActionName {'ChangeQueues',
+      'ChangeSkills',
+      'AssignLearning',
+      'AWSDashboard',
+      'ManageQueues',
+      'CustomAction',
+      'ChangeGroups'}
+
+export enum OmniSupervisorActionTab {'AllAgents',
+      'AgentDetails',
+      'QueuesBacklog',
+      'QueueDetails',
+      'AssignedWork',
+      'AssignedWorkDetails',
+      'SkillsBacklog',
+      'SkillDetails'}
+
+export enum OmniSupervisorTabType {'Wallboard',
+      'Agents',
+      'QueuesBacklog',
+      'AssignedWork',
+      'SkillsBacklog',
+      'FlexipageType'}
+
+export enum OmniSuperSkillVisibilityType {'AllSkills',
+      'AnySkill'}
+
+export enum OmniTrackingGroupType {'Internal',
+      'External'}
+
+export enum OmniUiCardType {'Parent',
+      'Child'}
+
+export enum OutboundConnPropertyName {'LinkId',
+      'Region',
+      'AwsVpcEndpointId',
+      'AwsVpcEndpointServiceName',
+      'ProxyUrl',
+      'DataCloudPrivateNetworkUrl',
+      'DataCloudPrivateNetworkProvider',
+      'DataCloudPrivateNetworkFunctionalDomain',
+      'DataCloudPrivateNetworkFalconInstance',
+      'DataCloudPrivateNetworkCustomUrls',
+      'DataCloudPrivateNetworkAwsVpcEndpointId',
+      'DataCloudPrivateNetworkAwsVpcEndpointServiceName',
+      'DataCloudPrivateNetworkDefaultUrl',
+      'DataCloudPrivateNetworkStatusCode'}
+
+export enum APIAccessLevel {'Unrestricted',
+      'Restricted'}
+
+export enum ParticipantRoleAccessLevel {'None',
+      'Read',
+      'Edit'}
+
+export enum IdempotencySupportStatus {'No',
+      'Yes'}
+
+export enum PermissionSetTabVisibility {'None',
+      'Available',
+      'Visible'}
+
+export enum LicenseExpirationPolicy {'AllowNamespaceAccess',
+      'BlockNamespaceAccess'}
+
+export enum PlatformCacheType {'Session',
+      'Organization'}
+
+export enum PlatformEventChannelType {'event',
+      'data'}
+
+export enum PlatformEventChannelEventType {'custom',
+      'standard',
+      'monitoring',
+      'data'}
+
+export enum Frequency {'Daily',
+      'Weekly',
+      'Fortnightly',
+      'Monthly',
+      'Once',
+      'Quarterly',
+      'Yearly'}
+
+export enum PortalRoles {'Executive',
+      'Manager',
+      'Worker',
+      'PersonAccount'}
+
+export enum PortalType {'CustomerSuccess',
+      'Partner',
+      'Network'}
+
+export enum ConditionLogic {'All'}
+
+export enum InputValueType {'Variable',
+      'Expression',
+      'String'}
+
+export enum TypeOfAction {'Add',
+      'Edit',
+      'Delete'}
+
+export enum AccumulateResultCondInputType {'Variable',
+      'Expression',
+      'String'}
+
+export enum AccumulateResultOperator {'Any',
+      'Equals',
+      'NotEquals',
+      'LessThan',
+      'LessOrEqual',
+      'GreaterThan',
+      'GreaterOrEqual'}
+
+export enum ConditionAggregationFunction {'Sum',
+      'Average',
+      'Minimum',
+      'Maximum',
+      'Count'}
+
+export enum TargetEntityMatchType {'Equals'}
+
+export enum ConditionFilterInputValueType {'Variable',
+      'String',
+      'Expression'}
+
+export enum ConditionFilterOperator {'Equals',
+      'NotEquals',
+      'LessThan',
+      'LessOrEqual',
+      'GreaterThan',
+      'GreaterOrEqual',
+      'IsNull',
+      'NotNull'}
+
+export enum ConditionType {'SingleCriterion',
+      'Aggregation'}
+
+export enum ExecutionStageOfPriceRule {'PreCalculate',
+      'Completion'}
+
+export enum RuleStatus {'Draft',
+      'Activated',
+      'Deactivated',
+      'Verified',
+      'ActivationInProgress',
+      'DeactivationInProgress'}
+
+export enum PriceSheetColumnType {'Input',
+      'Output'}
+
+export enum ProductFamilyUsageType {'AccountForecasting'}
+
+export enum CategoryGroupVisibility {'ALL',
+      'NONE',
+      'CUSTOM'}
+
+export enum LoginFlowType {'UI'}
+
+export enum UiLoginFlowType {'VisualWorkflow',
+      'VisualForce'}
+
+export enum TabVisibility {'Hidden',
+      'DefaultOff',
+      'DefaultOn'}
+
+export enum PromptDisplayPosition {'TopLeft',
+      'TopCenter',
+      'TopRight',
+      'BottomLeft',
+      'BottomCenter',
+      'BottomRight',
+      'MiddleLeft',
+      'MiddleCenter',
+      'MiddleRight'}
+
+export enum PromptDisplayType {'DockedComposer',
+      'FloatingPanel',
+      'Walkthrough',
+      'Targeted'}
+
+export enum PromptElementRelativePosition {'TopLeft',
+      'TopCenter',
+      'TopRight',
+      'LeftTop',
+      'LeftCenter',
+      'LeftBottom',
+      'RightTop',
+      'RightCenter',
+      'RightBottom',
+      'BottomLeft',
+      'BottomCenter',
+      'BottomRight'}
+
+export enum PromptExperience {'Lightning',
+      'Site'}
+
+export enum PromptImageLocation {'Top',
+      'Bottom',
+      'Left',
+      'Right'}
+
+export enum PromptThemeColor {'Theme1',
+      'Theme2',
+      'Theme3',
+      'Theme4'}
+
+export enum PromptThemeSaturation {'Dark',
+      'Light'}
+
+export enum PromptUserAccess {'Everyone',
+      'SpecificPermissions'}
+
+export enum PromptUserProfileAccess {'Everyone',
+      'SpecificProfiles'}
+
+export enum PublicKeyCertificateSetType {'JWKS',
+      'JWKS_URL'}
+
+export enum CapacityType {'INHERITED',
+      'INTERRUPTIBLE',
+      'NOT_INTERRUPTIBLE'}
+
+export enum RoutingModel {'LEAST_ACTIVE',
+      'MOST_AVAILABLE',
+      'EXTERNAL_ROUTING'}
+
+export enum ActionSubtype {'ScreenAction',
+      'Action'}
+
+export enum QuickActionParameterType {'Input',
+      'Output'}
+
+export enum QuickActionLabel {'Custom',
+      'LogACall',
+      'LogANote',
+      'New',
+      'NewRecordType',
+      'Update',
+      'UpdateRecordType',
+      'NewChild',
+      'NewChildRecordType',
+      'CreateNew',
+      'CreateNewRecordType',
+      'SendEmail',
+      'QuickRecordType',
+      'Quick',
+      'EditDescription',
+      'Defer',
+      'ChangeDueDate',
+      'ChangePriority',
+      'ChangeStatus',
+      'SocialPost',
+      'Escalate',
+      'EscalateToRecord',
+      'OfferFeedback',
+      'RequestFeedback',
+      'AddRecord',
+      'AddMember',
+      'Reply',
+      'ReplyAll',
+      'Forward',
+      'ScheduleAppointment',
+      'EnrollInProgram',
+      'ModifyAppointment',
+      'PatientDetails',
+      'AcceptBroadcast',
+      'SelectCoverage',
+      'AssetHierarchy',
+      'PartReturnRequest',
+      'PerformCount',
+      'ViewCoverage',
+      'Quip',
+      'SendConversationMessage',
+      'NewQuote',
+      'LaunchDataCapture',
+      'RelocateAsset',
+      'ReplaceAsset'}
+
+export enum QuickActionType {'Create',
+      'VisualforcePage',
+      'Post',
+      'SendEmail',
+      'Email',
+      'LogACall',
+      'CaseComment',
+      'ChangeStatus',
+      'SocialPost',
+      'Canvas',
+      'Update',
+      'MobileSmartActions',
+      'MobileCreateFull',
+      'ChangePriority',
+      'ChangeDueDate',
+      'LightningComponent',
+      'LightningWebComponent',
+      'Flow',
+      'MobileExtension',
+      'Quip',
+      'SendConversationMessage',
+      'Copilot'}
+
+export enum StrategyReactionType {'Accepted',
+      'Rejected'}
+
+export enum RecommendationConditionOperator {'EQUALS',
+      'GREATER_THAN',
+      'GREATER_THAN_OR_EQUAL_TO',
+      'LESS_THAN',
+      'LESS_THAN_OR_EQUAL_TO',
+      'NOT_EQUALS',
+      'LIKE',
+      'STARTS_WITH',
+      'ENDS_WITH',
+      'CONTAINS'}
+
+export enum RecommendationConditionValueType {'TEXT',
+      'NUMBER',
+      'BOOLEAN',
+      'DATE',
+      'DATE_TIME',
+      'TIME'}
+
+export enum ChannelSource {'Other',
+      'Phone',
+      'Chat'}
+
+export enum PinnedAction {'None',
+      'Top',
+      'Bottom'}
+
+export enum RecordActionType {'Flow',
+      'QuickAction',
+      'Omniscript',
+      'LWC',
+      'WebLink',
+      'SvcCatalogItemDef'}
+
+export enum ComponentName {'ActionsAndRecommendations',
+      'ActionLauncher',
+      'BulkActionPanel'}
+
+export enum RecordAggregationDefinitionAggregationType {'Record'}
+
+export enum RecordAggregationJoinConditionType {'AggregateTo',
+      'Intermediate',
+      'AggregateFrom'}
+
+export enum RecordAggregationObjectFilterOperator {'Equals',
+      'NotEquals',
+      'LessThan',
+      'LessThanOrEquals',
+      'GreaterThan',
+      'GreaterThanOrEquals',
+      'Contains',
+      'In',
+      'NotIn'}
+
+export enum RecordAggregationDefinitionStatus {'Draft',
+      'Active',
+      'Inactive'}
+
+export enum ReportAggregateDatatype {'currency',
+      'percent',
+      'number'}
+
+export enum ReportBucketFieldType {'text',
+      'number',
+      'picklist'}
+
+export enum ReportFormulaNullTreatment {'n',
+      'z'}
+
+export enum ChartType {'None',
+      'Scatter',
+      'ScatterGrouped',
+      'Bubble',
+      'BubbleGrouped',
+      'HorizontalBar',
+      'HorizontalBarGrouped',
+      'HorizontalBarStacked',
+      'HorizontalBarStackedTo100',
+      'VerticalColumn',
+      'VerticalColumnGrouped',
+      'VerticalColumnStacked',
+      'VerticalColumnStackedTo100',
+      'Line',
+      'LineGrouped',
+      'LineCumulative',
+      'LineCumulativeGrouped',
+      'Pie',
+      'Donut',
+      'Funnel',
+      'VerticalColumnLine',
+      'VerticalColumnGroupedLine',
+      'VerticalColumnStackedLine',
+      'Plugin'}
+
+export enum ChartPosition {'CHART_TOP',
+      'CHART_BOTTOM'}
+
+export enum ReportChartSize {'Tiny',
+      'Small',
+      'Medium',
+      'Large',
+      'Huge'}
+
+export enum ObjectFilterOperator {'with',
+      'without'}
+
+export enum CurrencyIsoCode {'ADP',
+      'AED',
+      'AFA',
+      'AFN',
+      'ALL',
+      'AMD',
+      'ANG',
+      'AOA',
+      'ARS',
+      'ATS',
+      'AUD',
+      'XAV',
+      'AWG',
+      'AZM',
+      'AZN',
+      'BAM',
+      'BBD',
+      'BDT',
+      'BEF',
+      'BGL',
+      'BGN',
+      'BHD',
+      'BIF',
+      'BMD',
+      'BND',
+      'BOB',
+      'BOV',
+      'BRB',
+      'BRL',
+      'BSD',
+      'BTN',
+      'BWP',
+      'BYB',
+      'BYN',
+      'BYR',
+      'BZD',
+      'CAD',
+      'CDF',
+      'CHF',
+      'CLF',
+      'CLP',
+      'CNH',
+      'CNY',
+      'COP',
+      'CRC',
+      'CSD',
+      'CUC',
+      'CUP',
+      'CVE',
+      'CYP',
+      'CZK',
+      'DEM',
+      'DJF',
+      'DKK',
+      'DOP',
+      'DZD',
+      'ECS',
+      'EEK',
+      'EGP',
+      'ERN',
+      'ESP',
+      'ETB',
+      'EUR',
+      'FIM',
+      'FJD',
+      'FKP',
+      'XFL',
+      'FRF',
+      'GBP',
+      'GBT',
+      'GEL',
+      'GHC',
+      'GHS',
+      'GIP',
+      'GMD',
+      'GNF',
+      'GRD',
+      'GTQ',
+      'GWP',
+      'GYD',
+      'HKD',
+      'HNL',
+      'HRD',
+      'HRK',
+      'HTG',
+      'HUF',
+      'IDR',
+      'IEP',
+      'ILS',
+      'INR',
+      'IQD',
+      'IRR',
+      'ISK',
+      'ITL',
+      'JMD',
+      'JOD',
+      'JPY',
+      'KES',
+      'KGS',
+      'KHR',
+      'KMF',
+      'KPW',
+      'KRW',
+      'KWD',
+      'KYD',
+      'KZT',
+      'LAK',
+      'LBP',
+      'LKR',
+      'LRD',
+      'LSL',
+      'LTL',
+      'LUF',
+      'LVL',
+      'LYD',
+      'MAD',
+      'XMA',
+      'MDL',
+      'MGA',
+      'MGF',
+      'MKD',
+      'MMK',
+      'MNT',
+      'MOP',
+      'MRO',
+      'MRU',
+      'MTL',
+      'MUR',
+      'MVR',
+      'MWK',
+      'MXN',
+      'MXV',
+      'MYR',
+      'MZM',
+      'MZN',
+      'NAD',
+      'NGN',
+      'NIO',
+      'NLG',
+      'NOK',
+      'NPR',
+      'NZD',
+      'OMR',
+      'PAB',
+      'XPA',
+      'PEN',
+      'PGK',
+      'PHP',
+      'PKR',
+      'PLN',
+      'PTE',
+      'PYG',
+      'QAR',
+      'RMB',
+      'ROL',
+      'RON',
+      'RSD',
+      'RUB',
+      'RUR',
+      'RWF',
+      'SAR',
+      'SBD',
+      'SCR',
+      'SDD',
+      'SDG',
+      'SEK',
+      'SGD',
+      'SHP',
+      'SIT',
+      'SKK',
+      'SLE',
+      'SLL',
+      'XSO',
+      'SOS',
+      'SRD',
+      'SRG',
+      'SSP',
+      'STD',
+      'STN',
+      'SUR',
+      'SVC',
+      'SYP',
+      'SZL',
+      'THB',
+      'TJR',
+      'TJS',
+      'TMM',
+      'TMT',
+      'TND',
+      'TOP',
+      'TPE',
+      'TRL',
+      'TRY',
+      'TTD',
+      'TWD',
+      'TZS',
+      'UAH',
+      'UGX',
+      'USD',
+      'UYU',
+      'UZS',
+      'VEB',
+      'VEF',
+      'VES',
+      'VND',
+      'VUV',
+      'WST',
+      'XAF',
+      'XCD',
+      'XCG',
+      'XOF',
+      'XPF',
+      'YER',
+      'YUM',
+      'ZAR',
+      'ZMK',
+      'ZMW',
+      'ZWD',
+      'ZWG',
+      'ZWL',
+      'ZIG'}
+
+export enum DataCategoryFilterOperation {'above',
+      'below',
+      'at',
+      'aboveOrBelow'}
+
+export enum ReportFormat {'MultiBlock',
+      'Matrix',
+      'Summary',
+      'Tabular'}
+
+export enum ReportAggrType {'Sum',
+      'Average',
+      'Maximum',
+      'Minimum',
+      'Unique',
+      'RowCount',
+      'Median',
+      'Noop'}
+
+export enum UserDateGranularity {'None',
+      'Day',
+      'Week',
+      'Month',
+      'Quarter',
+      'Year',
+      'FiscalQuarter',
+      'FiscalYear',
+      'MonthInYear',
+      'DayInMonth',
+      'FiscalPeriod',
+      'FiscalWeek'}
+
+export enum ReportSortType {'Column',
+      'Aggregate',
+      'CustomSummaryFormula'}
+
+export enum UserDateInterval {'INTERVAL_CURRENT',
+      'INTERVAL_CURNEXT1',
+      'INTERVAL_CURPREV1',
+      'INTERVAL_NEXT1',
+      'INTERVAL_PREV1',
+      'INTERVAL_CURNEXT3',
+      'INTERVAL_CURFY',
+      'INTERVAL_PREVFY',
+      'INTERVAL_PREV2FY',
+      'INTERVAL_AGO2FY',
+      'INTERVAL_NEXTFY',
+      'INTERVAL_PREVCURFY',
+      'INTERVAL_PREVCUR2FY',
+      'INTERVAL_CURNEXTFY',
+      'INTERVAL_CUSTOM',
+      'INTERVAL_YESTERDAY',
+      'INTERVAL_TODAY',
+      'INTERVAL_TOMORROW',
+      'INTERVAL_LASTWEEK',
+      'INTERVAL_THISWEEK',
+      'INTERVAL_NEXTWEEK',
+      'INTERVAL_LASTMONTH',
+      'INTERVAL_THISMONTH',
+      'INTERVAL_NEXTMONTH',
+      'INTERVAL_LASTTHISMONTH',
+      'INTERVAL_THISNEXTMONTH',
+      'INTERVAL_CURRENTQ',
+      'INTERVAL_CURNEXTQ',
+      'INTERVAL_CURPREVQ',
+      'INTERVAL_NEXTQ',
+      'INTERVAL_PREVQ',
+      'INTERVAL_CURNEXT3Q',
+      'INTERVAL_CURY',
+      'INTERVAL_PREVY',
+      'INTERVAL_PREV2Y',
+      'INTERVAL_AGO2Y',
+      'INTERVAL_NEXTY',
+      'INTERVAL_PREVCURY',
+      'INTERVAL_PREVCUR2Y',
+      'INTERVAL_CURNEXTY',
+      'INTERVAL_LAST7',
+      'INTERVAL_LAST30',
+      'INTERVAL_LAST60',
+      'INTERVAL_LAST90',
+      'INTERVAL_LAST120',
+      'INTERVAL_NEXT7',
+      'INTERVAL_NEXT30',
+      'INTERVAL_NEXT60',
+      'INTERVAL_NEXT90',
+      'INTERVAL_NEXT120',
+      'LAST_FISCALWEEK',
+      'THIS_FISCALWEEK',
+      'NEXT_FISCALWEEK',
+      'LAST_FISCALPERIOD',
+      'THIS_FISCALPERIOD',
+      'NEXT_FISCALPERIOD',
+      'LASTTHIS_FISCALPERIOD',
+      'THISNEXT_FISCALPERIOD',
+      'CURRENT_ENTITLEMENT_PERIOD',
+      'PREVIOUS_ENTITLEMENT_PERIOD',
+      'PREVIOUS_TWO_ENTITLEMENT_PERIODS',
+      'TWO_ENTITLEMENT_PERIODS_AGO',
+      'CURRENT_AND_PREVIOUS_ENTITLEMENT_PERIOD',
+      'CURRENT_AND_PREVIOUS_TWO_ENTITLEMENT_PERIODS'}
+
+export enum ReportTypeCategory {'accounts',
+      'opportunities',
+      'forecasts',
+      'cases',
+      'leads',
+      'campaigns',
+      'activities',
+      'busop',
+      'products',
+      'admin',
+      'territory',
+      'other',
+      'content',
+      'usage_entitlement',
+      'wdc',
+      'calibration',
+      'territory2',
+      'quotes',
+      'individual',
+      'employee',
+      'data_cloud',
+      'commerce',
+      'flow',
+      'semantic_model'}
+
+export enum ContextRuleStatus {'Draft',
+      'Inactive',
+      'Active',
+      'DeploymentInProgress',
+      'DeploymentFailed',
+      'ValidationInProgress',
+      'ValidationFailed',
+      'ValidationSucceeded',
+      'ValidationInterrupted',
+      'Obsolete'}
+
+export enum ExecutionType {'Sequence',
+      'Priority'}
+
+export enum VariableValueType {'Literal',
+      'Expression',
+      'ReferenceRecord',
+      'RuleReferenceVariable',
+      'Path',
+      'FilteredTag'}
+
+export enum RuleActionType {'SetValue',
+      'Auto-Add',
+      'Auto-Remove',
+      'SetQuantity',
+      'SetAttribute',
+      'Message',
+      'SetDefaultProduct',
+      'SetDefaultAttributeValue',
+      'HideAttribute',
+      'HideAttributeValue',
+      'HideProduct',
+      'DisableProduct',
+      'DisableAttributeValue'}
+
+export enum ConditionMatchType {'Any',
+      'All'}
+
+export enum RuleConditionOperator {'Equals',
+      'NotEquals',
+      'LessThan',
+      'LessThanOrEquals',
+      'GreaterThan',
+      'GreaterThanOrEquals',
+      'Between',
+      'IsNotNull',
+      'IsNull',
+      'Contains',
+      'DoesNotContain',
+      'In',
+      'NotIn',
+      'StartsWith',
+      'EndsWith',
+      'PathContains'}
+
+export enum RuleFilterCriteriaType {'Aggregate',
+      'Branch',
+      'List',
+      'Eligibility',
+      'Boolean',
+      'Exists',
+      'NotExists',
+      'Loop'}
+
+export enum RuleCondAggregateFunction {'Sum'}
+
+export enum RuleRefVariableDataType {'Text',
+      'Numeric',
+      'Date',
+      'DateTime',
+      'Currency',
+      'Boolean',
+      'Percent',
+      'RecordId',
+      'Tuple'}
+
+export enum RuleRefVariableType {'Constant',
+      'Formula',
+      'Tag',
+      'Variable',
+      'Attribute',
+      'Accumulate',
+      'FilteredTag'}
+
+export enum ContextRuleUsageType {'UnifiedPromotions',
+      'Default',
+      'Configurator',
+      'Dfo',
+      'PriceGuidance',
+      'Underwriting'}
+
+export enum ActualsCalculationMode {'Manual',
+      'Orders',
+      'OrdersThroughContracts',
+      'DataProcessingEngine'}
+
+export enum SamlIdentityLocationType {'SubjectNameId',
+      'Attribute'}
+
+export enum SamlIdentityType {'Username',
+      'FederationId',
+      'UserId'}
+
+export enum SamlType {'SAML1_1',
+      'SAML2_0'}
+
+export enum SamlSpSLOBinding {'RedirectBinding',
+      'PostBinding'}
+
+export enum DomainType {'FTest',
+      'FTest2'}
+
+export enum SearchCriteriaConfigurationConfigurationType {'DefaultSearch',
+      'ClinicalTrialSearch'}
+
+export enum SearchCriteriaConfigurationFilterType {'GROUPING_AND_AGGREGATION',
+      'MULTIPLE_FIELDS'}
+
+export enum SearchCriteriaConfigurationResultDisplayFormat {'LIST',
+      'CARD'}
+
+export enum SearchResultActionScope {'Global'}
+
+export enum SearchResultActionType {'FlowDefinition',
+      'OmniScript',
+      'LightningWebComponent'}
+
+export enum Complexity {'NoRestriction',
+      'AlphaNumeric',
+      'SpecialCharacters',
+      'UpperLowerCaseNumeric',
+      'UpperLowerCaseNumericSpecialCharacters',
+      'Any3UpperLowerCaseNumericSpecialCharacters'}
+
+export enum Expiration {'ThirtyDays',
+      'SixtyDays',
+      'NinetyDays',
+      'SixMonths',
+      'OneYear',
+      'Never'}
+
+export enum LockoutInterval {'FifteenMinutes',
+      'ThirtyMinutes',
+      'SixtyMinutes',
+      'Forever'}
+
+export enum MaxLoginAttempts {'ThreeAttempts',
+      'FiveAttempts',
+      'TenAttempts',
+      'NoLimit'}
+
+export enum QuestionRestriction {'None',
+      'DoesNotContainPassword'}
+
+export enum SessionTimeout {'TwentyFourHours',
+      'TwelveHours',
+      'EightHours',
+      'FourHours',
+      'TwoHours',
+      'NinetyMinutes',
+      'SixtyMinutes',
+      'ThirtyMinutes',
+      'FifteenMinutes'}
+
+export enum ServiceAISetupDefStatus {'FIELDS_SELECTED',
+      'TRAINING',
+      'READY_TO_ACTIVATE',
+      'SERVING',
+      'RETIRED',
+      'ARCHIVED',
+      'READY_FOR_REVIEW',
+      'TRAINING_FAILURE',
+      'INVALID_TRAINING_FIELDS'}
+
+export enum ServiceAISetupFieldType {'CASE_DESC',
+      'CASE_SUBJ',
+      'ARTICLE_TITLE',
+      'ARTICLE_CONTENT',
+      'ARTICLE_SUMMARY',
+      'ARTICLE_ANSWER',
+      'ARTICLE_QUESTION'}
+
+export enum SvcCtlgItemAttrAttributeType {'Base',
+      'Extended'}
+
+export enum SvcCatalogItemAttrDataType {'Attachment',
+      'Checkbox',
+      'Currency',
+      'Date',
+      'Datetime',
+      'DisplayText',
+      'Email',
+      'IPAddress',
+      'Integer',
+      'Lookup',
+      'ListOfBoolean',
+      'ListOfDouble',
+      'ListOfInteger',
+      'ListOfMaps',
+      'ListOfString',
+      'MultilineText',
+      'Map',
+      'Number',
+      'NumericScale',
+      'Picklist',
+      'Percentage',
+      'Queue',
+      'SingleCheckbox',
+      'SinglelineText',
+      'Text',
+      'Toggle',
+      'URL'}
+
+export enum SvcCtlgItemDpndProcType {'RequestForm',
+      'FulfillmentFlow',
+      'IntegrationDefinition',
+      'Preprocessor'}
+
+export enum SvcCatalogItemDependencyType {'PreprocessorApexClass',
+      'FlowDefinition',
+      'IntegrationProviderDef',
+      'OmniScriptConfig'}
+
+export enum SvcCatalogItemUsageType {'Employee',
+      'CustomerService',
+      'Industry',
+      'FinancialServices'}
+
+export enum SlackRecordLayoutViewMode {'recordcrud',
+      'urlunfurling'}
+
+export enum CaseSubjectOption {'SocialPostSource',
+      'SocialPostContent',
+      'BuildCustom'}
+
+export enum StageConditionOperator {'Equals',
+      'GreaterThan',
+      'GreaterOrEqual',
+      'LessThan',
+      'LessOrEqual',
+      'Contains',
+      'NotEqualTo',
+      'DoesNotContain',
+      'StartsWith'}
+
+export enum StageCriteriaType {'AND',
+      'OR',
+      'CUSTOMLOGIC'}
+
+export enum StageCriteriaExecType {'CONDITION',
+      'FLOW'}
+
+export enum StageUserPermission {'ProcessOrder',
+      'ManageClinicalTrials',
+      'ParticipateClinicalTrials',
+      'CoordinateClinicalTrials',
+      'CoordinateClnclTrialExprcUsr'}
+
+export enum StationaryAssetType {'CommercialBuilding',
+      'DataCenter'}
+
+export enum UnitType {'Volume',
+      'Weight',
+      'Energy',
+      'Other'}
+
+export enum CriterionOperator {'Equal',
+      'NotEqual',
+      'GreaterThan',
+      'GreaterThanOrEqual',
+      'LessThan',
+      'LessThanOrEqual',
+      'Contains',
+      'StartsWith',
+      'Includes',
+      'NotIncludes'}
+
+export enum CriteriaRelationshipType {'AllConditionsAreMet',
+      'AnyConditionIsMet'}
+
+export enum PropertyDisplayType {'Lookup',
+      'Picklist',
+      'Text',
+      'Checkbox',
+      'Number',
+      'Queue',
+      'Date',
+      'DateTime'}
+
+export enum SvcCatalogItemAttrType {'FulfillmentInput',
+      'UserQuestion'}
+
+export enum PublishStatusType {'Draft',
+      'Published',
+      'PendingChanges',
+      'Deprecated'}
+
+export enum TimeSheetFrequency {'Daily',
+      'Weekly',
+      'EveryTwoWeeks',
+      'TwiceAMonth',
+      'Monthly'}
+
+export enum DaysOfWeek {'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday'}
+
+export enum RuleEngine {'StandardConfigurator',
+      'AdvancedConfigurator'}
+
+export enum SaveType {'Standard'}
+
+export enum TransactionSecurityEventName {'ReportEvent',
+      'ApiEvent',
+      'AdminSetupEvent',
+      'LoginEvent',
+      'ListViewEvent',
+      'CredentialStuffingEventStore',
+      'ReportAnomalyEventStore',
+      'SessionHijackingEventStore',
+      'ApiAnomalyEventStore',
+      'BulkApiResultEventStore',
+      'PermissionSetEventStore',
+      'FileEventStore',
+      'GuestUserAnomalyEventStore',
+      'LoginAsEvent'}
+
+export enum MonitoredEvents {'AuditTrail',
+      'Login',
+      'Entity',
+      'DataExport',
+      'AccessResource'}
+
+export enum TxnSecurityPolicyType {'CustomApexPolicy',
+      'CustomConditionBuilderPolicy'}
+
+export enum ObjectRelationshipType {'Direct',
+      'Indirect',
+      'Self',
+      'InverseDirect'}
+
+export enum FormatType {'ICON'}
+
+export enum UserAccessPolicyStatus {'Design',
+      'Testing',
+      'Migrate',
+      'Updating',
+      'Failed',
+      'Active',
+      'Completed'}
+
+export enum UserAccessPolicyTriggerType {'Create',
+      'Update',
+      'CreateAndUpdate'}
+
+export enum UserAccessPolicyActionType {'Grant',
+      'Revoke'}
+
+export enum UserAccessPolicyActionTargetType {'PermissionSet',
+      'PermissionSetGroup',
+      'PermissionSetLicense',
+      'PackageLicense',
+      'Group',
+      'Queue'}
+
+export enum UserAccessPolicyFilterOperation {'equals',
+      'equalsIgnoreCase',
+      'notEquals',
+      'in',
+      'includes'}
+
+export enum UserAccessPolicyFilterTargetType {'Group',
+      'Queue',
+      'PermissionSet',
+      'PermissionSetGroup',
+      'PermissionSetLicense',
+      'Profile',
+      'UserRole',
+      'PackageLicense',
+      'User'}
+
+export enum NetworkUserType {'Internal',
+      'Customer',
+      'Partner'}
+
+export enum VehicleAssetType {'FleetVehicle',
+      'PrivateJet'}
+
+export enum VisualizationResourceType {'js',
+      'css'}
+
+export enum CountryIsoCode {'AD',
+      'AE',
+      'AF',
+      'AG',
+      'AI',
+      'AL',
+      'AM',
+      'AO',
+      'AQ',
+      'AR',
+      'AT',
+      'AU',
+      'AW',
+      'AX',
+      'AZ',
+      'BA',
+      'BB',
+      'BD',
+      'BE',
+      'BF',
+      'BG',
+      'BH',
+      'BI',
+      'BJ',
+      'BL',
+      'BM',
+      'BN',
+      'BO',
+      'BQ',
+      'BR',
+      'BS',
+      'BT',
+      'BV',
+      'BW',
+      'BY',
+      'BZ',
+      'CA',
+      'CC',
+      'CD',
+      'CF',
+      'CG',
+      'CH',
+      'CI',
+      'CK',
+      'CL',
+      'CM',
+      'CN',
+      'CO',
+      'CR',
+      'CV',
+      'CW',
+      'CX',
+      'CY',
+      'CZ',
+      'DE',
+      'DJ',
+      'DK',
+      'DM',
+      'DO',
+      'DZ',
+      'EC',
+      'EE',
+      'EG',
+      'EH',
+      'ER',
+      'ES',
+      'ET',
+      'FI',
+      'FJ',
+      'FK',
+      'FO',
+      'FR',
+      'GA',
+      'GB',
+      'GD',
+      'GE',
+      'GF',
+      'GG',
+      'GH',
+      'GI',
+      'GL',
+      'GM',
+      'GN',
+      'GP',
+      'GQ',
+      'GR',
+      'GS',
+      'GT',
+      'GW',
+      'GY',
+      'HM',
+      'HN',
+      'HR',
+      'HT',
+      'HU',
+      'ID',
+      'IE',
+      'IL',
+      'IM',
+      'IN',
+      'IO',
+      'IQ',
+      'IS',
+      'IT',
+      'JE',
+      'JM',
+      'JO',
+      'JP',
+      'KE',
+      'KG',
+      'KH',
+      'KI',
+      'KM',
+      'KN',
+      'KR',
+      'KW',
+      'KY',
+      'KZ',
+      'LA',
+      'LB',
+      'LC',
+      'LI',
+      'LK',
+      'LR',
+      'LS',
+      'LT',
+      'LU',
+      'LV',
+      'LY',
+      'MA',
+      'MC',
+      'MD',
+      'ME',
+      'MF',
+      'MG',
+      'MK',
+      'ML',
+      'MM',
+      'MN',
+      'MO',
+      'MQ',
+      'MR',
+      'MS',
+      'MT',
+      'MU',
+      'MV',
+      'MW',
+      'MX',
+      'MY',
+      'MZ',
+      'NA',
+      'NC',
+      'NE',
+      'NF',
+      'NG',
+      'NI',
+      'NL',
+      'NO',
+      'NP',
+      'NR',
+      'NU',
+      'NZ',
+      'OM',
+      'PA',
+      'PE',
+      'PF',
+      'PG',
+      'PH',
+      'PK',
+      'PL',
+      'PM',
+      'PN',
+      'PS',
+      'PT',
+      'PY',
+      'QA',
+      'RE',
+      'RO',
+      'RS',
+      'RU',
+      'RW',
+      'SA',
+      'SB',
+      'SC',
+      'SE',
+      'SG',
+      'SH',
+      'SI',
+      'SJ',
+      'SK',
+      'SL',
+      'SM',
+      'SN',
+      'SO',
+      'SR',
+      'SS',
+      'ST',
+      'SV',
+      'SX',
+      'SZ',
+      'TC',
+      'TD',
+      'TF',
+      'TG',
+      'TH',
+      'TJ',
+      'TK',
+      'TL',
+      'TM',
+      'TN',
+      'TO',
+      'TR',
+      'TT',
+      'TV',
+      'TW',
+      'TZ',
+      'UA',
+      'UG',
+      'US',
+      'UY',
+      'UZ',
+      'VA',
+      'VC',
+      'VE',
+      'VG',
+      'VN',
+      'VU',
+      'WF',
+      'WS',
+      'XK',
+      'YE',
+      'YT',
+      'ZA',
+      'ZM',
+      'ZW'}
+
+export enum TaxLocaleType {'Net',
+      'Gross',
+      'Automatic'}
+
+export enum OrderLifeCycleType {'MANAGED',
+      'UNMANAGED'}
+
+export enum PricingStrategy {'LowestPrice',
+      'Priority'}
+
+export enum ProductGrouping {'BestMatch',
+      'VariationParent',
+      'NoGrouping'}
+
+export enum WebStoreType {'B2B',
+      'B2C',
+      'B2CE'}
+
+export enum LookupValueType {'User',
+      'Queue',
+      'RecordType'}
+
+export enum FieldUpdateOperation {'Formula',
+      'Literal',
+      'Null',
+      'NextValue',
+      'PreviousValue',
+      'LookupValue'}
+
+export enum KnowledgeWorkflowAction {'PublishAsNew',
+      'Publish'}
+
+export enum SendAction {'Send'}
+
+export enum ActionTaskAssignedToTypes {'user',
+      'role',
+      'opportunityTeam',
+      'accountTeam',
+      'owner',
+      'accountOwner',
+      'creator',
+      'accountCreator',
+      'partnerUser',
+      'portalRole'}
+
+export enum ActionEmailRecipientTypes {'group',
+      'role',
+      'user',
+      'opportunityTeam',
+      'accountTeam',
+      'roleSubordinates',
+      'owner',
+      'creator',
+      'partnerUser',
+      'accountOwner',
+      'customerPortalUser',
+      'portalRole',
+      'portalRoleSubordinates',
+      'contactLookup',
+      'userLookup',
+      'roleSubordinatesInternal',
+      'email',
+      'caseTeam',
+      'campaignMemberDerivedOwner'}
+
+export enum ActionEmailSenderType {'CurrentUser',
+      'OrgWideEmailAddress',
+      'DefaultWorkflowUser'}
+
+export enum WorkflowTriggerTypes {'onCreateOnly',
+      'onCreateOrTriggeringUpdate',
+      'onAllChanges',
+      'OnRecursiveUpdate'}
+
+export enum WorkflowTimeUnits {'Hours',
+      'Days'}
+
+export enum ExtendedErrorCode {'ACTIONCALLPATH_MISSING_NAME',
+      'ACTIONCALL_DUPLICATE_INPUT_PARAM',
+      'ACTIONCALL_DUPLICATE_OUTPUT_PARAM',
+      'ACTIONCALL_FEATURE_NOT_SUPPORTED',
+      'ACTIONCALL_INPUT_VALIDATION_FAILED',
+      'ACTIONCALL_INVALID_INPUT_PARAM_NAME',
+      'ACTIONCALL_INVALID_ISWAITUNTILCOMPLETED',
+      'ACTIONCALL_INVALID_OFFSET',
+      'ACTIONCALL_MISSING_EVENT_INFO',
+      'ACTIONCALL_MISSING_NAME',
+      'ACTIONCALL_MISSING_OFFSET',
+      'ACTIONCALL_MISSING_REQUIRED_PARAM',
+      'ACTIONCALL_MISSING_REQUIRED_TYPE',
+      'ACTIONCALL_NOT_FOUND_WITH_NAME_AND_TYPE',
+      'ACTIONCALL_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'ACTIONCALL_NOT_SUPPORTED_FOR_TRIGGERTYPE',
+      'ACTIONCALL_OFFSET_NOT_SUPPORTED',
+      'ACTIONCALL_TRANSACTION_MODEL_NOT_ALLOWED',
+      'ACTIONCALL_TRANSACTION_MODEL_NOT_SUPPORTED',
+      'ACTIONCALL_TRIGGERING_RECORD_MISMATCHED_OBJECTTYPE',
+      'ACTION_BUTTON_NOT_SUPPORTED_FOR_API_VERSION_AT_RUNTIME',
+      'ACTION_BUTTON_NOT_SUPPORTED_FOR_METADATA_API_VERSION',
+      'ACTION_CALL_INPUT_SETUPREFTYPE_REQUIRES_SETUPREFVALUE',
+      'ACTION_CALL_INVALID_ACTION_NAME_CONTENT',
+      'ACTION_CALL_INVALID_CONFIGURATION',
+      'ACTION_CALL_INVALID_INPUT_PARAM',
+      'ACTION_CALL_INVALID_OUTPUT_PARAM',
+      'ACTION_CALL_INVALID_VERSION',
+      'ACTION_CALL_MISSING_ELEMENT_DEPENDENCIES',
+      'ACTION_INPUT_PARAMETER_REQUIRES_ID_TYPE_FOR_SETUP_REFERENCE',
+      'ACTION_INPUT_PARAMETER_TYPE_AND_SETUP_REFERENCE_TYPE_DO_NOT_MATCH',
+      'ACTION_TYPE_REQUIRED_FOR_STEP',
+      'ADDING_ATTACHMENT_QUESTIONS_ADDITION_TO_EXISTING_SURVEY',
+      'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_ACTIVATION',
+      'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_EXECUTION',
+      'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_SAVE',
+      'APEXCALLOUT_INPUT_DUPLICATE',
+      'APEXCALLOUT_INPUT_INCOMPATIBLE_DATATYPE',
+      'APEXCALLOUT_INVALID',
+      'APEXCALLOUT_MISSING_CLASSNAME',
+      'APEXCALLOUT_NOT_FOUND',
+      'APEXCALLOUT_OUTPUT_INCOMPATIBLE_DATATYPE',
+      'APEXCALLOUT_OUTPUT_INVALID',
+      'APEXCALLOUT_REQUIRED_INPUT_MISSING',
+      'APEXCLASS_MISSING_INTERFACE',
+      'APEX_CLASS_VARIABLE_NOT_FOUND',
+      'ASSIGNEE_AUTOPROC',
+      'ASSIGNEE_REQUIRED_WHEN_SPECIFYING_RUN_AS_USER',
+      'ASSIGNEE_USER_USERNAME',
+      'ASSIGNMENTITEM_ELEMENT_MISSING_DATATYPE',
+      'ASSIGNMENTITEM_ELEMENT_NOT_SUPPORTED',
+      'ASSIGNMENTITEM_FIELD_INVALID_DATATYPE',
+      'ASSIGNMENTITEM_FIELD_INVALID_DATATYPE_WITH_ELEMENT',
+      'ASSIGNMENTITEM_INCOMPATIBLE_DATATYPES',
+      'ASSIGNMENTITEM_INVALID_ASSIGNTOREFERENCE',
+      'ASSIGNMENTITEM_INVALID_COLLECTION',
+      'ASSIGNMENTITEM_INVALID_DATATYPE_IN_ELEMENT',
+      'ASSIGNMENTITEM_INVALID_ELEMENTREFERENCE',
+      'ASSIGNMENTITEM_INVALID_MERGE_FIELD',
+      'ASSIGNMENTITEM_INVALID_OPERATOR',
+      'ASSIGNMENTITEM_INVALID_REFERENCE',
+      'ASSIGNMENTITEM_INVALID_VALUE',
+      'ASSIGNMENTITEM_LEFT_DATATYPE_INVALID_FOR_OPERATOR',
+      'ASSIGNMENTITEM_MODIFIES_NONVARIABLE',
+      'ASSIGNMENTITEM_NONEXISTENT_REFERENCE',
+      'ASSIGNMENTITEM_REQUIRED',
+      'ASSIGNMENTITEM_RIGHT_DATATYPE_INVALID_FOR_OPERATOR',
+      'ASYNC_ACTION_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'AUTOLAUNCHED_CHOICELOOKUP_NOT_SUPPORTED',
+      'AUTOLAUNCHED_CHOICE_NOT_SUPPORTED',
+      'AUTOLAUNCHED_SCREEN_NOT_SUPPORTED',
+      'AUTOLAUNCHED_STEP_NOT_SUPPORTED',
+      'AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE',
+      'AUTOLAUNCHED_WAIT_NOT_SUPPORTED',
+      'AUTOMATION_EVENT_PATH_EXPERIMENT_MISSING_ELEMENT_DEPENDENCIES',
+      'BACKGROUND_STEPS_DETECT_ASYNC_PROCESSING',
+      'BEFORE_SAVE_FLOW_RECORD_UPDATE_CANNOT_HAVE_FAULT_CONNECTOR',
+      'BEFORE_SAVE_FLOW_RECORD_UPDATE_INVALID_REFERENCE',
+      'BEFORE_SAVE_FLOW_RECORD_UPDATE_RELATED_RECORD_REQUIRES_INPUTASSIGNMENTS',
+      'BEFORE_SAVE_FLOW_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS',
+      'BOTH_START_NODE_AND_REFERENCE_FOUND',
+      'CHOICEFIELD_DEFAULT_CHOICE_NOT_FOUND',
+      'CHOICEFIELD_MISSING_CHOICE',
+      'CHOICELOOKUP_DATATYPE_INCOMPATIBLE_WITH_CHOICEFIELD',
+      'CHOICE_DATATYPE_INCOMPATIBLE_WITH_CHOICEFIELD',
+      'CHOICE_LOOKUP_COLLECTION_REFERENCE_NULL',
+      'CHOICE_LOOKUP_INVALID_COLLECTION_REFERENCE',
+      'CHOICE_NOT_SUPPORTED_FOR_SCREENFIELDTYPE',
+      'CHOICE_USED_MULTIPLE_TIMES_IN_SAME_FIELD',
+      'COLLECTION_PROCESSOR_DUPLICATE_MAPITEM',
+      'COLLECTION_PROCESSOR_INVALID_COLLECTION_REFERENCE',
+      'COLLECTION_PROCESSOR_INVALID_CONFIGURATION',
+      'COLLECTION_PROCESSOR_INVALID_OUTPUTSOBJECTTYPE',
+      'COLLECTION_PROCESSOR_MAX_SORT_FIELDS_LIMIT_EXCEEDED',
+      'COLLECTION_PROCESSOR_MISMATCHED_OBJECTTYPE',
+      'COLLECTION_PROCESSOR_MISSING_MAP',
+      'COLLECTION_PROCESSOR_MISSING_OUTPUTSOBJECTTYPE',
+      'COLLECTION_PROCESSOR_MISSING_PARAMETER',
+      'COLLECTION_PROCESSOR_MISSING_SORT',
+      'COLLECTION_PROCESSOR_NOT_SUPPORTED_FOR_API_VERSION',
+      'COLLECTION_PROCESSOR_REQUIRES_PERM',
+      'COLLECTION_PROCESSOR_SORT_FIELD_INVALID_FOR_OBJECT',
+      'COLLECTION_PROCESSOR_TYPE_NOT_SUPPORTED',
+      'COLLECTION_PROCESSOR_VARIABLE_NULL',
+      'CONDITIONAL_SCREENFIELD_VISIBILITY_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'CONDITIONAL_SCREEN_FIELD_VISIBILITY_NOT_SUPPORTED_FOR_SCREEN_FIELD',
+      'CONDITION_BUILDER_MISSING_FLOW_VARIABLE',
+      'CONDITION_BUILDER_MISSING_REQUIRED_PERMISSIONS',
+      'CONDITION_BUILDER_UNSUPPORTED_FLOW_VARIABLE',
+      'CONDITION_INVALID_LEFTOPERAND',
+      'CONDITION_LOGIC_EXCEEDS_LIMIT',
+      'CONDITION_LOGIC_INVALID',
+      'CONDITION_LOGIC_MISSING',
+      'CONDITION_MISSING_DATATYPE',
+      'CONDITION_MISSING_OPERATOR',
+      'CONDITION_OPERAND_DATATYPES_INCOMPATIBLE',
+      'CONDITION_OPERAND_INCOMPATIBLE_WITH_ELEMENT',
+      'CONDITION_OPERATOR_INCOMPATIBLE',
+      'CONDITION_REFERENCED_ELEMENT_NOT_FOUND',
+      'CONDITION_RIGHTOPERAND_NULL',
+      'CONDITION_TRAVERSAL_TOO_DEEP',
+      'CONNECTOR_MISSING_TARGET',
+      'CONSTANT_INCLUDES_REFERENCES',
+      'CONTENT_KEY_OR_ID_NOT_FOUND',
+      'CUSTOMEVENTS_NOT_ENABLED',
+      'CUSTOMEVENT_MISSING_PROCESSMETADATAVALUES',
+      'CUSTOMEVENT_OBJECTTYPE_NOT_FOUND',
+      'CUSTOMEVENT_OBJECTTYPE_NOT_SUPPORTED',
+      'CUSTOMEVENT_PROCESSMETADATAVALUES_MISSING_NAME',
+      'CUSTOMEVENT_PROCESSMETADATAVALUES_MORE_THAN_ONE_NAME',
+      'CUSTOM_PROPERTY_INVALID_KEY',
+      'CUSTOM_PROPERTY_INVALID_KEY_VALUE_PAIR',
+      'CUSTOM_PROPERTY_INVALID_NAME',
+      'CUSTOM_PROPERTY_INVALID_VALUE',
+      'CUSTOM_PROPERTY_INVALID_VALUE_FOR_KEY',
+      'CUSTOM_PROPERTY_NOT_SUPPORTED',
+      'CUSTOM_PROPERTY_REQUIRED_KEY_MISSING',
+      'DATATYPE_INVALID',
+      'DATATYPE_MAPPING_BOTH_APEXCLASS_AND_SOBJECT_NOT_SUPPORTED',
+      'DATATYPE_MISSING',
+      'DATA_GRAPH_DATA_CHANGE_DEFAULT_DATA_SPACE_NOT_USED',
+      'DATA_GRAPH_DATA_CHANGE_ROOT_DMO_MISMATCH',
+      'DATA_GRAPH_DATA_CHANGE_TRIGGERING_DATA_GRAPH_NULL',
+      'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED',
+      'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED_FOR_PATH_EXPERIMENT',
+      'DATA_TYPE_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'DATA_TYPE_NOT_SUPPORTED_IN_CONDITION',
+      'DECISION_DEFAULT_CONNECTOR_MISSING_LABEL',
+      'DECISION_MISSING_OUTCOME',
+      'DETERMINATION_FLOW_ACTION_TYPE_REQUIRED',
+      'DUPLICATE_CUSTOM_PROPERTY_NAME',
+      'DUPLICATE_QUESTION_NOT_ALLOWED',
+      'DYNAMIC_TYPE_MAPPING_MISSING',
+      'EITHER_CONDITIONS_OR_ACTION_NOT_SUPPORTED',
+      'ELEMENT_CONNECTS_TO_SELF',
+      'ELEMENT_COORDINATES_INVALID',
+      'ELEMENT_INVALID_CONNECTOR',
+      'ELEMENT_INVALID_REFERENCE',
+      'ELEMENT_INVALID_REFERENCE_FOR_CONFLICTING_FIELD_VALUE',
+      'ELEMENT_MISSING_CONNECTOR',
+      'ELEMENT_MISSING_LABEL',
+      'ELEMENT_MISSING_NAME',
+      'ELEMENT_MISSING_REFERENCE',
+      'ELEMENT_MORE_THAN_ONE_FIELD',
+      'ELEMENT_NAME_INVALID',
+      'ELEMENT_NEVER_USED',
+      'ELEMENT_NOT_SUPPORTED_IN_SUBFLOW_FOR_TRIGGER_TYPE',
+      'ELEMENT_REQUIRES_PERM',
+      'ELEMENT_SCALE_SMALLER_THAN_DEFAULTVALUE',
+      'ELEMENT_SUBTYPE_NOT_SUPPORTED_FOR_ELEMENTTYPE',
+      'ELEMENT_SUBTYPE_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'ELEMENT_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'ENTRY_CONDITION_CONFLICTING_FILTERS',
+      'ENVIRONMENTS_VALUE_CHANGED',
+      'ENVIRONMENT_PERMISSION_REQUIRED',
+      'EXTERNAL_OBJECTS_NOT_SUPPORTED',
+      'EXTERNAL_OBJECT_FIELDS_NOT_SUPPORTED',
+      'EXTERNAL_SYSTEM_FLOW_INVALID_POLLING_FREQUENCY',
+      'EX_AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE',
+      'FAULT_CONNECTOR_NOT_SUPPORTED_FOR_PROCESS_TYPE',
+      'FEATURE_DISABLED',
+      'FIELDASSIGNMENT_FIELD_INCOMPATIBLE_DATATYPE',
+      'FIELDASSIGNMENT_INVALID_DATATYPE',
+      'FIELDASSIGNMENT_INVALID_ELEMENT',
+      'FIELDASSIGNMENT_INVALID_REFERENCE',
+      'FIELDASSIGNMENT_MULTIPLE_REFERENCES_SAME_FIELD',
+      'FIELDASSIGNMENT_PICKLISTFIELD_INCOMPATIBLE_DATATYPE',
+      'FIELDASSIGNMENT_REFERENCED_ELEMENT_MISSING_DATATYPE',
+      'FIELDSERVICE_UNSUPPORTED_FIELD_TYPE',
+      'FIELD_INVALID_VALUE',
+      'FIELD_NOT_FOUND',
+      'FIELD_RELATIONSHIP_NOT_SUPPORTED',
+      'FIELD_REQUIRES_PERM',
+      'FIELD_TYPE_NOT_SUPPORTED_AS_CHILD_OF_SCREENFIELD_REGION_OR_REGIONCONTAINER',
+      'FIELD_TYPE_NOT_SUPPORTED_AS_PARENT',
+      'FIELD_TYPE_UNSUPPORTED',
+      'FIELD_VALUE_REQUIRES_PERM',
+      'FLEXIPAGE_COMPONENT_ATTRIBUTE_EXPRESSION_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_ATTRIBUTE_GENERIC_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_ATTRIBUTE_MISSING_REQUIRED',
+      'FLEXIPAGE_COMPONENT_ATTRIBUTE_TOO_LONG',
+      'FLEXIPAGE_COMPONENT_CUSTOM_VALIDATION_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_DESIGN_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_EVENT_DUPLICATE_TARGET_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_EVENT_EMPTY_TARGET_MAPPING_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_EVENT_INVALID_FORMFACTOR_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_EVENT_INVALID_SERVICE_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_EVENT_SOURCE_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_MAX_LIMIT_EXCEPTION',
+      'FLEXIPAGE_COMPONENT_RULE_VALIDATION_EXCEPTION',
+      'FLEXIPAGE_DUPLICATE_PROPERTY_COMPONENT_EXCEPTION',
+      'FLEXIPAGE_EVENT_ATTRIBUTE_GENERIC_EXCEPTION',
+      'FLEXIPAGE_INVALID_ITEM_INSTANCE_TYPE_EXCEPTION',
+      'FLEXIPAGE_INVALID_PROPERTY_TYPE_COMPONENT_EXCEPTION',
+      'FLEXIPAGE_INVALID_PROPERTY_TYPE_EVENT_TARGET_EXCEPTION',
+      'FLEXIPAGE_ITEM_INSTANCE_CUSTOM_VALIDATION_EXCEPTION',
+      'FLEXIPAGE_MAX_INTERACTIONS_EXCEPTION',
+      'FLEXIPAGE_PICKLIST_INVALID_VALUE_EXCEPTION',
+      'FLEXIPAGE_RENAMED_COMPONENT_VALIDATION_EXCEPTION',
+      'FLEXIPAGE_TEMPLATE_INVALID_SWITCH',
+      'FLOW_ALREADY_OVERRIDDEN',
+      'FLOW_CAPABILITY_INPUT_DATA_TYPE_INVALID',
+      'FLOW_CAPABILITY_INPUT_INVALID',
+      'FLOW_CAPABILITY_INPUT_MISSING',
+      'FLOW_CAPABILITY_INVALID',
+      'FLOW_CAPABILITY_MISSING',
+      'FLOW_COMPLEX_VALUE_COLLECTION_TYPE_EXPECTED',
+      'FLOW_COMPLEX_VALUE_INVALID',
+      'FLOW_COMPLEX_VALUE_INVALID_JSON',
+      'FLOW_COMPLEX_VALUE_INVALID_MERGE_FIELD',
+      'FLOW_COMPLEX_VALUE_NOT_SUPPORTED',
+      'FLOW_COMPLEX_VALUE_SCALAR_TYPE_EXPECTED',
+      'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_INVALID',
+      'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_MISSING',
+      'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_INVALID',
+      'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_MISSING',
+      'FLOW_CONDITION_INVALID_FIELD',
+      'FLOW_CONDITION_MISSING_FIELD',
+      'FLOW_CONDITION_NESTING_LIMIT_EXCEEDED',
+      'FLOW_CONTEXT_RECORD_ASSIGNMENT_VARIABLE_INVALID',
+      'FLOW_CUSTOM_ERROR_COMPOUND_FIELD_NOT_SUPPORTED',
+      'FLOW_CUSTOM_ERROR_EMPTY_MESSAGES_LIST',
+      'FLOW_CUSTOM_ERROR_INVALID_OR_INCOMPLETE_FIELD',
+      'FLOW_CUSTOM_ERROR_MULTIPLE_ERRORS_ON_FIELD',
+      'FLOW_CUSTOM_ERROR_MULTIPLE_PAGE_ERRORS_EXCEPTION',
+      'FLOW_CUSTOM_ERROR_NO_FIELD_SELECTION_FOR_FIELD_ERROR',
+      'FLOW_ELEMENT_SCALE_LESS_THAN_ZERO',
+      'FLOW_EXCEEDED_EXITRULE_MAX_COUNT',
+      'FLOW_EXITRULE_EXECUTION_DELAY_WARNING',
+      'FLOW_EXITRULE_WITH_NO_CONDITION',
+      'FLOW_EXPERIMENT_DATA_GRAPH_NAME_NOT_SET',
+      'FLOW_EXPERIMENT_DURATION_INVALID_VALUE',
+      'FLOW_EXPERIMENT_DURATION_UNIT_INVALID_VALUE',
+      'FLOW_EXPERIMENT_GO_TO_NOT_SUPPORTED',
+      'FLOW_EXPERIMENT_INVALID_TOTAL_PATH_PERCENTAGE',
+      'FLOW_EXPERIMENT_IS_NOT_ALLOWED_WITH_PENDING_DML',
+      'FLOW_EXPERIMENT_NESTING_IN_SUBFLOW_NOT_SUPPORTED',
+      'FLOW_EXPERIMENT_NESTING_NOT_SUPPORTED',
+      'FLOW_EXPERIMENT_PATHS_COUNT_ABOVE_MAXIMUM',
+      'FLOW_EXPERIMENT_PATHS_COUNT_BELOW_MINIMUM',
+      'FLOW_EXPERIMENT_PATH_PERCENTAGE_INVALID',
+      'FLOW_EXPERIMENT_PERSONALIZATION_SETUP_INCOMPLETE',
+      'FLOW_EXPERIMENT_TEST_GROUP_NOT_SUPPORTED',
+      'FLOW_EXPERIMENT_TEST_GROUP_PERCENTAGE_INVALID_VALUE',
+      'FLOW_FORMULA_FIELD_MISSING',
+      'FLOW_FORMULA_NOT_SUPPORTED',
+      'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_CALLOUTS',
+      'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_OBJECTS',
+      'FLOW_INCLUDES_STEP',
+      'FLOW_INLINE_TRANSFORM_API_VERSION_NOT_SUPPORTED',
+      'FLOW_INLINE_TRANSFORM_NOT_SUPPORTED',
+      'FLOW_INPUTPARAM_MISMATCHED_APEX_CLASS',
+      'FLOW_INTERVIEW_BULK_EXECUTION',
+      'FLOW_INTERVIEW_HANDLED_ERROR',
+      'FLOW_INTERVIEW_INPUT_VALIDATION',
+      'FLOW_INTERVIEW_INTERACTION_NOT_FOUND',
+      'FLOW_INTERVIEW_INVALID_CHOICE_USER_INPUT',
+      'FLOW_INTERVIEW_INVALID_FIELD_VALUE',
+      'FLOW_INTERVIEW_INVALID_START_REQUEST',
+      'FLOW_INTERVIEW_LIMIT_EXCEEDED',
+      'FLOW_INTERVIEW_MISSING_CHOICE_FOR_REQUIRED_CHOICE_FIELD',
+      'FLOW_INTERVIEW_MISSING_VALUE_FOR_REQUIRED_INPUT_FIELD',
+      'FLOW_INTERVIEW_NAVIGATE',
+      'FLOW_INTERVIEW_RANGE_VALIDATION',
+      'FLOW_INTERVIEW_RECOVERABLE_ERROR',
+      'FLOW_INTERVIEW_REGEX_VALIDATION',
+      'FLOW_INTERVIEW_RESUME_INTERVIEW',
+      'FLOW_INTERVIEW_SAVE_RESULT',
+      'FLOW_INTERVIEW_SET_CHOICE_SELECTED',
+      'FLOW_INTERVIEW_START_INTERVIEW',
+      'FLOW_INTERVIEW_TYPE_CONVERSION',
+      'FLOW_INVALID_EVENT_NAME',
+      'FLOW_INVALID_EVENT_TYPE',
+      'FLOW_INVALID_NAME',
+      'FLOW_METRICS_NOT_SUPPORTED',
+      'FLOW_NAME_USED_IN_OTHER_CLIENT',
+      'FLOW_ORCHESTRATOR_FREEMIUM_PRODUCT',
+      'FLOW_OVERRIDABLE_CANNOT_BE_OVERRIDE',
+      'FLOW_OVERRIDABLE_CANNOT_BE_TEMPLATE',
+      'FLOW_OVERRIDDEN_FLOW_INVALID_REFERENCE',
+      'FLOW_OVERRIDE_EXTRA_VARIABLE',
+      'FLOW_OVERRIDE_INCOMPATIBLE_PROCESS_TYPE',
+      'FLOW_OVERRIDE_INCOMPATIBLE_TYPE',
+      'FLOW_OVERRIDE_INCOMPATIBLE_VARIABLE',
+      'FLOW_RECORD_LOOKUP_LIMIT_NOT_SUPPORTED',
+      'FLOW_RECORD_LOOKUP_LIMIT_OUT_OF_RANGE',
+      'FLOW_RECORD_PRIOR_AUTOLAUNCH_UPDATE_ONLY',
+      'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_CREATE',
+      'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_DELETE',
+      'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_UPDATE',
+      'FLOW_RECORD_PRIOR_READ_ONLY',
+      'FLOW_REFERENCES_APEX_CLASS_NOT_IN_SAME_PACKAGE',
+      'FLOW_RESOURCE_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'FLOW_RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED_FOR_RECORD_PRIOR',
+      'FLOW_RUN_AS_SYSTEM_MODE_WITHOUT_CONTEXT_WARNING',
+      'FLOW_RUN_AS_SYSTEM_MODE_WITH_CONTEXT_WARNING',
+      'FLOW_SCHEDULED_PATH_ALLOWED_ONE_ASYNCAFTERCOMMIT_PATH',
+      'FLOW_SCHEDULED_PATH_ASYNCAFTERCOMMIT_REQUIRES_RECORD_CHANGED_OR_ISCHANGED',
+      'FLOW_SCHEDULED_PATH_CANNOT_USE_IS_CHANGED',
+      'FLOW_SCHEDULED_PATH_INCOMPATIBLE_TIME_SOURCE',
+      'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WHEN_DECISION_REQUIRES_RECORD_CHANGED',
+      'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WITH_FLOW_TRIGGER_TYPE',
+      'FLOW_SCHEDULED_PATH_INCOMPATIBLE_WITH_RECORD_PRIOR',
+      'FLOW_SCHEDULED_PATH_INVALID_BATCH_SIZE',
+      'FLOW_SCHEDULED_PATH_INVALID_OFFSET',
+      'FLOW_SCHEDULED_PATH_REQUIRED_FIELDS_MISSING',
+      'FLOW_SCHEDULED_PATH_REQUIRES_DEFAULT_WORKFLOW_USER',
+      'FLOW_SCHEDULED_PATH_REQUIRES_RECORD_CHANGED_TO_MEET_CRITERIA',
+      'FLOW_SCHEDULE_INFORMATION_INCOMPLETE',
+      'FLOW_SEGMENT_AND_DG_NOT_MATCH_ON_DMO',
+      'FLOW_SOBJECT_VARIABLE_NOT_PERSISTED',
+      'FLOW_SOURCE_TEMPLATE_INVALID_REFERENCE',
+      'FLOW_STAGE_INCLUDES_REFERENCES',
+      'FLOW_STAGE_ORDER_DUPLICATE',
+      'FLOW_STAGE_ORDER_OUT_OF_RANGE',
+      'FLOW_START_INPUT_INVALID_INPUT',
+      'FLOW_START_INPUT_INVALID_TYPE',
+      'FLOW_START_INPUT_NOT_ALLOWED',
+      'FLOW_START_INPUT_REQUIRED',
+      'FLOW_SYSTEM_VARIABLE_NOT_SUPPORTED_FOR_TRIGGERTYPE',
+      'FLOW_TEST_API_NAME_DUPLICATED',
+      'FLOW_TEST_ASSERTION_MISSING',
+      'FLOW_TEST_ASSERTION_NOT_SUPPORTED',
+      'FLOW_TEST_CONDITION_INCOMPATIBLE',
+      'FLOW_TEST_CONDITION_INVALID_DATATYPE_MAPPING',
+      'FLOW_TEST_CONDITION_LIMIT',
+      'FLOW_TEST_CONDITION_NOT_SUPPORTED',
+      'FLOW_TEST_DATATYPE_INVALID',
+      'FLOW_TEST_FLOW_INVALID',
+      'FLOW_TEST_IMMEDIATE_PATH_MISSING',
+      'FLOW_TEST_MERGE_FIELD_INVALID',
+      'FLOW_TEST_MERGE_FIELD_NOT_SUPPORTED',
+      'FLOW_TEST_OPERATOR_INVALID',
+      'FLOW_TEST_PARAMETER_DUPLICATED',
+      'FLOW_TEST_PARAMETER_INCOMPATIBLE',
+      'FLOW_TEST_PARAMETER_INVALID',
+      'FLOW_TEST_PARAMETER_LEFTVALUEREFERENCE_INVALID',
+      'FLOW_TEST_PARAMETER_MISSING',
+      'FLOW_TEST_PARAMETER_NOT_SUPPORTED',
+      'FLOW_TEST_PARAMETER_TYPE_INVALID',
+      'FLOW_TEST_PARAMETER_VALUE_INVALID',
+      'FLOW_TEST_PARAMETER_VALUE_MISSING',
+      'FLOW_TEST_PARAMS_REQUIRED',
+      'FLOW_TEST_POINTS_DUPLICATED',
+      'FLOW_TEST_POINT_MISSING',
+      'FLOW_TEST_POINT_NOT_SUPPORTED',
+      'FLOW_TEST_PROCESSTYPE_INVALID',
+      'FLOW_TEST_RIGHTVALUE_INVALID',
+      'FLOW_TRANSFORM_AGGR_COLL_NUM_OF_REF',
+      'FLOW_TRANSFORM_AGGR_SOURCE_INVALID',
+      'FLOW_TRANSFORM_APEX_CLASS_INCOMPATIBLE',
+      'FLOW_TRANSFORM_API_VERSION_NOT_SUPPORTED',
+      'FLOW_TRANSFORM_ASSIGN_TO_REFERENCE_UNSUPPORTED',
+      'FLOW_TRANSFORM_COLL_DEPTH_UP_TO_TWO',
+      'FLOW_TRANSFORM_COLL_INVALID',
+      'FLOW_TRANSFORM_COLL_UNAVAILABLE',
+      'FLOW_TRANSFORM_COMPOUND_FIELD_UNSUPPORTED',
+      'FLOW_TRANSFORM_ELEMENT_REFERENCE_INVALID',
+      'FLOW_TRANSFORM_ELEMENT_REFERENCE_TYPE_INCOMPATIBLE',
+      'FLOW_TRANSFORM_FIELD_INVALID',
+      'FLOW_TRANSFORM_FIELD_MISSING_INPUT_PARAMETER',
+      'FLOW_TRANSFORM_FMLAFOR_COLL_NOT_SUPP',
+      'FLOW_TRANSFORM_FMLA_COLL_MULT_RSRC',
+      'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_INVALID',
+      'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_MISSING',
+      'FLOW_TRANSFORM_INPUT_PARAM_DUPLICATED',
+      'FLOW_TRANSFORM_INPUT_PARAM_INVALID',
+      'FLOW_TRANSFORM_INPUT_PARAM_MISSING',
+      'FLOW_TRANSFORM_INVALID_INPUT_PARAMETER_VALUE',
+      'FLOW_TRANSFORM_INVALID_JOIN_KEYS',
+      'FLOW_TRANSFORM_INVALID_MULTIPLE_TRANSFORM_VALUE_ACTIONS',
+      'FLOW_TRANSFORM_INVALID_TARGET_FIELD',
+      'FLOW_TRANSFORM_JOIN_DUPLICATE_SELECTED_FIELD',
+      'FLOW_TRANSFORM_JOIN_INVALID_SELECTED_FIELD',
+      'FLOW_TRANSFORM_JOIN_KEY_UNSUPPORTED',
+      'FLOW_TRANSFORM_JOIN_MISSING_SELECTED_FIELDS',
+      'FLOW_TRANSFORM_JOIN_NOT_SUPPORTED',
+      'FLOW_TRANSFORM_MAP_COLL_MISSING',
+      'FLOW_TRANSFORM_MAP_COLL_MISSING_SOURCE',
+      'FLOW_TRANSFORM_MAP_COLL_MULT_SOURCE',
+      'FLOW_TRANSFORM_MAP_COLL_NUM_OF_REF',
+      'FLOW_TRANSFORM_MAP_COLL_RELA_RECORDS',
+      'FLOW_TRANSFORM_MAP_COL_PRIMITIVE_INCOMPA',
+      'FLOW_TRANSFORM_MAP_RSRC_TYPE_NOT_SUPPORTED',
+      'FLOW_TRANSFORM_MAP_STATIC_VAL_COLL_MISSING',
+      'FLOW_TRANSFORM_MISSING_JOIN_FIELD_MAPPING',
+      'FLOW_TRANSFORM_OUTPUT_FIELD_API_NAME_INVALID',
+      'FLOW_TRANSFORM_REQUIRES_AUTOMATIC_OUTPUT',
+      'FLOW_TRANSFORM_SPLIT_JOIN_FIELD_MAPPING',
+      'FLOW_TRANSFORM_SUM_SOURCE_TYPE_INVALID',
+      'FLOW_TRANSFORM_TYPE_NAME_DUPLICATED',
+      'FLOW_TRANSFORM_TYPE_NOT_SUPPORTED',
+      'FLOW_TRANSFORM_UNEXPECTED_AUTO_PARAMS',
+      'FLOW_TRANSFORM_VALUES_MISSING',
+      'FLOW_TRANSFORM_VALUE_INVALID',
+      'FLOW_TRANSFORM_VAL_NAME_NOT_SUPPORTED',
+      'FLOW_TRANSFORM_VAL_REF_NOT_SUPPORTED',
+      'FLOW_TRIGGER_DERIVED_FIELD_NOT_SUPPORTED',
+      'FLOW_TRIGGER_ORDER_OUT_OF_BOUNDS',
+      'FLOW_TRIGGER_TYPE_INCOMPATIBLE_WITH_RECORD_TRIGGER_TYPE',
+      'FLOW_UPSERT_EXTERNAL_ID_FIELD_INVALID',
+      'FLOW_UPSERT_EXTERNAL_ID_FIELD_NOT_UNIQUE',
+      'FLOW_UPSERT_STANDARD_FIELD_INVALID',
+      'FLOW_UPSERT_STANDARD_ID_FIELD_IDLOOKUP_FALSE',
+      'FLOW_UPSERT_UNIQUE_ID_CONFLICT',
+      'FORMULA_CMT_LIMIT_EXCEEDED',
+      'FORMULA_EXPRESSION_INVALID',
+      'FORM_ALREADY_IN_USE_BY_DRAFT_VERSION',
+      'FORM_ALREADY_IN_USE_BY_FLOW',
+      'FTEST_EXTENSION_CODE_FOR_TEST',
+      'GLOBAL_VARIABLE_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'GOTO_NOT_SUPPORTED_FOR_PROCESS_TYPE',
+      'HELP_TEXT_NOT_SUPPORTED_FOR_SCREEN_FIELD',
+      'HTTP_METHOD_NOT_SUPPORTED',
+      'INACCESSIBLE_EVENT_TYPE',
+      'INCONSISTENT_ACTION_VERSIONS',
+      'INCONSISTENT_DYNAMIC_TYPE_MAPPING',
+      'INCONSISTENT_VALUE_FOR_DYNAMIC_VALUE_FIELD',
+      'INDIVIDUAL_CONTACT_POINT_NOT_FOUND',
+      'INDIVIDUAL_NOT_FOUND',
+      'INPUTPARAM_CONFIGURATION_NOT_FOUND',
+      'INPUTPARAM_INCOMPATIBLE_CONFIGURATION_ONLY',
+      'INPUTPARAM_INCOMPATIBLE_DATATYPE',
+      'INPUTPARAM_INCOMPATIBLE_WITH_COLLECTION_VARIABLE',
+      'INPUTPARAM_INCOMPATIBLE_WITH_NONCOLLECTION_VARIABLE',
+      'INPUTPARAM_MISMATCHED_OBJECTTYPE',
+      'INPUTPARAM_VARIABLE_MISSING',
+      'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_DYNAMIC_ACTION',
+      'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_DYNAMIC_ACTION',
+      'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'INSUFFICIENT_ACCESS_FOR_UPSERT',
+      'INVALID_ACTION_TYPE_FOR_STEP',
+      'INVALID_ASSIGNEE',
+      'INVALID_CONTENT_TYPE',
+      'INVALID_EMAIL_ADDRESS',
+      'INVALID_ENVIRONMENTS_VALUE',
+      'INVALID_FLOW',
+      'INVALID_FLOW_INTERVIEW',
+      'INVALID_ID',
+      'INVALID_INPUT',
+      'INVALID_OPERATION_TYPE',
+      'INVALID_ORCH_ASSIGNEE_TYPE_FOR_PACKAGE',
+      'INVALID_PROCESSTYPE_ENVIRONMENT_COMBINATION',
+      'INVALID_QUERY_LOCATOR_FORMAT',
+      'INVALID_REGEX_IN_SURVEY_QUESTIONS',
+      'INVALID_RUN_CONTEXT',
+      'INVALID_SEGMENT_STATUS_FOR_ACTIVATION',
+      'INVALID_SENDER_TYPE',
+      'INVALID_SETUP_REFERENCE_TYPE',
+      'INVALID_STAGE_REFERENCE',
+      'INVALID_STAGE_STEP_ASSIGNEE_TYPE',
+      'INVALID_SURVEY_VARIABLE_NAME_OR_TYPE',
+      'INVALID_TIME_ZONE',
+      'INVALID_TYPE',
+      'INVOCABLE_ACTION_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'LOCATOR_LOCATION_EXCEEDS_SIZE',
+      'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_APEXCLASSTYPE',
+      'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_DATATYPE',
+      'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_OBJECTTYPE',
+      'LOOP_ASSIGNNEXTVALUETO_MISSING',
+      'LOOP_ASSIGNNEXTVALUETO_MISSING_VARIABLE',
+      'LOOP_ASSIGNNEXTVALUETO_REFERENCE_NOT_FOUND',
+      'LOOP_COLLECTION_ELEMENT_NOT_FOUND',
+      'LOOP_COLLECTION_NOT_FOUND',
+      'LOOP_COLLECTION_NOT_SUPPORTED_FOR_FIELD',
+      'LOOP_MISSING_COLLECTION',
+      'MANAGEDCONTENT_STATUS_INVALID',
+      'MANUAL_VARIABLE_ASSIGNMENT_NOT_SUPPORTED',
+      'MAX_CHILD_TYPES',
+      'MAX_EXTERNAL_REFERENCES_IN_QUERY',
+      'MAX_STATEMENT_SIZE',
+      'MERGE_FIELD_NOT_SUPPORTED_IN_ACTION',
+      'MESSAGING_API_ENTITLEMENT_REACHED',
+      'MESSAGING_INACTIVE_CHANNEL',
+      'MISSING_ASSIGNEE',
+      'MISSING_ASSIGNEE_TYPE',
+      'MISSING_EMAIL_RECIPIENTS',
+      'MISSING_FLOW_TRANSFORM_SUM_FIELD',
+      'MISSING_MULESOFT_STEP_ASSIGNEE',
+      'MULTIPLE_ASSIGNEES_NOT_ALLOWED',
+      'NON_EXPOSED_COMPONENT_IN_FLOW',
+      'NON_GLOBAL_COMPONENT_IN_EXPORTED_FLOW',
+      'NUMBER_OF_SCREENFIELD_REGIONS_EXCEEDS_LIMIT',
+      'OBJECTTYPE_INVALID',
+      'OBJECT_CANNOT_BE_CREATED',
+      'OBJECT_CANNOT_BE_DELETED',
+      'OBJECT_CANNOT_BE_QUERIED',
+      'OBJECT_CANNOT_BE_UPDATED',
+      'OBJECT_ENCRYPTED_FIELDS_NOT_SUPPORTED',
+      'OBJECT_NOT_FOUND',
+      'OBJECT_TYPE_DOES_NOT_EXIST',
+      'OBJECT_TYPE_NOT_CDC_ENABLED',
+      'ORCHESTRATION_CAN_ASSIGNEE_EDIT_NOT_SUPPORTED',
+      'ORCHESTRATION_REQUIRESASYNCPROCESSING_NOT_SUPPORTED',
+      'ORCHESTRATION_REQUIRESASYNCPROCESSING_REQUIRED',
+      'ORCHESTRATION_STEP_LOCK_RECORD_NOT_SUPPORTED',
+      'ORG_WIDE_EMAIL_INVALID',
+      'ORG_WIDE_EMAIL_NOT_USED',
+      'OUTPUTPARAM_ASSIGNTOREFERENCE_INVALID',
+      'OUTPUTPARAM_ASSIGNTOREFERENCE_NOTFOUND',
+      'OUTPUTPARAM_INCOMPATIBLE_DATATYPE',
+      'OUTPUTPARAM_MISMATCHED_OBJECTTYPE',
+      'OUTPUTPARAM_MISMATCHED_WITH_COLLECTION_VARIABLE',
+      'OUTPUTPARAM_MISSING_ASSIGNTOREFERENCE',
+      'OUTPUTPARAM_MISTMATCHED_WITH_NONCOLLECTION_VARIABLE',
+      'PARAM_DATATYPE_NOT_SUPPORTED',
+      'PAST_SCHEDULE_FLOW_WILL_NOT_RUN',
+      'PLATFORM_EVENT_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER',
+      'PRICE_ADJUSTMENT_TIER_VALIDATION_ERROR',
+      'PROCESSMETADATAVALUES_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'PROCESSMETADATAVALUE_NONEXISTENT_ELEMENT',
+      'PROCESSTYPE_COMPONENTTYPE_NOT_SUPPORTED',
+      'PROCESSTYPE_ELEMENT_CONFIG_NOT_SUPPORTED',
+      'PROCESSTYPE_ELEMENT_NOT_SUPPORTED',
+      'PROCESSTYPE_EVALUATIONFLOW_REQUIRED',
+      'PROCESSTYPE_NOT_SUPPORTED',
+      'PROCESSTYPE_SCREEN_FIELDTYPE_NOT_SUPPORTED',
+      'PROCESS_TYPE_ELEMENT_ATTRIBUTE_REQUIRED',
+      'PROCESS_TYPE_INCOMPATIBLE',
+      'PROGRESS_INDICATOR_NOT_SUPPORTED',
+      'PROMPT_FLOW_CONTAINS_INVALID_VARIABLE',
+      'PROMPT_FLOW_INPUT_TYPE_CONFLICT',
+      'QUERY_LOCATOR_EXPIRED',
+      'QUERY_LOCATOR_NOT_FOUND',
+      'QUEUE_DOES_NOT_SUPPORT_ORCHESTRATION_WORK_ITEMS',
+      'RECOMMENDATION_STRATEGY_EXCEPTION',
+      'RECORDFILTER_ENCRYPTED_FIELDS_NOT_SUPPORTED',
+      'RECORDFILTER_GEOLOCATION_FIELDS_NOT_SUPPORTED',
+      'RECORDFILTER_INVALID_DATATYPE',
+      'RECORDFILTER_INVALID_ELEMENT',
+      'RECORDFILTER_INVALID_OPERATOR',
+      'RECORDFILTER_INVALID_REFERENCE',
+      'RECORDFILTER_MISSING_DATATYPE',
+      'RECORDFILTER_MULTIPLE_QUERIES_SAME_FIELD',
+      'RECORDFILTER_NON_PRIMITIVE',
+      'RECORDLOOKUP_IDASSIGNMENT_VARIABLE_INCOMPATIBLE_DATATYPE',
+      'RECORDLOOKUP_IDASSIGNMENT_VARIABLE_NOT_FOUND',
+      'RECORDUPDATE_MISSING_FILTERS',
+      'RECORD_CHANGE_LISTENER_CONDITIONS_NON_RECORD_GLOBAL_VARIABLE',
+      'RECORD_CHANGE_LISTENER_CONDITIONS_NOT_SUPPORTED',
+      'RECORD_CHANGE_LISTENER_CONDITIONS_THRESHOLD_BREACHED',
+      'RECORD_CREATE_MISSING_FILTERS',
+      'RECORD_PRIOR_VALUE_REMAIN_SAME_BEFORE_TRIGGER',
+      'REFERENCED_ELEMENT_NOT_FOUND',
+      'REFERENCE_NOT_SUPPORTED',
+      'REPEATER_API_VERSION_NOT_SUPPORTED',
+      'REPEATER_API_VERSION_UPGRADE',
+      'REPEATER_COMPONENT_CURRENTLY_NOT_SUPPORTED',
+      'REPEATER_DATA_SOURCE_INCOMPATIBLE_TYPE',
+      'REPEATER_REMOVED_FIELD_INVALID',
+      'REQUIRED_VARIABLE_INVALID',
+      'REQUIRED_VARIABLE_MISSING',
+      'RESOURCE_NOT_SUPPORTED',
+      'RPA_FLOW_ROBOT_POOL_INFORMATION_INCOMPLETE',
+      'RULE_MISSING_CONDITION',
+      'RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED',
+      'RUN_AS_USER_NOT_SUPPORTED',
+      'RUN_AS_USER_REQUIRED_WHEN_SPECIFYING_ASSIGNEE',
+      'SCHEDULE_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER',
+      'SCREENACTION_CALLS_FLOW_WITH_INSECURE_RUN_AS_MODE',
+      'SCREENACTION_INVALID_INPUT_PARAM',
+      'SCREENACTION_MISSING_REQUIRED_NAME',
+      'SCREENACTION_MISSING_REQUIRED_TYPE',
+      'SCREENACTION_NOT_SUPPORTED_IN_ORG',
+      'SCREENACTION_TRIGGER_EVENT_SOURCE_NOT_ON_SAME_SCREEN',
+      'SCREENACTION_TRIGGER_HANDLER_EXCEEDS_CONDITION_LIMIT',
+      'SCREENACTION_TRIGGER_HANDLER_NOT_VALID_SCREEN_ACTION',
+      'SCREENACTION_TYPE_NOT_SUPPORTED_IN_ORG',
+      'SCREENCOMPONENT_CONTAINS_VISIBILITY_RULE',
+      'SCREENFIELD_API_VERSION_NOT_SUPPORTED',
+      'SCREENFIELD_BOOLEAN_ISREQUIRED_IS_FALSE',
+      'SCREENFIELD_CANNOT_HAVE_BOTH_DEFAULTVALUE_AND_DEFAULTSELECTEDCHOICEREFERENCE',
+      'SCREENFIELD_DEFAULTVALUE_NOT_SUPPORTED',
+      'SCREENFIELD_EXTENSION_DUPLICATE_INPUT_PARAM',
+      'SCREENFIELD_EXTENSION_DUPLICATE_OUTPUT_PARAM',
+      'SCREENFIELD_EXTENSION_IMPLEMENTATION_INVALID',
+      'SCREENFIELD_EXTENSION_INPUT_ATTRIBUTE_INVALID',
+      'SCREENFIELD_EXTENSION_NAME_INVALID',
+      'SCREENFIELD_EXTENSION_NAME_MISSING',
+      'SCREENFIELD_EXTENSION_NAME_NOT_SUPPORTED',
+      'SCREENFIELD_EXTENSION_OUTPUT_ATTRIBUTE_INVALID',
+      'SCREENFIELD_EXTENSION_REQUIRED_INPUT_MISSING',
+      'SCREENFIELD_INPUTS_NOT_SUPPORTED',
+      'SCREENFIELD_INPUTS_ON_NEXT_NAV_TO_ASSOC_SCRN_NOT_SUPPORTED',
+      'SCREENFIELD_INVALID_DATATYPE',
+      'SCREENFIELD_MULTISELECTCHOICE_SEMICOLON_NOT_SUPPORTED',
+      'SCREENFIELD_OBJECTFIELDREFERENCE_INVALID_FORMAT',
+      'SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_DEFAULTVALUE',
+      'SCREENFIELD_OBJECTPROVIDED_CANNOT_HAVE_HELPTEXT',
+      'SCREENFIELD_OBJECTPROVIDED_INVALID_DATATYPE',
+      'SCREENFIELD_OBJECTPROVIDED_ISREQUIRED_NOT_SUPPORTED',
+      'SCREENFIELD_OBJECTPROVIDED_LIGHTNING_RUNTIME_DISABLED',
+      'SCREENFIELD_OBJECTPROVIDED_MISSING_OBJECTFIELDREFERENCE',
+      'SCREENFIELD_OUTPUTS_NOT_SUPPORTED',
+      'SCREENFIELD_REGION_CONTAINS_DUPLICATE_INPUT_PARAMETER_VALUES',
+      'SCREENFIELD_REGION_INPUT_PARAMETER_NOT_SUPPORTED',
+      'SCREENFIELD_REGION_MISSING_REQUIRED_PERMISSIONS',
+      'SCREENFIELD_REGION_NOT_IN_CONTAINER',
+      'SCREENFIELD_REGION_REQUIRED_INPUT_PARAMETER_MISSING',
+      'SCREENFIELD_REGION_WIDTH_SUM_EXCEEDS_LIMIT',
+      'SCREENFIELD_REGION_WIDTH_VALUE_INVALID',
+      'SCREENFIELD_TYPE_NOT_SUPPORTED',
+      'SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_API_VERSION',
+      'SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'SCREENFIELD_USERINPUT_NOT_SUPPORTED_FOR_CHOICETYPE',
+      'SCREENFIELD_VALIDATIONRULE_NOT_SUPPORTED',
+      'SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_ENVIRONMENT',
+      'SCREENFIELD_VALIDATION_RULES_NOT_SUPPORTED_FOR_EXTENSIONS_WITHOUT_OUTPUTS',
+      'SCREENFOOTER_MERGEFIELD_NOT_SUPPORTED',
+      'SCREENRULE_ACTION_INVALID_ATTRIBUTE',
+      'SCREENRULE_ACTION_INVALID_ATTRIBUTE_FOR_API_VERSION',
+      'SCREENRULE_ACTION_INVALID_VALUE',
+      'SCREENRULE_ACTION_MISSING_ATTRIBUTE',
+      'SCREENRULE_ACTION_MISSING_FIELDREFERENCE',
+      'SCREENRULE_ACTION_MISSING_VALUE',
+      'SCREENRULE_ATTRIBUTE_NOT_SUPPORTED_FOR_SCREENFIELD',
+      'SCREENRULE_FIELD_NOT_FOUND_ON_SCREEN',
+      'SCREENRULE_MISSING_ACTION',
+      'SCREENRULE_NOT_SUPPORTED_IN_ORG',
+      'SCREENRULE_SCREENFIELD_NOT_VISIBLE',
+      'SCREENRULE_VISIBILITY_NOT_SUPPORTED_IN_ORG',
+      'SCREEN_ACTION_NOT_FOUND_WITH_NAME_AND_TYPE',
+      'SCREEN_ALLOWBACK_ALLOWFINISH_BOTH_FALSE',
+      'SCREEN_CONTAINS_LIGHTNING_COMPONENT',
+      'SCREEN_CONTAINS_REGION_CONTAINER_COMPONENT',
+      'SCREEN_FIELD_REGION_CONTAINER_TYPE_INVALID_VALUE',
+      'SCREEN_FIELD_REGION_CONTAINER_TYPE_MISSING',
+      'SCREEN_FIELD_SECTION_HEADER_INVALID_VALUE',
+      'SCREEN_FIELD_SECTION_HEADER_MISSING',
+      'SCREEN_MISSING_FOOTER_AND_LIGHTNING_COMPONENT',
+      'SCREEN_MISSING_LABEL',
+      'SCREEN_MULTISELECTFIELD_DOESNT_SUPPORT_CHOICE_WITH_USERINPUT',
+      'SCREEN_PAUSEDTEXT_NOT_SHOWN_WHEN_ALLOWPAUSE_IS_FALSE',
+      'SEND_EMAIL_UNSUPPORTED',
+      'SETTING_FIELD_MAKES_OTHER_FIELD_REQUIRED',
+      'SETTING_FIELD_MAKES_OTHER_FIELD_UNSUPPORTED',
+      'SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_UNSUPPORTED',
+      'SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_VALUE_UNSUPPORTED',
+      'SETUP_REFERENCE_ALLOWED_ONLY_IN_ACTION_INPUT',
+      'SETUP_REFERENCE_TYPE_NOT_PACKAGEABLE',
+      'SETUP_REFERENCE_VALUE_REQUIRES_DEVELOPER_NAMES',
+      'SLACK_API_EXCEPTION_EXTENSION',
+      'SOBJECT_ELEMENT_INCOMPATIBLE_DATATYPE',
+      'SOBJECT_ELEMENT_MISMATCHED_OBJECTTYPE',
+      'SORT_ENCRYPTED_FIELDS_NOT_SUPPORTED',
+      'SORT_FIELD_MISSING',
+      'SORT_FIELD_NOT_SUPPORTED',
+      'SORT_GEOLOCATION_FIELDS_NOT_SUPPORTED',
+      'SORT_LIMIT_INVALID',
+      'SORT_ORDER_MISSING',
+      'SPECIFIC_FIELD_VALUE_MAKES_OTHER_FIELD_REQUIRED',
+      'SPECIFIC_FIELD_VALUE_MAKES_OTHER_FIELD_VALUE_REQUIRED',
+      'STAGE_NAME_NOT_FULLY_QUALIFIED',
+      'STAGE_STEP_ASSIGNEE_NOT_SUPPORTED',
+      'START_ELEMENT_MISSING',
+      'SUBFLOW_DESKTOP_DESIGNER_FLOWS_NOT_SUPPORTED',
+      'SUBFLOW_DIFFERENT_RUNMODE',
+      'SUBFLOW_INPUT_MISSING_NAME',
+      'SUBFLOW_INPUT_MULTIPLE_ASSIGNMENTS_TO_ONE_VARIABLE',
+      'SUBFLOW_INPUT_REFERENCES_FIELD_ON_SOBJECT_VARIABLE',
+      'SUBFLOW_INPUT_VARIABLE_NOT_FOUND_IN_REFERENCEDFLOW',
+      'SUBFLOW_INPUT_VARIABLE_NO_INPUT_ACCESS',
+      'SUBFLOW_INVALID_NAME',
+      'SUBFLOW_INVALID_REFERENCE',
+      'SUBFLOW_MASTER_FLOW_TYPE_NOT_AUTOLAUNCHED',
+      'SUBFLOW_MISSING_NAME',
+      'SUBFLOW_NO_ACTIVE_VERSION',
+      'SUBFLOW_OUTPUT_INCOMPATIBLE_DATATYPES',
+      'SUBFLOW_OUTPUT_MISMATCHED_APEX_CLASS',
+      'SUBFLOW_OUTPUT_MISMATCHED_COLLECTIONTYPES',
+      'SUBFLOW_OUTPUT_MISMATCHED_OBJECTS',
+      'SUBFLOW_OUTPUT_MISSING_ASSIGNTOREFERENCE',
+      'SUBFLOW_OUTPUT_MISSING_NAME',
+      'SUBFLOW_OUTPUT_MULTIPLE_ASSIGNMENTS_TO_ONE_VARIABLE',
+      'SUBFLOW_OUTPUT_REFERENCES_FIELD_ON_SOBJECT_VARIABLE',
+      'SUBFLOW_OUTPUT_TARGET_DOES_NOT_EXIST_IN_MASTER_FLOW',
+      'SUBFLOW_OUTPUT_VARIABLE_NOT_FOUND_IN_MASTERFLOW',
+      'SUBFLOW_OUTPUT_VARIABLE_NOT_FOUND_IN_REFERENCEDFLOW',
+      'SUBFLOW_OUTPUT_VARIABLE_NO_OUTPUT_ACCESS',
+      'SUBFLOW_PROCESSTYPE_NOT_SUPPORTED',
+      'SUBFLOW_PROCESS_TYPE_INCOMPATIBLE',
+      'SUBFLOW_REFERENCES_MASTERFLOW',
+      'SURVEY_ADVANCED_CONDITION_LOGIC_NOT_SUPPORTED',
+      'SURVEY_CHOICE_NOT_REFERENCED_BY_A_QUESTION',
+      'SURVEY_CHOICE_REFERENCED_BY_MULTIPLE_QUESTIONS',
+      'SURVEY_ELEMENT_NEVER_REACHED',
+      'SURVEY_ENRICH_INVALID_CONFIGURATION',
+      'SURVEY_INACTIVE_SUBFLOWS',
+      'SURVEY_INVALID_ATTACHMENT_QUESTION_CONFIGURATION',
+      'SURVEY_INVALID_CMT_CONFIGURED',
+      'SURVEY_INVALID_CUSTOM_THANK_YOU_CONFIGURATION',
+      'SURVEY_INVALID_LINK_TARGET_IN_QUESTION_LABEL',
+      'SURVEY_INVALID_MATRIX_QUESTION_CONFIGURATION',
+      'SURVEY_INVALID_MERGE_FIELD_CONFIGURATION',
+      'SURVEY_INVALID_OUTPUT_VARIABLE',
+      'SURVEY_MISSING_QUESTION_OR_SUBFLOW',
+      'SURVEY_MISSING_REQUIRED_VARIABLES',
+      'SURVEY_MULTIPLE_SCREENS_CANNOT_CONNECT_TO_SAME_DECISION',
+      'SURVEY_NESTED_SUBFLOWS',
+      'SURVEY_NONSURVEY_SUBFLOWS',
+      'SURVEY_PAGE_CAN_HAVE_ONLY_ONE_QUESTION',
+      'SURVEY_RULE_INVALID_LEFT_OPERAND',
+      'SURVEY_RULE_INVALID_RIGHT_OPERAND',
+      'SURVEY_SAVE_ERROR',
+      'SURVEY_SCREENFIELD_TYPE_NOT_SUPPORTED_FOR_QUESTION',
+      'SURVEY_START_ELEMENT_INVALID',
+      'SURVEY_VARIABLE_ACCESS_INVALID',
+      'SYSTEM_MODE_NOT_ALLOWED',
+      'SYSTEM_VARIABLE_MISSING_FIELD_REFERENCE',
+      'TEMPLATED_PRVD_TYPE_INCOMPATIBLE_FLOW_TYPE',
+      'TEMPLATED_SCREENFIELD_INFO_MISSING',
+      'TEMPLATED_SCREENFIELD_INVALID',
+      'TEMPLATED_SCREENFIELD_NOT_SUPPORTED',
+      'TEMPLATED_SCREENFIELD_PROPERTIES_INVALID',
+      'TEMPLATED_SCREENFIELD_PROPERTIES_MISSING',
+      'TEMPLATED_SCREENFIELD_PRVD_TYPE_INVALID',
+      'TEMPLATED_SCREENFIELD_RNDR_LWC_INVALID',
+      'TEMPLATED_SCREEN_FIELD_REQUIRES_AUTOMATIC_OUTPUT',
+      'TEMPORARY_QUERY_MORE_FAILURE',
+      'TRIGGERED_FLOW_REDUNDANT_QUERY',
+      'TRIGGERING_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS',
+      'TRIGGER_ORDER_NOT_SUPPORTED',
+      'TRIGGER_TYPE_CONTEXT_OBJECT_NOT_SUPPORTED',
+      'TRIGGER_TYPE_ELEMENT_NOT_SUPPORTED',
+      'TRIGGER_TYPE_INCOMPATIBLE_WITH_PROCESS_TYPE',
+      'TRIGGER_TYPE_NOT_ALLOWED_FOR_SUBFLOW',
+      'TYPE_MAPPING_DUPLICATED',
+      'TYPE_MAPPING_NAME_MISSING',
+      'TYPE_MAPPING_NOT_FOUND',
+      'TYPE_MAPPING_NOT_SUPPORTED',
+      'TYPE_MAPPING_NOT_SUPPORTED_FOR_API_VERSION',
+      'TYPE_MAPPING_NOT_SUPPORTED_FOR_PROCESS_TYPE',
+      'UNAUTHORIZED_USER_FOR_CURSOR',
+      'UNEXPECTED_ERROR',
+      'VALIDATION_EXCEPTION',
+      'VALUE_CHAR_LIMIT_EXCEEDED',
+      'VARIABLE_FIELD_IS_READ_ONLY',
+      'VARIABLE_FIELD_NOT_SUPPORTED_FOR_DATATYPE',
+      'VARIABLE_FIELD_NOT_SUPPORTED_FOR_DATATYPE_AND_COLLECTION',
+      'VARIABLE_FIELD_REQUIRED_FOR_DATATYPE',
+      'VARIABLE_NAME_IS_RESERVED_FOR_PROCESS_TYPE',
+      'VARIABLE_SCALE_EXCEEDS_LIMIT',
+      'VARIABLE_SCALE_NEGATIVE_INTEGER',
+      'VARIABLE_SCALE_NULL',
+      'VERSION_NOT_VALID',
+      'VISIBILITY_RULE_EXCEEDS_CONDITION_LIMIT',
+      'VISIBILITY_RULE_NOT_AVAILABLE_IN_ORG',
+      'VISIBILITY_RULE_NOT_SUPPORTED_FOR_API_VERSION',
+      'VISIBILITY_RULE_NOT_SUPPORTED_FOR_PROCESSTYPE',
+      'VISIBILITY_RULE_NO_CONDITIONS',
+      'WAITEVENT_BATCH_SIZE_NOT_SUPPORTED_FOR_EVENTTYPE',
+      'WAITEVENT_CHANNEL_ACTIONCALL_MISMATCH',
+      'WAITEVENT_DEFAULT_CONNECTOR_MISSING_LABEL',
+      'WAITEVENT_DUPLICATE_INPUT_PARAM',
+      'WAITEVENT_INPUT_NOT_SUPPORTED_FOR_EVENTTYPE',
+      'WAITEVENT_INPUT_REQUIRES_LITERAL_VALUE',
+      'WAITEVENT_INVALID_CONDITION_LOGIC',
+      'WAITEVENT_INVALID_VALUE',
+      'WAITEVENT_MISSING',
+      'WAITEVENT_MISSING_CONNECTOR',
+      'WAITEVENT_MISSING_EVENTTYPE',
+      'WAITEVENT_NOT_SUCCEEDING_ACTIONCALL',
+      'WAITEVENT_OBJECT_NOT_SUPPORTED_FOR_EVENTTYPE',
+      'WAITEVENT_OUTPUT_NOT_SUPPORTED_FOR_EVENTTYPE',
+      'WAITEVENT_RELATIVEALARM_INVALID_DATETIME_FIELD',
+      'WAITEVENT_RELATIVEALARM_INVALID_FIELD',
+      'WAITEVENT_RELATIVEALARM_INVALID_OBJECTTYPE',
+      'WAITEVENT_RELATIVEALARM_INVALID_OFFSETNUMBER',
+      'WAITEVENT_RELATIVEALARM_INVALID_OFFSETUNIT',
+      'WAITEVENT_REQUIRED_INPUT_MISSING',
+      'WAITEVENT_RESUME_DATE_IN_PAST',
+      'WAITEVENT_TYPE_INVALID_OR_NOT_SUPPORTED',
+      'WORKFLOW_MISSING_PROCESSMETADATAVALUES',
+      'WORKFLOW_OBJECTTYPE_NOT_FOUND',
+      'WORKFLOW_OBJECTTYPE_NOT_SUPPORTED',
+      'WORKFLOW_OBJECTVARIABLE_AND_OLDOBJECTVARIABLE_REFERENCE_SAME_SOBJECT_VARIABLE',
+      'WORKFLOW_OBJECTVARIABLE_DOESNT_SUPPORT_INPUT',
+      'WORKFLOW_OLDOBJECTVARIABLE_DOESNT_SUPPORT_INPUT',
+      'WORKFLOW_PROCESSMETADATAVALUES_MORE_THAN_ONE_NAME',
+      'WORKFLOW_PROCESS_METADATAVALUES_MISSING_NAME',
+      'WORKFLOW_RECURSIVECOUNTVARIABLE_DOESNT_SUPPORT_INPUT',
+      'WORKFLOW_RULE_NOT_DEACTIVATED',
+      'WORKFLOW_TRIGGERTYPE_INVALID_VALUE'}
+
+export enum TestLevel {'NoTestRun',
+      'RunSpecifiedTests',
+      'RunLocalTests',
+      'RunAllTestsInOrg'}
+
+export enum PerfOption {'NONE',
+      'MINIMUM'}
+
+export enum LogCategory {'Db',
+      'Workflow',
+      'Validation',
+      'Callout',
+      'Apex_code',
+      'Apex_profiling',
+      'Visualforce',
+      'System',
+      'Wave',
+      'Nba',
+      'Data_access',
+      'All'}
+
+export enum LogCategoryLevel {'None',
+      'Finest',
+      'Finer',
+      'Fine',
+      'Debug',
+      'Info',
+      'Warn',
+      'Error'}
+
+export enum LogType {'None',
+      'Debugonly',
+      'Db',
+      'Profiling',
+      'Callout',
+      'Detail'}
+
+export interface ID {
+}
+
+export enum StatusCode {'ALERT_NOTIFICATION_LIMIT_EXCEEDED',
+      'ALL_OR_NONE_OPERATION_ROLLED_BACK',
+      'ALREADY_APPLIED',
+      'ALREADY_IN_PROCESS',
+      'ALREADY_REDEEMED_VOUCHER',
+      'APEX_DATA_ACCESS_RESTRICTION',
+      'APEX_FAILED',
+      'API_TASK_INVALID_REQUEST',
+      'API_TASK_LIMIT_REACHED',
+      'APPLICATION_ALREADY_EXISTS',
+      'ASSIGNEE_TYPE_REQUIRED',
+      'ATTRIBUTE_DEFINITION_LIMIT_EXCEEDED',
+      'AURA_COMPILE_ERROR',
+      'AUTH_PROVIDER_NEEDS_AUTH',
+      'AUTH_PROVIDER_NOT_FOUND',
+      'B2B_SEARCH_ADMIN_ERROR',
+      'BAD_CUSTOM_ENTITY_PARENT_DOMAIN',
+      'BAD_GATEWAY',
+      'BAD_LIST_UNSUBSCRIBE_DATA',
+      'BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED',
+      'BLOCKED_EXCLUSIVE',
+      'CANNOT_CASCADE_PRODUCT_ACTIVE',
+      'CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD',
+      'CANNOT_CHANGE_FIELD_TYPE_OF_REFERENCED_FIELD',
+      'CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE',
+      'CANNOT_DEACTIVATE_DIVISION',
+      'CANNOT_DELETE_GLOBAL_ACTION_LIST',
+      'CANNOT_DELETE_LAST_DATED_CONVERSION_RATE',
+      'CANNOT_DELETE_MANAGED_OBJECT',
+      'CANNOT_DISABLE_LAST_ADMIN',
+      'CANNOT_ENABLE_IP_RESTRICT_REQUESTS',
+      'CANNOT_EXECUTE_FLOW_TRIGGER',
+      'CANNOT_FREEZE_SELF',
+      'CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY',
+      'CANNOT_MODIFY_MANAGED_OBJECT',
+      'CANNOT_PASSWORD_LOCKOUT',
+      'CANNOT_POST_TO_ARCHIVED_GROUP',
+      'CANNOT_RENAME_APEX_REFERENCED_FIELD',
+      'CANNOT_RENAME_APEX_REFERENCED_OBJECT',
+      'CANNOT_RENAME_REFERENCED_FIELD',
+      'CANNOT_RENAME_REFERENCED_OBJECT',
+      'CANNOT_REPARENT_RECORD',
+      'CANNOT_UPDATE_CONVERTED_LEAD',
+      'CANNOT_UPDATE_IS_THIRD_PARTY',
+      'CANNOT_UPDATE_PAYMENT_METHOD_SET',
+      'CANT_DISABLE_CORP_CURRENCY',
+      'CANT_UNSET_CORP_CURRENCY',
+      'CART_DELIVERY_GROUP_NOT_FOUND',
+      'CART_ITEM_LIMIT_EXCEEDED_FOR_COUPONS',
+      'CART_ITEM_NOT_FOUND',
+      'CART_NOT_FOUND',
+      'CDS_UNCOMMITTED_WORK',
+      'CHECKOUT_CONFLICT',
+      'CHECKOUT_EXPIRED',
+      'CHECKOUT_INVALIDATED',
+      'CHECKOUT_LOCKED',
+      'CHECKOUT_NOT_FOUND',
+      'CHECKOUT_UNAUTHORIZED',
+      'CHECKOUT_VALIDATION',
+      'CHILD_SHARE_FAILS_PARENT',
+      'CIRCULAR_DEPENDENCY',
+      'CLEAN_SERVICE_ERROR',
+      'CLM_INSUFFICIENT_ACCESS',
+      'CLM_RECORD_NOT_FOUND',
+      'CLONE_FIELD_INTEGRITY_EXCEPTION',
+      'CLONE_NOT_SUPPORTED',
+      'CMS_FOLDER_ITEM_MOVE_FAILED',
+      'COLLISION_DETECTED',
+      'COMMERCE_SEARCH_INDEXING_SYSTEM_ERROR',
+      'COMMERCE_SEARCH_INVALID_RESOURCE',
+      'COMMERCE_SEARCH_MQ_ERROR',
+      'COMMERCE_SEARCH_PROVIDER_LIMIT_EXCEEDED',
+      'COMMERCE_SEARCH_RESOURCE_NOT_FOUND',
+      'COMMERCE_SEARCH_UNSUPPORTED_LANGUAGE_ERROR',
+      'COMMERCIAL_CONTROL_ERROR',
+      'COMMUNITY_NOT_ACCESSIBLE',
+      'CONFLICT',
+      'CONFLICTING_ENVIRONMENT_HUB_MEMBER',
+      'CONFLICTING_SSO_USER_MAPPING',
+      'CONTENT_NOT_FOUND',
+      'CONTENT_SEARCH_NOT_ENABLED',
+      'CONTENT_TYPE_DISABLED_FOR_API',
+      'CONTENT_TYPE_NOT_FOUND',
+      'COPILOT_INACTIVE_CONFIG',
+      'COPILOT_SESSION_ENDED',
+      'COUPON_REDEMPTION_LIMIT_EXCEEDED',
+      'CT_DEPTH_LIMIT_EXCEEDED',
+      'CT_DEVELOPER_NAME_NOT_UPDATABLE',
+      'CT_ENTITY_DELETE_ERROR',
+      'CT_ENTITY_SAVE_ERROR',
+      'CT_INVALID_DEPTH',
+      'CT_INVALID_QUERY_WORD',
+      'CT_INVALID_TAXONOMY_ID',
+      'CT_INVALID_TERM_ID',
+      'CT_NONEMPTY_TERM_REFERENCE',
+      'CT_PARENT_TERM_CYCLE',
+      'CT_TERM_SEARCH_ERROR',
+      'CUSTOM_APEX_ERROR',
+      'CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED',
+      'CUSTOM_ENTITY_OR_FIELD_LIMIT',
+      'CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED',
+      'CUSTOM_INDEX_EXISTS',
+      'CUSTOM_LINK_LIMIT_EXCEEDED',
+      'CUSTOM_METADATA_LIMIT_EXCEEDED',
+      'CUSTOM_METADATA_REL_FIELD_MANAGEABILITY',
+      'CUSTOM_SETTINGS_LIMIT_EXCEEDED',
+      'CUSTOM_TAB_LIMIT_EXCEEDED',
+      'DATAASSESSMENT_CONFIG_ASSESSMENT_IN_PROGRESS_ERROR',
+      'DATAASSESSMENT_CONFIG_SERVICE_ERROR',
+      'DATACLOUDADDRESS_NO_RECORDS_FOUND',
+      'DATACLOUDADDRESS_PROCESSING_ERROR',
+      'DATACLOUDADDRESS_SERVER_ERROR',
+      'DATA_MAPPING_NOT_FOUND',
+      'DATA_MAPPING_SCHEMA_NOT_FOUND',
+      'DATA_TRANSFER_RECORD_LIMIT_EXCEEDED',
+      'DATA_TRANSLATION_TOGGLED_BEFORE_INCREMENTAL_INDEX',
+      'DATA_TYPE_NOT_SUPPORTED',
+      'DATE_OUT_OF_RANGE',
+      'DELETE_FAILED',
+      'DELETE_NOT_ALLOWED',
+      'DELETE_OPERATION_TOO_LARGE',
+      'DELETE_REQUIRED_ON_CASCADE',
+      'DEPENDENCY_EXISTS',
+      'DOCUMENT_VERSION_EXISTS',
+      'DUPLICATES_DETECTED',
+      'DUPLICATE_CASE_SOLUTION',
+      'DUPLICATE_COMM_NICKNAME',
+      'DUPLICATE_CUSTOM_ENTITY_DEFINITION',
+      'DUPLICATE_CUSTOM_TAB_MOTIF',
+      'DUPLICATE_DEVELOPER_NAME',
+      'DUPLICATE_EXTERNAL_ID',
+      'DUPLICATE_MASTER_LABEL',
+      'DUPLICATE_SENDER_DISPLAY_NAME',
+      'DUPLICATE_USERNAME',
+      'DUPLICATE_VALUE',
+      'EMAIL_ADDRESS_BOUNCED',
+      'EMAIL_EXTERNAL_TRANSPORT_CONNECTION_ERROR',
+      'EMAIL_EXTERNAL_TRANSPORT_PERMISSION_ERROR',
+      'EMAIL_EXTERNAL_TRANSPORT_TOKEN_ERROR',
+      'EMAIL_EXTERNAL_TRANSPORT_TOO_LARGE_ERROR',
+      'EMAIL_EXTERNAL_TRANSPORT_TOO_MANY_REQUESTS_ERROR',
+      'EMAIL_EXTERNAL_TRANSPORT_UNKNOWN_ERROR',
+      'EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR',
+      'EMAIL_OPTED_OUT',
+      'EMAIL_TEMPLATE_FORMULA_ERROR',
+      'EMAIL_TEMPLATE_MERGEFIELD_ACCESS_ERROR',
+      'EMAIL_TEMPLATE_MERGEFIELD_ERROR',
+      'EMAIL_TEMPLATE_MERGEFIELD_VALUE_ERROR',
+      'EMAIL_TEMPLATE_PROCESSING_ERROR',
+      'EMPTY_CATALOG',
+      'EMPTY_INGESTION_JOB',
+      'EMPTY_SCONTROL_FILE_NAME',
+      'ENHANCED_EMAIL_TEMPLATE_COMPILATION_ERROR',
+      'ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE',
+      'ENTITY_IS_ARCHIVED',
+      'ENTITY_IS_DELETED',
+      'ENTITY_IS_LOCKED',
+      'ENTITY_SAVE_ERROR',
+      'ENTITY_SAVE_VALIDATION_ERROR',
+      'ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT',
+      'ENVIRONMENT_HUB_MEMBERSHIP_ERROR_JOINING_HUB',
+      'ENVIRONMENT_HUB_MEMBERSHIP_USER_ALREADY_IN_HUB',
+      'ENVIRONMENT_HUB_MEMBERSHIP_USER_NOT_ORG_ADMIN',
+      'ERROR_CALCULATING_EXPIRY_DATE',
+      'ERROR_IN_MAILER',
+      'EXCEEDED_MAX_SEMIJOIN_SUBSELECTS_WRITE',
+      'EXCHANGE_WEB_SERVICES_URL_INVALID',
+      'EXTERNAL_RESOURCE_FORBIDDEN',
+      'FAILED_ACTIVATION',
+      'FAILED_DUE_TO_OTHER_INPUTS',
+      'FAILED_TO_RESOLVE_MAPPING',
+      'FAILED_TO_RESOLVE_SCHEMA_INFORMATION',
+      'FIELD_CUSTOM_VALIDATION_EXCEPTION',
+      'FIELD_FILTER_VALIDATION_EXCEPTION',
+      'FIELD_INTEGRITY_EXCEPTION',
+      'FIELD_KEYWORD_LIST_MATCH_LIMIT',
+      'FIELD_MAPPING_ERROR',
+      'FIELD_MODERATION_RULE_BLOCK',
+      'FIELD_NOT_UPDATABLE',
+      'FILE_EXTENSION_NOT_ALLOWED',
+      'FILE_SIZE_LIMIT_EXCEEDED',
+      'FILTERED_LOOKUP_LIMIT_EXCEEDED',
+      'FIND_DUPLICATES_ERROR',
+      'FLOW_EXCEPTION',
+      'FORBIDDEN_EXCEPTION',
+      'FUNCTIONALITY_NOT_ENABLED',
+      'GET_EINSTEIN_TENANT_ERROR',
+      'GUEST_INSUFFICIENT_ACCESS',
+      'HAS_PUBLIC_REFERENCES',
+      'HTML_FILE_UPLOAD_NOT_ALLOWED',
+      'IAS_AM_AUTH_BAD_REQUEST',
+      'IAS_AM_AUTH_UNAUTHORIZED',
+      'IAS_INVALID_AUTH',
+      'IAS_INVALID_REQUEST_PARAMETER',
+      'IAS_RECORD_DOES_NOT_EXIST',
+      'IAS_TENANT_NOT_PROVISIONED',
+      'IAS_UNCOMMITTED_WORK',
+      'IMAGE_TOO_LARGE',
+      'INACTIVE_CONTEXT_DEFINITION',
+      'INACTIVE_OWNER_OR_USER',
+      'INACTIVE_RULE_ERROR',
+      'INDEX_ITEM_LIMIT_EXCEEDED',
+      'INDEX_PAYLOAD_NOT_FOUND',
+      'INDEX_SINGLE_PAYLOAD_SIZE_LIMIT_EXCEEDED',
+      'INGESTION_JOB_RECORDS_LIMIT_EXCEEDED',
+      'INGESTION_TOTAL_FILE_SIZE_LIMIT_EXCEEDED',
+      'INPUTPARAM_INCOMPATIBLE_DATATYPE',
+      'INSERT_UPDATE_DELETE_NOT_ALLOWED_DURING_MAINTENANCE',
+      'INSUFFICIENT_ACCESS',
+      'INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY',
+      'INSUFFICIENT_ACCESS_OR_READONLY',
+      'INSUFFICIENT_ACCESS_TO_INSIGHTSEXTERNALDATA',
+      'INSUFFICIENT_BALANCE',
+      'INSUFFICIENT_BENEFIT_REMAINING',
+      'INSUFFICIENT_CREDITS',
+      'INTEGRATION_CANCELLED',
+      'INTERNAL_ERROR',
+      'INVALID_ACCESS_LEVEL',
+      'INVALID_ACCESS_TOKEN',
+      'INVALID_ACCOUNT',
+      'INVALID_ACTION_VERSION',
+      'INVALID_API_INPUT',
+      'INVALID_ARGUMENT_TYPE',
+      'INVALID_ASSIGNEE_TYPE',
+      'INVALID_ASSIGNMENT_RULE',
+      'INVALID_AUTH_HEADER',
+      'INVALID_BATCH_OPERATION',
+      'INVALID_BUSINESS_HOURS_NAME',
+      'INVALID_CATEGORY_NETWORK',
+      'INVALID_CHECKOUT_INPUT',
+      'INVALID_CONTACT',
+      'INVALID_CONTENT_TYPE',
+      'INVALID_CREDIT_CARD_INFO',
+      'INVALID_CROSS_REFERENCE_KEY',
+      'INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD',
+      'INVALID_CURRENCY_CONV_RATE',
+      'INVALID_CURRENCY_CORP_RATE',
+      'INVALID_CURRENCY_ISO',
+      'INVALID_DATASET_REFERENCE_INPUT',
+      'INVALID_DATA_CATEGORY_GROUP_REFERENCE',
+      'INVALID_DATA_URI',
+      'INVALID_EBV_OPERATION',
+      'INVALID_EMAIL_ADDRESS',
+      'INVALID_EMPTY_KEY_OWNER',
+      'INVALID_ENTITY_FOR_MATCH_ENGINE_ERROR',
+      'INVALID_ENTITY_FOR_MATCH_OPERATION_ERROR',
+      'INVALID_ENTITY_FOR_UPSERT',
+      'INVALID_ENVIRONMENT_HUB_MEMBER',
+      'INVALID_EVENT_DELIVERY',
+      'INVALID_EVENT_INPUT',
+      'INVALID_EVENT_SUBSCRIPTION',
+      'INVALID_EXTENSION_ID',
+      'INVALID_EXTERNAL_ID_FIELD_NAME',
+      'INVALID_FIELD',
+      'INVALID_FIELD_FOR_INSERT_UPDATE',
+      'INVALID_FIELD_WHEN_USING_TEMPLATE',
+      'INVALID_FILTER_ACTION',
+      'INVALID_GOOGLE_DOCS_URL',
+      'INVALID_ID_FIELD',
+      'INVALID_INET_ADDRESS',
+      'INVALID_INPUT',
+      'INVALID_INPUT_FORMAT',
+      'INVALID_KEY_FIELD_INPUT',
+      'INVALID_LINEITEM_CLONE_STATE',
+      'INVALID_MARKUP',
+      'INVALID_MASTER_OR_TRANSLATED_SOLUTION',
+      'INVALID_MERCHANT_ACCOUNT_MODE',
+      'INVALID_MERCHANT_ACCOUNT_MODE_OR_STATUS',
+      'INVALID_MERGE_RECORD',
+      'INVALID_MESSAGE_ID_REFERENCE',
+      'INVALID_NAMESPACE_PREFIX',
+      'INVALID_OAUTH_URL',
+      'INVALID_OPERATION',
+      'INVALID_OPERATOR',
+      'INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST',
+      'INVALID_OWNER',
+      'INVALID_PACKAGE_LICENSE',
+      'INVALID_PACKAGE_VERSION',
+      'INVALID_PARTNER_NETWORK_STATUS',
+      'INVALID_PAYLOAD_VERSION',
+      'INVALID_PERSON_ACCOUNT_OPERATION',
+      'INVALID_PROFILE',
+      'INVALID_PROMOTION',
+      'INVALID_PROVIDER_TYPE',
+      'INVALID_QUERY_KEY',
+      'INVALID_QUERY_LOCATOR',
+      'INVALID_QUERY_VALUE',
+      'INVALID_READ_ONLY_USER_DML',
+      'INVALID_RECEIVEDDOCUMENTID_ATTACHMENT',
+      'INVALID_RECORD_ATTRIBUTE_VALUE',
+      'INVALID_RECORD_TYPE',
+      'INVALID_REFRESH_TOKEN',
+      'INVALID_REORDER_PORTAL_RECORD_ASSOCIATION',
+      'INVALID_REQUEST_STATE',
+      'INVALID_RUNTIME_VALUE',
+      'INVALID_SAVE_AS_ACTIVITY_FLAG',
+      'INVALID_SCS_INBOUND_USER',
+      'INVALID_SEARCH_PROVIDER_REQUEST',
+      'INVALID_SESSION_ID',
+      'INVALID_SETUP_OWNER',
+      'INVALID_SIGNUP_COUNTRY',
+      'INVALID_SIGNUP_OPTION',
+      'INVALID_SITE_DELETE_EXCEPTION',
+      'INVALID_SITE_FILE_IMPORTED_EXCEPTION',
+      'INVALID_SITE_FILE_TYPE_EXCEPTION',
+      'INVALID_SOURCE_OBJECT_ID',
+      'INVALID_SOURCE_OBJECT_NAME',
+      'INVALID_STATUS',
+      'INVALID_SUBDOMAIN',
+      'INVALID_TARGET_OBJECT_NAME',
+      'INVALID_TEXT_REPRESENTATION',
+      'INVALID_TYPE',
+      'INVALID_TYPE_FOR_OPERATION',
+      'INVALID_TYPE_ON_FIELD_IN_RECORD',
+      'INVALID_UNMERGE_RECORD',
+      'INVALID_USERID',
+      'INVALID_USER_OBJECT',
+      'IP_RANGE_LIMIT_EXCEEDED',
+      'ITEM_NOT_FOUND',
+      'JIGSAW_IMPORT_LIMIT_EXCEEDED',
+      'LICENSE_LIMIT_EXCEEDED',
+      'LIGHT_PORTAL_USER_EXCEPTION',
+      'LIMIT_EXCEEDED',
+      'LIST_PRICE_NOT_FOUND',
+      'MALFORMED_ID',
+      'MANAGER_NOT_DEFINED',
+      'MAPPING_TYPE_NOT_SUPPORTED',
+      'MASSMAIL_RETRY_LIMIT_EXCEEDED',
+      'MASS_MAIL_LIMIT_EXCEEDED',
+      'MATCH_DEFINITION_ERROR',
+      'MATCH_OPERATION_ERROR',
+      'MATCH_OPERATION_INVALID_ENGINE_ERROR',
+      'MATCH_OPERATION_INVALID_RULE_ERROR',
+      'MATCH_OPERATION_MISSING_ENGINE_ERROR',
+      'MATCH_OPERATION_MISSING_OBJECT_TYPE_ERROR',
+      'MATCH_OPERATION_MISSING_OPTIONS_ERROR',
+      'MATCH_OPERATION_MISSING_RULE_ERROR',
+      'MATCH_OPERATION_UNKNOWN_RULE_ERROR',
+      'MATCH_OPERATION_UNSUPPORTED_VERSION_ERROR',
+      'MATCH_PRECONDITION_FAILED',
+      'MATCH_PRECONDITION_REQUIRED',
+      'MATCH_RUNTIME_ERROR',
+      'MATCH_SERVICE_ERROR',
+      'MATCH_SERVICE_TIMED_OUT',
+      'MATCH_SERVICE_UNAVAILABLE_ERROR',
+      'MAXIMUM_CCEMAILS_EXCEEDED',
+      'MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED',
+      'MAXIMUM_HIERARCHY_CHILDREN_REACHED',
+      'MAXIMUM_HIERARCHY_LEVELS_REACHED',
+      'MAXIMUM_HIERARCHY_TREE_SIZE_REACHED',
+      'MAXIMUM_SIZE_OF_ATTACHMENT',
+      'MAXIMUM_SIZE_OF_DOCUMENT',
+      'MAX_ACTIONS_PER_RULE_EXCEEDED',
+      'MAX_ACTIVE_RULES_EXCEEDED',
+      'MAX_APPROVAL_STEPS_EXCEEDED',
+      'MAX_DEPTH_IN_FLOW_EXECUTION',
+      'MAX_FORMULAS_PER_RULE_EXCEEDED',
+      'MAX_LIMIT_EXCEEDED',
+      'MAX_LOCALES_EXCEEDED',
+      'MAX_RULES_EXCEEDED',
+      'MAX_RULE_ENTRIES_EXCEEDED',
+      'MAX_TASK_DESCRIPTION_EXCEEEDED',
+      'MAX_TM_RULES_EXCEEDED',
+      'MAX_TM_RULE_ITEMS_EXCEEDED',
+      'MAX_TRIGGERS_EXCEEDED',
+      'MCONTENT_TAXONOMY_GET_ERROR',
+      'MCONTENT_TAXONOMY_PUBLISH_ERROR',
+      'MCONTENT_TAXONOMY_UPDATE_ERROR',
+      'MERGE_FAILED',
+      'METADATA_FIELD_UPDATE_ERROR',
+      'METHOD_NOT_ALLOWED',
+      'MISMATCHING_TYPES',
+      'MISSING_ARGUMENT',
+      'MISSING_OMNI_PROCESS_ID',
+      'MISSING_PAYMENTS_DEPENDENCY',
+      'MISSING_PAY_NOW_SITE_URL_ORG_VALUE',
+      'MISSING_RECEIVEDDOCUMENTID_ATTACHMENT',
+      'MISSING_RECORD',
+      'MIXED_DML_OPERATION',
+      'MODEL_NOT_ACTIVE',
+      'MULTIPLE_CONTENT_FOUND',
+      'MULTIPLE_VOUCHERS',
+      'NONUNIQUE_SHIPPING_ADDRESS',
+      'NOT_FOUND',
+      'NOT_RECOVERABLE_SEARCH_PROVIDER_ERROR',
+      'NO_ACCESS_TOKEN',
+      'NO_ACCESS_TOKEN_FROM_REFRESH',
+      'NO_APPLICABLE_PROCESS',
+      'NO_ATTACHMENT_PERMISSION',
+      'NO_AUTH_PROVIDER',
+      'NO_BUSINESS_HOURS_FOUND',
+      'NO_INACTIVE_DIVISION_MEMBERS',
+      'NO_INDEXABLE_PRODUCTS',
+      'NO_INDEXABLE_PRODUCTS_IN_PARTIAL_BUILD',
+      'NO_MASS_MAIL_PERMISSION',
+      'NO_MESSAGE_TYPE_MESSAGES',
+      'NO_PARTNER_PERMISSION',
+      'NO_REFRESH_TOKEN',
+      'NO_SEARCHABLE_PRODUCTS',
+      'NO_SEARCH_ATTRIBUTES',
+      'NO_SINGLE_MAIL_PERMISSION',
+      'NO_SORT_PRICEBOOK_ASSOCIATED_ERROR',
+      'NO_SUCH_USER_EXISTS',
+      'NO_TOKEN_ENDPOINT',
+      'NUMBER_OUTSIDE_VALID_RANGE',
+      'NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED',
+      'OCR_INVALID_REQUEST',
+      'OPERATION_CONFLICT',
+      'OPERATION_ENQUEUED',
+      'OPERATION_WITH_CALLBACK_ENQUEUED',
+      'OPTED_OUT_OF_MASS_MAIL',
+      'OP_WITH_INVALID_USER_TYPE_EXCEPTION',
+      'ORCHESTRATION_INVALID',
+      'ORDER_MANAGEMENT_ACTION_NOT_ALLOWED',
+      'ORDER_MANAGEMENT_INVALID_RECORD',
+      'ORDER_MANAGEMENT_RECORD_EXISTS',
+      'ORDER_MANAGEMENT_RECORD_NOT_FOUND',
+      'ORG_SETTING_REQUIRED',
+      'PACKAGE_DISABLED',
+      'PACKAGE_LICENSE_REQUIRED',
+      'PACKAGING_API_INSTALL_FAILED',
+      'PACKAGING_API_UNINSTALL_FAILED',
+      'PALI_INVALID_ACTION_ID',
+      'PALI_INVALID_ACTION_NAME',
+      'PALI_INVALID_ACTION_TYPE',
+      'PAL_INVALID_ASSISTANT_RECOMMENDATION_TYPE_ID',
+      'PAL_INVALID_ENTITY_ID',
+      'PAL_INVALID_FLEXIPAGE_ID',
+      'PAL_INVALID_LAYOUT_ID',
+      'PAL_INVALID_PARAMETERS',
+      'PARAMETER_TOO_LARGE',
+      'PARTICIPANT_RELATIONSHIP_EXISTS',
+      'PAYLOAD_SIZE_EXCEEDED',
+      'PAYMENTS_TOO_MANY_REQUESTS_ERROR',
+      'PAYMENT_GATEWAY_EXCEPTION',
+      'PA_API_EXCEPTION',
+      'PA_AXIS_FAULT',
+      'PA_INVALID_ID_EXCEPTION',
+      'PA_NO_ACCESS_EXCEPTION',
+      'PA_NO_DATA_FOUND_EXCEPTION',
+      'PA_URI_SYNTAX_EXCEPTION',
+      'PA_VISIBLE_ACTIONS_FILTER_ORDERING_EXCEPTION',
+      'PENDING_COMMIT',
+      'PICKLIST_INACTIVE_VALUES_EXCEEDED',
+      'PLATFORM_EVENT_ENCRYPTION_ERROR',
+      'PLATFORM_EVENT_PUBLISHING_UNAVAILABLE',
+      'PLATFORM_EVENT_PUBLISH_FAILED',
+      'PORTAL_NO_ACCESS',
+      'PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT',
+      'PORTAL_USER_CREATION_RESTRICTED_WITH_ENCRYPTION',
+      'PRICE_NOT_FOUND',
+      'PRIVATE_CONTACT_ON_ASSET',
+      'PROCESSING_HALTED',
+      'PROGRAM_PROGRESS_NOT_ACTIVE',
+      'PROMOTION_NOT_FOUND',
+      'QA_INVALID_CREATE_FEED_ITEM',
+      'QA_INVALID_SUCCESS_MESSAGE',
+      'QUERY_REFINEMENT_VALUE_LIMIT_EXCEEDED',
+      'QUERY_TIMEOUT',
+      'QUERY_TOKEN_COUNT_LIMIT_EXCEEDED',
+      'QUICK_ACTION_LIST_ITEM_NOT_ALLOWED',
+      'QUICK_ACTION_LIST_NOT_ALLOWED',
+      'RECORD_CREATION_FAILED',
+      'RECORD_IN_USE_BY_WORKFLOW',
+      'RECORD_LOCKED',
+      'RECORD_MISSING_REQUIRED_FIELD',
+      'RECORD_NOT_FOUND',
+      'RECORD_TYPE_LIMIT_EXCEEDED',
+      'RECORD_UPDATE_FAILED',
+      'RECOVERABLE_SEARCH_PROVIDER_ERROR',
+      'REFRESH_FAILED',
+      'RELATED_ENTITY_FILTER_VALIDATION_EXCEPTION',
+      'REL_FIELD_BAD_ACCESSIBILITY',
+      'REPUTATION_MINIMUM_NUMBER_NOT_REACHED',
+      'REQUEST_RUNNING_TOO_LONG',
+      'REQUIRED_FEATURE_MISSING',
+      'REQUIRED_FIELD_MISSING',
+      'REQUIRE_CONNECTED_APP_SCS',
+      'REQUIRE_CONNECTED_APP_SESSION_SCS',
+      'REQUIRE_RUNAS_USER',
+      'RESOURCE_NOT_AVAILABLE',
+      'RETRIEVE_EXCHANGE_ATTACHMENT_FAILED',
+      'RETRIEVE_EXCHANGE_EMAIL_FAILED',
+      'RETRIEVE_EXCHANGE_EVENT_FAILED',
+      'RETRIEVE_GOOGLE_EMAIL_FAILED',
+      'RETRIEVE_GOOGLE_EVENT_FAILED',
+      'RETRIEVE_USER_CONFIG_ERROR',
+      'ROUTES_EVALUATION_LIMIT_EXCEEDED',
+      'SALESFORCE_INBOX_TRANSPORT_CONNECTION_ERROR',
+      'SALESFORCE_INBOX_TRANSPORT_INVALID_INPUT_ERROR',
+      'SALESFORCE_INBOX_TRANSPORT_TOKEN_ERROR',
+      'SALESFORCE_INBOX_TRANSPORT_UNKNOWN_ERROR',
+      'SCHEMA_OBJECT_NOT_FOUND',
+      'SCREEN_POP_REQUIRED_INPUT_MISSING',
+      'SEARCH_INCLUDE_RULES_MAX_RULE_DEFINITION_LIMIT_EXCEEDED',
+      'SEARCH_INCLUDE_RULES_MIN_RULE_DEFINITION_NOT_MET',
+      'SEARCH_PROVIDER_PATH_LIMIT_EXCEEDED',
+      'SEARCH_PROVIDER_REQUEST_RATE_EXCEEDED',
+      'SEGMENT_COUNT_LIMIT_EXCEEDED',
+      'SELF_REFERENCE_FROM_FLOW',
+      'SELF_REFERENCE_FROM_TRIGGER',
+      'SERVICE_PLAN_INVALID_DATA',
+      'SERVICE_PLAN_MISSING_DATA',
+      'SERVICE_PLAN_UNKNOWN_EXCEPTION',
+      'SERVICE_UNAVAILABLE',
+      'SESSION_EXPIRED',
+      'SESSION_INVALIDATED',
+      'SHARE_NEEDED_FOR_CHILD_OWNER',
+      'SINGLE_EMAIL_LIMIT_EXCEEDED',
+      'SLACK_API_ERROR',
+      'SOCIAL_ACCOUNT_NOT_FOUND',
+      'SOCIAL_ACTION_INVALID',
+      'SOCIAL_PERSONA_NOT_FOUND',
+      'SOCIAL_POST_INVALID',
+      'SOCIAL_POST_NOT_FOUND',
+      'SPECIFICATION_GENERATION_EXCEPTION',
+      'STANDARD_PRICE_NOT_DEFINED',
+      'STORAGE_LIMIT_EXCEEDED',
+      'STOREFRONT_PST_NOT_ACCEPTED',
+      'STRING_TOO_LONG',
+      'STXN_FULFILLMENT_NOT_INFLIGHT',
+      'SUBDOMAIN_IN_USE',
+      'TABSET_LIMIT_EXCEEDED',
+      'TEMPLATE_NOT_ACTIVE',
+      'TEMPLATE_NOT_FOUND',
+      'TENANT_GROUP_NOT_FOUND',
+      'TERMS_OF_SERVICE_UNREAD',
+      'TERRITORY_REALIGN_IN_PROGRESS',
+      'TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET',
+      'TEXT_TO_PICKLIST_VALUES_EXCEEDED',
+      'TOO_MANY_APEX_REQUESTS',
+      'TOO_MANY_ENUM_VALUE',
+      'TOO_MANY_JOBS',
+      'TOO_MANY_POSSIBLE_USERS_EXIST',
+      'TRANSFER_REQUIRES_READ',
+      'TXN_SECURITY_NO_ACCESS',
+      'UISF_ENTITY_QUERY_FAILED',
+      'UISF_NO_MAPPINGS_FOUND',
+      'UISF_TOKEN_NOT_FOUND',
+      'UISF_UNKNOWN_EXCEPTION',
+      'UISF_USER_MAPPING_FAILED',
+      'UNABLE_TO_LOCK_RECORD',
+      'UNABLE_TO_LOCK_ROW',
+      'UNABLE_TO_UNLOCK_RECORD',
+      'UNABLE_TO_UPDATE_RECORD_LOCK',
+      'UNAUTHORIZED_EXCEPTION',
+      'UNAUTHORIZED_SEARCH_PROVIDER_REQUEST',
+      'UNAVAILABLE_RECORDTYPE_EXCEPTION',
+      'UNAVAILABLE_REF',
+      'UNCOMMITTED_WORK',
+      'UNDEFINED_MAPPING_DEFINITION',
+      'UNDELETE_FAILED',
+      'UNKNOWN_EXCEPTION',
+      'UNKNOWN_TOKEN_ERROR',
+      'UNPROCESSABLE_REQUEST',
+      'UNQUALIFIED_CART',
+      'UNRESOLVABLE_PAY_NOW_WEBSTORE',
+      'UNSAFE_HTML_CONTENT',
+      'UNSPECIFIED_EMAIL_ADDRESS',
+      'UNSUPPORTED_APEX_TRIGGER_OPERATON',
+      'UNSUPPORTED_MODE',
+      'UNSUPPORTED_PAYMENT_GATEWAY_TYPE',
+      'UNSUPPORTED_PAYMENT_REQUEST_TYPE',
+      'UNSUPPORTED_SITE',
+      'UNSUPPORTED_SITE_FILE_IMPORTED_EXCEPTION',
+      'UNSUPPORTED_SOCIAL_PROVIDER',
+      'UNVERIFIED_SENDER_ADDRESS',
+      'UPDATE_GOOGLE_EMAIL_LABEL_FAILED',
+      'USER_OWNS_PORTAL_ACCOUNT_EXCEPTION',
+      'USER_WITHOUT_WEM_PERMISSION',
+      'USER_WITH_APEX_SHARES_EXCEPTION',
+      'VARIANT_NOT_FOUND',
+      'VF_COMPILE_ERROR',
+      'VOICE_CAPACITY_ERROR',
+      'WEBLINK_SIZE_LIMIT_EXCEEDED',
+      'WEBLINK_URL_INVALID',
+      'WEM_SEGMENTS_CAN_NOT_HAVE_NON_ACTIVE_SEGMENT_TYPE',
+      'WEM_SHIFT_SEGMENT_TIME_IS_OUTSIDE_OF_THE_SHIFT_DURATION',
+      'WEM_USER_NOT_ORG_ADMIN',
+      'WORKSPACE_NOT_FOUND',
+      'WRONG_CONTROLLER_TYPE',
+      'XCLEAN_DJ_MATCH_IGNORABLE_ERROR',
+      'XCLEAN_DJ_MATCH_INTERNAL_DJ_ERROR',
+      'XCLEAN_DJ_MATCH_NON_RETRIABLE_ERROR',
+      'XCLEAN_DJ_MATCH_RETRIABLE_ERROR',
+      'XCLEAN_DJ_MATCH_UNKNOWN_ERROR',
+      'XCLEAN_UNEXPECTED_ERROR'}
+
+export interface AllOrNoneHeader {
     allOrNone: boolean;
 }
 
-export type CallOptions = {
+export interface CallOptions {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader = {
+export interface DebuggingHeader {
     categories: LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo = {
+export interface DebuggingInfo {
     debugLog: string;
 }
 
-export type SessionHeader = {
+export interface SessionHeader {
     sessionId: string;
 }
 
-export type cancelDeploy = {
+export interface cancelDeploy {
     String: ID;
 }
 
-export type cancelDeployResponse = {
+export interface cancelDeployResponse {
     result: CancelDeployResult;
 }
 
-export type checkDeployStatus = {
+export interface checkDeployStatus {
     asyncProcessId: ID;
     includeDetails: boolean;
 }
 
-export type checkDeployStatusResponse = {
+export interface checkDeployStatusResponse {
     result: DeployResult;
 }
 
-export type checkRetrieveStatus = {
+export interface checkRetrieveStatus {
     asyncProcessId: ID;
     includeZip: boolean;
 }
 
-export type checkRetrieveStatusResponse = {
+export interface checkRetrieveStatusResponse {
     result: RetrieveResult;
 }
 
-export type checkStatus = {
+export interface checkStatus {
     asyncProcessId: ID[];
 }
 
-export type checkStatusResponse = {
+export interface checkStatusResponse {
     result: AsyncResult[];
 }
 
-export type create = {
+export interface create {
     metadata: Metadata[];
 }
 
-export type createResponse = {
+export interface createResponse {
     result: AsyncResult[];
 }
 
-export type createMetadata = {
+export interface createMetadata {
     metadata: Metadata[];
 }
 
-export type createMetadataResponse = {
+export interface createMetadataResponse {
     result: SaveResult[];
 }
 
-export type delete_ = {
+export interface delete_ {
     metadata: Metadata[];
 }
 
-export type deleteResponse = {
+export interface deleteResponse {
     result: AsyncResult[];
 }
 
-export type deleteMetadata = {
+export interface deleteMetadata {
     type: string;
     fullNames: string[];
 }
 
-export type deleteMetadataResponse = {
+export interface deleteMetadataResponse {
     result: DeleteResult[];
 }
 
-export type deploy = {
+export interface deploy {
     ZipFile: string;
     DeployOptions: DeployOptions;
 }
 
-export type deployResponse = {
+export interface deployResponse {
     result: AsyncResult;
 }
 
-export type deployRecentValidation = {
+export interface deployRecentValidation {
     validationId: ID;
 }
 
-export type deployRecentValidationResponse = {
+export interface deployRecentValidationResponse {
     result: string;
 }
 
-export type describeMetadata = {
+export interface describeMetadata {
     asOfVersion: number;
 }
 
-export type describeMetadataResponse = {
+export interface describeMetadataResponse {
     result: DescribeMetadataResult;
 }
 
-export type describeValueType = {
+export interface describeValueType {
     type: string;
 }
 
-export type describeValueTypeResponse = {
+export interface describeValueTypeResponse {
     result: DescribeValueTypeResult;
 }
 
-export type listMetadata = {
+export interface listMetadata {
     queries: ListMetadataQuery[];
     asOfVersion: number;
 }
 
-export type listMetadataResponse = {
+export interface listMetadataResponse {
     result: FileProperties[];
 }
 
-export type readMetadata = {
+export interface readMetadata {
     type: string;
     fullNames: string[];
 }
 
-export type readMetadataResponse = {
+export interface readMetadataResponse {
     result: ReadResult;
 }
 
-export type renameMetadata = {
+export interface renameMetadata {
     type: string;
     oldFullName: string;
     newFullName: string;
 }
 
-export type renameMetadataResponse = {
+export interface renameMetadataResponse {
     result: SaveResult;
 }
 
-export type retrieve = {
+export interface retrieve {
     retrieveRequest: RetrieveRequest;
 }
 
-export type retrieveResponse = {
+export interface retrieveResponse {
     result: AsyncResult;
 }
 
-export type update = {
+export interface update {
     UpdateMetadata: UpdateMetadata[];
 }
 
-export type updateResponse = {
+export interface updateResponse {
     result: AsyncResult[];
 }
 
-export type updateMetadata = {
+export interface updateMetadata {
     metadata: Metadata[];
 }
 
-export type updateMetadataResponse = {
+export interface updateMetadataResponse {
     result: SaveResult[];
 }
 
-export type upsertMetadata = {
+export interface upsertMetadata {
     metadata: Metadata[];
 }
 
-export type upsertMetadataResponse = {
+export interface upsertMetadataResponse {
     result: UpsertResult[];
 }
 
-export type CancelDeployResult = {
+export interface CancelDeployResult {
     done: boolean;
     id: ID;
 }
 
-export type DeployResult = {
+export interface DeployResult {
     canceledBy?: string;
     canceledByName?: string;
     checkOnly: boolean;
@@ -8970,14 +8973,14 @@ export type DeployResult = {
     success: boolean;
 }
 
-export type DeployDetails = {
+export interface DeployDetails {
     componentFailures: DeployMessage[];
     componentSuccesses: DeployMessage[];
     retrieveResult?: RetrieveResult;
     runTestResult?: RunTestsResult;
 }
 
-export type DeployMessage = {
+export interface DeployMessage {
     changed: boolean;
     columnNumber?: number;
     componentType?: string;
@@ -8993,7 +8996,7 @@ export type DeployMessage = {
     success: boolean;
 }
 
-export type RetrieveResult = {
+export interface RetrieveResult {
     done: boolean;
     errorMessage?: string;
     errorStatusCode?: StatusCode;
@@ -9005,7 +9008,7 @@ export type RetrieveResult = {
     zipFile: string;
 }
 
-export type FileProperties = {
+export interface FileProperties {
     createdById: string;
     createdByName: string;
     createdDate: Date;
@@ -9020,12 +9023,12 @@ export type FileProperties = {
     type: string;
 }
 
-export type RetrieveMessage = {
+export interface RetrieveMessage {
     fileName: string;
     problem: string;
 }
 
-export type RunTestsResult = {
+export interface RunTestsResult {
     apexLogId?: string;
     codeCoverage: CodeCoverageResult[];
     codeCoverageWarnings: CodeCoverageWarning[];
@@ -9038,7 +9041,7 @@ export type RunTestsResult = {
     totalTime: number;
 }
 
-export type CodeCoverageResult = {
+export interface CodeCoverageResult {
     dmlInfo: CodeLocation[];
     id: ID;
     locationsNotCovered: CodeLocation[];
@@ -9052,21 +9055,21 @@ export type CodeCoverageResult = {
     type: string;
 }
 
-export type CodeLocation = {
+export interface CodeLocation {
     column: number;
     line: number;
     numExecutions: number;
     time: number;
 }
 
-export type CodeCoverageWarning = {
+export interface CodeCoverageWarning {
     id: ID;
     message: string;
     name?: string;
     namespace?: string;
 }
 
-export type RunTestFailure = {
+export interface RunTestFailure {
     id: ID;
     message: string;
     methodName?: string;
@@ -9079,7 +9082,7 @@ export type RunTestFailure = {
     type: string;
 }
 
-export type FlowCoverageResult = {
+export interface FlowCoverageResult {
     elementsNotCovered: string[];
     flowId: string;
     flowName: string;
@@ -9089,14 +9092,14 @@ export type FlowCoverageResult = {
     processType: FlowProcessType;
 }
 
-export type FlowCoverageWarning = {
+export interface FlowCoverageWarning {
     flowId?: string;
     flowName?: string;
     flowNamespace?: string;
     message: string;
 }
 
-export type RunTestSuccess = {
+export interface RunTestSuccess {
     id: ID;
     methodName: string;
     name: string;
@@ -9105,7 +9108,7 @@ export type RunTestSuccess = {
     time: number;
 }
 
-export type AsyncResult = {
+export interface AsyncResult {
     done: boolean;
     id: ID;
     message?: string;
@@ -9113,12 +9116,12 @@ export type AsyncResult = {
     statusCode?: StatusCode;
 }
 
-export type Metadata = {
+export interface Metadata {
     fullName?: string;
     module?: string;
 }
 
-export type AIApplication = Metadata & {
+export interface AIApplication extends Metadata {
     developerName: string;
     masterLabel?: string;
     predictionDefinitions: AIPredictionDefinition[];
@@ -9126,7 +9129,7 @@ export type AIApplication = Metadata & {
     type: AIApplicationType;
 }
 
-export type AIPredictionDefinition = {
+export interface AIPredictionDefinition {
     dataDefinitions: AIDataDefinition[];
     description: string;
     predictionTargets: AIPredictionTarget[];
@@ -9134,7 +9137,7 @@ export type AIPredictionDefinition = {
     type: AIPredictionType;
 }
 
-export type AIDataDefinition = {
+export interface AIDataDefinition {
     dataFilter?: AIFilterGroup;
     description?: string;
     fieldType?: AIManagedFieldType;
@@ -9142,11 +9145,11 @@ export type AIDataDefinition = {
     modelDefinitions: AIModelDefinition[];
 }
 
-export type AIFilterGroup = {
+export interface AIFilterGroup {
     rootFilter: AIFilter;
 }
 
-export type AIFilter = {
+export interface AIFilter {
     lhField?: AIPredictionField;
     lhFilter?: AIFilter;
     lhUnit?: AIFilterUnit;
@@ -9158,24 +9161,24 @@ export type AIFilter = {
     values: AIFilterValue[];
 }
 
-export type AIPredictionField = {
+export interface AIPredictionField {
     entity: string;
     field: string;
     relatedPredictionField?: AIPredictionField;
 }
 
-export type AIFilterValue = {
+export interface AIFilterValue {
     side: AISide;
     sortOrder?: number;
     type: AIValueType;
     value: string;
 }
 
-export type AIManagedField = {
+export interface AIManagedField {
     field: AIPredictionField;
 }
 
-export type AIModelDefinition = {
+export interface AIModelDefinition {
     approvalType?: AIModelDefinitionApprovalType;
     externalId: string;
     scoringFilter?: AIFilterGroup;
@@ -9185,19 +9188,19 @@ export type AIModelDefinition = {
     type?: AIModelType;
 }
 
-export type AIPredictionTarget = {
+export interface AIPredictionTarget {
     predictionExpressions: AIPredictionExpression[];
     pushbackField?: AIPredictionField;
     strategy?: AIPredictionStrategy;
     targetField?: AIPredictionField;
 }
 
-export type AIPredictionExpression = {
+export interface AIPredictionExpression {
     expressionFilterGroup?: AIFilterGroup;
     predictionExpressionName?: string;
 }
 
-export type AIApplicationConfig = Metadata & {
+export interface AIApplicationConfig extends Metadata {
     aiApplicationDeveloperName: string;
     applicationId?: string;
     developerName: string;
@@ -9207,7 +9210,7 @@ export type AIApplicationConfig = Metadata & {
     scoringMode?: AIScoringMode;
 }
 
-export type AIConvSummarizationConfig = Metadata & {
+export interface AIConvSummarizationConfig extends Metadata {
     fieldName: string;
     lookUpRelatedRecordField?: string;
     name: string;
@@ -9217,7 +9220,7 @@ export type AIConvSummarizationConfig = Metadata & {
     status: ConfigStatus;
 }
 
-export type AIModel = Metadata & {
+export interface AIModel extends Metadata {
     approvalStatus: AIModelApproval;
     contentVersion?: string;
     dataset?: string;
@@ -9235,7 +9238,7 @@ export type AIModel = Metadata & {
     type: AIModelType;
 }
 
-export type AIModelFactor = {
+export interface AIModelFactor {
     externalId?: string;
     factorComponents: AIFactorComponent[];
     intensityType: AIIntensityType;
@@ -9245,7 +9248,7 @@ export type AIModelFactor = {
     upperLimit: number;
 }
 
-export type AIFactorComponent = {
+export interface AIFactorComponent {
     leftHandDerivedField?: string;
     leftHandField?: string;
     operator: AIModelMetricOperation;
@@ -9255,14 +9258,14 @@ export type AIFactorComponent = {
     value: string;
 }
 
-export type AIModelGraph = {
+export interface AIModelGraph {
     dataSetType: AIDataSetType;
     graphPoints: string;
     graphType: AIModelGraphType;
     schemaVersion: string;
 }
 
-export type AIModelMetric = {
+export interface AIModelMetric {
     classLabel1?: string;
     classLabel2?: string;
     iteration?: number;
@@ -9270,13 +9273,13 @@ export type AIModelMetric = {
     metricValue: number;
 }
 
-export type AIReplyRecommendationsSettings = Metadata & {
+export interface AIReplyRecommendationsSettings extends Metadata {
     enableAIReplyRecommendations?: boolean;
     enableGenReplyRecommendations?: boolean;
     enableServiceEinsteinGPTGrounding?: boolean;
 }
 
-export type AIScoringModelDefVersion = Metadata & {
+export interface AIScoringModelDefVersion extends Metadata {
     aiScoringModelDefinition: string;
     aiScoringSteps: AIScoringStep[];
     developerName: string;
@@ -9284,19 +9287,19 @@ export type AIScoringModelDefVersion = Metadata & {
     modelMode: AIScoringModelDefVersionMode;
 }
 
-export type AIScoringStep = {
+export interface AIScoringStep {
     aiModelConfigStep: string;
     stepDetail?: string;
 }
 
-export type AIScoringModelDefinition = Metadata & {
+export interface AIScoringModelDefinition extends Metadata {
     aiModelConfig: string;
     aiScoringModelDefVersions: AIScoringModelDefVersion[];
     description?: string;
     masterLabel: string;
 }
 
-export type AIUsecaseDefinition = Metadata & {
+export interface AIUsecaseDefinition extends Metadata {
     aiUsecaseFieldMappings: AIUsecaseFieldMapping[];
     aiUsecaseModels: AIUsecaseModel[];
     creatorType: CreatorType;
@@ -9318,7 +9321,7 @@ export type AIUsecaseDefinition = Metadata & {
     usecaseName: string;
 }
 
-export type AIUsecaseFieldMapping = {
+export interface AIUsecaseFieldMapping {
     additionalFieldInformation?: string;
     customPredictionLabel?: string;
     developerName: string;
@@ -9331,7 +9334,7 @@ export type AIUsecaseFieldMapping = {
     sequenceNumber?: number;
 }
 
-export type AIUsecaseModel = {
+export interface AIUsecaseModel {
     aiFeatureExtractors: AIFeatureExtractor[];
     arePredctGenInRealTime: boolean;
     defaultFeatureExtractor?: AIFeatureExtractor;
@@ -9341,7 +9344,7 @@ export type AIUsecaseModel = {
     predictionPlatform: PredictionPlatform;
 }
 
-export type AIFeatureExtractor = {
+export interface AIFeatureExtractor {
     batchInputSourceIdentifier?: string;
     batchInputSourceType?: BatchInputSourceType;
     className?: string;
@@ -9352,7 +9355,7 @@ export type AIFeatureExtractor = {
     masterLabel: string;
 }
 
-export type AccountForecastSettings = Metadata & {
+export interface AccountForecastSettings extends Metadata {
     accountFilterId?: string;
     accountForecastFormulas: AccountForecastFormula[];
     acctPrdctPrdFrcstVolCnt?: number;
@@ -9375,31 +9378,31 @@ export type AccountForecastSettings = Metadata & {
     startingPeriod: number;
 }
 
-export type AccountForecastFormula = {
+export interface AccountForecastFormula {
     endingPeriod: number;
     formula: string;
     formulaType: FormulaType;
     startingPeriod: number;
 }
 
-export type ObjectMapping = {
+export interface ObjectMapping {
     inputObject: string;
     mappingFields: ObjectMappingField[];
     outputObject: string;
 }
 
-export type ObjectMappingField = {
+export interface ObjectMappingField {
     inputField: string;
     outputField: string;
 }
 
-export type AccountIntelligenceSettings = Metadata & {
+export interface AccountIntelligenceSettings extends Metadata {
     enableAccountLogos?: boolean;
     enableAutomatedAccountFields?: boolean;
     enableNewsStories?: boolean;
 }
 
-export type AccountPlanObjMeasCalcDef = Metadata & {
+export interface AccountPlanObjMeasCalcDef extends Metadata {
     conditions: AccountPlanObjMeasCalcCond[];
     description?: string;
     developerName: string;
@@ -9410,13 +9413,13 @@ export type AccountPlanObjMeasCalcDef = Metadata & {
     targetObject: string;
 }
 
-export type AccountPlanObjMeasCalcCond = {
+export interface AccountPlanObjMeasCalcCond {
     fieldName: string;
     operation: string;
     value: string;
 }
 
-export type AccountRelationshipShareRule = Metadata & {
+export interface AccountRelationshipShareRule extends Metadata {
     accessLevel: string;
     accountToCriteriaField: string;
     description?: string;
@@ -9426,7 +9429,7 @@ export type AccountRelationshipShareRule = Metadata & {
     type: string;
 }
 
-export type AccountSettings = Metadata & {
+export interface AccountSettings extends Metadata {
     enableAccountDiscovery?: boolean;
     enableAccountHistoryTracking?: boolean;
     enableAccountInsightsInMobile?: boolean;
@@ -9438,7 +9441,7 @@ export type AccountSettings = Metadata & {
     showViewHierarchyLink?: boolean;
 }
 
-export type AccountingModelConfig = Metadata & {
+export interface AccountingModelConfig extends Metadata {
     accountingType: AccountingType;
     defaultAccrualAccountCode?: string;
     defaultWriteOffAccountCode?: string;
@@ -9456,14 +9459,14 @@ export type AccountingModelConfig = Metadata & {
     runOrder?: number;
 }
 
-export type AcctMgrTargetSettings = Metadata & {
+export interface AcctMgrTargetSettings extends Metadata {
     acctMgrPeriodicTargetDstrCnt?: number;
     periodType: PeriodTypes;
     pricebookId?: string;
     teamMemberHierarchyType: TeamMemberHierarchyType;
 }
 
-export type ActionLauncherItemDef = Metadata & {
+export interface ActionLauncherItemDef extends Metadata {
     identifier: string;
     itemActionType: ItemActionType;
     itemCategory: ItemCategory;
@@ -9474,7 +9477,7 @@ export type ActionLauncherItemDef = Metadata & {
     versionNumber?: string;
 }
 
-export type ActionLinkGroupTemplate = Metadata & {
+export interface ActionLinkGroupTemplate extends Metadata {
     actionLinkTemplates: ActionLinkTemplate[];
     category: PlatformActionGroupCategory;
     executionsAllowed: ActionLinkExecutionsAllowed;
@@ -9483,7 +9486,7 @@ export type ActionLinkGroupTemplate = Metadata & {
     name: string;
 }
 
-export type ActionLinkTemplate = {
+export interface ActionLinkTemplate {
     actionUrl: string;
     headers?: string;
     isConfirmationRequired: boolean;
@@ -9498,7 +9501,7 @@ export type ActionLinkTemplate = {
     userVisibility: ActionLinkUserVisibility;
 }
 
-export type ActionPlanTemplate = Metadata & {
+export interface ActionPlanTemplate extends Metadata {
     actionPlanTemplateItem: ActionPlanTemplateItem[];
     actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency[];
     actionPlanType?: ActionPlanTemplateType;
@@ -9509,7 +9512,7 @@ export type ActionPlanTemplate = Metadata & {
     uniqueName: string;
 }
 
-export type ActionPlanTemplateItem = {
+export interface ActionPlanTemplateItem {
     actionPlanTemplateItemValue: ActionPlanTemplateItemValue[];
     displayOrder?: number;
     isRequired?: boolean;
@@ -9518,21 +9521,21 @@ export type ActionPlanTemplateItem = {
     uniqueName: string;
 }
 
-export type ActionPlanTemplateItemValue = {
+export interface ActionPlanTemplateItemValue {
     itemEntityType: string;
     name: string;
     valueFormula?: string;
     valueLiteral?: string;
 }
 
-export type ActionPlanTemplateItemDependency = {
+export interface ActionPlanTemplateItemDependency {
     creationType: string;
     name: string;
     previousTemplateItem: ActionPlanTemplateItem;
     templateItem: ActionPlanTemplateItem;
 }
 
-export type ActionableEventOrchDef = Metadata & {
+export interface ActionableEventOrchDef extends Metadata {
     actionableEventUsageType?: string;
     apiName: string;
     contextDefinitionDeveloperName?: string;
@@ -9547,25 +9550,25 @@ export type ActionableEventOrchDef = Metadata & {
     label: string;
 }
 
-export type ActionableEventTypeDef = Metadata & {
+export interface ActionableEventTypeDef extends Metadata {
     apiName: string;
     eventSubtypes: EventSubtype[];
     label: string;
 }
 
-export type EventSubtype = {
+export interface EventSubtype {
     apiName: string;
     label: string;
 }
 
-export type ActionsSettings = Metadata & {
+export interface ActionsSettings extends Metadata {
     enableDefaultQuickActionsOn?: boolean;
     enableMdpEnabled?: boolean;
     enableOfflineWebLinks?: boolean;
     enableThirdPartyActions?: boolean;
 }
 
-export type ActivationPlatform = Metadata & {
+export interface ActivationPlatform extends Metadata {
     activationFlowType?: ActivationFlowType;
     activationPlatformAdditionalMetadata?: string;
     activationPlatformConnectorType?: ActivationPlatformConnectorType;
@@ -9585,7 +9588,7 @@ export type ActivationPlatform = Metadata & {
     refreshMode: ActivationPlatformRefreshMode;
 }
 
-export type ActivationPlatformActvAttr = Metadata & {
+export interface ActivationPlatformActvAttr extends Metadata {
     activationPlatform: string;
     actvPlatformAdncIdentifier?: string;
     destinationName?: string;
@@ -9596,7 +9599,7 @@ export type ActivationPlatformActvAttr = Metadata & {
     objectName?: string;
 }
 
-export type ActivationPlatformField = Metadata & {
+export interface ActivationPlatformField extends Metadata {
     activationPlatform: string;
     helpText?: string;
     isHidden: boolean;
@@ -9605,7 +9608,7 @@ export type ActivationPlatformField = Metadata & {
     type?: ActivationPlatformFieldDataType;
 }
 
-export type ActivitiesSettings = Metadata & {
+export interface ActivitiesSettings extends Metadata {
     allowUsersToRelateMultipleContactsToTasksAndEvents?: boolean;
     autoRelateEventAttendees?: boolean;
     enableActivityReminders?: boolean;
@@ -9635,7 +9638,7 @@ export type ActivitiesSettings = Metadata & {
     showMyTasksHoverLinks?: boolean;
 }
 
-export type ActnblListKeyPrfmIndDef = Metadata & {
+export interface ActnblListKeyPrfmIndDef extends Metadata {
     aggregateOperationName: ActionableListKPIAggType;
     description?: string;
     fieldName: string;
@@ -9645,33 +9648,33 @@ export type ActnblListKeyPrfmIndDef = Metadata & {
     status: ActionableListKPIStType;
 }
 
-export type ActvPfrmDataConnectorS3 = Metadata & {
+export interface ActvPfrmDataConnectorS3 extends Metadata {
     bucketName: string;
     exportDirectory: string;
     masterLabel: string;
 }
 
-export type ActvPlatformAdncIdentifier = Metadata & {
+export interface ActvPlatformAdncIdentifier extends Metadata {
     activationPlatform: string;
     identifierHashMethod?: ActivationPlatformIdentifierHashMethod;
     identifierType: ActivationPlatformIdentifierType;
     masterLabel: string;
 }
 
-export type ActvPlatformFieldValue = Metadata & {
+export interface ActvPlatformFieldValue extends Metadata {
     activationPlatformField: string;
     isDefault: boolean;
     masterLabel: string;
     value?: string;
 }
 
-export type ActvPlatformOAuthConnector = Metadata & {
+export interface ActvPlatformOAuthConnector extends Metadata {
     masterLabel: string;
     oauthProvider: OAuthProviderType;
     oauthUrl: string;
 }
 
-export type AddOnDefinition = Metadata & {
+export interface AddOnDefinition extends Metadata {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -9684,27 +9687,27 @@ export type AddOnDefinition = Metadata & {
     name: string;
 }
 
-export type IncludedPlatformLicenseDefinition = {
+export interface IncludedPlatformLicenseDefinition {
     fullName?: string;
     name: string;
     quantity?: number;
 }
 
-export type IncludedUserLicenseDefinition = {
+export interface IncludedUserLicenseDefinition {
     fullName?: string;
     name: string;
     quantity?: number;
 }
 
-export type AddressSettings = Metadata & {
+export interface AddressSettings extends Metadata {
     countriesAndStates: CountriesAndStates;
 }
 
-export type CountriesAndStates = {
+export interface CountriesAndStates {
     countries: Country[];
 }
 
-export type Country = {
+export interface Country {
     active: boolean;
     integrationValue: string;
     isoCode: string;
@@ -9715,7 +9718,7 @@ export type Country = {
     visible: boolean;
 }
 
-export type State = {
+export interface State {
     active: boolean;
     integrationValue: string;
     isoCode: string;
@@ -9724,7 +9727,7 @@ export type State = {
     visible: boolean;
 }
 
-export type AdvAccountForecastSet = Metadata & {
+export interface AdvAccountForecastSet extends Metadata {
     accountFieldName?: string;
     calculationFrequency?: AdvAcctFcstCalcFrequency;
     description?: string;
@@ -9749,14 +9752,14 @@ export type AdvAccountForecastSet = Metadata & {
     status: AdvAccForecastSetStatus;
 }
 
-export type AdvAcctForecastDimension = {
+export interface AdvAcctForecastDimension {
     advAcctForecastDimName: string;
     dimensionFieldName: string;
     dimensionSourceName?: string;
     hierarchySequenceNumber: number;
 }
 
-export type AdvAcctFrcstDisplayGroup = {
+export interface AdvAcctFrcstDisplayGroup {
     advAcctFrcstDisplayGroupName: string;
     displayGroupItems: AdvAcctFrcstDplyGroupItem[];
     displayGroupType?: AdvAcctFrcstDisplayGroupType;
@@ -9764,27 +9767,27 @@ export type AdvAcctFrcstDisplayGroup = {
     userProfileName?: string;
 }
 
-export type AdvAcctFrcstDplyGroupItem = {
+export interface AdvAcctFrcstDplyGroupItem {
     advAcctFrcstDplyGroupItemName: string;
     displayOrder: number;
     measureReferenceName?: string;
 }
 
-export type AdvAcctForecastAdjPeriod = {
+export interface AdvAcctForecastAdjPeriod {
     adjustmentDayCount: number;
     frequency: PeriodTypes;
     profileName?: string;
     startDay: number;
 }
 
-export type AdvAccountForecastFormula = {
+export interface AdvAccountForecastFormula {
     endPeriod: number;
     formulaExpression: string;
     formulaType: AdvAcctFcstFormulaType;
     startPeriod: number;
 }
 
-export type AdvAcctForecastMeasureDef = {
+export interface AdvAcctForecastMeasureDef {
     advAcctForecastMeasureDefName: string;
     aggregationType?: AdvAcctFcstAggregationType;
     computationMethod?: AdvAcctFcstComputationMethod;
@@ -9794,25 +9797,25 @@ export type AdvAcctForecastMeasureDef = {
     isAdjustmentTracked?: boolean;
 }
 
-export type AdvAcctForecastDimSource = Metadata & {
+export interface AdvAcctForecastDimSource extends Metadata {
     advAcctForecastDimSrcName: string;
     sourceObjectName: string;
 }
 
-export type AdvAcctForecastPeriodGroup = Metadata & {
+export interface AdvAcctForecastPeriodGroup extends Metadata {
     forecastPeriodGroupName: string;
     forecastPeriods: AdvAccountForecastPeriod[];
     startPeriod: number;
     status: ForecastPeriodGroupStatus;
 }
 
-export type AdvAccountForecastPeriod = {
+export interface AdvAccountForecastPeriod {
     displayDuration: number;
     sequenceNumber: number;
     type: PeriodTypes;
 }
 
-export type AdvancedObjectMapping = Metadata & {
+export interface AdvancedObjectMapping extends Metadata {
     client: FieldMappingClient;
     description?: string;
     label: string;
@@ -9821,14 +9824,14 @@ export type AdvancedObjectMapping = Metadata & {
     targetObject?: string;
 }
 
-export type AdvancedFieldMapping = {
+export interface AdvancedFieldMapping {
     sourceField: string;
     sourceObject: string;
     targetField: string;
     targetObject: string;
 }
 
-export type AffinityScoreDefinition = Metadata & {
+export interface AffinityScoreDefinition extends Metadata {
     affinityScoreDefinitionDesc?: string;
     affinityScoreDefinitionName?: string;
     affinityScoreType?: AffinityScoreType;
@@ -9842,7 +9845,7 @@ export type AffinityScoreDefinition = Metadata & {
     targetObjectApiName?: string;
 }
 
-export type Ai4mSettings = Metadata & {
+export interface Ai4mSettings extends Metadata {
     enableEinsteinMCDesiger?: boolean;
     enableStoEmailPooledModel?: boolean;
     enableUmaEef?: boolean;
@@ -9854,14 +9857,14 @@ export type Ai4mSettings = Metadata & {
     enableUmaSto?: boolean;
 }
 
-export type AiPluginUtteranceDef = Metadata & {
+export interface AiPluginUtteranceDef extends Metadata {
     developerName: string;
     language: string;
     masterLabel: string;
     utterance: string;
 }
 
-export type AnalyticSnapshot = Metadata & {
+export interface AnalyticSnapshot extends Metadata {
     description?: string;
     groupColumn?: string;
     mappings: AnalyticSnapshotMapping[];
@@ -9871,20 +9874,20 @@ export type AnalyticSnapshot = Metadata & {
     targetObject: string;
 }
 
-export type AnalyticSnapshotMapping = {
+export interface AnalyticSnapshotMapping {
     aggregateType?: ReportSummaryType;
     sourceField: string;
     sourceType: ReportJobSourceTypes;
     targetField: string;
 }
 
-export type AnalyticsWorkspace = Metadata & {
+export interface AnalyticsWorkspace extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type AnalyticsDashboard = Metadata & {
+export interface AnalyticsDashboard extends Metadata {
     description?: string;
     layouts: AnalyticsDashboardLayout[];
     masterLabel: string;
@@ -9895,7 +9898,7 @@ export type AnalyticsDashboard = Metadata & {
     widgets: AnalyticsDashboardWidget[];
 }
 
-export type AnalyticsDashboardLayout = {
+export interface AnalyticsDashboardLayout {
     analyticsDashboard: string;
     columnCount?: string;
     label?: string;
@@ -9907,14 +9910,14 @@ export type AnalyticsDashboardLayout = {
     version?: number;
 }
 
-export type AnalyticsDashboardPage = {
+export interface AnalyticsDashboardPage {
     index?: number;
     label?: string;
     pageName?: string;
     pageWidgets: AnalyticsDashPageWidget[];
 }
 
-export type AnalyticsDashPageWidget = {
+export interface AnalyticsDashPageWidget {
     analyticsDashboardWidget: string;
     colspan?: string;
     column?: string;
@@ -9922,7 +9925,7 @@ export type AnalyticsDashPageWidget = {
     rowspan?: string;
 }
 
-export type AnalyticsDashboardWidget = {
+export interface AnalyticsDashboardWidget {
     analyticsDashboard: string;
     buttonWidgetDefs: AnalyticsButtonWidgetDef[];
     containerWidgetDefs: AnalyticsContainerWidgetDef[];
@@ -9937,39 +9940,39 @@ export type AnalyticsDashboardWidget = {
     widgetName?: string;
 }
 
-export type AnalyticsButtonWidgetDef = {
+export interface AnalyticsButtonWidgetDef {
     parameters?: string;
 }
 
-export type AnalyticsFilterWidgetDef = {
+export interface AnalyticsFilterWidgetDef {
     initialValues?: string;
     parameters?: string;
     source?: string;
 }
 
-export type AnalyticsMetricWidgetDef = {
+export interface AnalyticsMetricWidgetDef {
     parameters?: string;
     source?: string;
     version?: number;
 }
 
-export type AnalyticsTextWidgetDef = {
+export interface AnalyticsTextWidgetDef {
     parameters?: string;
 }
 
-export type AnalyticsVizWidgetDef = {
+export interface AnalyticsVizWidgetDef {
     analyticsVisualization?: string;
     parameters?: string;
 }
 
-export type AnalyticsAssetAction = {
+export interface AnalyticsAssetAction {
     actionType: AnalyticsActionType;
     eventType: AnalyticsActionEventType;
     parameters?: string;
     version?: number;
 }
 
-export type AnalyticsSettings = Metadata & {
+export interface AnalyticsSettings extends Metadata {
     alwaysGenPreviews?: boolean;
     analyticsAdoptionMetadata?: boolean;
     autoInstallApps?: boolean;
@@ -10058,13 +10061,13 @@ export type AnalyticsSettings = Metadata & {
     turnOnTimeZones?: boolean;
 }
 
-export type AndroidPushApplicationSetup = Metadata & {
+export interface AndroidPushApplicationSetup extends Metadata {
     fcmProject?: string;
     serverKey?: string;
     serviceAccount?: string;
 }
 
-export type AnimationRule = Metadata & {
+export interface AnimationRule extends Metadata {
     animationFrequency: string;
     developerName: string;
     isActive: boolean;
@@ -10076,16 +10079,16 @@ export type AnimationRule = Metadata & {
     targetFieldChangeToValues: string;
 }
 
-export type ApexEmailNotifications = Metadata & {
+export interface ApexEmailNotifications extends Metadata {
     apexEmailNotification: ApexEmailNotification[];
 }
 
-export type ApexEmailNotification = {
+export interface ApexEmailNotification {
     email?: string;
     user?: string;
 }
 
-export type ApexSettings = Metadata & {
+export interface ApexSettings extends Metadata {
     defaultQueueableDelay?: number;
     enableAggregateCodeCoverageOnly?: boolean;
     enableApexAccessRightsPref?: boolean;
@@ -10104,15 +10107,15 @@ export type ApexSettings = Metadata & {
     enableTestSetupSkipTestResults?: boolean;
 }
 
-export type ApexTestSuite = Metadata & {
+export interface ApexTestSuite extends Metadata {
     testClassName: string[];
 }
 
-export type AppExperienceSettings = Metadata & {
+export interface AppExperienceSettings extends Metadata {
     doesHideAllAppsInAppLauncher?: boolean;
 }
 
-export type AppFrameworkTemplateBundle = Metadata & {
+export interface AppFrameworkTemplateBundle extends Metadata {
     assetVersion?: number;
     description?: string;
     label: string;
@@ -10121,22 +10124,22 @@ export type AppFrameworkTemplateBundle = Metadata & {
     templateType: string;
 }
 
-export type AppMenu = Metadata & {
+export interface AppMenu extends Metadata {
     appMenuItems: AppMenuItem[];
 }
 
-export type AppMenuItem = {
+export interface AppMenuItem {
     name: string;
     type: string;
 }
 
-export type AppNotificationType = Metadata & {
+export interface AppNotificationType extends Metadata {
     notificationType: string;
     pushByDefault: boolean;
     subscribed: boolean;
 }
 
-export type ApplePushApplicationSetup = Metadata & {
+export interface ApplePushApplicationSetup extends Metadata {
     applicationBundle?: string;
     certificate?: string;
     environment: string;
@@ -10146,7 +10149,7 @@ export type ApplePushApplicationSetup = Metadata & {
     teamIdentifier?: string;
 }
 
-export type Application = Metadata & {
+export interface Application extends Metadata {
     contactEmail?: string;
     contactPhone?: string;
     description?: string;
@@ -10159,36 +10162,36 @@ export type Application = Metadata & {
     version?: string;
 }
 
-export type ModuleRefs = {
+export interface ModuleRefs {
     moduleRef: ModuleRef[];
 }
 
-export type ModuleRef = {
+export interface ModuleRef {
     name: string;
     namespacePrefix?: string;
     version?: string;
 }
 
-export type ApplicationRecordTypeConfig = Metadata & {
+export interface ApplicationRecordTypeConfig extends Metadata {
     applicationObjectName: ApplicationObjectName;
     applicationUsageType: ApplicationUsageType;
     recordTypeName: string;
 }
 
-export type ApplicationSubtypeDefinition = Metadata & {
+export interface ApplicationSubtypeDefinition extends Metadata {
     applicationUsageType: AppDomainUsageType;
     description?: string;
     masterLabel: string;
 }
 
-export type AppointmentAssignmentPolicy = Metadata & {
+export interface AppointmentAssignmentPolicy extends Metadata {
     masterLabel: string;
     policyApplicableDuration: PolicyApplicableDuration;
     policyType: AssignmentPolicyType;
     utilizationFactor: UtilizationFactor;
 }
 
-export type AppointmentSchedulingPolicy = Metadata & {
+export interface AppointmentSchedulingPolicy extends Metadata {
     appointmentAssignmentPolicy?: string;
     appointmentStartTimeInterval: string;
     extCalEventHandler?: string;
@@ -10206,7 +10209,7 @@ export type AppointmentSchedulingPolicy = Metadata & {
     shouldUseSecondaryMembers: boolean;
 }
 
-export type ApprovalProcess = Metadata & {
+export interface ApprovalProcess extends Metadata {
     active: boolean;
     allowRecall?: boolean;
     allowedSubmitters: ApprovalSubmitter[];
@@ -10230,16 +10233,16 @@ export type ApprovalProcess = Metadata & {
     showApprovalHistory?: boolean;
 }
 
-export type ApprovalSubmitter = {
+export interface ApprovalSubmitter {
     submitter?: string;
     type: ProcessSubmitterType;
 }
 
-export type ApprovalPageField = {
+export interface ApprovalPageField {
     field: string[];
 }
 
-export type ApprovalStep = {
+export interface ApprovalStep {
     allowDelegate?: boolean;
     approvalActions?: ApprovalAction;
     assignedApprover: ApprovalStepApprover;
@@ -10252,53 +10255,53 @@ export type ApprovalStep = {
     rejectionActions?: ApprovalAction;
 }
 
-export type ApprovalAction = {
+export interface ApprovalAction {
     action: WorkflowActionReference[];
 }
 
-export type WorkflowActionReference = {
+export interface WorkflowActionReference {
     name: string;
     type: WorkflowActionType;
 }
 
-export type ApprovalStepApprover = {
+export interface ApprovalStepApprover {
     approver: Approver[];
     whenMultipleApprovers?: RoutingType;
 }
 
-export type Approver = {
+export interface Approver {
     name?: string;
     type: NextOwnerType;
 }
 
-export type ApprovalEntryCriteria = {
+export interface ApprovalEntryCriteria {
     booleanFilter?: string;
     criteriaItems: FilterItem[];
     formula?: string;
 }
 
-export type FilterItem = {
+export interface FilterItem {
     field: string;
     operation: FilterOperation;
     value?: string;
     valueField?: string;
 }
 
-export type DuplicateRuleFilterItem = FilterItem & {
+export interface DuplicateRuleFilterItem extends FilterItem {
     sortOrder: number;
     table: string;
 }
 
-export type ApprovalStepRejectBehavior = {
+export interface ApprovalStepRejectBehavior {
     type: StepRejectBehaviorType;
 }
 
-export type NextAutomatedApprover = {
+export interface NextAutomatedApprover {
     useApproverFieldOfRecordOwner?: boolean;
     userHierarchyField: string;
 }
 
-export type AssessmentQuestion = Metadata & {
+export interface AssessmentQuestion extends Metadata {
     assessmentQuestionVersion?: AssessmentQuestionVersion;
     dataType: string;
     developerName: string;
@@ -10309,7 +10312,7 @@ export type AssessmentQuestion = Metadata & {
     relatedQuestion?: string;
 }
 
-export type AssessmentQuestionVersion = {
+export interface AssessmentQuestionVersion {
     additionalInformation?: string;
     description?: string;
     guidanceInformation?: string;
@@ -10323,18 +10326,18 @@ export type AssessmentQuestionVersion = {
     versionNumber: number;
 }
 
-export type AssessmentQuestionSet = Metadata & {
+export interface AssessmentQuestionSet extends Metadata {
     assessmentQuestionDeveloperNames: string[];
     developerName: string;
     name: string;
 }
 
-export type AssignmentRule = Metadata & {
+export interface AssignmentRule extends Metadata {
     active?: boolean;
     ruleEntry: RuleEntry[];
 }
 
-export type RuleEntry = {
+export interface RuleEntry {
     assignedTo?: string;
     assignedToType?: AssignToLookupValueType;
     booleanFilter?: string;
@@ -10354,7 +10357,7 @@ export type RuleEntry = {
     template?: string;
 }
 
-export type EscalationAction = {
+export interface EscalationAction {
     assignedTo?: string;
     assignedToTemplate?: string;
     assignedToType?: AssignToLookupValueType;
@@ -10365,11 +10368,11 @@ export type EscalationAction = {
     notifyToTemplate?: string;
 }
 
-export type AssignmentRules = Metadata & {
+export interface AssignmentRules extends Metadata {
     assignmentRule: AssignmentRule[];
 }
 
-export type AssistantContextItem = Metadata & {
+export interface AssistantContextItem extends Metadata {
     assistantVersionId: string;
     description?: string;
     developerName: string;
@@ -10383,7 +10386,7 @@ export type AssistantContextItem = Metadata & {
     whereClause?: string;
 }
 
-export type AssistantDefinition = Metadata & {
+export interface AssistantDefinition extends Metadata {
     appVersionNumber?: number;
     assistantDefinitionProfiles: AssistantDefinitionProfile[];
     description?: string;
@@ -10392,11 +10395,11 @@ export type AssistantDefinition = Metadata & {
     status?: AssistantDefinitionStatus;
 }
 
-export type AssistantDefinitionProfile = {
+export interface AssistantDefinitionProfile {
     profile?: string;
 }
 
-export type AssistantSkillQuickAction = Metadata & {
+export interface AssistantSkillQuickAction extends Metadata {
     assistantSkillQuickActionParams: AssistantSkillQuickActionParam[];
     description?: string;
     developerName: string;
@@ -10405,7 +10408,7 @@ export type AssistantSkillQuickAction = Metadata & {
     quickAction?: string;
 }
 
-export type AssistantSkillQuickActionParam = {
+export interface AssistantSkillQuickActionParam {
     description?: string;
     field?: string;
     index?: number;
@@ -10414,7 +10417,7 @@ export type AssistantSkillQuickActionParam = {
     slotClass?: string;
 }
 
-export type AssistantSkillSobjectAction = Metadata & {
+export interface AssistantSkillSobjectAction extends Metadata {
     assistantSkillSobjectParams: AssistantSkillSobjectParam[];
     description?: string;
     developerName: string;
@@ -10426,7 +10429,7 @@ export type AssistantSkillSobjectAction = Metadata & {
     type: AssistantSkillSobjectActionType;
 }
 
-export type AssistantSkillSobjectParam = {
+export interface AssistantSkillSobjectParam {
     description?: string;
     field?: string;
     index?: number;
@@ -10435,7 +10438,7 @@ export type AssistantSkillSobjectParam = {
     slotClass?: string;
 }
 
-export type AssistantVersion = Metadata & {
+export interface AssistantVersion extends Metadata {
     assistantDefinitionId: string;
     assistantSkills: AssistantSkill[];
     assistantVersionActions: AssistantVersionAction[];
@@ -10445,7 +10448,7 @@ export type AssistantVersion = Metadata & {
     versionNumber?: number;
 }
 
-export type AssistantSkill = {
+export interface AssistantSkill {
     assistantSkillIntents: AssistantSkillIntent[];
     description?: string;
     externalModel?: string;
@@ -10454,7 +10457,7 @@ export type AssistantSkill = {
     skillType?: AssistantSkillType;
 }
 
-export type AssistantSkillIntent = {
+export interface AssistantSkillIntent {
     action?: string;
     description?: string;
     field?: string;
@@ -10466,11 +10469,11 @@ export type AssistantSkillIntent = {
     sobjectType?: string;
 }
 
-export type AssistantVersionAction = {
+export interface AssistantVersionAction {
     action?: string;
 }
 
-export type Audience = Metadata & {
+export interface Audience extends Metadata {
     audienceName: string;
     container: string;
     criteria: AudienceCriteria;
@@ -10481,18 +10484,18 @@ export type Audience = Metadata & {
     targets?: PersonalizationTargetInfos;
 }
 
-export type AudienceCriteria = {
+export interface AudienceCriteria {
     criterion: AudienceCriterion[];
 }
 
-export type AudienceCriterion = {
+export interface AudienceCriterion {
     criteriaNumber?: number;
     criterionValue?: AudienceCriteriaValue;
     operator?: AudienceCriterionOperator;
     type: AudienceCriterionType;
 }
 
-export type AudienceCriteriaValue = {
+export interface AudienceCriteriaValue {
     audienceDeveloperName?: string;
     city?: string;
     country?: string;
@@ -10507,18 +10510,18 @@ export type AudienceCriteriaValue = {
     subdivision?: string;
 }
 
-export type PersonalizationTargetInfos = {
+export interface PersonalizationTargetInfos {
     target: PersonalizationTargetInfo[];
 }
 
-export type PersonalizationTargetInfo = {
+export interface PersonalizationTargetInfo {
     groupName: string;
     priority?: number;
     targetType: string;
     targetValue: string;
 }
 
-export type AuraDefinitionBundle = Metadata & {
+export interface AuraDefinitionBundle extends Metadata {
     SVGContent?: string;
     apiVersion?: number;
     auraDefinitions?: AuraDefinitions;
@@ -10536,23 +10539,23 @@ export type AuraDefinitionBundle = Metadata & {
     type?: AuraBundleType;
 }
 
-export type AuraDefinitions = {
+export interface AuraDefinitions {
     auraDefinition: AuraDefinition[];
 }
 
-export type AuraDefinition = {
+export interface AuraDefinition {
     defType: string;
     source: string;
 }
 
-export type PackageVersion = {
+export interface PackageVersion {
     majorNumber: number;
     minorNumber: number;
     namespace?: string;
     packageId?: string;
 }
 
-export type AuthProvider = Metadata & {
+export interface AuthProvider extends Metadata {
     appleTeam?: string;
     authorizeUrl?: string;
     consumerKey?: string;
@@ -10585,28 +10588,28 @@ export type AuthProvider = Metadata & {
     userInfoUrl?: string;
 }
 
-export type AuthProvParamFwdAllowlist = {
+export interface AuthProvParamFwdAllowlist {
     description?: string;
     param: string;
 }
 
-export type AutoResponseRule = Metadata & {
+export interface AutoResponseRule extends Metadata {
     active?: boolean;
     ruleEntry: RuleEntry[];
 }
 
-export type AutoResponseRules = Metadata & {
+export interface AutoResponseRules extends Metadata {
     autoResponseRule: AutoResponseRule[];
 }
 
-export type AutomatedContactsSettings = Metadata & {
+export interface AutomatedContactsSettings extends Metadata {
     enableAddContactAutomatically?: boolean;
     enableAddContactRoleAutomatically?: boolean;
     enableAddContactRoleWithSuggestion?: boolean;
     enableAddContactWithSuggestion?: boolean;
 }
 
-export type BatchCalcJobDefinition = Metadata & {
+export interface BatchCalcJobDefinition extends Metadata {
     aggregates: BatchCalcJobAggregate[];
     appends: BatchCalcJobUnion[];
     atomicWritebacks: BatchCalcJobAtomicWriteback[];
@@ -10629,7 +10632,7 @@ export type BatchCalcJobDefinition = Metadata & {
     writebacks: BatchCalcJobWritebackObject[];
 }
 
-export type BatchCalcJobAggregate = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobAggregate extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     fields: BatchCalcJobAggregateField[];
     groupBy: string[];
@@ -10638,11 +10641,12 @@ export type BatchCalcJobAggregate = BatchCalcJobAbstractMetadataValue & {
     sourceName: string;
 }
 
-export type BatchCalcJobAbstractMetadataValue = DpeToRecipeTranslateAbstractMetadataValue
+export interface BatchCalcJobAbstractMetadataValue extends DpeToRecipeTranslateAbstractMetadataValue {}
 
-export type DpeToRecipeTranslateAbstractMetadataValue = string
+export interface DpeToRecipeTranslateAbstractMetadataValue {
+}
 
-export type BatchCalcJobAtomicWriteback = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobAtomicWriteback extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     label: string;
     name: string;
@@ -10650,7 +10654,7 @@ export type BatchCalcJobAtomicWriteback = BatchCalcJobAbstractMetadataValue & {
     writebackSequence?: number;
 }
 
-export type BatchCalcJobAtomicWritebackRelationship = {
+export interface BatchCalcJobAtomicWritebackRelationship {
     childWritebackObjectField?: string;
     childWritebackObjectName?: string;
     parentWritebackObjectField?: string;
@@ -10658,7 +10662,7 @@ export type BatchCalcJobAtomicWritebackRelationship = {
     sequenceNumber: number;
 }
 
-export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobCustomNode extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     extensionName: string;
     extensionNamespace: string;
@@ -10668,12 +10672,12 @@ export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
     sources: string[];
 }
 
-export type BatchCalcJobCustomNodeParameter = {
+export interface BatchCalcJobCustomNodeParameter {
     name: string;
     value?: string;
 }
 
-export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobDatasource extends BatchCalcJobAbstractMetadataValue {
     CSVDelimiter?: BatchCalcJobCSVDelimiter;
     description?: string;
     fields: BatchCalcJobDatasourceField[];
@@ -10686,14 +10690,14 @@ export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
     type: BatchCalcJobDatasourceType;
 }
 
-export type BatchCalcJobDatasourceField = {
+export interface BatchCalcJobDatasourceField {
     alias?: string;
     dataType?: BatchCalcJobDataType;
     isPrimaryKey?: boolean;
     name: string;
 }
 
-export type BatchCalcJobFilter = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobFilter extends BatchCalcJobAbstractMetadataValue {
     criteria: BatchCalcJobFilterCriteria[];
     description?: string;
     filterCondition?: string;
@@ -10704,7 +10708,7 @@ export type BatchCalcJobFilter = BatchCalcJobAbstractMetadataValue & {
     sourceName: string;
 }
 
-export type BatchCalcJobFilterCriteria = {
+export interface BatchCalcJobFilterCriteria {
     inputVariable?: string;
     operator: BatchCalcJobFilterOperator;
     sequence: number;
@@ -10712,7 +10716,7 @@ export type BatchCalcJobFilterCriteria = {
     value?: string;
 }
 
-export type BatchCalcJobForecast = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobForecast extends BatchCalcJobAbstractMetadataValue {
     accuracyPercent?: BatchCalcJobFrcstAccuracy;
     aggregationFields: BtchCalcJobFrcstAggrFld[];
     dateFieldName: string;
@@ -10729,18 +10733,18 @@ export type BatchCalcJobForecast = BatchCalcJobAbstractMetadataValue & {
     sourceName: string;
 }
 
-export type BtchCalcJobFrcstAggrFld = {
+export interface BtchCalcJobFrcstAggrFld {
     aggregateFunction: BatchCalcJobAggregateFunction;
     aggregationResultLabel: string;
     fieldName: string;
 }
 
-export type BatchCalcJobFrcstGrpFld = {
+export interface BatchCalcJobFrcstGrpFld {
     fieldName: string;
     groupBy?: string;
 }
 
-export type BatchCalcJobHierarchyPath = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobHierarchyPath extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     hierarchyFieldName: string;
     isSelfFieldValueIncluded?: boolean;
@@ -10751,7 +10755,7 @@ export type BatchCalcJobHierarchyPath = BatchCalcJobAbstractMetadataValue & {
     sourceName: string;
 }
 
-export type BatchCalcJobParameter = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobParameter extends BatchCalcJobAbstractMetadataValue {
     dataType: BatchCalcJobParameterDataType;
     defaultValue?: string;
     description?: string;
@@ -10760,7 +10764,7 @@ export type BatchCalcJobParameter = BatchCalcJobAbstractMetadataValue & {
     name: string;
 }
 
-export type BatchCalcJobSourceJoin = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobSourceJoin extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     fields: BatchCalcJobJoinResultField[];
     joinKeys: BatchCalcJobJoinKey[];
@@ -10771,18 +10775,18 @@ export type BatchCalcJobSourceJoin = BatchCalcJobAbstractMetadataValue & {
     type: BatchCalcJobSourceJoinType;
 }
 
-export type BatchCalcJobJoinResultField = {
+export interface BatchCalcJobJoinResultField {
     alias: string;
     sourceFieldName: string;
     sourceName: string;
 }
 
-export type BatchCalcJobJoinKey = {
+export interface BatchCalcJobJoinKey {
     primarySourceFieldName: string;
     secondarySourceFieldName: string;
 }
 
-export type BatchCalcJobTransform = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobTransform extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     droppedFields: BatchCalcJobTransformDroppedField[];
     expressionFields: BatchCalcJobTransformAddedField[];
@@ -10794,11 +10798,11 @@ export type BatchCalcJobTransform = BatchCalcJobAbstractMetadataValue & {
     transformationType: BatchCalcJobTransformType;
 }
 
-export type BatchCalcJobTransformDroppedField = {
+export interface BatchCalcJobTransformDroppedField {
     sourceFieldName: string;
 }
 
-export type BatchCalcJobTransformAddedField = {
+export interface BatchCalcJobTransformAddedField {
     alias: string;
     dataType: BatchCalcJobDataType;
     decimalPlaces?: number;
@@ -10806,12 +10810,12 @@ export type BatchCalcJobTransformAddedField = {
     length?: number;
 }
 
-export type BatchCalcJobOrderByField = {
+export interface BatchCalcJobOrderByField {
     name: string;
     orderType: BatchCalcJobOrderType;
 }
 
-export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobUnion extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     isDisjointedSchema?: boolean;
     label: string;
@@ -10819,7 +10823,7 @@ export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
     sources: string[];
 }
 
-export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
+export interface BatchCalcJobWritebackObject extends BatchCalcJobAbstractMetadataValue {
     description?: string;
     externalIdFieldName?: string;
     fields: BatchCalcJobWritebackMapping[];
@@ -10839,7 +10843,7 @@ export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
     writebackUser?: string;
 }
 
-export type BatchCalcJobWritebackMapping = {
+export interface BatchCalcJobWritebackMapping {
     parentName?: string;
     relationshipName?: string;
     runtimeParameter?: boolean;
@@ -10847,13 +10851,13 @@ export type BatchCalcJobWritebackMapping = {
     targetFieldName?: string;
 }
 
-export type BatchCalcJobAggregateField = {
+export interface BatchCalcJobAggregateField {
     aggregateFunction: BatchCalcJobAggregateFunction;
     alias: string;
     sourceFieldName: string;
 }
 
-export type BatchProcessJobDefinition = Metadata & {
+export interface BatchProcessJobDefinition extends Metadata {
     batchSize: number;
     dataSource: BatchDataSource;
     description?: string;
@@ -10868,7 +10872,7 @@ export type BatchProcessJobDefinition = Metadata & {
     type?: string;
 }
 
-export type BatchDataSource = {
+export interface BatchDataSource {
     condition: string;
     criteria?: string;
     filters: BatchDataSrcFilterCriteria[];
@@ -10876,7 +10880,7 @@ export type BatchDataSource = {
     sourceObjectField?: string;
 }
 
-export type BatchDataSrcFilterCriteria = {
+export interface BatchDataSrcFilterCriteria {
     dynamicValue: boolean;
     dynamicValueType?: string;
     fieldName: string;
@@ -10885,7 +10889,7 @@ export type BatchDataSrcFilterCriteria = {
     sequenceNo: number;
 }
 
-export type BenefitAction = Metadata & {
+export interface BenefitAction extends Metadata {
     benefitActionParameters: BenefitActionParameter[];
     description?: string;
     flowDefinition?: string;
@@ -10898,7 +10902,7 @@ export type BenefitAction = Metadata & {
     type: string;
 }
 
-export type BenefitActionParameter = {
+export interface BenefitActionParameter {
     dataType: BenefitActionDataType;
     masterLabel: string;
     name?: string;
@@ -10907,11 +10911,11 @@ export type BenefitActionParameter = {
     picklistName?: string;
 }
 
-export type BenefitActionParameterValue = {
+export interface BenefitActionParameterValue {
     parameterValue: string;
 }
 
-export type BillingSettings = Metadata & {
+export interface BillingSettings extends Metadata {
     enableBillingSetup?: boolean;
     enableCrMemoApplicationToPostedInvoices?: boolean;
     enableInvoiceEmailDelivery?: boolean;
@@ -10923,24 +10927,24 @@ export type BillingSettings = Metadata & {
     enableTrxnAmountsStorageInCorpCurrency?: boolean;
 }
 
-export type BlacklistedConsumer = Metadata & {
+export interface BlacklistedConsumer extends Metadata {
     blockedByApiWhitelisting: boolean;
     consumerKey: string;
     consumerName: string;
     masterLabel: string;
 }
 
-export type BldgEnrgyIntensityCnfg = Metadata & {
+export interface BldgEnrgyIntensityCnfg extends Metadata {
     buildingEnergyIntensityType: BuildingEnergyIntensityType;
     recordType: string;
 }
 
-export type BlockchainSettings = Metadata & {
+export interface BlockchainSettings extends Metadata {
     enableBcp?: boolean;
     enableEtpNft?: boolean;
 }
 
-export type Bot = Metadata & {
+export interface Bot extends Metadata {
     agentType?: GenAiAgentType;
     botMlDomain?: LocalMlDomain;
     botUser?: string;
@@ -10958,14 +10962,14 @@ export type Bot = Metadata & {
     type?: BotType;
 }
 
-export type LocalMlDomain = {
+export interface LocalMlDomain {
     label: string;
     mlIntents: MlIntent[];
     mlSlotClasses: MlSlotClass[];
     name: string;
 }
 
-export type MlIntent = {
+export interface MlIntent {
     description?: string;
     developerName: string;
     label: string;
@@ -10973,16 +10977,16 @@ export type MlIntent = {
     relatedMlIntents: MlRelatedIntent[];
 }
 
-export type MlIntentUtterance = {
+export interface MlIntentUtterance {
     language?: Language;
     utterance: string;
 }
 
-export type MlRelatedIntent = {
+export interface MlRelatedIntent {
     relatedMlIntent: string;
 }
 
-export type MlSlotClass = {
+export interface MlSlotClass {
     dataType: MlSlotClassDataType;
     description?: string;
     developerName: string;
@@ -10992,18 +10996,18 @@ export type MlSlotClass = {
     mlSlotClassValues: MlSlotClassValue[];
 }
 
-export type MlSlotClassValue = {
+export interface MlSlotClassValue {
     synonymGroup?: SynonymGroup;
     synonymGroups: SynonymGroup[];
     value: string;
 }
 
-export type SynonymGroup = {
+export interface SynonymGroup {
     languages: Language[];
     terms: string[];
 }
 
-export type BotVersion = Metadata & {
+export interface BotVersion extends Metadata {
     articleAnswersGPTEnabled?: boolean;
     botDialogGroups: BotDialogGroup[];
     botDialogs: BotDialog[];
@@ -11030,13 +11034,13 @@ export type BotVersion = Metadata & {
     toneType?: GenAiBotToneType;
 }
 
-export type BotDialogGroup = {
+export interface BotDialogGroup {
     description?: string;
     developerName: string;
     label: string;
 }
 
-export type BotDialog = {
+export interface BotDialog {
     botDialogGroup?: string;
     botSteps: BotStep[];
     description?: string;
@@ -11048,7 +11052,7 @@ export type BotDialog = {
     showInFooterMenu?: boolean;
 }
 
-export type BotStep = {
+export interface BotStep {
     booleanFilter?: string;
     botInvocation?: BotInvocation;
     botMessages: BotMessage[];
@@ -11065,13 +11069,13 @@ export type BotStep = {
     type: BotStepType;
 }
 
-export type BotInvocation = {
+export interface BotInvocation {
     invocationActionName?: string;
     invocationActionType?: ConversationInvocableTargetType;
     invocationMappings: BotInvocationMapping[];
 }
 
-export type BotInvocationMapping = {
+export interface BotInvocationMapping {
     parameterName: string;
     recordName?: string;
     type: BotInvocationMappingType;
@@ -11080,31 +11084,31 @@ export type BotInvocationMapping = {
     variableType?: ConversationVariableType;
 }
 
-export type BotMessage = {
+export interface BotMessage {
     message: string;
     messageIdentifier?: string;
 }
 
-export type BotNavigation = {
+export interface BotNavigation {
     botNavigationLinks: BotNavigationLink[];
     type: BotNavigationType;
 }
 
-export type BotNavigationLink = {
+export interface BotNavigationLink {
     label?: string;
     targetBotDialog?: string;
     targetVariable?: string;
     targetVariableType?: ConversationVariableType;
 }
 
-export type BotStepCondition = {
+export interface BotStepCondition {
     leftOperandName: string;
     leftOperandType: ConversationVariableType;
     operatorType: BotStepConditionOperatorType;
     rightOperandValue?: string;
 }
 
-export type BotVariableOperation = {
+export interface BotVariableOperation {
     askCollectIfSet?: boolean;
     autoSelectIfSingleChoice?: boolean;
     botInvocation?: BotInvocation;
@@ -11126,12 +11130,12 @@ export type BotVariableOperation = {
     variableOperationIdentifier?: string;
 }
 
-export type BotQuickReplyOption = {
+export interface BotQuickReplyOption {
     literalValue: string;
     quickReplyOptionIdentifier?: string;
 }
 
-export type BotVariableOperand = {
+export interface BotVariableOperand {
     disableAutoFill?: boolean;
     sourceName?: string;
     sourceType?: ConversationVariableOperandSourceType;
@@ -11140,13 +11144,13 @@ export type BotVariableOperand = {
     targetType: ConversationVariableType;
 }
 
-export type ConversationDefinitionRichMessage = {
+export interface ConversationDefinitionRichMessage {
     executionType?: ConversationMessageExecutionType;
     messageDefinitionMappings: BotInvocationMapping[];
     messageDefinitionName: string;
 }
 
-export type ConversationRecordLookup = {
+export interface ConversationRecordLookup {
     SObjectType: string;
     conditions: ConversationRecordLookupCondition[];
     filterLogic?: string;
@@ -11159,7 +11163,7 @@ export type ConversationRecordLookup = {
     targetVariableName: string;
 }
 
-export type ConversationRecordLookupCondition = {
+export interface ConversationRecordLookupCondition {
     leftOperand: string;
     operatorType: string;
     rightOperandName?: string;
@@ -11168,40 +11172,40 @@ export type ConversationRecordLookupCondition = {
     sortOrder: number;
 }
 
-export type ConversationRecordLookupField = {
+export interface ConversationRecordLookupField {
     fieldName: string;
 }
 
-export type ConversationDefinitionStepGoalMapping = {
+export interface ConversationDefinitionStepGoalMapping {
     goalName: string;
 }
 
-export type ConversationSystemMessage = {
+export interface ConversationSystemMessage {
     systemMessageMappings: ConversationSystemMessageMapping[];
     type: ConversationSystemMessageType;
 }
 
-export type ConversationSystemMessageMapping = {
+export interface ConversationSystemMessageMapping {
     mappingType: ConversationMappingType;
     parameterType: ConversationSystemMessageParamType;
     variableName: string;
 }
 
-export type ConversationDefinitionPlanner = {
+export interface ConversationDefinitionPlanner {
     genAiPlannerName: string;
 }
 
-export type ConversationDefinitionGoal = {
+export interface ConversationDefinitionGoal {
     developerName: string;
     label: string;
 }
 
-export type ConversationSystemDialog = {
+export interface ConversationSystemDialog {
     dialog: string;
     type: ConversationSystemDialogType;
 }
 
-export type ConversationVariable = {
+export interface ConversationVariable {
     SObjectType?: string;
     collectionType?: ConversationVariableCollectionType;
     dataType: ConversationDataType;
@@ -11212,13 +11216,13 @@ export type ConversationVariable = {
     visibility?: ConversationVariableVisibilityType;
 }
 
-export type ConversationDefinitionNlpProvider = {
+export interface ConversationDefinitionNlpProvider {
     language?: Language;
     nlpProviderName?: string;
     nlpProviderType: ConversationDefinitionNlpProviderType;
 }
 
-export type ConversationContextVariable = {
+export interface ConversationContextVariable {
     SObjectType?: string;
     contextVariableMappings: ConversationContextVariableMapping[];
     dataType: ConversationDataType;
@@ -11228,18 +11232,18 @@ export type ConversationContextVariable = {
     label: string;
 }
 
-export type ConversationContextVariableMapping = {
+export interface ConversationContextVariableMapping {
     SObjectType: string;
     fieldName: string;
     messageType: MessageType;
 }
 
-export type ConversationDefinitionChannelProvider = {
+export interface ConversationDefinitionChannelProvider {
     agentRequired?: boolean;
     chatButtonName: string;
 }
 
-export type PageContextVariable = {
+export interface PageContextVariable {
     SObjectType?: string;
     dataType: ConversationDataType;
     description?: string;
@@ -11247,7 +11251,7 @@ export type PageContextVariable = {
     label: string;
 }
 
-export type BotBlock = Metadata & {
+export interface BotBlock extends Metadata {
     botBlockVersions: BotBlockVersion[];
     description?: string;
     icon?: string;
@@ -11255,7 +11259,7 @@ export type BotBlock = Metadata & {
     richContentEnabled?: boolean;
 }
 
-export type BotBlockVersion = Metadata & {
+export interface BotBlockVersion extends Metadata {
     botDialogs: BotDialog[];
     conversationGoals: ConversationDefinitionGoal[];
     conversationLanguages: string;
@@ -11266,11 +11270,11 @@ export type BotBlockVersion = Metadata & {
     status: ConvDefBlockVersionStatus;
 }
 
-export type BotSettings = Metadata & {
+export interface BotSettings extends Metadata {
     enableBots?: boolean;
 }
 
-export type BotTemplate = Metadata & {
+export interface BotTemplate extends Metadata {
     botDialogGroups: BotDialogGroup[];
     botDialogs: BotDialog[];
     contextVariables: ConversationContextVariable[];
@@ -11289,19 +11293,19 @@ export type BotTemplate = Metadata & {
     type?: BotType;
 }
 
-export type BrandingSet = Metadata & {
+export interface BrandingSet extends Metadata {
     brandingSetProperty: BrandingSetProperty[];
     description?: string;
     masterLabel: string;
     type?: string;
 }
 
-export type BrandingSetProperty = {
+export interface BrandingSetProperty {
     propertyName: string;
     propertyValue?: string;
 }
 
-export type BriefcaseDefinition = Metadata & {
+export interface BriefcaseDefinition extends Metadata {
     briefcaseRules: BriefcaseRule[];
     description?: string;
     isActive: boolean;
@@ -11309,7 +11313,7 @@ export type BriefcaseDefinition = Metadata & {
     type?: BriefcaseType;
 }
 
-export type BriefcaseRule = {
+export interface BriefcaseRule {
     briefcaseRuleFilters: BriefcaseRuleFilter[];
     filterLogic?: string;
     isAscendingOrder?: boolean;
@@ -11323,14 +11327,14 @@ export type BriefcaseRule = {
     targetEntity: string;
 }
 
-export type BriefcaseRuleFilter = {
+export interface BriefcaseRuleFilter {
     filterOperator: BriefcaseFilterOperator;
     filterSeqNumber: number;
     filterValue?: string;
     targetEntityField: string;
 }
 
-export type BusinessHoursEntry = Metadata & {
+export interface BusinessHoursEntry extends Metadata {
     active?: boolean;
     default: boolean;
     fridayEndTime?: Date;
@@ -11351,12 +11355,12 @@ export type BusinessHoursEntry = Metadata & {
     wednesdayStartTime?: Date;
 }
 
-export type BusinessHoursSettings = Metadata & {
+export interface BusinessHoursSettings extends Metadata {
     businessHours: BusinessHoursEntry[];
     holidays: Holiday[];
 }
 
-export type Holiday = {
+export interface Holiday {
     activityDate?: Date;
     businessHours: string[];
     description?: string;
@@ -11375,13 +11379,13 @@ export type Holiday = {
     startTime?: Date;
 }
 
-export type BusinessProcess = Metadata & {
+export interface BusinessProcess extends Metadata {
     description?: string;
     isActive?: boolean;
     values: PicklistValue[];
 }
 
-export type PicklistValue = Metadata & {
+export interface PicklistValue extends Metadata {
     color?: string;
     default: boolean;
     description?: string;
@@ -11399,21 +11403,21 @@ export type PicklistValue = Metadata & {
     won?: boolean;
 }
 
-export type GlobalPicklistValue = Metadata & {
+export interface GlobalPicklistValue extends Metadata {
     color?: string;
     default: boolean;
     description?: string;
     isActive?: boolean;
 }
 
-export type BusinessProcessGroup = Metadata & {
+export interface BusinessProcessGroup extends Metadata {
     businessProcessDefinitions: BusinessProcessDefinition[];
     customerSatisfactionMetric: SurveyQuestionType;
     description?: string;
     masterLabel: string;
 }
 
-export type BusinessProcessDefinition = {
+export interface BusinessProcessDefinition {
     businessProcessFeedbacks: BusinessProcessFeedback[];
     description?: string;
     developerName: string;
@@ -11421,19 +11425,19 @@ export type BusinessProcessDefinition = {
     sequenceNumber: number;
 }
 
-export type BusinessProcessFeedback = {
+export interface BusinessProcessFeedback {
     actionName: string;
     actionParam: string;
     actionType: ExpFeedbackCollType;
 }
 
-export type BusinessProcessTypeDefinition = Metadata & {
+export interface BusinessProcessTypeDefinition extends Metadata {
     applicationUsageType: AppDomainUsageType;
     description?: string;
     masterLabel: string;
 }
 
-export type CMSConnectSource = Metadata & {
+export interface CMSConnectSource extends Metadata {
     cmsConnectAsset: CMSConnectAsset[];
     cmsConnectLanguage: CMSConnectLanguage[];
     cmsConnectPersonalization?: CMSConnectPersonalization;
@@ -11452,30 +11456,30 @@ export type CMSConnectSource = Metadata & {
     websiteUrl?: string;
 }
 
-export type CMSConnectAsset = {
+export interface CMSConnectAsset {
     assetPath: string;
     assetType: string;
     sortOrder: number;
 }
 
-export type CMSConnectLanguage = {
+export interface CMSConnectLanguage {
     cmsLanguage: string;
     language: string;
 }
 
-export type CMSConnectPersonalization = {
+export interface CMSConnectPersonalization {
     connectorPage: string;
     connectorPageAsset: string;
 }
 
-export type CMSConnectResourceType = {
+export interface CMSConnectResourceType {
     cmsConnectResourceDefinition: CMSConnectResourceDefinition[];
     developerName: string;
     masterLabel: string;
     resourceType: string;
 }
 
-export type CMSConnectResourceDefinition = {
+export interface CMSConnectResourceDefinition {
     developerName: string;
     masterLabel: string;
     options: number;
@@ -11486,7 +11490,7 @@ export type CMSConnectResourceDefinition = {
     rootNodePath?: string;
 }
 
-export type CallCenter = Metadata & {
+export interface CallCenter extends Metadata {
     adapterUrl?: string;
     contactCenterChannels: ContactCenterChannel[];
     customSettings?: string;
@@ -11498,31 +11502,31 @@ export type CallCenter = Metadata & {
     version?: string;
 }
 
-export type ContactCenterChannel = {
+export interface ContactCenterChannel {
     channel: string;
     contactCenter: string;
     voiceMailFallbackQueue?: string;
     voiceMailHandler?: string;
 }
 
-export type CallCenterSection = {
+export interface CallCenterSection {
     items: CallCenterItem[];
     label: string;
     name: string;
 }
 
-export type CallCenterItem = {
+export interface CallCenterItem {
     label: string;
     name: string;
     value: string;
 }
 
-export type VendorCallCenterStatusMap = {
+export interface VendorCallCenterStatusMap {
     externalStatus: string;
     servicePresenceStatus: string;
 }
 
-export type CallCenterRoutingMap = Metadata & {
+export interface CallCenterRoutingMap extends Metadata {
     callCenter: string;
     developerName: string;
     externalId: string;
@@ -11531,20 +11535,20 @@ export type CallCenterRoutingMap = Metadata & {
     referenceRecord: string;
 }
 
-export type CallCoachingMediaProvider = Metadata & {
+export interface CallCoachingMediaProvider extends Metadata {
     isActive: boolean;
     providerDescription: string;
     providerName: string;
 }
 
-export type CallCtrAgentFavTrfrDest = Metadata & {
+export interface CallCtrAgentFavTrfrDest extends Metadata {
     agent: string;
     callCenter: string;
     name: string;
     transferDestination: string;
 }
 
-export type CampaignInfluenceModel = Metadata & {
+export interface CampaignInfluenceModel extends Metadata {
     isActive?: boolean;
     isDefaultModel: boolean;
     isModelLocked: boolean;
@@ -11553,7 +11557,7 @@ export type CampaignInfluenceModel = Metadata & {
     recordPreference?: string;
 }
 
-export type CampaignSettings = Metadata & {
+export interface CampaignSettings extends Metadata {
     aiAttributionTimeframe?: number;
     enableAIAttribution?: boolean;
     enableAccountsAsCM?: boolean;
@@ -11567,13 +11571,13 @@ export type CampaignSettings = Metadata & {
     enableSuppressNoValueCI2?: boolean;
 }
 
-export type CampaignTemplateDefinition = Metadata & {
+export interface CampaignTemplateDefinition extends Metadata {
     description: string;
     developerName: string;
     masterLabel: string;
 }
 
-export type CanvasMetadata = Metadata & {
+export interface CanvasMetadata extends Metadata {
     accessMethod: string;
     canvasOptions?: string;
     canvasUrl: string;
@@ -11582,7 +11586,7 @@ export type CanvasMetadata = Metadata & {
     samlInitiationMethod?: string;
 }
 
-export type CareBenefitVerifySettings = Metadata & {
+export interface CareBenefitVerifySettings extends Metadata {
     codeSetType?: string;
     defaultNpi?: string;
     generalPlanServiceTypeCode?: string;
@@ -11595,7 +11599,7 @@ export type CareBenefitVerifySettings = Metadata & {
     uriPath?: string;
 }
 
-export type CareRequestConfiguration = Metadata & {
+export interface CareRequestConfiguration extends Metadata {
     careRequestRecordType: string;
     careRequestRecords: CareRequestRecords[];
     careRequestType: string;
@@ -11604,11 +11608,11 @@ export type CareRequestConfiguration = Metadata & {
     masterLabel: string;
 }
 
-export type CareRequestRecords = {
+export interface CareRequestRecords {
     careRequestRecord: string;
 }
 
-export type CaseSettings = Metadata & {
+export interface CaseSettings extends Metadata {
     caseAssignNotificationTemplate?: string;
     caseAutoProcUser?: boolean;
     caseCloseNotificationTemplate?: string;
@@ -11663,13 +11667,13 @@ export type CaseSettings = Metadata & {
     webToCase?: WebToCaseSettings;
 }
 
-export type FeedItemSettings = {
+export interface FeedItemSettings {
     characterLimit?: number;
     displayFormat?: FeedItemDisplayFormat;
     feedItemType: FeedItemType;
 }
 
-export type EmailToCaseSettings = {
+export interface EmailToCaseSettings {
     enableE2CAttachmentAsFile?: boolean;
     enableE2CDeduplicateAttachments?: boolean;
     enableE2CExternalServer?: boolean;
@@ -11694,7 +11698,7 @@ export type EmailToCaseSettings = {
     useEmailHeadersForThreading?: boolean;
 }
 
-export type EmailToCaseRoutingAddress = {
+export interface EmailToCaseRoutingAddress {
     addressType?: EmailToCaseRoutingAddressType;
     authorizedSenders?: string;
     caseOrigin?: string;
@@ -11713,19 +11717,19 @@ export type EmailToCaseRoutingAddress = {
     taskStatus?: string;
 }
 
-export type WebToCaseSettings = {
+export interface WebToCaseSettings {
     caseOrigin?: string;
     defaultResponseTemplate?: string;
     enableWebToCase?: boolean;
 }
 
-export type CaseSubjectParticle = Metadata & {
+export interface CaseSubjectParticle extends Metadata {
     index: number;
     textField?: string;
     type: CaseSubjectParticleType;
 }
 
-export type ChannelLayout = Metadata & {
+export interface ChannelLayout extends Metadata {
     doesExcludeFieldLabels?: boolean;
     doesExcludeFiles?: boolean;
     enabledChannels: string[];
@@ -11734,11 +11738,11 @@ export type ChannelLayout = Metadata & {
     recordType?: string;
 }
 
-export type ChannelLayoutItem = {
+export interface ChannelLayoutItem {
     field: string;
 }
 
-export type ChannelObjectLinkingRule = Metadata & {
+export interface ChannelObjectLinkingRule extends Metadata {
     actionForNoRecordFound: ActionForNoRecordFound;
     actionForSingleRecordFound: ActionForSingleRecordFound;
     channelType: ChannelType;
@@ -11750,12 +11754,12 @@ export type ChannelObjectLinkingRule = Metadata & {
     ruleName: string;
 }
 
-export type ChannelRevMgmtSettings = Metadata & {
+export interface ChannelRevMgmtSettings extends Metadata {
     enableDesignRegistration?: boolean;
     enablePriceProtection?: boolean;
 }
 
-export type ChatterAnswersSettings = Metadata & {
+export interface ChatterAnswersSettings extends Metadata {
     emailFollowersOnBestAnswer?: boolean;
     emailFollowersOnReply?: boolean;
     emailOwnerOnPrivateReply?: boolean;
@@ -11770,7 +11774,7 @@ export type ChatterAnswersSettings = Metadata & {
     showInPortals?: boolean;
 }
 
-export type ChatterEmailsMDSettings = Metadata & {
+export interface ChatterEmailsMDSettings extends Metadata {
     enableChatterDigestEmailsApiOnly?: boolean;
     enableChatterEmailAttachment?: boolean;
     enableCollaborationEmail?: boolean;
@@ -11783,7 +11787,7 @@ export type ChatterEmailsMDSettings = Metadata & {
     noQnSubNotifyOnRep?: boolean;
 }
 
-export type ChatterExtension = Metadata & {
+export interface ChatterExtension extends Metadata {
     compositionComponent: string;
     description: string;
     extensionName: string;
@@ -11796,7 +11800,7 @@ export type ChatterExtension = Metadata & {
     type: ChatterExtensionType;
 }
 
-export type ChatterSettings = Metadata & {
+export interface ChatterSettings extends Metadata {
     allowChatterGroupArchiving?: boolean;
     allowRecordsInChatterGroup?: boolean;
     enableApprovalRequest?: boolean;
@@ -11814,47 +11818,47 @@ export type ChatterSettings = Metadata & {
     unlistedGroupsEnabled?: boolean;
 }
 
-export type ChoiceList = Metadata & {
+export interface ChoiceList extends Metadata {
     choiceListValue: ChoiceListValue[];
     description?: string;
     masterLabel: string;
 }
 
-export type ChoiceListValue = {
+export interface ChoiceListValue {
     embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
     isDefaultValue: boolean;
     order: number;
     valueName: string;
 }
 
-export type EmbeddedServiceCustomLabel = {
+export interface EmbeddedServiceCustomLabel {
     customLabel?: string;
     feature?: EmbeddedServiceFeature;
     labelKey?: EmbeddedServiceLabelKey;
 }
 
-export type ClaimFinancialSettings = Metadata & {
+export interface ClaimFinancialSettings extends Metadata {
     claimCovPendingAuthStatus: string;
     claimPendingAuthorityStatus: string;
     clmCovPymtDtlPendAuthSts: string;
     masterLabel: string;
 }
 
-export type ClauseCatgConfiguration = Metadata & {
+export interface ClauseCatgConfiguration extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
     usageType: ClmCategoryUsageType;
 }
 
-export type CleanDataService = Metadata & {
+export interface CleanDataService extends Metadata {
     cleanRules: CleanRule[];
     description: string;
     masterLabel: string;
     matchEngine: string;
 }
 
-export type CleanRule = {
+export interface CleanRule {
     bulkEnabled: boolean;
     bypassTriggers: boolean;
     bypassWorkflow: boolean;
@@ -11868,27 +11872,27 @@ export type CleanRule = {
     targetSobjectType: string;
 }
 
-export type FieldMapping = {
+export interface FieldMapping {
     SObjectType: string;
     developerName: string;
     fieldMappingRows: FieldMappingRow[];
     masterLabel: string;
 }
 
-export type FieldMappingRow = {
+export interface FieldMappingRow {
     SObjectType: string;
     fieldMappingFields: FieldMappingField[];
     fieldName: string;
     mappingOperation: MappingOperation;
 }
 
-export type FieldMappingField = {
+export interface FieldMappingField {
     dataServiceField: string;
     dataServiceObjectName: string;
     priority: number;
 }
 
-export type CloudServiceProvider = Metadata & {
+export interface CloudServiceProvider extends Metadata {
     authParams: string;
     authType: AuthType;
     baseApiUrl: string;
@@ -11905,13 +11909,13 @@ export type CloudServiceProvider = Metadata & {
     usageAggregateServiceUser?: string;
 }
 
-export type CloudServiceProviderApi = {
+export interface CloudServiceProviderApi {
     cloudServiceProviderApiType: CloudServiceProviderApiType;
     name: string;
     version: number;
 }
 
-export type CmsnStmtLineItemConfig = Metadata & {
+export interface CmsnStmtLineItemConfig extends Metadata {
     failureStatus: string;
     insPolicyMatchingCriteria: string;
     masterLabel: string;
@@ -11919,14 +11923,14 @@ export type CmsnStmtLineItemConfig = Metadata & {
     successStatus: string;
 }
 
-export type CmsnStmtLineItemTypConfig = Metadata & {
+export interface CmsnStmtLineItemTypConfig extends Metadata {
     brkrRevSpltArngLnItmTyp?: string;
     commissionStmtLineItemType: string;
     masterLabel: string;
     prodSplitArngLineItemType?: string;
 }
 
-export type CommandAction = Metadata & {
+export interface CommandAction extends Metadata {
     actionType: string;
     description?: string;
     intents: CommandActionIntent[];
@@ -11936,16 +11940,16 @@ export type CommandAction = Metadata & {
     target?: string;
 }
 
-export type CommandActionIntent = {
+export interface CommandActionIntent {
     phrase: string;
     responseTemplates: CommandActionResponse[];
 }
 
-export type CommandActionResponse = {
+export interface CommandActionResponse {
     template: string;
 }
 
-export type CommandActionParam = {
+export interface CommandActionParam {
     defaultValue?: string;
     description?: string;
     name: string;
@@ -11953,7 +11957,7 @@ export type CommandActionParam = {
     type: string;
 }
 
-export type CommerceSettings = Metadata & {
+export interface CommerceSettings extends Metadata {
     commerceAnalyticsEnabled?: boolean;
     commerceAppEnabled?: boolean;
     commerceConciergeEnabled?: boolean;
@@ -11968,7 +11972,7 @@ export type CommerceSettings = Metadata & {
     messagingEngagementDataKit?: boolean;
 }
 
-export type CommissionStatementConfig = Metadata & {
+export interface CommissionStatementConfig extends Metadata {
     cmsnProcBatchPrcJobDef?: string;
     failureStatus: string;
     inProgressStatus: string;
@@ -11979,16 +11983,16 @@ export type CommissionStatementConfig = Metadata & {
     successStatus: string;
 }
 
-export type CommsServiceConsoleSettings = Metadata & {
+export interface CommsServiceConsoleSettings extends Metadata {
     enableCommsServiceConsole?: boolean;
 }
 
-export type CommunicationChannelType = Metadata & {
+export interface CommunicationChannelType extends Metadata {
     channelName: string;
     masterLabel: string;
 }
 
-export type CommunitiesSettings = Metadata & {
+export interface CommunitiesSettings extends Metadata {
     applyLoginPageTypeToEmbeddedLogin?: boolean;
     blockEmbeddedLoginUnknownURLRedirect?: boolean;
     canModerateAllFeedPosts?: boolean;
@@ -12015,7 +12019,7 @@ export type CommunitiesSettings = Metadata & {
     enableUsernameUniqForOrgPref?: boolean;
 }
 
-export type Community = Metadata & {
+export interface Community extends Metadata {
     active?: boolean;
     chatterAnswersFacebookSsoUrl?: string;
     communityFeedPage?: string;
@@ -12033,22 +12037,22 @@ export type Community = Metadata & {
     site?: string;
 }
 
-export type ReputationLevels = {
+export interface ReputationLevels {
     chatterAnswersReputationLevels: ChatterAnswersReputationLevel[];
     ideaReputationLevels: IdeaReputationLevel[];
 }
 
-export type ChatterAnswersReputationLevel = {
+export interface ChatterAnswersReputationLevel {
     name: string;
     value: number;
 }
 
-export type IdeaReputationLevel = {
+export interface IdeaReputationLevel {
     name: string;
     value: number;
 }
 
-export type CommunityAIModelMapping = Metadata & {
+export interface CommunityAIModelMapping extends Metadata {
     modelContent: string;
     modelEntityType: ModelEntityType;
     modelStatus: ModelStatus;
@@ -12057,7 +12061,7 @@ export type CommunityAIModelMapping = Metadata & {
     setupDefinition?: string;
 }
 
-export type CommunityTemplateDefinition = Metadata & {
+export interface CommunityTemplateDefinition extends Metadata {
     baseTemplate?: CommunityBaseTemplate;
     bundlesInfo: CommunityTemplateBundleInfo[];
     category: CommunityTemplateCategory;
@@ -12071,7 +12075,7 @@ export type CommunityTemplateDefinition = Metadata & {
     publisher?: string;
 }
 
-export type CommunityTemplateBundleInfo = {
+export interface CommunityTemplateBundleInfo {
     description?: string;
     image?: string;
     order: number;
@@ -12079,13 +12083,13 @@ export type CommunityTemplateBundleInfo = {
     type: CommunityTemplateBundleInfoType;
 }
 
-export type CommunityThemeBundleInfo = CommunityTemplateBundleInfo
+export interface CommunityThemeBundleInfo extends CommunityTemplateBundleInfo {}
 
-export type NavigationLinkSet = {
+export interface NavigationLinkSet {
     navigationMenuItem: NavigationMenuItem[];
 }
 
-export type NavigationMenuItem = {
+export interface NavigationMenuItem {
     defaultListViewId?: string;
     label: string;
     menuItemBranding?: NavigationMenuItemBranding;
@@ -12097,20 +12101,20 @@ export type NavigationMenuItem = {
     type: string;
 }
 
-export type NavigationMenuItemBranding = {
+export interface NavigationMenuItemBranding {
     tileImage?: string;
 }
 
-export type NavigationSubMenu = {
+export interface NavigationSubMenu {
     navigationMenuItem: NavigationMenuItem[];
 }
 
-export type CommunityTemplatePageSetting = {
+export interface CommunityTemplatePageSetting {
     page: string;
     themeLayout: string;
 }
 
-export type CommunityThemeDefinition = Metadata & {
+export interface CommunityThemeDefinition extends Metadata {
     bundlesInfo: CommunityThemeBundleInfo[];
     customThemeLayoutType: CommunityCustomThemeLayoutType[];
     defaultBrandingSet?: string;
@@ -12122,40 +12126,40 @@ export type CommunityThemeDefinition = Metadata & {
     themeSetting: CommunityThemeSetting[];
 }
 
-export type CommunityCustomThemeLayoutType = {
+export interface CommunityCustomThemeLayoutType {
     description?: string;
     label: string;
 }
 
-export type CommunityThemeRouteOverride = {
+export interface CommunityThemeRouteOverride {
     customThemeLayoutType?: string;
     pageAttributes: string;
     pageType: string;
     themeLayoutType?: CommunityThemeLayoutType;
 }
 
-export type CommunityThemeSetting = {
+export interface CommunityThemeSetting {
     customThemeLayoutType?: string;
     themeLayout: string;
     themeLayoutType?: CommunityThemeLayoutType;
 }
 
-export type CompactLayout = Metadata & {
+export interface CompactLayout extends Metadata {
     fields: string[];
     label: string;
 }
 
-export type CompanySettings = Metadata & {
+export interface CompanySettings extends Metadata {
     enableCustomFiscalYear: boolean;
     fiscalYear?: FiscalYearSettings;
 }
 
-export type FiscalYearSettings = {
+export interface FiscalYearSettings {
     fiscalYearNameBasedOn?: string;
     startMonth?: string;
 }
 
-export type ConnectedApp = Metadata & {
+export interface ConnectedApp extends Metadata {
     attributes: ConnectedAppAttribute[];
     canvas?: CanvasMetadata;
     canvasConfig?: ConnectedAppCanvasConfig;
@@ -12180,12 +12184,12 @@ export type ConnectedApp = Metadata & {
     startUrl?: string;
 }
 
-export type ConnectedAppAttribute = {
+export interface ConnectedAppAttribute {
     formula: string;
     key: string;
 }
 
-export type ConnectedAppCanvasConfig = {
+export interface ConnectedAppCanvasConfig {
     accessMethod: AccessMethod;
     canvasUrl: string;
     lifecycleClass?: string;
@@ -12194,13 +12198,13 @@ export type ConnectedAppCanvasConfig = {
     samlInitiationMethod?: SamlInitiationMethod;
 }
 
-export type ConnectedAppIpRange = {
+export interface ConnectedAppIpRange {
     description?: string;
     end: string;
     start: string;
 }
 
-export type ConnectedAppMobileDetailConfig = {
+export interface ConnectedAppMobileDetailConfig {
     applicationBinaryFile?: string;
     applicationBinaryFileName?: string;
     applicationBundleIdentifier?: string;
@@ -12215,7 +12219,7 @@ export type ConnectedAppMobileDetailConfig = {
     version: string;
 }
 
-export type ConnectedAppOauthConfig = {
+export interface ConnectedAppOauthConfig {
     assetTokenConfig?: ConnectedAppOauthAssetToken;
     callbackUrl: string;
     certificate?: string;
@@ -12239,7 +12243,7 @@ export type ConnectedAppOauthConfig = {
     singleLogoutUrl?: string;
 }
 
-export type ConnectedAppOauthAssetToken = {
+export interface ConnectedAppOauthAssetToken {
     assetAudiences: string;
     assetIncludeAttributes: boolean;
     assetIncludeCustomPerms: boolean;
@@ -12247,7 +12251,7 @@ export type ConnectedAppOauthAssetToken = {
     assetValidityPeriod: number;
 }
 
-export type ConnectedAppOauthIdToken = {
+export interface ConnectedAppOauthIdToken {
     idTokenAudience?: string;
     idTokenIncludeAttributes?: boolean;
     idTokenIncludeCustomPerms?: boolean;
@@ -12255,14 +12259,14 @@ export type ConnectedAppOauthIdToken = {
     idTokenValidity?: number;
 }
 
-export type ConnectedAppOauthPolicy = {
+export interface ConnectedAppOauthPolicy {
     ipRelaxation: string;
     isTokenExchangeFlowEnabled?: boolean;
     refreshTokenPolicy: string;
     singleLogoutUrl?: string;
 }
 
-export type ConnectedAppSamlConfig = {
+export interface ConnectedAppSamlConfig {
     acsUrl: string;
     certificate?: string;
     encryptionCertificate?: string;
@@ -12277,19 +12281,19 @@ export type ConnectedAppSamlConfig = {
     samlSubjectType: SamlSubjectType;
 }
 
-export type ConnectedAppSessionPolicy = {
+export interface ConnectedAppSessionPolicy {
     policyAction?: string;
     sessionLevel?: string;
     sessionTimeout?: number;
 }
 
-export type ConnectedAppSettings = Metadata & {
+export interface ConnectedAppSettings extends Metadata {
     enableAdminApprovedAppsOnly?: boolean;
     enableAdminApprovedAppsOnlyForExternalUser?: boolean;
     enableSkipUserProvisioningWizardWelcomePage?: boolean;
 }
 
-export type ConnectivityDevConfigMetadata = Metadata & {
+export interface ConnectivityDevConfigMetadata extends Metadata {
     allowNonSubscribedNotifTypes?: boolean;
     isOauth?: boolean;
     issuer?: string;
@@ -12308,7 +12312,7 @@ export type ConnectivityDevConfigMetadata = Metadata & {
     subjectCustomAttr?: string;
 }
 
-export type ConsentBannerSettings = Metadata & {
+export interface ConsentBannerSettings extends Metadata {
     allowButtonColor: string;
     allowButtonTextColor: string;
     bannerColor: string;
@@ -12324,7 +12328,7 @@ export type ConsentBannerSettings = Metadata & {
     privacyPolicyUrl?: string;
 }
 
-export type ContentSettings = Metadata & {
+export interface ContentSettings extends Metadata {
     enableCMSC2CConnections?: boolean;
     enableChatterFileLink?: boolean;
     enableContent?: boolean;
@@ -12350,7 +12354,7 @@ export type ContentSettings = Metadata & {
     skipContentAssetTriggersOnDeploy?: boolean;
 }
 
-export type ContextDefinition = Metadata & {
+export interface ContextDefinition extends Metadata {
     canBeReferenceDefinition?: boolean;
     clonedFrom?: string;
     contextDefinitionReferences: ContextDefinitionReference[];
@@ -12366,12 +12370,12 @@ export type ContextDefinition = Metadata & {
     title: string;
 }
 
-export type ContextDefinitionReference = {
+export interface ContextDefinitionReference {
     inheritedFrom?: string;
     referenceContextDefinition: string;
 }
 
-export type ContextDefinitionVersion = {
+export interface ContextDefinitionVersion {
     contextMappings: ContextMapping[];
     contextNodes: ContextNode[];
     endDate?: string;
@@ -12380,7 +12384,7 @@ export type ContextDefinitionVersion = {
     versionNumber: number;
 }
 
-export type ContextMapping = {
+export interface ContextMapping {
     contextMappingIntents: ContextMappingIntent[];
     contextNodeMappings: ContextNodeMapping[];
     default?: boolean;
@@ -12389,11 +12393,11 @@ export type ContextMapping = {
     title: string;
 }
 
-export type ContextMappingIntent = {
+export interface ContextMappingIntent {
     mappingIntent: ContextMappingIntentType;
 }
 
-export type ContextNodeMapping = {
+export interface ContextNodeMapping {
     contextAttributeMappings: ContextAttributeMapping[];
     contextNode?: string;
     contextNodeAttrDictionaries: ContextNodeAttrDictionary[];
@@ -12402,7 +12406,7 @@ export type ContextNodeMapping = {
     object?: string;
 }
 
-export type ContextAttributeMapping = {
+export interface ContextAttributeMapping {
     contextAttrHydrationDetails: ContextAttrHydrationDetail[];
     contextAttribute?: string;
     contextInputAttributeName: string;
@@ -12410,24 +12414,24 @@ export type ContextAttributeMapping = {
     inheritedFrom?: string;
 }
 
-export type ContextAttrHydrationDetail = {
+export interface ContextAttrHydrationDetail {
     contextAttrHydrationDetails: ContextAttrHydrationDetail[];
     inheritedFrom?: string;
     objectName: string;
     queryAttribute: string;
 }
 
-export type CtxAttrHydrationCtx = {
+export interface CtxAttrHydrationCtx {
     contextQueryAttribute: string;
     inheritedFrom?: string;
 }
 
-export type ContextNodeAttrDictionary = {
+export interface ContextNodeAttrDictionary {
     contextAttrDictIdentifier: string;
     contextNodeTagPrefix: string;
 }
 
-export type ContextNode = {
+export interface ContextNode {
     canonicalNode?: string;
     contextAttributes: ContextAttribute[];
     contextNodeAttrDictionaries: ContextNodeAttrDictionary[];
@@ -12438,7 +12442,7 @@ export type ContextNode = {
     transposable?: boolean;
 }
 
-export type ContextAttribute = {
+export interface ContextAttribute {
     contextTags: ContextTag[];
     dataType: ContextAttributeDataType;
     description?: string;
@@ -12452,12 +12456,12 @@ export type ContextAttribute = {
     value?: boolean;
 }
 
-export type ContextTag = {
+export interface ContextTag {
     inheritedFrom?: string;
     title: string;
 }
 
-export type ContextUseCaseMapping = Metadata & {
+export interface ContextUseCaseMapping extends Metadata {
     contextDefinitionName: string;
     mappingName: string;
     mappingType: ContextMappingType;
@@ -12470,7 +12474,7 @@ export type ContextUseCaseMapping = Metadata & {
     useCaseType: ContextUseCaseType;
 }
 
-export type ContractSettings = Metadata & {
+export interface ContractSettings extends Metadata {
     autoCalculateEndDate?: boolean;
     autoExpirationDelay?: string;
     autoExpirationRecipient?: string;
@@ -12479,20 +12483,20 @@ export type ContractSettings = Metadata & {
     notifyOwnersOnContractExpiration?: boolean;
 }
 
-export type ContractType = Metadata & {
+export interface ContractType extends Metadata {
     contractTypeConfigs: ContractTypeConfig[];
     isDefault?: boolean;
     masterLabel: string;
     subTypes?: string;
 }
 
-export type ContractTypeConfig = {
+export interface ContractTypeConfig {
     configType: ContractConfigType;
     configValue: string;
     usageType?: ContractUsageType;
 }
 
-export type ConvIntelligenceSignalRule = Metadata & {
+export interface ConvIntelligenceSignalRule extends Metadata {
     actionType: ConvIntelligenceActionType;
     actionValue?: string;
     active: boolean;
@@ -12506,14 +12510,14 @@ export type ConvIntelligenceSignalRule = Metadata & {
     subrule: ConvIntelligenceSignalSubRule[];
 }
 
-export type ConvIntelligenceSignalSubRule = {
+export interface ConvIntelligenceSignalSubRule {
     operandValue: string;
     operator: ConvIntelligenceOperator;
     order: number;
     type: ConvIntelligenceType;
 }
 
-export type ConvReasonReportDefinition = Metadata & {
+export interface ConvReasonReportDefinition extends Metadata {
     endDate: Date;
     externalModelIdentifier?: string;
     name: string;
@@ -12524,7 +12528,7 @@ export type ConvReasonReportDefinition = Metadata & {
     status: ReportStatus;
 }
 
-export type ConvReasonReportSegmentDef = Metadata & {
+export interface ConvReasonReportSegmentDef extends Metadata {
     convReasonReportDefinition: string;
     conversationChannel?: string;
     filterCriteria?: string;
@@ -12536,7 +12540,7 @@ export type ConvReasonReportSegmentDef = Metadata & {
     targetObject: string;
 }
 
-export type ConversationChannelDefinition = Metadata & {
+export interface ConversationChannelDefinition extends Metadata {
     connectedAppOauthLink?: string;
     connectedAppType?: CustomChannelConnectedAppType;
     consentOwner?: ConsentOwner;
@@ -12559,7 +12563,7 @@ export type ConversationChannelDefinition = Metadata & {
     supportsKeywords?: boolean;
 }
 
-export type ConversationMessageDefinition = Metadata & {
+export interface ConversationMessageDefinition extends Metadata {
     constants: ConversationMessageConstant[];
     contentCategory?: ConversationMessageContentCategory;
     description?: string;
@@ -12572,7 +12576,7 @@ export type ConversationMessageDefinition = Metadata & {
     type: ConversationMessageDefinitionType;
 }
 
-export type ConversationMessageConstant = {
+export interface ConversationMessageConstant {
     compositeValues: ConversationMessageConstantCompositeValue[];
     constantType: ConversationMessageConstantType;
     label?: string;
@@ -12581,32 +12585,32 @@ export type ConversationMessageConstant = {
     valueType?: ConversationMessageValueType;
 }
 
-export type ConversationMessageConstantCompositeValue = {
+export interface ConversationMessageConstantCompositeValue {
     constantItems: ConversationMessageConstant[];
     identifier: string;
 }
 
-export type ConversationMessageConstantPrimitiveValue = {
+export interface ConversationMessageConstantPrimitiveValue {
     contentAssetName?: string;
     textValue?: string;
     type: ConversationMessageConstantValueType;
     urlValue?: string;
 }
 
-export type ConversationMessageHandler = {
+export interface ConversationMessageHandler {
     activeRequestDurationMinutes: number;
     handlerName: string;
     handlerType: ConversationMessageHandlerType;
 }
 
-export type ConversationMessageLayout = {
+export interface ConversationMessageLayout {
     externalTemplates: ConvMsgExternalTemplateVersion[];
     formatType: ConversationMessageFormatType;
     layoutItems: ConversationMessageLayoutItem[];
     messageType: ConversationMessageType;
 }
 
-export type ConvMsgExternalTemplateVersion = {
+export interface ConvMsgExternalTemplateVersion {
     accountIdentifier: string;
     accountName: string;
     language: string;
@@ -12615,20 +12619,20 @@ export type ConvMsgExternalTemplateVersion = {
     templateVersionIdentifier: string;
 }
 
-export type ConversationMessageLayoutItem = {
+export interface ConversationMessageLayoutItem {
     collectionType: ConversationMessageCollectionType;
     compositeValues: ConversationMessageLayoutCompositeValue[];
     name: string;
     primitiveValues: ConversationMessageLayoutPrimitiveValue[];
 }
 
-export type ConversationMessageLayoutCompositeValue = {
+export interface ConversationMessageLayoutCompositeValue {
     compositeTypeName: string;
     layoutItems: ConversationMessageLayoutItem[];
     valueSourceReference?: string;
 }
 
-export type ConversationMessageLayoutPrimitiveValue = {
+export interface ConversationMessageLayoutPrimitiveValue {
     contentAssetName?: string;
     fieldName?: string;
     formulaTemplate?: string;
@@ -12639,20 +12643,20 @@ export type ConversationMessageLayoutPrimitiveValue = {
     valueSourceReference?: string;
 }
 
-export type ConversationMessageMergeField = {
+export interface ConversationMessageMergeField {
     formulaTemplate: string;
     mergeFieldType: ConversationMessageMergeFieldType;
     name: string;
     valueSourceReference: string;
 }
 
-export type ConversationMessageOptionsParameter = {
+export interface ConversationMessageOptionsParameter {
     compositeTypeDetails?: ConversationMessageParameterCompositeDetails;
     optionsParameterType: ConversationMessageOptionsParameterType;
     primitiveTypeDetails?: ConversationMessageParameterPrimitiveDetails;
 }
 
-export type ConversationMessageParameterCompositeDetails = {
+export interface ConversationMessageParameterCompositeDetails {
     compositeChildItems: ConversationMessageParameterCompositeDetails[];
     isList?: boolean;
     isRequired?: boolean;
@@ -12662,7 +12666,7 @@ export type ConversationMessageParameterCompositeDetails = {
     primitiveChildItems: ConversationMessageParameterPrimitiveDetails[];
 }
 
-export type ConversationMessageParameterPrimitiveDetails = {
+export interface ConversationMessageParameterPrimitiveDetails {
     isList?: boolean;
     isRequired?: boolean;
     label?: string;
@@ -12672,13 +12676,13 @@ export type ConversationMessageParameterPrimitiveDetails = {
     valueType?: ConversationMessageValueType;
 }
 
-export type ConversationMessageParameter = {
+export interface ConversationMessageParameter {
     compositeTypeDetails?: ConversationMessageParameterCompositeDetails;
     parameterType: ConversationMessageParameterType;
     primitiveTypeDetails?: ConversationMessageParameterPrimitiveDetails;
 }
 
-export type ConversationVendorInfo = Metadata & {
+export interface ConversationVendorInfo extends Metadata {
     agentSSOSupported?: boolean;
     awsAccountKey?: string;
     awsRootEmail?: string;
@@ -12711,7 +12715,7 @@ export type ConversationVendorInfo = Metadata & {
     vendorType?: ConversationVendorType;
 }
 
-export type ConversationalIntelligenceSettings = Metadata & {
+export interface ConversationalIntelligenceSettings extends Metadata {
     enableCallCoaching?: boolean;
     enableCallCoachingZoom?: boolean;
     enableCallExplorer?: boolean;
@@ -12725,11 +12729,11 @@ export type ConversationalIntelligenceSettings = Metadata & {
     enableUnifiedActivities?: boolean;
 }
 
-export type CorsWhitelistOrigin = Metadata & {
+export interface CorsWhitelistOrigin extends Metadata {
     urlPattern: string;
 }
 
-export type CspTrustedSite = Metadata & {
+export interface CspTrustedSite extends Metadata {
     canAccessCamera?: boolean;
     canAccessMicrophone?: boolean;
     context?: CspTrustedSiteContext;
@@ -12745,7 +12749,7 @@ export type CspTrustedSite = Metadata & {
     mobileExtension?: string;
 }
 
-export type CurrencySettings = Metadata & {
+export interface CurrencySettings extends Metadata {
     enableCurrencyEffectiveDates?: boolean;
     enableCurrencySymbolWithMultiCurrency?: boolean;
     enableMultiCurrency?: boolean;
@@ -12753,11 +12757,11 @@ export type CurrencySettings = Metadata & {
     isParenCurrencyConvDisabled?: boolean;
 }
 
-export type CustomAddressFieldSettings = Metadata & {
+export interface CustomAddressFieldSettings extends Metadata {
     enableCustomAddressField?: boolean;
 }
 
-export type CustomApplication = Metadata & {
+export interface CustomApplication extends Metadata {
     actionOverrides: AppActionOverride[];
     brand?: AppBrand;
     consoleConfig?: ServiceCloudConsoleConfig;
@@ -12783,11 +12787,11 @@ export type CustomApplication = Metadata & {
     workspaceConfig?: AppWorkspaceConfig;
 }
 
-export type AppActionOverride = ActionOverride & {
+export interface AppActionOverride extends ActionOverride {
     pageOrSobjectType: string;
 }
 
-export type ActionOverride = {
+export interface ActionOverride {
     actionName?: string;
     comment?: string;
     content?: string;
@@ -12796,7 +12800,7 @@ export type ActionOverride = {
     type?: ActionOverrideType;
 }
 
-export type AppBrand = {
+export interface AppBrand {
     footerColor?: string;
     headerColor?: string;
     logo?: string;
@@ -12804,7 +12808,7 @@ export type AppBrand = {
     shouldOverrideOrgTheme?: boolean;
 }
 
-export type ServiceCloudConsoleConfig = {
+export interface ServiceCloudConsoleConfig {
     componentList?: AppComponentList;
     detailPageRefreshMethod: string;
     footerColor?: string;
@@ -12819,35 +12823,35 @@ export type ServiceCloudConsoleConfig = {
     whitelistedDomains: string[];
 }
 
-export type AppComponentList = {
+export interface AppComponentList {
     alignment: string;
     components: string[];
 }
 
-export type KeyboardShortcuts = {
+export interface KeyboardShortcuts {
     customShortcuts: CustomShortcut[];
     defaultShortcuts: DefaultShortcut[];
 }
 
-export type CustomShortcut = DefaultShortcut & {
+export interface CustomShortcut extends DefaultShortcut {
     description?: string;
     eventName: string;
 }
 
-export type DefaultShortcut = {
+export interface DefaultShortcut {
     action: string;
     active: boolean;
     keyCommand: string;
 }
 
-export type ListPlacement = {
+export interface ListPlacement {
     height?: number;
     location: string;
     units?: string;
     width?: number;
 }
 
-export type LiveAgentConfig = {
+export interface LiveAgentConfig {
     enableLiveChat?: boolean;
     openNewAccountSubtab?: boolean;
     openNewCaseSubtab?: boolean;
@@ -12858,17 +12862,17 @@ export type LiveAgentConfig = {
     showKnowledgeArticles?: boolean;
 }
 
-export type PushNotification = {
+export interface PushNotification {
     fieldNames: string[];
     objectName: string;
 }
 
-export type TabLimitConfig = {
+export interface TabLimitConfig {
     maxNumberOfPrimaryTabs?: string;
     maxNumberOfSubTabs?: string;
 }
 
-export type AppPreferences = {
+export interface AppPreferences {
     enableCustomizeMyTabs: boolean;
     enableKeyboardShortcuts: boolean;
     enableListViewHover: boolean;
@@ -12880,11 +12884,11 @@ export type AppPreferences = {
     saveUserSessions: boolean;
 }
 
-export type AppProfileActionOverride = ProfileActionOverride & {
+export interface AppProfileActionOverride extends ProfileActionOverride {
     profile: string;
 }
 
-export type ProfileActionOverride = {
+export interface ProfileActionOverride {
     actionName: string;
     content?: string;
     formFactor: FormFactor;
@@ -12893,16 +12897,16 @@ export type ProfileActionOverride = {
     type: ActionOverrideType;
 }
 
-export type AppWorkspaceConfig = {
+export interface AppWorkspaceConfig {
     mappings: WorkspaceMapping[];
 }
 
-export type WorkspaceMapping = {
+export interface WorkspaceMapping {
     fieldName?: string;
     tab: string;
 }
 
-export type CustomApplicationComponent = Metadata & {
+export interface CustomApplicationComponent extends Metadata {
     buttonIconUrl?: string;
     buttonStyle?: string;
     buttonText?: string;
@@ -12915,7 +12919,7 @@ export type CustomApplicationComponent = Metadata & {
     width?: number;
 }
 
-export type CustomDataType = Metadata & {
+export interface CustomDataType extends Metadata {
     customDataTypeComponents: CustomDataTypeComponent[];
     description?: string;
     displayFormula?: string;
@@ -12925,7 +12929,7 @@ export type CustomDataType = Metadata & {
     supportComponentsInReports?: boolean;
 }
 
-export type CustomDataTypeComponent = {
+export interface CustomDataTypeComponent {
     developerSuffix: string;
     enforceFieldRequiredness?: boolean;
     label: string;
@@ -12937,20 +12941,20 @@ export type CustomDataTypeComponent = {
     type: FieldType;
 }
 
-export type CustomFeedFilter = Metadata & {
+export interface CustomFeedFilter extends Metadata {
     criteria: FeedFilterCriterion[];
     description?: string;
     isProtected?: boolean;
     label: string;
 }
 
-export type FeedFilterCriterion = {
+export interface FeedFilterCriterion {
     feedItemType: FeedItemType;
     feedItemVisibility?: FeedItemVisibility;
     relatedSObjectType?: string;
 }
 
-export type CustomField = Metadata & {
+export interface CustomField extends Metadata {
     businessOwnerGroup?: string;
     businessOwnerUser?: string;
     businessStatus?: string;
@@ -13016,7 +13020,7 @@ export type CustomField = Metadata & {
     writeRequiresMasterRead?: boolean;
 }
 
-export type LookupFilter = {
+export interface LookupFilter {
     active: boolean;
     booleanFilter?: string;
     description?: string;
@@ -13026,7 +13030,7 @@ export type LookupFilter = {
     isOptional: boolean;
 }
 
-export type MktDataLakeFieldAttributes = {
+export interface MktDataLakeFieldAttributes {
     dateFormat?: string;
     definitionCreationType?: DefinitionCreationType;
     externalName?: string;
@@ -13039,7 +13043,7 @@ export type MktDataLakeFieldAttributes = {
     usageTag?: UsageTag;
 }
 
-export type MktDataModelFieldAttributes = {
+export interface MktDataModelFieldAttributes {
     definitionCreationType?: DefinitionCreationType;
     invalidMergeActionType?: InvalidMergeActionType;
     isDynamicLookup?: boolean;
@@ -13051,14 +13055,14 @@ export type MktDataModelFieldAttributes = {
     usageTag?: MktDataModelFieldUsageTag;
 }
 
-export type Picklist = {
+export interface Picklist {
     controllingField?: string;
     picklistValues: PicklistValue[];
     restrictedPicklist?: boolean;
     sorted: boolean;
 }
 
-export type ValueSet = {
+export interface ValueSet {
     controllingField?: string;
     restricted?: boolean;
     valueSetDefinition?: ValueSetValuesDefinition;
@@ -13066,12 +13070,12 @@ export type ValueSet = {
     valueSettings: ValueSettings[];
 }
 
-export type ValueSetValuesDefinition = {
+export interface ValueSetValuesDefinition {
     sorted: boolean;
     value: CustomValue[];
 }
 
-export type CustomValue = Metadata & {
+export interface CustomValue extends Metadata {
     color?: string;
     default: boolean;
     description?: string;
@@ -13079,7 +13083,7 @@ export type CustomValue = Metadata & {
     label?: string;
 }
 
-export type StandardValue = CustomValue & {
+export interface StandardValue extends CustomValue {
     allowEmail?: boolean;
     closed?: boolean;
     converted?: boolean;
@@ -13093,28 +13097,28 @@ export type StandardValue = CustomValue & {
     won?: boolean;
 }
 
-export type ValueSettings = {
+export interface ValueSettings {
     controllingFieldValue: string[];
     valueName: string;
 }
 
-export type CustomHelpMenuSection = Metadata & {
+export interface CustomHelpMenuSection extends Metadata {
     customHelpMenuItems: CustomHelpMenuItem[];
     masterLabel: string;
 }
 
-export type CustomHelpMenuItem = {
+export interface CustomHelpMenuItem {
     linkUrl: string;
     masterLabel: string;
     sortOrder: number;
 }
 
-export type CustomIndex = Metadata & {
+export interface CustomIndex extends Metadata {
     allowNullValues?: boolean;
     booleanIndexedValue?: boolean;
 }
 
-export type CustomLabel = Metadata & {
+export interface CustomLabel extends Metadata {
     categories?: string;
     language: string;
     protected: boolean;
@@ -13122,23 +13126,23 @@ export type CustomLabel = Metadata & {
     value: string;
 }
 
-export type CustomLabels = Metadata & {
+export interface CustomLabels extends Metadata {
     labels: CustomLabel[];
 }
 
-export type CustomMetadata = Metadata & {
+export interface CustomMetadata extends Metadata {
     description?: string;
     label?: string;
     protected?: boolean;
     values: CustomMetadataValue[];
 }
 
-export type CustomMetadataValue = {
+export interface CustomMetadataValue {
     field: string;
     value?: any;
 }
 
-export type CustomNotificationType = Metadata & {
+export interface CustomNotificationType extends Metadata {
     customNotifTypeName: string;
     description?: string;
     desktop: boolean;
@@ -13147,7 +13151,7 @@ export type CustomNotificationType = Metadata & {
     slack?: boolean;
 }
 
-export type CustomObject = Metadata & {
+export interface CustomObject extends Metadata {
     actionOverrides: ActionOverride[];
     allowInChatterGroups?: boolean;
     articleTypeChannelDisplay?: ArticleTypeChannelDisplay;
@@ -13206,50 +13210,50 @@ export type CustomObject = Metadata & {
     webLinks: WebLink[];
 }
 
-export type ArticleTypeChannelDisplay = {
+export interface ArticleTypeChannelDisplay {
     articleTypeTemplates: ArticleTypeTemplate[];
 }
 
-export type ArticleTypeTemplate = {
+export interface ArticleTypeTemplate {
     channel: Channel;
     page?: string;
     template: Template;
 }
 
-export type FieldSet = Metadata & {
+export interface FieldSet extends Metadata {
     availableFields: FieldSetItem[];
     description: string;
     displayedFields: FieldSetItem[];
     label: string;
 }
 
-export type FieldSetItem = {
+export interface FieldSetItem {
     alternativeDisplayFormat?: string;
     field?: string;
     isFieldManaged?: boolean;
     isRequired?: boolean;
 }
 
-export type HistoryRetentionPolicy = {
+export interface HistoryRetentionPolicy {
     archiveAfterMonths: number;
     archiveRetentionYears: number;
     description?: string;
     gracePeriodDays: number;
 }
 
-export type Index = Metadata & {
+export interface Index extends Metadata {
     fields: IndexField[];
     label: string;
     minNumRequiredIndexedFields?: number;
     type?: string;
 }
 
-export type IndexField = {
+export interface IndexField {
     name: string;
     sortDirection: string;
 }
 
-export type ListView = Metadata & {
+export interface ListView extends Metadata {
     booleanFilter?: string;
     columns: string[];
     division?: string;
@@ -13261,13 +13265,13 @@ export type ListView = Metadata & {
     sharedTo?: SharedTo;
 }
 
-export type ListViewFilter = {
+export interface ListViewFilter {
     field: string;
     operation: FilterOperation;
     value?: string;
 }
 
-export type SharedTo = {
+export interface SharedTo {
     allCustomerPortalUsers?: string;
     allInternalUsers?: string;
     allPartnerUsers?: string;
@@ -13292,13 +13296,13 @@ export type SharedTo = {
     territoryAndSubordinates: string[];
 }
 
-export type MktDataLakeAttributes = {
+export interface MktDataLakeAttributes {
     creationType?: DefinitionCreationType;
     isEnabled?: boolean;
     objectCategory?: string;
 }
 
-export type MktDataModelAttributes = {
+export interface MktDataModelAttributes {
     creationType?: DefinitionCreationType;
     dataModelTaxonomy?: string;
     dataSpaceName?: string;
@@ -13315,12 +13319,12 @@ export type MktDataModelAttributes = {
     referenceEntitySubjectArea?: string;
 }
 
-export type ProfileSearchLayouts = {
+export interface ProfileSearchLayouts {
     fields: string[];
     profileName?: string;
 }
 
-export type RecordType = Metadata & {
+export interface RecordType extends Metadata {
     active: boolean;
     businessProcess?: string;
     compactLayoutAssignment?: string;
@@ -13329,12 +13333,12 @@ export type RecordType = Metadata & {
     picklistValues: RecordTypePicklistValue[];
 }
 
-export type RecordTypePicklistValue = {
+export interface RecordTypePicklistValue {
     picklist: string;
     values: PicklistValue[];
 }
 
-export type SearchLayouts = {
+export interface SearchLayouts {
     customTabListAdditionalFields: string[];
     excludedStandardButtons: string[];
     listViewButtons: string[];
@@ -13347,15 +13351,15 @@ export type SearchLayouts = {
     searchResultsCustomButtons: string[];
 }
 
-export type SharingReason = Metadata & {
+export interface SharingReason extends Metadata {
     label: string;
 }
 
-export type SharingRecalculation = {
+export interface SharingRecalculation {
     className: string;
 }
 
-export type ValidationRule = Metadata & {
+export interface ValidationRule extends Metadata {
     active: boolean;
     description?: string;
     errorConditionFormula: string;
@@ -13364,7 +13368,7 @@ export type ValidationRule = Metadata & {
     shouldEvaluateOnClient?: boolean;
 }
 
-export type WebLink = Metadata & {
+export interface WebLink extends Metadata {
     availability: WebLinkAvailability;
     description?: string;
     displayType: WebLinkDisplayType;
@@ -13388,7 +13392,7 @@ export type WebLink = Metadata & {
     width?: number;
 }
 
-export type CustomObjectTranslation = Metadata & {
+export interface CustomObjectTranslation extends Metadata {
     caseValues: ObjectNameCaseValue[];
     fieldSets: FieldSetTranslation[];
     fields: CustomFieldTranslation[];
@@ -13405,7 +13409,7 @@ export type CustomObjectTranslation = Metadata & {
     workflowTasks: WorkflowTaskTranslation[];
 }
 
-export type ObjectNameCaseValue = {
+export interface ObjectNameCaseValue {
     article?: Article;
     caseType?: CaseType;
     plural?: boolean;
@@ -13413,12 +13417,12 @@ export type ObjectNameCaseValue = {
     value: string;
 }
 
-export type FieldSetTranslation = {
+export interface FieldSetTranslation {
     label: string;
     name: string;
 }
 
-export type CustomFieldTranslation = {
+export interface CustomFieldTranslation {
     caseValues: ObjectNameCaseValue[];
     gender?: Gender;
     help?: string;
@@ -13430,73 +13434,73 @@ export type CustomFieldTranslation = {
     startsWith?: StartsWith;
 }
 
-export type LookupFilterTranslation = {
+export interface LookupFilterTranslation {
     errorMessage: string;
     informationalMessage: string;
 }
 
-export type PicklistValueTranslation = {
+export interface PicklistValueTranslation {
     masterLabel: string;
     translation?: string;
 }
 
-export type LayoutTranslation = {
+export interface LayoutTranslation {
     layout: string;
     layoutType?: string;
     sections: LayoutSectionTranslation[];
 }
 
-export type LayoutSectionTranslation = {
+export interface LayoutSectionTranslation {
     label: string;
     section: string;
 }
 
-export type QuickActionTranslation = {
+export interface QuickActionTranslation {
     aspect?: string;
     label: string;
     name: string;
     quickActionParametersTranslation: QuickActionParametersTranslation[];
 }
 
-export type QuickActionParametersTranslation = {
+export interface QuickActionParametersTranslation {
     aspect?: string;
     name: string;
     value: string;
 }
 
-export type RecordTypeTranslation = {
+export interface RecordTypeTranslation {
     description?: string;
     label: string;
     name: string;
 }
 
-export type SharingReasonTranslation = {
+export interface SharingReasonTranslation {
     label: string;
     name: string;
 }
 
-export type StandardFieldTranslation = {
+export interface StandardFieldTranslation {
     label?: string;
     name: string;
 }
 
-export type ValidationRuleTranslation = {
+export interface ValidationRuleTranslation {
     errorMessage: string;
     name: string;
 }
 
-export type WebLinkTranslation = {
+export interface WebLinkTranslation {
     label: string;
     name: string;
 }
 
-export type WorkflowTaskTranslation = {
+export interface WorkflowTaskTranslation {
     description?: string;
     name: string;
     subject?: string;
 }
 
-export type CustomPageWebLink = Metadata & {
+export interface CustomPageWebLink extends Metadata {
     availability: WebLinkAvailability;
     description?: string;
     displayType: WebLinkDisplayType;
@@ -13520,7 +13524,7 @@ export type CustomPageWebLink = Metadata & {
     width?: number;
 }
 
-export type CustomPermission = Metadata & {
+export interface CustomPermission extends Metadata {
     connectedApp?: string;
     description?: string;
     externalClientApplication?: string;
@@ -13529,12 +13533,12 @@ export type CustomPermission = Metadata & {
     requiredPermission: CustomPermissionDependencyRequired[];
 }
 
-export type CustomPermissionDependencyRequired = {
+export interface CustomPermissionDependencyRequired {
     customPermission: string;
     dependency: boolean;
 }
 
-export type CustomSite = Metadata & {
+export interface CustomSite extends Metadata {
     active: boolean;
     allowGuestPaymentsApi?: boolean;
     allowHomePage: boolean;
@@ -13585,17 +13589,17 @@ export type CustomSite = Metadata & {
     urlPathPrefix?: string;
 }
 
-export type SiteWebAddress = {
+export interface SiteWebAddress {
     certificate?: string;
     domainName: string;
     primary: boolean;
 }
 
-export type SiteIframeWhiteListUrl = {
+export interface SiteIframeWhiteListUrl {
     url: string;
 }
 
-export type SiteRedirectMapping = {
+export interface SiteRedirectMapping {
     action: SiteRedirect;
     isActive?: boolean;
     isDynamic?: boolean;
@@ -13603,7 +13607,7 @@ export type SiteRedirectMapping = {
     target: string;
 }
 
-export type CustomTab = Metadata & {
+export interface CustomTab extends Metadata {
     actionOverrides: ActionOverride[];
     auraComponent?: string;
     customObject?: boolean;
@@ -13622,15 +13626,15 @@ export type CustomTab = Metadata & {
     urlEncodingKey?: Encoding;
 }
 
-export type CustomerDataPlatformSettings = Metadata & {
+export interface CustomerDataPlatformSettings extends Metadata {
     enableCustomerDataPlatform?: boolean;
 }
 
-export type CustomizablePropensityScoringSettings = Metadata & {
+export interface CustomizablePropensityScoringSettings extends Metadata {
     enableCpsPref?: boolean;
 }
 
-export type Dashboard = Metadata & {
+export interface Dashboard extends Metadata {
     backgroundEndColor: string;
     backgroundFadeDirection: ChartBackgroundDirection;
     backgroundStartColor: string;
@@ -13658,23 +13662,23 @@ export type Dashboard = Metadata & {
     titleSize: number;
 }
 
-export type DashboardFilter = {
+export interface DashboardFilter {
     dashboardFilterOptions: DashboardFilterOption[];
     name: string;
 }
 
-export type DashboardFilterOption = {
+export interface DashboardFilterOption {
     operator: DashboardFilterOperation;
     values: string[];
 }
 
-export type DashboardGridLayout = {
+export interface DashboardGridLayout {
     dashboardGridComponents: DashboardGridComponent[];
     numberOfColumns: number;
     rowHeight: number;
 }
 
-export type DashboardGridComponent = {
+export interface DashboardGridComponent {
     colSpan: number;
     columnIndex: number;
     dashboardComponent: DashboardComponent;
@@ -13682,7 +13686,7 @@ export type DashboardGridComponent = {
     rowSpan: number;
 }
 
-export type DashboardComponent = {
+export interface DashboardComponent {
     autoselectColumnsFromReport?: boolean;
     chartAxisRange?: ChartRangeType;
     chartAxisRangeMax?: number;
@@ -13733,13 +13737,13 @@ export type DashboardComponent = {
     useReportChart?: boolean;
 }
 
-export type ChartSummary = {
+export interface ChartSummary {
     aggregate?: ReportSummaryType;
     axisBinding?: ChartAxis;
     column: string;
 }
 
-export type DashboardComponentContent = {
+export interface DashboardComponentContent {
     additionalInfo?: string;
     altText?: string;
     fileName?: string;
@@ -13750,17 +13754,17 @@ export type DashboardComponentContent = {
     verticalAlignment?: VerticalAlignment;
 }
 
-export type DashboardDynamicValue = {
+export interface DashboardDynamicValue {
     additionalInfo?: string;
     fieldName: string;
     isDynamicUser?: boolean;
 }
 
-export type DashboardFilterColumn = {
+export interface DashboardFilterColumn {
     column: string;
 }
 
-export type DashboardTableColumn = {
+export interface DashboardTableColumn {
     aggregateType?: ReportSummaryType;
     calculatePercent?: boolean;
     column: string;
@@ -13770,14 +13774,14 @@ export type DashboardTableColumn = {
     sortBy?: DashboardComponentFilter;
 }
 
-export type DashboardFlexTableComponentProperties = {
+export interface DashboardFlexTableComponentProperties {
     decimalPrecision?: number;
     flexTableColumn: DashboardComponentColumn[];
     flexTableSortInfo?: DashboardComponentSortInfo;
     hideChatterPhotos?: boolean;
 }
 
-export type DashboardComponentColumn = {
+export interface DashboardComponentColumn {
     breakPoint1?: number;
     breakPoint2?: number;
     breakPointOrder?: number;
@@ -13790,28 +13794,28 @@ export type DashboardComponentColumn = {
     type: DashboardComponentColumnType;
 }
 
-export type DashboardComponentSortInfo = {
+export interface DashboardComponentSortInfo {
     sortColumn?: string;
     sortOrder?: string;
 }
 
-export type DashboardComponentGroupingSortProperties = {
+export interface DashboardComponentGroupingSortProperties {
     groupingSorts: DashboardComponentGroupingSort[];
 }
 
-export type DashboardComponentGroupingSort = {
+export interface DashboardComponentGroupingSort {
     groupingLevel: string;
     inheritedReportGroupingSort?: string;
     sortColumn?: string;
     sortOrder?: string;
 }
 
-export type DashboardComponentSection = {
+export interface DashboardComponentSection {
     columnSize: DashboardComponentSize;
     components: DashboardComponent[];
 }
 
-export type DataCalcInsightTemplate = Metadata & {
+export interface DataCalcInsightTemplate extends Metadata {
     builderExpression: string;
     creationType?: CalculatedInsightCreationType;
     dataspaceName: string;
@@ -13828,7 +13832,7 @@ export type DataCalcInsightTemplate = Metadata & {
     templateVersion?: number;
 }
 
-export type DataCategoryGroup = Metadata & {
+export interface DataCategoryGroup extends Metadata {
     active: boolean;
     dataCategory: DataCategory;
     description?: string;
@@ -13836,28 +13840,28 @@ export type DataCategoryGroup = Metadata & {
     objectUsage?: ObjectUsage;
 }
 
-export type DataCategory = {
+export interface DataCategory {
     dataCategory: DataCategory[];
     label: string;
     name: string;
 }
 
-export type ObjectUsage = {
+export interface ObjectUsage {
     object: string[];
 }
 
-export type DataConnectionParamTmpl = Metadata & {
+export interface DataConnectionParamTmpl extends Metadata {
     paramName: string;
     value: string;
 }
 
-export type DataConnectorIngestApi = Metadata & {
+export interface DataConnectorIngestApi extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     sourceName: string;
 }
 
-export type DataConnectorS3 = Metadata & {
+export interface DataConnectorS3 extends Metadata {
     delimiter?: string;
     fileNameWildcard?: string;
     fileType?: string;
@@ -13868,7 +13872,7 @@ export type DataConnectorS3 = Metadata & {
     s3SecretKey?: string;
 }
 
-export type DataDotComSettings = Metadata & {
+export interface DataDotComSettings extends Metadata {
     enableAccountExportButtonOff?: boolean;
     enableAccountImportButtonOff?: boolean;
     enableAllowDupeContactFromLead?: boolean;
@@ -13881,7 +13885,7 @@ export type DataDotComSettings = Metadata & {
     enableDatacloudAPIEnabled?: boolean;
 }
 
-export type DataKitObjectDependency = Metadata & {
+export interface DataKitObjectDependency extends Metadata {
     dataPackageKitDef: string;
     developerName: string;
     masterLabel: string;
@@ -13890,7 +13894,7 @@ export type DataKitObjectDependency = Metadata & {
     targetObject: string;
 }
 
-export type DataKitObjectTemplate = Metadata & {
+export interface DataKitObjectTemplate extends Metadata {
     developerName: string;
     entityPayload?: string;
     masterLabel: string;
@@ -13900,7 +13904,7 @@ export type DataKitObjectTemplate = Metadata & {
     templateVersion?: number;
 }
 
-export type DataModelTaxonomy = Metadata & {
+export interface DataModelTaxonomy extends Metadata {
     creationType?: DefinitionCreationType;
     dataModelType: DataModelType;
     dataObjectCategories: DataObjectCategory[];
@@ -13911,12 +13915,12 @@ export type DataModelTaxonomy = Metadata & {
     versionNbr: number;
 }
 
-export type DataObjectCategory = Metadata & {
+export interface DataObjectCategory extends Metadata {
     definitionCreationType?: DefinitionCreationType;
     masterLabel: string;
 }
 
-export type DataObjectSearchIndexConf = Metadata & {
+export interface DataObjectSearchIndexConf extends Metadata {
     application: string;
     channel?: string;
     masterLabel: string;
@@ -13926,7 +13930,7 @@ export type DataObjectSearchIndexConf = Metadata & {
     searchIndex: string;
 }
 
-export type DataPackageKitDefinition = Metadata & {
+export interface DataPackageKitDefinition extends Metadata {
     dataKitSource?: string;
     dataKitType?: string;
     dataSpaceDefinitionDevName?: string;
@@ -13939,14 +13943,14 @@ export type DataPackageKitDefinition = Metadata & {
     versionNumber?: number;
 }
 
-export type DataPackageKitObject = Metadata & {
+export interface DataPackageKitObject extends Metadata {
     masterLabel: string;
     parentDataPackageKitDefinitionName: string;
     referenceObjectName: string;
     referenceObjectType: string;
 }
 
-export type DataPlatform = Metadata & {
+export interface DataPlatform extends Metadata {
     dataConnectorType: string;
     dataPlatDataSetBundles: DataPlatDataSetBundle[];
     description?: string;
@@ -13959,7 +13963,7 @@ export type DataPlatform = Metadata & {
     smallIconUri?: string;
 }
 
-export type DataPlatDataSetBundle = {
+export interface DataPlatDataSetBundle {
     bundleType?: string;
     dataPlatformDataSets: DataPlatformDataSet[];
     description?: string;
@@ -13967,19 +13971,19 @@ export type DataPlatDataSetBundle = {
     sortOrder?: number;
 }
 
-export type DataPlatformDataSet = {
+export interface DataPlatformDataSet {
     dataSetType?: string;
     description?: string;
     iconUri?: string;
     sortOrder?: number;
 }
 
-export type DataSource = Metadata & {
+export interface DataSource extends Metadata {
     masterLabel: string;
     prefix: string;
 }
 
-export type DataSourceBundleDefinition = Metadata & {
+export interface DataSourceBundleDefinition extends Metadata {
     bundleVersion?: number;
     dataPlatform: string;
     description?: string;
@@ -13988,7 +13992,7 @@ export type DataSourceBundleDefinition = Metadata & {
     masterLabel: string;
 }
 
-export type DataSourceField = Metadata & {
+export interface DataSourceField extends Metadata {
     datatype: string;
     dateFormat?: string;
     definitionCreationType?: DefinitionCreationType;
@@ -14011,7 +14015,7 @@ export type DataSourceField = Metadata & {
     versionNumber: number;
 }
 
-export type DataSourceObject = Metadata & {
+export interface DataSourceObject extends Metadata {
     accelerationEnabled?: AccelerationEnabled;
     additionalDLOInfoJson?: string;
     creationType?: string;
@@ -14032,12 +14036,12 @@ export type DataSourceObject = Metadata & {
     templateVersion?: number;
 }
 
-export type DataSourceTenant = Metadata & {
+export interface DataSourceTenant extends Metadata {
     externalRecordId: string;
     masterLabel: string;
 }
 
-export type DataSrcDataModelFieldMap = Metadata & {
+export interface DataSrcDataModelFieldMap extends Metadata {
     filterApplied?: boolean;
     filterOperationType?: string;
     filterValue?: string;
@@ -14048,7 +14052,7 @@ export type DataSrcDataModelFieldMap = Metadata & {
     versionNumber: number;
 }
 
-export type DataStreamDefinition = Metadata & {
+export interface DataStreamDefinition extends Metadata {
     areHeadersIncludedInFile?: boolean;
     bulkIngest?: boolean;
     creationType: DefinitionCreationType;
@@ -14071,12 +14075,12 @@ export type DataStreamDefinition = Metadata & {
     parameters: MktDataConnectionSrcParam[];
 }
 
-export type MktDataConnectionSrcParam = Metadata & {
+export interface MktDataConnectionSrcParam extends Metadata {
     paramName: string;
     value: string;
 }
 
-export type DataStreamTemplate = Metadata & {
+export interface DataStreamTemplate extends Metadata {
     dataConnectionSourceParameters: DataConnectionParamTmpl[];
     dataSourceBundleDefinition: string;
     dataSourceObject: string;
@@ -14095,18 +14099,18 @@ export type DataStreamTemplate = Metadata & {
     templateVersion?: number;
 }
 
-export type DataspaceScope = Metadata & {
+export interface DataspaceScope extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
     metadataGroups: DataspaceScopeSchemaAccess[];
 }
 
-export type DataspaceScopeSchemaAccess = {
+export interface DataspaceScopeSchemaAccess {
     metadataGroup: string;
 }
 
-export type DecisionMatrixDefinition = Metadata & {
+export interface DecisionMatrixDefinition extends Metadata {
     description?: string;
     groupKey?: string;
     label: string;
@@ -14116,7 +14120,7 @@ export type DecisionMatrixDefinition = Metadata & {
     versions: DecisionMatrixDefinitionVersion[];
 }
 
-export type DecisionMatrixDefinitionVersion = Metadata & {
+export interface DecisionMatrixDefinitionVersion extends Metadata {
     columns: DecisionMatrixDefinitionVersionColumn[];
     decisionMatrixDefinition?: string;
     endDate?: Date;
@@ -14128,7 +14132,7 @@ export type DecisionMatrixDefinitionVersion = Metadata & {
     versionNumber: number;
 }
 
-export type DecisionMatrixDefinitionVersionColumn = {
+export interface DecisionMatrixDefinitionVersionColumn {
     columnType: DecisionMatrixColumnType;
     dataType: DecisionMatrixDataType;
     displaySequence: number;
@@ -14138,7 +14142,7 @@ export type DecisionMatrixDefinitionVersionColumn = {
     wildcardValue?: string;
 }
 
-export type DecisionTable = Metadata & {
+export interface DecisionTable extends Metadata {
     collectOperator?: DecisionTableCollectOperator;
     conditionCriteria?: string;
     conditionType?: DecisionTableConditionType;
@@ -14164,7 +14168,7 @@ export type DecisionTable = Metadata & {
     usageType?: ExpsSetProcessType;
 }
 
-export type DecisionTableParameter = {
+export interface DecisionTableParameter {
     dataType?: DTParameterDataType;
     decimalScale?: number;
     domainObject?: string;
@@ -14180,7 +14184,7 @@ export type DecisionTableParameter = {
     usage: DecisionTableParameterType;
 }
 
-export type DecisionTableSourceCriteria = {
+export interface DecisionTableSourceCriteria {
     operator: DTSourceCriteriaOperator;
     sequenceNumber: number;
     sourceFieldName: string;
@@ -14188,7 +14192,7 @@ export type DecisionTableSourceCriteria = {
     valueType: DTSourceCriteriaValueType;
 }
 
-export type DecisionTableDatasetLink = Metadata & {
+export interface DecisionTableDatasetLink extends Metadata {
     decisionTableName: string;
     decisionTblDatasetParameters: DecisionTblDatasetParameter[];
     description?: string;
@@ -14197,13 +14201,13 @@ export type DecisionTableDatasetLink = Metadata & {
     sourceObject?: string;
 }
 
-export type DecisionTblDatasetParameter = {
+export interface DecisionTblDatasetParameter {
     datasetFieldName: string;
     datasetSourceObject: string;
     fieldName: string;
 }
 
-export type PlatformEventSubscriberConfig = Metadata & {
+export interface PlatformEventSubscriberConfig extends Metadata {
     batchSize?: number;
     isProtected?: boolean;
     masterLabel: string;
@@ -14213,7 +14217,7 @@ export type PlatformEventSubscriberConfig = Metadata & {
     user?: string;
 }
 
-export type FtestTopLevelWithDeclMd1 = Metadata & {
+export interface FtestTopLevelWithDeclMd1 extends Metadata {
     bitVectorFieldRound?: boolean;
     bitVectorFieldSquare?: boolean;
     bitVectorFieldTriangle?: boolean;
@@ -14231,7 +14235,7 @@ export type FtestTopLevelWithDeclMd1 = Metadata & {
     typeOneItems: FtestDetailWithDeclMd1[];
 }
 
-export type FtestDetailWithDeclMd1 = {
+export interface FtestDetailWithDeclMd1 {
     bitVectorFieldBlooper?: boolean;
     bitVectorFieldRound?: boolean;
     bitVectorFieldSquare?: boolean;
@@ -14247,7 +14251,7 @@ export type FtestDetailWithDeclMd1 = {
     subItems: FtestSubDetailWithDeclMd[];
 }
 
-export type FtestSubDetailWithDeclMd = {
+export interface FtestSubDetailWithDeclMd {
     booleanField?: boolean;
     dateField?: Date;
     dateTimeField?: Date;
@@ -14257,7 +14261,7 @@ export type FtestSubDetailWithDeclMd = {
     staticEnumField?: FTestTopLevelSelection;
 }
 
-export type FtestDetailWithDeclMd2 = {
+export interface FtestDetailWithDeclMd2 {
     booleanField?: boolean;
     dateField?: Date;
     dateTimeField?: Date;
@@ -14267,19 +14271,19 @@ export type FtestDetailWithDeclMd2 = {
     staticEnumField?: FTestTopLevelSelection;
 }
 
-export type FtestTopLevelWithDeclMd3 = Metadata & {
+export interface FtestTopLevelWithDeclMd3 extends Metadata {
     isProtected?: boolean;
     lookupThatCameBefore?: string;
     masterLabel: string;
 }
 
-export type FtestTopLevelWithCrud = Metadata & {
+export interface FtestTopLevelWithCrud extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     textField?: string;
 }
 
-export type SchedulingObjective = Metadata & {
+export interface SchedulingObjective extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
@@ -14287,12 +14291,12 @@ export type SchedulingObjective = Metadata & {
     schedulingObjectiveType: SchedulingObjectiveType;
 }
 
-export type SchedulingObjectiveParameter = {
+export interface SchedulingObjectiveParameter {
     parameterKey: ObjectiveParameterKey;
     value?: string;
 }
 
-export type FtestTopLevelWithDeclMd2 = Metadata & {
+export interface FtestTopLevelWithDeclMd2 extends Metadata {
     enumOrIdField?: string;
     isProtected?: boolean;
     lookupField?: string;
@@ -14306,14 +14310,14 @@ export type FtestTopLevelWithDeclMd2 = Metadata & {
     urlField?: string;
 }
 
-export type PipelineInspMetricConfig = Metadata & {
+export interface PipelineInspMetricConfig extends Metadata {
     isCumulative: boolean;
     isProtected?: boolean;
     masterLabel: string;
     metric: PipelineInspectionMetric;
 }
 
-export type VirtualVisitConfig = Metadata & {
+export interface VirtualVisitConfig extends Metadata {
     comprehendServiceType?: VirtualVisitComprehendServiceType;
     experienceCloudSiteUrl?: string;
     externalMsgServiceIdentifier?: string;
@@ -14330,14 +14334,14 @@ export type VirtualVisitConfig = Metadata & {
     visitRegion?: VirtualVisitVisitRegion;
 }
 
-export type MobileSecurityAssignment = Metadata & {
+export interface MobileSecurityAssignment extends Metadata {
     connectedApplication?: string;
     isProtected?: boolean;
     masterLabel: string;
     profile?: string;
 }
 
-export type MobileSecurityPolicy = Metadata & {
+export interface MobileSecurityPolicy extends Metadata {
     effectiveDate?: Date;
     isEnabled: boolean;
     isProtected?: boolean;
@@ -14350,7 +14354,7 @@ export type MobileSecurityPolicy = Metadata & {
     type: MobileSecurityPolicyType;
 }
 
-export type LearningAchievementConfig = Metadata & {
+export interface LearningAchievementConfig extends Metadata {
     description?: string;
     iconName?: string;
     isProtected?: boolean;
@@ -14359,7 +14363,7 @@ export type LearningAchievementConfig = Metadata & {
     masterLabel: string;
 }
 
-export type RecordAlertDataSource = Metadata & {
+export interface RecordAlertDataSource extends Metadata {
     apexClass?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -14367,13 +14371,13 @@ export type RecordAlertDataSource = Metadata & {
     type: RecordAlertDataSourceType;
 }
 
-export type DocumentCategory = Metadata & {
+export interface DocumentCategory extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type RecAlrtDataSrcExpSetDef = Metadata & {
+export interface RecAlrtDataSrcExpSetDef extends Metadata {
     expressionSetDefinition: string;
     expressionSetObject: string;
     isActive: boolean;
@@ -14382,7 +14386,7 @@ export type RecAlrtDataSrcExpSetDef = Metadata & {
     recordAlertDataSource: string;
 }
 
-export type EmployeeDataSyncProfile = Metadata & {
+export interface EmployeeDataSyncProfile extends Metadata {
     description?: string;
     employeeDataSyncField: EmployeeDataSyncField[];
     isActive: boolean;
@@ -14390,7 +14394,7 @@ export type EmployeeDataSyncProfile = Metadata & {
     masterLabel: string;
 }
 
-export type EmployeeDataSyncField = {
+export interface EmployeeDataSyncField {
     description?: string;
     isActive: boolean;
     isDefault: boolean;
@@ -14399,7 +14403,7 @@ export type EmployeeDataSyncField = {
     targetField: string;
 }
 
-export type RegisteredExternalService = Metadata & {
+export interface RegisteredExternalService extends Metadata {
     configUrl?: string;
     description?: string;
     documentationUrl?: string;
@@ -14412,14 +14416,14 @@ export type RegisteredExternalService = Metadata & {
     masterLabel: string;
 }
 
-export type CustomFieldDisplay = Metadata & {
+export interface CustomFieldDisplay extends Metadata {
     displayType: CustomFieldDisplayType;
     fieldApiName: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type AccountingFieldMapping = Metadata & {
+export interface AccountingFieldMapping extends Metadata {
     accountingModelConfig: string;
     isForAllocationType?: boolean;
     isForPaymentType?: boolean;
@@ -14431,7 +14435,7 @@ export type AccountingFieldMapping = Metadata & {
     targetField: string;
 }
 
-export type RecordAlertTemplate = Metadata & {
+export interface RecordAlertTemplate extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -14439,7 +14443,7 @@ export type RecordAlertTemplate = Metadata & {
     subject?: string;
 }
 
-export type RelatedRecordAccessDef = Metadata & {
+export interface RelatedRecordAccessDef extends Metadata {
     description?: string;
     isProtected?: boolean;
     jctObjectCstmFilterExps?: string;
@@ -14458,7 +14462,7 @@ export type RelatedRecordAccessDef = Metadata & {
     targetObjectFilterLogic?: RRADTargetObjFilterLogic;
 }
 
-export type RelatedRecordAccessFltr = {
+export interface RelatedRecordAccessFltr {
     field: string;
     objectType: RRAFObjectType;
     operator: RRAFOperator;
@@ -14466,14 +14470,14 @@ export type RelatedRecordAccessFltr = {
     value: string;
 }
 
-export type RelatedRecordAccessMap = {
+export interface RelatedRecordAccessMap {
     sourceObjAccessLevel: ObjectAccessLevel;
     sourceObjParticipantRole?: string;
     targetObjAccessLevel: ObjectAccessLevel;
     targetObjParticipantRole?: string;
 }
 
-export type MobSecurityCertPinConfig = Metadata & {
+export interface MobSecurityCertPinConfig extends Metadata {
     certificateHash: string;
     domainName: string;
     isEnabled: boolean;
@@ -14486,12 +14490,12 @@ export type MobSecurityCertPinConfig = Metadata & {
     type: MobileSecurityCertPinType;
 }
 
-export type SlackFeatureSettings = Metadata & {
+export interface SlackFeatureSettings extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type ActionableListDefinition = Metadata & {
+export interface ActionableListDefinition extends Metadata {
     actionableListDatasetColumns: ActionableListDatasetColumn[];
     actionableListMemberStatuses: ActionableListMemberStatus[];
     batchCalcJobDefinition?: string;
@@ -14505,7 +14509,7 @@ export type ActionableListDefinition = Metadata & {
     type?: ActionableListType;
 }
 
-export type ActionableListDatasetColumn = {
+export interface ActionableListDatasetColumn {
     dataDomain?: DatasetColumnDataType;
     dataType?: DatatableDataType;
     displayOrder?: number;
@@ -14517,12 +14521,12 @@ export type ActionableListDatasetColumn = {
     sourceFieldName?: string;
 }
 
-export type ActionableListMemberStatus = {
+export interface ActionableListMemberStatus {
     iconName?: string;
     status?: string;
 }
 
-export type CareProviderSearchConfig = Metadata & {
+export interface CareProviderSearchConfig extends Metadata {
     isActive?: boolean;
     isProtected?: boolean;
     mappedObject: ProviderSearchObjectMapping;
@@ -14531,7 +14535,7 @@ export type CareProviderSearchConfig = Metadata & {
     targetField?: string;
 }
 
-export type CareSystemFieldMapping = Metadata & {
+export interface CareSystemFieldMapping extends Metadata {
     externalIdField?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -14541,14 +14545,14 @@ export type CareSystemFieldMapping = Metadata & {
     targetObject?: string;
 }
 
-export type CareLimitType = Metadata & {
+export interface CareLimitType extends Metadata {
     isProtected?: boolean;
     limitType?: string;
     masterLabel: string;
     metricType?: CareLimitTypeMetricType;
 }
 
-export type AssessmentConfiguration = Metadata & {
+export interface AssessmentConfiguration extends Metadata {
     configuration: AssessmentConfigurationOption;
     isProtected?: boolean;
     masterLabel: string;
@@ -14556,7 +14560,7 @@ export type AssessmentConfiguration = Metadata & {
     type: AssessmentType;
 }
 
-export type SchedulingRule = Metadata & {
+export interface SchedulingRule extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     schedulingCategory: SchedulingCategory;
@@ -14564,26 +14568,26 @@ export type SchedulingRule = Metadata & {
     schedulingRuleType: SchedulingRuleType;
 }
 
-export type SchedulingRuleParameter = {
+export interface SchedulingRuleParameter {
     schedulingParameterKey: SchedulingParameterKey;
     value?: string;
 }
 
-export type CareProviderAfflRoleConfig = Metadata & {
+export interface CareProviderAfflRoleConfig extends Metadata {
     affiliationType?: CareProviderAfflType;
     isProtected?: boolean;
     masterLabel: string;
     providerRole?: string;
 }
 
-export type OpptStageDescription = Metadata & {
+export interface OpptStageDescription extends Metadata {
     description: string;
     isProtected?: boolean;
     masterLabel: string;
     opportunityStageIdentifier: string;
 }
 
-export type DatasetImportRequest = Metadata & {
+export interface DatasetImportRequest extends Metadata {
     asyncApiJob?: string;
     dataConnector?: string;
     dataFile?: string;
@@ -14593,14 +14597,14 @@ export type DatasetImportRequest = Metadata & {
     user: string;
 }
 
-export type PortalDelegablePermissionSet = Metadata & {
+export interface PortalDelegablePermissionSet extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     permissionSet: string;
     profile: string;
 }
 
-export type RelatedRecordAssocCriteria = Metadata & {
+export interface RelatedRecordAssocCriteria extends Metadata {
     associationHandlerApexClass?: string;
     associationType: AssociationType;
     description?: string;
@@ -14613,14 +14617,14 @@ export type RelatedRecordAssocCriteria = Metadata & {
     status: AssociationStatusType;
 }
 
-export type DocumentCategoryDocumentType = Metadata & {
+export interface DocumentCategoryDocumentType extends Metadata {
     documentCategory: string;
     documentType: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type ShiftSegmentType = Metadata & {
+export interface ShiftSegmentType extends Metadata {
     adherenceThreshold: number;
     category: ShiftSegmentTypeCategory;
     color?: string;
@@ -14630,16 +14634,16 @@ export type ShiftSegmentType = Metadata & {
     servicePresenceStatus?: string;
 }
 
-export type ProductConfiguratorSettings = Metadata & {
+export interface ProductConfiguratorSettings extends Metadata {
     enableProductConfigurator?: boolean;
 }
 
-export type DataImportManagementSettings = Metadata & {
+export interface DataImportManagementSettings extends Metadata {
     enableDataConnectorHubspot?: boolean;
     enableEasyImport?: boolean;
 }
 
-export type WorkforceEngagementSettings = Metadata & {
+export interface WorkforceEngagementSettings extends Metadata {
     enableHistoricalAdherence?: boolean;
     enableIndividualAdherence?: boolean;
     enableIntradayManagement?: boolean;
@@ -14649,23 +14653,23 @@ export type WorkforceEngagementSettings = Metadata & {
     enableWorkforceEngagementConfiguration?: boolean;
 }
 
-export type ClaimMgmtFoundationEnabledSettings = Metadata & {
+export interface ClaimMgmtFoundationEnabledSettings extends Metadata {
     enableWarrantyClaimMgmt?: boolean;
 }
 
-export type EinsteinCopilotSettings = Metadata & {
+export interface EinsteinCopilotSettings extends Metadata {
     enableEinsteinGptCopilot?: boolean;
 }
 
-export type FTestSettings = Metadata & {
+export interface FTestSettings extends Metadata {
     enableTestPref?: boolean;
 }
 
-export type MediaAdSalesSettings = Metadata & {
+export interface MediaAdSalesSettings extends Metadata {
     enableMediaAdSales?: boolean;
 }
 
-export type IndustriesPricingSettings = Metadata & {
+export interface IndustriesPricingSettings extends Metadata {
     enableDebugPriceLogs?: boolean;
     enableHighAvailability?: boolean;
     enableLowestPriceCompliance?: boolean;
@@ -14674,36 +14678,36 @@ export type IndustriesPricingSettings = Metadata & {
     enableSalesforcePricing?: boolean;
 }
 
-export type BranchManagementSettings = Metadata & {
+export interface BranchManagementSettings extends Metadata {
     associateAccountWithBranch?: boolean;
 }
 
-export type DynamicFormsSettings = Metadata & {
+export interface DynamicFormsSettings extends Metadata {
     enableFormsOnMobile?: boolean;
 }
 
-export type CodeBuilderSettings = Metadata & {
+export interface CodeBuilderSettings extends Metadata {
     enableCodeBuilder?: boolean;
 }
 
-export type IndustriesContextSettings = Metadata & {
+export interface IndustriesContextSettings extends Metadata {
     enableContextDefinitions?: boolean;
 }
 
-export type IndustriesLsCommercialSettings = Metadata & {
+export interface IndustriesLsCommercialSettings extends Metadata {
     enableLsPtntSuptPgmGenAIPref?: boolean;
 }
 
-export type IncludeEstTaxInQuoteCPQSettings = Metadata & {
+export interface IncludeEstTaxInQuoteCPQSettings extends Metadata {
     enableQuoteEstimatedTaxCPQ?: boolean;
 }
 
-export type ConversationServiceIntegrationSettings = Metadata & {
+export interface ConversationServiceIntegrationSettings extends Metadata {
     enableConvoCatchUpForAgents?: boolean;
     enableConvoCatchUpForSupervisors?: boolean;
 }
 
-export type EinsteinAISettings = Metadata & {
+export interface EinsteinAISettings extends Metadata {
     enableAIFeedbackWithDC?: boolean;
     enableAITrustInputToxicityDetection?: boolean;
     enableAITrustPromptInjectionDetection?: boolean;
@@ -14712,23 +14716,23 @@ export type EinsteinAISettings = Metadata & {
     enableTrustPIIMasking?: boolean;
 }
 
-export type IndustriesGamificationSettings = Metadata & {
+export interface IndustriesGamificationSettings extends Metadata {
     enableGamification?: boolean;
 }
 
-export type PlatformEventSettings = Metadata & {
+export interface PlatformEventSettings extends Metadata {
     enableEnhancedUsageMetrics?: boolean;
 }
 
-export type AssociationEngineSettings = Metadata & {
+export interface AssociationEngineSettings extends Metadata {
     enableAssociationEngine?: boolean;
 }
 
-export type IndustriesUsageSettings = Metadata & {
+export interface IndustriesUsageSettings extends Metadata {
     enableUsage?: boolean;
 }
 
-export type OrgSettings = Metadata & {
+export interface OrgSettings extends Metadata {
     enableCustomerSuccessPortal?: boolean;
     enableIncludeContractStatus?: boolean;
     enableMakeDeploymentsMandatory?: boolean;
@@ -14738,27 +14742,27 @@ export type OrgSettings = Metadata & {
     enableResetDivisionOnLogin?: boolean;
 }
 
-export type AgentforceForDevelopersSettings = Metadata & {
+export interface AgentforceForDevelopersSettings extends Metadata {
     agentforceForDevelopersOptOut?: boolean;
 }
 
-export type IncludeEstTaxInQuoteSettings = Metadata & {
+export interface IncludeEstTaxInQuoteSettings extends Metadata {
     enableQuoteEstimatedTax?: boolean;
 }
 
-export type ReferralMarketingSettings = Metadata & {
+export interface ReferralMarketingSettings extends Metadata {
     enableMarketingCloudIntegration?: boolean;
 }
 
-export type AccountPlanSettings = Metadata & {
+export interface AccountPlanSettings extends Metadata {
     enableAccountPlan?: boolean;
 }
 
-export type PaymentsManagementEnabledSettings = Metadata & {
+export interface PaymentsManagementEnabledSettings extends Metadata {
     paymentsManagementEnabled?: boolean;
 }
 
-export type EinsteinGptSettings = Metadata & {
+export interface EinsteinGptSettings extends Metadata {
     enableAIProviderAWSBedrock?: boolean;
     enableAIProviderAzureOpenAI?: boolean;
     enableAIProviderGoogleVertex?: boolean;
@@ -14768,13 +14772,13 @@ export type EinsteinGptSettings = Metadata & {
     enableEinsteinGptPlatform?: boolean;
 }
 
-export type PlatformSlackSettings = Metadata & {
+export interface PlatformSlackSettings extends Metadata {
     enableSlackService?: boolean;
     enableSlackServiceAlerts?: boolean;
     slackCapabilitiesEnabled?: boolean;
 }
 
-export type RevenueManagementSettings = Metadata & {
+export interface RevenueManagementSettings extends Metadata {
     enableAutoAddDerivedAsset?: boolean;
     enableCoreCPQ?: boolean;
     enableDeltaPricing?: boolean;
@@ -14783,12 +14787,12 @@ export type RevenueManagementSettings = Metadata & {
     groupsEnabled?: boolean;
 }
 
-export type KnowledgeGenerationSettings = Metadata & {
+export interface KnowledgeGenerationSettings extends Metadata {
     enableKSUsingHybridSearch?: boolean;
     enableKnowledgeGeneration?: boolean;
 }
 
-export type DynamicFulfillmentOrchestratorSettings = Metadata & {
+export interface DynamicFulfillmentOrchestratorSettings extends Metadata {
     enableDFOFallout?: boolean;
     enableDFOJeopardy?: boolean;
     enableDFOPref?: boolean;
@@ -14797,12 +14801,12 @@ export type DynamicFulfillmentOrchestratorSettings = Metadata & {
     enableDROTaskSource?: boolean;
 }
 
-export type MailMergeSettings = Metadata & {
+export interface MailMergeSettings extends Metadata {
     enableExtendedMailMerge?: boolean;
     saveMailMergeDocsAsSalesforceDocs?: boolean;
 }
 
-export type AccountingSettings = Metadata & {
+export interface AccountingSettings extends Metadata {
     enableAccountingSubledger?: boolean;
     enableFinancePeriod?: boolean;
     enablePaymentMethodAdjust?: boolean;
@@ -14810,45 +14814,45 @@ export type AccountingSettings = Metadata & {
     enableSkipReversalLogic?: boolean;
 }
 
-export type CollectionsDashboardSettings = Metadata & {
+export interface CollectionsDashboardSettings extends Metadata {
     enableCollectionsDashboard?: boolean;
 }
 
-export type InvLatePymntRiskCalcSettings = Metadata & {
+export interface InvLatePymntRiskCalcSettings extends Metadata {
     enableInvLatePymntRiskCalc?: boolean;
 }
 
-export type FTestAccessSettings = Metadata & {
+export interface FTestAccessSettings extends Metadata {
     enableTestPref?: boolean;
 }
 
-export type SceGlobalModelOptOutSettings = Metadata & {
+export interface SceGlobalModelOptOutSettings extends Metadata {
     sceGlobalModelOptOut?: boolean;
 }
 
-export type SandboxSettings = Metadata & {
+export interface SandboxSettings extends Metadata {
     disableSandboxExpirationEmails?: boolean;
 }
 
-export type InterestTaggingSettings = Metadata & {
+export interface InterestTaggingSettings extends Metadata {
     enableInterestTagging?: boolean;
 }
 
-export type IndustriesRatingSettings = Metadata & {
+export interface IndustriesRatingSettings extends Metadata {
     enableRating?: boolean;
     enableRatingWaterfall?: boolean;
     enableRatingWaterfallPersistence?: boolean;
 }
 
-export type EvfSettings = Metadata & {
+export interface EvfSettings extends Metadata {
     enableCopilotAnalytics?: boolean;
 }
 
-export type SourceTrackingSettings = Metadata & {
+export interface SourceTrackingSettings extends Metadata {
     enableSourceTrackingSandboxes?: boolean;
 }
 
-export type DevHubSettings = Metadata & {
+export interface DevHubSettings extends Metadata {
     enableDevOpsCenter?: boolean;
     enableDevOpsCenterGA?: boolean;
     enablePackaging2?: boolean;
@@ -14857,7 +14861,7 @@ export type DevHubSettings = Metadata & {
     enableShapeExportPref?: boolean;
 }
 
-export type IndustriesLoyaltySettings = Metadata & {
+export interface IndustriesLoyaltySettings extends Metadata {
     enableAutomaticMemberTierAssessmentSelection?: boolean;
     enableAutomaticVoucherCodeGeneration?: boolean;
     enableFixedTypeNQPAggregation?: boolean;
@@ -14875,34 +14879,34 @@ export type IndustriesLoyaltySettings = Metadata & {
     enableSegmentQueryByDataGraph?: boolean;
 }
 
-export type Web3Settings = Metadata & {
+export interface Web3Settings extends Metadata {
     enableMultisig?: boolean;
 }
 
-export type IndustriesUnifiedPromotionsSettings = Metadata & {
+export interface IndustriesUnifiedPromotionsSettings extends Metadata {
     enableGlobalPromotionsProductCatalogManagement?: boolean;
     enableUnifiedPromotions?: boolean;
 }
 
-export type AppAnalyticsSettings = Metadata & {
+export interface AppAnalyticsSettings extends Metadata {
     enableAppAnalyticsOptOut?: boolean;
     enableSimulationMode?: boolean;
 }
 
-export type MapsAndLocationSettings = Metadata & {
+export interface MapsAndLocationSettings extends Metadata {
     enableAddressAutoComplete?: boolean;
     enableMapsAndLocation?: boolean;
 }
 
-export type LargeQuotesandOrdersForRlmSettings = Metadata & {
+export interface LargeQuotesandOrdersForRlmSettings extends Metadata {
     enableLargeQuotesandOrdersForRlm?: boolean;
 }
 
-export type OnlineSalesSettings = Metadata & {
+export interface OnlineSalesSettings extends Metadata {
     enableSubscriptionAppEnrolled?: boolean;
 }
 
-export type DelegateGroup = Metadata & {
+export interface DelegateGroup extends Metadata {
     customObjects: string[];
     groups: string[];
     label: string;
@@ -14913,24 +14917,24 @@ export type DelegateGroup = Metadata & {
     roles: string[];
 }
 
-export type DeploymentSettings = Metadata & {
+export interface DeploymentSettings extends Metadata {
     doesSkipAsyncApexValidation?: boolean;
 }
 
-export type DgtAssetMgmtProvider = Metadata & {
+export interface DgtAssetMgmtProvider extends Metadata {
     icon: string;
     label: string;
     masterLabel: string;
 }
 
-export type DgtAssetMgmtPrvdLghtCpnt = Metadata & {
+export interface DgtAssetMgmtPrvdLghtCpnt extends Metadata {
     dgtAssetMgmtProvider: string;
     lightningComponentBundle?: string;
     masterLabel: string;
     type: DgtAssetMgmtPrvdLghtCpntType;
 }
 
-export type DigitalExperienceBundle = Metadata & {
+export interface DigitalExperienceBundle extends Metadata {
     description?: string;
     digitalExperienceFolderShares?: DigitalExperienceFolderShares;
     label: string;
@@ -14938,39 +14942,39 @@ export type DigitalExperienceBundle = Metadata & {
     spaceResources: DigitalExperience[];
 }
 
-export type DigitalExperienceFolderShares = {
+export interface DigitalExperienceFolderShares {
     digitalExperienceFolderShare: DigitalExperienceFolderShare[];
 }
 
-export type DigitalExperienceFolderShare = {
+export interface DigitalExperienceFolderShare {
     folderPath: string;
     sharedWith: SharedWith[];
 }
 
-export type SharedWith = {
+export interface SharedWith {
     fullyQualifiedName: string;
 }
 
-export type DigitalExperienceModuleCollection = {
+export interface DigitalExperienceModuleCollection {
     module: DigitalExperienceModule[];
 }
 
-export type DigitalExperienceModule = {
+export interface DigitalExperienceModule {
     fullyQualifiedName: string;
     status: ManagedContentSpaceModuleStatusEnum;
 }
 
-export type DigitalExperience = MetadataWithContent & {
+export interface DigitalExperience extends MetadataWithContent {
     fileName: string;
     filePath?: string;
     format: string;
 }
 
-export type MetadataWithContent = Metadata & {
+export interface MetadataWithContent extends Metadata {
     content?: string;
 }
 
-export type AccessControlPolicy = MetadataWithContent & {
+export interface AccessControlPolicy extends MetadataWithContent {
     active: boolean;
     deploymentStatus: ACPStatus;
     description?: string;
@@ -14979,20 +14983,20 @@ export type AccessControlPolicy = MetadataWithContent & {
     version: number;
 }
 
-export type ApexClass = MetadataWithContent & {
+export interface ApexClass extends MetadataWithContent {
     apiVersion: number;
     packageVersions: PackageVersion[];
     status: ApexCodeUnitStatus;
 }
 
-export type ApexComponent = MetadataWithContent & {
+export interface ApexComponent extends MetadataWithContent {
     apiVersion?: number;
     description?: string;
     label: string;
     packageVersions: PackageVersion[];
 }
 
-export type ApexPage = MetadataWithContent & {
+export interface ApexPage extends MetadataWithContent {
     apiVersion: number;
     availableInTouch?: boolean;
     confirmationTokenRequired?: boolean;
@@ -15001,13 +15005,13 @@ export type ApexPage = MetadataWithContent & {
     packageVersions: PackageVersion[];
 }
 
-export type ApexTrigger = MetadataWithContent & {
+export interface ApexTrigger extends MetadataWithContent {
     apiVersion: number;
     packageVersions: PackageVersion[];
     status: ApexCodeUnitStatus;
 }
 
-export type Certificate = MetadataWithContent & {
+export interface Certificate extends MetadataWithContent {
     caSigned: boolean;
     encryptedWithPlatformEncryption?: boolean;
     expirationDate?: Date;
@@ -15016,12 +15020,12 @@ export type Certificate = MetadataWithContent & {
     privateKeyExportable?: boolean;
 }
 
-export type CodeBundle = MetadataWithContent & {
+export interface CodeBundle extends MetadataWithContent {
     apiVersion: number;
     description?: string;
 }
 
-export type ContentAsset = MetadataWithContent & {
+export interface ContentAsset extends MetadataWithContent {
     format?: ContentAssetFormat;
     isVisibleByExternalUsers?: boolean;
     language: string;
@@ -15031,7 +15035,7 @@ export type ContentAsset = MetadataWithContent & {
     versions: ContentAssetVersions;
 }
 
-export type ContentAssetRelationships = {
+export interface ContentAssetRelationships {
     emailTemplate: ContentAssetLink[];
     insightsApplication: ContentAssetLink[];
     network: ContentAssetLink[];
@@ -15039,35 +15043,35 @@ export type ContentAssetRelationships = {
     workspace: ContentAssetLink[];
 }
 
-export type ContentAssetLink = {
+export interface ContentAssetLink {
     access: ContentAssetAccess;
     isManagingWorkspace?: boolean;
     name?: string;
 }
 
-export type ContentAssetVersions = {
+export interface ContentAssetVersions {
     version: ContentAssetVersion[];
 }
 
-export type ContentAssetVersion = {
+export interface ContentAssetVersion {
     number: string;
     pathOnClient: string;
     zipEntry?: string;
 }
 
-export type DataPipeline = MetadataWithContent & {
+export interface DataPipeline extends MetadataWithContent {
     apiVersion: number;
     label: string;
     scriptType: DataPipelineType;
 }
 
-export type DataWeaveResource = MetadataWithContent & {
+export interface DataWeaveResource extends MetadataWithContent {
     apiVersion: number;
     isGlobal?: boolean;
     isProtected?: boolean;
 }
 
-export type DiscoveryAIModel = MetadataWithContent & {
+export interface DiscoveryAIModel extends MetadataWithContent {
     algorithmType: DiscoveryAlgorithmType;
     classificationThreshold?: number;
     description?: string;
@@ -15082,7 +15086,7 @@ export type DiscoveryAIModel = MetadataWithContent & {
     transformations: DiscoveryModelTransform[];
 }
 
-export type DiscoveryModelField = {
+export interface DiscoveryModelField {
     isDisparateImpact?: boolean;
     isSensitive?: boolean;
     label: string;
@@ -15091,14 +15095,14 @@ export type DiscoveryModelField = {
     values: string[];
 }
 
-export type DiscoveryModelTransform = {
+export interface DiscoveryModelTransform {
     config?: string;
     sourceFieldNames: string[];
     targetFieldNames: string[];
     type: DiscoveryAIModelTransformationType;
 }
 
-export type DiscoveryStory = MetadataWithContent & {
+export interface DiscoveryStory extends MetadataWithContent {
     application: string;
     autopilot?: DiscoveryStoryAutopilotStatus;
     classificationThreshold?: number;
@@ -15109,7 +15113,7 @@ export type DiscoveryStory = MetadataWithContent & {
     validationContainer?: string;
 }
 
-export type DiscoveryStoryOutcome = {
+export interface DiscoveryStoryOutcome {
     failureValue?: string;
     field: string;
     goal: DiscoveryStoryOutcomeGoal;
@@ -15118,7 +15122,7 @@ export type DiscoveryStoryOutcome = {
     type: DiscoveryStoryOutcomeType;
 }
 
-export type Document = MetadataWithContent & {
+export interface Document extends MetadataWithContent {
     description?: string;
     internalUseOnly: boolean;
     keywords?: string;
@@ -15126,7 +15130,7 @@ export type Document = MetadataWithContent & {
     public: boolean;
 }
 
-export type DocumentTemplate = MetadataWithContent & {
+export interface DocumentTemplate extends MetadataWithContent {
     customClassName?: string;
     defaultFontStyle?: string;
     documentConversionResourceName?: string;
@@ -15158,12 +15162,12 @@ export type DocumentTemplate = MetadataWithContent & {
     xmlRelationshipMetadata?: string;
 }
 
-export type EclairGeoData = MetadataWithContent & {
+export interface EclairGeoData extends MetadataWithContent {
     maps: EclairMap[];
     masterLabel: string;
 }
 
-export type EclairMap = {
+export interface EclairMap {
     boundingBoxBottom?: number;
     boundingBoxLeft?: number;
     boundingBoxRight?: number;
@@ -15173,7 +15177,7 @@ export type EclairMap = {
     projection: string;
 }
 
-export type EmailTemplate = MetadataWithContent & {
+export interface EmailTemplate extends MetadataWithContent {
     apiVersion?: number;
     attachedDocuments: string[];
     attachments: Attachment[];
@@ -15192,12 +15196,12 @@ export type EmailTemplate = MetadataWithContent & {
     uiType?: EmailTemplateUiType;
 }
 
-export type Attachment = {
+export interface Attachment {
     content: string;
     name: string;
 }
 
-export type FieldServiceMobileExtension = MetadataWithContent & {
+export interface FieldServiceMobileExtension extends MetadataWithContent {
     description?: string;
     developerName: string;
     fileName: string;
@@ -15206,14 +15210,14 @@ export type FieldServiceMobileExtension = MetadataWithContent & {
     version?: number;
 }
 
-export type InboundCertificate = MetadataWithContent & {
+export interface InboundCertificate extends MetadataWithContent {
     expirationDate: Date;
     issuer: string;
     masterLabel: string;
     serialId: string;
 }
 
-export type NetworkBranding = MetadataWithContent & {
+export interface NetworkBranding extends MetadataWithContent {
     loginBackgroundImageUrl?: string;
     loginFooterText?: string;
     loginLogo?: string;
@@ -15236,18 +15240,18 @@ export type NetworkBranding = MetadataWithContent & {
     zeronaryComplementColor: string;
 }
 
-export type Orchestration = MetadataWithContent & {
+export interface Orchestration extends MetadataWithContent {
     context: string;
     masterLabel: string;
 }
 
-export type Schema = MetadataWithContent & {
+export interface Schema extends MetadataWithContent {
     description?: string;
     schemaContentType: PlatformSchemaContentType;
     sequenceNumber: number;
 }
 
-export type Scontrol = MetadataWithContent & {
+export interface Scontrol extends MetadataWithContent {
     contentSource: SControlContentSource;
     description?: string;
     encodingKey: Encoding;
@@ -15257,12 +15261,12 @@ export type Scontrol = MetadataWithContent & {
     supportsCaching: boolean;
 }
 
-export type SiteDotCom = MetadataWithContent & {
+export interface SiteDotCom extends MetadataWithContent {
     label: string;
     siteType: SiteType;
 }
 
-export type SlackApp = MetadataWithContent & {
+export interface SlackApp extends MetadataWithContent {
     apiVersion?: number;
     appKey: string;
     appToken: string;
@@ -15275,13 +15279,13 @@ export type SlackApp = MetadataWithContent & {
     userScopes?: string;
 }
 
-export type StaticResource = MetadataWithContent & {
+export interface StaticResource extends MetadataWithContent {
     cacheControl: StaticResourceCacheControl;
     contentType: string;
     description?: string;
 }
 
-export type UiPlugin = MetadataWithContent & {
+export interface UiPlugin extends MetadataWithContent {
     description?: string;
     extensionPointIdentifier: string;
     isEnabled: boolean;
@@ -15289,11 +15293,11 @@ export type UiPlugin = MetadataWithContent & {
     masterLabel: string;
 }
 
-export type UiViewDefinition = MetadataWithContent & {
+export interface UiViewDefinition extends MetadataWithContent {
     type: FlexiPageType;
 }
 
-export type UserAuthCertificate = MetadataWithContent & {
+export interface UserAuthCertificate extends MetadataWithContent {
     developerName: string;
     expirationDate?: Date;
     masterLabel: string;
@@ -15301,7 +15305,7 @@ export type UserAuthCertificate = MetadataWithContent & {
     user: string;
 }
 
-export type ViewDefinition = MetadataWithContent & {
+export interface ViewDefinition extends MetadataWithContent {
     apiVersion?: number;
     description?: string;
     isProtected?: boolean;
@@ -15309,7 +15313,7 @@ export type ViewDefinition = MetadataWithContent & {
     targetType: ViewTargetType;
 }
 
-export type WaveDashboard = MetadataWithContent & {
+export interface WaveDashboard extends MetadataWithContent {
     application: string;
     dateVersion?: number;
     description?: string;
@@ -15317,16 +15321,16 @@ export type WaveDashboard = MetadataWithContent & {
     templateAssetSourceName?: string;
 }
 
-export type WaveComponent = WaveDashboard
+export interface WaveComponent extends WaveDashboard {}
 
-export type WaveDataflow = MetadataWithContent & {
+export interface WaveDataflow extends MetadataWithContent {
     application?: string;
     dataflowType?: string;
     description?: string;
     masterLabel: string;
 }
 
-export type WaveLens = MetadataWithContent & {
+export interface WaveLens extends MetadataWithContent {
     application: string;
     datasets: string[];
     dateVersion?: number;
@@ -15336,7 +15340,7 @@ export type WaveLens = MetadataWithContent & {
     visualizationType: string;
 }
 
-export type WaveRecipe = MetadataWithContent & {
+export interface WaveRecipe extends MetadataWithContent {
     application?: string;
     dataflow: string;
     format?: string;
@@ -15346,24 +15350,24 @@ export type WaveRecipe = MetadataWithContent & {
     templateAssetSourceName?: string;
 }
 
-export type DigitalExperienceConfig = Metadata & {
+export interface DigitalExperienceConfig extends Metadata {
     label: string;
     site: Site;
     space: string;
 }
 
-export type Site = {
+export interface Site {
     urlPathPrefix?: string;
 }
 
-export type DisclosureDefinition = Metadata & {
+export interface DisclosureDefinition extends Metadata {
     description?: string;
     disclosureType: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type DisclosureDefinitionVersion = Metadata & {
+export interface DisclosureDefinitionVersion extends Metadata {
     authoringMode?: AuthoringMode;
     description?: string;
     disclosureDefCurrVer?: string;
@@ -15378,7 +15382,7 @@ export type DisclosureDefinitionVersion = Metadata & {
     versionNumber: string;
 }
 
-export type DisclosureType = Metadata & {
+export interface DisclosureType extends Metadata {
     description?: string;
     disclosureBodyLogo?: string;
     disclosureBodyUrl?: string;
@@ -15387,7 +15391,7 @@ export type DisclosureType = Metadata & {
     masterLabel: string;
 }
 
-export type DiscoveryGoal = Metadata & {
+export interface DiscoveryGoal extends Metadata {
     active: boolean;
     deployedModels: DiscoveryDeployedModel[];
     label: string;
@@ -15400,7 +15404,7 @@ export type DiscoveryGoal = Metadata & {
     terminalStateFilters: DiscoveryFilter[];
 }
 
-export type DiscoveryDeployedModel = {
+export interface DiscoveryDeployedModel {
     active: boolean;
     aiModel: string;
     classificationThreshold?: number;
@@ -15411,7 +15415,7 @@ export type DiscoveryDeployedModel = {
     prescribableFields: DiscoveryPrescribableField[];
 }
 
-export type DiscoveryFieldMap = {
+export interface DiscoveryFieldMap {
     mappedField: string;
     modelField: string;
     sobjectFieldJoinKey?: string;
@@ -15420,55 +15424,55 @@ export type DiscoveryFieldMap = {
     sourceType: DiscoveryFieldMapSourceType;
 }
 
-export type DiscoveryFilter = {
+export interface DiscoveryFilter {
     field: string;
     operator: DiscoveryFilterOperator;
     type?: DiscoveryFilterFieldType;
     values: DiscoveryFilterValue[];
 }
 
-export type DiscoveryFilterValue = {
+export interface DiscoveryFilterValue {
     type: DiscoveryFilterValueType;
     value: string;
 }
 
-export type DiscoveryPrescribableField = {
+export interface DiscoveryPrescribableField {
     customDefinitions: DiscoveryCustomPrescribableFieldDefinition[];
     name: string;
 }
 
-export type DiscoveryCustomPrescribableFieldDefinition = {
+export interface DiscoveryCustomPrescribableFieldDefinition {
     filters: DiscoveryFilter[];
     template?: string;
 }
 
-export type DiscoveryModelCard = {
+export interface DiscoveryModelCard {
     contactEmail?: string;
     contactName?: string;
     label?: string;
     sections?: string;
 }
 
-export type DiscoveryGoalOutcome = {
+export interface DiscoveryGoalOutcome {
     field: string;
     fieldLabel: string;
     goal: DiscoveryOutcomeGoal;
     mappedField?: string;
 }
 
-export type DiscoverySettings = Metadata & {
+export interface DiscoverySettings extends Metadata {
     einsteinAR4ConvOnDmndRecs?: boolean;
     einsteinARForConvo?: boolean;
     enableEinsteinAnswersPref?: boolean;
     enableEinsteinArticleRecommendations?: boolean;
 }
 
-export type DocumentChecklistSettings = Metadata & {
+export interface DocumentChecklistSettings extends Metadata {
     dciCustomSharing?: boolean;
     deleteDCIWithFiles?: boolean;
 }
 
-export type DocumentGenerationSetting = Metadata & {
+export interface DocumentGenerationSetting extends Metadata {
     batchDocGnrnPctLimitPerHour?: number;
     documentTemplateLibraryName: string;
     generationMechanism?: GenerationMechanism;
@@ -15481,13 +15485,13 @@ export type DocumentGenerationSetting = Metadata & {
     previewType?: PreviewType;
 }
 
-export type DocumentType = Metadata & {
+export interface DocumentType extends Metadata {
     description?: string;
     isActive: boolean;
     masterLabel: string;
 }
 
-export type DuplicateRule = Metadata & {
+export interface DuplicateRule extends Metadata {
     actionOnInsert: DupeActionType;
     actionOnUpdate: DupeActionType;
     alertText?: string;
@@ -15502,18 +15506,18 @@ export type DuplicateRule = Metadata & {
     sortOrder: number;
 }
 
-export type DuplicateRuleFilter = {
+export interface DuplicateRuleFilter {
     booleanFilter?: string;
     duplicateRuleFilterItems: DuplicateRuleFilterItem[];
 }
 
-export type DuplicateRuleMatchRule = {
+export interface DuplicateRuleMatchRule {
     matchRuleSObjectType: string;
     matchingRule: string;
     objectMapping?: ObjectMapping;
 }
 
-export type EACSettings = Metadata & {
+export interface EACSettings extends Metadata {
     addRcCompToFlexiPages?: boolean;
     autoContactCreationPref?: boolean;
     autoContactEnrichmentPref?: boolean;
@@ -15540,7 +15544,7 @@ export type EACSettings = Metadata & {
     syncInternalEvents?: boolean;
 }
 
-export type ESignatureConfig = Metadata & {
+export interface ESignatureConfig extends Metadata {
     configType?: ConfigType;
     configValue?: string;
     description?: string;
@@ -15549,7 +15553,7 @@ export type ESignatureConfig = Metadata & {
     vendor: Vendor;
 }
 
-export type ESignatureEnvelopeConfig = Metadata & {
+export interface ESignatureEnvelopeConfig extends Metadata {
     expirationPeriod?: number;
     expirationWarningPeriod?: number;
     firstReminderPeriod?: number;
@@ -15563,7 +15567,7 @@ export type ESignatureEnvelopeConfig = Metadata & {
     vendorAccountIdentifier?: string;
 }
 
-export type EditionDefinition = Metadata & {
+export interface EditionDefinition extends Metadata {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -15576,7 +15580,7 @@ export type EditionDefinition = Metadata & {
     name: string;
 }
 
-export type EinsteinAgentSettings = Metadata & {
+export interface EinsteinAgentSettings extends Metadata {
     einsteinAgentRecommendations?: boolean;
     reRunAttributeBasedRules?: boolean;
     runAssignmentRules?: boolean;
@@ -15585,21 +15589,21 @@ export type EinsteinAgentSettings = Metadata & {
     voiceWrapUpRecs?: boolean;
 }
 
-export type EinsteinAssistantSettings = Metadata & {
+export interface EinsteinAssistantSettings extends Metadata {
     enableEinsteinAssistantDataExtractionEnabled?: boolean;
     enableEinsteinAssistantEnabled?: boolean;
     enableEinsteinEnableVoiceLogging?: boolean;
 }
 
-export type EinsteinDealInsightsSettings = Metadata & {
+export interface EinsteinDealInsightsSettings extends Metadata {
     enableUnlikelyToCloseThisMonth?: boolean;
 }
 
-export type EinsteinDocumentCaptureSettings = Metadata & {
+export interface EinsteinDocumentCaptureSettings extends Metadata {
     enableEinsteinDocumentReader?: boolean;
 }
 
-export type EmailAdministrationSettings = Metadata & {
+export interface EmailAdministrationSettings extends Metadata {
     enableComplianceBcc?: boolean;
     enableEmailConsentManagement?: boolean;
     enableEmailSenderIdCompliance?: boolean;
@@ -15625,7 +15629,7 @@ export type EmailAdministrationSettings = Metadata & {
     sendTextOnlySystemEmails?: boolean;
 }
 
-export type EmailIntegrationSettings = Metadata & {
+export interface EmailIntegrationSettings extends Metadata {
     doesEmailLogAsEmailMessageInOutlook?: boolean;
     doesGmailStayConnectedToSalesforce?: boolean;
     enableContactAndEventSync?: boolean;
@@ -15645,7 +15649,7 @@ export type EmailIntegrationSettings = Metadata & {
     shouldUseTrustedDomainsList?: boolean;
 }
 
-export type EmailServicesFunction = Metadata & {
+export interface EmailServicesFunction extends Metadata {
     apexClass: string;
     attachmentOption: EmailServicesAttOptions;
     authenticationFailureAction: EmailServicesErrorAction;
@@ -15663,7 +15667,7 @@ export type EmailServicesFunction = Metadata & {
     overLimitAction: EmailServicesErrorAction;
 }
 
-export type EmailServicesAddress = {
+export interface EmailServicesAddress {
     authorizedSenders?: string;
     developerName: string;
     isActive?: boolean;
@@ -15671,11 +15675,11 @@ export type EmailServicesAddress = {
     runAsUser: string;
 }
 
-export type EmailTemplateSettings = Metadata & {
+export interface EmailTemplateSettings extends Metadata {
     enableTemplateEnhancedFolderPref?: boolean;
 }
 
-export type EmbeddedServiceBranding = Metadata & {
+export interface EmbeddedServiceBranding extends Metadata {
     contrastInvertedColor?: string;
     contrastPrimaryColor?: string;
     embeddedServiceConfig: string;
@@ -15690,7 +15694,7 @@ export type EmbeddedServiceBranding = Metadata & {
     width?: number;
 }
 
-export type EmbeddedServiceConfig = Metadata & {
+export interface EmbeddedServiceConfig extends Metadata {
     areGuestUsersAllowed?: boolean;
     authMethod?: EmbeddedServiceAuthMethod;
     branding?: string;
@@ -15713,7 +15717,7 @@ export type EmbeddedServiceConfig = Metadata & {
     site?: string;
 }
 
-export type EmbeddedServiceAppointmentSettings = {
+export interface EmbeddedServiceAppointmentSettings {
     appointmentConfirmImg?: string;
     enabled: boolean;
     homeImg?: string;
@@ -15722,40 +15726,40 @@ export type EmbeddedServiceAppointmentSettings = {
     shouldShowNewAppointment?: boolean;
 }
 
-export type EmbeddedServiceCustomComponent = {
+export interface EmbeddedServiceCustomComponent {
     componentBundleType?: EmbeddedServiceComponentBundleType;
     customComponent?: string;
     customComponentType?: EmbeddedServiceCustomComponentType;
 }
 
-export type EmbeddedServiceCustomization = {
+export interface EmbeddedServiceCustomization {
     customizationName: string;
     description?: string;
     embeddedServiceResources: EmbeddedServiceResource[];
 }
 
-export type EmbeddedServiceResource = {
+export interface EmbeddedServiceResource {
     resource: string;
     resourceType: EmbeddedServiceResourceType;
 }
 
-export type EmbeddedServiceFlowConfig = Metadata & {
+export interface EmbeddedServiceFlowConfig extends Metadata {
     enabled: boolean;
 }
 
-export type EmbeddedServiceFlow = {
+export interface EmbeddedServiceFlow {
     flow: string;
     flowType: EmbeddedServiceFlowType;
     isAuthenticationRequired: boolean;
 }
 
-export type EmbeddedServiceForm = {
+export interface EmbeddedServiceForm {
     displayContext: EmbeddedServiceFormDisplayContext;
     embeddedServiceFormFields: EmbeddedServiceFormField[];
     isActive?: boolean;
 }
 
-export type EmbeddedServiceFormField = {
+export interface EmbeddedServiceFormField {
     choiceList?: string;
     displayOrder: number;
     embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
@@ -15766,17 +15770,17 @@ export type EmbeddedServiceFormField = {
     messagingChannelParameterType: MessagingChannelParameterType;
 }
 
-export type EmbeddedServiceLayout = {
+export interface EmbeddedServiceLayout {
     embeddedServiceLayoutRules: EmbeddedServiceLayoutRule[];
     layout: string;
     layoutType?: EmbeddedServiceLayoutType;
 }
 
-export type EmbeddedServiceLayoutRule = {
+export interface EmbeddedServiceLayoutRule {
     appointmentStatus: string;
 }
 
-export type EmbeddedServiceMessagingChannel = {
+export interface EmbeddedServiceMessagingChannel {
     businessHours?: string;
     isEnabled: boolean;
     messagingChannel: string;
@@ -15787,7 +15791,7 @@ export type EmbeddedServiceMessagingChannel = {
     shouldStartNewLineOnEnter: boolean;
 }
 
-export type EmbeddedServiceFieldService = Metadata & {
+export interface EmbeddedServiceFieldService extends Metadata {
     embeddedServiceConfig: string;
     enabled: boolean;
     fieldServiceConfirmCardImg?: string;
@@ -15798,7 +15802,7 @@ export type EmbeddedServiceFieldService = Metadata & {
     shouldShowNewAppointment?: boolean;
 }
 
-export type EmbeddedServiceLiveAgent = Metadata & {
+export interface EmbeddedServiceLiveAgent extends Metadata {
     avatarImg?: string;
     embeddedServiceConfig: string;
     embeddedServiceQuickActions: EmbeddedServiceQuickAction[];
@@ -15820,14 +15824,14 @@ export type EmbeddedServiceLiveAgent = Metadata & {
     waitingStateBackgroundImg?: string;
 }
 
-export type EmbeddedServiceQuickAction = {
+export interface EmbeddedServiceQuickAction {
     embeddedServiceLiveAgent: string;
     order: number;
     quickActionDefinition: string;
     quickActionType?: EmbeddedServiceQuickActionType;
 }
 
-export type EmbeddedServiceMenuSettings = Metadata & {
+export interface EmbeddedServiceMenuSettings extends Metadata {
     branding?: string;
     embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
     embeddedServiceCustomizations: EmbeddedServiceCustomization[];
@@ -15837,7 +15841,7 @@ export type EmbeddedServiceMenuSettings = Metadata & {
     site?: string;
 }
 
-export type EmbeddedServiceMenuItem = {
+export interface EmbeddedServiceMenuItem {
     channel?: string;
     channelType?: EmbeddedServiceChannelType;
     customUrl?: string;
@@ -15855,12 +15859,12 @@ export type EmbeddedServiceMenuItem = {
     shouldOpenUrlInSameTab?: boolean;
 }
 
-export type EmployeeFieldAccessSettings = Metadata & {
+export interface EmployeeFieldAccessSettings extends Metadata {
     enableEmployeeFieldMaskDefaults?: boolean;
     enableEmployeeFieldMasking?: boolean;
 }
 
-export type EmployeeUserSettings = Metadata & {
+export interface EmployeeUserSettings extends Metadata {
     emailEncoding: string;
     enableEmployeeAutoCreateUser?: boolean;
     enableEmployeeIsSourceOfTruth?: boolean;
@@ -15869,7 +15873,7 @@ export type EmployeeUserSettings = Metadata & {
     usernameSuffix?: string;
 }
 
-export type EnablementMeasureDefinition = Metadata & {
+export interface EnablementMeasureDefinition extends Metadata {
     description?: string;
     developerName: string;
     masterLabel: string;
@@ -15877,7 +15881,7 @@ export type EnablementMeasureDefinition = Metadata & {
     status: EnblProgramMeasureStatus;
 }
 
-export type EnablementMeasureSourceObjectDefinition = {
+export interface EnablementMeasureSourceObjectDefinition {
     aggregateFieldApiName?: string;
     aggregateFunction: EnablementAggregationType;
     dateFieldApiName: string;
@@ -15889,21 +15893,21 @@ export type EnablementMeasureSourceObjectDefinition = {
     userFieldApiName: string;
 }
 
-export type EnablementMeasureFilterDefinition = {
+export interface EnablementMeasureFilterDefinition {
     fieldApiName: string;
     fieldValue: string;
     operator: EnablementFilterOperator;
     sequenceNumber: number;
 }
 
-export type EnablementMeasureRelatedObjectDefinition = {
+export interface EnablementMeasureRelatedObjectDefinition {
     filterLogic?: string;
     filters: EnablementMeasureFilterDefinition[];
     idFieldApiName: string;
     objectApiName: string;
 }
 
-export type EnablementProgramDefinition = Metadata & {
+export interface EnablementProgramDefinition extends Metadata {
     description: string;
     developerName: string;
     doesAllowSelfEnrollment?: boolean;
@@ -15915,14 +15919,14 @@ export type EnablementProgramDefinition = Metadata & {
     type: string;
 }
 
-export type EnablementProgramSection = {
+export interface EnablementProgramSection {
     developerName: string;
     name: string;
     sequenceNumber: number;
     tasks: EnablementProgramTask[];
 }
 
-export type EnablementProgramTask = {
+export interface EnablementProgramTask {
     customSubCategoryName?: string;
     day: number;
     description: string;
@@ -15935,35 +15939,35 @@ export type EnablementProgramTask = {
     taskSubCategory: string;
 }
 
-export type EnablementProgramTaskExercise = {
+export interface EnablementProgramTaskExercise {
     cmsContent?: EnablementProgramTaskCmsContent;
     customContent?: EnablementProgramTaskCustomContent;
     externalContent?: EnablementProgramTaskExternalContent;
     feedbackContent?: EnablementProgramTaskFeedbackContent;
 }
 
-export type EnablementProgramTaskCmsContent = {
+export interface EnablementProgramTaskCmsContent {
     apiName: string;
     contentKey?: string;
 }
 
-export type EnablementProgramTaskCustomContent = {
+export interface EnablementProgramTaskCustomContent {
     content?: string;
 }
 
-export type EnablementProgramTaskExternalContent = {
+export interface EnablementProgramTaskExternalContent {
     externalId: string;
     providerType: ProgramExtContentDefProvider;
 }
 
-export type EnablementProgramTaskFeedbackContent = {
+export interface EnablementProgramTaskFeedbackContent {
     inviteeCount?: number;
     promptTemplate?: string;
     surveyDeveloperName?: string;
     type: string;
 }
 
-export type EnablementProgramTaskMilestone = {
+export interface EnablementProgramTaskMilestone {
     compositeMilestoneType?: EnblCompositeMilestoneType;
     isMilestoneAnOutcome: boolean;
     milestoneMeasures: EnablementProgramTaskMilestoneMeasure[];
@@ -15972,19 +15976,19 @@ export type EnablementProgramTaskMilestone = {
     startDay?: number;
 }
 
-export type EnablementProgramTaskMilestoneMeasure = {
+export interface EnablementProgramTaskMilestoneMeasure {
     measureDefinitionDeveloperName: string;
     sequenceNumber?: number;
 }
 
-export type EnblProgramTaskSubCategory = Metadata & {
+export interface EnblProgramTaskSubCategory extends Metadata {
     developerName: string;
     icon: string;
     learningItemType: string;
     masterLabel: string;
 }
 
-export type EncryptionKeySettings = Metadata & {
+export interface EncryptionKeySettings extends Metadata {
     canOptOutOfDerivationWithBYOK?: boolean;
     dataCloudEncryption?: boolean;
     enableBringYourOwnkms?: boolean;
@@ -15993,12 +15997,12 @@ export type EncryptionKeySettings = Metadata & {
     tenantLevelEncryption?: boolean;
 }
 
-export type EnhancedNotesSettings = Metadata & {
+export interface EnhancedNotesSettings extends Metadata {
     enableEnhancedNotes?: boolean;
     enableTasksOnEnhancedNotes?: boolean;
 }
 
-export type EntitlementProcess = Metadata & {
+export interface EntitlementProcess extends Metadata {
     SObjectType?: string;
     active?: boolean;
     businessHours?: string;
@@ -16017,7 +16021,7 @@ export type EntitlementProcess = Metadata & {
     versionNumber?: number;
 }
 
-export type EntitlementProcessMilestoneItem = {
+export interface EntitlementProcessMilestoneItem {
     businessHours?: string;
     criteriaBooleanFilter?: string;
     milestoneCompletionCriteria?: MilestoneCompletionCriteria;
@@ -16031,18 +16035,18 @@ export type EntitlementProcessMilestoneItem = {
     useCriteriaStartTime?: boolean;
 }
 
-export type MilestoneCompletionCriteria = {
+export interface MilestoneCompletionCriteria {
     criteriaObjectName?: string;
     criteriaObjectType?: string;
 }
 
-export type EntitlementProcessMilestoneTimeTrigger = {
+export interface EntitlementProcessMilestoneTimeTrigger {
     actions: WorkflowActionReference[];
     timeLength?: number;
     workflowTimeTriggerUnit: MilestoneTimeUnits;
 }
 
-export type EntitlementSettings = Metadata & {
+export interface EntitlementSettings extends Metadata {
     assetLookupLimitedToActiveEntitlementsOnAccount?: boolean;
     assetLookupLimitedToActiveEntitlementsOnContact?: boolean;
     assetLookupLimitedToSameAccount?: boolean;
@@ -16058,7 +16062,7 @@ export type EntitlementSettings = Metadata & {
     ignoreMilestoneBusinessHours?: boolean;
 }
 
-export type EntitlementTemplate = Metadata & {
+export interface EntitlementTemplate extends Metadata {
     businessHours?: string;
     casesPerEntitlement?: number;
     entitlementProcess?: string;
@@ -16067,41 +16071,41 @@ export type EntitlementTemplate = Metadata & {
     type?: string;
 }
 
-export type EscalationRule = Metadata & {
+export interface EscalationRule extends Metadata {
     active?: boolean;
     ruleEntry: RuleEntry[];
 }
 
-export type EscalationRules = Metadata & {
+export interface EscalationRules extends Metadata {
     escalationRule: EscalationRule[];
 }
 
-export type EssentialsSettings = Metadata & {
+export interface EssentialsSettings extends Metadata {
     emailConnectorEnabled?: boolean;
 }
 
-export type EventDelivery = Metadata & {
+export interface EventDelivery extends Metadata {
     eventParameters: EventParameterMap[];
     eventSubscription: string;
     referenceData?: string;
     type: EventDeliveryType;
 }
 
-export type EventParameterMap = {
+export interface EventParameterMap {
     parameterName: string;
     parameterValue?: string;
 }
 
-export type EventLogObjectSettings = Metadata & {
+export interface EventLogObjectSettings extends Metadata {
     eventLogObjects: EventLogObject[];
 }
 
-export type EventLogObject = {
+export interface EventLogObject {
     eventLogName: string;
     isEnabled: boolean;
 }
 
-export type EventRelayConfig = Metadata & {
+export interface EventRelayConfig extends Metadata {
     destinationResourceName: string;
     eventChannel: string;
     label?: string;
@@ -16110,7 +16114,7 @@ export type EventRelayConfig = Metadata & {
     usageType?: EventRelayUsageType;
 }
 
-export type EventSettings = Metadata & {
+export interface EventSettings extends Metadata {
     bypassMeteringBlock?: boolean;
     enableApexLimitEvents?: boolean;
     enableDeleteMonitoringData?: boolean;
@@ -16125,54 +16129,54 @@ export type EventSettings = Metadata & {
     eventLogRetentionDuration?: number;
 }
 
-export type EventSubscription = Metadata & {
+export interface EventSubscription extends Metadata {
     active?: boolean;
     eventParameters: EventParameterMap[];
     eventType: string;
     referenceData: string;
 }
 
-export type ExperienceBundle = Metadata & {
+export interface ExperienceBundle extends Metadata {
     experienceResources?: ExperienceResources;
     label: string;
     type: SiteType;
     urlPathPrefix?: string;
 }
 
-export type ExperienceResources = {
+export interface ExperienceResources {
     experienceResource: ExperienceResource[];
 }
 
-export type ExperienceResource = {
+export interface ExperienceResource {
     fileName: string;
     format: string;
     source?: string;
     type: string;
 }
 
-export type ExperienceBundleSettings = Metadata & {
+export interface ExperienceBundleSettings extends Metadata {
     enableExperienceBundleMetadata?: boolean;
 }
 
-export type ExperienceContainer = Metadata & {
+export interface ExperienceContainer extends Metadata {
     masterLabel: string;
     space: string;
     type: ExperienceContainerType;
 }
 
-export type ExperiencePropertyTypeBundle = Metadata & {
+export interface ExperiencePropertyTypeBundle extends Metadata {
     description?: string;
     masterLabel: string;
     resources: ExperiencePropertyTypeBundleResource[];
 }
 
-export type ExperiencePropertyTypeBundleResource = {
+export interface ExperiencePropertyTypeBundleResource {
     fileName: string;
     filePath: string;
     source: string;
 }
 
-export type ExplainabilityActionDefinition = Metadata & {
+export interface ExplainabilityActionDefinition extends Metadata {
     actionLogSchemaType: ActionLogSchemaType;
     applicationSubtype: string;
     applicationType: EASAppType;
@@ -16182,7 +16186,7 @@ export type ExplainabilityActionDefinition = Metadata & {
     processType: string;
 }
 
-export type ExplainabilityActionVersion = Metadata & {
+export interface ExplainabilityActionVersion extends Metadata {
     actionLogMessageTemplate?: string;
     actionSpecification: string;
     active: boolean;
@@ -16192,7 +16196,7 @@ export type ExplainabilityActionVersion = Metadata & {
     masterLabel: string;
 }
 
-export type ExplainabilityMsgTemplate = Metadata & {
+export interface ExplainabilityMsgTemplate extends Metadata {
     evaluationResult: EvaluationResult;
     expressionSetStepType: ExpressionSetStepType;
     expsSetProcessType: ExpsSetProcessType;
@@ -16201,7 +16205,7 @@ export type ExplainabilityMsgTemplate = Metadata & {
     message: string;
 }
 
-export type ExpressionSetDefinition = Metadata & {
+export interface ExpressionSetDefinition extends Metadata {
     contextDefinitions: string[];
     description?: string;
     executionScale?: ExpsSetExecutionScale;
@@ -16212,7 +16216,7 @@ export type ExpressionSetDefinition = Metadata & {
     versions: ExpressionSetDefinitionVersion[];
 }
 
-export type ExpressionSetDefinitionVersion = Metadata & {
+export interface ExpressionSetDefinitionVersion extends Metadata {
     description?: string;
     endDate?: Date;
     expressionSetDefinition?: string;
@@ -16227,7 +16231,7 @@ export type ExpressionSetDefinitionVersion = Metadata & {
     versionNumber: number;
 }
 
-export type ExpressionSetStep = {
+export interface ExpressionSetStep {
     actionType?: BusinessKnowledgeModel;
     advancedCondition?: ExpressionSetAdvancedCondition;
     aggregation?: ExpressionSetAggregation;
@@ -16254,7 +16258,7 @@ export type ExpressionSetStep = {
     subExpression?: ExpressionSetSubExpression;
 }
 
-export type ExpressionSetAdvancedCondition = {
+export interface ExpressionSetAdvancedCondition {
     conditionLogic: string;
     criteria: ExpressionSetConditionCriteria[];
     errorMessage?: string;
@@ -16262,7 +16266,7 @@ export type ExpressionSetAdvancedCondition = {
     successMessage?: string;
 }
 
-export type ExpressionSetConditionCriteria = {
+export interface ExpressionSetConditionCriteria {
     operator: ExpsSetConditionOperator;
     sequenceNumber: number;
     sourceFieldName: string;
@@ -16270,29 +16274,29 @@ export type ExpressionSetConditionCriteria = {
     valueType?: ExpsSetValueType;
 }
 
-export type ExpressionSetAggregation = {
+export interface ExpressionSetAggregation {
     aggergatedParameter: string;
     aggregateFunction: ExpsSetAggregationFunction;
     expression: string;
 }
 
-export type ExpressionSetAssignment = {
+export interface ExpressionSetAssignment {
     assignedParameter: string;
     expression: string;
 }
 
-export type ExpressionSetConditionExpression = {
+export interface ExpressionSetConditionExpression {
     errorMessage?: string;
     expression: string;
     resultParameter?: string;
     successMessage?: string;
 }
 
-export type ExpressionSetCustomElement = {
+export interface ExpressionSetCustomElement {
     parameters: ExpressionSetElementParameter[];
 }
 
-export type ExpressionSetElementParameter = {
+export interface ExpressionSetElementParameter {
     input: boolean;
     name: string;
     output: boolean;
@@ -16300,23 +16304,23 @@ export type ExpressionSetElementParameter = {
     value: string;
 }
 
-export type ExpressionSetDecisionTable = {
+export interface ExpressionSetDecisionTable {
     decisionTableName: string;
     mappings: ExpressionSetElementParameter[];
     type: string;
 }
 
-export type ExplainabilityMessageTemplateTokenMapping = {
+export interface ExplainabilityMessageTemplateTokenMapping {
     expressionSetMessageToken: string;
     resourceReference: string;
 }
 
-export type ExpressionSetSubExpression = {
+export interface ExpressionSetSubExpression {
     expressionSet: string;
     mappings: ExpressionSetElementParameter[];
 }
 
-export type ExpressionSetVariable = {
+export interface ExpressionSetVariable {
     collection?: boolean;
     dataType: ExpsSetDataType;
     decimalPlaces?: number;
@@ -16333,7 +16337,7 @@ export type ExpressionSetVariable = {
     value?: string;
 }
 
-export type ExpressionSetVariableField = {
+export interface ExpressionSetVariableField {
     dataType: ExpsSetDataType;
     decimalPlaces?: number;
     fields: ExpressionSetVariableField[];
@@ -16343,27 +16347,27 @@ export type ExpressionSetVariableField = {
     objectName?: string;
 }
 
-export type ExpressionSetMessageToken = Metadata & {
+export interface ExpressionSetMessageToken extends Metadata {
     description?: string;
     developerName: string;
     masterLabel: string;
 }
 
-export type ExpressionSetObjectAlias = Metadata & {
+export interface ExpressionSetObjectAlias extends Metadata {
     dataType: ExpsSetObjectDataType;
     mappings: ExpressionSetObjectAliasField[];
     objectApiName: string;
     usageType: ExpsSetProcessType;
 }
 
-export type ExpressionSetObjectAliasField = {
+export interface ExpressionSetObjectAliasField {
     dataType?: ExpsSetDataType;
     decimalScale?: number;
     fieldAlias: string;
     sourceFieldName: string;
 }
 
-export type ExtConvParticipantIntegDef = Metadata & {
+export interface ExtConvParticipantIntegDef extends Metadata {
     connectedAppOauthLink?: string;
     conversationVendorInfo?: string;
     customEventPayloadField: string;
@@ -16374,14 +16378,14 @@ export type ExtConvParticipantIntegDef = Metadata & {
     masterLabel: string;
 }
 
-export type ExternalConversationBotDef = {
+export interface ExternalConversationBotDef {
     displayName?: string;
     externalId: string;
     isActive?: boolean;
     type?: ExternalBotType;
 }
 
-export type ExtDataTranFieldTemplate = Metadata & {
+export interface ExtDataTranFieldTemplate extends Metadata {
     dataSourceField: string;
     externalDataTranField?: string;
     externalName?: string;
@@ -16390,7 +16394,7 @@ export type ExtDataTranFieldTemplate = Metadata & {
     sourceFieldName?: string;
 }
 
-export type ExtDataTranObjectTemplate = Metadata & {
+export interface ExtDataTranObjectTemplate extends Metadata {
     dataSourceObject: string;
     extDataTranFieldTemplates: ExtDataTranFieldTemplate[];
     externalDataTranObject?: string;
@@ -16400,7 +16404,7 @@ export type ExtDataTranObjectTemplate = Metadata & {
     templateVersion?: number;
 }
 
-export type ExternalAIModel = Metadata & {
+export interface ExternalAIModel extends Metadata {
     applicationSourceType: ApplicationSourceType;
     externalModelKey: string;
     externalModelStatus: ExternalModelStatus;
@@ -16409,7 +16413,7 @@ export type ExternalAIModel = Metadata & {
     trainingJobName?: string;
 }
 
-export type ExternalAuthIdentityProvider = Metadata & {
+export interface ExternalAuthIdentityProvider extends Metadata {
     authenticationFlow: IdentityProviderAuthFlow;
     authenticationProtocol: IdentityProviderAuthProtocol;
     description?: string;
@@ -16417,7 +16421,7 @@ export type ExternalAuthIdentityProvider = Metadata & {
     label: string;
 }
 
-export type ExternalAuthIdentityProviderParameter = {
+export interface ExternalAuthIdentityProviderParameter {
     description?: string;
     parameterName: string;
     parameterType: ExtlIdentityProviderParmType;
@@ -16425,13 +16429,13 @@ export type ExternalAuthIdentityProviderParameter = {
     sequenceNumber?: number;
 }
 
-export type ExternalClientAppSettings = Metadata & {
+export interface ExternalClientAppSettings extends Metadata {
     enableClientSecretInRestApiAccess?: boolean;
     enableConsumerSecretApiAccess?: boolean;
     enablePackageEcaOauthFromDevOrg?: boolean;
 }
 
-export type ExternalClientApplication = Metadata & {
+export interface ExternalClientApplication extends Metadata {
     contactEmail?: string;
     contactPhone?: string;
     description?: string;
@@ -16445,14 +16449,14 @@ export type ExternalClientApplication = Metadata & {
     orgScopedExternalApp?: string;
 }
 
-export type ExternalCredential = Metadata & {
+export interface ExternalCredential extends Metadata {
     authenticationProtocol: AuthenticationProtocol;
     description?: string;
     externalCredentialParameters: ExternalCredentialParameter[];
     label: string;
 }
 
-export type ExternalCredentialParameter = {
+export interface ExternalCredentialParameter {
     authProvider?: string;
     certificate?: string;
     description?: string;
@@ -16464,7 +16468,7 @@ export type ExternalCredentialParameter = {
     sequenceNumber?: number;
 }
 
-export type ExternalDataConnector = Metadata & {
+export interface ExternalDataConnector extends Metadata {
     dataConnectionStatus: DataConnectionStatus;
     dataConnectorConfiguration: string;
     dataConnectorType: DataConnectorType;
@@ -16473,7 +16477,7 @@ export type ExternalDataConnector = Metadata & {
     masterLabel: string;
 }
 
-export type ExternalDataTranObject = Metadata & {
+export interface ExternalDataTranObject extends Metadata {
     availabilityStatus: AvailabilityStatus;
     creationType: DefinitionCreationType;
     extDataTranObjectTemplate?: string;
@@ -16483,7 +16487,7 @@ export type ExternalDataTranObject = Metadata & {
     objectCategory: string;
 }
 
-export type ExternalDataTranField = Metadata & {
+export interface ExternalDataTranField extends Metadata {
     creationType?: DefinitionCreationType;
     datatype: string;
     dateFormat?: string;
@@ -16500,7 +16504,7 @@ export type ExternalDataTranField = Metadata & {
     sequence?: number;
 }
 
-export type ExternalDataSource = Metadata & {
+export interface ExternalDataSource extends Metadata {
     authProvider?: string;
     certificate?: string;
     customConfiguration?: string;
@@ -16522,14 +16526,14 @@ export type ExternalDataSource = Metadata & {
     version?: string;
 }
 
-export type CustomHttpHeader = {
+export interface CustomHttpHeader {
     description?: string;
     headerFieldName: string;
     headerFieldValue: string;
     isActive?: boolean;
 }
 
-export type ExternalDataSrcDescriptor = Metadata & {
+export interface ExternalDataSrcDescriptor extends Metadata {
     customObject?: string;
     descriptor: string;
     descriptorVersion?: string;
@@ -16540,7 +16544,7 @@ export type ExternalDataSrcDescriptor = Metadata & {
     type: ExternalDataSrcDescType;
 }
 
-export type ExternalDocStorageConfig = Metadata & {
+export interface ExternalDocStorageConfig extends Metadata {
     documentPath: string;
     externalDocStorageIdentifier: string;
     masterLabel: string;
@@ -16550,7 +16554,7 @@ export type ExternalDocStorageConfig = Metadata & {
     targetObject: TargetObject;
 }
 
-export type ExternalServiceRegistration = Metadata & {
+export interface ExternalServiceRegistration extends Metadata {
     description?: string;
     label: string;
     namedCredential?: string;
@@ -16572,12 +16576,12 @@ export type ExternalServiceRegistration = Metadata & {
     systemVersion?: number;
 }
 
-export type ExternalServiceOperation = {
+export interface ExternalServiceOperation {
     active: boolean;
     name: string;
 }
 
-export type ExtlClntAppConfigurablePolicies = Metadata & {
+export interface ExtlClntAppConfigurablePolicies extends Metadata {
     externalClientApplication: string;
     isEnabled: boolean;
     isMobilePluginEnabled?: boolean;
@@ -16590,7 +16594,7 @@ export type ExtlClntAppConfigurablePolicies = Metadata & {
     startUrl?: string;
 }
 
-export type ExtlClntAppGlobalOauthSettings = Metadata & {
+export interface ExtlClntAppGlobalOauthSettings extends Metadata {
     callbackUrl?: string;
     certificate?: string;
     consumerKey?: string;
@@ -16614,7 +16618,7 @@ export type ExtlClntAppGlobalOauthSettings = Metadata & {
     shouldRotateConsumerSecret?: boolean;
 }
 
-export type ExternalAppIdTokenConfig = {
+export interface ExternalAppIdTokenConfig {
     idTokenAudience?: string;
     idTokenIncludeAttributes?: boolean;
     idTokenIncludeCustomPermissions?: boolean;
@@ -16622,30 +16626,30 @@ export type ExternalAppIdTokenConfig = {
     idTokenValidityInMinutes?: number;
 }
 
-export type ExtlClntAppMobileConfigurablePolicies = Metadata & {
+export interface ExtlClntAppMobileConfigurablePolicies extends Metadata {
     externalClientApplication: string;
     label?: string;
     screenLockTimeout: ScreenLockTimeout;
 }
 
-export type ExtlClntAppMobileSettings = Metadata & {
+export interface ExtlClntAppMobileSettings extends Metadata {
     externalClientApplication: string;
     isScreenLockEnabled: boolean;
     label?: string;
 }
 
-export type ExtlClntAppNotificationSettings = Metadata & {
+export interface ExtlClntAppNotificationSettings extends Metadata {
     externalClientApplication: string;
     label?: string;
     notificationTypes: ExtlClntAppNotificationType[];
 }
 
-export type ExtlClntAppNotificationType = {
+export interface ExtlClntAppNotificationType {
     notificationType: string;
     pushByDefault?: boolean;
 }
 
-export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
+export interface ExtlClntAppOauthConfigurablePolicies extends Metadata {
     apexHandler?: string;
     clientCredentialsFlowUser?: string;
     commaSeparatedCustomScopes?: string;
@@ -16673,12 +16677,12 @@ export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
     startUrl?: string;
 }
 
-export type ExtlClntAppOauthPoliciesAttribute = {
+export interface ExtlClntAppOauthPoliciesAttribute {
     formula: string;
     key: string;
 }
 
-export type ExtlClntAppOauthSettings = Metadata & {
+export interface ExtlClntAppOauthSettings extends Metadata {
     areAttributesIncludedInAssetToken?: boolean;
     areCustomPermsIncludedInAssetToken?: boolean;
     assetTokenAudiences?: string;
@@ -16696,24 +16700,24 @@ export type ExtlClntAppOauthSettings = Metadata & {
     trustedIpRanges: ExtlClntAppOauthIpRange[];
 }
 
-export type ExtlClntAppOauthSettingsAttribute = {
+export interface ExtlClntAppOauthSettingsAttribute {
     formula: string;
     key: string;
 }
 
-export type ExtlClntAppOauthIpRange = {
+export interface ExtlClntAppOauthIpRange {
     description?: string;
     endIpAddress: string;
     startIpAddress: string;
 }
 
-export type ExtlClntAppPushConfigurablePolicies = Metadata & {
+export interface ExtlClntAppPushConfigurablePolicies extends Metadata {
     externalClientApplication: string;
     isFullContent: boolean;
     label?: string;
 }
 
-export type ExtlClntAppPushSettings = Metadata & {
+export interface ExtlClntAppPushSettings extends Metadata {
     androidPushConfig?: ExtlClntAppAndroidPushConfig;
     applePushConfig?: ExtlClntAppApplePushConfig;
     externalClientApplication: string;
@@ -16722,12 +16726,12 @@ export type ExtlClntAppPushSettings = Metadata & {
     pushServiceType: PushServiceType;
 }
 
-export type ExtlClntAppAndroidPushConfig = {
+export interface ExtlClntAppAndroidPushConfig {
     fcmProject: string;
     serviceAccount: string;
 }
 
-export type ExtlClntAppApplePushConfig = {
+export interface ExtlClntAppApplePushConfig {
     applicationBundle?: string;
     certificate?: string;
     environment: ApplePushEnvironmentType;
@@ -16737,7 +16741,7 @@ export type ExtlClntAppApplePushConfig = {
     teamIdentifier?: string;
 }
 
-export type ExtlClntAppSamlConfigurablePolicies = Metadata & {
+export interface ExtlClntAppSamlConfigurablePolicies extends Metadata {
     acsUrl: string;
     certificate?: string;
     commaSeparatedPermissionSet?: string;
@@ -16758,12 +16762,12 @@ export type ExtlClntAppSamlConfigurablePolicies = Metadata & {
     subjectType?: ExtlClntAppSamlSubjectType;
 }
 
-export type ExtlClntAppSamlConfigurablePoliciesAttribute = {
+export interface ExtlClntAppSamlConfigurablePoliciesAttribute {
     formula: string;
     key: string;
 }
 
-export type ExtlClntAppSampleConfigurablePolicies = Metadata & {
+export interface ExtlClntAppSampleConfigurablePolicies extends Metadata {
     adminOnlyPolicy?: string;
     externalClientApplication: string;
     label: string;
@@ -16771,7 +16775,7 @@ export type ExtlClntAppSampleConfigurablePolicies = Metadata & {
     policy2?: string;
 }
 
-export type ExtlClntAppSampleSettings = Metadata & {
+export interface ExtlClntAppSampleSettings extends Metadata {
     devicePlatform: DevicePlatformType;
     deviceType: DeviceType;
     externalClientApplication: string;
@@ -16784,35 +16788,35 @@ export type ExtlClntAppSampleSettings = Metadata & {
     version?: string;
 }
 
-export type FTestFieldMappingMd = Metadata & {
+export interface FTestFieldMappingMd extends Metadata {
     label: string;
 }
 
-export type FTestToolingFLU = Metadata & {
+export interface FTestToolingFLU extends Metadata {
     int: number;
     stringWithDifferentName: string;
     text2?: string;
 }
 
-export type FeatureParameterBoolean = Metadata & {
+export interface FeatureParameterBoolean extends Metadata {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: boolean;
 }
 
-export type FeatureParameterDate = Metadata & {
+export interface FeatureParameterDate extends Metadata {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: Date;
 }
 
-export type FeatureParameterInteger = Metadata & {
+export interface FeatureParameterInteger extends Metadata {
     dataflowDirection: FeatureParameterDataflowDirection;
     masterLabel: string;
     value: number;
 }
 
-export type FieldMappingConfig = Metadata & {
+export interface FieldMappingConfig extends Metadata {
     description?: string;
     fieldMappingConfigItems: FieldMappingConfigItem[];
     masterLabel?: string;
@@ -16820,14 +16824,14 @@ export type FieldMappingConfig = Metadata & {
     sourceObjectId?: string;
 }
 
-export type FieldMappingConfigItem = {
+export interface FieldMappingConfigItem {
     destinationFieldId?: string;
     destinationObjectId?: string;
     sequence?: number;
     sourceFieldId?: string;
 }
 
-export type FieldRestrictionRule = Metadata & {
+export interface FieldRestrictionRule extends Metadata {
     active: boolean;
     classification: string[];
     classificationType?: ClassificationType;
@@ -16840,7 +16844,7 @@ export type FieldRestrictionRule = Metadata & {
     version: number;
 }
 
-export type FieldServiceSettings = Metadata & {
+export interface FieldServiceSettings extends Metadata {
     apptAssistantExpiration?: number;
     apptAssistantInfoUrl?: string;
     apptAssistantRadiusUnitValue?: ApptAssistantRadiusUnit;
@@ -16880,12 +16884,12 @@ export type FieldServiceSettings = Metadata & {
     workOrderSearchFields: string[];
 }
 
-export type ObjectMappingItem = {
+export interface ObjectMappingItem {
     mappingType: MappingType;
     objectMapping: ObjectMapping;
 }
 
-export type FieldSrcTrgtRelationship = Metadata & {
+export interface FieldSrcTrgtRelationship extends Metadata {
     definitionCreationType: DefinitionCreationType;
     lookupFieldName?: string;
     masterLabel: string;
@@ -16896,24 +16900,24 @@ export type FieldSrcTrgtRelationship = Metadata & {
     targetFieldName: string;
 }
 
-export type FileUploadAndDownloadSecuritySettings = Metadata & {
+export interface FileUploadAndDownloadSecuritySettings extends Metadata {
     dispositions: FileTypeDispositionAssignmentBean[];
     noHtmlUploadAsAttachment: boolean;
 }
 
-export type FileTypeDispositionAssignmentBean = {
+export interface FileTypeDispositionAssignmentBean {
     behavior: FileDownloadBehavior;
     fileType: FileType;
     securityRiskFileType: boolean;
 }
 
-export type FilesConnectSettings = Metadata & {
+export interface FilesConnectSettings extends Metadata {
     enableContentHubAllowed?: boolean;
     enableContentHubCvtLinksAllowed?: boolean;
     enableContentHubEOSearchLayout?: boolean;
 }
 
-export type FlexiPage = Metadata & {
+export interface FlexiPage extends Metadata {
     description?: string;
     events: FlexiPageEvent[];
     flexiPageRegions: FlexiPageRegion[];
@@ -16926,19 +16930,19 @@ export type FlexiPage = Metadata & {
     type: FlexiPageType;
 }
 
-export type FlexiPageEvent = {
+export interface FlexiPageEvent {
     sourceName: string;
     sourceProperties: FlexiPageEventSourceProperty[];
     sourceType: FlexipageEventSourceTypeEnum;
     targets: FlexiPageEventTarget[];
 }
 
-export type FlexiPageEventSourceProperty = {
+export interface FlexiPageEventSourceProperty {
     name: string;
     value: string;
 }
 
-export type FlexiPageEventTarget = {
+export interface FlexiPageEventTarget {
     mappings: FlexiPageEventPropertyMapping[];
     method: string;
     name: string;
@@ -16946,17 +16950,17 @@ export type FlexiPageEventTarget = {
     type: FlexipageEventTargetTypeEnum;
 }
 
-export type FlexiPageEventPropertyMapping = {
+export interface FlexiPageEventPropertyMapping {
     name: string;
     value?: string;
 }
 
-export type FlexiPageEventTargetProperty = {
+export interface FlexiPageEventTargetProperty {
     name: string;
     value: string;
 }
 
-export type FlexiPageRegion = {
+export interface FlexiPageRegion {
     appendable?: RegionFlagStatus;
     itemInstances: ItemInstance[];
     mode?: FlexiPageRegionMode;
@@ -16966,12 +16970,12 @@ export type FlexiPageRegion = {
     type: FlexiPageRegionType;
 }
 
-export type ItemInstance = {
+export interface ItemInstance {
     componentInstance?: ComponentInstance;
     fieldInstance?: FieldInstance;
 }
 
-export type ComponentInstance = {
+export interface ComponentInstance {
     componentInstanceProperties: ComponentInstanceProperty[];
     componentName: string;
     componentType?: ComponentInstanceType;
@@ -16980,34 +16984,34 @@ export type ComponentInstance = {
     visibilityRule?: UiFormulaRule;
 }
 
-export type ComponentInstanceProperty = {
+export interface ComponentInstanceProperty {
     name?: string;
     type?: ComponentInstancePropertyTypeEnum;
     value?: string;
     valueList?: ComponentInstancePropertyList;
 }
 
-export type ComponentInstancePropertyList = {
+export interface ComponentInstancePropertyList {
     valueListItems: ComponentInstancePropertyListItem[];
 }
 
-export type ComponentInstancePropertyListItem = {
+export interface ComponentInstancePropertyListItem {
     value?: string;
     visibilityRule?: UiFormulaRule;
 }
 
-export type UiFormulaRule = {
+export interface UiFormulaRule {
     booleanFilter?: string;
     criteria: UiFormulaCriterion[];
 }
 
-export type UiFormulaCriterion = {
+export interface UiFormulaCriterion {
     leftValue: string;
     operator: string;
     rightValue?: string;
 }
 
-export type FlexipageDataSource = {
+export interface FlexipageDataSource {
     definition?: string;
     mode?: FlexipageDataSourceModeEnum;
     name: string;
@@ -17015,40 +17019,40 @@ export type FlexipageDataSource = {
     type: FlexipageDataSourceTypeEnum;
 }
 
-export type FieldInstance = {
+export interface FieldInstance {
     fieldInstanceProperties: FieldInstanceProperty[];
     fieldItem: string;
     identifier?: string;
     visibilityRule?: UiFormulaRule;
 }
 
-export type FieldInstanceProperty = {
+export interface FieldInstanceProperty {
     name?: string;
     value?: string;
 }
 
-export type PlatformActionList = {
+export interface PlatformActionList {
     actionListContext: PlatformActionListContext;
     platformActionListItems: PlatformActionListItem[];
     relatedSourceEntity?: string;
 }
 
-export type PlatformActionListItem = {
+export interface PlatformActionListItem {
     actionName: string;
     actionType: PlatformActionType;
     sortOrder: number;
     subtype?: string;
 }
 
-export type QuickActionList = {
+export interface QuickActionList {
     quickActionListItems: QuickActionListItem[];
 }
 
-export type QuickActionListItem = {
+export interface QuickActionListItem {
     quickActionName: string;
 }
 
-export type FlexiPageTemplateInstance = {
+export interface FlexiPageTemplateInstance {
     componentType?: ComponentInstanceType;
     flexipageDataSources: FlexipageDataSource[];
     identifier?: string;
@@ -17057,7 +17061,7 @@ export type FlexiPageTemplateInstance = {
     schemaProperties: FlexiPageCompSchemaPropertyDef[];
 }
 
-export type FlexiPageCompSchemaPropertyDef = {
+export interface FlexiPageCompSchemaPropertyDef {
     description?: string;
     isRequired?: boolean;
     label?: string;
@@ -17065,7 +17069,7 @@ export type FlexiPageCompSchemaPropertyDef = {
     type: FlexipageSchemaPropType;
 }
 
-export type Flow = Metadata & {
+export interface Flow extends Metadata {
     actionCalls: FlowActionCall[];
     apexPluginCalls: FlowApexPluginCall[];
     apiVersion?: number;
@@ -17116,7 +17120,7 @@ export type Flow = Metadata & {
     waits: FlowWait[];
 }
 
-export type FlowActionCall = FlowNode & {
+export interface FlowActionCall extends FlowNode {
     actionCallPaths: FlowActionCallPath[];
     actionName?: string;
     actionType?: InvocableActionType;
@@ -17136,28 +17140,28 @@ export type FlowActionCall = FlowNode & {
     versionString?: string;
 }
 
-export type FlowNode = FlowElement & {
+export interface FlowNode extends FlowElement {
     elementSubtype?: FlowElementSubtype;
     label?: string;
     locationX: number;
     locationY: number;
 }
 
-export type FlowElement = FlowBaseElement & {
+export interface FlowElement extends FlowBaseElement {
     description?: string;
     name?: string;
 }
 
-export type FlowBaseElement = {
+export interface FlowBaseElement {
     processMetadataValues: FlowMetadataValue[];
 }
 
-export type FlowMetadataValue = {
+export interface FlowMetadataValue {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowElementReferenceOrValue = {
+export interface FlowElementReferenceOrValue {
     apexValue?: string;
     booleanValue?: boolean;
     complexValue?: string;
@@ -17176,7 +17180,7 @@ export type FlowElementReferenceOrValue = {
     transformValueReference?: string;
 }
 
-export type FlowInlineTransform = FlowBaseElement & {
+export interface FlowInlineTransform extends FlowBaseElement {
     apexClass?: string;
     dataType?: FlowDataType;
     isCollection?: boolean;
@@ -17184,14 +17188,14 @@ export type FlowInlineTransform = FlowBaseElement & {
     transformValues: FlowTransformValue[];
 }
 
-export type FlowTransformValue = FlowBaseElement & {
+export interface FlowTransformValue extends FlowBaseElement {
     transformValueActions: FlowTransformValueAction[];
     transformValueDescription?: string;
     transformValueLabel?: string;
     transformValueName?: string;
 }
 
-export type FlowTransformValueAction = FlowBaseElement & {
+export interface FlowTransformValueAction extends FlowBaseElement {
     assignToReference?: string;
     inputParameters: FlowTransformValueActionInputParameter[];
     name?: string;
@@ -17200,71 +17204,71 @@ export type FlowTransformValueAction = FlowBaseElement & {
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowTransformValueActionInputParameter = FlowBaseElement & {
+export interface FlowTransformValueActionInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowActionCallInputParameter = FlowBaseElement & {
+export interface FlowActionCallInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowActionCallOutputParameter = FlowBaseElement & {
+export interface FlowActionCallOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowActionCallPath = FlowBaseElement & {
+export interface FlowActionCallPath extends FlowBaseElement {
     connector: FlowConnector;
     pathName: string;
 }
 
-export type FlowConnector = FlowBaseElement & {
+export interface FlowConnector extends FlowBaseElement {
     isGoTo?: boolean;
     targetReference: string;
 }
 
-export type FlowApexPluginCallInputParameter = FlowBaseElement & {
+export interface FlowApexPluginCallInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowApexPluginCallOutputParameter = FlowBaseElement & {
+export interface FlowApexPluginCallOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowAssignmentItem = FlowBaseElement & {
+export interface FlowAssignmentItem extends FlowBaseElement {
     assignToReference?: string;
     operator?: FlowAssignmentOperator;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowChoiceUserInput = FlowBaseElement & {
+export interface FlowChoiceUserInput extends FlowBaseElement {
     isRequired?: boolean;
     promptText?: string;
     validationRule?: FlowInputValidationRule;
 }
 
-export type FlowInputValidationRule = {
+export interface FlowInputValidationRule {
     errorMessage: string;
     formulaExpression: string;
 }
 
-export type FlowCollectionMapItem = FlowBaseElement & {
+export interface FlowCollectionMapItem extends FlowBaseElement {
     assignToFieldReference: string;
     operator: FlowAssignmentOperator;
     value: FlowElementReferenceOrValue;
 }
 
-export type FlowCollectionSortOption = FlowBaseElement & {
+export interface FlowCollectionSortOption extends FlowBaseElement {
     doesPutEmptyStringAndNullFirst: boolean;
     sortField?: string;
     sortOrder: SortOrder;
 }
 
-export type FlowCondition = FlowBaseElement & {
+export interface FlowCondition extends FlowBaseElement {
     aggregationOperator?: string;
     conditionLogic?: string;
     conditionType?: string;
@@ -17274,163 +17278,163 @@ export type FlowCondition = FlowBaseElement & {
     rightValue?: FlowElementReferenceOrValue;
 }
 
-export type FlowCustomErrorMessage = FlowBaseElement & {
+export interface FlowCustomErrorMessage extends FlowBaseElement {
     errorMessage: string;
     fieldSelection?: string;
     isFieldError: boolean;
 }
 
-export type FlowDataTypeMapping = FlowBaseElement & {
+export interface FlowDataTypeMapping extends FlowBaseElement {
     apexClass?: string;
     typeName: string;
     typeValue?: string;
 }
 
-export type FlowInputFieldAssignment = FlowBaseElement & {
+export interface FlowInputFieldAssignment extends FlowBaseElement {
     field?: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowOutputFieldAssignment = FlowBaseElement & {
+export interface FlowOutputFieldAssignment extends FlowBaseElement {
     assignToReference: string;
     field: string;
 }
 
-export type FlowRecordFilter = FlowBaseElement & {
+export interface FlowRecordFilter extends FlowBaseElement {
     field?: string;
     operator?: FlowRecordFilterOperator;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenActionInputParameter = FlowBaseElement & {
+export interface FlowScreenActionInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenFieldInputParameter = FlowBaseElement & {
+export interface FlowScreenFieldInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenFieldOutputParameter = FlowBaseElement & {
+export interface FlowScreenFieldOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowScreenRule = FlowBaseElement & {
+export interface FlowScreenRule extends FlowBaseElement {
     conditionLogic?: string;
     conditions: FlowCondition[];
     label: string;
     ruleActions: FlowScreenRuleAction[];
 }
 
-export type FlowScreenRuleAction = FlowBaseElement & {
+export interface FlowScreenRuleAction extends FlowBaseElement {
     attribute: string;
     fieldReference: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowScreenTrigger = FlowBaseElement & {
+export interface FlowScreenTrigger extends FlowBaseElement {
     eventName: string;
     eventSource: string;
     handlers: FlowScreenTriggerHandler[];
 }
 
-export type FlowScreenTriggerHandler = FlowBaseElement & {
+export interface FlowScreenTriggerHandler extends FlowBaseElement {
     conditionLogic?: string;
     conditions: FlowCondition[];
     screenActionName: string;
 }
 
-export type FlowStageStepAssignee = FlowBaseElement & {
+export interface FlowStageStepAssignee extends FlowBaseElement {
     assignee?: FlowElementReferenceOrValue;
     assigneeType: FlowStageStepAssigneeType;
 }
 
-export type FlowStageStepEntryActionInputParameter = FlowBaseElement & {
+export interface FlowStageStepEntryActionInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepEntryActionOutputParameter = FlowBaseElement & {
+export interface FlowStageStepEntryActionOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowStageStepExitActionInputParameter = FlowBaseElement & {
+export interface FlowStageStepExitActionInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepExitActionOutputParameter = FlowBaseElement & {
+export interface FlowStageStepExitActionOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowStageStepInputParameter = FlowBaseElement & {
+export interface FlowStageStepInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowStageStepOutputParameter = FlowBaseElement & {
+export interface FlowStageStepOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowStartInputParameter = FlowBaseElement & {
+export interface FlowStartInputParameter extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowSubflowInputAssignment = FlowBaseElement & {
+export interface FlowSubflowInputAssignment extends FlowBaseElement {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowSubflowOutputAssignment = FlowBaseElement & {
+export interface FlowSubflowOutputAssignment extends FlowBaseElement {
     assignToReference?: string;
     name: string;
 }
 
-export type FlowVisibilityRule = FlowBaseElement & {
+export interface FlowVisibilityRule extends FlowBaseElement {
     conditionLogic?: string;
     conditions: FlowCondition[];
 }
 
-export type FlowWaitEventInputParameter = FlowBaseElement & {
+export interface FlowWaitEventInputParameter extends FlowBaseElement {
     name?: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowWaitEventOutputParameter = FlowBaseElement & {
+export interface FlowWaitEventOutputParameter extends FlowBaseElement {
     assignToReference: string;
     name: string;
 }
 
-export type FlowCapability = FlowElement & {
+export interface FlowCapability extends FlowElement {
     capabilityName: string;
     inputs: FlowCapabilityInput[];
 }
 
-export type FlowCapabilityInput = FlowElement & {
+export interface FlowCapabilityInput extends FlowElement {
     capabilityInputName: string;
     dataType?: string;
     isCollection: boolean;
 }
 
-export type FlowChoice = FlowElement & {
+export interface FlowChoice extends FlowElement {
     choiceText: string;
     dataType: FlowDataType;
     userInput?: FlowChoiceUserInput;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowConstant = FlowElement & {
+export interface FlowConstant extends FlowElement {
     dataType: FlowDataType;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowDynamicChoiceSet = FlowElement & {
+export interface FlowDynamicChoiceSet extends FlowElement {
     collectionReference?: string;
     dataType: FlowDataType;
     displayField: string;
@@ -17446,26 +17450,26 @@ export type FlowDynamicChoiceSet = FlowElement & {
     valueField?: string;
 }
 
-export type FlowExitRule = FlowElement & {
+export interface FlowExitRule extends FlowElement {
     conditions: FlowCondition[];
     label: string;
     logicalOperator: string;
     ruleOrder: number;
 }
 
-export type FlowExperimentPath = FlowElement & {
+export interface FlowExperimentPath extends FlowElement {
     connector?: FlowConnector;
     label: string;
     percentage: number;
 }
 
-export type FlowFormula = FlowElement & {
+export interface FlowFormula extends FlowElement {
     dataType?: FlowDataType;
     expression: string;
     scale?: number;
 }
 
-export type FlowRule = FlowElement & {
+export interface FlowRule extends FlowElement {
     conditionLogic: string;
     conditions: FlowCondition[];
     connector?: FlowConnector;
@@ -17473,7 +17477,7 @@ export type FlowRule = FlowElement & {
     label: string;
 }
 
-export type FlowScheduledPath = FlowElement & {
+export interface FlowScheduledPath extends FlowElement {
     connector?: FlowConnector;
     label?: string;
     maxBatchSize?: number;
@@ -17484,7 +17488,7 @@ export type FlowScheduledPath = FlowElement & {
     timeSource?: FlowScheduledPathTimeSource;
 }
 
-export type FlowScreenAction = FlowElement & {
+export interface FlowScreenAction extends FlowElement {
     actionName?: string;
     actionType?: InvocableActionType;
     inputParameters: FlowScreenActionInputParameter[];
@@ -17494,7 +17498,7 @@ export type FlowScreenAction = FlowElement & {
     versionString?: string;
 }
 
-export type FlowScreenField = FlowElement & {
+export interface FlowScreenField extends FlowElement {
     choiceReferences: string[];
     dataType?: FlowDataType;
     dataTypeMappings: FlowDataTypeMapping[];
@@ -17522,13 +17526,13 @@ export type FlowScreenField = FlowElement & {
     visibilityRule?: FlowVisibilityRule;
 }
 
-export type FlowStage = FlowElement & {
+export interface FlowStage extends FlowElement {
     isActive: boolean;
     label: string;
     stageOrder: number;
 }
 
-export type FlowStageStep = FlowElement & {
+export interface FlowStageStep extends FlowElement {
     actionName?: string;
     actionType?: InvocableActionType;
     assignees: FlowStageStepAssignee[];
@@ -17554,12 +17558,12 @@ export type FlowStageStep = FlowElement & {
     stepSubtype?: FlowElementSubtype;
 }
 
-export type FlowTextTemplate = FlowElement & {
+export interface FlowTextTemplate extends FlowElement {
     isViewedAsPlainText?: boolean;
     text: string;
 }
 
-export type FlowVariable = FlowElement & {
+export interface FlowVariable extends FlowElement {
     apexClass?: string;
     dataType: FlowDataType;
     isCollection?: boolean;
@@ -17570,7 +17574,7 @@ export type FlowVariable = FlowElement & {
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowWaitEvent = FlowElement & {
+export interface FlowWaitEvent extends FlowElement {
     associatedElement?: string;
     automationEventName?: string;
     automationEventType?: InvocableActionType;
@@ -17594,7 +17598,7 @@ export type FlowWaitEvent = FlowElement & {
     resumeTime?: Date;
 }
 
-export type FlowApexPluginCall = FlowNode & {
+export interface FlowApexPluginCall extends FlowNode {
     apexClass: string;
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
@@ -17602,12 +17606,12 @@ export type FlowApexPluginCall = FlowNode & {
     outputParameters: FlowApexPluginCallOutputParameter[];
 }
 
-export type FlowAssignment = FlowNode & {
+export interface FlowAssignment extends FlowNode {
     assignmentItems: FlowAssignmentItem[];
     connector?: FlowConnector;
 }
 
-export type FlowCollectionProcessor = FlowNode & {
+export interface FlowCollectionProcessor extends FlowNode {
     assignNextValueToReference?: string;
     collectionProcessorType: FlowCollectionProcessorType;
     collectionReference: string;
@@ -17621,19 +17625,19 @@ export type FlowCollectionProcessor = FlowNode & {
     sortOptions: FlowCollectionSortOption[];
 }
 
-export type FlowCustomError = FlowNode & {
+export interface FlowCustomError extends FlowNode {
     description?: string;
     connector?: FlowConnector;
     customErrorMessages: FlowCustomErrorMessage[];
 }
 
-export type FlowDecision = FlowNode & {
+export interface FlowDecision extends FlowNode {
     defaultConnector?: FlowConnector;
     defaultConnectorLabel?: string;
     rules: FlowRule[];
 }
 
-export type FlowExperiment = FlowNode & {
+export interface FlowExperiment extends FlowNode {
     duration?: number;
     durationUnit?: FlowScheduledPathOffsetUnit;
     paths: FlowExperimentPath[];
@@ -17641,7 +17645,7 @@ export type FlowExperiment = FlowNode & {
     type: FlowExperimentType;
 }
 
-export type FlowLoop = FlowNode & {
+export interface FlowLoop extends FlowNode {
     assignNextValueToReference?: string;
     collectionReference?: string;
     iterationOrder?: IterationOrder;
@@ -17649,7 +17653,7 @@ export type FlowLoop = FlowNode & {
     noMoreValuesConnector?: FlowConnector;
 }
 
-export type FlowOrchestratedStage = FlowNode & {
+export interface FlowOrchestratedStage extends FlowNode {
     connector?: FlowConnector;
     exitActionInputParameters: FlowStageStepExitActionInputParameter[];
     exitActionName?: string;
@@ -17661,7 +17665,7 @@ export type FlowOrchestratedStage = FlowNode & {
     stageSteps: FlowStageStep[];
 }
 
-export type FlowRecordCreate = FlowNode & {
+export interface FlowRecordCreate extends FlowNode {
     assignRecordIdToReference?: string;
     connector?: FlowConnector;
     doesUpsert?: boolean;
@@ -17680,7 +17684,7 @@ export type FlowRecordCreate = FlowNode & {
     upsertStandardIdField?: string;
 }
 
-export type FlowRecordDelete = FlowNode & {
+export interface FlowRecordDelete extends FlowNode {
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
     filterLogic?: string;
@@ -17689,7 +17693,7 @@ export type FlowRecordDelete = FlowNode & {
     object?: string;
 }
 
-export type FlowRecordLookup = FlowNode & {
+export interface FlowRecordLookup extends FlowNode {
     assignNullValuesIfNoRecordsFound?: boolean;
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
@@ -17706,11 +17710,11 @@ export type FlowRecordLookup = FlowNode & {
     storeOutputAutomatically?: boolean;
 }
 
-export type FlowRecordRollback = FlowNode & {
+export interface FlowRecordRollback extends FlowNode {
     connector?: FlowConnector;
 }
 
-export type FlowRecordUpdate = FlowNode & {
+export interface FlowRecordUpdate extends FlowNode {
     connector?: FlowConnector;
     faultConnector?: FlowConnector;
     filterLogic?: string;
@@ -17720,7 +17724,7 @@ export type FlowRecordUpdate = FlowNode & {
     object?: string;
 }
 
-export type FlowScreen = FlowNode & {
+export interface FlowScreen extends FlowNode {
     actions: FlowScreenAction[];
     allowBack?: boolean;
     allowFinish?: boolean;
@@ -17739,7 +17743,7 @@ export type FlowScreen = FlowNode & {
     triggers: FlowScreenTrigger[];
 }
 
-export type FlowStart = FlowNode & {
+export interface FlowStart extends FlowNode {
     capabilityTypes: FlowCapability[];
     connector?: FlowConnector;
     dataGraph?: string;
@@ -17766,17 +17770,17 @@ export type FlowStart = FlowNode & {
     triggeringDataModelObjectPath?: string;
 }
 
-export type FlowSchedule = {
+export interface FlowSchedule {
     frequency?: FlowStartFrequency;
     startDate?: Date;
     startTime?: Date;
 }
 
-export type FlowStep = FlowNode & {
+export interface FlowStep extends FlowNode {
     connectors: FlowConnector[];
 }
 
-export type FlowSubflow = FlowNode & {
+export interface FlowSubflow extends FlowNode {
     connector?: FlowConnector;
     flowName?: string;
     inputAssignments: FlowSubflowInputAssignment[];
@@ -17784,7 +17788,7 @@ export type FlowSubflow = FlowNode & {
     storeOutputAutomatically?: boolean;
 }
 
-export type FlowTransform = FlowNode & {
+export interface FlowTransform extends FlowNode {
     apexClass?: string;
     connector?: FlowConnector;
     dataType?: FlowDataType;
@@ -17795,7 +17799,7 @@ export type FlowTransform = FlowNode & {
     transformValues: FlowTransformValue[];
 }
 
-export type FlowWait = FlowNode & {
+export interface FlowWait extends FlowNode {
     defaultConnector?: FlowConnector;
     defaultConnectorLabel: string;
     faultConnector?: FlowConnector;
@@ -17803,28 +17807,28 @@ export type FlowWait = FlowNode & {
     waitEvents: FlowWaitEvent[];
 }
 
-export type FlowCustomProperty = {
+export interface FlowCustomProperty {
     name: string;
     value?: FlowElementReferenceOrValue;
 }
 
-export type FlowCategory = Metadata & {
+export interface FlowCategory extends Metadata {
     description?: string;
     flowCategoryItems: FlowCategoryItems[];
     masterLabel: string;
 }
 
-export type FlowCategoryItems = {
+export interface FlowCategoryItems {
     flow: string;
 }
 
-export type FlowDefinition = Metadata & {
+export interface FlowDefinition extends Metadata {
     activeVersionNumber?: number;
     description?: string;
     masterLabel?: string;
 }
 
-export type FlowSettings = Metadata & {
+export interface FlowSettings extends Metadata {
     canDebugFlowAsAnotherUser?: boolean;
     doesEnforceApexCpuTimeLimit?: boolean;
     doesFormulaEnforceDataAccess?: boolean;
@@ -17851,31 +17855,31 @@ export type FlowSettings = Metadata & {
     isSupportRollbackOnErrorForApexInvocableActionsEnabled?: boolean;
 }
 
-export type FlowTest = Metadata & {
+export interface FlowTest extends Metadata {
     description?: string;
     flowApiName: string;
     label: string;
     testPoints: FlowTestPoint[];
 }
 
-export type FlowTestPoint = {
+export interface FlowTestPoint {
     assertions: FlowTestAssertion[];
     elementApiName: string;
     parameters: FlowTestParameter[];
 }
 
-export type FlowTestAssertion = {
+export interface FlowTestAssertion {
     conditions: FlowTestCondition[];
     errorMessage?: string;
 }
 
-export type FlowTestCondition = {
+export interface FlowTestCondition {
     leftValueReference: string;
     operator: FlowComparisonOperator;
     rightValue?: FlowTestReferenceOrValue;
 }
 
-export type FlowTestReferenceOrValue = {
+export interface FlowTestReferenceOrValue {
     booleanValue?: boolean;
     dateTimeValue?: Date;
     dateValue?: Date;
@@ -17884,13 +17888,13 @@ export type FlowTestReferenceOrValue = {
     stringValue?: string;
 }
 
-export type FlowTestParameter = {
+export interface FlowTestParameter {
     leftValueReference: string;
     type: FlowTestParameterType;
     value: FlowTestReferenceOrValue;
 }
 
-export type Folder = Metadata & {
+export interface Folder extends Metadata {
     accessType?: FolderAccessTypes;
     folderShares: FolderShare[];
     name: string;
@@ -17898,23 +17902,23 @@ export type Folder = Metadata & {
     sharedTo?: SharedTo;
 }
 
-export type FolderShare = {
+export interface FolderShare {
     accessLevel: FolderShareAccessLevel;
     sharedTo: string;
     sharedToType: FolderSharedToType;
 }
 
-export type DashboardFolder = Folder
+export interface DashboardFolder extends Folder {}
 
-export type DocumentFolder = Folder
+export interface DocumentFolder extends Folder {}
 
-export type EmailFolder = Folder
+export interface EmailFolder extends Folder {}
 
-export type EmailTemplateFolder = Folder
+export interface EmailTemplateFolder extends Folder {}
 
-export type ReportFolder = Folder
+export interface ReportFolder extends Folder {}
 
-export type ForecastingFilter = Metadata & {
+export interface ForecastingFilter extends Metadata {
     filterLogic?: string;
     forecastingCustomCategory?: string;
     forecastingType: string;
@@ -17924,7 +17928,7 @@ export type ForecastingFilter = Metadata & {
     masterLabel: string;
 }
 
-export type ForecastingFilterCondition = Metadata & {
+export interface ForecastingFilterCondition extends Metadata {
     colName?: string;
     fieldName: string;
     forecastingFilter: string;
@@ -17936,7 +17940,7 @@ export type ForecastingFilterCondition = Metadata & {
     value?: string;
 }
 
-export type ForecastingGroup = Metadata & {
+export interface ForecastingGroup extends Metadata {
     developerName: string;
     forecastingGroupItems: ForecastingGroupItem[];
     groupField: string;
@@ -17944,36 +17948,36 @@ export type ForecastingGroup = Metadata & {
     sourceObject: string;
 }
 
-export type ForecastingGroupItem = {
+export interface ForecastingGroupItem {
     displayPosition: number;
     sourceApiValue?: string;
 }
 
-export type ForecastingObjectListSettings = Metadata & {
+export interface ForecastingObjectListSettings extends Metadata {
     forecastingTypeObjectListSettings: ForecastingTypeObjectListSettings[];
 }
 
-export type ForecastingTypeObjectListSettings = {
+export interface ForecastingTypeObjectListSettings {
     forecastingObjectListLabelMappings: ForecastingObjectListLabelMapping[];
     forecastingObjectListSelectedSettings: ForecastingObjectListSelectedSettings;
     forecastingObjectListUnselectedSettings: ForecastingObjectListUnselectedSettings;
     forecastingTypeDeveloperName: string;
 }
 
-export type ForecastingObjectListLabelMapping = {
+export interface ForecastingObjectListLabelMapping {
     field: string;
     label: string;
 }
 
-export type ForecastingObjectListSelectedSettings = {
+export interface ForecastingObjectListSelectedSettings {
     field: string[];
 }
 
-export type ForecastingObjectListUnselectedSettings = {
+export interface ForecastingObjectListUnselectedSettings {
     field: string[];
 }
 
-export type ForecastingSettings = Metadata & {
+export interface ForecastingSettings extends Metadata {
     defaultToPersonalCurrency?: boolean;
     enableForecasts?: boolean;
     forecastingCategoryMappings: ForecastingCategoryMapping[];
@@ -17985,25 +17989,25 @@ export type ForecastingSettings = Metadata & {
     globalQuotasSettings: QuotasSettings;
 }
 
-export type ForecastingCategoryMapping = {
+export interface ForecastingCategoryMapping {
     forecastingItemCategoryApiName: string;
     weightedSourceCategories: WeightedSourceCategory[];
 }
 
-export type WeightedSourceCategory = {
+export interface WeightedSourceCategory {
     sourceCategoryApiName: string;
     weight: number;
 }
 
-export type ForecastingDisplayedFamilySettings = {
+export interface ForecastingDisplayedFamilySettings {
     productFamily?: string;
 }
 
-export type ForecastingSubmissionSettings = {
+export interface ForecastingSubmissionSettings {
     allowForecastingSubmissions: boolean;
 }
 
-export type ForecastingTypeSettings = {
+export interface ForecastingTypeSettings {
     active: boolean;
     displayedCategoryApiNames: string[];
     forecastedCategoryApiNames: string[];
@@ -18023,36 +18027,36 @@ export type ForecastingTypeSettings = {
     territory2ModelName?: string;
 }
 
-export type OpportunityListFieldsLabelMapping = {
+export interface OpportunityListFieldsLabelMapping {
     field: string;
     label: string;
 }
 
-export type OpportunityListFieldsSelectedSettings = {
+export interface OpportunityListFieldsSelectedSettings {
     field: string[];
 }
 
-export type OpportunityListFieldsUnselectedSettings = {
+export interface OpportunityListFieldsUnselectedSettings {
     field: string[];
 }
 
-export type AdjustmentsSettings = {
+export interface AdjustmentsSettings {
     allowExpandedColumns: boolean;
     enableAdjustments: boolean;
     enableOwnerAdjustments: boolean;
 }
 
-export type ForecastRangeSettings = {
+export interface ForecastRangeSettings {
     beginning: number;
     displaying: number;
     periodType: PeriodTypes;
 }
 
-export type QuotasSettings = {
+export interface QuotasSettings {
     showQuotas: boolean;
 }
 
-export type ForecastingSourceDefinition = Metadata & {
+export interface ForecastingSourceDefinition extends Metadata {
     categoryField?: string;
     cdpDataspace?: string;
     dateField?: string;
@@ -18066,7 +18070,7 @@ export type ForecastingSourceDefinition = Metadata & {
     userField?: string;
 }
 
-export type ForecastingType = Metadata & {
+export interface ForecastingType extends Metadata {
     active: boolean;
     amount: boolean;
     dateType: string;
@@ -18082,7 +18086,7 @@ export type ForecastingType = Metadata & {
     territory2Model?: string;
 }
 
-export type ForecastingTypeSource = Metadata & {
+export interface ForecastingTypeSource extends Metadata {
     forecastingSourceDefinition: string;
     forecastingType: string;
     isProtected?: boolean;
@@ -18092,11 +18096,11 @@ export type ForecastingTypeSource = Metadata & {
     sourceGroup: number;
 }
 
-export type FormulaSettings = Metadata & {
+export interface FormulaSettings extends Metadata {
     enableDSTAwareDatevalue?: boolean;
 }
 
-export type FtestFirstTopLevel = Metadata & {
+export interface FtestFirstTopLevel extends Metadata {
     content: number;
     isProtected?: boolean;
     longUrl?: string;
@@ -18104,14 +18108,14 @@ export type FtestFirstTopLevel = Metadata & {
     masterLabel: string;
 }
 
-export type FtestSecondTopLevel = Metadata & {
+export interface FtestSecondTopLevel extends Metadata {
     content: number;
     isProtected?: boolean;
     masterLabel: string;
     user?: string;
 }
 
-export type FuelType = Metadata & {
+export interface FuelType extends Metadata {
     description?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -18120,21 +18124,21 @@ export type FuelType = Metadata & {
     masterLabel: string;
 }
 
-export type FuelTypeSustnUom = Metadata & {
+export interface FuelTypeSustnUom extends Metadata {
     fuelType: string;
     isProtected?: boolean;
     masterLabel?: string;
     unitOfMeasure: string;
 }
 
-export type FulfillmentStepType = Metadata & {
+export interface FulfillmentStepType extends Metadata {
     developerName: string;
     handler: string;
     isActive: boolean;
     masterLabel: string;
 }
 
-export type FunctionReference = Metadata & {
+export interface FunctionReference extends Metadata {
     access?: string;
     description?: string;
     imageReference?: string;
@@ -18142,7 +18146,7 @@ export type FunctionReference = Metadata & {
     permissionSet?: string;
 }
 
-export type FundraisingConfig = Metadata & {
+export interface FundraisingConfig extends Metadata {
     donorExternalIdField?: string;
     donorMatchingMethod?: DonorMatchingMethod;
     failedTransactionCount?: number;
@@ -18162,7 +18166,7 @@ export type FundraisingConfig = Metadata & {
     utmSourceSrcObjField?: string;
 }
 
-export type GatewayProviderPaymentMethodType = Metadata & {
+export interface GatewayProviderPaymentMethodType extends Metadata {
     comments?: string;
     gtwyProviderPaymentMethodType?: string;
     masterLabel: string;
@@ -18171,7 +18175,7 @@ export type GatewayProviderPaymentMethodType = Metadata & {
     recordType?: string;
 }
 
-export type GenAiFunction = Metadata & {
+export interface GenAiFunction extends Metadata {
     description?: string;
     invocationTarget: string;
     invocationTargetType: PlannerFunctionInvocableTargetType;
@@ -18182,7 +18186,7 @@ export type GenAiFunction = Metadata & {
     progressIndicatorMessage?: string;
 }
 
-export type GenAiPlannerAttr = {
+export interface GenAiPlannerAttr {
     description?: string;
     label: string;
     name: string;
@@ -18190,7 +18194,7 @@ export type GenAiPlannerAttr = {
     parameterType: PlannerAttrMappingType;
 }
 
-export type GenAiPlanner = Metadata & {
+export interface GenAiPlanner extends Metadata {
     attributeMappings: GenAiPlannerAttrMapping[];
     capabilities?: string;
     description?: string;
@@ -18203,7 +18207,7 @@ export type GenAiPlanner = Metadata & {
     ruleExpressions: GenAiPlannerRuleExprDef[];
 }
 
-export type GenAiPlannerAttrMapping = {
+export interface GenAiPlannerAttrMapping {
     attributeName: string;
     attributeType: AttributeType;
     constantValue?: string;
@@ -18211,13 +18215,13 @@ export type GenAiPlannerAttrMapping = {
     mappingType: AttributeMappingType;
 }
 
-export type GenAiPlannerFunctionDef = {
+export interface GenAiPlannerFunctionDef {
     genAiCustomizedPlugin?: GenAiLocalPlugin;
     genAiFunctionName?: string;
     genAiPluginName?: string;
 }
 
-export type GenAiLocalPlugin = {
+export interface GenAiLocalPlugin {
     aiPluginUtterances: AiPluginUtteranceDef[];
     description: string;
     genAiFunctions: GenAiPluginFunctionDef[];
@@ -18229,18 +18233,18 @@ export type GenAiLocalPlugin = {
     scope?: string;
 }
 
-export type GenAiPluginFunctionDef = {
+export interface GenAiPluginFunctionDef {
     functionName: string;
 }
 
-export type GenAiPluginInstructionDef = Metadata & {
+export interface GenAiPluginInstructionDef extends Metadata {
     description: string;
     developerName: string;
     language: string;
     masterLabel: string;
 }
 
-export type GenAiPlannerRuleExpr = {
+export interface GenAiPlannerRuleExpr {
     conditions: GenAiPlannerRuleExprCondition[];
     expression?: string;
     expressionLabel: string;
@@ -18248,20 +18252,20 @@ export type GenAiPlannerRuleExpr = {
     expressionType?: ExpressionType;
 }
 
-export type GenAiPlannerRuleExprCondition = {
+export interface GenAiPlannerRuleExprCondition {
     leftOperand: string;
     leftOperandType: GenAiAgentVariableType;
     operator: GenAiRuleExpressionOperator;
     rightOperandValue?: string;
 }
 
-export type GenAiPlannerRuleExprAsgn = {
+export interface GenAiPlannerRuleExprAsgn {
     ruleExpressionName: string;
     targetName: string;
     targetType: string;
 }
 
-export type GenAiPlannerRuleExprDef = {
+export interface GenAiPlannerRuleExprDef {
     conditions: GenAiPlannerRuleExprCondition[];
     expression?: string;
     expressionLabel: string;
@@ -18269,7 +18273,7 @@ export type GenAiPlannerRuleExprDef = {
     expressionType?: ExpressionType;
 }
 
-export type GenAiPlugin = Metadata & {
+export interface GenAiPlugin extends Metadata {
     aiPluginUtterances: AiPluginUtteranceDef[];
     canEscalate?: boolean;
     description?: string;
@@ -18282,7 +18286,7 @@ export type GenAiPlugin = Metadata & {
     scope?: string;
 }
 
-export type GenAiPromptTemplate = Metadata & {
+export interface GenAiPromptTemplate extends Metadata {
     activeVersion?: string;
     createdInVersion?: number;
     description?: string;
@@ -18296,7 +18300,7 @@ export type GenAiPromptTemplate = Metadata & {
     visibility?: GenAiPromptTemplateVisibilityType;
 }
 
-export type GenAiPromptTemplateVersion = {
+export interface GenAiPromptTemplateVersion {
     classification?: string;
     content?: string;
     defaultLanguageScope?: string;
@@ -18310,7 +18314,7 @@ export type GenAiPromptTemplateVersion = {
     versionNumber?: number;
 }
 
-export type GenAiPromptTemplateInput = {
+export interface GenAiPromptTemplateInput {
     apiName: string;
     definition: string;
     description?: string;
@@ -18319,50 +18323,50 @@ export type GenAiPromptTemplateInput = {
     required: boolean;
 }
 
-export type GenAiPromptTemplateDataProvider = {
+export interface GenAiPromptTemplateDataProvider {
     definition: string;
     parameters: GenAiPromptTemplateDataProviderParam[];
     referenceName: string;
 }
 
-export type GenAiPromptTemplateDataProviderParam = {
+export interface GenAiPromptTemplateDataProviderParam {
     definition: string;
     isRequired?: boolean;
     parameterName: string;
     valueExpression?: string;
 }
 
-export type GenAiPromptTemplateActv = Metadata & {
+export interface GenAiPromptTemplateActv extends Metadata {
     accessLevel: GenAiPromptTemplateActvAccessLevel;
     developerName: string;
     masterLabel?: string;
     templateDeveloperName: string;
 }
 
-export type GlobalPicklist = Metadata & {
+export interface GlobalPicklist extends Metadata {
     description?: string;
     globalPicklistValues: GlobalPicklistValue[];
     masterLabel: string;
     sorted: boolean;
 }
 
-export type GlobalValueSet = Metadata & {
+export interface GlobalValueSet extends Metadata {
     customValue: CustomValue[];
     description?: string;
     masterLabel: string;
     sorted: boolean;
 }
 
-export type GlobalValueSetTranslation = Metadata & {
+export interface GlobalValueSetTranslation extends Metadata {
     valueTranslation: ValueTranslation[];
 }
 
-export type ValueTranslation = {
+export interface ValueTranslation {
     masterLabel: string;
     translation?: string;
 }
 
-export type GoogleAppsSettings = Metadata & {
+export interface GoogleAppsSettings extends Metadata {
     enableGmailButtons?: boolean;
     enableGmailButtonsAndLinks?: boolean;
     enableGmailLinks?: boolean;
@@ -18374,17 +18378,17 @@ export type GoogleAppsSettings = Metadata & {
     googleAppsDomainValidated?: boolean;
 }
 
-export type Group = Metadata & {
+export interface Group extends Metadata {
     description?: string;
     doesIncludeBosses?: boolean;
     name: string;
 }
 
-export type HerokuIntegrationSettings = Metadata & {
+export interface HerokuIntegrationSettings extends Metadata {
     enableHerokuIntegration?: boolean;
 }
 
-export type HighVelocitySalesSettings = Metadata & {
+export interface HighVelocitySalesSettings extends Metadata {
     enableACAutoSendEmail?: boolean;
     enableACChangeTargetAssignee?: boolean;
     enableACSkipWeekends?: boolean;
@@ -18408,7 +18412,7 @@ export type HighVelocitySalesSettings = Metadata & {
     enableTaskLoggingPref?: boolean;
 }
 
-export type HomePageComponent = Metadata & {
+export interface HomePageComponent extends Metadata {
     body?: string;
     height?: number;
     links: string[];
@@ -18419,12 +18423,12 @@ export type HomePageComponent = Metadata & {
     width?: PageComponentWidth;
 }
 
-export type HomePageLayout = Metadata & {
+export interface HomePageLayout extends Metadata {
     narrowComponents: string[];
     wideComponents: string[];
 }
 
-export type IPAddressRange = Metadata & {
+export interface IPAddressRange extends Metadata {
     description?: string;
     endIpAddress: string;
     ipAddressFeature: IPAddressFeature;
@@ -18434,13 +18438,13 @@ export type IPAddressRange = Metadata & {
     startIpAddress: string;
 }
 
-export type Icon = Metadata & {
+export interface Icon extends Metadata {
     image: string;
     key: string;
     usageType: IconUsageType;
 }
 
-export type IdeasSettings = Metadata & {
+export interface IdeasSettings extends Metadata {
     enableChatterProfile?: boolean;
     enableHtmlIdea?: boolean;
     enableIdeaMultipleCategory?: boolean;
@@ -18452,18 +18456,18 @@ export type IdeasSettings = Metadata & {
     ideasProfilePage?: string;
 }
 
-export type IdentityProviderSettings = Metadata & {
+export interface IdentityProviderSettings extends Metadata {
     certificateName: string;
     enableIdentityProvider: boolean;
 }
 
-export type IdentityVerificationProcDef = Metadata & {
+export interface IdentityVerificationProcDef extends Metadata {
     identityVerificationProcDtls: IdentityVerificationProcDtl[];
     masterLabel: string;
     searchLayoutType: IdentityVerificationSearchLayoutType;
 }
 
-export type IdentityVerificationProcDtl = Metadata & {
+export interface IdentityVerificationProcDtl extends Metadata {
     apexClass?: string;
     dataSourceType: IdentityVerificationDataSourceType;
     developerName: string;
@@ -18483,7 +18487,7 @@ export type IdentityVerificationProcDtl = Metadata & {
     searchType: IdentityVerificationSearchType;
 }
 
-export type IdentityVerificationProcFld = Metadata & {
+export interface IdentityVerificationProcFld extends Metadata {
     customFieldLabel?: string;
     dataSourceType: IdentityVerificationProcFldDataSourceType;
     developerName: string;
@@ -18497,16 +18501,16 @@ export type IdentityVerificationProcFld = Metadata & {
     sequenceNumber: number;
 }
 
-export type IframeWhiteListUrlSettings = Metadata & {
+export interface IframeWhiteListUrlSettings extends Metadata {
     iframeWhiteListUrls: IframeWhiteListUrl[];
 }
 
-export type IframeWhiteListUrl = {
+export interface IframeWhiteListUrl {
     context: IFrameWhitelistContext;
     url?: string;
 }
 
-export type InboundNetworkConnection = Metadata & {
+export interface InboundNetworkConnection extends Metadata {
     connectionType: ExternalConnectionType;
     description: string;
     inboundNetworkConnProperties: InboundNetworkConnProperty[];
@@ -18515,12 +18519,12 @@ export type InboundNetworkConnection = Metadata & {
     status: ExternalConnectionStatus;
 }
 
-export type InboundNetworkConnProperty = {
+export interface InboundNetworkConnProperty {
     propertyName: InboundConnPropertyName;
     propertyValue: string;
 }
 
-export type IncidentMgmtSettings = Metadata & {
+export interface IncidentMgmtSettings extends Metadata {
     enableAlertBroadcastType?: boolean;
     enableEmailBroadcastType?: boolean;
     enableITSMChangeMgmt?: boolean;
@@ -18531,7 +18535,7 @@ export type IncidentMgmtSettings = Metadata & {
     enableSlackBroadcastType?: boolean;
 }
 
-export type IndustriesAutomotiveSettings = Metadata & {
+export interface IndustriesAutomotiveSettings extends Metadata {
     enableAutomotiveAppraisals?: boolean;
     enableAutomotiveCloud?: boolean;
     enableAutomotiveScheduler?: boolean;
@@ -18540,23 +18544,23 @@ export type IndustriesAutomotiveSettings = Metadata & {
     enableDealerEssntlsAutomotive?: boolean;
 }
 
-export type IndustriesChannelPartnerInventorySettings = Metadata & {
+export interface IndustriesChannelPartnerInventorySettings extends Metadata {
     enableChannelPartnerInventoryTracking?: boolean;
 }
 
-export type IndustriesEinsteinFeatureSettings = Metadata & {
+export interface IndustriesEinsteinFeatureSettings extends Metadata {
     documentReaderConfidenceOrgValue: number;
 }
 
-export type IndustriesEventOrchSettings = Metadata & {
+export interface IndustriesEventOrchSettings extends Metadata {
     enableEventOrchDecisionTable?: boolean;
 }
 
-export type IndustriesFieldServiceSettings = Metadata & {
+export interface IndustriesFieldServiceSettings extends Metadata {
     enableIndustriesFieldService?: boolean;
 }
 
-export type IndustriesManufacturingSettings = Metadata & {
+export interface IndustriesManufacturingSettings extends Metadata {
     enableConnectedAssetSrvcsCmpnt?: boolean;
     enableFleetManagement?: boolean;
     enableIndManufacturing?: boolean;
@@ -18575,7 +18579,7 @@ export type IndustriesManufacturingSettings = Metadata & {
     enableVehicleAndAssetFinance?: boolean;
 }
 
-export type IndustriesSettings = Metadata & {
+export interface IndustriesSettings extends Metadata {
     allowMultipleProducersToWorkOnSamePolicy?: boolean;
     appointmentDistributionOrgPref?: boolean;
     captureResourceUtilizationOrgPref?: boolean;
@@ -18859,19 +18863,19 @@ export type IndustriesSettings = Metadata & {
     transformRBLtoDPE?: boolean;
 }
 
-export type InsPlcyCoverageSpecConfig = Metadata & {
+export interface InsPlcyCoverageSpecConfig extends Metadata {
     coverageSpecification: string;
     isNetworkTierApplicable: boolean;
     masterLabel: string;
 }
 
-export type InsPlcyLineOfBusConfig = Metadata & {
+export interface InsPlcyLineOfBusConfig extends Metadata {
     lineOfBusiness: string;
     masterLabel: string;
     termName: string;
 }
 
-export type InsPolicyLifecycleConfig = Metadata & {
+export interface InsPolicyLifecycleConfig extends Metadata {
     customContextDefinition?: string;
     customContextMapping?: string;
     displayFields: string;
@@ -18880,7 +18884,7 @@ export type InsPolicyLifecycleConfig = Metadata & {
     standardContextMapping?: string;
 }
 
-export type InsPolicyManagementConfig = Metadata & {
+export interface InsPolicyManagementConfig extends Metadata {
     expectedRevExpsSetDef?: string;
     label: string;
     premiumCalcExpsSetDef?: string;
@@ -18888,26 +18892,26 @@ export type InsPolicyManagementConfig = Metadata & {
     stdPremiumCalcExpsSetDef?: string;
 }
 
-export type InsRatePlanCmsnConfig = Metadata & {
+export interface InsRatePlanCmsnConfig extends Metadata {
     calculationType: InsRatePlanCmsnConfigCalcType;
     displayFields: string;
     ratePlanCommissionType: string;
 }
 
-export type InsRatePlanTypeConfig = Metadata & {
+export interface InsRatePlanTypeConfig extends Metadata {
     displayFields: string;
     ratePlanCommissionTypes: string;
     ratePlanType: string;
 }
 
-export type InstalledPackage = Metadata & {
+export interface InstalledPackage extends Metadata {
     activateRSS: boolean;
     password?: string;
     securityType?: string;
     versionNumber: string;
 }
 
-export type IntegrationProviderDef = Metadata & {
+export interface IntegrationProviderDef extends Metadata {
     active?: boolean;
     apexClass?: string;
     description?: string;
@@ -18923,7 +18927,7 @@ export type IntegrationProviderDef = Metadata & {
     type: DefinitionType;
 }
 
-export type IntegrationProviderAttr = {
+export interface IntegrationProviderAttr {
     dataType: AttrDataType;
     dateTimeValue?: Date;
     dateValue?: Date;
@@ -18938,7 +18942,7 @@ export type IntegrationProviderAttr = {
     trueOrFalseValue?: boolean;
 }
 
-export type InternalDataConnector = Metadata & {
+export interface InternalDataConnector extends Metadata {
     alias: string;
     dataConnectionStatus: DataConnectionStatus;
     dataConnectorType: DataConnectorType;
@@ -18950,42 +18954,42 @@ export type InternalDataConnector = Metadata & {
     masterLabel: string;
 }
 
-export type InternalOrganization = Metadata & {
+export interface InternalOrganization extends Metadata {
     isForDataExport: boolean;
     isForDataImport: boolean;
     masterLabel: string;
 }
 
-export type InventoryReplenishmentSettings = Metadata & {
+export interface InventoryReplenishmentSettings extends Metadata {
     enableInventoryReplenishment?: boolean;
 }
 
-export type InventorySettings = Metadata & {
+export interface InventorySettings extends Metadata {
     enableOCIB2CIntegration?: boolean;
     enableOmniChannelInventory?: boolean;
 }
 
-export type InvocableActionSettings = Metadata & {
+export interface InvocableActionSettings extends Metadata {
     isPartialSaveAllowed?: boolean;
 }
 
-export type IoTSettings = Metadata & {
+export interface IoTSettings extends Metadata {
     enableIoT?: boolean;
     enableIoTInsightsPilot?: boolean;
     enableIoTUsageEmail?: boolean;
 }
 
-export type KeywordList = Metadata & {
+export interface KeywordList extends Metadata {
     description?: string;
     keywords: Keyword[];
     masterLabel: string;
 }
 
-export type Keyword = {
+export interface Keyword {
     keyword: string;
 }
 
-export type KnowledgeSettings = Metadata & {
+export interface KnowledgeSettings extends Metadata {
     answers?: KnowledgeAnswerSettings;
     cases?: KnowledgeCaseSettings;
     defaultLanguage?: string;
@@ -19011,13 +19015,13 @@ export type KnowledgeSettings = Metadata & {
     votingEnabled?: boolean;
 }
 
-export type KnowledgeAnswerSettings = {
+export interface KnowledgeAnswerSettings {
     assignTo?: string;
     defaultArticleType?: string;
     enableArticleCreation?: boolean;
 }
 
-export type KnowledgeCaseSettings = {
+export interface KnowledgeCaseSettings {
     articlePDFCreationProfile?: string;
     articlePublicSharingCommunities?: KnowledgeCommunitiesSettings;
     articlePublicSharingSites?: KnowledgeSitesSettings;
@@ -19032,19 +19036,19 @@ export type KnowledgeCaseSettings = {
     useProfileForPDFCreation?: boolean;
 }
 
-export type KnowledgeCommunitiesSettings = {
+export interface KnowledgeCommunitiesSettings {
     community: string[];
 }
 
-export type KnowledgeSitesSettings = {
+export interface KnowledgeSitesSettings {
     site: string[];
 }
 
-export type KnowledgeLanguageSettings = {
+export interface KnowledgeLanguageSettings {
     language: KnowledgeLanguage[];
 }
 
-export type KnowledgeLanguage = {
+export interface KnowledgeLanguage {
     active?: boolean;
     defaultAssignee?: string;
     defaultAssigneeType?: KnowledgeLanguageLookupValueType;
@@ -19053,38 +19057,38 @@ export type KnowledgeLanguage = {
     name: string;
 }
 
-export type KnowledgeSuggestedArticlesSettings = {
+export interface KnowledgeSuggestedArticlesSettings {
     caseFields?: KnowledgeCaseFieldsSettings;
     useSuggestedArticlesForCase?: boolean;
     workOrderFields?: KnowledgeWorkOrderFieldsSettings;
     workOrderLineItemFields?: KnowledgeWorkOrderLineItemFieldsSettings;
 }
 
-export type KnowledgeCaseFieldsSettings = {
+export interface KnowledgeCaseFieldsSettings {
     field: KnowledgeCaseField[];
 }
 
-export type KnowledgeCaseField = {
+export interface KnowledgeCaseField {
     name?: string;
 }
 
-export type KnowledgeWorkOrderFieldsSettings = {
+export interface KnowledgeWorkOrderFieldsSettings {
     field: KnowledgeWorkOrderField[];
 }
 
-export type KnowledgeWorkOrderField = {
+export interface KnowledgeWorkOrderField {
     name?: string;
 }
 
-export type KnowledgeWorkOrderLineItemFieldsSettings = {
+export interface KnowledgeWorkOrderLineItemFieldsSettings {
     field: KnowledgeWorkOrderLineItemField[];
 }
 
-export type KnowledgeWorkOrderLineItemField = {
+export interface KnowledgeWorkOrderLineItemField {
     name?: string;
 }
 
-export type LaborCostOptimizationSettings = Metadata & {
+export interface LaborCostOptimizationSettings extends Metadata {
     canShowVehicle?: boolean;
     canShowVehicleDefinition?: boolean;
     enableTimeSheetsAndLaborCostOptimization?: boolean;
@@ -19092,7 +19096,7 @@ export type LaborCostOptimizationSettings = Metadata & {
     startTimeOffset?: number;
 }
 
-export type LanguageSettings = Metadata & {
+export interface LanguageSettings extends Metadata {
     enableCanadaIcuFormat?: boolean;
     enableDataTranslation?: boolean;
     enableEndUserLanguages?: boolean;
@@ -19105,7 +19109,7 @@ export type LanguageSettings = Metadata & {
     useLanguageFallback?: boolean;
 }
 
-export type Layout = Metadata & {
+export interface Layout extends Metadata {
     customButtons: string[];
     customConsoleComponents?: CustomConsoleComponents;
     emailDefault?: boolean;
@@ -19131,16 +19135,16 @@ export type Layout = Metadata & {
     summaryLayout?: SummaryLayout;
 }
 
-export type CustomConsoleComponents = {
+export interface CustomConsoleComponents {
     primaryTabComponents?: PrimaryTabComponents;
     subtabComponents?: SubtabComponents;
 }
 
-export type PrimaryTabComponents = {
+export interface PrimaryTabComponents {
     containers: Container[];
 }
 
-export type Container = {
+export interface Container {
     height?: number;
     isContainerAutoSizeEnabled: boolean;
     region: string;
@@ -19150,7 +19154,7 @@ export type Container = {
     width?: number;
 }
 
-export type SidebarComponent = {
+export interface SidebarComponent {
     componentType: string;
     createAction?: string;
     enableLinking?: boolean;
@@ -19164,16 +19168,16 @@ export type SidebarComponent = {
     width?: number;
 }
 
-export type RelatedList = {
+export interface RelatedList {
     hideOnDetail: boolean;
     name: string;
 }
 
-export type SubtabComponents = {
+export interface SubtabComponents {
     containers: Container[];
 }
 
-export type FeedLayout = {
+export interface FeedLayout {
     autocollapsePublisher?: boolean;
     compactFeed?: boolean;
     feedFilterPosition?: FeedLayoutFilterPosition;
@@ -19186,19 +19190,19 @@ export type FeedLayout = {
     useInlineFiltersInConsole?: boolean;
 }
 
-export type FeedLayoutFilter = {
+export interface FeedLayoutFilter {
     feedFilterName?: string;
     feedFilterType: FeedLayoutFilterType;
     feedItemType?: FeedItemType;
 }
 
-export type FeedLayoutComponent = {
+export interface FeedLayoutComponent {
     componentType: FeedLayoutComponentType;
     height?: number;
     page?: string;
 }
 
-export type LayoutSection = {
+export interface LayoutSection {
     customLabel?: boolean;
     detailHeading?: boolean;
     editHeading?: boolean;
@@ -19207,12 +19211,12 @@ export type LayoutSection = {
     style: LayoutSectionStyle;
 }
 
-export type LayoutColumn = {
+export interface LayoutColumn {
     layoutItems: LayoutItem[];
     reserved?: string;
 }
 
-export type LayoutItem = {
+export interface LayoutItem {
     analyticsCloudComponent?: AnalyticsCloudComponentLayoutItem;
     behavior?: UiBehavior;
     canvas?: string;
@@ -19229,7 +19233,7 @@ export type LayoutItem = {
     width?: string;
 }
 
-export type AnalyticsCloudComponentLayoutItem = {
+export interface AnalyticsCloudComponentLayoutItem {
     assetType: string;
     devName: string;
     error?: string;
@@ -19242,7 +19246,7 @@ export type AnalyticsCloudComponentLayoutItem = {
     width?: string;
 }
 
-export type ReportChartComponentLayoutItem = {
+export interface ReportChartComponentLayoutItem {
     cacheData?: boolean;
     contextFilterableField?: string;
     error?: string;
@@ -19253,12 +19257,12 @@ export type ReportChartComponentLayoutItem = {
     size?: ReportChartComponentSize;
 }
 
-export type MiniLayout = {
+export interface MiniLayout {
     fields: string[];
     relatedLists: RelatedListItem[];
 }
 
-export type RelatedListItem = {
+export interface RelatedListItem {
     customButtons: string[];
     excludeButtons: string[];
     fields: string[];
@@ -19268,15 +19272,15 @@ export type RelatedListItem = {
     sortOrder?: SortOrder;
 }
 
-export type RelatedContent = {
+export interface RelatedContent {
     relatedContentItems: RelatedContentItem[];
 }
 
-export type RelatedContentItem = {
+export interface RelatedContentItem {
     layoutItem: LayoutItem;
 }
 
-export type SummaryLayout = {
+export interface SummaryLayout {
     masterLabel: string;
     sizeX: number;
     sizeY?: number;
@@ -19285,7 +19289,7 @@ export type SummaryLayout = {
     summaryLayoutStyle: SummaryLayoutStyle;
 }
 
-export type SummaryLayoutItem = {
+export interface SummaryLayoutItem {
     customLink?: string;
     field?: string;
     posX: number;
@@ -19293,7 +19297,7 @@ export type SummaryLayoutItem = {
     posZ?: number;
 }
 
-export type LeadConfigSettings = Metadata & {
+export interface LeadConfigSettings extends Metadata {
     doesEnableLeadConvertDefaultSubjectBlankTaskCreation?: boolean;
     doesHideOpportunityInConvertLeadWindow?: boolean;
     doesPreserveLeadStatus?: boolean;
@@ -19305,13 +19309,13 @@ export type LeadConfigSettings = Metadata & {
     shouldSendNotificationEmailWhenLeadOwnerUpdatesViaApexInLEX?: boolean;
 }
 
-export type LeadConvertSettings = Metadata & {
+export interface LeadConvertSettings extends Metadata {
     allowOwnerChange?: boolean;
     objectMapping: ObjectMapping[];
     opportunityCreationOptions?: VisibleOrRequired;
 }
 
-export type LearningItemType = Metadata & {
+export interface LearningItemType extends Metadata {
     apexEvaluationHandler?: string;
     apexSerializerDeserializer?: string;
     customField: string;
@@ -19322,7 +19326,7 @@ export type LearningItemType = Metadata & {
     masterLabel: string;
 }
 
-export type Letterhead = Metadata & {
+export interface Letterhead extends Metadata {
     available: boolean;
     backgroundColor: string;
     bodyColor: string;
@@ -19335,12 +19339,12 @@ export type Letterhead = Metadata & {
     topLine: LetterheadLine;
 }
 
-export type LetterheadLine = {
+export interface LetterheadLine {
     color: string;
     height: number;
 }
 
-export type LetterheadHeaderFooter = {
+export interface LetterheadHeaderFooter {
     backgroundColor: string;
     height: number;
     horizontalAlignment?: LetterheadHorizontalAlignment;
@@ -19348,7 +19352,7 @@ export type LetterheadHeaderFooter = {
     verticalAlignment?: LetterheadVerticalAlignment;
 }
 
-export type LicenseDefinition = Metadata & {
+export interface LicenseDefinition extends Metadata {
     aggregationGroup: string;
     description?: string;
     isPublished: boolean;
@@ -19363,29 +19367,29 @@ export type LicenseDefinition = Metadata & {
     trialLicenseQuantity: number;
 }
 
-export type LicensedCustomPermissions = {
+export interface LicensedCustomPermissions {
     customPermission: string;
     licenseDefinition: string;
 }
 
-export type LicensingSettings = Metadata & {
+export interface LicensingSettings extends Metadata {
     enableAutoCreateLicenseDefinition?: boolean;
     enableOnDemandProvisioning?: boolean;
 }
 
-export type LifeSciConfigAssignment = {
+export interface LifeSciConfigAssignment {
     assignedTo: string;
     assignmentLevel: LifeSciAssignmentLevel;
 }
 
-export type LifeSciConfigCategory = Metadata & {
+export interface LifeSciConfigCategory extends Metadata {
     category: LifeSciConfigCategoryType;
     categoryLabel?: string;
     isProtected?: boolean;
     masterLabel: string;
 }
 
-export type LifeSciConfigFieldValue = {
+export interface LifeSciConfigFieldValue {
     dataType: LifeSciConfigFieldDataType;
     dateTimeValue?: Date;
     dateValue?: Date;
@@ -19402,7 +19406,7 @@ export type LifeSciConfigFieldValue = {
     urlValue?: string;
 }
 
-export type LifeSciConfigRecord = Metadata & {
+export interface LifeSciConfigRecord extends Metadata {
     assignments: LifeSciConfigAssignment[];
     fieldValues: LifeSciConfigFieldValue[];
     isActive?: boolean;
@@ -19414,7 +19418,7 @@ export type LifeSciConfigRecord = Metadata & {
     type?: string;
 }
 
-export type LightningBolt = Metadata & {
+export interface LightningBolt extends Metadata {
     category: LightningBoltCategory;
     lightningBoltFeatures: LightningBoltFeatures[];
     lightningBoltImages: LightningBoltImages[];
@@ -19424,23 +19428,23 @@ export type LightningBolt = Metadata & {
     summary: string;
 }
 
-export type LightningBoltFeatures = {
+export interface LightningBoltFeatures {
     description?: string;
     order: number;
     title: string;
 }
 
-export type LightningBoltImages = {
+export interface LightningBoltImages {
     image: string;
     order: number;
 }
 
-export type LightningBoltItems = {
+export interface LightningBoltItems {
     name: string;
     type: string;
 }
 
-export type LightningComponentBundle = Metadata & {
+export interface LightningComponentBundle extends Metadata {
     apiVersion?: number;
     capabilities?: Capabilities;
     description?: string;
@@ -19453,24 +19457,24 @@ export type LightningComponentBundle = Metadata & {
     targets?: Targets;
 }
 
-export type Capabilities = {
+export interface Capabilities {
     capability: string[];
 }
 
-export type LwcResources = {
+export interface LwcResources {
     lwcResource: LwcResource[];
 }
 
-export type LwcResource = {
+export interface LwcResource {
     filePath: string;
     source: string;
 }
 
-export type Targets = {
+export interface Targets {
     target: string[];
 }
 
-export type LightningExperienceSettings = Metadata & {
+export interface LightningExperienceSettings extends Metadata {
     activeThemeName?: string;
     enableAccessCheckCrucPref?: boolean;
     enableApiUserLtngOutAccessPref?: boolean;
@@ -19520,7 +19524,7 @@ export type LightningExperienceSettings = Metadata & {
     isLEXExtensionOff?: boolean;
 }
 
-export type LightningExperienceTheme = Metadata & {
+export interface LightningExperienceTheme extends Metadata {
     defaultBrandingSet: string;
     description?: string;
     designSystemVersion?: LightningDesignSystemVersion;
@@ -19528,19 +19532,19 @@ export type LightningExperienceTheme = Metadata & {
     shouldOverrideLoadingImage?: boolean;
 }
 
-export type LightningMessageChannel = Metadata & {
+export interface LightningMessageChannel extends Metadata {
     description?: string;
     isExposed?: boolean;
     lightningMessageFields: LightningMessageField[];
     masterLabel: string;
 }
 
-export type LightningMessageField = {
+export interface LightningMessageField {
     description?: string;
     fieldName: string;
 }
 
-export type LightningOnboardingConfig = Metadata & {
+export interface LightningOnboardingConfig extends Metadata {
     collaborationGroup?: string;
     customQuestion?: string;
     feedbackFormDaysFrequency?: number;
@@ -19550,26 +19554,26 @@ export type LightningOnboardingConfig = Metadata & {
     sendFeedbackToSalesforce: boolean;
 }
 
-export type LightningTypeBundle = Metadata & {
+export interface LightningTypeBundle extends Metadata {
     description?: string;
     masterLabel: string;
     resources: LightningTypeBundleResource[];
 }
 
-export type LightningTypeBundleResource = {
+export interface LightningTypeBundleResource {
     fileName: string;
     filePath: string;
     fileType: string;
     source: string;
 }
 
-export type LiveAgentSettings = Metadata & {
+export interface LiveAgentSettings extends Metadata {
     enableChatFindOrCreateEnable?: boolean;
     enableLiveAgent?: boolean;
     enableQuickTextEnabled?: boolean;
 }
 
-export type LiveChatAgentConfig = Metadata & {
+export interface LiveChatAgentConfig extends Metadata {
     assignments?: AgentConfigAssignments;
     autoGreeting?: string;
     capacity?: number;
@@ -19601,32 +19605,32 @@ export type LiveChatAgentConfig = Metadata & {
     transferableSkills?: AgentConfigSkills;
 }
 
-export type AgentConfigAssignments = {
+export interface AgentConfigAssignments {
     profiles?: AgentConfigProfileAssignments;
     users?: AgentConfigUserAssignments;
 }
 
-export type AgentConfigProfileAssignments = {
+export interface AgentConfigProfileAssignments {
     profile: string[];
 }
 
-export type AgentConfigUserAssignments = {
+export interface AgentConfigUserAssignments {
     user: string[];
 }
 
-export type SupervisorAgentConfigSkills = {
+export interface SupervisorAgentConfigSkills {
     skill: string[];
 }
 
-export type AgentConfigButtons = {
+export interface AgentConfigButtons {
     button: string[];
 }
 
-export type AgentConfigSkills = {
+export interface AgentConfigSkills {
     skill: string[];
 }
 
-export type LiveChatButton = Metadata & {
+export interface LiveChatButton extends Metadata {
     animation?: LiveChatButtonPresentation;
     autoGreeting?: string;
     chasitorIdleTimeout?: number;
@@ -19665,15 +19669,15 @@ export type LiveChatButton = Metadata & {
     windowLanguage?: Language;
 }
 
-export type LiveChatButtonDeployments = {
+export interface LiveChatButtonDeployments {
     deployment: string[];
 }
 
-export type LiveChatButtonSkills = {
+export interface LiveChatButtonSkills {
     skill: string[];
 }
 
-export type LiveChatDeployment = Metadata & {
+export interface LiveChatDeployment extends Metadata {
     brandingImage?: string;
     connectionTimeoutDuration?: number;
     connectionWarningDuration?: number;
@@ -19687,11 +19691,11 @@ export type LiveChatDeployment = Metadata & {
     windowTitle: string;
 }
 
-export type LiveChatDeploymentDomainWhitelist = {
+export interface LiveChatDeploymentDomainWhitelist {
     domain: string[];
 }
 
-export type LiveChatSensitiveDataRule = Metadata & {
+export interface LiveChatSensitiveDataRule extends Metadata {
     actionType: SensitiveDataActionType;
     description?: string;
     enforceOn: number;
@@ -19703,12 +19707,12 @@ export type LiveChatSensitiveDataRule = Metadata & {
     version: SensitiveDataRuleVersion;
 }
 
-export type LiveMessageSettings = Metadata & {
+export interface LiveMessageSettings extends Metadata {
     enableCheckCEUserPerm?: boolean;
     enableLiveMessage?: boolean;
 }
 
-export type LocationUse = Metadata & {
+export interface LocationUse extends Metadata {
     isBookable?: boolean;
     isProtected?: boolean;
     locationType: string;
@@ -19716,12 +19720,12 @@ export type LocationUse = Metadata & {
     use?: string;
 }
 
-export type LoyaltyProgramSetup = Metadata & {
+export interface LoyaltyProgramSetup extends Metadata {
     label?: string;
     programProcesses: LoyaltyProgramProcess[];
 }
 
-export type LoyaltyProgramProcess = {
+export interface LoyaltyProgramProcess {
     description?: string;
     executionType?: LoyaltyPgmProcExecutionType;
     journalSubType?: string;
@@ -19734,7 +19738,7 @@ export type LoyaltyProgramProcess = {
     status?: LoyaltyPgmProcStatus;
 }
 
-export type LoyaltyProgramProcessParameter = {
+export interface LoyaltyProgramProcessParameter {
     condition?: LoyaltyProgramProcessCondition;
     dataType?: LoyaltyPgmProcParmDataType;
     decimalPlaces?: number;
@@ -19748,14 +19752,14 @@ export type LoyaltyProgramProcessParameter = {
     value?: string;
 }
 
-export type LoyaltyProgramProcessCondition = {
+export interface LoyaltyProgramProcessCondition {
     conditionCriteria?: string;
     conditionFilterCriteria: LoyaltyProgramProcessConditionFilterCriteria[];
     conditionName: string;
     conditionType?: LoyaltyPgmProcRuleType;
 }
 
-export type LoyaltyProgramProcessConditionFilterCriteria = {
+export interface LoyaltyProgramProcessConditionFilterCriteria {
     operator: LoyaltyPgmProcCondOperator;
     sequence: number;
     sourceFieldName: string;
@@ -19763,7 +19767,7 @@ export type LoyaltyProgramProcessConditionFilterCriteria = {
     valueType: LoyaltyPgmProcCondType;
 }
 
-export type LoyaltyProgramProcessRule = {
+export interface LoyaltyProgramProcessRule {
     actions: LoyaltyProgramProcessAction[];
     conditions: LoyaltyProgramProcessCondition[];
     description?: string;
@@ -19777,7 +19781,7 @@ export type LoyaltyProgramProcessRule = {
     stepMappings: LoyaltyProgramProcessRuleStepMapping[];
 }
 
-export type LoyaltyProgramProcessAction = {
+export interface LoyaltyProgramProcessAction {
     actionName: string;
     actionParameters: LoyaltyProgramProcessActionParameter[];
     actionType: LoyaltyPgmProcActionType;
@@ -19789,7 +19793,7 @@ export type LoyaltyProgramProcessAction = {
     loyaltyProgramProcess?: string;
 }
 
-export type LoyaltyProgramProcessActionParameter = {
+export interface LoyaltyProgramProcessActionParameter {
     operator?: LoyaltyPgmProcActParamOper;
     parameterName: string;
     sequenceNumber?: number;
@@ -19797,13 +19801,13 @@ export type LoyaltyProgramProcessActionParameter = {
     valueType?: LoyaltyPgmProcActParamType;
 }
 
-export type LoyaltyProgramProcessRuleStepMapping = {
+export interface LoyaltyProgramProcessRuleStepMapping {
     associatedStep: string;
     parentStep?: string;
     sequence: number;
 }
 
-export type MLDataDefinition = Metadata & {
+export interface MLDataDefinition extends Metadata {
     developerName: string;
     entityDeveloperName: string;
     excludedFields: string[];
@@ -19816,7 +19820,7 @@ export type MLDataDefinition = Metadata & {
     type: MLDataDefinitionType;
 }
 
-export type MLField = {
+export interface MLField {
     entity?: string;
     entityName?: string;
     field?: string;
@@ -19826,7 +19830,7 @@ export type MLField = {
     type: MLFieldType;
 }
 
-export type MLFilter = {
+export interface MLFilter {
     filterName: string;
     lhFilter?: MLFilter;
     lhPredictionField?: string;
@@ -19842,7 +19846,7 @@ export type MLFilter = {
     sortOrder?: number;
 }
 
-export type MLGenerativeDefinition = Metadata & {
+export interface MLGenerativeDefinition extends Metadata {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -19851,7 +19855,7 @@ export type MLGenerativeDefinition = Metadata & {
     type: MLGenerativeType;
 }
 
-export type MLPredictionDefinition = Metadata & {
+export interface MLPredictionDefinition extends Metadata {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -19865,7 +19869,7 @@ export type MLPredictionDefinition = Metadata & {
     type: AIPredictionType;
 }
 
-export type MLRecommendationDefinition = Metadata & {
+export interface MLRecommendationDefinition extends Metadata {
     aiApplicationDeveloperName: string;
     description?: string;
     developerName: string;
@@ -19877,13 +19881,13 @@ export type MLRecommendationDefinition = Metadata & {
     status: MLRecommendationDefinitionStatus;
 }
 
-export type MacroSettings = Metadata & {
+export interface MacroSettings extends Metadata {
     contextualMacroFiltering?: boolean;
     enableAdvancedSearch?: boolean;
     macrosInFolders?: boolean;
 }
 
-export type ManagedContentType = Metadata & {
+export interface ManagedContentType extends Metadata {
     description?: string;
     developerName: string;
     isMetadataContent?: boolean;
@@ -19891,7 +19895,7 @@ export type ManagedContentType = Metadata & {
     masterLabel: string;
 }
 
-export type ManagedContentNodeType = {
+export interface ManagedContentNodeType {
     helpText?: string;
     isLocalizable?: boolean;
     isRequired?: boolean;
@@ -19901,14 +19905,14 @@ export type ManagedContentNodeType = {
     placeholderText?: string;
 }
 
-export type ManagedContentTypeBundle = Metadata & {
+export interface ManagedContentTypeBundle extends Metadata {
     description?: string;
     developerName: string;
     masterLabel: string;
     schemaBody: string;
 }
 
-export type ManagedEventSubscription = Metadata & {
+export interface ManagedEventSubscription extends Metadata {
     defaultReplay?: EventSubscriptionReplayPreset;
     errorRecoveryReplay?: EventSubscriptionReplayPreset;
     label?: string;
@@ -19917,7 +19921,7 @@ export type ManagedEventSubscription = Metadata & {
     version?: string;
 }
 
-export type ManagedTopic = Metadata & {
+export interface ManagedTopic extends Metadata {
     managedTopicType: string;
     name: string;
     parentName: string;
@@ -19925,11 +19929,11 @@ export type ManagedTopic = Metadata & {
     topicDescription: string;
 }
 
-export type ManagedTopics = Metadata & {
+export interface ManagedTopics extends Metadata {
     managedTopic: ManagedTopic[];
 }
 
-export type MarketAudienceDefinition = Metadata & {
+export interface MarketAudienceDefinition extends Metadata {
     audienceContactPoints: AudienceContactPoint[];
     audiencePackageOwner?: string;
     channels?: string;
@@ -19943,14 +19947,14 @@ export type MarketAudienceDefinition = Metadata & {
     status: MarketAudienceStatus;
 }
 
-export type AudienceContactPoint = {
+export interface AudienceContactPoint {
     audienceDefinition: string;
     audienceVersion?: number;
     contactPointType: ContactPointType;
     slotName: string;
 }
 
-export type MarketAudienceField = {
+export interface MarketAudienceField {
     audienceDefinition: string;
     audienceVersion: number;
     fieldDataType: AudienceFieldType;
@@ -19959,7 +19963,7 @@ export type MarketAudienceField = {
     slotName: string;
 }
 
-export type MarketSegmentDefinition = Metadata & {
+export interface MarketSegmentDefinition extends Metadata {
     additionalMetadata?: string;
     excludeCriteria?: string;
     includeCriteria?: string;
@@ -19968,7 +19972,7 @@ export type MarketSegmentDefinition = Metadata & {
     segmentType: MarketSegmentType;
 }
 
-export type MarketingAppExtActivity = Metadata & {
+export interface MarketingAppExtActivity extends Metadata {
     description?: string;
     endpointUrl?: string;
     isActive?: boolean;
@@ -19977,7 +19981,7 @@ export type MarketingAppExtActivity = Metadata & {
     masterLabel: string;
 }
 
-export type MarketingAppExtension = Metadata & {
+export interface MarketingAppExtension extends Metadata {
     description?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -19986,7 +19990,7 @@ export type MarketingAppExtension = Metadata & {
     masterLabel: string;
 }
 
-export type MarketingAppExtAction = {
+export interface MarketingAppExtAction {
     actionName: string;
     actionParams?: string;
     actionSchema?: string;
@@ -19997,7 +20001,7 @@ export type MarketingAppExtAction = {
     marketingAppExtension: string;
 }
 
-export type MatchingRule = Metadata & {
+export interface MatchingRule extends Metadata {
     booleanFilter?: string;
     description?: string;
     label: string;
@@ -20005,23 +20009,23 @@ export type MatchingRule = Metadata & {
     ruleStatus: MatchingRuleStatus;
 }
 
-export type MatchingRuleItem = {
+export interface MatchingRuleItem {
     blankValueBehavior?: BlankValueBehavior;
     fieldName: string;
     matchingMethod: MatchingMethod;
 }
 
-export type MatchingRules = Metadata & {
+export interface MatchingRules extends Metadata {
     matchingRules: MatchingRule[];
 }
 
-export type MeetingsSettings = Metadata & {
+export interface MeetingsSettings extends Metadata {
     enableSalesforceMeetings?: boolean;
     enableSalesforceMeetingsSyncCheck?: boolean;
     enableZoomVideoConference?: boolean;
 }
 
-export type MessagingChannel = Metadata & {
+export interface MessagingChannel extends Metadata {
     automatedResponses: MessagingAutoResponse[];
     channelUsages: MessagingChannelUsage[];
     countryCode?: string;
@@ -20041,7 +20045,7 @@ export type MessagingChannel = Metadata & {
     standardParameters: MessagingChannelStandardParameter[];
 }
 
-export type MessagingAutoResponse = {
+export interface MessagingAutoResponse {
     autoResponseContentType: AutoResponseContentType;
     language?: string;
     messageDefinitionName?: string;
@@ -20050,12 +20054,12 @@ export type MessagingAutoResponse = {
     type: MessagingAutoResponseType;
 }
 
-export type MessagingChannelUsage = {
+export interface MessagingChannelUsage {
     channelConsentType?: MessagingChannelConsentType;
     deploymentType: MessagingChannelUsageDeploymentType;
 }
 
-export type MessagingChannelCustomParameter = {
+export interface MessagingChannelCustomParameter {
     actionParameterMappings: MessagingChannelActionParameterMapping[];
     externalParameterName: string;
     masterLabel: string;
@@ -20065,17 +20069,17 @@ export type MessagingChannelCustomParameter = {
     parameterValueMappings: MessagingChannelParameterValueMapping[];
 }
 
-export type MessagingChannelActionParameterMapping = {
+export interface MessagingChannelActionParameterMapping {
     actionParameterName: string;
 }
 
-export type MessagingChannelParameterValueMapping = {
+export interface MessagingChannelParameterValueMapping {
     lookupValue: string;
     lookupValueType: MessagingChannelTargetLookupValueType;
     parameterValue: string;
 }
 
-export type EmbeddedMessagingChannel = {
+export interface EmbeddedMessagingChannel {
     anonymousUserJwtExpirationTime?: number;
     authMode: EmbeddedServiceAuthModeType;
     connectedApp?: string;
@@ -20087,7 +20091,7 @@ export type EmbeddedMessagingChannel = {
     verifiedUserJwtExpirationTime?: number;
 }
 
-export type MessagingAuthorization = {
+export interface MessagingAuthorization {
     authIdentifier: string;
     authProviderName?: string;
     authorizationType: MessagingAuthorizationType;
@@ -20095,31 +20099,31 @@ export type MessagingAuthorization = {
     publicKeyCertificateSetName?: string;
 }
 
-export type MessagingKeyword = {
+export interface MessagingKeyword {
     keyword: string[];
     keywordType: MessagingKeywordType;
     language: string;
 }
 
-export type MessagingChannelStandardParameter = {
+export interface MessagingChannelStandardParameter {
     actionParameterMappings: MessagingChannelActionParameterMapping[];
     parameterType: MessagingChannelStandardParameterType;
     parameterValueMappings: MessagingChannelParameterValueMapping[];
 }
 
-export type MetadataGroup = Metadata & {
+export interface MetadataGroup extends Metadata {
     description?: string;
     mappings: string[];
 }
 
-export type MfgProgramTemplate = Metadata & {
+export interface MfgProgramTemplate extends Metadata {
     description?: string;
     programTemplateItems: MfgProgramTemplateItem[];
     programTemplateName: string;
     status: MfgProgramTemplateStatus;
 }
 
-export type MfgProgramTemplateItem = {
+export interface MfgProgramTemplateItem {
     advAccountForecastSet?: string;
     description?: string;
     templateItemName: string;
@@ -20127,16 +20131,16 @@ export type MfgProgramTemplateItem = {
     transformationType: MfgProgramTransformationType;
 }
 
-export type MfgServiceConsoleSettings = Metadata & {
+export interface MfgServiceConsoleSettings extends Metadata {
     enableMfgServiceConsole?: boolean;
 }
 
-export type MilestoneType = Metadata & {
+export interface MilestoneType extends Metadata {
     description?: string;
     recurrenceType?: MilestoneTypeRecurrenceType;
 }
 
-export type MktCalcInsightObjectDef = Metadata & {
+export interface MktCalcInsightObjectDef extends Metadata {
     builderExpression?: string;
     creationType: CalculatedInsightCreationType;
     description?: string;
@@ -20144,7 +20148,7 @@ export type MktCalcInsightObjectDef = Metadata & {
     masterLabel: string;
 }
 
-export type MktDataConnection = Metadata & {
+export interface MktDataConnection extends Metadata {
     connectionMethod: MktDataConnectionMethod;
     connectionStatus?: MktDataConnectionStatus;
     connectorName: string;
@@ -20154,17 +20158,17 @@ export type MktDataConnection = Metadata & {
     parameters: MktDataConnectionParam[];
 }
 
-export type MktDataConnectionCred = Metadata & {
+export interface MktDataConnectionCred extends Metadata {
     credentialName: string;
     value: string;
 }
 
-export type MktDataConnectionParam = Metadata & {
+export interface MktDataConnectionParam extends Metadata {
     paramName: string;
     value: string;
 }
 
-export type MktDataTranField = Metadata & {
+export interface MktDataTranField extends Metadata {
     creationType: DefinitionCreationType;
     datatype: string;
     dateFormat?: string;
@@ -20178,7 +20182,7 @@ export type MktDataTranField = Metadata & {
     sequence: number;
 }
 
-export type MktDataTranObject = Metadata & {
+export interface MktDataTranObject extends Metadata {
     connector: string;
     creationType: DefinitionCreationType;
     dataSource: string;
@@ -20188,19 +20192,19 @@ export type MktDataTranObject = Metadata & {
     objectCategory: string;
 }
 
-export type MktDatalakeSrcKeyQualifier = Metadata & {
+export interface MktDatalakeSrcKeyQualifier extends Metadata {
     description?: string;
     masterLabel: string;
 }
 
-export type MlDomain = Metadata & {
+export interface MlDomain extends Metadata {
     description?: string;
     label: string;
     mlIntents: MlIntent[];
     mlSlotClasses: MlSlotClass[];
 }
 
-export type MlModelArtifact = Metadata & {
+export interface MlModelArtifact extends Metadata {
     algorithmType?: MlAIModelAlgorithmType;
     connectorType?: MlModelConnectorType;
     deployStatus?: MlModelDeployStatus;
@@ -20224,7 +20228,7 @@ export type MlModelArtifact = Metadata & {
     type: MlAIModelType;
 }
 
-export type MlModelInput = {
+export interface MlModelInput {
     isDisparateImpact?: boolean;
     isSegmentField?: boolean;
     isSensitive?: boolean;
@@ -20235,19 +20239,19 @@ export type MlModelInput = {
     values: string[];
 }
 
-export type MlModelOutput = {
+export interface MlModelOutput {
     label: string;
     name: string;
     type: string;
 }
 
-export type MlParameterOverride = {
+export interface MlParameterOverride {
     continuousValue?: number;
     discreteValue?: string;
     parameter: string;
 }
 
-export type MlParameterDefinition = {
+export interface MlParameterDefinition {
     continuousDefault?: number;
     continuousMaximum?: number;
     continuousMinimum?: number;
@@ -20260,7 +20264,7 @@ export type MlParameterDefinition = {
     type: MlParameterType;
 }
 
-export type MlModelConnection = Metadata & {
+export interface MlModelConnection extends Metadata {
     deployStatus?: MlModelDeployStatus;
     endpoints: MlModelEndpoint[];
     externalSystemRegistry?: string;
@@ -20271,7 +20275,7 @@ export type MlModelConnection = Metadata & {
     type: MlModelConnectorType;
 }
 
-export type MlModelEndpoint = {
+export interface MlModelEndpoint {
     inputSchema?: string;
     label: string;
     name: string;
@@ -20281,7 +20285,7 @@ export type MlModelEndpoint = {
     url: string;
 }
 
-export type MlModelOutputEndpoint = {
+export interface MlModelOutputEndpoint {
     jsonPath?: string;
     label: string;
     name: string;
@@ -20289,7 +20293,7 @@ export type MlModelOutputEndpoint = {
     position: number;
 }
 
-export type MlModelSchema = Metadata & {
+export interface MlModelSchema extends Metadata {
     format?: MlInferenceFormat;
     isMultiRowPrediction?: boolean;
     label: string;
@@ -20298,7 +20302,7 @@ export type MlModelSchema = Metadata & {
     schema: string;
 }
 
-export type MobileApplicationDetail = Metadata & {
+export interface MobileApplicationDetail extends Metadata {
     applicationBinaryFile?: string;
     applicationBinaryFileName?: string;
     applicationBundleIdentifier?: string;
@@ -20313,7 +20317,7 @@ export type MobileApplicationDetail = Metadata & {
     version: string;
 }
 
-export type MobileSettings = Metadata & {
+export interface MobileSettings extends Metadata {
     dashboardMobile?: DashboardMobileSettings;
     enableImportContactFromDevice?: boolean;
     enableOfflineDraftsEnabled?: boolean;
@@ -20322,11 +20326,11 @@ export type MobileSettings = Metadata & {
     enableS1OfflinePref?: boolean;
 }
 
-export type DashboardMobileSettings = {
+export interface DashboardMobileSettings {
     enableDashboardIPadApp?: boolean;
 }
 
-export type ModerationRule = Metadata & {
+export interface ModerationRule extends Metadata {
     action: ModerationRuleAction;
     actionLimit?: number;
     active: boolean;
@@ -20340,13 +20344,13 @@ export type ModerationRule = Metadata & {
     userMessage?: string;
 }
 
-export type ModeratedEntityField = {
+export interface ModeratedEntityField {
     entityName: string;
     fieldName?: string;
     keywordList?: string;
 }
 
-export type Module = Metadata & {
+export interface Module extends Metadata {
     description?: string;
     label: string;
     moduleDependencies?: ModuleDependencies;
@@ -20356,22 +20360,22 @@ export type Module = Metadata & {
     version?: string;
 }
 
-export type ModuleDependencies = {
+export interface ModuleDependencies {
     moduleRef: ModuleRef[];
 }
 
-export type PackageTypeMembers = {
+export interface PackageTypeMembers {
     members: string[];
     name: string;
 }
 
-export type MyDomainDiscoverableLogin = Metadata & {
+export interface MyDomainDiscoverableLogin extends Metadata {
     apexHandler: string;
     executeApexHandlerAs?: string;
     usernameLabel?: string;
 }
 
-export type MyDomainSettings = Metadata & {
+export interface MyDomainSettings extends Metadata {
     areLegacyRedirectsMaintained?: boolean;
     canOnlyLoginWithMyDomainUrl?: boolean;
     doesApiLoginRequireOrgDomain?: boolean;
@@ -20401,13 +20405,13 @@ export type MyDomainSettings = Metadata & {
     useStabilizedSandboxMyDomainHostnames?: boolean;
 }
 
-export type NameSettings = Metadata & {
+export interface NameSettings extends Metadata {
     enableInformalName?: boolean;
     enableMiddleName?: boolean;
     enableNameSuffix?: boolean;
 }
 
-export type NamedCredential = Metadata & {
+export interface NamedCredential extends Metadata {
     allowMergeFieldsInBody?: boolean;
     allowMergeFieldsInHeader?: boolean;
     authProvider?: string;
@@ -20439,7 +20443,7 @@ export type NamedCredential = Metadata & {
     username?: string;
 }
 
-export type NamedCredentialParameter = {
+export interface NamedCredentialParameter {
     certificate?: string;
     description?: string;
     externalCredential?: string;
@@ -20454,14 +20458,14 @@ export type NamedCredentialParameter = {
     systemUserNamedCredential?: boolean;
 }
 
-export type NavigationMenu = Metadata & {
+export interface NavigationMenu extends Metadata {
     container: string;
     containerType: string;
     label: string;
     navigationMenuItem: NavigationMenuItem[];
 }
 
-export type Network = Metadata & {
+export interface Network extends Metadata {
     allowInternalUserLogin?: boolean;
     allowMembersToFlag?: boolean;
     allowedExtensions?: string;
@@ -20533,7 +20537,7 @@ export type Network = Metadata & {
     welcomeTemplate: string;
 }
 
-export type Branding = {
+export interface Branding {
     loginFooterText?: string;
     loginLogo?: string;
     pageFooter?: string;
@@ -20549,13 +20553,13 @@ export type Branding = {
     zeronaryComplementColor: string;
 }
 
-export type CommunityRoles = {
+export interface CommunityRoles {
     customerUserRole?: string;
     employeeUserRole?: string;
     partnerUserRole?: string;
 }
 
-export type NetworkAuthApiSettings = {
+export interface NetworkAuthApiSettings {
     doesForgotPasswordRequireAuth?: boolean;
     doesPasswordLoginRequireAuth?: boolean;
     doesPwdlessLoginRequireAuth?: boolean;
@@ -20582,16 +20586,16 @@ export type NetworkAuthApiSettings = {
     registrationUserDefaultProfile?: string;
 }
 
-export type NetworkEmailTmplAllowlist = {
+export interface NetworkEmailTmplAllowlist {
     emailTemplate: string;
 }
 
-export type NetworkMemberGroup = {
+export interface NetworkMemberGroup {
     permissionSet: string[];
     profile: string[];
 }
 
-export type NetworkPageOverride = {
+export interface NetworkPageOverride {
     changePasswordPageOverrideSetting?: NetworkPageOverrideSetting;
     forgotPasswordPageOverrideSetting?: NetworkPageOverrideSetting;
     homePageOverrideSetting?: NetworkPageOverrideSetting;
@@ -20599,21 +20603,21 @@ export type NetworkPageOverride = {
     selfRegProfilePageOverrideSetting?: NetworkPageOverrideSetting;
 }
 
-export type RecommendationAudience = {
+export interface RecommendationAudience {
     recommendationAudienceDetails: RecommendationAudienceDetail[];
 }
 
-export type RecommendationAudienceDetail = {
+export interface RecommendationAudienceDetail {
     audienceCriteriaType?: AudienceCriteriaType;
     audienceCriteriaValue?: string;
     setupName?: string;
 }
 
-export type RecommendationDefinition = {
+export interface RecommendationDefinition {
     recommendationDefinitionDetails: RecommendationDefinitionDetail[];
 }
 
-export type RecommendationDefinitionDetail = {
+export interface RecommendationDefinitionDetail {
     actionUrl?: string;
     description?: string;
     linkText?: string;
@@ -20622,74 +20626,74 @@ export type RecommendationDefinitionDetail = {
     title?: string;
 }
 
-export type ScheduledRecommendation = {
+export interface ScheduledRecommendation {
     scheduledRecommendationDetails: ScheduledRecommendationDetail[];
 }
 
-export type ScheduledRecommendationDetail = {
+export interface ScheduledRecommendationDetail {
     channel?: RecommendationChannel;
     enabled?: boolean;
     rank?: number;
     recommendationAudience?: string;
 }
 
-export type ReputationLevelDefinitions = {
+export interface ReputationLevelDefinitions {
     level: ReputationLevel[];
 }
 
-export type ReputationLevel = {
+export interface ReputationLevel {
     branding?: ReputationBranding;
     label?: string;
     lowerThreshold: number;
 }
 
-export type ReputationBranding = {
+export interface ReputationBranding {
     smallImage?: string;
 }
 
-export type ReputationPointsRules = {
+export interface ReputationPointsRules {
     pointsRule: ReputationPointsRule[];
 }
 
-export type ReputationPointsRule = {
+export interface ReputationPointsRule {
     eventType: string;
     points: number;
 }
 
-export type NetworkTabSet = {
+export interface NetworkTabSet {
     customTab: string[];
     defaultTab: string;
     standardTab: string[];
 }
 
-export type NotificationTypeConfig = Metadata & {
+export interface NotificationTypeConfig extends Metadata {
     notificationTypeSettings: NotificationTypeSettings[];
 }
 
-export type NotificationTypeSettings = {
+export interface NotificationTypeSettings {
     appSettings: AppSettings[];
     notificationChannels?: NotificationChannels;
     notificationType: string;
 }
 
-export type AppSettings = {
+export interface AppSettings {
     connectedAppName: string;
     enabled?: boolean;
 }
 
-export type NotificationChannels = {
+export interface NotificationChannels {
     desktopEnabled?: boolean;
     mobileEnabled?: boolean;
     slackEnabled?: boolean;
 }
 
-export type NotificationsSettings = Metadata & {
+export interface NotificationsSettings extends Metadata {
     enableActvityReminderBrowserNotifs?: boolean;
     enableMobileAppPushNotifications?: boolean;
     enableNotifications?: boolean;
 }
 
-export type OauthCustomScope = Metadata & {
+export interface OauthCustomScope extends Metadata {
     assignedTo: OauthCustomScopeApp[];
     description: string;
     developerName: string;
@@ -20698,18 +20702,18 @@ export type OauthCustomScope = Metadata & {
     masterLabel: string;
 }
 
-export type OauthCustomScopeApp = {
+export interface OauthCustomScopeApp {
     connectedApp: string;
 }
 
-export type OauthOidcSettings = Metadata & {
+export interface OauthOidcSettings extends Metadata {
     blockOAuthUnPwFlow?: boolean;
     blockOAuthUsrAgtFlow?: boolean;
     isPkceRequired?: boolean;
     oAuthCdCrdtFlowEnable?: boolean;
 }
 
-export type OauthTokenExchangeHandler = Metadata & {
+export interface OauthTokenExchangeHandler extends Metadata {
     description: string;
     developerName: string;
     enablements: OauthTokenExchHandlerApp[];
@@ -20725,14 +20729,14 @@ export type OauthTokenExchangeHandler = Metadata & {
     tokenHandlerApex: string;
 }
 
-export type OauthTokenExchHandlerApp = {
+export interface OauthTokenExchHandlerApp {
     apexExecutionUser: string;
     connectedApp?: string;
     externalClientApp?: string;
     isDefault: boolean;
 }
 
-export type ObjectHierarchyRelationship = Metadata & {
+export interface ObjectHierarchyRelationship extends Metadata {
     childObjectMapping?: ObjectMapping;
     childObjectMappingId?: string;
     inputObjRecordsGrpFieldName?: string;
@@ -20747,11 +20751,11 @@ export type ObjectHierarchyRelationship = Metadata & {
     usageType: MappingUsageType;
 }
 
-export type ObjectLinkingSettings = Metadata & {
+export interface ObjectLinkingSettings extends Metadata {
     enableObjectLinking?: boolean;
 }
 
-export type ObjectSourceTargetMap = Metadata & {
+export interface ObjectSourceTargetMap extends Metadata {
     creationType?: DefinitionCreationType;
     fieldSourceTargetMaps: FieldSourceTargetMap[];
     masterLabel: string;
@@ -20760,7 +20764,7 @@ export type ObjectSourceTargetMap = Metadata & {
     targetObjectName: string;
 }
 
-export type FieldSourceTargetMap = {
+export interface FieldSourceTargetMap {
     creationType?: DefinitionCreationType;
     filterApplied?: boolean;
     filterOperationType?: string;
@@ -20771,7 +20775,7 @@ export type FieldSourceTargetMap = {
     targetField: string;
 }
 
-export type OcrSampleDocument = Metadata & {
+export interface OcrSampleDocument extends Metadata {
     applicationType?: OcrApplicationType;
     contentAsset?: string;
     documentHeight?: number;
@@ -20781,7 +20785,7 @@ export type OcrSampleDocument = Metadata & {
     ocrSampleDocumentPages: OcrSampleDocumentPage[];
 }
 
-export type OcrSampleDocumentField = {
+export interface OcrSampleDocumentField {
     cellColumnNumber?: number;
     cellColumnSpanValue?: number;
     cellRowNumber?: number;
@@ -20798,21 +20802,21 @@ export type OcrSampleDocumentField = {
     ocrSampleDocumentPageItem?: OcrSampleDocumentPageItem;
 }
 
-export type OcrSampleDocumentPageItem = {
+export interface OcrSampleDocumentPageItem {
     hasHeader?: boolean;
     sequenceNumber: number;
     title?: string;
     type: ItemType;
 }
 
-export type OcrSampleDocumentPage = {
+export interface OcrSampleDocumentPage {
     ocrSampleDocument: string;
     ocrSampleDocumentPageItems: OcrSampleDocumentPageItem[];
     pageHeight?: number;
     pageNumber: number;
 }
 
-export type OcrTemplate = Metadata & {
+export interface OcrTemplate extends Metadata {
     active?: boolean;
     description?: string;
     documentType: string;
@@ -20823,34 +20827,34 @@ export type OcrTemplate = Metadata & {
     templateName: string;
 }
 
-export type OcrTargetObject = {
+export interface OcrTargetObject {
     ocrTargetObjFieldMappings: OcrTargetObjFieldMapping[];
     targetObject: string;
     targetObjectRecordType?: string;
 }
 
-export type OcrTargetObjFieldMapping = {
+export interface OcrTargetObjFieldMapping {
     ocrSampleDocField?: OcrSampleDocumentField;
     targetField: string;
     type: OcrMappingType;
 }
 
-export type OcrTemplateSampleDocument = {
+export interface OcrTemplateSampleDocument {
     ocrSampleDocument?: string;
 }
 
-export type OmniChannelPricingSettings = Metadata & {
+export interface OmniChannelPricingSettings extends Metadata {
     enableOmniChannelPricing?: boolean;
 }
 
-export type OmniChannelSettings = Metadata & {
+export interface OmniChannelSettings extends Metadata {
     enableOmniAutoLoginPrompt?: boolean;
     enableOmniChannel?: boolean;
     enableOmniSecondaryRoutingPriority?: boolean;
     enableOmniSkillsRouting?: boolean;
 }
 
-export type OmniDataTransform = Metadata & {
+export interface OmniDataTransform extends Metadata {
     active?: boolean;
     assignmentRulesUsed?: boolean;
     deletedOnSuccess?: boolean;
@@ -20894,7 +20898,7 @@ export type OmniDataTransform = Metadata & {
     xmlOutputTagsOrder?: string;
 }
 
-export type OmniDataTransformItem = {
+export interface OmniDataTransformItem {
     defaultValue?: string;
     disabled?: boolean;
     filterDataType?: ODTItemFilterDataType;
@@ -20934,7 +20938,7 @@ export type OmniDataTransformItem = {
     upsertKey?: boolean;
 }
 
-export type OmniExtTrackingDef = Metadata & {
+export interface OmniExtTrackingDef extends Metadata {
     description?: string;
     developerName: string;
     isActive: boolean;
@@ -20945,7 +20949,7 @@ export type OmniExtTrackingDef = Metadata & {
     trackingServiceProvider: ExternalTrackingVendor;
 }
 
-export type OmniExtTrackingEventDef = Metadata & {
+export interface OmniExtTrackingEventDef extends Metadata {
     componentType: OmniAnalyticsComponentType;
     description?: string;
     developerName: string;
@@ -20956,7 +20960,7 @@ export type OmniExtTrackingEventDef = Metadata & {
     payloadTemplate: string;
 }
 
-export type OmniIntegrationProcedure = Metadata & {
+export interface OmniIntegrationProcedure extends Metadata {
     customHtmlTemplates?: string;
     customJavaScript?: string;
     description?: string;
@@ -20986,7 +20990,7 @@ export type OmniIntegrationProcedure = Metadata & {
     webComponentKey?: string;
 }
 
-export type OmniProcessElement = {
+export interface OmniProcessElement {
     childElements: OmniProcessElement[];
     description?: string;
     designerCustomizationType?: string;
@@ -21005,7 +21009,7 @@ export type OmniProcessElement = {
     uniqueIndex?: string;
 }
 
-export type OmniInteractionAccessConfig = Metadata & {
+export interface OmniInteractionAccessConfig extends Metadata {
     configName?: string;
     isAsyncCardCachingEnabled: boolean;
     isCardApexRemoteDisabled: boolean;
@@ -21021,12 +21025,12 @@ export type OmniInteractionAccessConfig = Metadata & {
     setupOwner?: string;
 }
 
-export type OmniInteractionConfig = Metadata & {
+export interface OmniInteractionConfig extends Metadata {
     masterLabel: string;
     value: string;
 }
 
-export type OmniScript = Metadata & {
+export interface OmniScript extends Metadata {
     assessmentDefinitionMetadata: AssessmentDefinitionMetadata[];
     customHtmlTemplates?: string;
     customJavaScript?: string;
@@ -21059,7 +21063,7 @@ export type OmniScript = Metadata & {
     webComponentKey?: string;
 }
 
-export type AssessmentDefinitionMetadata = {
+export interface AssessmentDefinitionMetadata {
     approvalDateTime?: Date;
     displayType?: string;
     effectiveFromDate?: Date;
@@ -21069,17 +21073,17 @@ export type AssessmentDefinitionMetadata = {
     purpose?: string;
 }
 
-export type OmniAssessmentTaskMetadata = {
+export interface OmniAssessmentTaskMetadata {
     name: string;
     status: string;
     uniqueName: string;
 }
 
-export type OmniStudioSettings = Metadata & {
+export interface OmniStudioSettings extends Metadata {
     enableOmniStudioMetadata?: boolean;
 }
 
-export type OmniSupervisorConfig = Metadata & {
+export interface OmniSupervisorConfig extends Metadata {
     isTimelineHidden: boolean;
     masterLabel: string;
     omniSupervisorConfigAction: OmniSupervisorConfigAction[];
@@ -21091,36 +21095,36 @@ export type OmniSupervisorConfig = Metadata & {
     skillVisibility?: OmniSuperSkillVisibilityType;
 }
 
-export type OmniSupervisorConfigAction = {
+export interface OmniSupervisorConfigAction {
     actionName: OmniSupervisorActionName;
     actionTab: OmniSupervisorActionTab;
     customActionFlow?: string;
     displayOrder: number;
 }
 
-export type OmniSupervisorConfigGroup = {
+export interface OmniSupervisorConfigGroup {
     group: string;
 }
 
-export type OmniSupervisorConfigProfile = {
+export interface OmniSupervisorConfigProfile {
     profile: string;
 }
 
-export type OmniSupervisorConfigQueue = {
+export interface OmniSupervisorConfigQueue {
     queue: string;
 }
 
-export type OmniSupervisorConfigSkill = {
+export interface OmniSupervisorConfigSkill {
     skill: string;
 }
 
-export type OmniSupervisorConfigTab = {
+export interface OmniSupervisorConfigTab {
     displayOrder: number;
     flexiPage?: string;
     tabType: OmniSupervisorTabType;
 }
 
-export type OmniTrackingComponentDef = Metadata & {
+export interface OmniTrackingComponentDef extends Metadata {
     componentType: OmniAnalyticsComponentType;
     componentVersion: number;
     developerName: string;
@@ -21129,7 +21133,7 @@ export type OmniTrackingComponentDef = Metadata & {
     omniTrackingGroup?: string;
 }
 
-export type OmniTrackingGroup = Metadata & {
+export interface OmniTrackingGroup extends Metadata {
     description?: string;
     developerName: string;
     endDate?: Date;
@@ -21143,7 +21147,7 @@ export type OmniTrackingGroup = Metadata & {
     startDate?: Date;
 }
 
-export type OmniUiCard = Metadata & {
+export interface OmniUiCard extends Metadata {
     authorName: string;
     clonedFromOmniUiCardKey?: string;
     dataSourceConfig: string;
@@ -21158,11 +21162,11 @@ export type OmniUiCard = Metadata & {
     versionNumber: string;
 }
 
-export type OpportunityScoreSettings = Metadata & {
+export interface OpportunityScoreSettings extends Metadata {
     enableOpportunityScoring?: boolean;
 }
 
-export type OpportunitySettings = Metadata & {
+export interface OpportunitySettings extends Metadata {
     autoActivateNewReminders?: boolean;
     customizableProductSchedulesEnabled?: boolean;
     doesEnforceStandardOpportunitySaveLogic?: boolean;
@@ -21188,12 +21192,12 @@ export type OpportunitySettings = Metadata & {
     simpleOppCreateFromEvent?: boolean;
 }
 
-export type FindSimilarOppFilter = {
+export interface FindSimilarOppFilter {
     similarOpportunitiesDisplayColumns: string[];
     similarOpportunitiesMatchFields: string[];
 }
 
-export type OrchestrationContext = Metadata & {
+export interface OrchestrationContext extends Metadata {
     datasets: OrchestrationContextDataset[];
     description?: string;
     events: OrchestrationContextEvent[];
@@ -21205,19 +21209,19 @@ export type OrchestrationContext = Metadata & {
     salesforceObjectPrimaryKey?: string;
 }
 
-export type OrchestrationContextDataset = {
+export interface OrchestrationContextDataset {
     datasetType: string;
     orchestrationDataset: string;
 }
 
-export type OrchestrationContextEvent = {
+export interface OrchestrationContextEvent {
     eventType: string;
     orchestrationEvent: string;
     platformEvent: string;
     platformEventPrimaryKey: string;
 }
 
-export type OrderManagementSettings = Metadata & {
+export interface OrderManagementSettings extends Metadata {
     deliveryEstimationEnabled?: boolean;
     enableB2CHighScaleOrders?: boolean;
     enableB2CIntegration?: boolean;
@@ -21230,7 +21234,7 @@ export type OrderManagementSettings = Metadata & {
     initOMAutomation?: boolean;
 }
 
-export type OrderSettings = Metadata & {
+export interface OrderSettings extends Metadata {
     enableEnhancedCommerceOrders?: boolean;
     enableNegativeQuantity?: boolean;
     enableOptionalPricebook?: boolean;
@@ -21241,7 +21245,7 @@ export type OrderSettings = Metadata & {
     enableZeroQuantity?: boolean;
 }
 
-export type OutboundNetworkConnection = Metadata & {
+export interface OutboundNetworkConnection extends Metadata {
     connectionType: ExternalConnectionType;
     description?: string;
     isActive: boolean;
@@ -21250,12 +21254,12 @@ export type OutboundNetworkConnection = Metadata & {
     status: ExternalConnectionStatus;
 }
 
-export type OutboundNetworkConnProperty = {
+export interface OutboundNetworkConnProperty {
     propertyName: OutboundConnPropertyName;
     propertyValue: string;
 }
 
-export type Package = Metadata & {
+export interface Package extends Metadata {
     apiAccessLevel?: APIAccessLevel;
     description?: string;
     namespacePrefix?: string;
@@ -21268,7 +21272,7 @@ export type Package = Metadata & {
     version: string;
 }
 
-export type ProfileObjectPermissions = {
+export interface ProfileObjectPermissions {
     allowCreate?: boolean;
     allowDelete?: boolean;
     allowEdit?: boolean;
@@ -21282,12 +21286,12 @@ export type ProfileObjectPermissions = {
     viewSetup?: boolean;
 }
 
-export type PardotEinsteinSettings = Metadata & {
+export interface PardotEinsteinSettings extends Metadata {
     enableCampaignInsight?: boolean;
     enableEngagementScore?: boolean;
 }
 
-export type PardotSettings = Metadata & {
+export interface PardotSettings extends Metadata {
     enableAIEinsteinEngageFreq?: boolean;
     enableAIOptimizedSendTime?: boolean;
     enableAeDataConnector?: boolean;
@@ -21300,20 +21304,20 @@ export type PardotSettings = Metadata & {
     enableProspectActivityDataset?: boolean;
 }
 
-export type ParticipantRole = Metadata & {
+export interface ParticipantRole extends Metadata {
     defaultAccessLevel: ParticipantRoleAccessLevel;
     isActive?: boolean;
     masterLabel: string;
     parentObject: string;
 }
 
-export type PartyDataModelSettings = Metadata & {
+export interface PartyDataModelSettings extends Metadata {
     enableAutoSelectIndividualOnMerge?: boolean;
     enableConsentManagement?: boolean;
     enableIndividualAutoCreate?: boolean;
 }
 
-export type PathAssistant = Metadata & {
+export interface PathAssistant extends Metadata {
     active: boolean;
     entityName: string;
     fieldName: string;
@@ -21322,29 +21326,29 @@ export type PathAssistant = Metadata & {
     recordTypeName: string;
 }
 
-export type PathAssistantStep = {
+export interface PathAssistantStep {
     fieldNames: string[];
     info?: string;
     picklistValueName: string;
 }
 
-export type PathAssistantSettings = Metadata & {
+export interface PathAssistantSettings extends Metadata {
     canOverrideAutoPathCollapseWithUserPref?: boolean;
     pathAssistantEnabled?: boolean;
 }
 
-export type PaymentGatewayProvider = Metadata & {
+export interface PaymentGatewayProvider extends Metadata {
     apexAdapter?: string;
     comments?: string;
     idempotencySupported: IdempotencySupportStatus;
     masterLabel: string;
 }
 
-export type PaymentsSettings = Metadata & {
+export interface PaymentsSettings extends Metadata {
     enablePayments?: boolean;
 }
 
-export type PermissionSet = Metadata & {
+export interface PermissionSet extends Metadata {
     applicationVisibilities: PermissionSetApplicationVisibility[];
     classAccesses: PermissionSetApexClassAccess[];
     customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess[];
@@ -21367,32 +21371,32 @@ export type PermissionSet = Metadata & {
     userPermissions: PermissionSetUserPermission[];
 }
 
-export type PermissionSetApplicationVisibility = {
+export interface PermissionSetApplicationVisibility {
     application: string;
     visible: boolean;
 }
 
-export type PermissionSetApexClassAccess = {
+export interface PermissionSetApexClassAccess {
     apexClass: string;
     enabled: boolean;
 }
 
-export type PermissionSetCustomMetadataTypeAccess = {
+export interface PermissionSetCustomMetadataTypeAccess {
     enabled: boolean;
     name: string;
 }
 
-export type PermissionSetCustomPermissions = {
+export interface PermissionSetCustomPermissions {
     enabled: boolean;
     name: string;
 }
 
-export type PermissionSetCustomSettingAccess = {
+export interface PermissionSetCustomSettingAccess {
     enabled: boolean;
     name: string;
 }
 
-export type DataspaceScopeAccess = {
+export interface DataspaceScopeAccess {
     customizeActivationDefinitions?: boolean;
     customizeAllDefinitions?: boolean;
     customizeCalculatedInsightDefinitions?: boolean;
@@ -21418,33 +21422,33 @@ export type DataspaceScopeAccess = {
     viewSemanticSearchDefinitions: boolean;
 }
 
-export type PermissionSetEmailRoutingAddressAccess = {
+export interface PermissionSetEmailRoutingAddressAccess {
     enabled: boolean;
     name: string;
 }
 
-export type PermissionSetExternalCredentialPrincipalAccess = {
+export interface PermissionSetExternalCredentialPrincipalAccess {
     enabled: boolean;
     externalCredentialPrincipal: string;
 }
 
-export type PermissionSetExternalDataSourceAccess = {
+export interface PermissionSetExternalDataSourceAccess {
     enabled: boolean;
     externalDataSource: string;
 }
 
-export type PermissionSetFieldPermissions = {
+export interface PermissionSetFieldPermissions {
     editable: boolean;
     field: string;
     readable?: boolean;
 }
 
-export type PermissionSetFlowAccess = {
+export interface PermissionSetFlowAccess {
     enabled: boolean;
     flow: string;
 }
 
-export type PermissionSetObjectPermissions = {
+export interface PermissionSetObjectPermissions {
     allowCreate: boolean;
     allowDelete: boolean;
     allowEdit: boolean;
@@ -21458,31 +21462,31 @@ export type PermissionSetObjectPermissions = {
     viewSetup?: boolean;
 }
 
-export type PermissionSetApexPageAccess = {
+export interface PermissionSetApexPageAccess {
     apexPage: string;
     enabled: boolean;
 }
 
-export type PermissionSetRecordTypeVisibility = {
+export interface PermissionSetRecordTypeVisibility {
     recordType: string;
     visible: boolean;
 }
 
-export type PermissionSetTabSetting = {
+export interface PermissionSetTabSetting {
     tab: string;
     visibility: PermissionSetTabVisibility;
 }
 
-export type PermissionSetUserPermission = {
+export interface PermissionSetUserPermission {
     enabled: boolean;
     name: string;
 }
 
-export type MutingPermissionSet = PermissionSet & {
+export interface MutingPermissionSet extends PermissionSet {
     label: string;
 }
 
-export type PermissionSetGroup = Metadata & {
+export interface PermissionSetGroup extends Metadata {
     description?: string;
     hasActivationRequired?: boolean;
     label: string;
@@ -21491,7 +21495,7 @@ export type PermissionSetGroup = Metadata & {
     status?: string;
 }
 
-export type PermissionSetLicenseDefinition = Metadata & {
+export interface PermissionSetLicenseDefinition extends Metadata {
     customPermissions: PermissionSetLicenseDefinitionCustomPermission[];
     isSupplementLicense?: boolean;
     label: string;
@@ -21499,29 +21503,29 @@ export type PermissionSetLicenseDefinition = Metadata & {
     userLicenseRestrictions?: string;
 }
 
-export type PermissionSetLicenseDefinitionCustomPermission = {
+export interface PermissionSetLicenseDefinitionCustomPermission {
     name: string;
 }
 
-export type PersonAccountOwnerPowerUser = Metadata & {
+export interface PersonAccountOwnerPowerUser extends Metadata {
     developerName: string;
     masterLabel: string;
     portalType: string;
     user: string;
 }
 
-export type PicklistSettings = Metadata & {
+export interface PicklistSettings extends Metadata {
     isPicklistApiNameEditDisabled?: boolean;
 }
 
-export type PlatformCachePartition = Metadata & {
+export interface PlatformCachePartition extends Metadata {
     description?: string;
     isDefaultPartition: boolean;
     masterLabel: string;
     platformCachePartitionTypes: PlatformCachePartitionType[];
 }
 
-export type PlatformCachePartitionType = {
+export interface PlatformCachePartitionType {
     allocatedCapacity: number;
     allocatedPartnerCapacity: number;
     allocatedPurchasedCapacity: number;
@@ -21529,7 +21533,7 @@ export type PlatformCachePartitionType = {
     cacheType: PlatformCacheType;
 }
 
-export type PlatformEncryptionSettings = Metadata & {
+export interface PlatformEncryptionSettings extends Metadata {
     canEncryptManagedPackageFields?: boolean;
     enableDeterministicEncryption?: boolean;
     enableEncryptFieldHistory?: boolean;
@@ -21539,24 +21543,24 @@ export type PlatformEncryptionSettings = Metadata & {
     isUseHighAssuranceKeysRequired?: boolean;
 }
 
-export type PlatformEventChannel = Metadata & {
+export interface PlatformEventChannel extends Metadata {
     channelType: PlatformEventChannelType;
     eventType?: PlatformEventChannelEventType;
     label: string;
 }
 
-export type PlatformEventChannelMember = Metadata & {
+export interface PlatformEventChannelMember extends Metadata {
     enrichedFields: EnrichedField[];
     eventChannel: string;
     filterExpression?: string;
     selectedEntity: string;
 }
 
-export type EnrichedField = {
+export interface EnrichedField {
     name: string;
 }
 
-export type PlatformLicenseDefinition = Metadata & {
+export interface PlatformLicenseDefinition extends Metadata {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -21572,17 +21576,17 @@ export type PlatformLicenseDefinition = Metadata & {
     settingUsageDefinitions: SettingUsageDefinition[];
 }
 
-export type IncludedFeature = {
+export interface IncludedFeature {
     name: string;
     settingOverrides: SettingOverride[];
 }
 
-export type SettingOverride = {
+export interface SettingOverride {
     settingId: string;
     value: string;
 }
 
-export type SettingItem = {
+export interface SettingItem {
     durableId: string;
     editable?: boolean;
     ignoreQuantity?: boolean;
@@ -21590,7 +21594,7 @@ export type SettingItem = {
     value: string;
 }
 
-export type SettingUsageDefinition = {
+export interface SettingUsageDefinition {
     frequencyDefault: Frequency;
     hasRolloverDefault?: boolean;
     isPersistentResource: boolean;
@@ -21598,7 +21602,7 @@ export type SettingUsageDefinition = {
     setting: string;
 }
 
-export type Portal = Metadata & {
+export interface Portal extends Metadata {
     active: boolean;
     admin?: string;
     defaultLanguage?: string;
@@ -21626,28 +21630,28 @@ export type Portal = Metadata & {
     type: PortalType;
 }
 
-export type PortalsSettings = Metadata & {
+export interface PortalsSettings extends Metadata {
     clickjackSSPLoginPage?: boolean;
     redirectPortalLoginToHttps?: boolean;
 }
 
-export type PostTemplate = Metadata & {
+export interface PostTemplate extends Metadata {
     default?: boolean;
     description?: string;
     fields: string[];
     label: string;
 }
 
-export type PredictionBuilderSettings = Metadata & {
+export interface PredictionBuilderSettings extends Metadata {
     enablePredictionBuilder?: boolean;
     isPredictionBuilderStarted?: boolean;
 }
 
-export type PresenceDeclineReason = Metadata & {
+export interface PresenceDeclineReason extends Metadata {
     label: string;
 }
 
-export type PresenceUserConfig = Metadata & {
+export interface PresenceUserConfig extends Metadata {
     assignments?: PresenceConfigAssignments;
     capacity: number;
     declineReasons: string[];
@@ -21663,20 +21667,20 @@ export type PresenceUserConfig = Metadata & {
     userDisplayName?: string;
 }
 
-export type PresenceConfigAssignments = {
+export interface PresenceConfigAssignments {
     profiles?: PresenceConfigProfileAssignments;
     users?: PresenceConfigUserAssignments;
 }
 
-export type PresenceConfigProfileAssignments = {
+export interface PresenceConfigProfileAssignments {
     profile: string[];
 }
 
-export type PresenceConfigUserAssignments = {
+export interface PresenceConfigUserAssignments {
     user: string[];
 }
 
-export type PriceRule = Metadata & {
+export interface PriceRule extends Metadata {
     conditionLogic: ConditionLogic;
     description?: string;
     effectiveDate?: Date;
@@ -21689,7 +21693,7 @@ export type PriceRule = Metadata & {
     status: RuleStatus;
 }
 
-export type PriceRuleAction = {
+export interface PriceRuleAction {
     conditionVariable?: string;
     priceRuleActionItems: PriceRuleActionItem[];
     sequence: number;
@@ -21697,14 +21701,14 @@ export type PriceRuleAction = {
     type: TypeOfAction;
 }
 
-export type PriceRuleActionItem = {
+export interface PriceRuleActionItem {
     field: string;
     fieldValue: string;
     fieldValueType: InputValueType;
     sequence: number;
 }
 
-export type PriceRuleCondition = {
+export interface PriceRuleCondition {
     accumulateResultCondInput?: string;
     accumulateResultCondInputType?: AccumulateResultCondInputType;
     accumulateResultOperator?: AccumulateResultOperator;
@@ -21718,7 +21722,7 @@ export type PriceRuleCondition = {
     targetObject: string;
 }
 
-export type PriceRuleConditionFilter = {
+export interface PriceRuleConditionFilter {
     field: string;
     fieldValue?: string;
     fieldValueType?: ConditionFilterInputValueType;
@@ -21727,11 +21731,11 @@ export type PriceRuleConditionFilter = {
     variable?: string;
 }
 
-export type PriceRuleExecutionStage = {
+export interface PriceRuleExecutionStage {
     stage: ExecutionStageOfPriceRule;
 }
 
-export type PriceSheetDefinition = Metadata & {
+export interface PriceSheetDefinition extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -21739,14 +21743,14 @@ export type PriceSheetDefinition = Metadata & {
     priceSheetEntity: string;
 }
 
-export type PrcShtAttrDefinition = {
+export interface PrcShtAttrDefinition {
     columnLabel?: string;
     columnName: string;
     columnType: PriceSheetColumnType;
     isRangeColumn: boolean;
 }
 
-export type PricingActionParameters = Metadata & {
+export interface PricingActionParameters extends Metadata {
     contextDefinition: string;
     contextMapping: string;
     developerName: string;
@@ -21757,7 +21761,7 @@ export type PricingActionParameters = Metadata & {
     pricingProcedure?: string;
 }
 
-export type PricingRecipe = Metadata & {
+export interface PricingRecipe extends Metadata {
     defaultPricingProcedure?: ExpressionSetDefinition;
     defaultPricingProcedureDeveloperName?: string;
     defaultPricingProcedureId?: string;
@@ -21768,7 +21772,7 @@ export type PricingRecipe = Metadata & {
     pricingRecipeTableMapping: PricingRecipeTableMapping[];
 }
 
-export type PricingRecipeTableMapping = {
+export interface PricingRecipeTableMapping {
     fileBasedDecisionTableName?: string;
     isInternal?: boolean;
     lookupTable?: Metadata;
@@ -21778,7 +21782,7 @@ export type PricingRecipeTableMapping = {
     pricingRecipe: string;
 }
 
-export type PricingProcedureOutputMap = {
+export interface PricingProcedureOutputMap {
     fieldName?: string;
     isPricingRecipeActive?: boolean;
     outputFieldName?: string;
@@ -21786,7 +21790,7 @@ export type PricingProcedureOutputMap = {
     outputType?: string;
 }
 
-export type PrivacySettings = Metadata & {
+export interface PrivacySettings extends Metadata {
     authorizationCaptureBrowser?: boolean;
     authorizationCaptureEmail?: boolean;
     authorizationCaptureIp?: boolean;
@@ -21802,7 +21806,7 @@ export type PrivacySettings = Metadata & {
     useUmaDefaultConsentRecs?: boolean;
 }
 
-export type ProcedureOutputResolution = Metadata & {
+export interface ProcedureOutputResolution extends Metadata {
     developerName: string;
     formula: string;
     isActive: boolean;
@@ -21811,7 +21815,7 @@ export type ProcedureOutputResolution = Metadata & {
     pricingElement: string;
 }
 
-export type ProcessFlowMigration = Metadata & {
+export interface ProcessFlowMigration extends Metadata {
     destinationFlowDefinition: string;
     destinationFlowVersion: string;
     developerName: string;
@@ -21821,26 +21825,26 @@ export type ProcessFlowMigration = Metadata & {
     processVersion: string;
 }
 
-export type ProductAttrDisplayConfig = Metadata & {
+export interface ProductAttrDisplayConfig extends Metadata {
     dataType: string;
     displayType: string;
     masterLabel: string;
     status: string;
 }
 
-export type ProductAttributeSet = Metadata & {
+export interface ProductAttributeSet extends Metadata {
     description?: string;
     developerName: string;
     masterLabel: string;
     productAttributeSetItems: ProductAttributeSetItem[];
 }
 
-export type ProductAttributeSetItem = {
+export interface ProductAttributeSetItem {
     field: string;
     sequence: number;
 }
 
-export type ProductDiscoverySettings = Metadata & {
+export interface ProductDiscoverySettings extends Metadata {
     discoverProductsFlowNameOrgValue?: string;
     enableGuidedSelling?: boolean;
     prodDiscBrowseContextDefOrgValue?: string;
@@ -21850,30 +21854,30 @@ export type ProductDiscoverySettings = Metadata & {
     prodDiscQualificationOrgValue?: string;
 }
 
-export type ProductFamilyUsage = Metadata & {
+export interface ProductFamilyUsage extends Metadata {
     productFamilyUsageType: ProductFamilyUsageType;
 }
 
-export type ProductSettings = Metadata & {
+export interface ProductSettings extends Metadata {
     enableCascadeActivateToRelatedPrices?: boolean;
     enableMySettings?: boolean;
     enableQuantitySchedule?: boolean;
     enableRevenueSchedule?: boolean;
 }
 
-export type ProductSpecificationRecType = Metadata & {
+export interface ProductSpecificationRecType extends Metadata {
     isCommercial: boolean;
     masterLabel: string;
     productSpecificationType: string;
     recordType: string;
 }
 
-export type ProductSpecificationType = Metadata & {
+export interface ProductSpecificationType extends Metadata {
     description?: string;
     masterLabel: string;
 }
 
-export type Profile = Metadata & {
+export interface Profile extends Metadata {
     applicationVisibilities: ProfileApplicationVisibility[];
     categoryGroupVisibilities: ProfileCategoryGroupVisibility[];
     classAccesses: ProfileApexClassAccess[];
@@ -21898,60 +21902,60 @@ export type Profile = Metadata & {
     userPermissions: ProfileUserPermission[];
 }
 
-export type ProfileApplicationVisibility = {
+export interface ProfileApplicationVisibility {
     application: string;
     default: boolean;
     visible: boolean;
 }
 
-export type ProfileCategoryGroupVisibility = {
+export interface ProfileCategoryGroupVisibility {
     dataCategories: string[];
     dataCategoryGroup: string;
     visibility: CategoryGroupVisibility;
 }
 
-export type ProfileApexClassAccess = {
+export interface ProfileApexClassAccess {
     apexClass: string;
     enabled: boolean;
 }
 
-export type ProfileCustomMetadataTypeAccess = {
+export interface ProfileCustomMetadataTypeAccess {
     enabled: boolean;
     name: string;
 }
 
-export type ProfileCustomPermissions = {
+export interface ProfileCustomPermissions {
     enabled: boolean;
     name: string;
 }
 
-export type ProfileCustomSettingAccess = {
+export interface ProfileCustomSettingAccess {
     enabled: boolean;
     name: string;
 }
 
-export type ProfileExternalDataSourceAccess = {
+export interface ProfileExternalDataSourceAccess {
     enabled: boolean;
     externalDataSource: string;
 }
 
-export type ProfileFieldLevelSecurity = {
+export interface ProfileFieldLevelSecurity {
     editable: boolean;
     field: string;
     readable?: boolean;
 }
 
-export type ProfileFlowAccess = {
+export interface ProfileFlowAccess {
     enabled: boolean;
     flow: string;
 }
 
-export type ProfileLayoutAssignment = {
+export interface ProfileLayoutAssignment {
     layout: string;
     recordType?: string;
 }
 
-export type LoginFlow = {
+export interface LoginFlow {
     flow?: string;
     flowType: LoginFlowType;
     friendlyName: string;
@@ -21961,7 +21965,7 @@ export type LoginFlow = {
     vfFlowPageTitle?: string;
 }
 
-export type ProfileLoginHours = {
+export interface ProfileLoginHours {
     fridayEnd?: string;
     fridayStart?: string;
     mondayEnd?: string;
@@ -21978,35 +21982,35 @@ export type ProfileLoginHours = {
     wednesdayStart?: string;
 }
 
-export type ProfileLoginIpRange = {
+export interface ProfileLoginIpRange {
     description?: string;
     endAddress: string;
     startAddress: string;
 }
 
-export type ProfileApexPageAccess = {
+export interface ProfileApexPageAccess {
     apexPage: string;
     enabled: boolean;
 }
 
-export type ProfileRecordTypeVisibility = {
+export interface ProfileRecordTypeVisibility {
     default: boolean;
     personAccountDefault?: boolean;
     recordType: string;
     visible: boolean;
 }
 
-export type ProfileTabVisibility = {
+export interface ProfileTabVisibility {
     tab: string;
     visibility: TabVisibility;
 }
 
-export type ProfileUserPermission = {
+export interface ProfileUserPermission {
     enabled: boolean;
     name: string;
 }
 
-export type ProfilePasswordPolicy = Metadata & {
+export interface ProfilePasswordPolicy extends Metadata {
     forgotPasswordRedirect?: boolean;
     lockoutInterval: number;
     maxLoginAttempts: number;
@@ -22020,7 +22024,7 @@ export type ProfilePasswordPolicy = Metadata & {
     profile: string;
 }
 
-export type ProfileSessionSetting = Metadata & {
+export interface ProfileSessionSetting extends Metadata {
     externalCommunityUserIdentityVerif: boolean;
     forceLogout: boolean;
     profile: string;
@@ -22030,12 +22034,12 @@ export type ProfileSessionSetting = Metadata & {
     sessionTimeoutWarning: boolean;
 }
 
-export type Prompt = Metadata & {
+export interface Prompt extends Metadata {
     masterLabel: string;
     promptVersions: PromptVersion[];
 }
 
-export type PromptVersion = {
+export interface PromptVersion {
     actionButtonLabel?: string;
     actionButtonLink?: string;
     body: string;
@@ -22085,14 +22089,14 @@ export type PromptVersion = {
     videoLink?: string;
 }
 
-export type PublicKeyCertificate = Metadata & {
+export interface PublicKeyCertificate extends Metadata {
     description?: string;
     isActive?: boolean;
     jsonWebKey?: string;
     masterLabel: string;
 }
 
-export type PublicKeyCertificateSet = Metadata & {
+export interface PublicKeyCertificateSet extends Metadata {
     description?: string;
     jwksEndPoint?: string;
     jwtIssuer?: string;
@@ -22101,11 +22105,11 @@ export type PublicKeyCertificateSet = Metadata & {
     type: PublicKeyCertificateSetType;
 }
 
-export type PublicKeyCertificateSetKey = {
+export interface PublicKeyCertificateSetKey {
     publicKeyCertificate: string;
 }
 
-export type Queue = Metadata & {
+export interface Queue extends Metadata {
     description?: string;
     doesSendEmailToMembers?: boolean;
     email?: string;
@@ -22115,7 +22119,7 @@ export type Queue = Metadata & {
     queueSobject: QueueSobject[];
 }
 
-export type QueueMembers = {
+export interface QueueMembers {
     publicGroups?: PublicGroups;
     roleAndSubordinates?: RoleAndSubordinates;
     roleAndSubordinatesInternal?: RoleAndSubordinatesInternal;
@@ -22123,31 +22127,31 @@ export type QueueMembers = {
     users?: Users;
 }
 
-export type PublicGroups = {
+export interface PublicGroups {
     publicGroup: string[];
 }
 
-export type RoleAndSubordinates = {
+export interface RoleAndSubordinates {
     roleAndSubordinate: string[];
 }
 
-export type RoleAndSubordinatesInternal = {
+export interface RoleAndSubordinatesInternal {
     roleAndSubordinateInternal: string[];
 }
 
-export type Roles = {
+export interface Roles {
     role: string[];
 }
 
-export type Users = {
+export interface Users {
     user: string[];
 }
 
-export type QueueSobject = {
+export interface QueueSobject {
     sobjectType: string;
 }
 
-export type QueueRoutingConfig = Metadata & {
+export interface QueueRoutingConfig extends Metadata {
     capacityPercentage?: number;
     capacityType?: CapacityType;
     capacityWeight?: number;
@@ -22162,11 +22166,11 @@ export type QueueRoutingConfig = Metadata & {
     userOverflowAssignee?: string;
 }
 
-export type QueueRoutingConfigSkill = {
+export interface QueueRoutingConfigSkill {
     skill?: string;
 }
 
-export type QuickAction = Metadata & {
+export interface QuickAction extends Metadata {
     actionSubtype?: ActionSubtype;
     canvas?: string;
     description?: string;
@@ -22192,64 +22196,64 @@ export type QuickAction = Metadata & {
     width?: number;
 }
 
-export type FieldOverride = {
+export interface FieldOverride {
     field: string;
     formula?: string;
     literalValue?: string;
 }
 
-export type QuickActionLayout = {
+export interface QuickActionLayout {
     layoutSectionStyle: LayoutSectionStyle;
     quickActionLayoutColumns: QuickActionLayoutColumn[];
 }
 
-export type QuickActionLayoutColumn = {
+export interface QuickActionLayoutColumn {
     quickActionLayoutItems: QuickActionLayoutItem[];
 }
 
-export type QuickActionLayoutItem = {
+export interface QuickActionLayoutItem {
     emptySpace?: boolean;
     field?: string;
     uiBehavior?: UiBehavior;
 }
 
-export type QuickActionParameters = {
+export interface QuickActionParameters {
     name: string;
     type: QuickActionParameterType;
     value?: string;
 }
 
-export type QuickActionSendEmailOptions = {
+export interface QuickActionSendEmailOptions {
     defaultEmailTemplateName?: string;
     ignoreDefaultEmailTemplateSubject: boolean;
 }
 
-export type QuickTextSettings = Metadata & {
+export interface QuickTextSettings extends Metadata {
     hideQuickTextUiInLtng?: boolean;
     lightningQuickTextEnabled?: boolean;
     quickTextsInFolders?: boolean;
 }
 
-export type QuoteSettings = Metadata & {
+export interface QuoteSettings extends Metadata {
     enableQuote: boolean;
     enableQuotesWithoutOppEnabled?: boolean;
 }
 
-export type RealTimeEventSettings = Metadata & {
+export interface RealTimeEventSettings extends Metadata {
     realTimeEvents: RealTimeEvent[];
 }
 
-export type RealTimeEvent = {
+export interface RealTimeEvent {
     entityName: string;
     isEnabled: boolean;
 }
 
-export type RecommendationBuilderSettings = Metadata & {
+export interface RecommendationBuilderSettings extends Metadata {
     enableErbEnabledPref?: boolean;
     enableErbStartedPref?: boolean;
 }
 
-export type RecommendationStrategy = Metadata & {
+export interface RecommendationStrategy extends Metadata {
     actionContext: StrategyAction[];
     aiLoad: StrategyNodeAiLoad[];
     aiSort: StrategyNodeAiSort[];
@@ -22269,7 +22273,7 @@ export type RecommendationStrategy = Metadata & {
     union: StrategyNodeUnion[];
 }
 
-export type StrategyAction = {
+export interface StrategyAction {
     action: string;
     argument: StrategyActionArg[];
     description?: string;
@@ -22278,12 +22282,12 @@ export type StrategyAction = {
     type: InvocableActionType;
 }
 
-export type StrategyActionArg = {
+export interface StrategyActionArg {
     name: string;
     value: string;
 }
 
-export type StrategyNodeAiLoad = StrategyNodeUnionBase & {
+export interface StrategyNodeAiLoad extends StrategyNodeUnionBase {
     acceptanceLabel: string;
     actionReference: string;
     descriptionField: string;
@@ -22292,94 +22296,94 @@ export type StrategyNodeAiLoad = StrategyNodeUnionBase & {
     titleField: string;
 }
 
-export type StrategyNodeUnionBase = StrategyNodeBase & {
+export interface StrategyNodeUnionBase extends StrategyNodeBase {
     limit?: number;
 }
 
-export type StrategyNodeBase = {
+export interface StrategyNodeBase {
     childNode: string[];
     description?: string;
     label?: string;
     name: string;
 }
 
-export type StrategyNodeAiSort = StrategyNodeUnionBase
+export interface StrategyNodeAiSort extends StrategyNodeUnionBase {}
 
-export type StrategyNodeExclusive = StrategyNodeUnionBase
+export interface StrategyNodeExclusive extends StrategyNodeUnionBase {}
 
-export type StrategyNodeFilter = StrategyNodeUnionBase & {
+export interface StrategyNodeFilter extends StrategyNodeUnionBase {
     expression: string;
 }
 
-export type StrategyNodeIf = StrategyNodeUnionBase & {
+export interface StrategyNodeIf extends StrategyNodeUnionBase {
     childNodeExpression: IfExpression[];
     onlyFirstMatch?: boolean;
 }
 
-export type IfExpression = {
+export interface IfExpression {
     childName: string;
     expression: string;
 }
 
-export type StrategyNodeInvocableAction = StrategyNodeUnionBase & {
+export interface StrategyNodeInvocableAction extends StrategyNodeUnionBase {
     action: string;
     argument: StrategyNodeInvocableActionArg[];
     isGenerator: boolean;
     type: InvocableActionType;
 }
 
-export type StrategyNodeInvocableActionArg = {
+export interface StrategyNodeInvocableActionArg {
     name: string;
     value: string;
 }
 
-export type StrategyNodeMap = StrategyNodeUnionBase & {
+export interface StrategyNodeMap extends StrategyNodeUnionBase {
     mapExpression: MapExpression[];
 }
 
-export type MapExpression = {
+export interface MapExpression {
     expression: string;
     name: string;
     type?: string;
 }
 
-export type StrategyNodeRecommendationLimit = StrategyNodeUnionBase & {
+export interface StrategyNodeRecommendationLimit extends StrategyNodeUnionBase {
     filterMode: StrategyReactionType[];
     lookbackDuration?: number;
     maxRecommendationCount?: number;
 }
 
-export type StrategyNodeRecommendationLoad = StrategyNodeUnionBase & {
+export interface StrategyNodeRecommendationLoad extends StrategyNodeUnionBase {
     condition: RecommendationLoadCondition[];
     conditionLogic?: string;
     object: string;
     sortField: StrategyNodeSortField[];
 }
 
-export type RecommendationLoadCondition = {
+export interface RecommendationLoadCondition {
     field: string;
     operator: RecommendationConditionOperator;
     value: RecommendationConditionValue;
 }
 
-export type RecommendationConditionValue = {
+export interface RecommendationConditionValue {
     type: RecommendationConditionValueType;
     value?: string;
 }
 
-export type StrategyNodeSortField = {
+export interface StrategyNodeSortField {
     name: string;
     nullsFirst?: boolean;
     order?: SortOrder;
 }
 
-export type StrategyNodeSort = StrategyNodeUnionBase & {
+export interface StrategyNodeSort extends StrategyNodeUnionBase {
     field: StrategyNodeSortField[];
 }
 
-export type StrategyNodeUnion = StrategyNodeUnionBase
+export interface StrategyNodeUnion extends StrategyNodeUnionBase {}
 
-export type RecordActionDeployment = Metadata & {
+export interface RecordActionDeployment extends Metadata {
     channelConfigurations: RecordActionDeploymentChannel[];
     componentName?: ComponentName;
     deploymentContexts: RecordActionDeploymentContext[];
@@ -22392,13 +22396,13 @@ export type RecordActionDeployment = Metadata & {
     selectableItems: RecordActionSelectableItem[];
 }
 
-export type RecordActionDeploymentChannel = {
+export interface RecordActionDeploymentChannel {
     channel: ChannelSource;
     channelItems: RecordActionDefaultItem[];
     isAutopopEnabled?: boolean;
 }
 
-export type RecordActionDefaultItem = {
+export interface RecordActionDefaultItem {
     action: string;
     isMandatory?: boolean;
     isUiRemoveHidden?: boolean;
@@ -22407,12 +22411,12 @@ export type RecordActionDefaultItem = {
     type: RecordActionType;
 }
 
-export type RecordActionDeploymentContext = {
+export interface RecordActionDeploymentContext {
     entityName: string;
     recommendationStrategy?: string;
 }
 
-export type RecordActionRecommendation = {
+export interface RecordActionRecommendation {
     defaultStrategy?: string;
     hasDescription: boolean;
     hasImage: boolean;
@@ -22423,14 +22427,14 @@ export type RecordActionRecommendation = {
     shouldLaunchActionOnReject: boolean;
 }
 
-export type RecordActionSelectableItem = {
+export interface RecordActionSelectableItem {
     action: string;
     frequentActionSequenceNbr?: number;
     isFrequentAction?: boolean;
     type: RecordActionType;
 }
 
-export type RecordAggregationDefinition = Metadata & {
+export interface RecordAggregationDefinition extends Metadata {
     aggregateFromObject: string;
     aggregateToObject: string;
     aggregationType: RecordAggregationDefinitionAggregationType;
@@ -22441,7 +22445,7 @@ export type RecordAggregationDefinition = Metadata & {
     status: RecordAggregationDefinitionStatus;
 }
 
-export type RecordAggregationObject = {
+export interface RecordAggregationObject {
     associatedObject: string;
     developerName?: string;
     filterLogic?: string;
@@ -22450,7 +22454,7 @@ export type RecordAggregationObject = {
     recordAggregationObjectFilter: RecordAggregationObjectFilter[];
 }
 
-export type RecordAggregationJoinCondition = {
+export interface RecordAggregationJoinCondition {
     joinField: string;
     navigationSequenceNumber: number;
     relatedJoinField: string;
@@ -22458,29 +22462,29 @@ export type RecordAggregationJoinCondition = {
     type: RecordAggregationJoinConditionType;
 }
 
-export type RecordAggregationObjectFilter = {
+export interface RecordAggregationObjectFilter {
     associatedObjectField: string;
     operator: RecordAggregationObjectFilterOperator;
     sequenceNumber: number;
     value: string;
 }
 
-export type RecordAlertCategory = Metadata & {
+export interface RecordAlertCategory extends Metadata {
     description?: string;
     masterLabel: string;
     severity?: string;
 }
 
-export type RecordPageSettings = Metadata & {
+export interface RecordPageSettings extends Metadata {
     enableActivityRelatedList?: boolean;
     enableFullRecordView?: boolean;
 }
 
-export type RedirectWhitelistUrl = Metadata & {
+export interface RedirectWhitelistUrl extends Metadata {
     url: string;
 }
 
-export type ReferencedDashboard = Metadata & {
+export interface ReferencedDashboard extends Metadata {
     application: string;
     description?: string;
     embedUrl: string;
@@ -22489,26 +22493,26 @@ export type ReferencedDashboard = Metadata & {
     visibility: string;
 }
 
-export type RelationshipGraphDefinition = Metadata & {
+export interface RelationshipGraphDefinition extends Metadata {
     isActive: boolean;
     isTemplate: boolean;
     masterLabel: string;
     relationshipGraphDefVersions: RelationshipGraphDefVersion[];
 }
 
-export type RelationshipGraphDefVersion = {
+export interface RelationshipGraphDefVersion {
     graphDefinition: string;
     graphType: string;
 }
 
-export type RemoteSiteSetting = Metadata & {
+export interface RemoteSiteSetting extends Metadata {
     description?: string;
     disableProtocolSecurity: boolean;
     isActive: boolean;
     url: string;
 }
 
-export type Report = Metadata & {
+export interface Report extends Metadata {
     aggregateFilters: ReportAggregateFilter[];
     aggregates: ReportAggregate[];
     block: Report[];
@@ -22550,13 +22554,13 @@ export type Report = Metadata & {
     userFilter?: string;
 }
 
-export type ReportAggregateFilter = {
+export interface ReportAggregateFilter {
     aggregate: string;
     operator: string;
     value: string;
 }
 
-export type ReportAggregate = {
+export interface ReportAggregate {
     acrossGroupingContext?: string;
     calculatedFormula: string;
     datatype: ReportAggregateDatatype;
@@ -22570,17 +22574,17 @@ export type ReportAggregate = {
     scale?: number;
 }
 
-export type ReportBlockInfo = {
+export interface ReportBlockInfo {
     aggregateReferences: ReportAggregateReference[];
     blockId: string;
     joinTable: string;
 }
 
-export type ReportAggregateReference = {
+export interface ReportAggregateReference {
     aggregate: string;
 }
 
-export type ReportBucketField = {
+export interface ReportBucketField {
     bucketType: ReportBucketFieldType;
     developerName: string;
     masterLabel: string;
@@ -22591,18 +22595,18 @@ export type ReportBucketField = {
     values: ReportBucketFieldValue[];
 }
 
-export type ReportBucketFieldValue = {
+export interface ReportBucketFieldValue {
     sourceValues: ReportBucketFieldSourceValue[];
     value: string;
 }
 
-export type ReportBucketFieldSourceValue = {
+export interface ReportBucketFieldSourceValue {
     from?: string;
     sourceValue?: string;
     to?: string;
 }
 
-export type ReportChart = {
+export interface ReportChart {
     backgroundColor1?: string;
     backgroundColor2?: string;
     backgroundFadeDir?: ChartBackgroundDirection;
@@ -22631,7 +22635,7 @@ export type ReportChart = {
     titleSize?: number;
 }
 
-export type ReportColorRange = {
+export interface ReportColorRange {
     aggregate?: ReportSummaryType;
     columnName: string;
     highBreakpoint?: number;
@@ -22641,14 +22645,14 @@ export type ReportColorRange = {
     midColor: string;
 }
 
-export type ReportColumn = {
+export interface ReportColumn {
     aggregateTypes: ReportSummaryType[];
     field: string;
     reverseColors?: boolean;
     showChanges?: boolean;
 }
 
-export type ReportCrossFilter = {
+export interface ReportCrossFilter {
     criteriaItems: ReportFilterItem[];
     operation: ObjectFilterOperator;
     primaryTableColumn: string;
@@ -22656,7 +22660,7 @@ export type ReportCrossFilter = {
     relatedTableJoinColumn: string;
 }
 
-export type ReportFilterItem = {
+export interface ReportFilterItem {
     column: string;
     columnToColumn?: boolean;
     isUnlocked?: boolean;
@@ -22665,7 +22669,7 @@ export type ReportFilterItem = {
     value?: string;
 }
 
-export type ReportCustomDetailFormula = {
+export interface ReportCustomDetailFormula {
     calculatedFormula: string;
     dataType: string;
     description?: string;
@@ -22674,30 +22678,30 @@ export type ReportCustomDetailFormula = {
     scale: number;
 }
 
-export type ReportDataCategoryFilter = {
+export interface ReportDataCategoryFilter {
     dataCategory: string;
     dataCategoryGroup: string;
     operator: DataCategoryFilterOperation;
 }
 
-export type ReportFilter = {
+export interface ReportFilter {
     booleanFilter?: string;
     criteriaItems: ReportFilterItem[];
     language?: Language;
 }
 
-export type ReportFormattingRule = {
+export interface ReportFormattingRule {
     aggregate?: ReportSummaryType;
     columnName: string;
     values: ReportFormattingRuleValue[];
 }
 
-export type ReportFormattingRuleValue = {
+export interface ReportFormattingRuleValue {
     backgroundColor?: string;
     rangeUpperBound?: number;
 }
 
-export type ReportGrouping = {
+export interface ReportGrouping {
     aggregateType?: ReportAggrType;
     dateGranularity?: UserDateGranularity;
     field: string;
@@ -22706,23 +22710,23 @@ export type ReportGrouping = {
     sortType?: ReportSortType;
 }
 
-export type ReportHistoricalSelector = {
+export interface ReportHistoricalSelector {
     snapshot: string[];
 }
 
-export type ReportParam = {
+export interface ReportParam {
     name: string;
     value: string;
 }
 
-export type ReportTimeFrameFilter = {
+export interface ReportTimeFrameFilter {
     dateColumn: string;
     endDate?: Date;
     interval: UserDateInterval;
     startDate?: Date;
 }
 
-export type ReportType = Metadata & {
+export interface ReportType extends Metadata {
     autogenerated?: boolean;
     baseObject: string;
     category?: ReportTypeCategory;
@@ -22733,25 +22737,25 @@ export type ReportType = Metadata & {
     sections: ReportLayoutSection[];
 }
 
-export type ObjectRelationship = {
+export interface ObjectRelationship {
     join?: ObjectRelationship;
     outerJoin: boolean;
     relationship: string;
 }
 
-export type ReportLayoutSection = {
+export interface ReportLayoutSection {
     columns: ReportTypeColumn[];
     masterLabel: string;
 }
 
-export type ReportTypeColumn = {
+export interface ReportTypeColumn {
     checkedByDefault: boolean;
     displayNameOverride?: string;
     field: string;
     table: string;
 }
 
-export type RestrictionRule = Metadata & {
+export interface RestrictionRule extends Metadata {
     active: boolean;
     dataspaceScope?: string;
     description?: string;
@@ -22763,31 +22767,31 @@ export type RestrictionRule = Metadata & {
     version: number;
 }
 
-export type RetailExecutionSettings = Metadata & {
+export interface RetailExecutionSettings extends Metadata {
     enableProductHierarchy?: boolean;
     enableRetailExecution?: boolean;
     enableVisitSharing?: boolean;
 }
 
-export type RetrievalSummaryDefinition = Metadata & {
+export interface RetrievalSummaryDefinition extends Metadata {
     masterLabel: string;
     retrievalSummaryDefFields: RetrievalSummaryDefField[];
     retrievalSummaryDefObjects: RetrievalSummaryDefObject[];
     rootObject: string;
 }
 
-export type RetrievalSummaryDefField = {
+export interface RetrievalSummaryDefField {
     field: string;
     sequenceNumber: number;
 }
 
-export type RetrievalSummaryDefObject = {
+export interface RetrievalSummaryDefObject {
     recordAggregationDefinition: string;
     retrievalSummaryDefFields: RetrievalSummaryDefField[];
     sequenceNumber: number;
 }
 
-export type RoleOrTerritory = Metadata & {
+export interface RoleOrTerritory extends Metadata {
     caseAccessLevel?: string;
     contactAccessLevel?: string;
     description?: string;
@@ -22796,16 +22800,16 @@ export type RoleOrTerritory = Metadata & {
     opportunityAccessLevel?: string;
 }
 
-export type Role = RoleOrTerritory & {
+export interface Role extends RoleOrTerritory {
     parentRole?: string;
 }
 
-export type Territory = RoleOrTerritory & {
+export interface Territory extends RoleOrTerritory {
     accountAccessLevel?: string;
     parentTerritory?: string;
 }
 
-export type RuleLibraryDefinition = Metadata & {
+export interface RuleLibraryDefinition extends Metadata {
     contextDefinition: string;
     contextRuleStatus: ContextRuleStatus;
     description?: string;
@@ -22815,13 +22819,13 @@ export type RuleLibraryDefinition = Metadata & {
     usageType: ContextRuleUsageType;
 }
 
-export type RuleLibraryContextTag = {
+export interface RuleLibraryContextTag {
     hashableContextTag: string;
     mappingName: string;
     usageSubType: string;
 }
 
-export type RulesetDefinition = {
+export interface RulesetDefinition {
     apiName: string;
     endDate?: Date;
     executionType: ExecutionType;
@@ -22832,7 +22836,7 @@ export type RulesetDefinition = {
     usageType: string;
 }
 
-export type RuleDefinition = {
+export interface RuleDefinition {
     actions: RuleAction[];
     apiName: string;
     criteria: RuleFilterCriteria[];
@@ -22847,14 +22851,14 @@ export type RuleDefinition = {
     variables: RuleReferenceVariable[];
 }
 
-export type RuleAction = {
+export interface RuleAction {
     actionParameters: RuleActionParameter[];
     actionType: RuleActionType;
     name: string;
     sequenceNumber: number;
 }
 
-export type RuleActionParameter = {
+export interface RuleActionParameter {
     name: string;
     sequenceNumber: number;
     sourceCriteriName?: string;
@@ -22862,7 +22866,7 @@ export type RuleActionParameter = {
     valueType: VariableValueType;
 }
 
-export type RuleFilterCriteria = {
+export interface RuleFilterCriteria {
     actions: RuleAction[];
     conditionLogic: string;
     conditions: RuleCondition[];
@@ -22872,7 +22876,7 @@ export type RuleFilterCriteria = {
     type: RuleFilterCriteriaType;
 }
 
-export type RuleCondition = {
+export interface RuleCondition {
     matchType?: ConditionMatchType;
     name?: string;
     operator: RuleConditionOperator;
@@ -22882,7 +22886,7 @@ export type RuleCondition = {
     variable: string;
 }
 
-export type RuleReferenceVariable = {
+export interface RuleReferenceVariable {
     aggregateFunction?: RuleCondAggregateFunction;
     attributeId?: string;
     contextTag?: string;
@@ -22895,7 +22899,7 @@ export type RuleReferenceVariable = {
     value?: string;
 }
 
-export type SalesAgreementSettings = Metadata & {
+export interface SalesAgreementSettings extends Metadata {
     actualsCalculationMode: ActualsCalculationMode;
     decimalScale?: number;
     displayGroups: AdvAcctFrcstDisplayGroup[];
@@ -22909,13 +22913,13 @@ export type SalesAgreementSettings = Metadata & {
     secondaryNotifEmailAddress?: string;
 }
 
-export type SalesWorkQueueSettings = Metadata & {
+export interface SalesWorkQueueSettings extends Metadata {
     featureName: string;
     targetEntity: string;
     targetField: string;
 }
 
-export type SamlSsoConfig = Metadata & {
+export interface SamlSsoConfig extends Metadata {
     attributeName?: string;
     attributeNameIdFormat?: string;
     decryptionCertificate?: string;
@@ -22943,20 +22947,20 @@ export type SamlSsoConfig = Metadata & {
     validationCert: string;
 }
 
-export type SchemaDefinition = Metadata & {
+export interface SchemaDefinition extends Metadata {
     description?: string;
     domainType: DomainType;
     schemas: Schema[];
 }
 
-export type SchemaSettings = Metadata & {
+export interface SchemaSettings extends Metadata {
     enableAdvancedCMTSecurity?: boolean;
     enableAdvancedCSSecurity?: boolean;
     enableListCustomSettingCreation?: boolean;
     enableSOSLOnCustomSettings?: boolean;
 }
 
-export type ScoreCategory = Metadata & {
+export interface ScoreCategory extends Metadata {
     categoryName: string;
     description: string;
     developerName: string;
@@ -22967,21 +22971,21 @@ export type ScoreCategory = Metadata & {
     scoreRangeClassifications: ScoreRangeClassification[];
 }
 
-export type ScoreCategoryCalcInsight = {
+export interface ScoreCategoryCalcInsight {
     insightDateFieldName: string;
     insightName: string;
     insightScoreFieldName: string;
     insightSubjectFieldName: string;
 }
 
-export type ScoreRangeClassification = {
+export interface ScoreRangeClassification {
     classificationName: string;
     colorHexadecimalCode: string;
     rangeEndValue: number;
     rangeStartValue: number;
 }
 
-export type SearchCriteriaConfiguration = Metadata & {
+export interface SearchCriteriaConfiguration extends Metadata {
     actionList?: string;
     additionalSearchCriteria?: string;
     aggrCriteriaFieldset?: FieldSet;
@@ -23001,7 +23005,7 @@ export type SearchCriteriaConfiguration = Metadata & {
     sortingCriteriaFieldset?: FieldSet;
 }
 
-export type SearchCustomization = Metadata & {
+export interface SearchCustomization extends Metadata {
     channel: string;
     masterLabel: string;
     objectOverride: SearchCustomizationObjectOverride[];
@@ -23010,7 +23014,7 @@ export type SearchCustomization = Metadata & {
     selectedProfile: string[];
 }
 
-export type SearchCustomizationObjectOverride = {
+export interface SearchCustomizationObjectOverride {
     explicitFilter: SearchCustomizationExplicitFilter[];
     fieldOverride: SearchCustomizationFieldOverride[];
     objectApiName: string;
@@ -23018,40 +23022,40 @@ export type SearchCustomizationObjectOverride = {
     searchable?: boolean;
 }
 
-export type SearchCustomizationExplicitFilter = {
+export interface SearchCustomizationExplicitFilter {
     fieldPath?: string;
     type: string;
 }
 
-export type SearchCustomizationFieldOverride = {
+export interface SearchCustomizationFieldOverride {
     fieldApiName: string;
     searchable: boolean;
 }
 
-export type SearchCustomizationRule = {
+export interface SearchCustomizationRule {
     fieldApiName: string;
     operator: string;
     ruleValue: SearchCustomizationRuleValue[];
 }
 
-export type SearchCustomizationRuleValue = {
+export interface SearchCustomizationRuleValue {
     targetObjectApiName?: string;
     value: string;
 }
 
-export type SearchOrgWideObjectConfig = Metadata & {
+export interface SearchOrgWideObjectConfig extends Metadata {
     masterLabel: string;
     objectReference: string;
     searchOrgWideFieldConfig: SearchOrgWideFieldConfig[];
 }
 
-export type SearchOrgWideFieldConfig = {
+export interface SearchOrgWideFieldConfig {
     fieldReference: string;
     isSearchable?: boolean;
     isSecure?: boolean;
 }
 
-export type SearchResultActionConfig = Metadata & {
+export interface SearchResultActionConfig extends Metadata {
     actionReference: string;
     actionScope: SearchResultActionScope;
     actionType: SearchResultActionType;
@@ -23059,7 +23063,7 @@ export type SearchResultActionConfig = Metadata & {
     masterLabel: string;
 }
 
-export type SearchSettings = Metadata & {
+export interface SearchSettings extends Metadata {
     documentContentSearchEnabled: boolean;
     enableAdvancedSearchInAlohaSidebar?: boolean;
     enableEinsteinSearchAnswersGPT?: boolean;
@@ -23087,18 +23091,18 @@ export type SearchSettings = Metadata & {
     spellCorrectKnowledgeSearchEnabled: boolean;
 }
 
-export type SearchSettingsByObject = {
+export interface SearchSettingsByObject {
     searchSettingsByObject: ObjectSearchSetting[];
 }
 
-export type ObjectSearchSetting = {
+export interface ObjectSearchSetting {
     enhancedLookupEnabled: boolean;
     lookupAutoCompleteEnabled: boolean;
     name: string;
     resultsPerPageCount: number;
 }
 
-export type SearchableObjDataSyncInfo = Metadata & {
+export interface SearchableObjDataSyncInfo extends Metadata {
     dataSyncActive?: boolean;
     dataSyncJob?: string;
     description?: string;
@@ -23113,7 +23117,7 @@ export type SearchableObjDataSyncInfo = Metadata & {
     typeAheadMappings: ObjectMapping[];
 }
 
-export type SecuritySettings = Metadata & {
+export interface SecuritySettings extends Metadata {
     canUsersGrantLoginAccess?: boolean;
     enableAdminLoginAsAnyUser?: boolean;
     enableAuditFieldsInactiveOwner?: boolean;
@@ -23131,17 +23135,17 @@ export type SecuritySettings = Metadata & {
     singleSignOnSettings?: SingleSignOnSettings;
 }
 
-export type NetworkAccess = {
+export interface NetworkAccess {
     ipRanges: IpRange[];
 }
 
-export type IpRange = {
+export interface IpRange {
     description?: string;
     end?: string;
     start?: string;
 }
 
-export type PasswordPolicies = {
+export interface PasswordPolicies {
     apiOnlyUserHomePageURL?: string;
     complexity?: Complexity;
     expiration?: Expiration;
@@ -23156,7 +23160,7 @@ export type PasswordPolicies = {
     questionRestriction?: QuestionRestriction;
 }
 
-export type SessionSettings = {
+export interface SessionSettings {
     allowUserAuthenticationByCertificate?: boolean;
     allowUserCertBasedAuthenticationWithOcspValidation?: boolean;
     canConfirmEmailChangeInLightningCommunities?: boolean;
@@ -23215,7 +23219,7 @@ export type SessionSettings = {
     welcomeEmailTemplateId?: string;
 }
 
-export type SingleSignOnSettings = {
+export interface SingleSignOnSettings {
     enableCaseInsensitiveFederationID?: boolean;
     enableForceDelegatedCallout?: boolean;
     enableMultipleSamlConfigs?: boolean;
@@ -23224,14 +23228,14 @@ export type SingleSignOnSettings = {
     isLoginWithSalesforceCredentialsDisabled?: boolean;
 }
 
-export type ServiceAISetupDefinition = Metadata & {
+export interface ServiceAISetupDefinition extends Metadata {
     appSourceType: ApplicationSourceType;
     name: string;
     setupStatus: ServiceAISetupDefStatus;
     supportedLanguages?: string;
 }
 
-export type ServiceAISetupField = Metadata & {
+export interface ServiceAISetupField extends Metadata {
     entity: string;
     field: string;
     fieldMappingType: ServiceAISetupFieldType;
@@ -23240,7 +23244,7 @@ export type ServiceAISetupField = Metadata & {
     setupDefinition: string;
 }
 
-export type ServiceChannel = Metadata & {
+export interface ServiceChannel extends Metadata {
     acwExtensionDuration?: number;
     afterConvoWorkMaxTime?: number;
     doesMinimizeWidgetOnAccept?: boolean;
@@ -23256,12 +23260,12 @@ export type ServiceChannel = Metadata & {
     serviceChannelFieldPriorities: ServiceChannelFieldPriority[];
 }
 
-export type ServiceChannelFieldPriority = {
+export interface ServiceChannelFieldPriority {
     priority: number;
     value: string;
 }
 
-export type ServiceCloudVoiceSettings = Metadata & {
+export interface ServiceCloudVoiceSettings extends Metadata {
     disableSCVTaskCreationForHVS?: boolean;
     enableAmazonQueueManagement?: boolean;
     enableDefaultChannelForSCV?: boolean;
@@ -23278,16 +23282,16 @@ export type ServiceCloudVoiceSettings = Metadata & {
     enableServiceCloudVoice?: boolean;
 }
 
-export type ServicePresenceStatus = Metadata & {
+export interface ServicePresenceStatus extends Metadata {
     channels?: ServiceChannelStatus;
     label: string;
 }
 
-export type ServiceChannelStatus = {
+export interface ServiceChannelStatus {
     channel: string[];
 }
 
-export type ServiceProcess = Metadata & {
+export interface ServiceProcess extends Metadata {
     description?: string;
     processLabel: string;
     serviceProcessAttributes: ServiceProcessAttribute[];
@@ -23297,7 +23301,7 @@ export type ServiceProcess = Metadata & {
     usageType: SvcCatalogItemUsageType;
 }
 
-export type ServiceProcessAttribute = {
+export interface ServiceProcessAttribute {
     attributeType?: SvcCtlgItemAttrAttributeType;
     baseObjectApiName?: string;
     dataType?: SvcCatalogItemAttrDataType;
@@ -23314,23 +23318,23 @@ export type ServiceProcessAttribute = {
     sortOrder?: number;
 }
 
-export type ServiceProcessDependency = {
+export interface ServiceProcessDependency {
     dependencyReference: string;
     processStepName?: SvcCtlgItemDpndProcType;
     type: SvcCatalogItemDependencyType;
 }
 
-export type ServiceProcessItemGroup = {
+export interface ServiceProcessItemGroup {
     apiName: string;
     groupName: string;
     sortOrder: number;
 }
 
-export type ServiceSetupAssistantSettings = Metadata & {
+export interface ServiceSetupAssistantSettings extends Metadata {
     enableServiceSetupAssistant?: boolean;
 }
 
-export type SharingBaseRule = Metadata & {
+export interface SharingBaseRule extends Metadata {
     accessLevel: string;
     accountSettings?: AccountSharingRuleSettings;
     description?: string;
@@ -23338,52 +23342,52 @@ export type SharingBaseRule = Metadata & {
     sharedTo: SharedTo;
 }
 
-export type AccountSharingRuleSettings = {
+export interface AccountSharingRuleSettings {
     caseAccessLevel: string;
     contactAccessLevel: string;
     opportunityAccessLevel: string;
 }
 
-export type SharingCriteriaRule = SharingBaseRule & {
+export interface SharingCriteriaRule extends SharingBaseRule {
     booleanFilter?: string;
     criteriaItems: FilterItem[];
     includeRecordsOwnedByAll: boolean;
 }
 
-export type SharingGuestRule = SharingBaseRule & {
+export interface SharingGuestRule extends SharingBaseRule {
     booleanFilter?: string;
     criteriaItems: FilterItem[];
     includeHVUOwnedRecords: boolean;
 }
 
-export type SharingOwnerRule = SharingBaseRule & {
+export interface SharingOwnerRule extends SharingBaseRule {
     sharedFrom: SharedTo;
 }
 
-export type SharingTerritoryRule = SharingOwnerRule
+export interface SharingTerritoryRule extends SharingOwnerRule {}
 
-export type SharingRules = Metadata & {
+export interface SharingRules extends Metadata {
     sharingCriteriaRules: SharingCriteriaRule[];
     sharingGuestRules: SharingGuestRule[];
     sharingOwnerRules: SharingOwnerRule[];
     sharingTerritoryRules: SharingTerritoryRule[];
 }
 
-export type SharingSet = Metadata & {
+export interface SharingSet extends Metadata {
     accessMappings: AccessMapping[];
     description?: string;
     name: string;
     profiles: string[];
 }
 
-export type AccessMapping = {
+export interface AccessMapping {
     accessLevel: string;
     object: string;
     objectField: string;
     userField: string;
 }
 
-export type SharingSettings = Metadata & {
+export interface SharingSettings extends Metadata {
     deferGroupMembership?: boolean;
     deferSharingRules?: boolean;
     enableAccountRoleOptimization?: boolean;
@@ -23403,43 +23407,43 @@ export type SharingSettings = Metadata & {
     enableTerritoryForecastManager?: boolean;
 }
 
-export type SiteSettings = Metadata & {
+export interface SiteSettings extends Metadata {
     enableProxyLoginICHeader?: boolean;
     enableTopicsInSites?: boolean;
 }
 
-export type Skill = Metadata & {
+export interface Skill extends Metadata {
     assignments?: SkillAssignments;
     description?: string;
     label: string;
     skillType?: string;
 }
 
-export type SkillAssignments = {
+export interface SkillAssignments {
     profiles?: SkillProfileAssignments;
     users?: SkillUserAssignments;
 }
 
-export type SkillProfileAssignments = {
+export interface SkillProfileAssignments {
     profile: string[];
 }
 
-export type SkillUserAssignments = {
+export interface SkillUserAssignments {
     user: string[];
 }
 
-export type SkillType = Metadata & {
+export interface SkillType extends Metadata {
     masterLabel: string;
 }
 
-export type SlackRecordLayout = Metadata & {
+export interface SlackRecordLayout extends Metadata {
     isProtected?: boolean;
     masterLabel: string;
     sobjectType: string;
     viewMode: SlackRecordLayoutViewMode;
 }
 
-export type SocialCustomerServiceSettings = Metadata & {
+export interface SocialCustomerServiceSettings extends Metadata {
     caseSubjectOption: CaseSubjectOption;
     enableAllFBResponseAccounts?: boolean;
     enableInboundProcessingConcurrency?: boolean;
@@ -23451,7 +23455,7 @@ export type SocialCustomerServiceSettings = Metadata & {
     enableSocialReceiveParentPost?: boolean;
 }
 
-export type StageDefinition = Metadata & {
+export interface StageDefinition extends Metadata {
     active: boolean;
     description?: string;
     masterLabel: string;
@@ -23462,7 +23466,7 @@ export type StageDefinition = Metadata & {
     stageValue: StageValue[];
 }
 
-export type StageTransition = {
+export interface StageTransition {
     criteria: StageCriteria[];
     customPermission?: string;
     fromStageValue: string;
@@ -23471,7 +23475,7 @@ export type StageTransition = {
     userPermission?: StageUserPermission;
 }
 
-export type StageCriteria = {
+export interface StageCriteria {
     condition: StageCondition[];
     criteriaType?: StageCriteriaType;
     executionType: StageCriteriaExecType;
@@ -23482,19 +23486,19 @@ export type StageCriteria = {
     targetObject?: string;
 }
 
-export type StageCondition = {
+export interface StageCondition {
     operator: StageConditionOperator;
     sequenceNumber: number;
     sourceField: string;
     value: string;
 }
 
-export type StgFulfillmentStepDefGrp = {
+export interface StgFulfillmentStepDefGrp {
     name: string;
     step: StgFulfillmentStepDef[];
 }
 
-export type StgFulfillmentStepDef = {
+export interface StgFulfillmentStepDef {
     apiName: string;
     assignedToQueue?: string;
     assignedToUser?: string;
@@ -23508,32 +23512,32 @@ export type StgFulfillmentStepDef = {
     stepType: string;
 }
 
-export type StgFulfillmentStepDpndDef = {
+export interface StgFulfillmentStepDpndDef {
     step: string;
 }
 
-export type StageValue = {
+export interface StageValue {
     criteria: StageCriteria[];
     stepGroup: StgFulfillmentStepDefGrp[];
     value: string;
 }
 
-export type StandardValueSet = Metadata & {
+export interface StandardValueSet extends Metadata {
     groupingStringEnum?: string;
     sorted: boolean;
     standardValue: StandardValue[];
 }
 
-export type StandardValueSetTranslation = Metadata & {
+export interface StandardValueSetTranslation extends Metadata {
     valueTranslation: ValueTranslation[];
 }
 
-export type StnryAssetEnvSrcCnfg = Metadata & {
+export interface StnryAssetEnvSrcCnfg extends Metadata {
     recordType: string;
     stationaryAssetType: StationaryAssetType;
 }
 
-export type StreamingAppDataConnector = Metadata & {
+export interface StreamingAppDataConnector extends Metadata {
     appIdentifier: string;
     dataConnectorType: DataConnectorType;
     isProtected?: boolean;
@@ -23541,7 +23545,7 @@ export type StreamingAppDataConnector = Metadata & {
     streamingAppDataConnectorType: StreamingAppDataConnectorType;
 }
 
-export type SubscriptionManagementSettings = Metadata & {
+export interface SubscriptionManagementSettings extends Metadata {
     enableConvertNegativeInvoiceLinesToCreditMemoAndApply?: boolean;
     enablePaymentScheduleAutomation?: boolean;
     enableRefundAutomation?: boolean;
@@ -23549,14 +23553,14 @@ export type SubscriptionManagementSettings = Metadata & {
     enableSubscriptionManagement?: boolean;
 }
 
-export type SurveySettings = Metadata & {
+export interface SurveySettings extends Metadata {
     enableGenerativeAISurveys?: boolean;
     enableIndustriesCxmEnabled?: boolean;
     enableSurvey?: boolean;
     enableSurveyOwnerCanManageResponse?: boolean;
 }
 
-export type SustainabilityUom = Metadata & {
+export interface SustainabilityUom extends Metadata {
     description?: string;
     isProductUom?: boolean;
     isProtected?: boolean;
@@ -23566,7 +23570,7 @@ export type SustainabilityUom = Metadata & {
     unitType: UnitType;
 }
 
-export type SustnUomConversion = Metadata & {
+export interface SustnUomConversion extends Metadata {
     conversionFactor: number;
     fuelType?: string;
     isProtected?: boolean;
@@ -23576,7 +23580,7 @@ export type SustnUomConversion = Metadata & {
     uomsKey?: string;
 }
 
-export type SvcCatalogCategory = Metadata & {
+export interface SvcCatalogCategory extends Metadata {
     image?: string;
     isActive?: boolean;
     isProtected?: boolean;
@@ -23585,7 +23589,7 @@ export type SvcCatalogCategory = Metadata & {
     sortOrder?: number;
 }
 
-export type SvcCatalogFilterCriteria = Metadata & {
+export interface SvcCatalogFilterCriteria extends Metadata {
     conditions: SvcCatalogFilterCondition[];
     criteriaRelation: CriteriaRelationshipType;
     description?: string;
@@ -23593,14 +23597,14 @@ export type SvcCatalogFilterCriteria = Metadata & {
     mainLabel: string;
 }
 
-export type SvcCatalogFilterCondition = {
+export interface SvcCatalogFilterCondition {
     index: number;
     operator: CriterionOperator;
     source: string;
     value: string;
 }
 
-export type SvcCatalogFulfillmentFlow = Metadata & {
+export interface SvcCatalogFulfillmentFlow extends Metadata {
     description: string;
     flow: string;
     icon?: string;
@@ -23609,7 +23613,7 @@ export type SvcCatalogFulfillmentFlow = Metadata & {
     masterLabel: string;
 }
 
-export type SvcCatalogFulfillFlowItem = {
+export interface SvcCatalogFulfillFlowItem {
     catalogInputVariable: string;
     displayType?: PropertyDisplayType;
     fieldDefinition?: string;
@@ -23621,7 +23625,7 @@ export type SvcCatalogFulfillFlowItem = {
     objectLookupDomain?: string;
 }
 
-export type SvcCatalogItemDef = Metadata & {
+export interface SvcCatalogItemDef extends Metadata {
     apiVersion?: number;
     catalogFilterCriteria: SvcCatalogItemDefFiltrCrit[];
     categories: SvcCatalogCategoryItem[];
@@ -23640,22 +23644,22 @@ export type SvcCatalogItemDef = Metadata & {
     status: PublishStatusType;
 }
 
-export type SvcCatalogItemDefFiltrCrit = {
+export interface SvcCatalogItemDefFiltrCrit {
     svcCatalogFilterCriteria: string;
 }
 
-export type SvcCatalogCategoryItem = {
+export interface SvcCatalogCategoryItem {
     isPrimaryCategory?: boolean;
     sortOrder?: number;
     svcCatalogCategory: string;
 }
 
-export type SvcCatalogItemDefDataCategorySelection = {
+export interface SvcCatalogItemDefDataCategorySelection {
     category: string;
     categoryGroup: string;
 }
 
-export type SvcCatalogItemAttribute = {
+export interface SvcCatalogItemAttribute {
     field?: string;
     inputType: SvcCatalogItemAttrDataType;
     inputVariable?: string;
@@ -23670,24 +23674,24 @@ export type SvcCatalogItemAttribute = {
     value?: string;
 }
 
-export type SvcCatalogItemAttrDetail = {
+export interface SvcCatalogItemAttrDetail {
     isDefault: boolean;
     label: string;
     value: string;
 }
 
-export type SynonymDictionary = Metadata & {
+export interface SynonymDictionary extends Metadata {
     groups: SynonymGroup[];
     isProtected?: boolean;
     label: string;
 }
 
-export type SystemNotificationSettings = Metadata & {
+export interface SystemNotificationSettings extends Metadata {
     disableDowntimeNotifications?: boolean;
     disableMaintenanceNotifications?: boolean;
 }
 
-export type Territory2 = Metadata & {
+export interface Territory2 extends Metadata {
     accountAccessLevel?: string;
     caseAccessLevel?: string;
     contactAccessLevel?: string;
@@ -23701,28 +23705,28 @@ export type Territory2 = Metadata & {
     territory2Type: string;
 }
 
-export type FieldValue = {
+export interface FieldValue {
     name: string;
     value?: any;
 }
 
-export type Territory2AccessLevel = {
+export interface Territory2AccessLevel {
     accessLevel: string;
     objectType: string;
 }
 
-export type Territory2RuleAssociation = {
+export interface Territory2RuleAssociation {
     inherited: boolean;
     ruleName: string;
 }
 
-export type Territory2Model = Metadata & {
+export interface Territory2Model extends Metadata {
     customFields: FieldValue[];
     description?: string;
     name: string;
 }
 
-export type Territory2Rule = Metadata & {
+export interface Territory2Rule extends Metadata {
     active: boolean;
     booleanFilter?: string;
     name: string;
@@ -23730,13 +23734,13 @@ export type Territory2Rule = Metadata & {
     ruleItems: Territory2RuleItem[];
 }
 
-export type Territory2RuleItem = {
+export interface Territory2RuleItem {
     field: string;
     operation: FilterOperation;
     value?: string;
 }
 
-export type Territory2Settings = Metadata & {
+export interface Territory2Settings extends Metadata {
     defaultAccountAccessLevel?: string;
     defaultCaseAccessLevel?: string;
     defaultContactAccessLevel?: string;
@@ -23750,26 +23754,26 @@ export type Territory2Settings = Metadata & {
     tm2EnableUserAssignmentLog?: boolean;
 }
 
-export type Territory2SettingsOpportunityFilter = {
+export interface Territory2SettingsOpportunityFilter {
     apexClassName?: string;
     enableFilter: boolean;
     runMultiThreaded: boolean;
     runOnCreate: boolean;
 }
 
-export type Territory2SupportedObject = {
+export interface Territory2SupportedObject {
     defaultAccessLevel: string;
     objectType: string;
     state: string;
 }
 
-export type Territory2Type = Metadata & {
+export interface Territory2Type extends Metadata {
     description?: string;
     name: string;
     priority: number;
 }
 
-export type TimeSheetTemplate = Metadata & {
+export interface TimeSheetTemplate extends Metadata {
     active: boolean;
     description?: string;
     frequency: TimeSheetFrequency;
@@ -23780,29 +23784,29 @@ export type TimeSheetTemplate = Metadata & {
     workWeekStartDay: DaysOfWeek;
 }
 
-export type TimeSheetTemplateAssignment = {
+export interface TimeSheetTemplateAssignment {
     assignedTo?: string;
 }
 
-export type TimelineObjectDefinition = Metadata & {
+export interface TimelineObjectDefinition extends Metadata {
     baseObject: string;
     definition: string;
     isActive?: boolean;
     masterLabel: string;
 }
 
-export type TopicsForObjects = Metadata & {
+export interface TopicsForObjects extends Metadata {
     enableTopics: boolean;
     entityApiName: string;
 }
 
-export type TrailheadSettings = Metadata & {
+export interface TrailheadSettings extends Metadata {
     enableConfettiEffect?: boolean;
     enableMyTrailheadPref?: boolean;
     enableTrailheadInLexTerms?: boolean;
 }
 
-export type TransactionProcessingType = Metadata & {
+export interface TransactionProcessingType extends Metadata {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
@@ -23810,7 +23814,7 @@ export type TransactionProcessingType = Metadata & {
     saveType: SaveType;
 }
 
-export type TransactionSecurityPolicy = Metadata & {
+export interface TransactionSecurityPolicy extends Metadata {
     action: TransactionSecurityAction;
     active: boolean;
     apexClass?: string;
@@ -23827,7 +23831,7 @@ export type TransactionSecurityPolicy = Metadata & {
     type?: TxnSecurityPolicyType;
 }
 
-export type TransactionSecurityAction = {
+export interface TransactionSecurityAction {
     block: boolean;
     endSession: boolean;
     freezeUser: boolean;
@@ -23835,13 +23839,13 @@ export type TransactionSecurityAction = {
     twoFactorAuthentication: boolean;
 }
 
-export type TransactionSecurityNotification = {
+export interface TransactionSecurityNotification {
     inApp: boolean;
     sendEmail: boolean;
     user: string;
 }
 
-export type Translations = Metadata & {
+export interface Translations extends Metadata {
     botBlocks: BotBlockTranslation[];
     botTemplates: BotTemplateTranslation[];
     bots: BotTranslation[];
@@ -23860,23 +23864,23 @@ export type Translations = Metadata & {
     scontrols: ScontrolTranslation[];
 }
 
-export type BotBlockTranslation = {
+export interface BotBlockTranslation {
     botBlockVersions: BotBlockVersionTranslation[];
     fullName: string;
 }
 
-export type BotBlockVersionTranslation = {
+export interface BotBlockVersionTranslation {
     botDialogs: BotDialogTranslation[];
     fullName: string;
 }
 
-export type BotDialogTranslation = {
+export interface BotDialogTranslation {
     botSteps: BotStepTranslation[];
     developerName: string;
     label?: string;
 }
 
-export type BotStepTranslation = {
+export interface BotStepTranslation {
     botMessages: BotMessageTranslation[];
     botSteps: BotStepTranslation[];
     botVariableOperation?: BotVariableOperationTranslation;
@@ -23884,12 +23888,12 @@ export type BotStepTranslation = {
     type: BotStepType;
 }
 
-export type BotMessageTranslation = {
+export interface BotMessageTranslation {
     message?: string;
     messageIdentifier: string;
 }
 
-export type BotVariableOperationTranslation = {
+export interface BotVariableOperationTranslation {
     botMessages: BotMessageTranslation[];
     botQuickReplyOptions: BotQuickReplyOptionTranslation[];
     quickReplyOptionTemplate?: string;
@@ -23899,72 +23903,72 @@ export type BotVariableOperationTranslation = {
     variableOperationIdentifier: string;
 }
 
-export type BotQuickReplyOptionTranslation = {
+export interface BotQuickReplyOptionTranslation {
     literalValue?: string;
     quickReplyOptionIdentifier: string;
 }
 
-export type BotTemplateTranslation = {
+export interface BotTemplateTranslation {
     botDialogs: BotDialogTranslation[];
     fullName: string;
 }
 
-export type BotTranslation = {
+export interface BotTranslation {
     botVersions: BotVersionTranslation[];
     fullName: string;
 }
 
-export type BotVersionTranslation = {
+export interface BotVersionTranslation {
     botDialogs: BotDialogTranslation[];
     fullName: string;
 }
 
-export type ConversationMessageDefinitionTranslation = {
+export interface ConversationMessageDefinitionTranslation {
     constantValueTranslations: ConversationMessageConstantValueTranslation[];
     label: string;
     name: string;
 }
 
-export type ConversationMessageConstantValueTranslation = {
+export interface ConversationMessageConstantValueTranslation {
     name: string;
     value: string;
 }
 
-export type CustomApplicationTranslation = {
+export interface CustomApplicationTranslation {
     description?: string;
     label?: string;
     name: string;
 }
 
-export type CustomLabelTranslation = {
+export interface CustomLabelTranslation {
     label: string;
     name: string;
 }
 
-export type CustomPageWebLinkTranslation = {
+export interface CustomPageWebLinkTranslation {
     label: string;
     name: string;
 }
 
-export type CustomTabTranslation = {
+export interface CustomTabTranslation {
     label: string;
     name: string;
 }
 
-export type ExplainabilityMsgTemplateFieldTranslation = {
+export interface ExplainabilityMsgTemplateFieldTranslation {
     description?: string;
     label?: string;
     name: string;
     templateMessage?: string;
 }
 
-export type FlowDefinitionTranslation = {
+export interface FlowDefinitionTranslation {
     flows: FlowTranslation[];
     fullName: string;
     label?: string;
 }
 
-export type FlowTranslation = {
+export interface FlowTranslation {
     choices: FlowChoiceTranslation[];
     customErrorMessages: FlowCustomErrorMessageTranslation[];
     fullName?: string;
@@ -23975,33 +23979,33 @@ export type FlowTranslation = {
     textTemplates: FlowTextTemplateTranslation[];
 }
 
-export type FlowChoiceTranslation = {
+export interface FlowChoiceTranslation {
     choiceText?: string;
     name: string;
     userInput?: FlowChoiceUserInputTranslation;
 }
 
-export type FlowChoiceUserInputTranslation = {
+export interface FlowChoiceUserInputTranslation {
     promptText?: string;
     validationRule?: FlowInputValidationRuleTranslation;
 }
 
-export type FlowInputValidationRuleTranslation = {
+export interface FlowInputValidationRuleTranslation {
     errorMessage?: string;
 }
 
-export type FlowCustomErrorMessageTranslation = {
+export interface FlowCustomErrorMessageTranslation {
     developerName: string;
     errorMessage?: string;
     field?: string;
 }
 
-export type FlowOrchestrationStepTranslation = {
+export interface FlowOrchestrationStepTranslation {
     name: string;
     stepLabel?: string;
 }
 
-export type FlowScreenTranslation = {
+export interface FlowScreenTranslation {
     backButtonLabel?: string;
     fields: FlowScreenFieldTranslation[];
     helpText?: string;
@@ -24011,7 +24015,7 @@ export type FlowScreenTranslation = {
     pausedText?: string;
 }
 
-export type FlowScreenFieldTranslation = {
+export interface FlowScreenFieldTranslation {
     fieldText?: string;
     helpText?: string;
     inputParameters: FlowInputParameterTranslation[];
@@ -24019,51 +24023,51 @@ export type FlowScreenFieldTranslation = {
     validationRule?: FlowInputValidationRuleTranslation;
 }
 
-export type FlowInputParameterTranslation = {
+export interface FlowInputParameterTranslation {
     name: string;
     value: FlowFerovTranslation;
 }
 
-export type FlowFerovTranslation = {
+export interface FlowFerovTranslation {
     complexValues: FlowComplexLiteralTranslation[];
     stringValue?: string;
 }
 
-export type FlowComplexLiteralTranslation = {
+export interface FlowComplexLiteralTranslation {
     customAspectKey?: string;
     value?: string;
 }
 
-export type FlowStageTranslation = {
+export interface FlowStageTranslation {
     label?: string;
     name: string;
 }
 
-export type FlowTextTemplateTranslation = {
+export interface FlowTextTemplateTranslation {
     name: string;
     text?: string;
 }
 
-export type IdentityVerificationFieldTranslation = {
+export interface IdentityVerificationFieldTranslation {
     customFieldLabel?: string;
     description?: string;
     label?: string;
     name: string;
 }
 
-export type PipelineInspMetricConfigTranslation = {
+export interface PipelineInspMetricConfigTranslation {
     label: string;
     name: string;
 }
 
-export type PromptTranslation = {
+export interface PromptTranslation {
     description?: string;
     label?: string;
     name: string;
     promptVersions: PromptVersionTranslation[];
 }
 
-export type PromptVersionTranslation = {
+export interface PromptVersionTranslation {
     actionButtonLabel?: string;
     actionButtonLink?: string;
     body?: string;
@@ -24079,40 +24083,40 @@ export type PromptVersionTranslation = {
     videoLink?: string;
 }
 
-export type GlobalQuickActionTranslation = {
+export interface GlobalQuickActionTranslation {
     aspect?: string;
     label: string;
     name: string;
 }
 
-export type ReportTypeTranslation = {
+export interface ReportTypeTranslation {
     description?: string;
     label?: string;
     name: string;
     sections: ReportTypeSectionTranslation[];
 }
 
-export type ReportTypeSectionTranslation = {
+export interface ReportTypeSectionTranslation {
     columns: ReportTypeColumnTranslation[];
     label?: string;
     name: string;
 }
 
-export type ReportTypeColumnTranslation = {
+export interface ReportTypeColumnTranslation {
     label: string;
     name: string;
 }
 
-export type ScontrolTranslation = {
+export interface ScontrolTranslation {
     label: string;
     name: string;
 }
 
-export type TrialOrgSettings = Metadata & {
+export interface TrialOrgSettings extends Metadata {
     enableSampleDataDeleted?: boolean;
 }
 
-export type UIObjectRelationConfig = Metadata & {
+export interface UIObjectRelationConfig extends Metadata {
     UIObjectRelationFieldConfigs: UIObjectRelationFieldConfig[];
     contextObject: string;
     contextObjectRecordType?: string;
@@ -24127,13 +24131,13 @@ export type UIObjectRelationConfig = Metadata & {
     relationshipType: ObjectRelationshipType;
 }
 
-export type UIObjectRelationFieldConfig = {
+export interface UIObjectRelationFieldConfig {
     displayLabel: string;
     queryText: string;
     rowOrder: number;
 }
 
-export type UiFormatSpecificationSet = Metadata & {
+export interface UiFormatSpecificationSet extends Metadata {
     field: string;
     formatType: FormatType;
     masterLabel: string;
@@ -24141,25 +24145,25 @@ export type UiFormatSpecificationSet = Metadata & {
     uiFormatSpecifications: UiFormatSpecification[];
 }
 
-export type UiFormatSpecification = {
+export interface UiFormatSpecification {
     formatProperties: string;
     formatType: FormatType;
     order: number;
     visibilityRule?: UiFormulaRule;
 }
 
-export type UnifiedApplication = Metadata & {
+export interface UnifiedApplication extends Metadata {
     description?: string;
     label: string;
     unifiedApplicationMember: UnifiedApplicationMember[];
 }
 
-export type UnifiedApplicationMember = {
+export interface UnifiedApplicationMember {
     name: string;
     type: string;
 }
 
-export type UserAccessPolicy = Metadata & {
+export interface UserAccessPolicy extends Metadata {
     booleanFilter: string;
     description?: string;
     isProtected?: boolean;
@@ -24171,13 +24175,13 @@ export type UserAccessPolicy = Metadata & {
     userAccessPolicyFilters: UserAccessPolicyFilter[];
 }
 
-export type UserAccessPolicyAction = {
+export interface UserAccessPolicyAction {
     action: UserAccessPolicyActionType;
     target: string;
     type: UserAccessPolicyActionTargetType;
 }
 
-export type UserAccessPolicyFilter = {
+export interface UserAccessPolicyFilter {
     columnName?: string;
     operation: UserAccessPolicyFilterOperation;
     sortOrder: number;
@@ -24186,7 +24190,7 @@ export type UserAccessPolicyFilter = {
     value?: string;
 }
 
-export type UserCriteria = Metadata & {
+export interface UserCriteria extends Metadata {
     creationAgeInSeconds?: number;
     description?: string;
     lastChatterActivityAgeInSeconds?: number;
@@ -24195,7 +24199,7 @@ export type UserCriteria = Metadata & {
     userTypes: NetworkUserType[];
 }
 
-export type UserEngagementSettings = Metadata & {
+export interface UserEngagementSettings extends Metadata {
     canUseAdoptionApps?: boolean;
     doesScheduledSwitcherRunDaily?: boolean;
     enableCustomHelpGlobalSection?: boolean;
@@ -24228,7 +24232,7 @@ export type UserEngagementSettings = Metadata & {
     suggestedForYou?: boolean;
 }
 
-export type UserInterfaceSettings = Metadata & {
+export interface UserInterfaceSettings extends Metadata {
     alternateAlohaListView?: boolean;
     dynamicMruActionsOff?: boolean;
     enableAsyncRelatedLists?: boolean;
@@ -24259,7 +24263,7 @@ export type UserInterfaceSettings = Metadata & {
     multiColumnSortRl?: boolean;
 }
 
-export type UserLicenseDefinition = Metadata & {
+export interface UserLicenseDefinition extends Metadata {
     cloudServiceProvider?: string;
     defaultLicenseDuration?: number;
     defaultStatus?: DefaultLicenseStatus;
@@ -24279,7 +24283,7 @@ export type UserLicenseDefinition = Metadata & {
     standardPermissionSets: StandardPermissionSet[];
 }
 
-export type StandardPermissionSet = {
+export interface StandardPermissionSet {
     developerName: string;
     isSessionBased?: boolean;
     namespace?: string;
@@ -24288,12 +24292,12 @@ export type StandardPermissionSet = {
     settingValues: SettingValue[];
 }
 
-export type SettingValue = {
+export interface SettingValue {
     durableId: string;
     value: string;
 }
 
-export type UserManagementSettings = Metadata & {
+export interface UserManagementSettings extends Metadata {
     enableCanAnswerContainUsername?: boolean;
     enableConcealPersonalInfo?: boolean;
     enableContactlessExternalIdentityUsers?: boolean;
@@ -24316,7 +24320,7 @@ export type UserManagementSettings = Metadata & {
     userAccessPoliciesEnabled?: boolean;
 }
 
-export type UserProvisioningConfig = Metadata & {
+export interface UserProvisioningConfig extends Metadata {
     approvalRequired?: string;
     connectedApp: string;
     enabled?: boolean;
@@ -24330,12 +24334,12 @@ export type UserProvisioningConfig = Metadata & {
     userAccountMapping?: string;
 }
 
-export type VehicleAssetEmssnSrcCnfg = Metadata & {
+export interface VehicleAssetEmssnSrcCnfg extends Metadata {
     recordType: string;
     vehicleAssetType: VehicleAssetType;
 }
 
-export type VisualizationPlugin = Metadata & {
+export interface VisualizationPlugin extends Metadata {
     description?: string;
     developerName: string;
     icon: string;
@@ -24344,14 +24348,14 @@ export type VisualizationPlugin = Metadata & {
     visualizationTypes: VisualizationType[];
 }
 
-export type VisualizationResource = {
+export interface VisualizationResource {
     description?: string;
     file: string;
     rank?: number;
     type: VisualizationResourceType;
 }
 
-export type VisualizationType = {
+export interface VisualizationType {
     description?: string;
     developerName: string;
     icon: string;
@@ -24359,7 +24363,7 @@ export type VisualizationType = {
     scriptBootstrapMethod?: string;
 }
 
-export type VoiceSettings = Metadata & {
+export interface VoiceSettings extends Metadata {
     enableCallDisposition?: boolean;
     enableConsentReminder?: boolean;
     enableDefaultRecording?: boolean;
@@ -24372,11 +24376,11 @@ export type VoiceSettings = Metadata & {
     enableVoiceMailDrop?: boolean;
 }
 
-export type WarrantyLifecycleMgmtSettings = Metadata & {
+export interface WarrantyLifecycleMgmtSettings extends Metadata {
     enableWarrantyLCMgmt?: boolean;
 }
 
-export type WaveAnalyticAssetCollection = Metadata & {
+export interface WaveAnalyticAssetCollection extends Metadata {
     collectionType: string;
     color: string;
     description?: string;
@@ -24387,13 +24391,13 @@ export type WaveAnalyticAssetCollection = Metadata & {
     shares: FolderShare[];
 }
 
-export type WaveAnalyticAssetCollectionItem = {
+export interface WaveAnalyticAssetCollectionItem {
     asset?: string;
     assetType?: string;
     sortOrder?: number;
 }
 
-export type WaveApplication = Metadata & {
+export interface WaveApplication extends Metadata {
     assetIcon?: string;
     description?: string;
     folder: string;
@@ -24403,7 +24407,7 @@ export type WaveApplication = Metadata & {
     templateVersion?: string;
 }
 
-export type WaveDataset = Metadata & {
+export interface WaveDataset extends Metadata {
     application: string;
     description?: string;
     masterLabel: string;
@@ -24411,7 +24415,7 @@ export type WaveDataset = Metadata & {
     type?: string;
 }
 
-export type WaveTemplateBundle = Metadata & {
+export interface WaveTemplateBundle extends Metadata {
     assetIcon?: string;
     assetVersion?: number;
     description?: string;
@@ -24419,18 +24423,18 @@ export type WaveTemplateBundle = Metadata & {
     templateType: string;
 }
 
-export type WaveTemplateDetailsMetadata = Metadata
+export interface WaveTemplateDetailsMetadata extends Metadata {}
 
-export type WaveTemplateExternalDataMetadata = Metadata & {
+export interface WaveTemplateExternalDataMetadata extends Metadata {
     edgemartLabel: string;
     format: string;
     label: string;
     simulatedRowCount?: number;
 }
 
-export type WaveTemplateLensDashboardMetadata = Metadata
+export interface WaveTemplateLensDashboardMetadata extends Metadata {}
 
-export type WaveXmd = Metadata & {
+export interface WaveXmd extends Metadata {
     application?: string;
     dataset: string;
     datasetConnector?: string;
@@ -24444,7 +24448,7 @@ export type WaveXmd = Metadata & {
     waveVisualization?: string;
 }
 
-export type WaveXmdDate = {
+export interface WaveXmdDate {
     alias: string;
     compact?: boolean;
     dateFieldDay?: string;
@@ -24472,7 +24476,7 @@ export type WaveXmdDate = {
     type: string;
 }
 
-export type WaveXmdDimension = {
+export interface WaveXmdDimension {
     conditionalFormatting: WaveXmdFormattingProperty[];
     customActions: WaveXmdDimensionCustomAction[];
     customActionsEnabled?: boolean;
@@ -24500,7 +24504,7 @@ export type WaveXmdDimension = {
     sortIndex: number;
 }
 
-export type WaveXmdFormattingProperty = {
+export interface WaveXmdFormattingProperty {
     formattingBins: WaveXmdFormattingBin[];
     formattingPredicates: WaveXmdFormattingPredicate[];
     property: string;
@@ -24509,21 +24513,21 @@ export type WaveXmdFormattingProperty = {
     type: string;
 }
 
-export type WaveXmdFormattingBin = {
+export interface WaveXmdFormattingBin {
     bin: string;
     formatValue: string;
     label: string;
     sortIndex: number;
 }
 
-export type WaveXmdFormattingPredicate = {
+export interface WaveXmdFormattingPredicate {
     formatValue: string;
     operator: string;
     sortIndex: number;
     value: string;
 }
 
-export type WaveXmdDimensionCustomAction = {
+export interface WaveXmdDimensionCustomAction {
     customActionName: string;
     enabled: boolean;
     icon?: string;
@@ -24534,25 +24538,25 @@ export type WaveXmdDimensionCustomAction = {
     url?: string;
 }
 
-export type WaveXmdDimensionMember = {
+export interface WaveXmdDimensionMember {
     color?: string;
     label?: string;
     member: string;
     sortIndex: number;
 }
 
-export type WaveXmdRecordDisplayLookup = {
+export interface WaveXmdRecordDisplayLookup {
     recordDisplayField: string;
     sortIndex: number;
 }
 
-export type WaveXmdDimensionSalesforceAction = {
+export interface WaveXmdDimensionSalesforceAction {
     enabled: boolean;
     salesforceActionName: string;
     sortIndex: number;
 }
 
-export type WaveXmdMeasure = {
+export interface WaveXmdMeasure {
     conditionalFormatting: WaveXmdFormattingProperty[];
     currencies: WaveXmdMeasure[];
     currencyCode?: string;
@@ -24578,14 +24582,14 @@ export type WaveXmdMeasure = {
     sortIndex: number;
 }
 
-export type WaveXmdOrganization = {
+export interface WaveXmdOrganization {
     instanceUrl: string;
     label: string;
     organizationIdentifier: string;
     sortIndex: number;
 }
 
-export type WebStoreBundle = Metadata & {
+export interface WebStoreBundle extends Metadata {
     autoFacetingEnabled?: boolean;
     cartToOrderAutoCustomFieldMapping?: boolean;
     commerceEinsteinActivitiesTracked?: boolean;
@@ -24610,7 +24614,7 @@ export type WebStoreBundle = Metadata & {
     type: WebStoreType;
 }
 
-export type WebStoreTemplate = Metadata & {
+export interface WebStoreTemplate extends Metadata {
     autoFacetingEnabled?: boolean;
     cartAsyncProcessingEnabled?: boolean;
     cartCalculateEnabled?: boolean;
@@ -24646,18 +24650,18 @@ export type WebStoreTemplate = Metadata & {
     type: WebStoreType;
 }
 
-export type WebToXSettings = Metadata & {
+export interface WebToXSettings extends Metadata {
     shouldHideRecordInfoInEmail?: boolean;
     webToCaseSpamFilter?: boolean;
     webToLeadSpamFilter?: boolean;
 }
 
-export type WindowsPushApplicationSetup = Metadata & {
+export interface WindowsPushApplicationSetup extends Metadata {
     packageSecurityIdentifier: string;
     secretKey: string;
 }
 
-export type WorkDotComSettings = Metadata & {
+export interface WorkDotComSettings extends Metadata {
     enableCoachingManagerGroupAccess?: boolean;
     enableGoalManagerGroupAccess?: boolean;
     enableProfileSkills?: boolean;
@@ -24674,14 +24678,14 @@ export type WorkDotComSettings = Metadata & {
     enableWorkUseObjectivesForGoals?: boolean;
 }
 
-export type WorkSkillRouting = Metadata & {
+export interface WorkSkillRouting extends Metadata {
     isActive: boolean;
     masterLabel: string;
     relatedEntity: string;
     workSkillRoutingAttributes: WorkSkillRoutingAttribute[];
 }
 
-export type WorkSkillRoutingAttribute = {
+export interface WorkSkillRoutingAttribute {
     field: string;
     isAdditionalSkill?: boolean;
     skill: string;
@@ -24690,7 +24694,7 @@ export type WorkSkillRoutingAttribute = {
     value?: string;
 }
 
-export type Workflow = Metadata & {
+export interface Workflow extends Metadata {
     alerts: WorkflowAlert[];
     fieldUpdates: WorkflowFieldUpdate[];
     flowActions: WorkflowFlowAction[];
@@ -24702,7 +24706,7 @@ export type Workflow = Metadata & {
     tasks: WorkflowTask[];
 }
 
-export type WorkflowAlert = WorkflowAction & {
+export interface WorkflowAlert extends WorkflowAction {
     ccEmails: string[];
     description: string;
     protected: boolean;
@@ -24712,9 +24716,9 @@ export type WorkflowAlert = WorkflowAction & {
     template: string;
 }
 
-export type WorkflowAction = Metadata
+export interface WorkflowAction extends Metadata {}
 
-export type WorkflowFieldUpdate = WorkflowAction & {
+export interface WorkflowFieldUpdate extends WorkflowAction {
     description?: string;
     field: string;
     formula?: string;
@@ -24729,7 +24733,7 @@ export type WorkflowFieldUpdate = WorkflowAction & {
     targetObject?: string;
 }
 
-export type WorkflowFlowAction = WorkflowAction & {
+export interface WorkflowFlowAction extends WorkflowAction {
     description?: string;
     flow: string;
     flowInputs: WorkflowFlowActionParameter[];
@@ -24738,12 +24742,12 @@ export type WorkflowFlowAction = WorkflowAction & {
     protected: boolean;
 }
 
-export type WorkflowFlowActionParameter = {
+export interface WorkflowFlowActionParameter {
     name: string;
     value?: string;
 }
 
-export type WorkflowFlowAutomation = WorkflowAction & {
+export interface WorkflowFlowAutomation extends WorkflowAction {
     activeOrLastInactiveVersion?: string;
     activeOrLatestVersion?: string;
     activeVersion?: string;
@@ -24755,7 +24759,7 @@ export type WorkflowFlowAutomation = WorkflowAction & {
     objectType?: string;
 }
 
-export type WorkflowKnowledgePublish = WorkflowAction & {
+export interface WorkflowKnowledgePublish extends WorkflowAction {
     action: KnowledgeWorkflowAction;
     description?: string;
     label: string;
@@ -24763,7 +24767,7 @@ export type WorkflowKnowledgePublish = WorkflowAction & {
     protected: boolean;
 }
 
-export type WorkflowOutboundMessage = WorkflowAction & {
+export interface WorkflowOutboundMessage extends WorkflowAction {
     apiVersion: number;
     description?: string;
     endpointUrl: string;
@@ -24775,7 +24779,7 @@ export type WorkflowOutboundMessage = WorkflowAction & {
     useDeadLetterQueue?: boolean;
 }
 
-export type WorkflowSend = WorkflowAction & {
+export interface WorkflowSend extends WorkflowAction {
     action: SendAction;
     description?: string;
     label: string;
@@ -24783,7 +24787,7 @@ export type WorkflowSend = WorkflowAction & {
     protected: boolean;
 }
 
-export type WorkflowTask = WorkflowAction & {
+export interface WorkflowTask extends WorkflowAction {
     assignedTo?: string;
     assignedToType: ActionTaskAssignedToTypes;
     description?: string;
@@ -24796,13 +24800,13 @@ export type WorkflowTask = WorkflowAction & {
     subject: string;
 }
 
-export type WorkflowEmailRecipient = {
+export interface WorkflowEmailRecipient {
     field?: string;
     recipient?: string;
     type: ActionEmailRecipientTypes;
 }
 
-export type WorkflowRule = Metadata & {
+export interface WorkflowRule extends Metadata {
     actions: WorkflowActionReference[];
     active: boolean;
     booleanFilter?: string;
@@ -24814,37 +24818,37 @@ export type WorkflowRule = Metadata & {
     workflowTimeTriggers: WorkflowTimeTrigger[];
 }
 
-export type WorkflowTimeTrigger = {
+export interface WorkflowTimeTrigger {
     actions: WorkflowActionReference[];
     offsetFromField?: string;
     timeLength?: string;
     workflowTimeTriggerUnit: WorkflowTimeUnits;
 }
 
-export type SaveResult = {
+export interface SaveResult {
     errors: Error[];
     fullName: string;
     success: boolean;
 }
 
-export type Error = {
+export interface Error {
     extendedErrorDetails: ExtendedErrorDetails[];
     fields: string[];
     message: string;
     statusCode: StatusCode;
 }
 
-export type ExtendedErrorDetails = {
+export interface ExtendedErrorDetails {
     extendedErrorCode: ExtendedErrorCode;
 }
 
-export type DeleteResult = {
+export interface DeleteResult {
     errors: Error[];
     fullName: string;
     success: boolean;
 }
 
-export type DeployOptions = {
+export interface DeployOptions {
     allowMissingFiles: boolean;
     autoUpdatePackage: boolean;
     checkOnly: boolean;
@@ -24857,14 +24861,14 @@ export type DeployOptions = {
     testLevel: TestLevel;
 }
 
-export type DescribeMetadataResult = {
+export interface DescribeMetadataResult {
     metadataObjects: DescribeMetadataObject[];
     organizationNamespace: string;
     partialSaveAllowed: boolean;
     testRequired: boolean;
 }
 
-export type DescribeMetadataObject = {
+export interface DescribeMetadataObject {
     childXmlNames: string[];
     directoryName: string;
     inFolder: boolean;
@@ -24873,7 +24877,7 @@ export type DescribeMetadataObject = {
     xmlName: string;
 }
 
-export type DescribeValueTypeResult = {
+export interface DescribeValueTypeResult {
     apiCreatable: boolean;
     apiDeletable: boolean;
     apiReadable: boolean;
@@ -24882,7 +24886,7 @@ export type DescribeValueTypeResult = {
     valueTypeFields: ValueTypeField[];
 }
 
-export type ValueTypeField = {
+export interface ValueTypeField {
     fields: ValueTypeField[];
     foreignKeyDomain: string[];
     isForeignKey: boolean;
@@ -24894,7 +24898,7 @@ export type ValueTypeField = {
     valueRequired: boolean;
 }
 
-export type PicklistEntry = {
+export interface PicklistEntry {
     active: boolean;
     defaultValue: boolean;
     label: string;
@@ -24902,16 +24906,16 @@ export type PicklistEntry = {
     value: string;
 }
 
-export type ListMetadataQuery = {
+export interface ListMetadataQuery {
     folder?: string;
     type: string;
 }
 
-export type ReadResult = {
+export interface ReadResult {
     records: Metadata[];
 }
 
-export type RetrieveRequest = {
+export interface RetrieveRequest {
     apiVersion: number;
     packageNames: string[];
     singlePackage: boolean;
@@ -24919,34 +24923,34 @@ export type RetrieveRequest = {
     unpackaged?: Package;
 }
 
-export type UpdateMetadata = {
+export interface UpdateMetadata {
     currentName: string;
     metadata: Metadata;
 }
 
-export type UpsertResult = {
+export interface UpsertResult {
     created: boolean;
     errors: Error[];
     fullName: string;
     success: boolean;
 }
 
-export type LogInfo = {
+export interface LogInfo {
     category: LogCategory;
     level: LogCategoryLevel;
 }
 
-export type AnalyticsParamWidgetDef = {
+export interface AnalyticsParamWidgetDef {
     initialValues?: string;
     parameters?: string;
     source?: string;
 }
 
-export type AnalyticsContainerWidgetDef = {
+export interface AnalyticsContainerWidgetDef {
     parameters?: string;
 }
 
-export type ApiSchemaTypes = {
+export interface ApiSchemaTypes {
 	DeployProblemType: DeployProblemType;
 	ManageableState: ManageableState;
 	RetrieveStatus: RetrieveStatus;

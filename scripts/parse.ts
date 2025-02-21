@@ -82,8 +82,8 @@ const reservedWords = [
   'with',
   'yield',
 ];
-export function convertWsdlToTypescript(wsdl: string): string {
-  let output = '';
+export function convertWsdlToMap(wsdl: string): Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }> {
+  let output: Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }> = new Map;
 
   parseString(
     wsdl
@@ -105,16 +105,21 @@ export function convertWsdlToTypescript(wsdl: string): string {
     (err, result) => {
       const arr = toArray((result as { definitions: DefinitionsNode }).definitions.types.schema);
 
-      const map = treatComplexTypeNode([
+      output = treatComplexTypeNode([
         ...arr.flatMap((a) => a.simpleType).filter((x) => x),
         ...arr.flatMap((a) => a.element).filter((x) => x),
         ...arr.flatMap<ComplexTypeNode>((a) => a.complexType).filter((x) => x),
       ]);
-      output += writeTypeMap(map);
     }
   );
 
   return output;
+}
+export function convertMapToTypescript(map: Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }>): string {
+  return writeTypeMap(map);
+}
+export function convertMapToInterface(map: Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }>): string {
+  return writeInterfaceMap(map);
 }
 
 /*
@@ -195,6 +200,11 @@ function treatComplexTypeNode(
           parents: [t.complexContent.extension.$.base],
           fields: toArray(t.complexContent.extension.sequence?.element ?? []) as SequenceNode[],
         });
+      } else if ((type as ElementNode).complexType) {
+        typeMap.set(key, {
+          parents: [],
+          fields: toArray((type as ElementNode).complexType?.sequence?.element ?? []) as SequenceNode[]
+        });
       } else {
         typeMap.set(key, {
           parents: [],
@@ -213,6 +223,14 @@ function treatComplexTypeNode(
         const t = type as ComplexTypeNodeWithComplexContent;
         currValue.parents.push(t.complexContent.extension.$.base);
         currValue.fields.push(...(toArray(t.complexContent.extension.sequence?.element) as SequenceNode[]));
+      } else if ((type as ElementNode).complexType) {
+        typeMap.set(key, {
+          parents: [],
+          fields: toArray((type as ElementNode).complexType?.sequence?.element ?? []) as SequenceNode[]
+        });
+        currValue.fields.concat(
+          ((type as ElementNode).complexType?.sequence?.element as SequenceNode[])
+        );
       } else {
         currValue.fields.concat(
           ((type as ComplexTypeNodeWithSequence).sequence?.element as SequenceNode[]) ??
@@ -232,6 +250,22 @@ function writeTypeMap(
   let output = '';
 
   typeMap.forEach((info, type) => {
+    if (info.parents.length) {
+      output += `export type ${type} = `;
+      output += info.parents.map((p) => treatTypeName(p)).join(' & ');
+      if (info.fields.length){
+        output += ' & {\n';
+        // there's a duplciate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
+        // as well as fields that shouldn't be here !('value' in n.$')
+        info.fields
+          .filter((n, i) => info.fields.map((f) => f.$.name).indexOf(n.$.name) === i && !('value' in n.$))
+          .map((f) => {
+            output += treatAttribute(f);
+          });
+        output += '}';
+      }
+      output += '\n\n';
+    } else
     if (info.fields.every((f) => 'value' in f.$)) {
       // we have an enum type
       output += `export type ${type} = `;
@@ -240,12 +274,12 @@ function writeTypeMap(
       output += '\n\n';
     } else {
       output += `export type ${type} = `;
-      output += info.parents.map((p) => treatTypeName(p)).join(' & ');
-      if (info.parents.length) {
-        output += ' & {\n';
-      } else {
+      // output += info.parents.map((p) => treatTypeName(p)).join(' & ');
+      // if (info.parents.length) {
+      //   output += ' & {\n';
+      // } else {
         output += '{\n';
-      }
+      // }
       // there's a duplciate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
       // as well as fields that shouldn't be here !('value' in n.$')
       info.fields
@@ -261,6 +295,70 @@ function writeTypeMap(
   // this is something jsforce was doing, that might make the transition away from types in jsforce easier
 
   output += 'export type ApiSchemaTypes = {\n';
+
+  typeMap.forEach((info, type) => {
+    output += `\t${type}: ${type};\n`;
+  });
+  output += '}\n';
+
+  // remove to here
+
+  return output;
+}
+
+function writeInterfaceMap(
+  typeMap: Map<string, { parents: string[]; fields: SequenceNode[] | NodeWithAttributes[] }>
+): string {
+  let output = '';
+
+  typeMap.forEach((info, type) => {
+    // if (type === 'upsertMetadataResponse') {console.log('ici interface upsertMetadataResponse');console.dir(info, {depth:null})}
+    if (info.parents.length) {
+      output += `export interface ${type} extends `;
+      output += info.parents.map((p) => treatTypeName(p)).join(', ');
+      output += ' {';
+      if (info.fields.length){
+        output += '\n';
+        // there's a duplicate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
+        // as well as fields that shouldn't be here !('value' in n.$')
+        info.fields
+          .filter((n, i) => info.fields.map((f) => f.$.name).indexOf(n.$.name) === i && !('value' in n.$))
+          .map((f) => {
+            output += treatAttribute(f);
+          });
+        // output += '}';
+      }
+      output += '}\n\n';
+    } else
+    if (info.fields.length !== 0 &&info.fields.every((f) => 'value' in f.$)) {
+      // we have an enum type
+      output += `export enum ${type} {`;
+      if (info.fields.length === 0) output += 'string';
+      output += info.fields.map((f) => `'${f.$.value}'`).join(',\n      ');
+      output += '}\n\n';
+    } else {
+      output += `export interface ${type} `;
+      // output += info.parents.map((p) => treatTypeName(p)).join(' & ');
+      // if (info.parents.length) {
+      //   output += ' & {\n';
+      // } else {
+        output += '{\n';
+      // }
+      // there's a duplicate field on UIObjectRelationConfig - with potentially more to come, filter out the duplicate
+      // as well as fields that shouldn't be here !('value' in n.$')
+      info.fields
+        .filter((n, i) => info.fields.map((f) => f.$.name).indexOf(n.$.name) === i && !('value' in n.$))
+        .map((f) => {
+          output += treatAttribute(f);
+        });
+      output += '}\n\n';
+    }
+  });
+
+  // write the ApiSchemaTypes type - everything below this can be removed if we deem it not necessary
+  // this is something jsforce was doing, that might make the transition away from types in jsforce easier
+
+  output += 'export interface ApiSchemaTypes {\n';
 
   typeMap.forEach((info, type) => {
     output += `\t${type}: ${type};\n`;
