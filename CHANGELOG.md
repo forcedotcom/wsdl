@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/forcedotcom/wsdl/compare/1.3.0...1.4.0) (2025-06-16)
+
+
+### Features
+
+* update wsdl files for 256 release ([#21](https://github.com/forcedotcom/wsdl/issues/21)) ([d7b1a04](https://github.com/forcedotcom/wsdl/commit/d7b1a04281e21820bb1a549c6e6041c4fce3e1d2))
+
+
+
 # [1.3.0](https://github.com/forcedotcom/wsdl/compare/1.2.0...1.3.0) (2024-10-14)
 
 
