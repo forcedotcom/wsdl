@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Salesforce.com Apex API version 64.0
+Salesforce.com Apex API version 65.0
 
 Copyright 2006-2025 Salesforce.com, inc. All Rights Reserved
 -->
@@ -181,6 +181,11 @@ Copyright 2006-2025 Salesforce.com, inc. All Rights Reserved
      <xsd:enumeration value="ActivityObjectMatchingFlow"/>
      <xsd:enumeration value="ActionableEventManagementFlow"/>
      <xsd:enumeration value="StageManagementEvaluationFlow"/>
+     <xsd:enumeration value="IdentityUserRegistrationFlow"/>
+     <xsd:enumeration value="AgxBackgroundFlow"/>
+     <xsd:enumeration value="AgxScreenDataFlow"/>
+     <xsd:enumeration value="AgxScreenFlow"/>
+     <xsd:enumeration value="AgxOrchestrationFlow"/>
     </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="FlowCoverageWarning">
@@ -609,7 +614,7 @@ Copyright 2006-2025 Salesforce.com, inc. All Rights Reserved
  <service name="ApexService">
   <documentation>Manage your Salesforce.com Apex classes and triggers</documentation>
   <port binding="tns:ApexBinding" name="Apex">
-   <soap:address location="http://localhost:8080/services/Soap/s/64.0"/>
+   <soap:address location="http://localhost:8080/services/Soap/s/65.0"/>
   </port>
  </service>
 </definitions>
