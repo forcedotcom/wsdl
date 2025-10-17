@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/forcedotcom/wsdl/compare/1.4.0...1.5.0) (2025-10-17)
+
+
+### Features
+
+* update wsdl files for 258 release ([5855538](https://github.com/forcedotcom/wsdl/commit/5855538a3004b4af96ed52ab771c143ccd93df6e))
+
+
+
 # [1.4.0](https://github.com/forcedotcom/wsdl/compare/1.3.0...1.4.0) (2025-06-16)
 
 
