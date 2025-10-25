@@ -4,165 +4,167 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-export type FlowProcessType = 'AutoLaunchedFlow'
-      |'Flow'
-      |'Workflow'
-      |'CustomEvent'
-      |'InvocableProcess'
-      |'LoginFlow'
-      |'ActionPlan'
-      |'JourneyBuilderIntegration'
-      |'UserProvisioningFlow'
-      |'Survey'
-      |'SurveyEnrich'
-      |'Appointments'
-      |'FSCLending'
-      |'DigitalForm'
-      |'FieldServiceMobile'
-      |'OrchestrationFlow'
-      |'FieldServiceWeb'
-      |'TransactionSecurityFlow'
-      |'ContactRequestFlow'
-      |'ActionCadenceFlow'
-      |'ManagedContentFlow'
-      |'CheckoutFlow'
-      |'CartAsyncFlow'
-      |'DataCaptureFlow'
-      |'CustomerLifecycle'
-      |'Journey'
-      |'RecommendationStrategy'
-      |'Orchestrator'
-      |'RoutingFlow'
-      |'ServiceCatalogItemFlow'
-      |'EvaluationFlow'
-      |'LoyaltyManagementFlow'
-      |'ManagedContentAuthoringWorkflow'
-      |'ActionCadenceAutolaunchedFlow'
-      |'ActionCadenceStepFlow'
-      |'IndicatorResultFlow'
-      |'IndividualObjectLinkingFlow'
-      |'PromptFlow'
-      |'ApprovalWorkflow'
-      |'DcvrFrameworkDataCaptureFlow'
-      |'ActivityObjectMatchingFlow'
-      |'ActionableEventManagementFlow'
-      |'StageManagementEvaluationFlow'
-      |'RpaFlow'
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export enum FlowProcessType {'AutoLaunchedFlow',
+      'Flow',
+      'Workflow',
+      'CustomEvent',
+      'InvocableProcess',
+      'LoginFlow',
+      'ActionPlan',
+      'JourneyBuilderIntegration',
+      'UserProvisioningFlow',
+      'Survey',
+      'SurveyEnrich',
+      'Appointments',
+      'FSCLending',
+      'DigitalForm',
+      'FieldServiceMobile',
+      'OrchestrationFlow',
+      'FieldServiceWeb',
+      'TransactionSecurityFlow',
+      'ContactRequestFlow',
+      'ActionCadenceFlow',
+      'ManagedContentFlow',
+      'CheckoutFlow',
+      'CartAsyncFlow',
+      'DataCaptureFlow',
+      'CustomerLifecycle',
+      'Journey',
+      'RecommendationStrategy',
+      'Orchestrator',
+      'RoutingFlow',
+      'ServiceCatalogItemFlow',
+      'EvaluationFlow',
+      'LoyaltyManagementFlow',
+      'ManagedContentAuthoringWorkflow',
+      'ActionCadenceAutolaunchedFlow',
+      'ActionCadenceStepFlow',
+      'IndicatorResultFlow',
+      'IndividualObjectLinkingFlow',
+      'PromptFlow',
+      'ApprovalWorkflow',
+      'DcvrFrameworkDataCaptureFlow',
+      'ActivityObjectMatchingFlow',
+      'ActionableEventManagementFlow',
+      'StageManagementEvaluationFlow',
+      'RpaFlow'}
 
-export type PerfOption = 'NONE'
-      |'MINIMUM'
+export enum PerfOption {'NONE',
+      'MINIMUM'}
 
-export type LogCategory = 'Db'
-      |'Workflow'
-      |'Validation'
-      |'Callout'
-      |'Apex_code'
-      |'Apex_profiling'
-      |'Visualforce'
-      |'System'
-      |'Wave'
-      |'Nba'
-      |'Data_Access'
-      |'All'
+export enum LogCategory {'Db',
+      'Workflow',
+      'Validation',
+      'Callout',
+      'Apex_code',
+      'Apex_profiling',
+      'Visualforce',
+      'System',
+      'Wave',
+      'Nba',
+      'Data_Access',
+      'All'}
 
-export type LogCategoryLevel = 'None'
-      |'Finest'
-      |'Finer'
-      |'Fine'
-      |'Debug'
-      |'Info'
-      |'Warn'
-      |'Error'
+export enum LogCategoryLevel {'None',
+      'Finest',
+      'Finer',
+      'Fine',
+      'Debug',
+      'Info',
+      'Warn',
+      'Error'}
 
-export type LogType = 'None'
-      |'Debugonly'
-      |'Db'
-      |'Profiling'
-      |'Callout'
-      |'Detail'
+export enum LogType {'None',
+      'Debugonly',
+      'Db',
+      'Profiling',
+      'Callout',
+      'Detail'}
 
-export type ID = string
+export interface ID {
+}
 
-export type AllowFieldTruncationHeader = {
+export interface AllowFieldTruncationHeader {
     allowFieldTruncation: boolean;
 }
 
-export type CallOptions = {
+export interface CallOptions {
     client: string;
     perfOption: PerfOption;
     uiRequestId: string;
 }
 
-export type DebuggingHeader = {
+export interface DebuggingHeader {
     categories: LogInfo[];
     debugLevel: LogType;
 }
 
-export type DebuggingInfo = {
+export interface DebuggingInfo {
     debugLog: string;
 }
 
-export type DisableFeedTrackingHeader = {
+export interface DisableFeedTrackingHeader {
     disableFeedTracking: boolean;
 }
 
-export type PackageVersionHeader = {
+export interface PackageVersionHeader {
     packageVersions: PackageVersion[];
 }
 
-export type SessionHeader = {
+export interface SessionHeader {
     sessionId: string;
 }
 
-export type compileAndTest = {
+export interface compileAndTest {
     CompileAndTestRequest: CompileAndTestRequest;
 }
 
-export type compileAndTestResponse = {
+export interface compileAndTestResponse {
     result: CompileAndTestResult;
 }
 
-export type compileClasses = {
+export interface compileClasses {
     scripts: string[];
 }
 
-export type compileClassesResponse = {
+export interface compileClassesResponse {
     result: CompileClassResult[];
 }
 
-export type compileTriggers = {
+export interface compileTriggers {
     scripts: string[];
 }
 
-export type compileTriggersResponse = {
+export interface compileTriggersResponse {
     result: CompileTriggerResult[];
 }
 
-export type executeAnonymous = {
+export interface executeAnonymous {
     String: string;
 }
 
-export type executeAnonymousResponse = {
+export interface executeAnonymousResponse {
     result: ExecuteAnonymousResult;
 }
 
-export type runTests = {
+export interface runTests {
     RunTestsRequest: RunTestsRequest;
 }
 
-export type runTestsResponse = {
+export interface runTestsResponse {
     result: RunTestsResult;
 }
 
-export type wsdlToApex = {
+export interface wsdlToApex {
     info: WsdlToApexInfo;
 }
 
-export type wsdlToApexResponse = {
+export interface wsdlToApexResponse {
     result: WsdlToApexResult;
 }
 
-export type CompileAndTestRequest = {
+export interface CompileAndTestRequest {
     checkOnly: boolean;
     classes: string[];
     deleteClasses: string[];
@@ -171,7 +173,7 @@ export type CompileAndTestRequest = {
     triggers: string[];
 }
 
-export type RunTestsRequest = {
+export interface RunTestsRequest {
     allTests: boolean;
     classes: string[];
     maxFailedTests?: number;
@@ -181,13 +183,13 @@ export type RunTestsRequest = {
     tests: TestsNode[];
 }
 
-export type TestsNode = {
+export interface TestsNode {
     classId: string;
     className: string;
     testMethods: string[];
 }
 
-export type CompileAndTestResult = {
+export interface CompileAndTestResult {
     classes: CompileClassResult[];
     deleteClasses: DeleteApexResult[];
     deleteTriggers: DeleteApexResult[];
@@ -196,7 +198,7 @@ export type CompileAndTestResult = {
     triggers: CompileTriggerResult[];
 }
 
-export type CompileClassResult = {
+export interface CompileClassResult {
     bodyCrc?: number;
     column: number;
     id?: ID;
@@ -208,19 +210,19 @@ export type CompileClassResult = {
     warnings?: CompileIssue[];
 }
 
-export type CompileIssue = {
+export interface CompileIssue {
     column?: number;
     line?: number;
     message?: string;
 }
 
-export type DeleteApexResult = {
+export interface DeleteApexResult {
     id?: ID;
     problem?: string;
     success: boolean;
 }
 
-export type RunTestsResult = {
+export interface RunTestsResult {
     apexLogId?: string;
     codeCoverage: CodeCoverageResult[];
     codeCoverageWarnings: CodeCoverageWarning[];
@@ -233,7 +235,7 @@ export type RunTestsResult = {
     totalTime: number;
 }
 
-export type CodeCoverageResult = {
+export interface CodeCoverageResult {
     id: ID;
     locationsNotCovered: CodeLocation[];
     name: string;
@@ -243,21 +245,21 @@ export type CodeCoverageResult = {
     type: string;
 }
 
-export type CodeLocation = {
+export interface CodeLocation {
     column: number;
     line: number;
     numExecutions: number;
     time: number;
 }
 
-export type CodeCoverageWarning = {
+export interface CodeCoverageWarning {
     id: ID;
     message: string;
     name?: string;
     namespace?: string;
 }
 
-export type RunTestFailure = {
+export interface RunTestFailure {
     id: ID;
     message: string;
     methodName?: string;
@@ -269,7 +271,7 @@ export type RunTestFailure = {
     type: string;
 }
 
-export type FlowCoverageResult = {
+export interface FlowCoverageResult {
     elementsNotCovered: string[];
     flowId: string;
     flowName: string;
@@ -279,14 +281,14 @@ export type FlowCoverageResult = {
     processType: FlowProcessType;
 }
 
-export type FlowCoverageWarning = {
+export interface FlowCoverageWarning {
     flowId?: string;
     flowName?: string;
     flowNamespace?: string;
     message: string;
 }
 
-export type RunTestSuccess = {
+export interface RunTestSuccess {
     id: ID;
     methodName: string;
     name: string;
@@ -295,7 +297,7 @@ export type RunTestSuccess = {
     time: number;
 }
 
-export type CompileTriggerResult = {
+export interface CompileTriggerResult {
     bodyCrc?: number;
     column: number;
     id?: ID;
@@ -307,7 +309,7 @@ export type CompileTriggerResult = {
     warnings?: CompileIssue[];
 }
 
-export type ExecuteAnonymousResult = {
+export interface ExecuteAnonymousResult {
     column: number;
     compileProblem?: string;
     compiled: boolean;
@@ -317,35 +319,35 @@ export type ExecuteAnonymousResult = {
     success: boolean;
 }
 
-export type WsdlToApexInfo = {
+export interface WsdlToApexInfo {
     mapping: NamespacePackagePair[];
     wsdl: string;
 }
 
-export type NamespacePackagePair = {
+export interface NamespacePackagePair {
     namespace: string;
     packageName: string;
 }
 
-export type WsdlToApexResult = {
+export interface WsdlToApexResult {
     apexScripts: string[];
     errors: string[];
     success: boolean;
 }
 
-export type LogInfo = {
+export interface LogInfo {
     category: LogCategory;
     level: LogCategoryLevel;
 }
 
-export type PackageVersion = {
+export interface PackageVersion {
     majorNumber: number;
     minorNumber: number;
     namespace: string;
     packageId: string;
 }
 
-export type ApiSchemaTypes = {
+export interface ApiSchemaTypes {
 	FlowProcessType: FlowProcessType;
 	PerfOption: PerfOption;
 	LogCategory: LogCategory;

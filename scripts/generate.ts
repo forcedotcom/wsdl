@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import * as fs from 'node:fs';
-import { convertWsdlToTypescript } from './parse';
+import { convertMapToInterface, convertMapToTypescript, convertWsdlToMap } from './parse';
 
 const wsdlFolder = './resources';
 const outputFolder = './src';
@@ -17,7 +17,10 @@ fs.readdirSync(wsdlFolder).forEach((wsdlFile) => {
 
   if (extension === 'wsdl') {
     const wsdl = fs.readFileSync(`${wsdlFolder}/${wsdlFile}`, 'utf-8');
-    const ts = convertWsdlToTypescript(wsdl);
+    const map = convertWsdlToMap(wsdl);
+    const ts = convertMapToTypescript(map);
     fs.writeFileSync(`${outputFolder}/${fileName}.ts`, ts);
+    const js = convertMapToInterface(map);
+    fs.writeFileSync(`${outputFolder}/${fileName}.itf.ts`, js);
   }
 });

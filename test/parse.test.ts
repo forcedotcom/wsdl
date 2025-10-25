@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import { expect } from 'chai';
-import { convertWsdlToTypescript } from '../scripts/parse';
+import { convertWsdlToMap, convertMapToTypescript } from '../scripts/parse';
 
 const wrapWithDefinitions = (
   type: string
@@ -37,7 +37,7 @@ describe('generate', () => {
     </xsd:restriction>
    </xsd:simpleType>
 `);
-    const output = convertWsdlToTypescript(input);
+    const output = convertMapToTypescript(convertWsdlToMap(input));
     expect(output).to.equal(`export type LogCategory = 'Db'
       |'Workflow'
       |'Validation'
@@ -70,7 +70,7 @@ export type ApiSchemaTypes = {
    </xsd:complexType>
 `);
 
-    const output = convertWsdlToTypescript(input);
+    const output = convertMapToTypescript(convertWsdlToMap(input));
     expect(output).to.equal(
       `export type CompileAndTestRequest = {
     checkOnly: boolean;
@@ -104,7 +104,7 @@ export type ApiSchemaTypes = {
    </xsd:complexType>
 `);
 
-    const output = convertWsdlToTypescript(input);
+    const output = convertMapToTypescript(convertWsdlToMap(input));
     expect(output).to.equal(
       `export type CompileAndTestRequest = {
     checkOnly: boolean;
@@ -158,7 +158,7 @@ export type ApiSchemaTypes = {
     </xsd:complexType>
 `);
 
-    const output = convertWsdlToTypescript(input);
+    const output = convertMapToTypescript(convertWsdlToMap(input));
     expect(output).to.equal(
       `export type PostTemplate = Metadata & sObject & {
     default?: boolean;
