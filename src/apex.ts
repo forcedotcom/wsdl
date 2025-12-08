@@ -23,7 +23,6 @@ export type FlowProcessType = 'AutoLaunchedFlow'
       |'FieldServiceWeb'
       |'TransactionSecurityFlow'
       |'ContactRequestFlow'
-      |'ActionCadenceFlow'
       |'ManagedContentFlow'
       |'CheckoutFlow'
       |'CartAsyncFlow'
@@ -42,6 +41,16 @@ export type FlowProcessType = 'AutoLaunchedFlow'
       |'IndicatorResultFlow'
       |'IndividualObjectLinkingFlow'
       |'PromptFlow'
+      |'ApprovalWorkflow'
+      |'DcvrFrameworkDataCaptureFlow'
+      |'ActivityObjectMatchingFlow'
+      |'ActionableEventManagementFlow'
+      |'StageManagementEvaluationFlow'
+      |'IdentityUserRegistrationFlow'
+      |'AgxBackgroundFlow'
+      |'AgxScreenDataFlow'
+      |'AgxScreenFlow'
+      |'AgxOrchestrationFlow'
 
 export type PerfOption = 'NONE'
       |'MINIMUM'
@@ -56,6 +65,7 @@ export type LogCategory = 'Db'
       |'System'
       |'Wave'
       |'Nba'
+      |'Data_Access'
       |'All'
 
 export type LogCategoryLevel = 'None'
@@ -294,6 +304,7 @@ export type PackageVersion = {
     majorNumber: number;
     minorNumber: number;
     namespace: string;
+    packageId: string;
 }
 
 export type ApiSchemaTypes = {

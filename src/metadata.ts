@@ -41,7 +41,6 @@ export type FlowProcessType = 'AutoLaunchedFlow'
       |'FieldServiceWeb'
       |'TransactionSecurityFlow'
       |'ContactRequestFlow'
-      |'ActionCadenceFlow'
       |'ManagedContentFlow'
       |'CheckoutFlow'
       |'CartAsyncFlow'
@@ -60,9 +59,21 @@ export type FlowProcessType = 'AutoLaunchedFlow'
       |'IndicatorResultFlow'
       |'IndividualObjectLinkingFlow'
       |'PromptFlow'
+      |'ApprovalWorkflow'
+      |'DcvrFrameworkDataCaptureFlow'
+      |'ActivityObjectMatchingFlow'
+      |'ActionableEventManagementFlow'
+      |'StageManagementEvaluationFlow'
+      |'IdentityUserRegistrationFlow'
+      |'AgxBackgroundFlow'
+      |'AgxScreenDataFlow'
+      |'AgxScreenFlow'
+      |'AgxOrchestrationFlow'
 
 export type DeployStatus = 'Pending'
       |'InProgress'
+      |'Finalizing'
+      |'FinalizingFailed'
       |'Succeeded'
       |'SucceededPartial'
       |'Failed'
@@ -196,7 +207,7 @@ export type AIApplicationType = 'Platform'
       |'SalesAIOpportunityForecasting'
       |'CustomizablePropensityScoring'
       |'GenerativeIntelligence'
-      |'OmOrderRoutingPrediction'
+      |'OmOrderRouting'
 
 export type AIScoringMode = 'Batch'
       |'OnDemand'
@@ -205,6 +216,8 @@ export type AIScoringMode = 'Batch'
 export type RecsOutputFieldName = 'Summary'
       |'Issue'
       |'Resolution'
+      |'IndividualEmailSummary'
+      |'CompleteEmailsSummary'
 
 export type ConfigStatus = 'Enabled'
       |'Disabled'
@@ -309,6 +322,7 @@ export type FeatureInputType = 'Realtime_Input'
 export type PredictionPlatform = 'Einstein_Discovery'
       |'Default'
       |'Data_Cloud'
+      |'Einstein_on_Data_Cloud'
 
 export type CreatorType = 'INTERNAL_USER'
       |'SALESFORCE_ADMIN'
@@ -343,6 +357,8 @@ export type TeamMemberHierarchyType = 'ManagerHierarchy'
       |'ForecastsHierarchy'
 
 export type ItemActionType = 'Omniscript'
+      |'Aura'
+      |'LWC'
 
 export type ItemCategory = 'dbBased'
       |'fileBased'
@@ -373,8 +389,22 @@ export type ActionLinkExecutionsAllowed = 'Once'
       |'OncePerUser'
       |'Unlimited'
 
+export type ActionPlanTemplateType = 'Industries'
+      |'Retail'
+      |'Sales'
+      |'ITSM'
+      |'PrvdEngmtCompliance'
+      |'KAM'
+
+export type ActivationFlowType = 'SEGMENT'
+      |'DMO'
+      |'API_TRIGGERED'
+
 export type ActivationPlatformConnectorType = 'S3'
       |'OAUTH'
+
+export type ActivationPlatformCreationType = 'JSON'
+      |'MANUAL'
 
 export type ActivationPlatformFileOutputFormat = 'CSV'
       |'JSON'
@@ -382,13 +412,13 @@ export type ActivationPlatformFileOutputFormat = 'CSV'
 
 export type ActivationPlatformFileOutputGrouping = 'PER_SEGMENT'
       |'PER_ACCOUNT'
+      |'PER_USER'
 
-export type ActivationPlatformPeriodicFullRefresh = 'NEVER'
-      |'REFRESH_30'
+export type ActivationPlatformPeriodicFullRefresh = 'REFRESH_30'
       |'REFRESH_60'
-      |'REFRESH_90'
-      |'REFRESH_180'
-      |'REFRESH_365'
+
+export type ActivationPlatformProcessingType = 'Batch'
+      |'Streaming'
 
 export type ActivationPlatformType = 'Advertising'
       |'Publishing'
@@ -429,6 +459,11 @@ export type OAuthProviderType = 'GOOGLE'
       |'FACEBOOK'
       |'AMAZON'
       |'LINKEDIN'
+      |'SNAPCHAT'
+      |'DV360'
+      |'META_CAPI'
+      |'GAM'
+      |'TIKTOK'
 
 export type DefaultLicenseStatus = 'Active'
       |'Trial'
@@ -465,6 +500,9 @@ export type ForecastPeriodGroupStatus = 'Active'
 export type FieldMappingClient = 'PriceSheetPricing'
       |'CustomFieldMappingPricing'
 
+export type AffinityScoreType = 'RFM'
+      |'CAP'
+
 export type ReportSummaryType = 'Sum'
       |'Average'
       |'Maximum'
@@ -477,6 +515,79 @@ export type ReportSummaryType = 'Sum'
 export type ReportJobSourceTypes = 'tabular'
       |'summary'
       |'snapshot'
+
+export type AnalyticsDynamicTokenType = 'query'
+
+export type AnalyticsWidgetType = 'visualization'
+      |'text'
+      |'filter'
+      |'parameter'
+      |'button'
+      |'metric'
+      |'container'
+
+export type AnalyticsActionType = 'recordaction'
+      |'flow'
+      |'navigate'
+
+export type AnalyticsActionEventType = 'click'
+      |'select'
+
+export type AnalyticsWorkspaceAssetType = 'AnalyticsDashboard'
+      |'AnalyticsVisualization'
+      |'SemanticModel'
+      |'MktDataModelObject'
+      |'MktCalculatedInsightObject'
+      |'MktDataLakeObject'
+      |'MktDataConnection'
+
+export type AnalyticsWorkspaceAssetUsageType = 'Created'
+      |'Referenced'
+
+export type VisualizationFieldDisplayCategoryType = 'Discrete'
+      |'Continuous'
+
+export type VisualizationFieldFunctionType = 'Sum'
+      |'Avg'
+      |'Median'
+      |'Count'
+      |'CountD'
+      |'Min'
+      |'Max'
+      |'Stdev'
+      |'Stdevp'
+      |'Var'
+      |'Varp'
+      |'UserAgg'
+      |'DatePartYear'
+      |'DatePartQuarter'
+      |'DatePartMonth'
+      |'DatePartWeek'
+      |'DatePartWeekDay'
+      |'DatePartDay'
+      |'DateTruncYear'
+      |'DateTruncQuarter'
+      |'DateTruncMonth'
+      |'DateTruncWeek'
+      |'DateTruncDay'
+      |'My'
+      |'Mdy'
+      |'FiscalDatePartYear'
+      |'FiscalDatePartQuarter'
+      |'FiscalDatePartMonth'
+      |'FiscalDatePartWeek'
+      |'FiscalDateTruncYear'
+      |'FiscalDateTruncQuarter'
+      |'FiscalDateTruncMonth'
+      |'FiscalDateTruncWeek'
+
+export type VisualizationFieldRoleType = 'Dimension'
+      |'Measure'
+
+export type VisualizationFieldType = 'Field'
+      |'MeasureNames'
+      |'MeasureValues'
+      |'AdHocCalculation'
 
 export type ApplicationObjectName = 'BusinessLicenseApplication'
       |'IndividualApplication'
@@ -524,6 +635,7 @@ export type WorkflowActionType = 'FieldUpdate'
       |'Send'
       |'OutboundMessage'
       |'FlowAction'
+      |'FlowAutomation'
 
 export type NextOwnerType = 'adhoc'
       |'user'
@@ -629,6 +741,26 @@ export type AuthProviderType = 'Facebook'
       |'HubSpot'
       |'Microsoft'
       |'MuleSoft'
+      |'Bitbucket'
+      |'SlackSeamless'
+      |'SlackFirst'
+      |'SlackFirstDev'
+
+export type BatchCalcJobCSVDelimiter = 'COMMA'
+      |'BACKQUOTE'
+      |'CARET'
+      |'PIPE'
+      |'SEMICOLON'
+      |'TAB'
+
+export type BatchCalcJobDataType = 'Text'
+      |'Numeric'
+      |'Date'
+      |'DateTime'
+      |'MultiValue'
+      |'Boolean'
+
+export type BatchCalcJobFileSource = 'ContentManagement'
 
 export type BatchCalcJobDatasourceType = 'StandardObject'
       |'Analytics'
@@ -714,16 +846,12 @@ export type BatchCalcJobParameterDataType = 'Text'
       |'DateTime'
       |'Filter'
       |'Expression'
+      |'FileIdentifier'
 
 export type BatchCalcJobSourceJoinType = 'LeftOuter'
       |'RightOuter'
       |'Inner'
       |'Outer'
-
-export type BatchCalcJobDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
 
 export type BatchCalcJobOrderType = 'Ascending'
       |'Descending'
@@ -731,6 +859,9 @@ export type BatchCalcJobOrderType = 'Ascending'
 export type BatchCalcJobTransformType = 'Expression'
       |'Slice'
       |'ComputeRelative'
+
+export type BatchCalcJobWritebackKeyType = 'PrimaryKey'
+      |'QualifierKey'
 
 export type BatchCalcJobWritebackOpn = 'Insert'
       |'Update'
@@ -743,6 +874,14 @@ export type BatchCalcJobWritebackType = 'sObject'
       |'DataLakeObject'
       |'DataModelObject'
       |'CalculatedInsights'
+
+export type BatchCalcJobDefRunMode = 'Batch'
+      |'OnDemand'
+
+export type ExecutionPlatformObjectType = 'None'
+      |'DataModelObject'
+      |'DataLakeObject'
+      |'CalculatedInsightsObject'
 
 export type ExecutionPlatformType = 'CRMA'
       |'CDP'
@@ -769,9 +908,41 @@ export type BatchCalcProcessType = 'DataProcessingEngine'
       |'CDPEnrichment'
       |'CdpActionableList'
       |'CSVCoreUpload'
+      |'BenefitManagement'
+      |'BillingSchedulesforInvoiceGeneration'
+      |'Recruitment'
+      |'InvoiceGeneration'
+      |'AccountingPeriodClosure'
+      |'PnmRosterFileUpload'
+      |'FinancialSummaryRollup'
+      |'PriceProtection'
+      |'Decisiontable'
+      |'UsageManagement'
+      |'TestProcessType'
+      |'ProductCatalogManagement'
+      |'ChannelInventoryManagement'
+      |'SalesAgreement'
+      |'LegalEntityAccountingPeriodClosureAdvanced'
+      |'LifeSciencesCommercialTerritoryAlignment'
+      |'RevenueTransactionManagement'
+      |'FundraisingRollups'
+      |'EmployeeService'
+      |'OnDemandRecordRollup'
+      |'LifeSciencesCustomerEngagement'
+      |'PatientServicesProgram'
+      |'Fundraising'
+      |'TestAtomicWritebackScale'
+      |'GeneralLedgerAccountBalancesSummary'
+      |'ForeignExchangeGainLossCalculations'
+      |'InventorySearch'
+      |'InventoryBatchSearch'
+      |'CollectionsAndRecovery'
 
 export type BatchJobDefinitionStatus = 'Active'
       |'Inactive'
+
+export type DataSourceType = 'SingleSobject'
+      |'MultipleSobjects'
 
 export type BenefitActionDataType = 'String'
       |'Date'
@@ -783,6 +954,27 @@ export type BenefitActionDataType = 'String'
 
 export type BuildingEnergyIntensityType = 'BuildingEnergyIntensity'
       |'RegionalBuildingEnergyIntensity'
+
+export type GenAiAgentType = 'Employee'
+      |'EinsteinSDR'
+      |'SalesEinsteinCoach'
+      |'Setup'
+      |'EinsteinServiceAgent'
+      |'Analytics'
+      |'BankingServiceAgent'
+      |'ServicePlanner'
+      |'BuyerAgent'
+      |'AppDevAgent'
+      |'FieldServiceAgent'
+      |'ShopperAgent'
+      |'AgentforceEmployeeAgent'
+      |'ProspectingAgent'
+      |'SalesDealAgent'
+      |'CustomAgent'
+      |'GuidedShoppingAgent'
+      |'ExperienceBuilder'
+      |'LightningAppBuilder'
+      |'SalesCanvasAgent'
 
 export type Language = 'en_US'
       |'de'
@@ -941,6 +1133,60 @@ export type Language = 'en_US'
       |'en_IT'
       |'en_NL'
       |'en_MT'
+      |'en_ES'
+      |'en_PL'
+      |'en_DK'
+      |'en_SE'
+      |'en_NO'
+      |'en_FR'
+      |'en_HU'
+      |'en_CZ'
+      |'en_SK'
+      |'en_RO'
+      |'en_CH'
+      |'en_AL'
+      |'en_AD'
+      |'en_AG'
+      |'en_AT'
+      |'en_BS'
+      |'en_BB'
+      |'en_BZ'
+      |'en_BA'
+      |'en_BG'
+      |'en_HR'
+      |'en_DM'
+      |'en_EE'
+      |'en_FI'
+      |'en_GI'
+      |'en_GR'
+      |'en_GD'
+      |'en_GY'
+      |'en_IS'
+      |'en_JM'
+      |'en_JP'
+      |'en_LV'
+      |'en_LI'
+      |'en_LT'
+      |'en_LU'
+      |'en_MC'
+      |'en_ME'
+      |'en_MK'
+      |'en_PT'
+      |'en_RS'
+      |'en_SI'
+      |'en_KR'
+      |'en_KN'
+      |'en_LC'
+      |'en_VC'
+      |'en_TW'
+      |'en_TH'
+      |'en_TT'
+      |'en_TR'
+      |'nl_SR'
+      |'fr_HT'
+      |'de_LI'
+      |'es_AD'
+      |'sv_FI'
       |'el_CY'
       |'fr_MA'
       |'kl'
@@ -959,6 +1205,10 @@ export type MlSlotClassDataType = 'Text'
 export type MlSlotClassExtractionType = 'Pattern'
       |'Value'
 
+export type BotSourceType = 'None'
+      |'B2ASandboxBot'
+      |'B2AProdBot'
+
 export type ConversationInvocableTargetType = 'apex'
       |'flow'
       |'standardInvocableAction'
@@ -967,6 +1217,8 @@ export type ConversationInvocableTargetType = 'apex'
       |'logGoalAchieved'
       |'logDisambiguation'
       |'quickAction'
+      |'api'
+      |'botAction'
 
 export type BotInvocationMappingType = 'Input'
       |'Output'
@@ -1045,6 +1297,7 @@ export type ConversationSystemDialogType = 'TransferFailed'
       |'KnowledgeFallback'
       |'Disambiguation'
       |'DisambiguationFailed'
+      |'KnowledgeAction'
 
 export type ConversationVariableCollectionType = 'List'
 
@@ -1056,6 +1309,9 @@ export type ConversationDataType = 'Text'
       |'DateTime'
       |'Currency'
       |'Id'
+
+export type ConversationVariableVisibilityType = 'Internal'
+      |'External'
 
 export type ConversationDefinitionNlpProviderType = 'EinsteinAi'
       |'Apex'
@@ -1078,6 +1334,11 @@ export type MessageType = 'Text'
       |'EmbeddedMessaging'
       |'Voice'
       |'Custom'
+      |'InternalCopilot'
+      |'VoiceIntegrationPilot'
+      |'PstnVoice'
+      |'WhatsAppVoice'
+      |'SipVoice'
 
 export type BotType = 'Bot'
       |'InternalCopilot'
@@ -1111,6 +1372,7 @@ export type BriefcaseRuleRelationshipType = 'ParentToChild'
 
 export type BriefcaseType = 'Standard'
       |'HighVolume'
+      |'MobileAppSync'
 
 export type ForecastCategories = 'Omitted'
       |'Pipeline'
@@ -1214,6 +1476,37 @@ export type CaseSubjectParticleType = 'ProvidedString'
       |'ColonSeparator'
       |'HyphenSeparator'
 
+export type APIInstanceAccessStatus = 'Approved'
+      |'Pending'
+      |'NoStatus'
+      |'NotAccessible'
+      |'Rejected'
+      |'Revoked'
+      |'Deleted'
+
+export type APIInstanceApprovalType = 'ManualApproval'
+      |'AutoApproval'
+      |'NoApproval'
+
+export type ExternalServiceRegistrationProviderType = 'MuleSoft'
+      |'Custom'
+      |'SchemaInferred'
+      |'Standard'
+      |'ExternalConnector'
+      |'Heroku'
+      |'Anypoint'
+      |'ApexRest'
+      |'AgentActionOutputs'
+      |'IntegProcd'
+      |'DocumentProcessing'
+      |'NamedQuery'
+      |'ModelContextProtocol'
+      |'AuraEnabled'
+
+export type APIType = 'REST'
+      |'GraphQL'
+      |'gRPC'
+
 export type ActionForNoRecordFound = 'CreateNewRecordAndLink'
       |'PromptAgent'
 
@@ -1229,1473 +1522,6 @@ export type ChannelType = 'FacebookMessenger'
 export type ObjectToLink = 'Contact'
 
 export type ChatterExtensionType = 'Lightning'
-
-export type ClmCategoryUsageType = 'DisclosureCategory'
-      |'ContractClauseCategory'
-
-export type MappingOperation = 'Autofill'
-      |'Overwrite'
-
-export type CleanRuleStatus = 'Inactive'
-      |'Active'
-
-export type AuthType = 'SfdcXi'
-      |'HttpBasic'
-      |'MutualSsl'
-      |'Hmac'
-      |'C2c'
-      |'C2cCloud'
-      |'None'
-
-export type CloudServiceProviderApiType = 'Licenses'
-      |'Tenants'
-      |'Management'
-      |'Snapshots'
-      |'LicenseDefinitions'
-      |'TenantTrusts'
-      |'Usage'
-      |'DigitalWalletProvisioning'
-      |'DigitalWalletConsumption'
-
-export type ProvisioningAutomationType = 'Manual'
-      |'EntitlementOnly'
-      |'Auto'
-
-export type ModelEntityType = 'QA'
-      |'ARTICLE'
-      |'CASE'
-
-export type ModelStatus = 'PUBLISHED'
-      |'DARK_LAUNCHED'
-      |'REJECTED'
-      |'PHASED_OUT'
-      |'VERIFIED'
-      |'NO_MODEL'
-
-export type CommunityBaseTemplate = 'c'
-
-export type CommunityTemplateBundleInfoType = 'Highlight'
-      |'PreviewImage'
-
-export type CommunityTemplateCategory = 'IT'
-      |'Marketing'
-      |'Sales'
-      |'Service'
-      |'Commerce'
-
-export type CommunityThemeLayoutType = 'Login'
-      |'Home'
-      |'Inner'
-      |'ServiceNotAvailable'
-
-export type AccessMethod = 'Get'
-      |'Post'
-
-export type CanvasLocationOptions = 'None'
-      |'Chatter'
-      |'UserProfile'
-      |'Visualforce'
-      |'Aura'
-      |'Publisher'
-      |'ChatterFeed'
-      |'ServiceDesk'
-      |'OpenCTI'
-      |'AppLauncher'
-      |'MobileNav'
-      |'PageLayout'
-
-export type CanvasOptions = 'HideShare'
-      |'HideHeader'
-      |'PersonalEnabled'
-
-export type SamlInitiationMethod = 'None'
-      |'IdpInitiated'
-      |'SpInitiated'
-
-export type DevicePlatformType = 'ios'
-      |'android'
-
-export type DeviceType = 'phone'
-      |'tablet'
-      |'minitablet'
-
-export type ConnectedAppOauthAccessScope = 'Basic'
-      |'Api'
-      |'Web'
-      |'Full'
-      |'Chatter'
-      |'CustomApplications'
-      |'RefreshToken'
-      |'OpenID'
-      |'Profile'
-      |'Email'
-      |'Address'
-      |'Phone'
-      |'OfflineAccess'
-      |'CustomPermissions'
-      |'Wave'
-      |'Eclair'
-      |'Pardot'
-      |'Lightning'
-      |'Content'
-      |'CDPIngest'
-      |'CDPProfile'
-      |'CDPQuery'
-      |'Chatbot'
-      |'CDPSegment'
-      |'CDPIdentityResolution'
-      |'CDPCalculatedInsight'
-      |'ForgotPassword'
-      |'UserRegistration'
-      |'SFAP'
-      |'Interaction'
-      |'CDP'
-      |'EinsteinGPT'
-      |'PwdlessLogin'
-
-export type SamlEncryptionType = 'AES_128'
-      |'AES_256'
-      |'Triple_Des'
-
-export type SamlIdpSLOBinding = 'RedirectBinding'
-      |'PostBinding'
-
-export type SamlNameIdFormatType = 'Unspecified'
-      |'EmailAddress'
-      |'Persistent'
-      |'Transient'
-
-export type SamlSigningAlgoType = 'SHA1'
-      |'SHA256'
-
-export type SamlSubjectType = 'Username'
-      |'FederationId'
-      |'UserId'
-      |'SpokeId'
-      |'CustomAttribute'
-      |'PersistentId'
-
-export type BannerFontFamily = 'Serif'
-      |'SansSerif'
-      |'Cursive'
-      |'Fantasy'
-      |'SystemUi'
-      |'UiSerif'
-      |'UiSansSerif'
-      |'UiMonospace'
-      |'UiRounded'
-      |'Fangsong'
-
-export type BannerPosition = 'Top'
-      |'Bottom'
-
-export type ContextAttributeDataType = 'string'
-      |'number'
-      |'boolean'
-      |'date'
-      |'datetime'
-      |'percent'
-      |'picklist'
-      |'currency'
-      |'reference'
-
-export type ContextAttributeFieldType = 'input'
-      |'output'
-      |'inputoutput'
-      |'aggregate'
-
-export type ContractConfigType = 'ContractDocumentDownloadOption'
-      |'WordTrackChangesDisplayColor'
-      |'InclWordTrackChgReconciliation'
-      |'InclWordTrackChgSectionContent'
-      |'CreateDocSectionsDocxTemplates'
-      |'AutoGenDocOnContractCreation'
-      |'AutoGenerateDocFileType'
-      |'ContractSignedStatus'
-      |'ContractSignatureDeclinedSts'
-      |'NotifyDocTemplateVerChgStatus'
-      |'DocuSignUseAccountDefaultNtfcn'
-      |'DocuSignReminderEnabled'
-      |'DocuSignReminderDelayinDays'
-      |'DocuSignReminderFrequency'
-      |'DocuSignExpireEnabled'
-      |'DocuSignExpiresAfter'
-      |'DocuSignExpireWarning'
-      |'DocuSignAccountBrand'
-      |'Append0ToAutoNbrEmbeddedSect'
-      |'DocumentFileNameFormat'
-      |'DefaultTemplateName'
-      |'AutoGenDocOnContractUpdate'
-      |'ContractSignatureVoidedStatus'
-      |'ContractSignatureExpiredStatus'
-      |'TrackContractRedlines'
-      |'DocumentTemplateFilterClass'
-      |'EmailNotificationOnDocumentGeneration'
-      |'ImportTargetContractStatus'
-      |'ActivateObligationsBasedOnContractStatus'
-      |'ExternalReviewRequired'
-      |'InternalReviewRequired'
-
-export type ContractUsageType = 'DocumentSetting'
-      |'Reconciliation'
-      |'SignatureSetting'
-      |'Redlining'
-      |'ObligationSetting'
-
-export type RefreshFrequency = 'NO_REFRESH'
-      |'MONTHLY'
-
-export type ReportStatus = 'NEW'
-      |'TRAINING'
-      |'COMPLETED'
-      |'ERROR'
-      |'NOT_ENOUGH_DATA_AFTER_PARSING'
-      |'NOT_ENOUGH_DATA_WITH_CONTACT_REASON'
-      |'LOW_CLUSTER_QUALITY'
-
-export type SegmentationType = 'NO_FILTER'
-      |'SINGLE_OBJECT_FILTER'
-      |'CROSS_OBJECT_FILTER'
-
-export type ConsentOwner = 'Salesforce'
-      |'Partner'
-
-export type RoutingOwner = 'Salesforce'
-      |'Partner'
-
-export type ConversationMessageConstantType = 'Title'
-      |'Url'
-      |'Image'
-      |'Options'
-      |'SubTitle'
-
-export type ConversationMessageConstantValueType = 'Text'
-      |'Url'
-      |'ImageAsset'
-
-export type ConversationMessageHandlerType = 'QuickAction'
-      |'AuthProvider'
-      |'PaymentProvider'
-      |'Attachment'
-
-export type ConvMsgExternalTemplateVersionStatus = 'Pending'
-      |'Rejected'
-      |'Approved'
-      |'Paused'
-      |'Disabled'
-      |'InAppeal'
-
-export type ConversationMessageFormatType = 'Text'
-      |'Attachments'
-      |'RichLink'
-      |'Media'
-      |'Buttons'
-      |'Carousel'
-      |'QuickReplies'
-      |'ListPicker'
-      |'TimePicker'
-      |'EncryptedOAuthToken'
-      |'Application'
-      |'Inputs'
-      |'WebView'
-      |'Payment'
-      |'ExternalTemplate'
-
-export type ConversationMessageCollectionType = 'None'
-      |'StaticList'
-      |'DynamicList'
-
-export type ConversationMessageMergeFieldType = 'ListTemplate'
-
-export type ConversationMessageLayoutValueType = 'Literal'
-      |'MediaAsset'
-      |'CompositeType'
-      |'SourceSobjectFieldValue'
-      |'SourceSobjectFormula'
-      |'SourcePrimitiveValue'
-      |'SourceCompositeType'
-      |'FormulaTemplate'
-      |'SourceSobjectField'
-
-export type ConversationMessageType = 'StaticContent'
-      |'Choices'
-      |'Form'
-      |'AuthenticationRequest'
-      |'PaymentRequest'
-
-export type ConversationMessageValueType = 'Text'
-      |'Boolean'
-      |'Integer'
-      |'Double'
-      |'Date'
-      |'DateTime'
-      |'Url'
-      |'RecordId'
-      |'ImageId'
-      |'Composite'
-
-export type ConversationMessageOptionsParameterType = 'RecordIdOptions'
-      |'TimeSlotOptions'
-      |'CustomPrimitiveOptions'
-      |'CustomCompositeOptions'
-
-export type ConversationMessageParameterType = 'RecordIds'
-      |'CustomPrimitive'
-      |'CustomComposite'
-
-export type ConversationMessageDefinitionType = 'RecordView'
-      |'RecordPicker'
-      |'Picklist'
-      |'TimePicker'
-      |'Link'
-      |'CustomMessage'
-      |'CustomPicker'
-      |'LegacyPicker'
-      |'AuthenticationRequest'
-      |'Action'
-      |'AutoResponse'
-      |'PaymentRequest'
-      |'Notification'
-
-export type ClientAuthMode = 'SSO'
-      |'Custom'
-      |'Mixed'
-
-export type ServerAuthMode = 'OAuth'
-      |'None'
-
-export type ConversationVendorType = 'ServiceCloudVoicePartner'
-      |'Amazon_Connect'
-      |'BringYourOwnChannelPartner'
-      |'BringYourOwnContactCenter'
-
-export type CspTrustedSiteContext = 'All'
-      |'LEX'
-      |'Communities'
-      |'FieldServiceMobileExtension'
-      |'VisualForce'
-
-export type FormFactor = 'Small'
-      |'Medium'
-      |'Large'
-
-export type ActionOverrideType = 'Default'
-      |'Standard'
-      |'Scontrol'
-      |'Visualforce'
-      |'Flexipage'
-      |'LightningComponent'
-
-export type NavType = 'Standard'
-      |'Console'
-
-export type UiType = 'Aloha'
-      |'Lightning'
-
-export type FieldType = 'AutoNumber'
-      |'Lookup'
-      |'MasterDetail'
-      |'Checkbox'
-      |'Currency'
-      |'Date'
-      |'DateTime'
-      |'Email'
-      |'Number'
-      |'Percent'
-      |'Phone'
-      |'Picklist'
-      |'MultiselectPicklist'
-      |'Text'
-      |'TextArea'
-      |'LongTextArea'
-      |'Html'
-      |'Url'
-      |'EncryptedText'
-      |'Summary'
-      |'Hierarchy'
-      |'File'
-      |'MetadataRelationship'
-      |'Location'
-      |'ExternalLookup'
-      |'IndirectLookup'
-      |'CustomDataType'
-      |'Time'
-      |'Address'
-      |'Array'
-
-export type FeedItemVisibility = 'AllUsers'
-      |'InternalUsers'
-
-export type DeleteConstraint = 'Cascade'
-      |'Restrict'
-      |'SetNull'
-
-export type ElementType = 'Float'
-
-export type EncryptionScheme = 'None'
-      |'ProbabilisticEncryption'
-      |'CaseSensitiveDeterministicEncryption'
-      |'CaseInsensitiveDeterministicEncryption'
-
-export type FieldManageability = 'DeveloperControlled'
-      |'SubscriberControlled'
-      |'Locked'
-
-export type TreatBlanksAs = 'BlankAsBlank'
-      |'BlankAsZero'
-
-export type EncryptedFieldMaskChar = 'asterisk'
-      |'X'
-
-export type EncryptedFieldMaskType = 'all'
-      |'creditCard'
-      |'ssn'
-      |'lastFour'
-      |'sin'
-      |'nino'
-
-export type DefinitionCreationType = 'Standard'
-      |'Custom'
-      |'System'
-      |'Derived'
-      |'Bridge'
-      |'Curated'
-      |'Segment_Membership'
-      |'Calculated_Insight'
-      |'Ml_Prediction'
-      |'Activation_Audience'
-      |'Transform'
-      |'ADG'
-      |'External'
-      |'Vector_Embedding'
-      |'Chunk'
-      |'Directory_Table'
-      |'Semantic'
-
-export type UsageTag = 'NONE'
-      |'KEY_QUALIFIER'
-
-export type InvalidMergeActionType = 'Drop'
-      |'Keep'
-      |'Override'
-
-export type MktDataModelFieldUsageTag = 'None'
-      |'KeyQualifier'
-
-export type SummaryOperations = 'count'
-      |'sum'
-      |'min'
-      |'max'
-
-export type Channel = 'AllChannels'
-      |'App'
-      |'Pkb'
-      |'Csp'
-      |'Prm'
-
-export type Template = 'Page'
-      |'Tab'
-      |'Toc'
-
-export type CustomSettingsType = 'List'
-      |'Hierarchy'
-
-export type DeploymentStatus = 'InDevelopment'
-      |'Deployed'
-
-export type PlatformEventType = 'HighVolume'
-      |'StandardVolume'
-      |'ExternalEvent'
-
-export type SharingModel = 'Private'
-      |'Read'
-      |'ReadSelect'
-      |'ReadWrite'
-      |'ReadWriteTransfer'
-      |'FullAccess'
-      |'ControlledByParent'
-      |'ControlledByLeadOrContact'
-      |'ControlledByCampaign'
-
-export type Gender = 'Neuter'
-      |'Masculine'
-      |'Feminine'
-      |'AnimateMasculine'
-      |'ClassI'
-      |'ClassIII'
-      |'ClassV'
-      |'ClassVII'
-      |'ClassIX'
-      |'ClassXI'
-      |'ClassXIV'
-      |'ClassXV'
-      |'ClassXVI'
-      |'ClassXVII'
-      |'ClassXVIII'
-
-export type PlatformEventPublishBehavior = 'PublishAfterCommit'
-      |'PublishImmediately'
-
-export type StartsWith = 'Consonant'
-      |'Vowel'
-      |'Special'
-
-export type SetupObjectVisibility = 'PackageProtected'
-      |'Protected'
-      |'Public'
-
-export type WebLinkAvailability = 'online'
-      |'offline'
-
-export type WebLinkDisplayType = 'link'
-      |'button'
-      |'massActionButton'
-
-export type Encoding = 'UTF-8'
-      |'ISO-8859-1'
-      |'Shift_JIS'
-      |'ISO-2022-JP'
-      |'EUC-JP'
-      |'ks_c_5601-1987'
-      |'Big5'
-      |'GB2312'
-      |'Big5-HKSCS'
-      |'x-SJIS_0213'
-
-export type WebLinkType = 'url'
-      |'sControl'
-      |'javascript'
-      |'page'
-      |'flow'
-
-export type WebLinkWindowType = 'newWindow'
-      |'sidebar'
-      |'noSidebar'
-      |'replace'
-      |'onClickJavaScript'
-
-export type WebLinkPosition = 'fullScreen'
-      |'none'
-      |'topLeft'
-
-export type Article = 'None'
-      |'Indefinite'
-      |'Definite'
-
-export type CaseType = 'Nominative'
-      |'Accusative'
-      |'Genitive'
-      |'Dative'
-      |'Inessive'
-      |'Elative'
-      |'Illative'
-      |'Adessive'
-      |'Ablative'
-      |'Allative'
-      |'Essive'
-      |'Translative'
-      |'Partitive'
-      |'Objective'
-      |'Subjective'
-      |'Instrumental'
-      |'Prepositional'
-      |'Locative'
-      |'Vocative'
-      |'Sublative'
-      |'Superessive'
-      |'Delative'
-      |'Causalfinal'
-      |'Essiveformal'
-      |'Termanative'
-      |'Distributive'
-      |'Ergative'
-      |'Adverbial'
-      |'Abessive'
-      |'Comitative'
-
-export type Possessive = 'None'
-      |'First'
-      |'Second'
-
-export type SiteClickjackProtectionLevel = 'AllowAllFraming'
-      |'External'
-      |'SameOriginOnly'
-      |'NoFraming'
-
-export type SiteRedirect = 'Permanent'
-      |'Temporary'
-
-export type SiteType = 'Siteforce'
-      |'Visualforce'
-      |'ChatterNetwork'
-      |'ChatterNetworkPicasso'
-
-export type ChartBackgroundDirection = 'TopToBottom'
-      |'LeftToRight'
-      |'Diagonal'
-
-export type ChartTheme = 'light'
-      |'dark'
-
-export type ChartColorPalettes = 'Default'
-      |'gray'
-      |'colorSafe'
-      |'unity'
-      |'justice'
-      |'nightfall'
-      |'sunrise'
-      |'bluegrass'
-      |'tropic'
-      |'heat'
-      |'dusk'
-      |'pond'
-      |'watermelon'
-      |'fire'
-      |'water'
-      |'earth'
-      |'accessible'
-
-export type DashboardFilterOperation = 'equals'
-      |'notEqual'
-      |'lessThan'
-      |'greaterThan'
-      |'lessOrEqual'
-      |'greaterOrEqual'
-      |'contains'
-      |'notContain'
-      |'startsWith'
-      |'includes'
-      |'excludes'
-      |'between'
-
-export type ChartRangeType = 'Auto'
-      |'Manual'
-
-export type ChartAxis = 'x'
-      |'y'
-      |'y2'
-      |'r'
-
-export type DashboardComponentType = 'Bar'
-      |'BarGrouped'
-      |'BarStacked'
-      |'BarStacked100'
-      |'Column'
-      |'ColumnGrouped'
-      |'ColumnStacked'
-      |'ColumnStacked100'
-      |'Line'
-      |'LineGrouped'
-      |'Pie'
-      |'Table'
-      |'Metric'
-      |'Gauge'
-      |'LineCumulative'
-      |'LineGroupedCumulative'
-      |'Scontrol'
-      |'VisualforcePage'
-      |'Donut'
-      |'Funnel'
-      |'ColumnLine'
-      |'ColumnLineGrouped'
-      |'ColumnLineStacked'
-      |'ColumnLineStacked100'
-      |'Scatter'
-      |'ScatterGrouped'
-      |'FlexTable'
-      |'Image'
-      |'RichText'
-
-export type Fit = 'tile'
-      |'stretch'
-      |'original'
-      |'fitwidth'
-      |'fitheight'
-
-export type HorizontalAlignment = 'left'
-      |'center'
-      |'right'
-
-export type VerticalAlignment = 'top'
-      |'center'
-      |'bottom'
-
-export type DashboardComponentFilter = 'RowLabelAscending'
-      |'RowLabelDescending'
-      |'RowValueAscending'
-      |'RowValueDescending'
-
-export type ChartUnits = 'Auto'
-      |'Integer'
-      |'Hundreds'
-      |'Thousands'
-      |'Millions'
-      |'Billions'
-      |'Trillions'
-
-export type DashboardComponentColumnType = 'aggregate'
-      |'detail'
-      |'grouping'
-
-export type ChartLegendPosition = 'Right'
-      |'Bottom'
-      |'OnChart'
-
-export type DashboardType = 'SpecifiedUser'
-      |'LoggedInUser'
-      |'MyTeamUser'
-
-export type DashboardComponentSize = 'Narrow'
-      |'Medium'
-      |'Wide'
-
-export type CalculatedInsightCreationType = 'Custom'
-
-export type CalculatedInsightDefinitionType = 'CALCULATED_METRIC'
-      |'EXTERNAL_METRIC'
-      |'STREAMING_METRIC'
-      |'GRAPH_METRIC'
-
-export type DataModelType = 'Source'
-      |'Transport'
-      |'Landing'
-      |'View'
-      |'Reference'
-
-export type DataObjectType = 'Object'
-      |'Table'
-      |'Api'
-
-export type DataImportDataExtractMethods = 'FULL_REFRESH'
-      |'NUMERIC_CDC'
-      |'DATETIME_CDC'
-
-export type DataImportRefreshFrequency = 'NONE'
-      |'MINUTES_15'
-      |'HOURLY'
-      |'DAILY'
-      |'WEEKLY'
-      |'MONTHLY'
-      |'NOT_APPLICABLE'
-      |'BATCH'
-
-export type DataImportRefreshMode = 'FULL_REFRESH'
-      |'UPSERT'
-      |'INCREMENTAL'
-      |'REPLACE'
-      |'NEAR_REAL_TIME_INCREMENTAL'
-      |'NOT_APPLICABLE'
-
-export type ExpsSetProcessType = 'Bre'
-      |'TransactionJournal'
-      |'TierProcessing'
-      |'CustomLoyalty'
-      |'TestProcess'
-      |'AiAcceleratorSubscriberChurnPrediction'
-      |'DefaultPricing'
-      |'RecordAlert'
-      |'ShipAndDebit'
-      |'WarrantyClaim'
-      |'ProductQualification'
-      |'ProductCategoryQualification'
-      |'EventOrchestration'
-      |'ComplianceControl'
-      |'FinancialServicesCloud'
-
-export type DecisionMatrixType = 'Standard'
-      |'Grouped'
-
-export type DecisionMatrixColumnType = 'Input'
-      |'Output'
-
-export type DecisionMatrixDataType = 'Text'
-      |'Number'
-      |'NumberRange'
-      |'TextRange'
-      |'Currency'
-      |'Percent'
-      |'Boolean'
-
-export type DecisionMatrixDefStatus = 'Draft'
-      |'Active'
-      |'Inactive'
-      |'InvalidDraft'
-      |'Obsolete'
-
-export type DecisionTableCollectOperator = 'None'
-      |'Sum'
-      |'Minimum'
-      |'Maximum'
-      |'Count'
-
-export type DecisionTableConditionType = 'All'
-      |'Any'
-      |'Custom'
-
-export type DecisionTableDataSourceType = 'SingleSobject'
-      |'MultipleSobjects'
-      |'CsvUpload'
-
-export type DTParameterDataType = 'String'
-      |'Number'
-      |'Date'
-      |'Boolean'
-      |'Percent'
-      |'Currency'
-
-export type DecisionTableOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessOrEqual'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'Matches'
-      |'ExistsIn'
-      |'DoesNotExistIn'
-
-export type DecisionTableSortType = 'None'
-      |'AscNullFirst'
-      |'AscNullLast'
-      |'DescNullFirst'
-      |'DescNullLast'
-
-export type DecisionTableParameterType = 'INPUT'
-      |'OUTPUT'
-
-export type DTSourceCriteriaOperator = 'Equals'
-      |'NotEquals'
-      |'GreaterThan'
-      |'GreaterOrEqual'
-      |'LessThan'
-      |'LessOrEqual'
-      |'Matches'
-      |'ExistsIn'
-      |'DoesNotExistIn'
-
-export type DTSourceCriteriaValueType = 'Literal'
-      |'Parameter'
-      |'Picklist'
-      |'Formula'
-      |'Lookup'
-
-export type DecisionTableHitPolicy = 'UniqueValues'
-      |'AnyValue'
-      |'Priority'
-      |'FirstMatch'
-      |'CollectOperator'
-      |'OutputOrder'
-      |'RuleOrder'
-
-export type DecisionTableRefreshStatus = 'Initiated'
-      |'Failed'
-      |'Completed'
-      |'InProgress'
-
-export type DecisionTableStatus = 'Draft'
-      |'Inactive'
-      |'Active'
-      |'ActivationInProgress'
-
-export type DecisionTableType = 'LowVolume'
-      |'HighVolume'
-      |'Advanced'
-      |'MediumVolume'
-
-export type DecisionTableUsageType = 'Bre'
-      |'TransactionJournal'
-      |'TierProcessing'
-      |'CustomLoyalty'
-      |'TestProcess'
-      |'AiAcceleratorSubscriberChurnPrediction'
-      |'DefaultPricing'
-      |'RecordAlert'
-      |'ShipAndDebit'
-      |'WarrantyClaim'
-      |'ProductQualification'
-      |'ProductCategoryQualification'
-      |'EventOrchestration'
-      |'FinancialServicesCloud'
-
-export type FTestTopLevelSelection = 'SelOne'
-      |'SelTwo'
-      |'SelThree'
-
-export type SchedulingCategory = 'B'
-      |'A'
-
-export type SchedulingObjectiveType = 'AgentPreference'
-      |'BalanceShifts'
-      |'BalanceNonStandardShifts'
-
-export type ObjectiveParameterKey = 'DaysBack'
-      |'DaysAhead'
-
-export type FTestOnOffSelection = 'On'
-      |'Off'
-
-export type FTestSeasonSelection = 'Spring'
-      |'Summer'
-      |'Autumn'
-      |'Winter'
-
-export type PipelineInspectionMetric = 'TotalPipeline'
-      |'ClosedWon'
-      |'Commit'
-      |'MostLikely'
-      |'BestCase'
-      |'OpenPipeline'
-      |'ClosedLost'
-      |'MovedIn'
-      |'MovedOut'
-
-export type VirtualVisitComprehendServiceType = 'ComprehendService'
-      |'ComprehendMedicalService'
-
-export type VirtualVisitUsageType = 'CHIME'
-      |'INTELLIGENT_FORM_READER'
-      |'SENTIMENT_ANALYSIS'
-      |'KEY_PHRASE_EXTRACTION'
-      |'ENTITY_DETECTION'
-
-export type VirtualVisitVisitRegion = 'us-east-1'
-      |'us-east-2'
-      |'us-west-1'
-      |'us-west-2'
-      |'af-south-1'
-      |'ap-east-1'
-      |'ap-south-1'
-      |'ap-northeast-1'
-      |'ap-northeast-2'
-      |'ap-northeast-3'
-      |'ap-southeast-1'
-      |'ap-southeast-2'
-      |'ca-central-1'
-      |'eu-central-1'
-      |'eu-west-1'
-      |'eu-west-2'
-      |'eu-west-3'
-      |'eu-south-1'
-      |'eu-north-1'
-      |'me-south-1'
-      |'sa-east-1'
-
-export type MobileSecurityMobilePlatform = 'Android'
-      |'iOS'
-
-export type MobileSecurityPolicyRuleValueType = 'Boolean'
-      |'Text'
-      |'TextList'
-
-export type MobileSecurityPolicySeverityLevel = 'Warn'
-      |'Error'
-      |'Critical'
-      |'Info'
-
-export type MobileSecurityPolicyType = 'JailbrokenDevice'
-      |'MinimumOsVersion'
-      |'MaximumOsVersion'
-      |'MinimumSecurityPatchVersion'
-      |'ManInMiddle'
-      |'MinimumAppVersion'
-      |'MininumAppVersion'
-      |'MaximumAppVersion'
-      |'DevicePasscode'
-      |'BlockedDeviceList'
-      |'BlockCustomKeyboard'
-      |'BlockFileBackup'
-      |'Block3dTouch'
-      |'Screenshot'
-      |'LogScreenshot'
-      |'LogEmail'
-      |'LogPhonecall'
-      |'LogTextmessage'
-      |'LogPolicyResult'
-      |'BlockMicrophone'
-      |'BlockCamera'
-      |'MalwareDetection'
-      |'DisableUrlCaching'
-      |'MaxOffline'
-      |'LogoutAfterRestart'
-      |'LogoutOnBiometricChange'
-      |'BlockOsSharing'
-      |'BrowserUriScheme'
-      |'CheckBiometric'
-      |'BlockContacts'
-      |'BlockCalendar'
-      |'PhonecallUriScheme'
-      |'AllowedDeviceList'
-      |'LogCertPin'
-
-export type LearningAchievementType = 'LearningCourse'
-      |'LearningProgram'
-      |'AchievementGroup'
-      |'Skill'
-      |'Custom'
-
-export type RecordAlertDataSourceType = 'APEX'
-      |'BusinessRulesEngine'
-
-export type ExtensionPointName = 'Commerce_Domain_Cart_Calculate'
-      |'Commerce_Domain_Tax_CartCalculator'
-      |'Commerce_Domain_Inventory_CartCalculator'
-      |'Commerce_Domain_Promotions_CartCalculator'
-      |'Commerce_Domain_Pricing_CartCalculator'
-      |'Commerce_Domain_Shipping_CartCalculator'
-      |'Commerce_Domain_Inventory_Service'
-      |'Commerce_Domain_Pricing_Service'
-      |'Commerce_Domain_Tax_Service'
-      |'Commerce_Domain_Checkout_CreateOrder'
-      |'Commerce_Domain_Shipping_SplitShipment'
-      |'Product_Inventory_CheckInventory'
-      |'CommerceDx_Pricing'
-      |'CommerceDx_Inventory'
-      |'CommerceDx_TicketProcessing'
-      |'Commerce_Integration_B2CEOrderImport'
-      |'Cart_Prices_Extension'
-      |'Checkout_CartSummary_ComputePromotions'
-      |'Checkout_CartSummary_PriceCart'
-      |'Checkout_Update_CalcCartSummary'
-      |'Checkout_CartSummary_Inventory'
-      |'Commerce_Domain_OrderManagement_Product'
-      |'CommerceDx_Endpoint_PricingSample_Service'
-      |'CommerceDx_Endpoint_InventorySample_Service'
-      |'Commerce_Endpoint_Account_Addresses'
-      |'Commerce_Endpoint_Account_Address'
-      |'Commerce_Endpoint_Catalog_Products'
-      |'Commerce_Endpoint_Catalog_Product'
-      |'Commerce_Endpoint_Search_Products'
-      |'Commerce_Endpoint_Search_ProductSearch'
-      |'Commerce_Endpoint_Search_ProductsByCategory'
-
-export type RegistryProviderType = 'Price'
-      |'Promotions'
-      |'Inventory'
-      |'Shipment'
-      |'Tax'
-      |'Extension'
-
-export type MappingBehaviorType = 'PointInTime'
-      |'CurrentValue'
-
-export type MobileSecurityCertPinType = 'AuthServer'
-      |'Resource'
-
-export type SemanticModelQueryUnrelatedDataObjectsType = 'EXCEPTION'
-      |'UNION'
-
-export type ActionableListSourceType = 'CrmAnalytics'
-      |'DataCloudPlatform'
-
-export type DatasetColumnDataType = 'Dimensions'
-      |'Dates'
-      |'Measures'
-
-export type DatatableDataType = 'Boolean'
-      |'Currency'
-      |'Date'
-      |'DateTime'
-      |'Email'
-      |'Location'
-      |'Number'
-      |'Percent'
-      |'Phone'
-      |'Text'
-      |'Url'
-
-export type ProviderSearchObjectMapping = 'HealthcareProvider'
-      |'HealthcarePractitionerFacility'
-
-export type SourceSystemFieldRole = 'NotApplicable'
-      |'Patient'
-      |'ServiceProvider'
-      |'RemoteMonitoringPatient'
-      |'RemoteMonitoringDevice'
-
-export type CareLimitTypeMetricType = 'Money'
-      |'Percentage'
-      |'Amount'
-      |'Text'
-
-export type AssessmentConfigurationOption = 'Send'
-
-export type AssessmentType = 'DiscoveryFramework'
-
-export type SchedulingRuleType = 'M'
-      |'B'
-      |'W'
-      |'A'
-      |'RestTimeMinutes'
-      |'Q'
-      |'C'
-      |'LimitNonstandardShifts'
-
-export type SchedulingParameterKey = 'L'
-      |'R'
-      |'W'
-      |'T'
-      |'C'
-      |'ConsiderAbsence'
-      |'ConsiderSTM'
-
-export type CareProviderAfflType = 'HospitalAffiliation'
-
-export type AssociationType = 'BranchManagement'
-
-export type AssociationEventType = 'Create'
-      |'Update'
-
-export type AssociationStatusType = 'Draft'
-      |'Active'
-      |'Inactive'
-
-export type SemanticDefinitionType = 'DATA_OBJECT'
-      |'RELATIONSHIP'
-      |'CALCULATED_DIMENSION'
-      |'CALCULATED_MEASUREMENT'
-
-export type SemanticCalculatedDimensionDataType = 'TEXT'
-      |'DATE'
-      |'DATETIME'
-      |'IMAGE'
-      |'BOOLEAN'
-      |'GEO'
-      |'NUMBER'
-
-export type SemanticDisplayType = 'DISCRETE'
-      |'CONTINUOUS'
-
-export type SemanticGeoRoleType = 'AIRPORT'
-      |'AREA_CODE'
-      |'CBSA_MSA'
-      |'CITY'
-      |'CONGRESSIONAL'
-      |'DISTRICT'
-      |'REGION'
-      |'COUNTRY'
-      |'NUTS'
-      |'LATITUDE'
-      |'LONGITUDE'
-      |'PROVINCE'
-      |'STATE'
-      |'ZIP_CODE'
-
-export type SemanticSortingType = 'ASCENDING'
-      |'DESCENDING'
-      |'NONE'
-
-export type SemanticAggregationType = 'SUM'
-      |'AVERAGE'
-      |'MIN'
-      |'MAX'
-      |'MEDIAN'
-      |'COUNT_DISTINCT'
-      |'COUNT'
-      |'STDDEV'
-      |'STDDEVP'
-      |'VAR'
-      |'VARP'
-      |'LAST'
-      |'FIRST'
-      |'USER_AGG'
-      |'NONE'
-
-export type SemanticCalculatedMeasurementDataType = 'DURATION'
-      |'NUMBER'
-      |'PERCENTAGE'
-
-export type SemanticDirectionalityType = 'UP'
-      |'DOWN'
-
-export type SemanticDataObjectType = 'DMO'
-      |'CIO'
-
-export type SemanticRelationshipJoinType = 'AUTO'
-      |'LEFT'
-      |'RIGHT'
-      |'INNER'
-      |'FULL'
-
-export type ShiftSegmentTypeCategory = 'Work'
-      |'Break'
-      |'NonWork'
-
-export type ACPStatus = 'New'
-      |'Pending'
-      |'Deployed'
-
-export type ApexCodeUnitStatus = 'Inactive'
-      |'Active'
-      |'Deleted'
-
-export type ContentAssetFormat = 'Original'
-      |'ZippedVersions'
-
-export type ContentAssetAccess = 'VIEWER'
-      |'COLLABORATOR'
-      |'INFERRED'
-
-export type DataPipelineType = 'Pig'
-
-export type DiscoveryAlgorithmType = 'Glm'
-      |'Gbm'
-      |'Xgboost'
-      |'Drf'
-      |'Best'
-
-export type DiscoveryModelFieldType = 'Text'
-      |'Number'
-      |'Date'
-
-export type DiscoveryModelRuntimeType = 'Discovery'
-      |'H2O'
-      |'Py36Tensorflow244'
-      |'Py37Tensorflow270'
-      |'Py37Scikitlearn102'
-
-export type DiscoveryPredictionType = 'Unknown'
-      |'Regression'
-      |'Classification'
-      |'MulticlassClassification'
-
-export type DiscoveryModelSourceType = 'Discovery'
-      |'UserUpload'
-
-export type DiscoveryAIModelStatus = 'Disabled'
-      |'Uploading'
-      |'UploadFailed'
-      |'UploadCompleted'
-      |'Validating'
-      |'ValidationFailed'
-      |'ValidationCompleted'
-      |'Enabled'
-
-export type DiscoveryAIModelTransformationType = 'TypographicClustering'
-      |'SentimentAnalysis'
-      |'FreeTextClustering'
-      |'NumericalImputation'
-      |'CategoricalImputation'
-      |'TimeSeriesForecast'
-      |'ExtractMonthOfYear'
-      |'ExtractDayOfWeek'
-
-export type DiscoveryStoryAutopilotStatus = 'Enabled'
-      |'Disabled'
-
-export type DiscoveryStoryOutcomeGoal = 'Minimize'
-      |'Maximize'
-      |'None'
-
-export type DiscoveryStoryOutcomeType = 'Count'
-      |'Text'
-      |'Categorical'
-      |'Number'
-
-export type DiscoveryStorySourceType = 'AnalyticsDataset'
-      |'Report'
-      |'LiveDataset'
-
-export type DocumentGenerationMechanism = 'ClientSide'
-      |'ServerSide'
-
-export type DocumentTemplateStatus = 'Draft'
-      |'Active'
-      |'Archived'
-
-export type TargetTokenItemObject = 'OPPORTUNITY_LINE_ITEM'
-      |'ORDER_LINE_ITEM'
-      |'QUOTE_LINE_ITEM'
-
-export type TargetTokenObject = 'CONTRACT'
-      |'OPPORTUNITY'
-      |'ORDER'
-      |'QUOTE'
-
-export type TokenMappingMethodType = 'OmniDataTransform'
-      |'CustomClass'
-
-export type TokenMappingType = 'JSON'
-      |'SalesforceObject'
-
-export type DocumentTemplateType = 'Web'
-      |'MicrosoftWord'
-      |'MicrosoftPowerpoint'
-      |'Microsoft365Word'
-
-export type DocumentTemplateUsageType = 'Contract_Lifecycle_Management'
-      |'Tearsheets'
-
-export type EmailTemplateStyle = 'none'
-      |'freeForm'
-      |'formalLetter'
-      |'promotionRight'
-      |'promotionLeft'
-      |'newsletter'
-      |'products'
-
-export type EmailTemplateType = 'text'
-      |'html'
-      |'custom'
-      |'visualforce'
-
-export type EmailTemplateUiType = 'Aloha'
-      |'SFX'
-      |'SFX_Sample'
-
-export type PlatformSchemaContentType = string
-
-export type SControlContentSource = 'HTML'
-      |'URL'
-      |'Snippet'
-
-export type StaticResourceCacheControl = 'Private'
-      |'Public'
-
-export type FlexiPageType = 'AppPage'
-      |'ObjectPage'
-      |'RecordPage'
-      |'HomePage'
-      |'ForecastingPage'
-      |'MailAppAppPage'
-      |'CommAppPage'
-      |'CommForgotPasswordPage'
-      |'CommLoginPage'
-      |'CommObjectPage'
-      |'CommQuickActionCreatePage'
-      |'CommRecordPage'
-      |'CommRelatedListPage'
-      |'CommSearchResultPage'
-      |'CommGlobalSearchResultPage'
-      |'CommSelfRegisterPage'
-      |'CommThemeLayoutPage'
-      |'UtilityBar'
-      |'RecordPreview'
-      |'EmbeddedServicePage'
-      |'CommCheckoutPage'
-      |'CommOrderConfirmationPage'
-      |'CommFlowPage'
-      |'EmailTemplatePage'
-      |'ApplicationLayout'
-      |'CommNoSearchResultsPage'
-      |'CommElectronicSignaturePage'
-      |'CommContractDocumentsPage'
-      |'EmailContentPage'
-      |'ServiceDocument'
-      |'LandingPage'
-      |'CdpRecordPage'
-      |'SlackAppHome'
-      |'SlackMessage'
-      |'SlackModal'
-      |'SlackNotification'
-      |'EasyHomePage'
-      |'CardPage'
-      |'VoiceExtension'
-      |'ConfiguratorAppPage'
-      |'OmniSupervisorPage'
-
-export type ViewTargetType = 'slack'
-
-export type AuthoringMode = 'OmniScriptForm'
-      |'Microsoft365Word'
-      |'OmniScriptAndMcrsft365Wrd'
-
-export type DiscoveryFieldMapSourceType = 'SalesforceField'
-      |'AnalyticsDatasetField'
-
-export type DiscoveryFilterOperator = 'Equal'
-      |'NotEqual'
-      |'GreaterThan'
-      |'GreaterThanOrEqual'
-      |'LessThan'
-      |'LessThanOrEqual'
-      |'Between'
-      |'NotBetween'
-      |'InSet'
-      |'NotIn'
-      |'Contains'
-      |'StartsWith'
-      |'EndsWith'
-      |'IsNull'
-      |'IsNotNull'
-
-export type DiscoveryFilterFieldType = 'Text'
-      |'Number'
-      |'Date'
-      |'DateTime'
-      |'Boolean'
-
-export type DiscoveryFilterValueType = 'Constant'
-      |'PlaceHolder'
-
-export type DiscoveryOutcomeGoal = 'Minimize'
-      |'Maximize'
-      |'None'
-
-export type DiscoveryPushbackType = 'AiRecordInsight'
-      |'Direct'
-
-export type GenerationMechanism = 'ClientSide'
-      |'ServerSide'
-
-export type PreviewType = 'PDF'
-      |'Thumbnail'
-
-export type DupeActionType = 'Allow'
-      |'Block'
-
-export type DupeSecurityOptionType = 'EnforceSharingRules'
-      |'BypassSharingRules'
-
-export type ConfigType = 'AnchorString'
-      |'SignerRoles'
-      |'SyncFileSizeLimit'
-      |'CalloutTimeout'
-      |'EnvelopesLastPollDate'
-      |'CalloutNamedCredential'
-      |'eSignVendorAccountId'
-      |'RecipientsCustomClass'
-      |'DocumentsCustomClass'
-
-export type ConfigGroup = 'AnchorTabSetting'
-      |'EnvelopeObjectLimits'
-      |'CalloutConfigurationSetup'
-      |'Envelope'
-      |'eSignVendorAccount'
-      |'CustomClassSetting'
-
-export type Vendor = 'DocuSign'
-
-export type EmailServicesAttOptions = 'None'
-      |'TextOnly'
-      |'BinaryOnly'
-      |'All'
-      |'NoContent'
-
-export type EmailServicesErrorAction = 'UseSystemDefault'
-      |'Bounce'
-      |'Discard'
-      |'Requeue'
-
-export type EmbeddedServiceAuthMethod = 'CommunitiesLogin'
-      |'CustomLogin'
-
-export type EmbeddedServiceDeploymentFeature = 'None'
-      |'EmbeddedMessaging'
-      |'LiveAgent'
-      |'Flows'
-      |'FieldService'
-
-export type EmbeddedServiceDeploymentType = 'Web'
-      |'Mobile'
-
-export type EmbeddedServiceComponentBundleType = 'AuraDefinitionBundle'
-      |'LightningComponentBundle'
-
-export type EmbeddedServiceCustomComponentType = 'LA_Prechat'
-      |'LA_Minimized'
-      |'LA_PlainTextChatMessage'
-      |'LA_ChatHeader'
-      |'MIAW_Prechat'
-      |'MIAW_Header'
 
 export type EmbeddedServiceFeature = 'NotInUse'
       |'Base'
@@ -2952,8 +1778,8 @@ export type EmbeddedServiceLabelKey = 'LA_Container_Base_Close'
       |'EM_Container_Base_SystemMessageTransferRequestSuccess'
       |'EM_Container_Base_SystemMessageTransferRequestFailure'
       |'EM_Container_Base_SystemMessageTransferRequestTryAgain'
-      |'EM_Chat_ChatBody_AgentTypingIndicatorAssistiveText'
-      |'EM_Chat_ChatBody_ChatbotTypingIndicatorAssistiveText'
+      |'EM_Chat_ChatBody_AgentTypingIndicator'
+      |'EM_Chat_ChatBody_ChatbotTypingIndicator'
       |'EM_Container_Base_InputFooterTextAreaPlaceholderOnlyParticipant'
       |'EM_Container_Base_AgentJoinAnnouncement'
       |'EM_Container_Base_AgentLeaveAnnouncement'
@@ -3039,6 +1865,1922 @@ export type EmbeddedServiceLabelKey = 'LA_Container_Base_Close'
       |'EM_Chat_Carousels_PreviousCardButtonAssistiveText'
       |'EM_Chat_Carousels_NextCardButtonAssistiveText'
       |'EM_Chat_Carousels_CarouselDescriptionAssistiveText'
+      |'EM_Container_Base_InputFooterTextAreaPlaceHolderAwaitingResponse'
+      |'EM_Chat_FileTransfer_AttachedFilesAssistiveText'
+      |'EM_Chat_FileTransfer_RemoveAttachmentButton'
+      |'EM_Container_Base_InputFooterSendButton'
+      |'EM_Container_Base_InputFooterTextAreaAssistiveLabelText'
+      |'EM_Chat_FileTransfer_SendFileAttachmentAssistiveText'
+      |'EM_Fallback_FallbackMessage'
+      |'EM_Container_Base_EndSession'
+      |'EM_Container_Base_EndUserEndedChatText'
+      |'EM_Container_Base_AgentEndedChatText'
+      |'EM_Container_Base_ChatbotEndedChatText'
+      |'EM_Container_Error_GenericError'
+      |'EM_Chat_InboundNewMessageScreenReaderText'
+      |'EM_Chat_OutboundNewMessageScreenReaderText'
+      |'EM_Chat_MessageCitationSourcesSectionText'
+      |'EM_Chat_ChatBody_StreamingTokenValidationSystemMessage'
+      |'EM_Chat_ChatBody_StreamingTokenValidationMessageFooterText'
+      |'EM_Container_Base_SSEConnectionTryAgainNotification'
+      |'EM_Container_Base_StartNewConversationNotification'
+      |'EM_Container_Base_SSEConnectionTryAgainButtonText'
+      |'EM_Container_Base_StartNewConversationButtonText'
+      |'EM_Container_Base_EventSourceUnavailable'
+      |'EM_Container_Base_ConferenceHeaderText'
+      |'EM_Chat_ChatBody_ReadByAll'
+      |'EM_Chat_ChatBody_MultiAgentTypingIndicator'
+      |'EM_Container_Invitation_DialogHeader'
+      |'EM_Container_Invitation_Window'
+      |'EM_Chat_ChatBody_QueuePositionText'
+      |'EM_Container_Base_AgentUnavailableText'
+      |'EM_Container_Base_StartNewMessagingSessionButtonText'
+      |'EM_Container_Base_CwcMinimizedState'
+      |'EM_Container_Base_CwcConversationEnded'
+      |'EM_Container_Base_CwcLoading'
+      |'EM_Chat_ChatBody_QueuePositionPlaceholderText'
+
+export type CCRDType = 'Loss'
+      |'Expense'
+
+export type ClmCategoryUsageType = 'DisclosureCategory'
+      |'ContractClauseCategory'
+
+export type MappingOperation = 'Autofill'
+      |'Overwrite'
+
+export type CleanRuleStatus = 'Inactive'
+      |'Active'
+
+export type AuthType = 'SfdcXi'
+      |'HttpBasic'
+      |'MutualSsl'
+      |'Hmac'
+      |'C2c'
+      |'C2cCloud'
+      |'None'
+
+export type CloudServiceProviderApiType = 'Licenses'
+      |'Tenants'
+      |'Management'
+      |'Snapshots'
+      |'LicenseDefinitions'
+      |'TenantTrusts'
+      |'Usage'
+      |'Feature'
+      |'TenantProvsnProduct'
+      |'TenantProvsnProductLicenseInfo'
+      |'DigitalWalletProvisioning'
+      |'DigitalWalletConsumption'
+
+export type ProvisioningAutomationType = 'Manual'
+      |'EntitlementOnly'
+      |'Auto'
+
+export type AggregatorName = 'Bandwidth'
+      |'Inteliquent'
+      |'Sinch'
+      |'Twilio'
+      |'Vonage'
+      |'MessageBird'
+      |'Plivo'
+      |'Telnyx'
+
+export type CodeFeature = 'ServiceCloudVoice'
+      |'ServiceCloudNative'
+
+export type CodeProvider = 'Bandwidth'
+      |'Inteliquent'
+      |'Sinch'
+
+export type CodeProvisioningStatus = 'UNKNOWN'
+      |'WAITING'
+      |'IN_PROGRESS'
+      |'DONE'
+      |'FAILED'
+      |'PENDING_ATTACHMENTS'
+      |'IN_QUEUE'
+      |'APPROVED'
+      |'REJECTED'
+      |'PENDING'
+
+export type CodeStatus = 'Requested'
+      |'Allocated'
+      |'Provisioning'
+      |'Live'
+      |'Cancelled'
+      |'Inventory'
+      |'Attrition'
+      |'Suspended'
+      |'Imported'
+      |'Verifying'
+
+export type CodeSubType = 'Arbitrary'
+      |'Vanity'
+      |'TENDLC'
+      |'International'
+      |'TollFree'
+      |'Preregistered'
+      |'Dynamic'
+
+export type CommunicationChannelLineType = 'ShortCode'
+      |'LongCode'
+      |'AlphaNumeric'
+
+export type RegulatoryStatus = 'CampaignInProgress'
+      |'CampaignSuccessful'
+      |'CampaignFailed'
+      |'TollFreeVerificationInProgress'
+      |'TollFreeVerificationSuccessful'
+      |'TollFreeVerificationFailed'
+      |'TaxRegistration'
+
+export type SourceCountryCode = 'US'
+      |'CA'
+      |'MX'
+
+export type ModelEntityType = 'QA'
+      |'ARTICLE'
+      |'CASE'
+
+export type ModelStatus = 'PUBLISHED'
+      |'DARK_LAUNCHED'
+      |'REJECTED'
+      |'PHASED_OUT'
+      |'VERIFIED'
+      |'NO_MODEL'
+
+export type CommunityBaseTemplate = 'c'
+
+export type CommunityTemplateBundleInfoType = 'Highlight'
+      |'PreviewImage'
+
+export type CommunityTemplateCategory = 'IT'
+      |'Marketing'
+      |'Sales'
+      |'Service'
+      |'Commerce'
+
+export type CommunityThemeLayoutType = 'Login'
+      |'Home'
+      |'Inner'
+      |'ServiceNotAvailable'
+
+export type AccessMethod = 'Get'
+      |'Post'
+
+export type CanvasLocationOptions = 'None'
+      |'Chatter'
+      |'UserProfile'
+      |'Visualforce'
+      |'Aura'
+      |'Publisher'
+      |'ChatterFeed'
+      |'ServiceDesk'
+      |'OpenCTI'
+      |'AppLauncher'
+      |'MobileNav'
+      |'PageLayout'
+
+export type CanvasOptions = 'HideShare'
+      |'HideHeader'
+      |'PersonalEnabled'
+
+export type SamlInitiationMethod = 'None'
+      |'IdpInitiated'
+      |'SpInitiated'
+
+export type DevicePlatformType = 'ios'
+      |'android'
+
+export type DeviceType = 'phone'
+      |'tablet'
+      |'minitablet'
+
+export type ConnectedAppOauthAccessScope = 'Basic'
+      |'Api'
+      |'Web'
+      |'Full'
+      |'Chatter'
+      |'CustomApplications'
+      |'RefreshToken'
+      |'OpenID'
+      |'Profile'
+      |'Email'
+      |'Address'
+      |'Phone'
+      |'OfflineAccess'
+      |'CustomPermissions'
+      |'Wave'
+      |'Eclair'
+      |'Pardot'
+      |'Lightning'
+      |'Content'
+      |'CDPIngest'
+      |'CDPProfile'
+      |'CDPQuery'
+      |'Chatbot'
+      |'CDPSegment'
+      |'CDPIdentityResolution'
+      |'CDPCalculatedInsight'
+      |'ForgotPassword'
+      |'UserRegistration'
+      |'SFAP'
+      |'Interaction'
+      |'CDP'
+      |'EinsteinGPT'
+      |'PwdlessLogin'
+
+export type SamlEncryptionType = 'AES_128'
+      |'AES_256'
+      |'Triple_Des'
+
+export type SamlIdpSLOBinding = 'RedirectBinding'
+      |'PostBinding'
+
+export type SamlNameIdFormatType = 'Unspecified'
+      |'EmailAddress'
+      |'Persistent'
+      |'Transient'
+
+export type SamlSigningAlgoType = 'SHA1'
+      |'SHA256'
+
+export type SamlSubjectType = 'Username'
+      |'FederationId'
+      |'UserId'
+      |'SpokeId'
+      |'CustomAttribute'
+      |'PersistentId'
+
+export type BannerFontFamily = 'Serif'
+      |'SansSerif'
+      |'Cursive'
+      |'Fantasy'
+      |'SystemUi'
+      |'UiSerif'
+      |'UiSansSerif'
+      |'UiMonospace'
+      |'UiRounded'
+      |'Fangsong'
+
+export type BannerPosition = 'Top'
+      |'Bottom'
+
+export type ContextMappingIntentType = 'hydration'
+      |'association'
+      |'persistence'
+      |'translation'
+
+export type ContextAttributeDataType = 'string'
+      |'number'
+      |'boolean'
+      |'date'
+      |'datetime'
+      |'percent'
+      |'picklist'
+      |'currency'
+      |'reference'
+      |'selfreference'
+      |'lookup'
+
+export type ContextAttributeFieldType = 'input'
+      |'output'
+      |'inputoutput'
+      |'aggregate'
+
+export type ContextMappingConfigUsageType = 'Claim'
+      |'CaseIntakeForm'
+      |'DiseaseDefinition'
+
+export type ContextMappingType = 'Hydration'
+      |'Persistence'
+
+export type ContextUseCaseType = 'ContractCreationOrUpdation'
+      |'ContractExtraction'
+
+export type ContractConfigType = 'ContractDocumentDownloadOption'
+      |'WordTrackChangesDisplayColor'
+      |'InclWordTrackChgReconciliation'
+      |'InclWordTrackChgSectionContent'
+      |'CreateDocSectionsDocxTemplates'
+      |'AutoGenDocOnContractCreation'
+      |'AutoGenerateDocFileType'
+      |'ContractSignedStatus'
+      |'ContractSignatureDeclinedSts'
+      |'NotifyDocTemplateVerChgStatus'
+      |'DocuSignUseAccountDefaultNtfcn'
+      |'DocuSignReminderEnabled'
+      |'DocuSignReminderDelayinDays'
+      |'DocuSignReminderFrequency'
+      |'DocuSignExpireEnabled'
+      |'DocuSignExpiresAfter'
+      |'DocuSignExpireWarning'
+      |'DocuSignAccountBrand'
+      |'Append0ToAutoNbrEmbeddedSect'
+      |'DocumentFileNameFormat'
+      |'DefaultTemplateName'
+      |'AutoGenDocOnContractUpdate'
+      |'ContractSignatureVoidedStatus'
+      |'ContractSignatureExpiredStatus'
+      |'TrackContractRedlines'
+      |'DocumentTemplateFilterClass'
+      |'EmailNotificationOnDocumentGeneration'
+      |'ImportTargetContractStatus'
+      |'ActivateObligationsBasedOnContractStatus'
+      |'ExternalReviewRequired'
+      |'InternalReviewRequired'
+      |'CompareContractVersionsEnabled'
+      |'PrivateExternalReviewCompletionSite'
+      |'CheckInDocFileType'
+
+export type ContractUsageType = 'DocumentSetting'
+      |'Reconciliation'
+      |'SignatureSetting'
+      |'Redlining'
+      |'ObligationSetting'
+
+export type ConvIntelligenceActionType = 'LaunchNBA'
+      |'LaunchFlow'
+      |'AlertSupervisor'
+      |'AlertSupervisorAndAgent'
+
+export type ConvParticipantRole = 'Agent'
+      |'Customer'
+      |'AgentOrCustomer'
+
+export type ConvIntelligenceService = 'AmazonConnectContactLens'
+      |'KeywordMatch'
+      |'CXoneAgentAssistService'
+      |'VonageConversationalInsights'
+      |'EinsteinConversationIntelligenceSignals'
+
+export type ConvIntelligenceOperator = 'Equals'
+      |'NotEquals'
+      |'LessThan'
+      |'GreaterThan'
+      |'In'
+
+export type ConvIntelligenceType = 'Category'
+      |'Keyword'
+      |'AgentSentiment'
+      |'CustomerSentiment'
+      |'Intent'
+
+export type RefreshFrequency = 'NO_REFRESH'
+      |'MONTHLY'
+
+export type ReportStatus = 'NEW'
+      |'TRAINING'
+      |'COMPLETED'
+      |'ERROR'
+      |'NOT_ENOUGH_DATA_AFTER_PARSING'
+      |'NOT_ENOUGH_DATA_WITH_CONTACT_REASON'
+      |'LOW_CLUSTER_QUALITY'
+
+export type SegmentationType = 'NO_FILTER'
+      |'SINGLE_OBJECT_FILTER'
+      |'CROSS_OBJECT_FILTER'
+
+export type CustomChannelConnectedAppType = 'Partner'
+      |'Customer'
+
+export type ConsentOwner = 'Salesforce'
+      |'Partner'
+
+export type RoutingOwner = 'Salesforce'
+      |'Partner'
+
+export type ConversationMessageConstantType = 'Title'
+      |'Url'
+      |'Image'
+      |'Options'
+      |'SubTitle'
+      |'Custom'
+
+export type ConversationMessageConstantValueType = 'Text'
+      |'Url'
+      |'ImageAsset'
+
+export type ConversationMessageValueType = 'Text'
+      |'Boolean'
+      |'Integer'
+      |'Double'
+      |'Date'
+      |'DateTime'
+      |'Url'
+      |'RecordId'
+      |'ImageId'
+      |'Composite'
+
+export type ConversationMessageContentCategory = 'Response'
+      |'Reminder'
+      |'Feedback'
+      |'OrderUpdate'
+      |'AccountUpdate'
+      |'PromotionalOutreach'
+      |'Authentication'
+
+export type ConversationMessageHandlerType = 'QuickAction'
+      |'AuthProvider'
+      |'PaymentProvider'
+      |'Attachment'
+      |'Survey'
+      |'ApexFormProvider'
+
+export type ConvMsgExternalErrorCode = 'InvalidParameter'
+      |'IntegrityError'
+      |'InternalError'
+      |'PublishError'
+      |'DeprecationError'
+      |'MetricsThresholdNotReached'
+      |'InvalidAccessToken'
+      |'ValidationError'
+      |'Other'
+      |'OutOfSync'
+
+export type ConvMsgExternalRejectionReason = 'AbusiveContent'
+      |'IncorrectCategory'
+      |'InvalidFormat'
+      |'Scam'
+      |'Other'
+
+export type ConvMsgExternalTemplateVersionStatus = 'Pending'
+      |'Rejected'
+      |'Approved'
+      |'Paused'
+      |'Disabled'
+      |'InAppeal'
+      |'PendingDeletion'
+      |'Deleted'
+      |'LimitExceeded'
+      |'Blocked'
+      |'OutOfSync'
+
+export type ConvMsgExternalTemplateVersionType = 'Legacy'
+      |'Template'
+      |'Flow'
+
+export type ConversationMessageFormatType = 'Text'
+      |'Attachments'
+      |'RichLink'
+      |'Media'
+      |'Buttons'
+      |'Carousel'
+      |'QuickReplies'
+      |'ListPicker'
+      |'TimePicker'
+      |'EncryptedOAuthToken'
+      |'Application'
+      |'Inputs'
+      |'WebView'
+      |'Payment'
+      |'ExternalTemplate'
+      |'Flow'
+
+export type ConversationMessageCollectionType = 'None'
+      |'StaticList'
+      |'DynamicList'
+
+export type ConversationMessageMergeFieldType = 'ListTemplate'
+
+export type ConversationMessageLayoutValueType = 'Literal'
+      |'MediaAsset'
+      |'CompositeType'
+      |'SourceSobjectFieldValue'
+      |'SourceSobjectFormula'
+      |'SourcePrimitiveValue'
+      |'SourceCompositeType'
+      |'FormulaTemplate'
+      |'SourceSobjectField'
+
+export type ConversationMessageType = 'StaticContent'
+      |'Choices'
+      |'Form'
+      |'AuthenticationRequest'
+      |'PaymentRequest'
+
+export type ConversationMessageOptionsParameterType = 'RecordIdOptions'
+      |'TimeSlotOptions'
+      |'CustomPrimitiveOptions'
+      |'CustomCompositeOptions'
+
+export type ConversationMessageParameterType = 'RecordIds'
+      |'CustomPrimitive'
+      |'CustomComposite'
+
+export type ConversationMessageDefinitionType = 'RecordView'
+      |'RecordPicker'
+      |'Picklist'
+      |'TimePicker'
+      |'Link'
+      |'CustomMessage'
+      |'CustomPicker'
+      |'LegacyPicker'
+      |'AuthenticationRequest'
+      |'Action'
+      |'AutoResponse'
+      |'PaymentRequest'
+      |'Notification'
+      |'ApexForm'
+
+export type ClientAuthMode = 'SSO'
+      |'Custom'
+      |'Mixed'
+
+export type ServerAuthMode = 'OAuth'
+      |'None'
+
+export type ConversationVendorType = 'ServiceCloudVoicePartner'
+      |'Amazon_Connect'
+      |'BringYourOwnChannelPartner'
+      |'BringYourOwnContactCenter'
+
+export type CspTrustedSiteContext = 'All'
+      |'LEX'
+      |'Communities'
+      |'FieldServiceMobileExtension'
+      |'LightningOut'
+      |'VisualForce'
+
+export type FormFactor = 'Small'
+      |'Medium'
+      |'Large'
+
+export type ActionOverrideType = 'Default'
+      |'Standard'
+      |'Scontrol'
+      |'Visualforce'
+      |'Flexipage'
+      |'LightningComponent'
+
+export type NavType = 'Standard'
+      |'Console'
+
+export type UiType = 'Aloha'
+      |'Lightning'
+
+export type FieldType = 'AutoNumber'
+      |'Lookup'
+      |'MasterDetail'
+      |'Checkbox'
+      |'Currency'
+      |'Date'
+      |'DateTime'
+      |'Email'
+      |'Number'
+      |'Percent'
+      |'Phone'
+      |'Picklist'
+      |'MultiselectPicklist'
+      |'Text'
+      |'TextArea'
+      |'LongTextArea'
+      |'Html'
+      |'Url'
+      |'EncryptedText'
+      |'Summary'
+      |'Hierarchy'
+      |'File'
+      |'MetadataRelationship'
+      |'Location'
+      |'ExternalLookup'
+      |'IndirectLookup'
+      |'CustomDataType'
+      |'Time'
+      |'Address'
+      |'Array'
+      |'Integer'
+      |'Long'
+
+export type FeedItemVisibility = 'AllUsers'
+      |'InternalUsers'
+
+export type DeleteConstraint = 'Cascade'
+      |'Restrict'
+      |'SetNull'
+
+export type ElementType = 'Float'
+      |'Text'
+
+export type EncryptionScheme = 'None'
+      |'ProbabilisticEncryption'
+      |'CaseSensitiveDeterministicEncryption'
+      |'CaseInsensitiveDeterministicEncryption'
+
+export type FieldManageability = 'DeveloperControlled'
+      |'SubscriberControlled'
+      |'Locked'
+
+export type TreatBlanksAs = 'BlankAsBlank'
+      |'BlankAsZero'
+
+export type EncryptedFieldMaskChar = 'asterisk'
+      |'X'
+
+export type EncryptedFieldMaskType = 'all'
+      |'creditCard'
+      |'ssn'
+      |'lastFour'
+      |'sin'
+      |'nino'
+
+export type DefinitionCreationType = 'Standard'
+      |'Custom'
+      |'System'
+      |'Derived'
+      |'Bridge'
+      |'Curated'
+      |'Segment_Membership'
+      |'Calculated_Insight'
+      |'Ml_Prediction'
+      |'Activation_Audience'
+      |'CG_Audience'
+      |'Ad_Audience_Insights'
+      |'Transform'
+      |'ADG'
+      |'External'
+      |'Vector_Embedding'
+      |'Chunk'
+      |'Directory_Table'
+      |'Semantic'
+      |'Problem_Records'
+      |'Clean_Room'
+      |'Deletion_Records'
+      |'Auxiliary'
+
+export type UsageTag = 'NONE'
+      |'KEY_QUALIFIER'
+
+export type InvalidMergeActionType = 'Drop'
+      |'Keep'
+      |'Override'
+
+export type MappingAlertType = 'None'
+      |'Warning'
+      |'Error'
+
+export type MktDataModelFieldUsageTag = 'None'
+      |'KeyQualifier'
+
+export type SummaryOperations = 'count'
+      |'sum'
+      |'min'
+      |'max'
+
+export type NotificationActionType = 'NotificationApiAction'
+      |'Share'
+
+export type Channel = 'AllChannels'
+      |'App'
+      |'Pkb'
+      |'Csp'
+      |'Prm'
+
+export type Template = 'Page'
+      |'Tab'
+      |'Toc'
+
+export type CustomSettingsType = 'List'
+      |'Hierarchy'
+
+export type DeploymentStatus = 'InDevelopment'
+      |'Deployed'
+
+export type PlatformEventType = 'HighVolume'
+      |'StandardVolume'
+      |'ExternalEvent'
+
+export type SharingModel = 'Private'
+      |'Read'
+      |'ReadSelect'
+      |'ReadWrite'
+      |'ReadWriteTransfer'
+      |'FullAccess'
+      |'ControlledByParent'
+      |'ControlledByLeadOrContact'
+      |'ControlledByCampaign'
+
+export type Gender = 'Neuter'
+      |'Masculine'
+      |'Feminine'
+      |'AnimateMasculine'
+      |'ClassI'
+      |'ClassIII'
+      |'ClassV'
+      |'ClassVII'
+      |'ClassIX'
+      |'ClassXI'
+      |'ClassXIV'
+      |'ClassXV'
+      |'ClassXVI'
+      |'ClassXVII'
+      |'ClassXVIII'
+
+export type PlatformEventPublishBehavior = 'PublishAfterCommit'
+      |'PublishImmediately'
+
+export type StartsWith = 'Consonant'
+      |'Vowel'
+      |'Special'
+
+export type SetupObjectVisibility = 'PackageProtected'
+      |'Protected'
+      |'Public'
+
+export type WebLinkAvailability = 'online'
+      |'offline'
+
+export type WebLinkDisplayType = 'link'
+      |'button'
+      |'massActionButton'
+
+export type Encoding = 'UTF-8'
+      |'ISO-8859-1'
+      |'Shift_JIS'
+      |'ISO-2022-JP'
+      |'EUC-JP'
+      |'ks_c_5601-1987'
+      |'Big5'
+      |'GB2312'
+      |'Big5-HKSCS'
+      |'x-SJIS_0213'
+
+export type WebLinkType = 'url'
+      |'sControl'
+      |'javascript'
+      |'page'
+      |'flow'
+
+export type WebLinkWindowType = 'newWindow'
+      |'sidebar'
+      |'noSidebar'
+      |'replace'
+      |'onClickJavaScript'
+
+export type WebLinkPosition = 'fullScreen'
+      |'none'
+      |'topLeft'
+
+export type Article = 'None'
+      |'Indefinite'
+      |'Definite'
+
+export type CaseType = 'Nominative'
+      |'Accusative'
+      |'Genitive'
+      |'Dative'
+      |'Inessive'
+      |'Elative'
+      |'Illative'
+      |'Adessive'
+      |'Ablative'
+      |'Allative'
+      |'Essive'
+      |'Translative'
+      |'Partitive'
+      |'Objective'
+      |'Subjective'
+      |'Instrumental'
+      |'Prepositional'
+      |'Locative'
+      |'Vocative'
+      |'Sublative'
+      |'Superessive'
+      |'Delative'
+      |'Causalfinal'
+      |'Essiveformal'
+      |'Termanative'
+      |'Distributive'
+      |'Ergative'
+      |'Adverbial'
+      |'Abessive'
+      |'Comitative'
+
+export type Possessive = 'None'
+      |'First'
+      |'Second'
+
+export type SiteClickjackProtectionLevel = 'AllowAllFraming'
+      |'External'
+      |'SameOriginOnly'
+      |'NoFraming'
+
+export type SiteRedirect = 'Permanent'
+      |'Temporary'
+
+export type SiteType = 'Siteforce'
+      |'Visualforce'
+      |'ChatterNetwork'
+      |'ChatterNetworkPicasso'
+
+export type ChartBackgroundDirection = 'TopToBottom'
+      |'LeftToRight'
+      |'Diagonal'
+
+export type ChartTheme = 'light'
+      |'dark'
+
+export type ChartColorPalettes = 'Default'
+      |'gray'
+      |'colorSafe'
+      |'unity'
+      |'justice'
+      |'nightfall'
+      |'sunrise'
+      |'bluegrass'
+      |'tropic'
+      |'heat'
+      |'dusk'
+      |'pond'
+      |'watermelon'
+      |'fire'
+      |'water'
+      |'earth'
+      |'accessible'
+
+export type DashboardFilterOperation = 'equals'
+      |'notEqual'
+      |'lessThan'
+      |'greaterThan'
+      |'lessOrEqual'
+      |'greaterOrEqual'
+      |'contains'
+      |'notContain'
+      |'startsWith'
+      |'includes'
+      |'excludes'
+      |'between'
+
+export type ChartRangeType = 'Auto'
+      |'Manual'
+
+export type ChartAxis = 'x'
+      |'y'
+      |'y2'
+      |'r'
+
+export type DashboardComponentType = 'Bar'
+      |'BarGrouped'
+      |'BarStacked'
+      |'BarStacked100'
+      |'Column'
+      |'ColumnGrouped'
+      |'ColumnStacked'
+      |'ColumnStacked100'
+      |'Line'
+      |'LineGrouped'
+      |'Pie'
+      |'Table'
+      |'Metric'
+      |'Gauge'
+      |'LineCumulative'
+      |'LineGroupedCumulative'
+      |'Scontrol'
+      |'VisualforcePage'
+      |'Donut'
+      |'Funnel'
+      |'ColumnLine'
+      |'ColumnLineGrouped'
+      |'ColumnLineStacked'
+      |'ColumnLineStacked100'
+      |'Scatter'
+      |'ScatterGrouped'
+      |'FlexTable'
+      |'Image'
+      |'RichText'
+      |'PulseMetric'
+
+export type Fit = 'tile'
+      |'stretch'
+      |'original'
+      |'fitwidth'
+      |'fitheight'
+
+export type HorizontalAlignment = 'left'
+      |'center'
+      |'right'
+
+export type VerticalAlignment = 'top'
+      |'center'
+      |'bottom'
+
+export type DashboardComponentFilter = 'RowLabelAscending'
+      |'RowLabelDescending'
+      |'RowValueAscending'
+      |'RowValueDescending'
+
+export type ChartUnits = 'Auto'
+      |'Integer'
+      |'Hundreds'
+      |'Thousands'
+      |'Millions'
+      |'Billions'
+      |'Trillions'
+
+export type DashboardComponentColumnType = 'aggregate'
+      |'detail'
+      |'grouping'
+
+export type ChartLegendPosition = 'Right'
+      |'Bottom'
+      |'OnChart'
+
+export type DashboardType = 'SpecifiedUser'
+      |'LoggedInUser'
+      |'MyTeamUser'
+
+export type DashboardComponentSize = 'Narrow'
+      |'Medium'
+      |'Wide'
+
+export type CalculatedInsightCreationType = 'Custom'
+      |'System'
+
+export type CalculatedInsightDefinitionType = 'CALCULATED_METRIC'
+      |'EXTERNAL_METRIC'
+      |'STREAMING_METRIC'
+      |'GRAPH_METRIC'
+      |'HISTORY_METRIC'
+      |'VIRTUAL_METRIC'
+
+export type DataConnectorCapability = 'Hidden'
+      |'DataIn'
+      |'DataInStructured'
+      |'DataInUnstructured'
+      |'DataOut'
+      |'ZeroCopyIn'
+      |'UniqueGroup'
+      |'DataInHeader'
+      |'DataInSelector'
+      |'DataInIncremental'
+      |'DataInDelete'
+
+export type DataConnectorDataType = 'CHECKBOX'
+      |'COMBOBOX'
+      |'RADIO'
+      |'RADIO_BUTTONS'
+      |'DATE'
+      |'DATETIME'
+      |'TIME'
+      |'EMAIL'
+      |'PASSWORD'
+      |'PASSWORD_FILE'
+      |'NUMBER'
+      |'TEXT'
+      |'TEXTAREA'
+      |'NAMED_CREDENTIAL'
+      |'IDP'
+      |'TOGGLE'
+      |'PRIVATE_NETWORK_ROUTE'
+
+export type TranslationAspect = 'Master'
+      |'RelationshipLabel'
+      |'Description'
+      |'Help'
+      |'NameFieldLabel'
+      |'ErrorMessage'
+      |'InfoMessage'
+      |'PausedText'
+      |'InputLabel'
+      |'NextOrFinishLabel'
+      |'BackLabel'
+      |'PauseLabel'
+      |'FirstName'
+      |'LastName'
+      |'MiddleName'
+      |'Salutation'
+      |'Suffix'
+      |'InformalName'
+      |'Title'
+      |'Phone'
+      |'Email'
+      |'Address'
+      |'Street'
+      |'City'
+      |'State'
+      |'StateCode'
+      |'PostalCode'
+      |'Country'
+      |'CountryCode'
+      |'Latitude'
+      |'Longitude'
+      |'Body'
+      |'Summary'
+      |'Url'
+      |'ActionButtonLink'
+      |'ActionButtonLabel'
+      |'DismissButtonLabel'
+      |'Header'
+      |'VideoLink'
+      |'ImageAltText'
+      |'ImageLink'
+      |'Custom'
+      |'DefaultValue'
+      |'Version'
+      |'AttributeName'
+      |'UsageType'
+      |'ProcessName'
+      |'GroupName'
+      |'Label'
+      |'ParameterValue'
+
+export type DataConnectorFeature = 'Hidden'
+      |'DataIn'
+      |'DataInStructured'
+      |'DataInUnstructured'
+      |'DataOut'
+      |'ZeroCopyIn'
+      |'DataInFrequentIngest'
+      |'FileBased'
+      |'FileBasedDataSync'
+      |'ObjectBased'
+      |'Streaming'
+      |'StaticSchema'
+      |'ReadonlyConnection'
+      |'Override'
+
+export type DataConnectorReleaseLevel = 'IN_DEV'
+      |'PILOT'
+      |'BETA'
+      |'GA'
+
+export type DataModelType = 'Source'
+      |'Transport'
+      |'Landing'
+      |'View'
+      |'Reference'
+
+export type AccelerationEnabled = 'YES'
+      |'NO'
+
+export type DataObjectType = 'Object'
+      |'Table'
+      |'Api'
+
+export type StorageType = 'LOCAL'
+      |'EXTERNAL'
+
+export type DataImportDataExtractMethods = 'FULL_REFRESH'
+      |'NUMERIC_CDC'
+      |'BINARY_CDC'
+      |'DATETIME_CDC'
+
+export type DataImportRefreshFrequency = 'NONE'
+      |'MINUTES_5'
+      |'MINUTES_15'
+      |'MINUTES_30'
+      |'HOURLY'
+      |'EVERY_4_HOURS'
+      |'EVERY_12_HOURS'
+      |'DAILY'
+      |'WEEKLY'
+      |'MONTHLY'
+      |'NOT_APPLICABLE'
+      |'BATCH'
+      |'STREAMING'
+
+export type DataImportRefreshMode = 'FULL_REFRESH'
+      |'UPSERT'
+      |'INCREMENTAL'
+      |'PARTIAL_UPDATE'
+      |'REPLACE'
+      |'NEAR_REAL_TIME_INCREMENTAL'
+      |'NOT_APPLICABLE'
+
+export type StreamType = 'INGEST'
+      |'DIRECT_ACCESS'
+      |'DIRECT_ACCESS_ACCELERATED'
+
+export type StreamingAppDataConnectorType = 'MobileApp'
+      |'WebApp'
+      |'ServerApp'
+
+export type ExpsSetProcessType = 'Bre'
+      |'TransactionJournal'
+      |'TierProcessing'
+      |'CustomLoyalty'
+      |'TestProcess'
+      |'AiAcceleratorSubscriberChurnPrediction'
+      |'DefaultPricing'
+      |'RecordAlert'
+      |'ShipAndDebit'
+      |'WarrantyClaim'
+      |'ProductQualification'
+      |'ProductCategoryQualification'
+      |'EventOrchestration'
+      |'ComplianceControl'
+      |'FinancialServicesCloud'
+      |'DefaultRating'
+      |'LoopingProcessing'
+      |'CreditPointsToMembers'
+      |'DebitPointsFromMembers'
+      |'UpdateMemberDetails'
+      |'IssueVoucher'
+      |'CancelVoucher'
+      |'EnrollInPromotion'
+      |'UnenrollMember'
+      |'GetMemberPromotions'
+      |'OptOutPromotion'
+      |'PricingDiscovery'
+      |'PriceProtection'
+      |'Constraint'
+      |'RatingDiscovery'
+      |'PlanCostCalculation'
+      |'GpaCalculation'
+      |'Timesheet'
+      |'FulfillmentCondition'
+      |'StudentSuccess'
+      |'DecompositionEnrichmentMapping'
+      |'CumulativeQuantity'
+      |'ItServiceManagement'
+      |'InsuranceClaimProcessing'
+      |'StudentInformationSystem'
+
+export type DecisionMatrixType = 'Standard'
+      |'Grouped'
+
+export type DecisionMatrixColumnType = 'Input'
+      |'Output'
+
+export type DecisionMatrixDataType = 'Text'
+      |'Number'
+      |'NumberRange'
+      |'TextRange'
+      |'Currency'
+      |'Percent'
+      |'Boolean'
+
+export type DecisionMatrixDefStatus = 'Draft'
+      |'Active'
+      |'Inactive'
+      |'InvalidDraft'
+      |'Obsolete'
+
+export type DecisionTableCollectOperator = 'None'
+      |'Sum'
+      |'Minimum'
+      |'Maximum'
+      |'Count'
+
+export type DecisionTableConditionType = 'All'
+      |'Any'
+      |'Custom'
+
+export type DecisionTableDataSourceType = 'SingleSobject'
+      |'MultipleSobjects'
+      |'CsvUpload'
+      |'ContextDefinition'
+
+export type DTParameterDataType = 'String'
+      |'Number'
+      |'Date'
+      |'Boolean'
+      |'Percent'
+      |'Currency'
+      |'DateTime'
+
+export type DecisionTableOperator = 'Equals'
+      |'NotEquals'
+      |'LessThan'
+      |'LessOrEqual'
+      |'GreaterThan'
+      |'GreaterOrEqual'
+      |'Matches'
+      |'ExistsIn'
+      |'DoesNotExistIn'
+      |'DoesNotMatch'
+      |'Contains'
+      |'IsNotNull'
+      |'IsNull'
+
+export type DecisionTableSortType = 'None'
+      |'AscNullFirst'
+      |'AscNullLast'
+      |'DescNullFirst'
+      |'DescNullLast'
+
+export type DecisionTableParameterType = 'INPUT'
+      |'ROWCRITERIA'
+      |'OUTPUT'
+
+export type DTSourceCriteriaOperator = 'Equals'
+      |'NotEquals'
+      |'GreaterThan'
+      |'GreaterOrEqual'
+      |'LessThan'
+      |'LessOrEqual'
+      |'Matches'
+      |'ExistsIn'
+      |'DoesNotExistIn'
+      |'Contains'
+      |'DoesNotMatch'
+      |'IsNotNull'
+      |'IsNull'
+
+export type DTSourceCriteriaValueType = 'Literal'
+      |'Parameter'
+      |'Picklist'
+      |'Formula'
+      |'Lookup'
+
+export type DecisionTableDownloadStatus = 'DownloadInProgress'
+      |'Completed'
+      |'Failed'
+
+export type DecisionTableExecutionType = 'Soql'
+      |'Hbpo'
+      |'Dmo'
+      |'Solr'
+      |'Hbase'
+
+export type DecisionTableHitPolicy = 'UniqueValues'
+      |'AnyValue'
+      |'Priority'
+      |'FirstMatch'
+      |'CollectOperator'
+      |'OutputOrder'
+      |'RuleOrder'
+
+export type DecisionTableRefreshStatus = 'Initiated'
+      |'Failed'
+      |'Completed'
+      |'InProgress'
+
+export type DecisionTableStatus = 'Draft'
+      |'Inactive'
+      |'Active'
+      |'ActivationInProgress'
+
+export type DecisionTableType = 'LowVolume'
+      |'HighVolume'
+      |'Advanced'
+      |'MediumVolume'
+      |'HighScaleExecution'
+      |'RealTime'
+
+export type DecisionTableUploadStatus = 'UploadInProgress'
+      |'Completed'
+      |'CompletedWithErrors'
+      |'Failed'
+
+export type FTestTopLevelSelection = 'SelOne'
+      |'SelTwo'
+      |'SelThree'
+
+export type SchedulingCategory = 'B'
+      |'A'
+
+export type SchedulingObjectiveType = 'AgentPreference'
+      |'BalanceShifts'
+      |'BalanceNonStandardShifts'
+      |'ASAP'
+      |'MinimizeGaps'
+      |'MinimizeOvertime'
+      |'MinimizeTravel'
+      |'PreferredResource'
+      |'ResourcePriority'
+      |'SameSite'
+      |'SkillLevel'
+      |'SkillPreferences'
+
+export type ObjectiveParameterKey = 'DaysBack'
+      |'DaysAhead'
+      |'PrioritizeResource'
+      |'MinimumGapDuration'
+      |'ResourcePriority'
+      |'SkillType'
+
+export type FTestOnOffSelection = 'On'
+      |'Off'
+
+export type FTestSeasonSelection = 'Spring'
+      |'Summer'
+      |'Autumn'
+      |'Winter'
+
+export type PipelineInspectionMetric = 'TotalPipeline'
+      |'ClosedWon'
+      |'Commit'
+      |'MostLikely'
+      |'BestCase'
+      |'OpenPipeline'
+      |'ClosedLost'
+      |'MovedIn'
+      |'MovedOut'
+
+export type VirtualVisitComprehendServiceType = 'ComprehendService'
+      |'ComprehendMedicalService'
+
+export type VirtualVisitUsageType = 'CHIME'
+      |'INTELLIGENT_FORM_READER'
+      |'SENTIMENT_ANALYSIS'
+      |'KEY_PHRASE_EXTRACTION'
+      |'ENTITY_DETECTION'
+
+export type VirtualVisitVisitRegion = 'us-east-1'
+      |'us-east-2'
+      |'us-west-1'
+      |'us-west-2'
+      |'af-south-1'
+      |'ap-east-1'
+      |'ap-south-1'
+      |'ap-northeast-1'
+      |'ap-northeast-2'
+      |'ap-northeast-3'
+      |'ap-southeast-1'
+      |'ap-southeast-2'
+      |'ca-central-1'
+      |'eu-central-1'
+      |'eu-west-1'
+      |'eu-west-2'
+      |'eu-west-3'
+      |'eu-south-1'
+      |'eu-north-1'
+      |'me-south-1'
+      |'sa-east-1'
+
+export type MobileSecurityMobilePlatform = 'Android'
+      |'iOS'
+
+export type MobileSecurityPolicyRuleValueType = 'Boolean'
+      |'Text'
+      |'TextList'
+
+export type MobileSecurityPolicySeverityLevel = 'Warn'
+      |'Error'
+      |'Critical'
+      |'Info'
+
+export type MobileSecurityPolicyType = 'JailbrokenDevice'
+      |'MinimumOsVersion'
+      |'MaximumOsVersion'
+      |'MinimumSecurityPatchVersion'
+      |'ManInMiddle'
+      |'MinimumAppVersion'
+      |'MininumAppVersion'
+      |'MaximumAppVersion'
+      |'DevicePasscode'
+      |'BlockedDeviceList'
+      |'BlockCustomKeyboard'
+      |'BlockFileBackup'
+      |'Block3dTouch'
+      |'Screenshot'
+      |'LogScreenshot'
+      |'LogEmail'
+      |'LogPhonecall'
+      |'LogTextmessage'
+      |'LogPolicyResult'
+      |'BlockMicrophone'
+      |'BlockCamera'
+      |'MalwareDetection'
+      |'DisableUrlCaching'
+      |'MaxOffline'
+      |'LogoutAfterRestart'
+      |'LogoutOnBiometricChange'
+      |'BlockOsSharing'
+      |'BrowserUriScheme'
+      |'CheckBiometric'
+      |'BlockContacts'
+      |'BlockCalendar'
+      |'PhonecallUriScheme'
+      |'AllowedDeviceList'
+      |'LogCertPin'
+      |'BlockEditingMenu'
+
+export type LearningAchievementType = 'LearningCourse'
+      |'LearningProgram'
+      |'AchievementGroup'
+      |'AchievementGroupAll'
+      |'Skill'
+      |'Custom'
+
+export type RecordAlertDataSourceType = 'APEX'
+      |'BusinessRulesEngine'
+
+export type ServicePlanSourceType = 'Case'
+      |'VoiceCall'
+      |'MessagingSession'
+
+export type ExtensionPointName = 'Commerce_Domain_Cart_Calculate'
+      |'Commerce_Domain_Tax_CartCalculator'
+      |'Commerce_Domain_Inventory_CartCalculator'
+      |'Commerce_Domain_Promotions_CartCalculator'
+      |'Commerce_Domain_Promotions_ShippingCalculator'
+      |'Commerce_Domain_Pricing_CartCalculator'
+      |'Commerce_Domain_Shipping_CartCalculator'
+      |'Commerce_Domain_Inventory_Service'
+      |'Commerce_Domain_Pricing_Service'
+      |'Commerce_Domain_Tax_Service'
+      |'Commerce_Domain_BuyerGroup_EvaluationService'
+      |'Commerce_Domain_Checkout_CreateOrder'
+      |'Commerce_Domain_Checkout_PlaceOrder'
+      |'Commerce_Domain_Shipping_SplitShipment'
+      |'Commerce_Domain_GiftCard_Adapter'
+      |'Product_Inventory_CheckInventory'
+      |'CommerceDx_Pricing'
+      |'CommerceDx_Inventory'
+      |'CommerceDx_TicketProcessing'
+      |'Commerce_Integration_B2CEOrderImport'
+      |'Cart_Prices_Extension'
+      |'Checkout_CartSummary_ComputePromotions'
+      |'Checkout_CartSummary_PriceCart'
+      |'Checkout_Update_CalcCartSummary'
+      |'Checkout_CartSummary_Inventory'
+      |'Commerce_Domain_OrderManagement_Product'
+      |'CommerceDx_Endpoint_PricingSample_Service'
+      |'CommerceDx_Endpoint_InventorySample_Service'
+      |'Commerce_Endpoint_Account_Addresses'
+      |'Commerce_Endpoint_Account_Address'
+      |'Commerce_Endpoint_Catalog_Products'
+      |'Commerce_Endpoint_Catalog_Product'
+      |'Commerce_Endpoint_Gift_Wraps'
+      |'Commerce_Endpoint_Search_Products'
+      |'Commerce_Endpoint_Search_ProductSearch'
+      |'Commerce_Endpoint_Search_ProductsByCategory'
+      |'Commerce_Endpoint_Cart_ItemCollection'
+      |'Commerce_Endpoint_Cart_Item'
+
+export type RegistryProviderType = 'Price'
+      |'Promotions'
+      |'Inventory'
+      |'Shipment'
+      |'Tax'
+      |'Extension'
+
+export type CustomFieldDisplayType = 'Dropdown'
+      |'ColorSwatch'
+      |'Pill'
+
+export type SupportedChannel = 'Email'
+      |'Sms'
+      |'WhatsApp'
+
+export type MappingBehaviorType = 'PointInTime'
+      |'CurrentValue'
+
+export type RRADJctObjFilterLogic = 'And'
+      |'Or'
+      |'Custom'
+
+export type RelatedRecordAccessDefShareTo = 'Internal'
+      |'External'
+      |'All'
+
+export type RRADSourceObjFilterLogic = 'And'
+      |'Or'
+      |'Custom'
+
+export type RelatedRecordAccessDefStatus = 'Draft'
+      |'Active'
+      |'Inactive'
+
+export type RRADTargetObjFilterLogic = 'And'
+      |'Or'
+      |'Custom'
+
+export type RRAFObjectType = 'Source'
+      |'Target'
+      |'Junction'
+
+export type RRAFOperator = 'Equal'
+      |'Not_Equal'
+      |'Starts_With'
+      |'Contains'
+      |'Does_Not_Contain'
+      |'Less_Than'
+      |'Greater_Than'
+      |'Less_Or_Equal'
+      |'Greater_Or_Equal'
+      |'Include'
+      |'Exclude'
+      |'Within'
+
+export type ObjectAccessLevel = 'Edit'
+      |'Read'
+      |'None'
+
+export type MobileSecurityCertPinType = 'AuthServer'
+      |'Resource'
+
+export type ActionableListSourceType = 'CrmAnalytics'
+      |'DataCloudPlatform'
+
+export type ActionableListType = 'RetailStoreList'
+      |'HealthcareProviderList'
+
+export type DatasetColumnDataType = 'Dimensions'
+      |'Dates'
+      |'Measures'
+
+export type DatatableDataType = 'Boolean'
+      |'Currency'
+      |'Date'
+      |'DateTime'
+      |'Email'
+      |'Location'
+      |'Number'
+      |'Percent'
+      |'Phone'
+      |'Text'
+      |'Url'
+
+export type ProviderSearchObjectMapping = 'HealthcareProvider'
+      |'HealthcarePractitionerFacility'
+
+export type SourceSystemFieldRole = 'NotApplicable'
+      |'Patient'
+      |'ServiceProvider'
+      |'RemoteMonitoringPatient'
+      |'RemoteMonitoringDevice'
+
+export type CareLimitTypeMetricType = 'Money'
+      |'Percentage'
+      |'Amount'
+      |'Text'
+
+export type AssessmentConfigurationOption = 'Send'
+
+export type AssessmentType = 'DiscoveryFramework'
+
+export type SchedulingRuleType = 'M'
+      |'B'
+      |'W'
+      |'A'
+      |'RestTimeMinutes'
+      |'Q'
+      |'C'
+      |'LimitNonstandardShifts'
+      |'Count'
+      |'ExcludedResources'
+      |'ExtendedMatch'
+      |'MatchBoolean'
+      |'MatchFields'
+      |'MatchTime'
+      |'MaximumTravelFromHome'
+      |'RequiredResources'
+      |'ServiceAppointmentVisitingHours'
+      |'MatchCrewSize'
+      |'TimeSlotDesignatedWork'
+      |'CapacityLimit'
+      |'WorkingLocations'
+
+export type SchedulingParameterKey = 'L'
+      |'R'
+      |'W'
+      |'T'
+      |'C'
+      |'ConsiderAbsence'
+      |'ConsiderSTM'
+      |'CountTimeResolution'
+      |'CountType'
+      |'CountObject'
+      |'CustomFieldName'
+      |'DefaultLimit'
+      |'ResourceProperty'
+      |'ServiceAppointmentMatchingField'
+      |'EnhancedMatchLinkingObject'
+      |'ServiceLinkingObjectReferenceField'
+      |'IsTimeBound'
+      |'WorkRuleStartDateTimeField'
+      |'WorkRuleEndDateTimeField'
+      |'ValueIsTrue'
+      |'ServiceProperty'
+      |'BooleanOperator'
+      |'IsSkillLevelMatched'
+      |'SkillType'
+      |'MatchingSkillsOperator'
+      |'ServiceScheduleTimeProperty'
+      |'ServiceTimeOperator'
+      |'ServiceTimeProperty'
+      |'CanPassEmptyValues'
+      |'MaximumTravelFromHomeType'
+      |'MaximumTravelFromHome'
+      |'AreCrewResourcesAvailable'
+      |'IsFixedGap'
+      |'MinimumGap'
+      |'BreakStart'
+      |'BreakDuration'
+      |'IsOvertimeEnabled'
+      |'TravelFromHome'
+      |'TravelToHome'
+      |'IsPrimaryLocationEnabled'
+      |'MaximumExtraResourcesForCrews'
+
+export type CareProviderAfflType = 'HospitalAffiliation'
+
+export type AssociationType = 'BranchManagement'
+
+export type AssociationEventType = 'Create'
+      |'Update'
+
+export type AssociationStatusType = 'Draft'
+      |'Active'
+      |'Inactive'
+
+export type ShiftSegmentTypeCategory = 'Work'
+      |'Break'
+      |'NonWork'
+
+export type DgtAssetMgmtPrvdLghtCpntType = 'NONE'
+      |'DIGITAL_ASSET_MANAGER'
+
+export type ManagedContentSpaceModuleStatusEnum = 'ENABLED'
+      |'DISABLED'
+      |'ERROR'
+      |'INVALID'
+      |'STANDBY'
+      |'NOT_INSTALLED'
+
+export type ACPStatus = 'New'
+      |'Pending'
+      |'Deployed'
+
+export type ApexCodeUnitStatus = 'Inactive'
+      |'Active'
+      |'Deleted'
+
+export type ContentAssetFormat = 'Original'
+      |'ZippedVersions'
+
+export type ContentAssetAccess = 'VIEWER'
+      |'COLLABORATOR'
+      |'INFERRED'
+
+export type DataPipelineType = 'Pig'
+
+export type DiscoveryAlgorithmType = 'Glm'
+      |'Gbm'
+      |'Xgboost'
+      |'Drf'
+      |'Best'
+
+export type DiscoveryModelFieldType = 'Text'
+      |'Number'
+      |'Date'
+
+export type DiscoveryModelRuntimeType = 'Discovery'
+      |'H2O'
+      |'Py36Tensorflow244'
+      |'Py37Tensorflow270'
+      |'Py37Scikitlearn102'
+
+export type DiscoveryPredictionType = 'Unknown'
+      |'Regression'
+      |'Classification'
+      |'MulticlassClassification'
+
+export type DiscoveryModelSourceType = 'Discovery'
+      |'UserUpload'
+
+export type DiscoveryAIModelStatus = 'Disabled'
+      |'Uploading'
+      |'UploadFailed'
+      |'UploadCompleted'
+      |'Validating'
+      |'ValidationFailed'
+      |'ValidationCompleted'
+      |'Enabled'
+
+export type DiscoveryAIModelTransformationType = 'TypographicClustering'
+      |'SentimentAnalysis'
+      |'FreeTextClustering'
+      |'NumericalImputation'
+      |'CategoricalImputation'
+      |'TimeSeriesForecast'
+      |'ExtractMonthOfYear'
+      |'ExtractDayOfWeek'
+
+export type DiscoveryStoryAutopilotStatus = 'Enabled'
+      |'Disabled'
+
+export type DiscoveryStoryOutcomeGoal = 'Minimize'
+      |'Maximize'
+      |'None'
+
+export type DiscoveryStoryOutcomeType = 'Count'
+      |'Text'
+      |'Categorical'
+      |'Number'
+
+export type DiscoveryStorySourceType = 'AnalyticsDataset'
+      |'Report'
+      |'LiveDataset'
+
+export type DocumentGenerationMechanism = 'ClientSide'
+      |'ServerSide'
+
+export type DocumentTemplateStatus = 'Draft'
+      |'Active'
+      |'Archived'
+
+export type TargetTokenItemObject = 'OPPORTUNITY_LINE_ITEM'
+      |'ORDER_LINE_ITEM'
+      |'QUOTE_LINE_ITEM'
+
+export type TargetTokenObject = 'CONTRACT'
+      |'OPPORTUNITY'
+      |'ORDER'
+      |'QUOTE'
+
+export type TokenMappingMethodType = 'OmniDataTransform'
+      |'CustomClass'
+      |'ContextService'
+
+export type TokenMappingType = 'JSON'
+      |'SalesforceObject'
+
+export type DocumentTemplateType = 'Web'
+      |'MicrosoftWord'
+      |'MicrosoftPowerpoint'
+      |'Microsoft365Word'
+      |'HTMLArchive'
+      |'GoogleDocs'
+
+export type DocumentTemplateUsageType = 'Contract_Lifecycle_Management'
+      |'Tearsheets'
+      |'Revenue_Lifecycle_Management'
+      |'Invoice'
+
+export type EmailTemplateStyle = 'none'
+      |'freeForm'
+      |'formalLetter'
+      |'promotionRight'
+      |'promotionLeft'
+      |'newsletter'
+      |'products'
+
+export type EmailTemplateType = 'text'
+      |'html'
+      |'custom'
+      |'visualforce'
+
+export type EmailTemplateUiType = 'Aloha'
+      |'SFX'
+      |'SFX_Sample'
+
+export type PlatformSchemaContentType = 'Json'
+
+export type SControlContentSource = 'HTML'
+      |'URL'
+      |'Snippet'
+
+export type StaticResourceCacheControl = 'Private'
+      |'Public'
+
+export type FlexiPageType = 'AppPage'
+      |'ObjectPage'
+      |'RecordPage'
+      |'HomePage'
+      |'ForecastingPage'
+      |'MailAppAppPage'
+      |'CommAppPage'
+      |'CommForgotPasswordPage'
+      |'CommLoginPage'
+      |'CommObjectPage'
+      |'CommQuickActionCreatePage'
+      |'CommRecordPage'
+      |'CommRelatedListPage'
+      |'CommSearchResultPage'
+      |'CommGlobalSearchResultPage'
+      |'CommSelfRegisterPage'
+      |'CommThemeLayoutPage'
+      |'UtilityBar'
+      |'RecordPreview'
+      |'EmbeddedServicePage'
+      |'CommCheckoutPage'
+      |'CommOrderConfirmationPage'
+      |'CommFlowPage'
+      |'EmailTemplatePage'
+      |'ApplicationLayout'
+      |'CommNoSearchResultsPage'
+      |'CommElectronicSignaturePage'
+      |'CommContractDocumentsPage'
+      |'CommContractDetailViewPage'
+      |'EmailContentPage'
+      |'ServiceDocument'
+      |'LandingPage'
+      |'CdpRecordPage'
+      |'SlackAppHome'
+      |'SlackMessage'
+      |'SlackModal'
+      |'SlackNotification'
+      |'EasyHomePage'
+      |'CardPage'
+      |'VoiceExtension'
+      |'ConfiguratorAppPage'
+      |'OmniSupervisorPage'
+      |'MobileAppPage'
+
+export type ViewTargetType = 'slack'
+
+export type AuthoringMode = 'OmniScriptForm'
+      |'Microsoft365Word'
+      |'OmniScriptAndMcrsft365Wrd'
+      |'GoogleDocs'
+      |'OmniscriptAndGoogleDocs'
+
+export type DiscoveryFieldMapSourceType = 'SalesforceField'
+      |'AnalyticsDatasetField'
+
+export type DiscoveryFilterOperator = 'Equal'
+      |'NotEqual'
+      |'GreaterThan'
+      |'GreaterThanOrEqual'
+      |'LessThan'
+      |'LessThanOrEqual'
+      |'Between'
+      |'NotBetween'
+      |'InSet'
+      |'NotIn'
+      |'Contains'
+      |'StartsWith'
+      |'EndsWith'
+      |'IsNull'
+      |'IsNotNull'
+
+export type DiscoveryFilterFieldType = 'Text'
+      |'Number'
+      |'Date'
+      |'DateTime'
+      |'Boolean'
+
+export type DiscoveryFilterValueType = 'Constant'
+      |'PlaceHolder'
+
+export type DiscoveryOutcomeGoal = 'Minimize'
+      |'Maximize'
+      |'None'
+
+export type DiscoveryPushbackType = 'AiRecordInsight'
+      |'Direct'
+
+export type GenerationMechanism = 'ClientSide'
+      |'ServerSide'
+
+export type PreviewType = 'PDF'
+      |'Thumbnail'
+
+export type DupeActionType = 'Allow'
+      |'Block'
+
+export type DupeSecurityOptionType = 'EnforceSharingRules'
+      |'BypassSharingRules'
+
+export type ConfigType = 'AnchorString'
+      |'SignerRoles'
+      |'SyncFileSizeLimit'
+      |'CalloutTimeout'
+      |'EnvelopesLastPollDate'
+      |'CalloutNamedCredential'
+      |'eSignVendorAccountId'
+      |'RecipientsCustomClass'
+      |'DocumentsCustomClass'
+
+export type ConfigGroup = 'AnchorTabSetting'
+      |'EnvelopeObjectLimits'
+      |'CalloutConfigurationSetup'
+      |'Envelope'
+      |'eSignVendorAccount'
+      |'CustomClassSetting'
+
+export type Vendor = 'DocuSign'
+
+export type EmailServicesAttOptions = 'None'
+      |'TextOnly'
+      |'BinaryOnly'
+      |'All'
+      |'NoContent'
+
+export type EmailServicesErrorAction = 'UseSystemDefault'
+      |'Bounce'
+      |'Discard'
+      |'Requeue'
+
+export type EmbeddedServiceAuthMethod = 'CommunitiesLogin'
+      |'CustomLogin'
+
+export type EmbeddedServiceDeploymentFeature = 'None'
+      |'EmbeddedMessaging'
+      |'LiveAgent'
+      |'Flows'
+      |'FieldService'
+
+export type EmbeddedServiceDeploymentType = 'Web'
+      |'Mobile'
+      |'API'
+      |'InternalCopilot'
+
+export type EmbeddedServiceComponentBundleType = 'AuraDefinitionBundle'
+      |'LightningComponentBundle'
+
+export type EmbeddedServiceCustomComponentType = 'LA_Prechat'
+      |'LA_Minimized'
+      |'LA_PlainTextChatMessage'
+      |'LA_ChatHeader'
+      |'MIAW_Prechat'
+      |'MIAW_Header'
+      |'MIAW_TextMessage'
 
 export type EmbeddedServiceResourceType = 'SettingsFile'
       |'ChatInvitation'
@@ -3049,7 +3791,37 @@ export type EmbeddedServiceFlowType = 'FL_Flow'
       |'FS_CancelAppointment'
       |'LA_Survey'
 
+export type EmbeddedServiceFormDisplayContext = 'None'
+      |'Conversation'
+      |'Session'
+
+export type EmbeddedServiceFormFieldType = 'Text'
+      |'Email'
+      |'Phone'
+      |'Number'
+      |'Checkbox'
+      |'ChoiceList'
+
+export type MessagingChannelParameterType = 'Standard'
+      |'Custom'
+
 export type EmbeddedServiceLayoutType = 'FS_AppointmentHome'
+
+export type EswInvitationConditionResource = 'SecondsOnPage'
+      |'SecondsOnSite'
+      |'NumberOfPageViews'
+      |'UrlMatch'
+      |'CustomVariable'
+
+export type EswInvitationConditionOperator = 'Equals'
+      |'NotEqual'
+      |'LessThan'
+      |'GreaterThan'
+      |'LessOrEqual'
+      |'GreaterOrEqual'
+      |'Contains'
+      |'NotContain'
+      |'StartWith'
 
 export type EmbeddedServiceQuickActionType = 'Prechat'
       |'OfflineCase'
@@ -3068,6 +3840,47 @@ export type EmbeddedServiceChannelType = 'EmbeddedServiceConfig'
       |'CustomURL'
       |'EmbeddedMessaging'
 
+export type EmployeeUseCaseMethod = 'Get'
+      |'Post'
+      |'Put'
+      |'Patch'
+      |'Delete'
+
+export type EmployeeUseCaseStatus = 'Draft'
+      |'Inactive'
+      |'Active'
+
+export type EnablementAggregationType = 'Sum'
+      |'Count'
+      |'Average'
+
+export type EnablementFilterOperator = 'Equals'
+      |'DoesNotContain'
+      |'DoesNotEqual'
+      |'IsNull'
+      |'In'
+      |'NotIn'
+      |'GreaterThan'
+      |'GreaterThanOrEqual'
+      |'LessThan'
+      |'LessThanOrEqual'
+      |'Contains'
+      |'StartsWith'
+      |'EndsWith'
+
+export type EnblProgramMeasureStatus = 'Draft'
+      |'Published'
+      |'Archived'
+
+export type ProgramExtContentDefProvider = 'Trailhead'
+
+export type EnblCompositeMilestoneType = 'Addition'
+      |'Division'
+      |'Percentage'
+
+export type ProgramTaskDefCategory = 'Exercise'
+      |'Milestone'
+
 export type MilestoneTimeUnits = 'Minutes'
       |'Hours'
       |'Days'
@@ -3078,6 +3891,7 @@ export type EventDeliveryType = 'StartFlow'
 export type EventRelayAdminState = 'RUN'
       |'STOP'
       |'PAUSE'
+      |'DELETE'
 
 export type EventRelayUsageType = 'AMAZON_EVENTBRIDGE'
       |'INTERNAL_MANAGED_SUBSCRIPTIONS'
@@ -3086,6 +3900,9 @@ export type EventRelayUsageType = 'AMAZON_EVENTBRIDGE'
 export type ExperienceContainerType = 'SFS'
       |'SAPP'
       |'TEST'
+      |'LEX'
+      |'SCMA'
+      |'SAPPMOBILEHOME'
 
 export type ActionLogSchemaType = 'Other'
       |'ExpressionSet'
@@ -3097,20 +3914,10 @@ export type EASAppType = 'PublicSector'
       |'IndustriesPricing'
       |'OmniAnalytics'
       |'ActionableEventOrch'
-
-export type EmtUsageType = 'Bre'
-      |'TransactionJournal'
-      |'TierProcessing'
-      |'CustomLoyalty'
-      |'TestProcess'
-      |'AiAcceleratorSubscriberChurnPrediction'
-      |'DefaultPricing'
-      |'RecordAlert'
-      |'ShipAndDebit'
-      |'WarrantyClaim'
-      |'ProductQualification'
-      |'ProductCategoryQualification'
-      |'FinancialServicesCloud'
+      |'IndustriesDroOrderProcess'
+      |'Compliance'
+      |'EducationCloud'
+      |'PatientServicesProgram'
 
 export type EvaluationResult = 'Passed'
       |'Failed'
@@ -3127,10 +3934,30 @@ export type ExpressionSetStepType = 'Calculation'
       |'ListEnabledGroup'
       |'ListFilter'
 
+export type ExpsSetExecutionScale = 'Low'
+      |'High'
+
 export type ExpsSetInterfaceSourceType = 'PricingProcedure'
       |'QualificationProcedure'
       |'Sample'
       |'EventOrchestration'
+      |'RatingProcedure'
+      |'DiscoveryProcedure'
+      |'Constraint'
+      |'RatingDiscoveryProcedure'
+      |'GpaCalculationProcedure'
+      |'Bre'
+      |'ItServiceManagement'
+
+export type ResourceInitializationType = 'Default'
+      |'Off'
+
+export type ExpsSetUsageSubtype = 'SampleSubtype1'
+      |'SampleSubtype2'
+      |'SampleSubtype3'
+      |'AcadTermRgstrTmln'
+      |'LearningRules'
+      |'DefaultStudentInformationSystem'
 
 export type ExpsSetStatus = 'Draft'
       |'Active'
@@ -3172,6 +3999,8 @@ export type BusinessKnowledgeModel = 'CreditPoints'
       |'RecordAlert'
       |'AutomatedClaimsProcessingValidation'
       |'EvaluateQualification'
+      |'EvaluateCategoryQualification'
+      |'EvaluateCategoryDisqualification'
       |'SampleBusinessElementWithContext'
       |'EvaluateDisqualification'
       |'SampleDynamicCustomElement'
@@ -3182,20 +4011,70 @@ export type BusinessKnowledgeModel = 'CreditPoints'
       |'Proration'
       |'BundleDiscount'
       |'ListGroup'
-      |'ListFee'
       |'StopPricing'
       |'PromotionsDiscount'
       |'RoundingValues'
       |'VolumeTierDiscount'
       |'SampleCustomElementWithExpressionAndListFilter'
       |'PricingSettings'
-      |'ListRate'
       |'ApexAction'
-      |'RateAdjustmentMatrix'
       |'DerivedPricing'
       |'RecordAction'
       |'IntegrationOrchestration'
       |'FormulaBasedPricing'
+      |'ComplianceCheck'
+      |'DiscountDistributionService'
+      |'RatingVolumeDiscount'
+      |'BaseRate'
+      |'RatingAttributeDiscount'
+      |'RatingSetting'
+      |'RuleFetch'
+      |'MapProduct'
+      |'AssetDiscovery'
+      |'RatingTierDiscount'
+      |'AssignmentElement'
+      |'ComplianceControlLog'
+      |'CommercePricing'
+      |'MinimumPrice'
+      |'FormulaBasedRating'
+      |'GroupingAndAggregateRating'
+      |'RatingRoundingValues'
+      |'StopRating'
+      |'ManualRatingDiscount'
+      |'RateAdjustmentMatrix'
+      |'RateAssignment'
+      |'PriceGuidance'
+      |'RateCardResolution'
+      |'RateCardEntryResolution'
+      |'RateAdjustmentByTierResolution'
+      |'Constraint'
+      |'RateAdjustmentByAttributeResolution'
+      |'ApexListAction'
+      |'TermGpaCalculation'
+      |'TermGpaReporting'
+      |'MultiRecipientProductQualification'
+      |'NegotiatedRateCardEntryResolution'
+      |'UpsertRecord'
+      |'NegotiatedBaseRate'
+      |'BreakdownLineMapping'
+      |'NegotiatedTierAdjustment'
+      |'NegotiatedVolumeAdjustment'
+      |'DiscoverySettings'
+      |'IssueExtendedReward'
+      |'GetCustomerPromotionAttrValue'
+      |'UpdateCustomerPromotionAttrValue'
+      |'CalculateQuantity'
+      |'BindingObjectRateCardEntryResolution'
+      |'BindingObjectRateAdjustmentResolution'
+      |'PricingPropagation'
+      |'PriceRevision'
+      |'AteprlRecordCreator'
+      |'PromotionExecution'
+      |'AssignmentRuleCustomUser'
+      |'AssignmentRuleCustomQueue'
+      |'CommitmentAdjustment'
+      |'RatingBreakdownLineMapping'
+      |'DynamicRulesExecutor'
 
 export type ExpsSetConditionOperator = 'Equals'
       |'NotEquals'
@@ -3256,9 +4135,22 @@ export type ExpsSetVariableType = 'Variable'
       |'Constant'
       |'Formula'
       |'ExecutableContextDefinitionTag'
+      |'ContextDynamicAttributeTag'
 
 export type ExpsSetObjectDataType = 'sObject'
       |'JSON'
+
+export type BotProvider = 'Custom'
+      |'GoogleCCAI'
+
+export type ChannelMode = 'Messaging'
+      |'Voice'
+
+export type ExternalBotType = 'Chatbot'
+
+export type ExtConvParticipantIntegDefStatus = 'Active'
+      |'Inactive'
+      |'Deleted'
 
 export type ApplicationSourceType = 'REPLY_RECOMMENDATION'
       |'ARTICLE_RECOMMENDATION'
@@ -3267,15 +4159,53 @@ export type ApplicationSourceType = 'REPLY_RECOMMENDATION'
       |'EAR_FOR_CONVERSATION'
       |'USE_CASE_EXPLORER'
       |'EAR_FOR_VOICE'
+      |'COPILOT_UTTERANCE_ANALYSIS'
+      |'COPILOT_UTTERANCE_ANALYSIS_AGGREGATION'
+      |'COPILOT_UTTERANCE_ANALYSIS_PROCESSING'
+      |'AGENTFORCE_INTERACTION_EXPLORER_MOMENT_GENERATION'
+      |'AGENTFORCE_INTERACTION_EXPLORER_CLUSTERING'
       |'FTEST'
 
 export type ExternalModelStatus = 'ENABLED'
       |'DISABLED'
       |'PAUSED'
 
+export type IdentityProviderAuthFlow = 'AuthorizationCode'
+      |'ClientCredentials'
+      |'JwtBearer'
+      |'SalesforceDefined'
+
+export type IdentityProviderAuthProtocol = 'OAuth'
+      |'SalesforceDefined'
+
+export type ExtlIdentityProviderParmType = 'AuthorizeUrl'
+      |'TokenUrl'
+      |'UrlQueryParameter'
+      |'HttpHeader'
+      |'ClientCertificate'
+      |'SigningCertificate'
+      |'RequestBodyParameter'
+      |'JwtBodyClaim'
+      |'JwtHeaderClaim'
+      |'CreatedByNamespace'
+      |'UserInfoUrl'
+      |'ClientAuthentication'
+      |'IdentityProviderOptions'
+      |'AuthorizeRequestQueryParameter'
+      |'TokenRequestQueryParameter'
+      |'TokenRequestBodyParameter'
+      |'TokenRequestHttpHeader'
+      |'RefreshRequestQueryParameter'
+      |'RefreshRequestBodyParameter'
+      |'RefreshRequestHttpHeader'
+      |'StandardExternalIdentityProvider'
+      |'ManagedByFeature'
+      |'ManagedByComponent'
+
 export type ExtlClntAppDistState = 'Local'
       |'Packaged'
       |'Managed'
+      |'AutoInstalled'
 
 export type ExtlClntAppManagedType = 'Local'
       |'Global'
@@ -3296,13 +4226,10 @@ export type AuthenticationProtocol = 'NoAuthentication'
       |'Basic'
 
 export type ExternalCredentialParamType = 'ParameterGroup'
+      |'ExternalAuthIdentityProvider'
       |'AuthProvider'
       |'AuthProviderUrl'
       |'AuthProviderUrlQueryParameter'
-      |'AuthProviderHttpHeader'
-      |'AuthProviderHttpCookie'
-      |'AuthProviderClientCertificate'
-      |'AuthProviderServerCertificate'
       |'SigningCertificate'
       |'FormulaVariable'
       |'AuthProviderAuthParameter'
@@ -3310,6 +4237,8 @@ export type ExternalCredentialParamType = 'ParameterGroup'
       |'NamedPrincipal'
       |'PerUserPrincipal'
       |'AwsStsPrincipal'
+      |'GlobalNamedPrincipal'
+      |'SystemUserPrincipal'
       |'AuthContext'
       |'AuthQueryParameter'
       |'AuthHeader'
@@ -3317,10 +4246,15 @@ export type ExternalCredentialParamType = 'ParameterGroup'
       |'JwtBodyClaim'
       |'JwtHeaderClaim'
       |'CreatedByNamespace'
+      |'AdditionalRefreshStatusCode'
+      |'ManagedByFeature'
+      |'ManagedByComponent'
+      |'SfHttpRequestExtensionName'
 
 export type DataConnectionStatus = 'Connected'
       |'Failed'
       |'Disconnected'
+      |'NeedsReAuthentication'
 
 export type DataConnectorType = 'SalesforceMarketingCloud'
       |'SalesforceCommerceCloud'
@@ -3332,6 +4266,7 @@ export type DataConnectorType = 'SalesforceMarketingCloud'
       |'IngestApi'
       |'SalesforceInteractionStudio'
       |'CuratedEntity'
+      |'DataCloud'
       |'GoogleCloudStorage'
       |'AzureBlob'
       |'ExternalPlatform'
@@ -3355,7 +4290,8 @@ export type ExternalPrincipalType = 'Anonymous'
       |'NamedUser'
       |'UserWithImpersonation'
 
-export type ExternalDataSourceType = 'Alert'
+export type ExternalDataSourceType = 'AFPPAttribute'
+      |'Alert'
       |'AmazonAthena'
       |'AmazonDynamoDb'
       |'ASPAttribute'
@@ -3374,6 +4310,9 @@ export type ExternalDataSourceType = 'Alert'
       |'bcpRecAccApproval'
       |'bcpRecordAccess'
       |'bcpRelParticipant'
+      |'ClaimAttributeDS'
+      |'ClaimItemAttributeDS'
+      |'ContentHubAWSS3'
       |'ContentHubBox'
       |'ContentHubGDrive'
       |'contentHubItem'
@@ -3384,20 +4323,25 @@ export type ExternalDataSourceType = 'Alert'
       |'ContentHubSharepointOffice365'
       |'ContentHubSharepointOneDrive'
       |'CryptoTrEnvChgLogSnp'
+      |'CtrtGrpPlnAttr'
+      |'CtrtGrpPlnGrpClsAttr'
       |'Datacloud'
       |'Datajourney'
+      |'DataMapperDS'
       |'Engagement'
       |'ExternalEvent'
-      |'ExternalKnowledge'
       |'FAAttribute'
       |'FLAttribute'
+      |'FlexCardDS'
       |'Ftest'
       |'GraphQl'
       |'IAItemProdtAttr'
       |'Identity'
       |'InsPolicyAttribute'
+      |'IntegrationProcdDS'
       |'IPAAttribute'
       |'IPCAttribute'
+      |'IPCvrBnftAttribute'
       |'IPPAttribute'
       |'Jigsaw'
       |'MbrPromotionsViewDS'
@@ -3405,34 +4349,39 @@ export type ExternalDataSourceType = 'Alert'
       |'OData4'
       |'OData401'
       |'OIAttribute'
+      |'OmniScriptDS'
       |'OpenSearch'
+      |'OtbdEngmtTmplDS'
       |'outgoingemail'
+      |'PrivacyCenterOrArchiveDataStore'
       |'PromoRuleTempDS'
       |'QLIAttribute'
       |'Salesforce'
       |'SAPAttribute'
       |'SciApi'
+      |'SdbOvenPODataSource'
       |'SelectableEmailAddressView'
       |'SfdcOrg'
       |'SimpleURL'
       |'Snowflake'
       |'TrailheadEditWithId'
-      |'Trino'
       |'usermobileconfig'
       |'usrconnectionstatus'
       |'Wrapper'
 
 export type StorageDriveType = 'MicrosoftOneDrive'
+      |'GoogleDrive'
 
 export type TargetObject = 'All'
       |'Contract'
       |'DocumentTemplate'
       |'Disclosure'
+      |'InfoLibraryExternalDocument'
 
-export type ExternalServiceRegistrationProviderType = 'MuleSoft'
+export type ExtlClntAppStartPage = 'None'
       |'Custom'
-      |'SchemaInferred'
-      |'Standard'
+      |'OAuth'
+      |'SAML'
 
 export type ScreenLockTimeout = 'Never'
       |'One'
@@ -3443,6 +4392,9 @@ export type ScreenLockTimeout = 'Never'
       |'OneTwenty'
       |'OneEighty'
       |'TwoForty'
+
+export type JWTSessionTimeoutType = 'UserSession'
+      |'Custom'
 
 export type PermittedUsersPolicyType = 'AllSelfAuthorized'
       |'AdminApprovedPreAuthorized'
@@ -3459,9 +4411,41 @@ export type SessionSecurityLevel = 'LOW'
       |'STANDARD'
       |'HIGH_ASSURANCE'
 
+export type ApplePushEnvironmentType = 'Sandbox'
+      |'Production'
+
+export type PushServiceType = 'Apple'
+      |'Android'
+
+export type ExtlClntAppSamlEncryptType = 'AES_128'
+      |'AES_256'
+
+export type ExtlClntAppNameIdFormatType = 'Unspecified'
+      |'EmailAddress'
+      |'Persistent'
+      |'Transient'
+
+export type ExtlClntAppSamlSignAlgoType = 'SHA1'
+      |'SHA256'
+
+export type ExtlClntAppSamlBindingType = 'RedirectBinding'
+      |'PostBinding'
+
+export type ExtlClntAppSamlSubjectType = 'Username'
+      |'FederationId'
+      |'UserId'
+      |'SpokeId'
+      |'CustomAttribute'
+      |'PersistentId'
+
 export type FeatureParameterDataflowDirection = 'LmoToSubscriber'
       |'SubscriberToLmo'
       |'Provisioned'
+
+export type FieldMappingConfigProcessType = 'GiftEntry'
+      |'Incident'
+      |'Problem'
+      |'ChangeRequest'
 
 export type ClassificationType = 'ComplianceCategory'
       |'FieldSet'
@@ -3470,6 +4454,29 @@ export type EnforcementType = 'Scoping'
       |'Restrict'
       |'FieldRestrict'
       |'D360_Restrict'
+
+export type AscAutomaticMode = 'Off'
+      |'Manual'
+      |'Semi'
+      |'Full'
+
+export type BgGeoLocationAccuracy = 'Medium'
+      |'Coarse'
+      |'VeryCoarse'
+
+export type DestinationTypeForMetadata = 'LatitudeAndLongitude'
+      |'Address'
+
+export type GeoLocationAccuracy = 'Fine'
+      |'Medium'
+      |'Coarse'
+
+export type TimeIntervalSetupForMetadata = 'one'
+      |'five'
+      |'fifteen'
+      |'twenty'
+      |'thirty'
+      |'sixty'
 
 export type ApptAssistantRadiusUnit = 'Kilometer'
       |'Meter'
@@ -3483,6 +4490,9 @@ export type MappingType = 'WorkPlans_WorkPlanTemplate_WorkPlan'
 export type WorkOrderDurationSource = 'WorkType'
       |'TotalFromWorkPlan'
       |'Custom'
+
+export type FieldSrcTrgtRelationshipOwner = 'SObject'
+      |'DataCloud'
 
 export type RelationshipCardinality = 'OneToOne'
       |'ManyToOne'
@@ -3518,6 +4528,7 @@ export type FileType = 'UNKNOWN'
       |'AAC'
       |'ACGI'
       |'AI'
+      |'AMR'
       |'AVI'
       |'BMP'
       |'BOXNOTE'
@@ -3642,6 +4653,8 @@ export type FlexipageDataSourceModeEnum = 'Create'
       |'View'
 
 export type FlexipageDataSourceTypeEnum = 'Record'
+      |'User'
+      |'Organization'
       |'Apex'
 
 export type FlexiPageRegionMode = 'Append'
@@ -3672,6 +4685,7 @@ export type PlatformActionListContext = 'ListView'
       |'Lookup'
       |'Assistant'
       |'ActionDefinition'
+      |'MetadataExplorer'
 
 export type PlatformActionType = 'QuickAction'
       |'StandardButton'
@@ -3684,6 +4698,13 @@ export type FlexipageSchemaPropType = 'boolean'
       |'integer'
       |'string'
 
+export type FlowComplexValueType = 'JoinDefinition'
+      |'FieldReference'
+      |'ResourceDescriptor'
+      |'ResourceAnnotationMap'
+      |'ComplexObjectFieldDetails'
+      |'FlowDataCloudId'
+
 export type FlowDataType = 'Currency'
       |'Date'
       |'Number'
@@ -3691,84 +4712,50 @@ export type FlowDataType = 'Currency'
       |'Boolean'
       |'SObject'
       |'DateTime'
+      |'Time'
       |'Picklist'
       |'Multipicklist'
       |'Apex'
 
-export type FlowAssignmentOperator = 'None'
-      |'Assign'
-      |'Add'
-      |'Subtract'
-      |'AddItem'
-      |'RemoveFirst'
-      |'RemoveBeforeFirst'
-      |'RemoveAfterFirst'
-      |'RemoveAll'
-      |'AddAtStart'
-      |'RemoveUncommon'
-      |'AssignCount'
-      |'RemovePosition'
+export type FlowInputConfiguratorMode = 'Custom'
+      |'Resource'
+      |'Transform'
 
-export type FlowComparisonOperator = 'None'
-      |'EqualTo'
-      |'NotEqualTo'
-      |'GreaterThan'
-      |'LessThan'
-      |'GreaterThanOrEqualTo'
-      |'LessThanOrEqualTo'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'IsNull'
-      |'IsChanged'
-      |'WasSet'
-      |'WasSelected'
-      |'WasVisited'
-      |'In'
-      |'NotIn'
-
-export type FlowRecordFilterOperator = 'EqualTo'
-      |'NotEqualTo'
-      |'GreaterThan'
-      |'LessThan'
-      |'GreaterThanOrEqualTo'
-      |'LessThanOrEqualTo'
-      |'StartsWith'
-      |'EndsWith'
-      |'Contains'
-      |'IsNull'
-      |'IsChanged'
-      |'In'
-      |'NotIn'
-
-export type FlowStageStepAssigneeType = 'User'
-      |'Group'
-      |'Queue'
-
-export type FlowTransformValueActionType = 'Map'
-      |'Count'
-      |'Sum'
-
-export type FlowScheduledPathOffsetUnit = 'Hours'
-      |'Days'
-      |'Minutes'
-      |'Months'
-      |'Weeks'
-
-export type FlowScheduledPathType = 'AsyncAfterCommit'
-
-export type FlowScheduledPathTimeSource = 'RecordTriggerEvent'
-      |'RecordField'
-
-export type InvocableActionType = 'apex'
+export type InvocableActionType = 'adjustedSchedules'
+      |'createRelaRecordsAdQuoteLine'
+      |'getAvailableAppointmentSlots'
+      |'enteredJourneyBuilder'
+      |'exitedJourneyBuilder'
+      |'metJourneyBuilderGoal'
+      |'getUpdtTermsForPymtDueDateMod'
+      |'getUpdtTermsForPaymentDeferral'
+      |'createMediaProposalItem'
+      |'getMediaProducts'
+      |'getPicklistValues'
+      |'getMediaProductsUseSearchCrit'
+      |'sendInvSlotReleaseWarningNotfy'
+      |'executeExternalAdSalesRequest'
+      |'releaseInventorySlots'
+      |'addProductToMediaPlan'
+      |'apex'
       |'chatterPost'
+      |'findProviders'
+      |'findProvidersInfo'
+      |'getWaitlistParticipant'
+      |'getWaitlistMetadata'
+      |'bookAppointment'
       |'contentWorkspaceEnableFolders'
       |'emailAlert'
       |'emailSimple'
       |'emailSObject'
       |'externalService'
+      |'externalConnector'
+      |'externalEvent'
       |'salesforceAPIPlatform'
+      |'namedQuery'
+      |'auraEnabled'
       |'flow'
+      |'dataCaptureFlow'
       |'metricRefresh'
       |'processCreateWorkitem'
       |'processStartStep'
@@ -3778,6 +4765,8 @@ export type InvocableActionType = 'apex'
       |'submit'
       |'thanks'
       |'thunderResponse'
+      |'topUsedObjectsInReports'
+      |'generateMetricsForTopAggs'
       |'createServiceReport'
       |'deployOrchestration'
       |'createResponseEventAction'
@@ -3786,11 +4775,15 @@ export type InvocableActionType = 'apex'
       |'generateWorkOrders'
       |'deactivateSessionPermSet'
       |'activateSessionPermSet'
+      |'modifyPermSetGroupComponents'
+      |'createOrUpdatePermissionSet'
+      |'getPermissionSetsWithPerms'
       |'aggregateValue'
       |'orchestrationTimer'
       |'orchestrationDebugLog'
       |'choosePricebook'
       |'component'
+      |'lwcComponent'
       |'liveMessageNotification'
       |'scaleCacheAsyncRefresh'
       |'skillsBasedRouting'
@@ -3798,6 +4791,8 @@ export type InvocableActionType = 'apex'
       |'addScreenPop'
       |'findMatchingIndividuals'
       |'routeWork'
+      |'playPromptAsyncAction'
+      |'endCallAsyncAction'
       |'scvOutboundCall'
       |'checkAvailabilityForRouting'
       |'createCustomField'
@@ -3809,7 +4804,6 @@ export type InvocableActionType = 'apex'
       |'removeTargetFromSalesCadence'
       |'modifyCadenceTrackerAttributes'
       |'invocableApplyLeadAssignmentRules'
-      |'salesCadenceListenerBranchStepTranslator'
       |'pauseSalesCadenceTracker'
       |'resumeSalesCadenceTracker'
       |'changeSalesCadenceTargetAssignee'
@@ -3826,6 +4820,14 @@ export type InvocableActionType = 'apex'
       |'saveAppointment'
       |'saveAppointmentInvitationDetails'
       |'createWaitlist'
+      |'getAvailableTime'
+      |'saveServiceAppointmentAttendees'
+      |'fetchAppointmentInfo'
+      |'manageAttendee'
+      |'scheduleAppointment'
+      |'getAppointmentDetails'
+      |'getServiceAppointments'
+      |'createApptPaymentLink'
       |'deleteKnowledgeArticles'
       |'submitKnowledgeArticleForTranslation'
       |'einsteinEPLitePredictionAction'
@@ -3889,12 +4891,17 @@ export type InvocableActionType = 'apex'
       |'adjustOrderItemSummariesPreview'
       |'adjustOrderItemSummariesSubmit'
       |'addOrderItemSummarySubmit'
+      |'ensurePaymentCredit'
       |'distributePickedQuantities'
       |'createOrderFromQuote'
+      |'createOrdersFromQuote'
+      |'preProcessSalesTransaction'
+      |'placeSalesTransaction'
       |'createOrUpdateAssetFromOrder'
       |'createBillingScheduleFromOrderItem'
       |'changeFinancePeriodStatus'
       |'applyPayment'
+      |'unapplyPayment'
       |'paymentSale'
       |'automateRefund'
       |'createInvoiceFromOrder'
@@ -3905,6 +4912,7 @@ export type InvocableActionType = 'apex'
       |'ociGetAvailability'
       |'ociFulfillReservation'
       |'ociCreateReservation'
+      |'ociUpdateReservation'
       |'orderRoutingRankByAverageDistance'
       |'orderRoutingFindRoutesWithFewestSplits'
       |'orderRoutingFindRoutesWithFewestSplitsUsingOCI'
@@ -3930,6 +4938,7 @@ export type InvocableActionType = 'apex'
       |'decisionTableAction'
       |'runDecisionMatrix'
       |'createFinancialRecords'
+      |'createIncidentForRequestor'
       |'addWorkPlans'
       |'addWorkSteps'
       |'generateWorkPlans'
@@ -3942,7 +4951,10 @@ export type InvocableActionType = 'apex'
       |'getPointsBalance'
       |'updateAcctMgrTarget'
       |'creditPoints'
+      |'transferPoints'
+      |'createSvcRequest'
       |'debitPoints'
+      |'completeActionForSvcProcess'
       |'batchJobAction'
       |'dataProcessingEngineAction'
       |'adjustPointsAction'
@@ -3952,7 +4964,13 @@ export type InvocableActionType = 'apex'
       |'saveRecommendationDecision'
       |'outboundMessage'
       |'internalTestAction'
+      |'internalTestAsyncAction'
       |'internalTestConnectApiAction'
+      |'internalTestVersionedCustomAction'
+      |'extractDataFromDocument'
+      |'createSite'
+      |'internalTestCustomAction'
+      |'baseActionHubTestAction'
       |'getDialerSoftphonePathSuffix'
       |'performMultiLevelRollups'
       |'rebatesProcessCSV'
@@ -3963,6 +4981,8 @@ export type InvocableActionType = 'apex'
       |'issueVoucher'
       |'setCheckoutDeliveryMethod'
       |'refreshDecisionTable'
+      |'replaceAsset'
+      |'relocateAsset'
       |'evaluationFlow'
       |'stepInteractive'
       |'stepBackground'
@@ -3972,6 +4992,9 @@ export type InvocableActionType = 'apex'
       |'managedContentVariantSetReadyStepBackground'
       |'managedContentVariantAutoPublishStepBackground'
       |'managedContentVariantAutoUnpublishStepBackground'
+      |'stepApproval'
+      |'stepAgxBackground'
+      |'stepAgxInteractive'
       |'generateKnowledgeLogData'
       |'submitFailedRecordsBatchJob'
       |'getEligibleProgramRebateTypes'
@@ -3987,6 +5010,15 @@ export type InvocableActionType = 'apex'
       |'slackArchiveChannel'
       |'slackInviteUserToWorkspace'
       |'slackGetConversationInfo'
+      |'slackAgentCreateCanvas'
+      |'slackAgentUpdateCanvas'
+      |'slackAgentSearch'
+      |'slackAgentGetUser'
+      |'slackAgentSendDirectMessage'
+      |'slackAgentSummarizeChannel'
+      |'slackAgentDynamic'
+      |'slackAgentChannelExpertSearch'
+      |'slackFlow'
       |'getLoyaltyPromotionBasedOnSalesforceCDP'
       |'transferMemberPointsToGroups'
       |'getLoyaltyPromotion'
@@ -4002,12 +5034,15 @@ export type InvocableActionType = 'apex'
       |'getArticleSmartLinkUrl'
       |'performSurveySentimentAnalysis'
       |'pardotSlackCompletionActionNotification'
+      |'createClosePlan'
+      |'getProductPricing'
+      |'findPastCollaborators'
+      |'getDataRelatedToOpportunity'
       |'calculateProjectedRebateAmount'
       |'runProgramProcessForTransactionJournal'
       |'goalAchievedAction'
       |'buildIdentityVerification'
       |'getVerificationData'
-      |'createEinsteinDocReaderLogic'
       |'sendNotification'
       |'uploadBlockchainData'
       |'saveMemberVerificationSteps'
@@ -4016,6 +5051,7 @@ export type InvocableActionType = 'apex'
       |'manageRecurringSchedules'
       |'importRecordsFromCsvFile'
       |'authorizePayment'
+      |'getRecordsForSearchCriteria'
       |'getMemberActiveSegments'
       |'getAvailableSwarmObject'
       |'runExpressionSet'
@@ -4036,19 +5072,79 @@ export type InvocableActionType = 'apex'
       |'createCareProgramEnrolleeWorkOrderStep'
       |'generateTransactionJournals'
       |'cdpRefreshDataStream'
+      |'getDataLakeObject'
+      |'getDataModelObjectSuggestions'
+      |'generateDataMappings'
+      |'getDataModelObject'
+      |'getDataModelObjectsPaginated'
+      |'cdpJitSegment'
+      |'runCampaign'
+      |'cdpSendToActivation'
+      |'cdpCreateSegmentFilter'
+      |'cdpGetAlmTraversal'
+      |'dataKitDeployComponentAction'
+      |'dataKitGetComponentAction'
       |'generateMemberReferralCode'
       |'cdpPublishSegment'
+      |'cdpValidateSegmentMember'
+      |'fetchSegmentsSchedule'
+      |'cdpUpdateIdentityResolution'
+      |'deleteCdpIdentityResolution'
+      |'cdpCreateIdentityResolution'
+      |'cdpRtdgStatus'
+      |'cdpRtGetIdMap'
+      |'cdpIdentityResolutionRunNow'
+      |'getSegmentMemberAbsenceContainers'
       |'industriesSendExtAsyncRequest'
       |'getDataCategoryDetails'
       |'getDataCategoryGroups'
       |'searchKnowledgeArticles'
       |'knowledgeSearch'
+      |'streamKnowledgeSearch'
+      |'answerQuestionsWithSalesforceDocumentation'
+      |'helpNavigationAction'
       |'cdpPublishCalculatedInsight'
+      |'getInsight'
+      |'getInsightsList'
+      |'deleteInsight'
+      |'updateInsight'
+      |'cdpRunBatchTransform'
+      |'cdpCreateDataTransforms'
+      |'cdpActivationCreate'
+      |'cdpActivationInputConfirmation'
+      |'cdpProcessActivationAttributes'
+      |'getActivateOnMembership'
+      |'cdpListDataTransforms'
+      |'cdpValidateDataTransform'
+      |'cdpRunDataTransform'
+      |'cdpCancelDataTransform'
+      |'cdpGetDataTransformSchedule'
+      |'cdpRefreshDataTransformStatus'
+      |'cdpDeleteDataTransform'
+      |'cdpGetDataTransform'
       |'cdpGetMlPrediction'
+      |'cdpMlPrediction'
+      |'cdpGetMlModelMetrics'
+      |'cdpGetMlModelAlerts'
+      |'cdpGetDataProfiles'
+      |'cdpGetMlStatisticalAnalysis'
+      |'cdpTriggerModelTraining'
+      |'cdpGetMlModelSuggestions'
+      |'einsteinRagDetectLanguage'
+      |'transformQueryForCase'
+      |'transformQueryForEmail'
+      |'transformQueryForConversation'
+      |'getEinsteinRetrieverResults'
+      |'cdpGetDataGraph'
+      |'cdpGetDataGraphByLookup'
+      |'cdpGetDataGraphMetadata'
       |'cdpTriggerModelPredJob'
+      |'getTranscriptForConversation'
+      |'KnowledgeSpaceKnowledgeSearch'
       |'scheduleHomeVisit'
       |'scheduleRecurringHomeVisit'
       |'rescheduleRecurringHomeVisits'
+      |'createQuoteForHomeVisits'
       |'generateAssessmentEnvelopeSignature'
       |'sendChannelMessage'
       |'createInvRsvForCart'
@@ -4061,16 +5157,24 @@ export type InvocableActionType = 'apex'
       |'cdpRunIdentityResolution'
       |'handleResourceAbsence'
       |'fetchRebateClaimDetails'
+      |'transformMfgProgramForecasts'
+      |'getNewProductPricingInfo'
+      |'calcPriceProtectPayoutAmt'
       |'processGiftEntries'
+      |'saveCustomFieldsInGiftEntry'
       |'processGiftCommitment'
       |'pauseGiftCommitmentSchedule'
       |'resumeGiftCommitmentSchedule'
       |'closeGiftCommitment'
+      |'syncAccountAndContactPointAddr'
       |'manageCustomGiftCmtSchds'
       |'manageGiftDefaultDesignations'
       |'manageRcrGiftCmtSchd'
       |'updateProcessedGiftEntries'
       |'createEnrichedPrompt'
+      |'manageFundraisingDefinitions'
+      |'reviewUpdateVolunteerStatuses'
+      |'updateVolunteerStatuses'
       |'assignEnablementProgram'
       |'inviteToReorderPortal'
       |'runRecordAggrBatchProcDef'
@@ -4079,34 +5183,71 @@ export type InvocableActionType = 'apex'
       |'creaPersAccountsFromGrpCensMbr'
       |'creaUsersFromGrpCensusMembers'
       |'enrollMembers'
+      |'processMemberEnrollment'
+      |'createProducerCommissions'
+      |'findInsurancePolicy'
       |'initiateAmendQuantity'
       |'initiateAmendment'
+      |'initiateTransfer'
       |'initiateRenewal'
       |'initiateCancellation'
+      |'initiateRollBackLastAction'
+      |'getRenewableAssetsSummary'
       |'manageGiftTrxnDesignations'
       |'processReceivedDocument'
       |'getEffAccountsForStoreUser'
       |'getProductRecommendations'
       |'b2bD2cGetOrderSummaries'
+      |'getRecentOrders'
       |'getB2cProductRecommendations'
-      |'addEcomProductToCart'
+      |'getB2cOrderDetails'
+      |'getB2cUserAccessToken'
+      |'b2cSiteFaqAction'
+      |'b2cProductFaqAction'
+      |'addItemToBasket'
+      |'viewCart'
+      |'editCart'
       |'generateOrderSummaryUrl'
       |'createBenefitDisbursementForServiceAppointment'
+      |'getAssessments'
+      |'getAcademicTerm'
+      |'getIntrctnSumAndCarePlans'
+      |'getCalcInsightsData'
+      |'createGoal'
+      |'renewInsurancePolicy'
+      |'renewInsurancePolicies'
+      |'enrollLearner'
+      |'executeExprSetWithContext'
+      |'getBatchJobIds'
+      |'getRestrictionsAsgnToStudent'
+      |'assignHoldOnStudent'
+      |'getRelatedPolicyRules'
       |'buildContext'
-      |'createContractDocGen'
-      |'checkinContract'
-      |'contractAction'
-      |'sendEsignContract'
+      |'createClmContract'
+      |'createReport'
+      |'checkInContractDocumentVersion'
+      |'performContractAction'
+      |'sendContractForESignature'
+      |'unlockContractDocumentVersion'
+      |'getCntntDocDtlForCntrDocVer'
+      |'createContractDocumentVersion'
       |'persistContextData'
       |'createReferral'
       |'createChatSession'
       |'addOrderToCart'
       |'generateUserInputs'
       |'rateProducts'
+      |'getInsuranceQuoteDetails'
+      |'getInsuranceQuoteDetailsAi'
+      |'getOrgCurrencyDetails'
+      |'repriceInsuranceProduct'
+      |'createInsuranceQuote'
       |'updateCareGapStatus'
       |'sendConversationMessages'
       |'initiateNaturalLangProcessing'
+      |'createNlpRecord'
       |'getRecordDetails'
+      |'getConversationTranscripts'
       |'fetchBoostBuryRuleRecommendation'
       |'createSearchBoostBuryRule'
       |'captureUserFeedback'
@@ -4114,22 +5255,41 @@ export type InvocableActionType = 'apex'
       |'submitCartToExchangeOrder'
       |'dispatchReminders'
       |'computeCleanEnergyApplnBen'
+      |'createContactInBillingSystem'
+      |'createBillAcctInBillSystem'
+      |'updateBillAcctInBillSystem'
+      |'getBillsOfBillingAccount'
+      |'getBillDetails'
+      |'createContractsInBillingSystem'
+      |'getMeterReadingFromBillingSys'
+      |'updateContractInBillingSystem'
+      |'startService'
+      |'submitMeterReads'
       |'identifyRecordByName'
       |'processReferralEvent'
+      |'enrollAdvocateB2bReferralProm'
+      |'processB2bReferralEvent'
       |'submitOrder'
       |'dataCloudIngestionApi'
       |'getPaynowWebstoreId'
       |'queryRecords'
       |'queryRecordsWithAggregate'
+      |'setupAgentQueryRecords'
+      |'searchAgent'
       |'registerGuestBuyer'
       |'identifyObject'
       |'scheduleGroupVisits'
       |'createSubscriptionRecords'
       |'generatePromptResponse'
+      |'generatePromptResponseBatch'
       |'getRelatedList'
-      |'einsteinCopilotNewsService'
+      |'getSimilarRecords'
       |'einsteinGenerateMessages'
       |'draftOrReviseEmail'
+      |'sendMeetingRequest'
+      |'reviewMyDay'
+      |'getDraftOrReviseEmailPrompt'
+      |'webSearchStream'
       |'summarizeRecord'
       |'einsteinCopilotUpdateRecord'
       |'einsteinCopilotCreateRecord'
@@ -4137,10 +5297,667 @@ export type InvocableActionType = 'apex'
       |'processFirstPaymentBilling'
       |'runSalesforceHeadlessPricing'
       |'dstrEnergyAttrCertCredits'
+      |'computeMathematicalOperations'
       |'getRecordFieldsAndValues'
+      |'createCommercePromotions'
       |'createIntegrationPlan'
       |'runIntegrationPlan'
-      |'fetchConversationTranscripts'
+      |'exploreConversation'
+      |'draftServiceEmail'
+      |'getActivitySummary'
+      |'generateResearchStudyBlocks'
+      |'processCriteriaMatchingResp'
+      |'getForecastGuidance'
+      |'getForecastContext'
+      |'getForecastOpportunities'
+      |'getRecPrioData'
+      |'sendWhatsAppMessage'
+      |'lockRecord'
+      |'postDraftInvoiceBatchRun'
+      |'assignCndtToResearchStudyGroup'
+      |'postDraftInvoice'
+      |'postDraftCreditMemo'
+      |'getConvTscpForRecord'
+      |'recoverBillingSchedules'
+      |'checkOutContractDocVersion'
+      |'getContractDocumentVersions'
+      |'updateClmContracts'
+      |'draftAGiftProposal'
+      |'processDataUsingGenAi'
+      |'transformNlpActionResult'
+      |'getSalesAgreementDetails'
+      |'createConsent'
+      |'exportExternalRecordShare'
+      |'checkServiceCatalogItemEligibility'
+      |'createOrUpdtSvcCatalogRequest'
+      |'createCatalogItemRequest'
+      |'answerQuestionWithReports'
+      |'generateSdm'
+      |'topUsedDatasets'
+      |'createEngagementsDetailsRep'
+      |'createBillingSchedulesFromBillingTransaction'
+      |'createBillingSchedulesFromTrxn'
+      |'scheduleHomeVisitsManually'
+      |'analyticsSendDigestAsSlackMsg'
+      |'createUpdtPromUseAcruPromTmpl'
+      |'createUpdtPromUseEngmtTrlTmpl'
+      |'getLoyaltyPromotions'
+      |'getOffers'
+      |'generateLoyaltyPromotionEmail'
+      |'getEligibleLoyaltyPromotions'
+      |'getExpiringPointsWithDate'
+      |'getPointsForNextTier'
+      |'getResourcesForMnlScheduling'
+      |'summarizeMedicationDetailsForPatient'
+      |'generateAnalyticsAssetsContent'
+      |'quoteToSA'
+      |'convertRecord'
+      |'getEngagements'
+      |'createCaseForOrderCheckbook'
+      |'getFinclAccountsForAnAcct'
+      |'getFeeTrxnFromFinclAcct'
+      |'createCaseForFeeReversal'
+      |'createCaseForMngCardSettings'
+      |'createCaseForStopCheckPayment'
+      |'createCaseForTravelNtfcn'
+      |'getCardSettings'
+      |'createCaseForTransferFunds'
+      |'api'
+      |'getDataForGrounding'
+      |'getChannelTypes'
+      |'getMetrics'
+      |'getCampaignObjectives'
+      |'getLowPerformingAds'
+      |'getActivityDetails'
+      |'getActivitiesTimeline'
+      |'getUsersGroupMembership'
+      |'createPublicGroup'
+      |'createCalculatedField'
+      |'createSemanticDataModel'
+      |'getBalancesFromFinancialAccounts'
+      |'getFinancialTransactions'
+      |'getCardDetailsForAccount'
+      |'createCaseToBlockCard'
+      |'createVisitForContextRecord'
+      |'getFinancialAccountAddresses'
+      |'createCaseForFinclAcctAddrUpdt'
+      |'getAndExplainRecordAccess'
+      |'getAndExplainObjectPermissions'
+      |'getAndExplainFieldPermissions'
+      |'getSharingOrgWideDefaults'
+      |'getSharingRules'
+      |'getPublicGroupMembers'
+      |'summarizeAppointmentNotes'
+      |'serializePreWorkBriefRecords'
+      |'summaryRefinement'
+      |'extractHistoricalData'
+      |'selectJourney'
+      |'saveApexToDataExtension'
+      |'generateBrief'
+      |'saveBrief'
+      |'generateCampaignFromBrief'
+      |'saveCampaign'
+      |'saveCampaignFlowMessages'
+      |'getEngagementChannels'
+      |'summarizeCampaign'
+      |'identifyBusinessUnit'
+      |'generateOrRefineTextForProperty'
+      |'createOrRefineSectionWithContent'
+      |'summarizeMedicalHistoryForPatient'
+      |'researchRecord'
+      |'reviewBuyingCommittee'
+      |'getCaseInfoToSummarize'
+      |'getUsersFromEmailAddresses'
+      |'discoverySearchAction'
+      |'b2cProductSearchAction'
+      |'b2cProductDetailsAction'
+      |'getB2cOrderConfirmationDetails'
+      |'einsteinDecidePath'
+      |'dplyCustExprcIntelDataKitCmpnt'
+      |'generateCustomReportType'
+      |'generateSdmForReportingObjects'
+      |'generateMetricsForTopAggregates'
+      |'reportsToTuaViz'
+      |'associateRecordsWithActivity'
+      |'getAcctOpptyFromEmailAddr'
+      |'trgrOnOrderPlacement'
+      |'trgrOnWebCartAbandoned'
+      |'processWebStoreUserRgstr'
+      |'trgrOnSmsSubscription'
+      |'getFormulaForField'
+      |'identifyValidationRuleByName'
+      |'trgrOnWhatsAppSubscription'
+      |'trgrOnEmailSubscription'
+      |'trgrOnEmailOpenEngagement'
+      |'trgrOnEmailLinkClickEngagement'
+      |'trgrOnEmailBounceEngagement'
+      |'trgrOnSmsLinkClickEngagement'
+      |'trgrOnSmsDeliveryFailureEngagement'
+      |'trgrOnSmsResponseEngagement'
+      |'trgrOnWhatsAppResponseEngmt'
+      |'trgrOnWhatsAppReadEngagement'
+      |'trgrOnWhatsAppDeliveredEngagement'
+      |'trgrOnWhatsAppLinkClickEngmt'
+      |'trgrOnWhatsAppDlvrFailureEngmt'
+      |'explainFormula'
+      |'modifyFormula'
+      |'validateFormula'
+      |'publishActionableOrchSrcEvent'
+      |'createApptListFilter'
+      |'summarizeSchedulingIssues'
+      |'getAppointmentsToFillGaps'
+      |'getAppointmentsByCriteria'
+      |'rebookNotifyForFieldService'
+      |'assignApptForServiceResourceForFieldService'
+      |'scheduleServiceAppointment'
+      |'createEngagementTopic'
+      |'getEngagementTopics'
+      |'computeProducerSplits'
+      |'generateInvoiceDocuments'
+      |'forwardToBotOrAgent'
+      |'lookUpOrderSummary'
+      |'getBusinessObjectives'
+      |'formatInsightsForDisplay'
+      |'contextDataProvider'
+      |'prepareMeeting'
+      |'getAssetParticipantDetails'
+      |'recallApprovalSubmission'
+      |'reassignApprovalWorkItem'
+      |'reviewApprovalWorkItem'
+      |'overrideApprovalWorkItem'
+      |'cancelApprovalSubmission'
+      |'getCommercePromotionTemplates'
+      |'identifyObjectByName'
+      |'getContcLeadsFromEmailAddr'
+      |'trgrOnFormSubmission'
+      |'trgrOnPaymentTransaction'
+      |'invokeRatingService'
+      |'recordTaxTransaction'
+      |'recordTaxReversal'
+      |'applyCredit'
+      |'unapplyCredit'
+      |'createFieldGnrnPromptTmplResp'
+      |'validateTimesheet'
+      |'getTimesheetSettings'
+      |'applyUserDefinedLabel'
+      |'createAToDo'
+      |'createLabel'
+      |'logACall'
+      |'getInboundLeadGenFields'
+      |'createSalesRecordViaAgent'
+      |'recommendComponents'
+      |'draftCaseResponse'
+      |'findSimilarCases'
+      |'getSrvcMgmntRecForGrndData'
+      |'updateMajorIncidentRecord'
+      |'associateSvcMgmntRecords'
+      |'getMultiIncdForGrndData'
+      |'summarizeEngagement'
+      |'getProductDetails'
+      |'groundingDataGenerator'
+      |'findProducts'
+      |'getProducts'
+      |'configureAgents'
+      |'scheduleEmail'
+      |'getAppointmentBookingSlots'
+      |'convertTimeZone'
+      |'cdpListAvailableConnectors'
+      |'getAndExplainUserPermissions'
+      |'computeConsumption'
+      |'createConsumptionAlert'
+      |'replenishInventoryUsingPolicy'
+      |'getInventorySummaryData'
+      |'getInventoryLocations'
+      |'issueInsurancePolicy'
+      |'getCommerceStorefrontContext'
+      |'getRecordSummarizationPrompt'
+      |'findSimilarInteractions'
+      |'summarizeProductReviews'
+      |'getActiveApplicationReviewerIds'
+      |'dataModelSMEGenerateRequirementSection'
+      |'dataModelSMEGenerateDesignSection'
+      |'dataModelSMEGenerateBacklogSection'
+      |'dataModelSMECreateCustomMetadata'
+      |'dataModelDeploySchema'
+      |'dataModelGenerateFromWorkItem'
+      |'generateDataModel'
+      |'createCustomObjectsAndFields'
+      |'getAgentContext'
+      |'customAppSMEGenerateDesignSection'
+      |'customAppSMEGenerateBacklogSection'
+      |'customAppSMEExecutePlan'
+      |'customAppSMEGenerate'
+      |'customAppSMEDeploy'
+      |'summarizeFlowUsingRecordId'
+      |'submitSalesTransaction'
+      |'convertProspect'
+      |'migrateConnectedApp'
+      |'resetPassword'
+      |'summarizeExternalClientApp'
+      |'summarizeConnectedApp'
+      |'initiateAuthProviderSetup'
+      |'freezeUser'
+      |'unfreezeUser'
+      |'getUserDataFromJsonString'
+      |'evalCmplVldProcedureAsync'
+      |'evalCmplValidationProcedure'
+      |'retrieveCmplAsyncEvalJobDtl'
+      |'generateUserData'
+      |'processConsumptionOverages'
+      |'generateMetricInsights'
+      |'refineSemanticSubMetric'
+      |'analyzeSemanticData'
+      |'summarizeDashboard'
+      |'serializeHierarchicalContextData'
+      |'getContextData'
+      |'qualifyProspects'
+      |'enrichWithLeadData'
+      |'addNotesAndAssociateTopics'
+      |'generateAiAgentResponse'
+      |'createDataAlert'
+      |'freezeSalesTransaction'
+      |'invokeRule'
+      |'endorseInsurancePolicy'
+      |'createOutOfSeqPlcyEndorsement'
+      |'savePaymentConfig'
+      |'unfreezeSalesTransaction'
+      |'identifyFieldByName'
+      |'systemIdentifyFieldByName'
+      |'getPersonalizationDecisions'
+      |'draftPersnlRecommender'
+      |'cancelInsurancePolicy'
+      |'reinstateInsurancePolicy'
+      |'getInsurancePolicy'
+      |'createClaim'
+      |'updateClaim'
+      |'updateClaimCoverage'
+      |'getClaim'
+      |'getInsPolicyCurrentStandings'
+      |'verifyPolicyCoverage'
+      |'openClaimCoverage'
+      |'calculateAdjustments'
+      |'deleteClaimCvrPaymentDetail'
+      |'createClaimCvrPaymentDetail'
+      |'cancelClaimCvrPaymentDetail'
+      |'payClaimCvrPaymentDetail'
+      |'queryContextTags'
+      |'updateContextAttributes'
+      |'deleteContextCache'
+      |'getRecordAccessOfUser'
+      |'getPointOfNoReturnDetails'
+      |'rpa'
+      |'scheduleSvcApptActnblEvntOrch'
+      |'trgrOnVoucherStsChgOtbdEngmt'
+      |'trgrOnReferralEventSubmission'
+      |'getGrndDataServiceRepliesEmail'
+      |'retrieveServicePlanInfo'
+      |'getPlanDataEnhanced'
+      |'createOrderServiceAccount'
+      |'refreshUsageEntitlementBucket'
+      |'getLeaveBalance'
+      |'executeMulesoftCallout'
+      |'checkProductEligibility'
+      |'checkSvcPrcActionEligibility'
+      |'getDynamicEnhancedLink'
+      |'getGroupCensusMembers'
+      |'getGroupCensusMembersAndPlans'
+      |'validateGroupCensusMembers'
+      |'validateGrpCensusMembersPlans'
+      |'saveGroupCensusMembersData'
+      |'saveGrpCensusMbrPlansData'
+      |'createContractFromQuote'
+      |'createServiceRequestCase'
+      |'convertAttributesToJson'
+      |'invokeSummaryCreationService'
+      |'retriggerEntlCreaProc'
+      |'identifyUserPermissionsByName'
+      |'manageUserAssignments'
+      |'getAgentConvTscp'
+      |'parseConvoAnalysis'
+      |'getSvcProcessAttrData'
+      |'convertDateToDateTime'
+      |'createBulkRecords'
+      |'convertDateTimeToDate'
+      |'enhanceProductDescription'
+      |'flexipageRefineRequirements'
+      |'flexipageRefineDesign'
+      |'flexipageRefinePlan'
+      |'flexipageExecutePlan'
+      |'flexipageGenerate'
+      |'flexipageDeploy'
+      |'determineDataLightningPage'
+      |'designLightningPage'
+      |'createLightningPage'
+      |'addFieldsToFlexipage'
+      |'retrieveFlexipagesWithForms'
+      |'addFieldsToLayouts'
+      |'retrievePageLayouts'
+      |'createUpdatePromUseSpendXTmpl'
+      |'createUpdatePricingPromotion'
+      |'addUpdateLimitsInPricingProm'
+      |'createUpdatePromUseBuyXTmpl'
+      |'createUpdatePromComboTmpl'
+      |'aslmHeadlessPricing'
+      |'draftSnippetForQuestion'
+      |'getAnnualEmssnInventoryData'
+      |'getStnryAssetEnvrSrcData'
+      |'getVehicleAssetEmssnSrcData'
+      |'getSustainabilityStakeholderData'
+      |'raiseFlag'
+      |'addRecentOrderToCart'
+      |'generateVerificationCode'
+      |'verifyCustomerCode'
+      |'siteSetupRefineRequirements'
+      |'siteSetupRefineDesign'
+      |'siteSetupRefinePlan'
+      |'siteSetupExecutePlan'
+      |'managedContentRefineRequirements'
+      |'managedContentRefineDesign'
+      |'managedContentRefinePlan'
+      |'managedContentExecutePlan'
+      |'getSmes'
+      |'getSolutions'
+      |'createProject'
+      |'generateApexRequirementSection'
+      |'generateApexDesignSection'
+      |'generateApexBacklogSection'
+      |'generateApexMetadata'
+      |'showListView'
+      |'showRecordDetailsForm'
+      |'generatePromptRequirementSection'
+      |'generatePromptDesignSection'
+      |'generatePromptBacklogSection'
+      |'generatePromptMetadata'
+      |'userAccessSMERefineUserAccessRequirement'
+      |'userAccessSMERefineUserAccessDesign'
+      |'userAccessSMERefineUserAccessBacklog'
+      |'userAccessSMECreateUserAccessMetadata'
+      |'userAccessSMEGenerateUserAccessMetadata'
+      |'userAccessSMEDeployUserAccessMetadata'
+      |'refineQuickActionRequirements'
+      |'refineQuickActionDesign'
+      |'refineQuickActionBacklog'
+      |'executeQuickActionMetadata'
+      |'reportRefineRequirements'
+      |'reportRefineDesign'
+      |'reportRefinePlan'
+      |'reportExecutePlan'
+      |'createAppDevPlan'
+      |'updateAppDevPlan'
+      |'getAppDevPlan'
+      |'postPlanExecutionActions'
+      |'createMediaProposal'
+      |'verifyStoreAccess'
+      |'getMonthlyUtilityConsumption'
+      |'slackUnarchiveChannel'
+      |'customAppRefineRequirements'
+      |'getCatalogs'
+      |'getCatalogDetails'
+      |'getCategories'
+      |'getCategoryDetails'
+      |'executeQualificationProcedure'
+      |'searchPrdctWithGuidedSelection'
+      |'getMultipleProductDetails'
+      |'getEnablementPrograms'
+      |'identifyRecForProductPricebook'
+      |'getDirectDepositDetails'
+      |'runConfigRules'
+      |'riskAssessmentRecords'
+      |'getStnryAssetsEmssnData'
+      |'combineSnippetContents'
+      |'getMediaProductsBasedOnAdTarget'
+      |'getMemberBenefits'
+      |'adjustPartnerUnsoldInventory'
+      |'getSwarmTypeSlackAccessDetails'
+      |'createSwarmSlackChannel'
+      |'createSwarmSlackThread'
+      |'createSwarmConfigTeams'
+      |'slackCreateSalesforceChannel'
+      |'getSearchConfigurationMetadata'
+      |'trgrOnCustomEvent'
+      |'refineFlowPluginRequirements'
+      |'refineFlowPluginPlan'
+      |'refineFlowPluginDesign'
+      |'getConversationTranscript'
+      |'getConversationIntelligence'
+      |'invokeGenericFhir'
+      |'getEligBnftVerfInput'
+      |'getPatientMemberPlans'
+      |'findOrCreatePatient'
+      |'executeFlowPluginPlan'
+      |'refineHerokuAppRequirements'
+      |'refineHerokuAppDesign'
+      |'refineHerokuAppBacklog'
+      |'executeHerokuAppPlan'
+      |'buildProdTerrDtlAvlAction'
+      |'apexRest'
+      |'getObjectRelationshipData'
+      |'executeIntegrationProcedure'
+      |'adjustPartnerInvShipAndDebit'
+      |'assignTargetToSdr'
+      |'triggerJourney'
+      |'createFlowApprovalProcess'
+      |'getContentNote'
+      |'cancelSdrOutreach'
+      |'getMeetingOwner'
+      |'createPersnlRecommender'
+      |'createContextPersonalization'
+      |'activationSchema'
+      |'getAllDataSpaces'
+      |'fetchInsuranceAssets'
+      |'fetchInsurancePolicies'
+      |'generateProofOfInsurance'
+      |'fetchInsuranceParticipants'
+      |'summarizeFlow'
+      |'sendNtfcnsForSvcMgmnt'
+      |'sendMobileAppMessage'
+      |'createExternalClientApp'
+      |'writeOffInvoices'
+      |'getSecurityMetricData'
+      |'getSecurityAlerts'
+      |'siteGenerateOrRefineTextForProperty'
+      |'getPolicyDetails'
+      |'getPoliciesByObject'
+      |'getPoliciesByPolicyType'
+      |'requestApproval'
+      |'searchContractDocument'
+      |'sustainabilityTaskGroupManagement'
+      |'createSustainabilityTaskGroup'
+      |'getSustainabilityTaskGroupData'
+      |'getOrExecFieldUpdtSuggestion'
+      |'getOppStageDetails'
+      |'getAiGenRecom'
+      |'getAccountUsageDetails'
+      |'getLearningProgramData'
+      |'getAcademicTermData'
+      |'getProgramTermApplTimelineData'
+      |'getSuggestedRecords'
+      |'updateFlowDefVersionStatus'
+      |'getLifeSciCnfgFieldNmAndVal'
+      |'cdpSegmentOverlapAction'
+      |'syncSrvyRespOfflineRecords'
+      |'processAffiliationAddress'
+      |'processContactPointAddress'
+      |'trgrOnDataCloudRecordIndexed'
+      |'guidedTroubleshooting'
+      |'trgrOnContentDocumentLinkSubscription'
+      |'cdpSegmentObservabilityMetrics'
+      |'cdpCreateOverlapSegment'
+      |'generateSalesInboxMeetingLink'
+      |'genAgentRecBacklog'
+      |'genAgentRecDesign'
+      |'genAgentRecRequirements'
+      |'workTypeSMERefineRequirements'
+      |'workTypeSMERefineDesign'
+      |'workTypeSMERefineBacklog'
+      |'workTypeSMEExecute'
+      |'serviceTerritorySMERefineRequirements'
+      |'serviceTerritorySMERefineDesign'
+      |'serviceTerritorySMERefineBacklog'
+      |'serviceTerritorySMEExecute'
+      |'getAccountAssets'
+      |'schedulingPolicySMERefineRequirements'
+      |'schedulingPolicySMERefineDesign'
+      |'schedulingPolicySMEExecute'
+      |'schedulingPolicySMERefineBacklog'
+      |'getRecipientGroupSuggestions'
+      |'createQuoteRecipientGroups'
+      |'serviceProcessRequirements'
+      |'serviceProcessRefineDesign'
+      |'serviceProcessRefinePlan'
+      |'serviceProcessExecutePlan'
+      |'outlineAccount'
+      |'prepareMeetingGoals'
+      |'generateSmePlan'
+      |'createSmeMetadata'
+      |'getEngagementInsights'
+      |'salesCanvasMTGGoalsDataPRVD'
+      |'getEnblProgramsForPartner'
+      |'sendToMceEmail'
+      |'cloneUser'
+      |'updateUserRecordFields'
+      |'extractUserFieldsAndValues'
+      |'createJourneyContent'
+      |'updatePageLayoutAssignment'
+      |'getObjectFields'
+      |'createJobPositionAssignments'
+      |'findUnfilledShifts'
+      |'getAutomationReferences'
+      |'suggestCreateAcctPlanObj'
+      |'eUPricingExecutor'
+      |'euSubmitOrderEnrollment'
+      |'getPlatformEventUsageMetric'
+      |'breEsRefineRequirements'
+      |'breEsRefineDesign'
+      |'breEsRefinePlan'
+      |'createServiceCampaign'
+      |'breEsExecutePlan'
+      |'breDtRefineRequirements'
+      |'breDtRefineDesign'
+      |'breDtRefinePlan'
+      |'breDtExecutePlan'
+      |'createCmrcPostOrderCampaign'
+      |'createCmrcAbndnCartCampaign'
+      |'identifyMetadataTypeByName'
+      |'identifyMetadataRecordByName'
+      |'getUpsellProductSuggestion'
+      |'groundSummaryInKnowledge'
+      |'getAddOnProductSuggestion'
+      |'groundQAndAInKnowledge'
+      |'getCoordinatesForLocation'
+      |'createCtctUsrFrGrpCens'
+      |'createAcctUsrFrGrpCens'
+      |'getMbrsRatingAndContributions'
+      |'addEligibleInsuranceClauses'
+      |'getEligibleInsuranceClauses'
+      |'generateInsuranceClauses'
+      |'determineCrmRecordForIndv'
+      |'appDevTopicsRefineRequirements'
+      |'appDevTopicsRefineDesign'
+      |'appDevTopicsRefinePlan'
+      |'appDevTopicsExecutePlan'
+      |'appDevTopicsGenerate'
+      |'appDevTopicsDeploy'
+      |'mobileRefineRequirements'
+      |'mobileRefineDesign'
+      |'mobileRefinePlan'
+      |'createPolicyLimits'
+      |'mobileExecutePlan'
+      |'assignSequences'
+      |'getCampaignEngagementData'
+      |'trgrOnPostOrdMktCmpnEngagement'
+      |'actionHubActionDetails'
+      |'actionHubActionFilters'
+      |'actionHubActionList'
+      |'actionHubFlowReference'
+      |'trgrOnB2cCartAbandoned'
+      |'genSelfLrningKnwlgSuggestions'
+      |'saveBenVerfLogs'
+      |'invokeUnderwritingRules'
+      |'retrieveUserActivitySummary'
+      |'getOrgDataStorageUsage'
+      |'getOrgHealthAndUsageData'
+      |'getOrgSecurityHealthData'
+      |'getOrgUserLicenseUsage'
+
+export type FlowTransformValueActionType = 'Map'
+      |'Count'
+      |'Sum'
+      |'GetItemByIndex'
+      |'InnerJoin'
+      |'InvocableAction'
+
+export type FlowAssignmentOperator = 'None'
+      |'Assign'
+      |'Add'
+      |'Subtract'
+      |'AddItem'
+      |'RemoveFirst'
+      |'RemoveBeforeFirst'
+      |'RemoveAfterFirst'
+      |'RemoveAll'
+      |'AddAtStart'
+      |'RemoveUncommon'
+      |'AssignCount'
+      |'RemovePosition'
+
+export type FlowAttributeType = 'LlmPrompt'
+      |'LlmDescription'
+
+export type FlowComparisonOperator = 'None'
+      |'EqualTo'
+      |'NotEqualTo'
+      |'GreaterThan'
+      |'LessThan'
+      |'GreaterThanOrEqualTo'
+      |'LessThanOrEqualTo'
+      |'StartsWith'
+      |'EndsWith'
+      |'Contains'
+      |'IsNull'
+      |'IsChanged'
+      |'WasSet'
+      |'WasSelected'
+      |'WasVisited'
+      |'In'
+      |'NotIn'
+      |'IsBlank'
+      |'IsEmpty'
+      |'HasError'
+
+export type FlowValueMappingType = 'FirstEntry'
+
+export type FlowRecordFilterOperator = 'EqualTo'
+      |'NotEqualTo'
+      |'GreaterThan'
+      |'LessThan'
+      |'GreaterThanOrEqualTo'
+      |'LessThanOrEqualTo'
+      |'StartsWith'
+      |'EndsWith'
+      |'Contains'
+      |'IsNull'
+      |'IsChanged'
+      |'In'
+      |'NotIn'
+
+export type FlowStageStepAssigneeType = 'User'
+      |'Group'
+      |'Queue'
+      |'Invalid'
+      |'Resource'
+
+export type FlowScheduledPathOffsetUnit = 'Hours'
+      |'Days'
+      |'Minutes'
+      |'Months'
+      |'Weeks'
+
+export type FlowScheduledPathType = 'AsyncAfterCommit'
+      |'ApprovalRecall'
+
+export type FlowScheduledPathTimeSource = 'RecordTriggerEvent'
+      |'RecordField'
 
 export type FlowScreenFieldType = 'DisplayText'
       |'InputField'
@@ -4182,6 +5999,12 @@ export type FlowElementSubtype = 'SortCollectionProcessor'
       |'ManagedContentVariantAutoPublishBackgroundStep'
       |'ManagedContentVariantAutoUnpublishBackgroundStep'
       |'AddPromptInstructions'
+      |'ApprovalStep'
+      |'AgxBackgroundStep'
+      |'AgxInteractiveStep'
+
+export type FlowWaitInteractionType = 'SmsResponse'
+      |'WhatsappResponse'
 
 export type RecordTriggerType = 'Update'
       |'Create'
@@ -4193,11 +6016,22 @@ export type FlowCollectionProcessorType = 'SortCollectionProcessor'
       |'RecommendationMapCollectionProcessor'
       |'FilterCollectionProcessor'
 
+export type FlowExperimentFallbackMode = 'BestPerformer'
+      |'Randomize'
+
+export type FlowExperimentType = 'Random'
+      |'Manual'
+      |'Automatic'
+
 export type IterationOrder = 'Asc'
       |'Desc'
 
+export type FlowNodeGroupType = 'generic'
+      |'rpa'
+
 export type FlowEntryType = 'Always'
       |'AfterCompletion'
+      |'Never'
 
 export type FlowRunAsUser = 'TriggeringUser'
       |'DefaultWorkflowUser'
@@ -4218,6 +6052,13 @@ export type FlowTriggerType = 'None'
       |'DataCloudDataChange'
       |'FormSubmissionEvent'
       |'Capability'
+      |'AutomationEvent'
+      |'ExternalSystemChange'
+      |'DataGraphDataChange'
+      |'Activation'
+      |'AdminAutomationEvent'
+      |'BroadcastNoTrigger'
+      |'OnDemandNoTrigger'
 
 export type FlowTransactionModel = 'Automatic'
       |'NewTransaction'
@@ -4225,6 +6066,7 @@ export type FlowTransactionModel = 'Automatic'
 
 export type FlowEnvironment = 'Default'
       |'Slack'
+      |'Offline'
 
 export type FlowRunInMode = 'DefaultMode'
       |'SystemModeWithSharing'
@@ -4234,10 +6076,15 @@ export type FlowVersionStatus = 'Active'
       |'Draft'
       |'Obsolete'
       |'InvalidDraft'
+      |'UnderReview'
+
+export type FlowTestActivationStatus = 'Active'
+      |'Inactive'
 
 export type FlowTestParameterType = 'InputTriggeringRecordInitial'
       |'InputTriggeringRecordUpdated'
       |'ScheduledPath'
+      |'InputVariable'
 
 export type FolderAccessTypes = 'Shared'
       |'Public'
@@ -4281,22 +6128,76 @@ export type ForecastingDateType = 'OpportunityCloseDate'
 export type DonorMatchingMethod = 'Duplicate_Management_Rules'
       |'No_Matching'
 
-export type PlannerAttrDataType = 'lightning__textType'
-
-export type PlannerAttrMappingType = 'input'
-      |'output'
-
 export type PlannerFunctionInvocableTargetType = 'apex'
       |'flow'
       |'standardInvocableAction'
       |'generatePromptResponse'
       |'externalService'
       |'quickAction'
+      |'createCatalogItemRequest'
+      |'api'
+      |'apexRest'
+      |'cdpMlPrediction'
+      |'externalConnector'
+      |'slack'
+      |'namedQuery'
+      |'executeIntegrationProcedure'
+      |'auraEnabled'
+      |'mcpTool'
+      |'runExpressionSet'
 
-export type PlannerType = 'action'
-      |'sequence'
-      |'conversation'
-      |'SequentialPlannerIntentClassifier'
+export type PlannerAttrMappingType = 'input'
+      |'output'
+
+export type AttributeType = 'CustomPluginFunctionAttribute'
+      |'StandardPluginFunctionInput'
+      |'StandardPluginFunctionOutput'
+
+export type AttributeMappingType = 'ActionAttribute'
+      |'Constant'
+      |'Variable'
+      |'ContextVariable'
+
+export type PluginType = 'Topic'
+      |'APICustomTopic'
+
+export type PlannerType = 'AiCopilot__SequentialPlannerIntentClassifier'
+      |'AiCopilot__ReAct'
+      |'AiCopilot__AgileAppDev'
+      |'Atlas__ConcurrentMultiAgentOrchestration'
+      |'SentOS__SearchAgent'
+      |'Atlas__VoiceAgent'
+
+export type GenAiAgentVariableType = 'Variable'
+      |'ContextVariable'
+      |'Attribute'
+
+export type GenAiRuleExpressionOperator = 'equal'
+      |'greaterThan'
+      |'greaterThanOrEqual'
+      |'lessThan'
+      |'lessThanOrEqual'
+      |'notEqual'
+      |'isEmpty'
+      |'isNotEmpty'
+
+export type ExpressionType = 'sel'
+      |'handlebars'
+
+export type GenAiPromptTemplateResponseFormat = 'MarkDown'
+      |'JSON'
+      |'HTML'
+
+export type GenAiPromptTemplateStatus = 'Published'
+      |'Draft'
+
+export type GenAiPromptTemplateVisibilityType = 'Locked'
+      |'Internal'
+      |'API'
+      |'Global'
+
+export type GenAiPromptTemplateActvAccessLevel = 'Allowed'
+      |'Blocked'
 
 export type PageComponentType = 'links'
       |'htmlArea'
@@ -4354,9 +6255,12 @@ export type IdentityVerificationSearchLayoutType = 'Tab'
       |'Stack'
 
 export type IFrameWhitelistContext = 'VisualforcePages'
+      |'LightningOut'
       |'Surveys'
+      |'DCH_ADDIN_APP'
 
 export type ExternalConnectionType = 'AwsPrivateLink'
+      |'DataCloudPrivateConnection'
 
 export type InboundConnPropertyName = 'LinkId'
       |'Region'
@@ -4372,6 +6276,16 @@ export type ExternalConnectionStatus = 'Unprovisioned'
       |'TeardownInProgress'
       |'Ready'
 
+export type InsPolicyLifecycleProcess = 'Renew_Same_Carrier'
+      |'Renew_Different_Carrier'
+      |'Repurpose'
+      |'Endorse'
+      |'Cancel'
+      |'Bulk_Renew_Same_Carrier'
+
+export type InsRatePlanCmsnConfigCalcType = 'Flat'
+      |'Graded'
+
 export type AttrDataType = 'String'
       |'Integer'
       |'Double'
@@ -4383,6 +6297,18 @@ export type AttrDataType = 'String'
 export type DefinitionType = 'Apex'
       |'LowCode'
       |'Java'
+
+export type InvocableActionExtAttributeDataType = 'String'
+      |'Boolean'
+      |'Integer'
+      |'Date'
+      |'Double'
+      |'Long'
+
+export type InvocableActionExtTargetType = 'ActionDefinition'
+      |'ActionParameter'
+      |'TypeDefinition'
+      |'TypeProperty'
 
 export type KnowledgeCaseEditor = 'simple'
       |'standard'
@@ -4451,6 +6377,85 @@ export type LetterheadVerticalAlignment = 'None'
       |'Middle'
       |'Bottom'
 
+export type LifeSciConfigCategoryType = 'DbSchema'
+      |'UISchema'
+      |'CalendarEvent'
+      |'BulkUpdateRestrictedEntity'
+      |'NavigationIcons'
+      |'AccountProviderVisitRecordTypeMapping'
+      |'ApplicationSettings'
+      |'SetupTestCategory'
+      |'TerritoryManagement'
+      |'ProfileBasedAppSettings'
+      |'ExternalSearchPreferences'
+      |'ExternalSearchUserSettings'
+      |'SyncTransactionConfig'
+      |'SyncTransactionAdminView'
+      |'SyncProcessorConfiguration'
+      |'SyncTransactionFieldBehaviour'
+      |'LogSettings'
+      |'CallCustomDiscussionRecordType'
+      |'CallDiscussionRecordType'
+      |'AccountSearchSettings'
+      |'SearchBeforeCreate'
+      |'FieldSetMapping'
+      |'AffiliationSettings'
+      |'BestTimeSettings'
+      |'PlannerAdministration'
+      |'TimeOffTerritorySettings'
+      |'TimeOffTerritorySlots'
+      |'TimeOffTerritoryRule'
+      |'OptAdministration'
+      |'KAM'
+      |'KAMSettings'
+      |'SprintSettings'
+      |'ActivityPlanConfiguration'
+      |'TimeOffTerritoryWorkingDaySettings'
+      |'ActivityPlanSettings'
+      |'AddressSettings'
+      |'WorkingDaysConfig'
+      |'StateLicenseNumberSettings'
+      |'DEASettings'
+      |'StateDistributorLicenseSettings'
+      |'InventoryManagementSettings'
+      |'CustomAction'
+      |'QuickAction'
+      |'AffiliationReverseRoleMapping'
+      |'ProductAdminSettings'
+      |'CustomerMergeSettings'
+      |'ProviderSummarization'
+      |'ActivityHistoryAdministration'
+      |'ActivityHistoryRelatedLabel'
+      |'DTVComponentConfig'
+      |'DTVObjectConfig'
+      |'ReportsAndDashboardsSync'
+      |'VideoCallSettings'
+      |'VideoCallPhoneNumber'
+      |'TimelineActivitySetting'
+      |'BusinessHoursHolidayMapping'
+      |'AdminConsolePermissions'
+
+export type LifeSciCategoryType = 'Hierarchical'
+      |'List'
+
+export type LifeSciAssignmentLevel = 'Profile'
+      |'User'
+
+export type LifeSciConfigFieldDataType = 'TEXT'
+      |'LONGTEXT'
+      |'NUMBER'
+      |'BOOLEAN'
+      |'INTEGER'
+      |'DATE'
+      |'DATETIME'
+      |'PHONE'
+      |'PICKLIST'
+      |'URL'
+      |'OBJECT'
+      |'FIELD'
+      |'RECORDREFERENCE'
+      |'MULTIPICKLIST'
+
 export type LightningBoltCategory = 'Communications'
       |'Education'
       |'FinancialServices'
@@ -4465,6 +6470,9 @@ export type LightningBoltCategory = 'Communications'
       |'TravelTransportationHospitality'
       |'HighTech'
       |'GeneralBusiness'
+
+export type LightningDesignSystemVersion = 'SLDS_v1'
+      |'SLDS_v2'
 
 export type SupervisorAgentStatusFilter = 'Online'
       |'Away'
@@ -4580,6 +6588,9 @@ export type LoyaltyPgmProcActionType = 'CreditPoints'
       |'GetMemberPromotions'
       |'RedeemVoucher'
       |'SendMail'
+      |'IssueExtendedReward'
+      |'GetCustomerPromotionAttrValue'
+      |'UpdateCustomerPromotionAttrValue'
 
 export type LoyaltyPgmProcCrudActType = 'create'
       |'update'
@@ -4694,6 +6705,8 @@ export type MarketSegmentType = 'UI'
       |'Lookalike'
       |'EinsteinGptSegmentsUI'
       |'Waterfall'
+      |'Realtime'
+      |'Dynamic'
 
 export type BlankValueBehavior = 'MatchBlanks'
       |'NullNotAllowed'
@@ -4715,19 +6728,69 @@ export type MatchingRuleStatus = 'Inactive'
       |'Active'
       |'ActivationFailed'
 
+export type ApiSource = 'CONNECT'
+      |'CLASSIC'
+
+export type AutoResponseContentType = 'TextResponse'
+      |'MessageDefinition'
+
 export type MessagingAutoResponseType = 'InitialResponse'
       |'AgentEngagedResponse'
       |'AgentEndEngagementResponse'
+      |'OptInPrompt'
+      |'DoubleOptInPrompt'
+      |'EndUserInactiveResponse'
+      |'EndUserIdleResponse'
+      |'OptOutConfirmation'
+      |'CustomResponse'
+      |'HelpResponse'
+      |'OptInConfirmation'
+
+export type MessagingChannelConsentType = 'ImplicitOptIn'
+      |'ExplicitOptIn'
+      |'DoubleOptIn'
+
+export type MessagingChannelUsageDeploymentType = 'DigitalEngagementConversation'
+      |'UnifiedConversation'
+      |'MessagingEngagement'
+      |'MarketingJourneyBuilder'
 
 export type MessagingChannelTargetLookupValueType = 'Queue'
       |'Intent'
 
+export type EmbeddedServiceAuthModeType = 'Auth'
+      |'UnAuth'
+
+export type MessagingAuthorizationType = 'PublicKeyCertificateSet'
+      |'AuthProvider'
+
+export type EmbeddedMsgQueueLimitType = 'QueueLength'
+      |'QueueLengthPerAgent'
+
 export type MessagingChannelType = 'EmbeddedMessaging'
+      |'InternalCopilot'
       |'Voice'
+      |'Custom'
+      |'Facebook'
+      |'Line'
+      |'WhatsApp'
+      |'AppleMessagesForBusiness'
+      |'VoiceIntegrationPilot'
+      |'Text'
+      |'PstnVoice'
+      |'WhatsAppVoice'
+      |'SipVoice'
+
+export type MessagingKeywordType = 'OptIn'
+      |'DoubleOptIn'
+      |'OptOut'
+      |'Help'
       |'Custom'
 
 export type MessagingSessionHandlerType = 'Queue'
       |'Flow'
+      |'User'
+      |'AgentforceServiceAgent'
 
 export type MessagingChannelStandardParameterType = 'FirstName'
       |'LastName'
@@ -4755,6 +6818,8 @@ export type MktDataConnectionStatus = 'PROCESSING'
       |'ERROR'
       |'DELETING'
       |'SCHEMA_REQUIRED'
+      |'PENDING_WITH_ADMIN'
+      |'PENDING_WITH_ADMIN_EXPIRED'
 
 export type MlAIModelAlgorithmType = 'Unknown'
       |'Glm'
@@ -4762,14 +6827,40 @@ export type MlAIModelAlgorithmType = 'Unknown'
       |'Xgboost'
       |'RandomForest'
 
+export type MlModelConnectorType = 'SAGEMAKER_DEPLOYED'
+      |'OPEN_AI'
+      |'AZURE_OPEN_AI'
+      |'GENERIC'
+      |'DATABRICKS'
+      |'VERTEX_AI'
+      |'ANTHROPIC'
+      |'BEDROCK'
+      |'OPEN_CONNECTOR'
+      |'SALESFORCE'
+
+export type MlModelDeployStatus = 'DRAFT'
+      |'REGISTERED'
+      |'ACTIVATED'
+      |'DEACTIVATED'
+      |'FAILED'
+
 export type MlGenerativeModelType = 'Text'
 
 export type MlGenerativeModelCapability = 'Completion'
       |'ChatCompletion'
       |'Embedding'
 
+export type MlModelCapability = 'Completion'
+      |'ChatCompletion'
+      |'Embedding'
+      |'Regression'
+      |'BinaryClassification'
+      |'MulticlassClassification'
+      |'Generic'
+
 export type MlModelType = 'Predictive'
       |'Generative'
+      |'Unknown'
 
 export type MlParameterSubtype = 'Integer'
       |'Double'
@@ -4789,44 +6880,13 @@ export type MlRuntimeType = 'External'
 export type MlModelSourceType = 'ModelConnector'
       |'EdcNoCode'
       |'OutOfTheBox'
+      |'FineTuned'
 
-export type MlModelArtifactStatus = 'Enabled'
-      |'Disabled'
-
-export type MlModelDeployStatus = 'DRAFT'
-      |'REGISTERED'
-      |'ACTIVATED'
-      |'DEACTIVATED'
-      |'FAILED'
+export type MlAIModelType = 'ModelArtifact'
+      |'ConfiguredModel'
 
 export type MlModelEndpointType = 'REAL_TIME_INFERENCE'
       |'BATCH_INFERENCE'
-
-export type MlModelConnectorDefinitionStatus = 'DRAFT'
-      |'REGISTERED'
-      |'FAILED'
-
-export type MlModelConnectorType = 'SAGEMAKER_DEPLOYED'
-      |'OPEN_AI'
-      |'AZURE_OPEN_AI'
-      |'GENERIC'
-      |'DATABRICKS'
-      |'VERTEX_AI'
-
-export type MlActivatedModelStatus = 'Disabled'
-      |'Enabled'
-
-export type MlObjectiveType = 'Predictive'
-      |'Generative'
-      |'Mixed'
-
-export type MlOutcomeGoalType = 'None'
-      |'Minimize'
-      |'Maximize'
-
-export type MlModelKitStatus = 'Disabled'
-      |'Enabled'
-      |'Draft'
 
 export type MlInferenceFormat = 'JSON_DENSE'
       |'CSV'
@@ -4859,6 +6919,10 @@ export type OrgDomainShard = 'none'
       |'bt'
       |'sfdctest'
       |'sfdcdot'
+      |'sfrestore'
+
+export type EdgeRoutingOption = 'global'
+      |'regional'
 
 export type OrgDomainRedirectOption = 'Undeployed'
       |'Redirect'
@@ -4872,6 +6936,7 @@ export type OrgDomainProdSuffix = 'MySalesforceLimited'
       |'Restricted1'
       |'MySalesforce'
       |'Restricted2'
+      |'OrgLevelCertificate'
 
 export type CalloutStatus = 'Enabled'
       |'Disabled'
@@ -4889,6 +6954,10 @@ export type NamedCredentialParamType = 'Url'
       |'CreatedByNamespace'
       |'CustomParameter'
       |'StandardNamedCredentialType'
+      |'ManagedByFeature'
+      |'ManagedByComponent'
+      |'ConnectionStatus'
+      |'SfHttpRequestExtensionName'
 
 export type NamedCredentialType = 'Legacy'
       |'AnonymousEndpoint'
@@ -4919,6 +6988,11 @@ export type SitesArchiveStatus = 'TemporarilyArchived'
 export type NetworkStatus = 'UnderConstruction'
       |'Live'
       |'DownForMaintenance'
+
+export type ChangeEventType = 'Create'
+      |'Update'
+      |'Delete'
+      |'Undelete'
 
 export type ObjHierarchyMappingType = 'ParentToParent'
       |'ParentToChild'
@@ -4984,6 +7058,7 @@ export type OmniSupervisorActionName = 'ChangeQueues'
       |'AWSDashboard'
       |'ManageQueues'
       |'CustomAction'
+      |'ChangeGroups'
 
 export type OmniSupervisorActionTab = 'AllAgents'
       |'AgentDetails'
@@ -5000,6 +7075,10 @@ export type OmniSupervisorTabType = 'Wallboard'
       |'AssignedWork'
       |'SkillsBacklog'
       |'FlexipageType'
+      |'AIAgents'
+      |'AgentforceSDR'
+      |'Reports'
+      |'Alerts'
 
 export type OmniSuperSkillVisibilityType = 'AllSkills'
       |'AnySkill'
@@ -5015,6 +7094,17 @@ export type OutboundConnPropertyName = 'LinkId'
       |'AwsVpcEndpointId'
       |'AwsVpcEndpointServiceName'
       |'ProxyUrl'
+      |'DataCloudPrivateNetworkUrl'
+      |'DataCloudPrivateNetworkProvider'
+      |'DataCloudPrivateNetworkFunctionalDomain'
+      |'DataCloudPrivateNetworkFalconInstance'
+      |'DataCloudPrivateNetworkCustomUrls'
+      |'DataCloudPrivateNetworkAwsVpcEndpointId'
+      |'DataCloudPrivateNetworkAwsVpcEndpointServiceName'
+      |'DataCloudPrivateNetworkDefaultUrl'
+      |'DataCloudPrivateNetworkStatusCode'
+      |'DataCloudPrivateConnectDcVpcEndpointId'
+      |'DataCloudPrivateConnectDcDnsName'
 
 export type APIAccessLevel = 'Unrestricted'
       |'Restricted'
@@ -5022,6 +7112,12 @@ export type APIAccessLevel = 'Unrestricted'
 export type ParticipantRoleAccessLevel = 'None'
       |'Read'
       |'Edit'
+
+export type GatewayType = 'Stripe'
+      |'Paypal'
+      |'Adyen'
+      |'Braintree'
+      |'Cybersource'
 
 export type IdempotencySupportStatus = 'No'
       |'Yes'
@@ -5039,6 +7135,11 @@ export type PlatformCacheType = 'Session'
 export type PlatformEventChannelType = 'event'
       |'data'
 
+export type PlatformEventChannelEventType = 'custom'
+      |'standard'
+      |'monitoring'
+      |'data'
+
 export type Frequency = 'Daily'
       |'Weekly'
       |'Fortnightly'
@@ -5046,6 +7147,95 @@ export type Frequency = 'Daily'
       |'Once'
       |'Quarterly'
       |'Yearly'
+
+export type Category = 'ACCESS_POLICY_RULE_DEFINITION'
+      |'GOVERNANCE_POLICY_RULE_DEFINITION'
+      |'TRANSFORM_POLICY_RULE_DEFINITION'
+      |'RECORD_POLICY_RULE_DEFINITION'
+
+export type EnforcementRuleEffect = 'Forbid'
+      |'Permit'
+      |'Transform'
+
+export type RulePrincipalScopeType = 'ANY'
+
+export type PrincipalAuthenticationLevel = 'UNIDENTIFIED'
+      |'IDENTIFIED'
+      |'AUTHENTICATED'
+      |'INTERNAL'
+
+export type RuleResourceScopeType = 'ANY'
+      |'FIELD'
+      |'RECORD'
+
+export type ResourceTransform = 'LAST_N_CHARS_RESOURCE_TRANSFORM'
+      |'FIRST_N_CHARS_RESOURCE_TRANSFORM'
+      |'ALL_BUT_LAST_N_CHARS_RESOURCE_TRANSFORM'
+      |'ALL_BUT_FIRST_N_CHARS_RESOURCE_TRANSFORM'
+      |'CLOSEST_ORDER_OF_MAGNITUDE_RESOURCE_TRANSFORM'
+      |'NULL_RESOURCE_TRANSFORM'
+      |'EMPTY_STRING_RESOURCE_TRANSFORM'
+      |'TRUNCATE_DATE_RESOURCE_TRANSFORM'
+      |'ROUND_RESOURCE_TRANSFORM'
+      |'REPLACE_ALL_CHARS_RESOURCE_TRANSFORM'
+
+export type RuleConsumer = 'ALL'
+      |'DATACLOUD'
+      |'MULESOFT'
+      |'TABLEAU'
+      |'CORE'
+
+export type RuleDefinitionClause = 'UNLESS'
+      |'WHEN'
+
+export type RuleContextPath = 'SESSION_DATASPACE'
+      |'SESSION_CONTACT_ID'
+
+export type RuleDefinitionOperator = 'EQUALS'
+      |'NOT_EQUALS'
+      |'GREATER_THAN'
+      |'LESS_THAN'
+      |'GREATER_THAN_OR_EQUAL'
+      |'LESS_THAN_OR_EQUALS'
+      |'IN'
+      |'LIKE'
+      |'CONTAINS_ANY'
+      |'CONTAINS_NONE'
+      |'CONTAINS_ALL'
+      |'IS'
+      |'EXISTS'
+      |'HIERARCHICALLY_ABOVE'
+      |'HIERARCHICALLY_BELOW'
+
+export type RulePrincipalPath = 'IS_AUTHENTICATED'
+      |'ASSIGNED_PERMISSIONS_PATH'
+      |'USER_ID'
+      |'ORGANIZATION_ID'
+      |'USER_ROLE_ID'
+      |'RBAC_TAGS'
+      |'SCALAR_ATTRIBUTE'
+      |'PLURAL_ATTRIBUTE'
+      |'PLACEHOLDER'
+      |'IS_INTERNAL'
+      |'CONTACT_ID'
+
+export type RuleResourcePath = 'NAMESPACE'
+      |'ENTITY'
+      |'FIELD'
+      |'ENTITYTYPE'
+      |'ENTITYKIND'
+      |'FIELDKIND'
+      |'DATASPACE'
+      |'TAG'
+      |'OBJECT_TAG'
+      |'CLASSIFICATION'
+      |'IMPLICITTAG'
+      |'RECORDFIELD'
+      |'OBJECT_CLASSIFICATION'
+      |'EXPRESSION'
+      |'OBJECT_DATASPACE'
+      |'RECORDFIELDTYPE'
+      |'METADATAKIND'
 
 export type PortalRoles = 'Executive'
       |'Manager'
@@ -5115,6 +7305,22 @@ export type RuleStatus = 'Draft'
 export type PriceSheetColumnType = 'Input'
       |'Output'
 
+export type BusinessVertical = 'RevenueCloud'
+
+export type PricingElementType = 'ListPrice'
+      |'AttributeDiscount'
+      |'VolumeDiscount'
+      |'BundleDiscount'
+      |'PriceAdjustmentMatrix'
+      |'PromotionsDiscount'
+      |'VolumeTierDiscount'
+      |'DerivedPricing'
+      |'DiscountDistributionService'
+      |'MinimumPrice'
+      |'RuleFetch'
+      |'AssetDiscovery'
+      |'PriceRevision'
+
 export type ProductFamilyUsageType = 'AccountForecasting'
 
 export type CategoryGroupVisibility = 'ALL'
@@ -5180,6 +7386,9 @@ export type PromptUserAccess = 'Everyone'
 export type PromptUserProfileAccess = 'Everyone'
       |'SpecificProfiles'
 
+export type PublicKeyCertificateSetType = 'JWKS'
+      |'JWKS_URL'
+
 export type CapacityType = 'INHERITED'
       |'INTERRUPTIBLE'
       |'NOT_INTERRUPTIBLE'
@@ -5190,6 +7399,9 @@ export type RoutingModel = 'LEAST_ACTIVE'
 
 export type ActionSubtype = 'ScreenAction'
       |'Action'
+
+export type QuickActionParameterType = 'Input'
+      |'Output'
 
 export type QuickActionLabel = 'Custom'
       |'LogACall'
@@ -5226,9 +7438,18 @@ export type QuickActionLabel = 'Custom'
       |'PatientDetails'
       |'AcceptBroadcast'
       |'SelectCoverage'
+      |'SummarizeCase'
+      |'AssetHierarchy'
+      |'PartReturnRequest'
+      |'PerformCount'
       |'ViewCoverage'
       |'Quip'
       |'SendConversationMessage'
+      |'NewQuote'
+      |'LaunchDataCapture'
+      |'RelocateAsset'
+      |'ReplaceAsset'
+      |'CloseCase'
 
 export type QuickActionType = 'Create'
       |'VisualforcePage'
@@ -5251,6 +7472,7 @@ export type QuickActionType = 'Create'
       |'MobileExtension'
       |'Quip'
       |'SendConversationMessage'
+      |'Copilot'
 
 export type StrategyReactionType = 'Accepted'
       |'Rejected'
@@ -5286,6 +7508,7 @@ export type RecordActionType = 'Flow'
       |'Omniscript'
       |'LWC'
       |'WebLink'
+      |'SvcCatalogItemDef'
 
 export type ComponentName = 'ActionsAndRecommendations'
       |'ActionLauncher'
@@ -5428,6 +7651,7 @@ export type CurrencyIsoCode = 'ADP'
       |'XFL'
       |'FRF'
       |'GBP'
+      |'GBT'
       |'GEL'
       |'GHC'
       |'GHS'
@@ -5567,6 +7791,7 @@ export type CurrencyIsoCode = 'ADP'
       |'WST'
       |'XAF'
       |'XCD'
+      |'XCG'
       |'XOF'
       |'XPF'
       |'YER'
@@ -5575,7 +7800,9 @@ export type CurrencyIsoCode = 'ADP'
       |'ZMK'
       |'ZMW'
       |'ZWD'
+      |'ZWG'
       |'ZWL'
+      |'ZIG'
 
 export type DataCategoryFilterOperation = 'above'
       |'below'
@@ -5699,77 +7926,39 @@ export type ReportTypeCategory = 'accounts'
       |'individual'
       |'employee'
       |'data_cloud'
+      |'commerce'
+      |'flow'
+      |'semantic_model'
 
 export type ContextRuleStatus = 'Draft'
       |'Inactive'
       |'Active'
-      |'ActivationInProgress'
-      |'ActivationFailed'
+      |'DeploymentInProgress'
+      |'DeploymentFailed'
+      |'ValidationInProgress'
+      |'ValidationFailed'
+      |'ValidationSucceeded'
+      |'ValidationInterrupted'
+      |'Obsolete'
 
 export type ExecutionType = 'Sequence'
       |'Priority'
-
-export type VariableValueType = 'Literal'
-      |'Expression'
-      |'ReferenceRecord'
-      |'RuleReferenceVariable'
-      |'Path'
-
-export type RuleActionType = 'SetValue'
-
-export type ConditionMatchType = 'Any'
-      |'All'
-
-export type RuleConditionOperator = 'Equals'
-      |'NotEquals'
-      |'LessThan'
-      |'LessThanOrEquals'
-      |'GreaterThan'
-      |'GreaterThanOrEquals'
-      |'Between'
-      |'IsNotNull'
-      |'IsNull'
-      |'Contains'
-      |'DoesNotContain'
-      |'In'
-      |'NotIn'
-
-export type RuleFilterCriteriaType = 'Aggregate'
-      |'Branch'
-      |'List'
-      |'Eligibility'
-      |'Boolean'
-      |'Exists'
-      |'NotExists'
-      |'Loop'
-
-export type RuleCondAggregateFunction = 'Sum'
-
-export type RuleRefVariableDataType = 'Text'
-      |'Numeric'
-      |'Date'
-      |'DateTime'
-      |'Currency'
-      |'Boolean'
-      |'Percent'
-      |'RecordId'
-      |'Tuple'
-
-export type RuleRefVariableType = 'Constant'
-      |'Formula'
-      |'Tag'
-      |'Variable'
-      |'Attribute'
-      |'Accumulate'
 
 export type ContextRuleUsageType = 'UnifiedPromotions'
       |'Default'
       |'Configurator'
       |'Dfo'
+      |'PriceGuidance'
+      |'Underwriting'
+      |'TaxOrFee'
+      |'DefaultOnlyRules'
+      |'GlobalPromotionsForRLM'
+      |'ClaimUnderwriting'
 
 export type ActualsCalculationMode = 'Manual'
       |'Orders'
       |'OrdersThroughContracts'
+      |'DataProcessingEngine'
 
 export type SamlIdentityLocationType = 'SubjectNameId'
       |'Attribute'
@@ -5786,6 +7975,14 @@ export type SamlSpSLOBinding = 'RedirectBinding'
 
 export type DomainType = 'FTest'
       |'FTest2'
+      |'FTestNegative'
+      |'GlobalSchema'
+      |'SchemaEvolution'
+      |'HighScaleCustomObjects'
+      |'HighScaleObjects'
+
+export type SearchCriteriaConfigurationConfigurationType = 'DefaultSearch'
+      |'ClinicalTrialSearch'
 
 export type SearchCriteriaConfigurationFilterType = 'GROUPING_AND_AGGREGATION'
       |'MULTIPLE_FIELDS'
@@ -5794,6 +7991,7 @@ export type SearchCriteriaConfigurationResultDisplayFormat = 'LIST'
       |'CARD'
 
 export type SearchResultActionScope = 'Global'
+      |'Inline'
 
 export type SearchResultActionType = 'FlowDefinition'
       |'OmniScript'
@@ -5836,6 +8034,10 @@ export type SessionTimeout = 'TwentyFourHours'
       |'ThirtyMinutes'
       |'FifteenMinutes'
 
+export type UntrustedRedirectEnum = 'AlwaysAllowed'
+      |'AllowWithUserPermission'
+      |'NeverAllowed'
+
 export type ServiceAISetupDefStatus = 'FIELDS_SELECTED'
       |'TRAINING'
       |'READY_TO_ACTIVATE'
@@ -5844,6 +8046,7 @@ export type ServiceAISetupDefStatus = 'FIELDS_SELECTED'
       |'ARCHIVED'
       |'READY_FOR_REVIEW'
       |'TRAINING_FAILURE'
+      |'INVALID_TRAINING_FIELDS'
 
 export type ServiceAISetupFieldType = 'CASE_DESC'
       |'CASE_SUBJ'
@@ -5852,6 +8055,13 @@ export type ServiceAISetupFieldType = 'CASE_DESC'
       |'ARTICLE_SUMMARY'
       |'ARTICLE_ANSWER'
       |'ARTICLE_QUESTION'
+
+export type CapacityModel = 'TAB_BASED'
+      |'STATUS_BASED'
+
+export type StatusFieldMappingType = 'IN_PROGRESS'
+      |'PAUSED'
+      |'COMPLETED'
 
 export type SvcCtlgItemAttrAttributeType = 'Base'
       |'Extended'
@@ -5884,6 +8094,11 @@ export type SvcCatalogItemAttrDataType = 'Attachment'
       |'Toggle'
       |'URL'
 
+export type SvcCtlgItemDpndProcType = 'RequestForm'
+      |'FulfillmentFlow'
+      |'IntegrationDefinition'
+      |'Preprocessor'
+
 export type SvcCatalogItemDependencyType = 'PreprocessorApexClass'
       |'FlowDefinition'
       |'IntegrationProviderDef'
@@ -5894,6 +8109,13 @@ export type SvcCatalogItemUsageType = 'Employee'
       |'Industry'
       |'FinancialServices'
 
+export type DistanceMeasurementUnit = 'Miles'
+      |'Kilometers'
+
+export type SchedulingMode = 'Sliding'
+      |'Reshuffle'
+      |'Normal'
+
 export type SlackRecordLayoutViewMode = 'recordcrud'
       |'urlunfurling'
 
@@ -5901,11 +8123,40 @@ export type CaseSubjectOption = 'SocialPostSource'
       |'SocialPostContent'
       |'BuildCustom'
 
+export type SrvcMgmtCollabAppChannelType = 'Teams'
+
+export type SrvcMgmtCollabAppRefObjType = 'Incident'
+      |'Problem'
+      |'ChangeRequest'
+      |'Release'
+      |'Case'
+      |'Knowledge'
+
+export type StageConditionOperator = 'Equals'
+      |'GreaterThan'
+      |'GreaterOrEqual'
+      |'LessThan'
+      |'LessOrEqual'
+      |'Contains'
+      |'NotEqualTo'
+      |'DoesNotContain'
+      |'StartsWith'
+
+export type StageCriteriaType = 'AND'
+      |'OR'
+      |'CUSTOMLOGIC'
+
+export type StageCriteriaExecType = 'CONDITION'
+      |'FLOW'
+
+export type StageUserPermission = 'ProcessOrder'
+      |'ManageClinicalTrials'
+      |'ParticipateClinicalTrials'
+      |'CoordinateClinicalTrials'
+      |'CoordinateClnclTrialExprcUsr'
+
 export type StationaryAssetType = 'CommercialBuilding'
       |'DataCenter'
-
-export type StreamingAppDataConnectorType = 'MobileApp'
-      |'WebApp'
 
 export type UnitType = 'Volume'
       |'Weight'
@@ -5943,6 +8194,28 @@ export type PublishStatusType = 'Draft'
       |'PendingChanges'
       |'Deprecated'
 
+export type TelemetryActnDefStepOpType = 'Retrieve'
+      |'Submit'
+
+export type TelActnDefStepAttrDataType = 'Float'
+      |'Integer'
+      |'Double'
+      |'Boolean'
+      |'String'
+      |'Uint8'
+      |'Uint16'
+      |'Uint32'
+      |'Uint64'
+      |'Int8'
+      |'Int16'
+      |'Int32'
+
+export type TelemetryActnDefStepAttrType = 'Actuator'
+      |'Sensor'
+
+export type TelemetryDefinitionUsageType = 'ConnectedVehicle'
+      |'ConnectedAsset'
+
 export type TimeSheetFrequency = 'Daily'
       |'Weekly'
       |'EveryTwoWeeks'
@@ -5957,6 +8230,18 @@ export type DaysOfWeek = 'Sunday'
       |'Friday'
       |'Saturday'
 
+export type RuleEngine = 'StandardConfigurator'
+      |'AdvancedConfigurator'
+
+export type SaveType = 'Standard'
+      |'Large'
+
+export type TPTPricingPreference = 'Force'
+      |'System'
+      |'Skip'
+
+export type TPTTaxPreference = 'Skip'
+
 export type TransactionSecurityEventName = 'ReportEvent'
       |'ApiEvent'
       |'AdminSetupEvent'
@@ -5970,6 +8255,8 @@ export type TransactionSecurityEventName = 'ReportEvent'
       |'PermissionSetEventStore'
       |'FileEventStore'
       |'GuestUserAnomalyEventStore'
+      |'LoginAsEvent'
+      |'LoginAnomalyEventStore'
 
 export type MonitoredEvents = 'AuditTrail'
       |'Login'
@@ -5984,6 +8271,8 @@ export type ObjectRelationshipType = 'Direct'
       |'Indirect'
       |'Self'
       |'InverseDirect'
+
+export type FormatType = 'ICON'
 
 export type UserAccessPolicyStatus = 'Design'
       |'Testing'
@@ -6032,6 +8321,12 @@ export type VehicleAssetType = 'FleetVehicle'
 
 export type VisualizationResourceType = 'js'
       |'css'
+
+export type UploadStatus = 'complete'
+      |'uploading'
+
+export type AssignmentType = 'defaultMedia'
+      |'customMedia'
 
 export type CountryIsoCode = 'AD'
       |'AE'
@@ -6271,6 +8566,7 @@ export type CountryIsoCode = 'AD'
 
 export type TaxLocaleType = 'Net'
       |'Gross'
+      |'Automatic'
 
 export type OrderLifeCycleType = 'MANAGED'
       |'UNMANAGED'
@@ -6278,7 +8574,8 @@ export type OrderLifeCycleType = 'MANAGED'
 export type PricingStrategy = 'LowestPrice'
       |'Priority'
 
-export type ProductGrouping = 'VariationParent'
+export type ProductGrouping = 'BestMatch'
+      |'VariationParent'
       |'NoGrouping'
 
 export type WebStoreType = 'B2B'
@@ -6344,27 +8641,44 @@ export type WorkflowTriggerTypes = 'onCreateOnly'
 export type WorkflowTimeUnits = 'Hours'
       |'Days'
 
-export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
+export type ExtendedErrorCode = 'ACTIONCALLPATH_MISSING_NAME'
+      |'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'ACTIONCALL_DUPLICATE_OUTPUT_PARAM'
+      |'ACTIONCALL_FEATURE_NOT_SUPPORTED'
       |'ACTIONCALL_INPUT_VALIDATION_FAILED'
       |'ACTIONCALL_INVALID_INPUT_PARAM_NAME'
+      |'ACTIONCALL_INVALID_ISWAITUNTILCOMPLETED'
+      |'ACTIONCALL_INVALID_OFFSET'
+      |'ACTIONCALL_MISSING_EVENT_INFO'
       |'ACTIONCALL_MISSING_NAME'
+      |'ACTIONCALL_MISSING_OFFSET'
       |'ACTIONCALL_MISSING_REQUIRED_PARAM'
       |'ACTIONCALL_MISSING_REQUIRED_TYPE'
       |'ACTIONCALL_NOT_FOUND_WITH_NAME_AND_TYPE'
       |'ACTIONCALL_NOT_SUPPORTED_FOR_PROCESSTYPE'
       |'ACTIONCALL_NOT_SUPPORTED_FOR_TRIGGERTYPE'
+      |'ACTIONCALL_OFFSET_NOT_SUPPORTED'
       |'ACTIONCALL_TRANSACTION_MODEL_NOT_ALLOWED'
       |'ACTIONCALL_TRANSACTION_MODEL_NOT_SUPPORTED'
       |'ACTIONCALL_TRIGGERING_RECORD_MISMATCHED_OBJECTTYPE'
+      |'ACTION_BUTTON_NOT_SUPPORTED_FOR_API_VERSION_AT_RUNTIME'
+      |'ACTION_BUTTON_NOT_SUPPORTED_FOR_METADATA_API_VERSION'
       |'ACTION_CALL_INPUT_SETUPREFTYPE_REQUIRES_SETUPREFVALUE'
+      |'ACTION_CALL_INVALID_ACTION_NAME_CONTENT'
       |'ACTION_CALL_INVALID_CONFIGURATION'
       |'ACTION_CALL_INVALID_INPUT_PARAM'
       |'ACTION_CALL_INVALID_OUTPUT_PARAM'
+      |'ACTION_CALL_INVALID_VERSION'
+      |'ACTION_CALL_MISSING_CONTACT_POINT'
+      |'ACTION_CALL_MISSING_ELEMENT_DEPENDENCIES'
+      |'ACTION_CALL_MISSING_PLATFORM_EVENT_ATTRIBUTE'
       |'ACTION_INPUT_PARAMETER_REQUIRES_ID_TYPE_FOR_SETUP_REFERENCE'
       |'ACTION_INPUT_PARAMETER_TYPE_AND_SETUP_REFERENCE_TYPE_DO_NOT_MATCH'
       |'ACTION_TYPE_REQUIRED_FOR_STEP'
       |'ADDING_ATTACHMENT_QUESTIONS_ADDITION_TO_EXISTING_SURVEY'
+      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_ACTIVATION'
+      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_EXECUTION'
+      |'ADVANCED_APPROVALS_LICENSE_REQUIRED_FOR_SAVE'
       |'APEXCALLOUT_INPUT_DUPLICATE'
       |'APEXCALLOUT_INPUT_INCOMPATIBLE_DATATYPE'
       |'APEXCALLOUT_INVALID'
@@ -6396,12 +8710,17 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'ASSIGNMENTITEM_NONEXISTENT_REFERENCE'
       |'ASSIGNMENTITEM_REQUIRED'
       |'ASSIGNMENTITEM_RIGHT_DATATYPE_INVALID_FOR_OPERATOR'
+      |'ASYNC_ACTION_NOT_SUPPORTED_FOR_PROCESSTYPE'
+      |'ATTRIBUTE_INVALID_VALUE'
+      |'ATTRIBUTE_INVALID_OUTCOME_VALUE'
       |'AUTOLAUNCHED_CHOICELOOKUP_NOT_SUPPORTED'
       |'AUTOLAUNCHED_CHOICE_NOT_SUPPORTED'
       |'AUTOLAUNCHED_SCREEN_NOT_SUPPORTED'
       |'AUTOLAUNCHED_STEP_NOT_SUPPORTED'
       |'AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE'
       |'AUTOLAUNCHED_WAIT_NOT_SUPPORTED'
+      |'AUTOMATION_EVENT_PATH_EXPERIMENT_MISSING_ELEMENT_DEPENDENCIES'
+      |'BACKGROUND_STEPS_DETECT_ASYNC_PROCESSING'
       |'BEFORE_SAVE_FLOW_RECORD_UPDATE_CANNOT_HAVE_FAULT_CONNECTOR'
       |'BEFORE_SAVE_FLOW_RECORD_UPDATE_INVALID_REFERENCE'
       |'BEFORE_SAVE_FLOW_RECORD_UPDATE_RELATED_RECORD_REQUIRES_INPUTASSIGNMENTS'
@@ -6456,13 +8775,43 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'CUSTOMEVENT_OBJECTTYPE_NOT_SUPPORTED'
       |'CUSTOMEVENT_PROCESSMETADATAVALUES_MISSING_NAME'
       |'CUSTOMEVENT_PROCESSMETADATAVALUES_MORE_THAN_ONE_NAME'
+      |'CUSTOM_EMAIL_MISSING_FIELD_VALUE'
+      |'CUSTOM_EVENT_RELATED_OBJECT_UNSUPPORTED'
+      |'CUSTOM_PROPERTY_INVALID_KEY'
+      |'CUSTOM_PROPERTY_INVALID_KEY_VALUE_PAIR'
+      |'CUSTOM_PROPERTY_INVALID_NAME'
+      |'CUSTOM_PROPERTY_INVALID_VALUE'
+      |'CUSTOM_PROPERTY_INVALID_VALUE_FOR_KEY'
+      |'CUSTOM_PROPERTY_NOT_SUPPORTED'
+      |'CUSTOM_PROPERTY_REQUIRED_KEY_MISSING'
       |'DATATYPE_INVALID'
+      |'DATATYPE_MAPPING_BOTH_APEXCLASS_AND_SOBJECT_NOT_SUPPORTED'
+      |'DATATYPE_MAPPING_BOTH_TYPENAME_AND_VALUE_MAPPING_NOT_SUPPORTED'
+      |'DATATYPE_MAPPING_OUTPUT_KEY_INVALID'
+      |'DATATYPE_MAPPING_OUTPUT_KEY_NOT_A_COLLECTION'
+      |'DATATYPE_MAPPING_OUTPUT_TARGET_AND_KEY_SAME'
+      |'DATATYPE_MAPPING_OUTPUT_TARGET_REPLACE_ANOTHER_OUTPUT'
+      |'DATATYPE_MAPPING_OUTPUT_TRANSFORM_TARGET_NOT_SUPPORTED'
+      |'DATATYPE_MAPPING_OUTPUT_TRANSFORM_TYPE_NOT_SUPPORTED'
       |'DATATYPE_MISSING'
+      |'DATA_GRAPHS_UNSUPPORTED_IN_FLOW_TRANSFORM'
+      |'DATA_GRAPH_DATA_CHANGE_DEFAULT_DATA_SPACE_NOT_USED'
+      |'DATA_GRAPH_DATA_CHANGE_ROOT_DMO_MISMATCH'
+      |'DATA_GRAPH_DATA_CHANGE_TRIGGERING_DATA_GRAPH_NULL'
+      |'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED'
+      |'DATA_GRAPH_DATA_CHANGE_UNIFIED_INDIVIDUAL_NOT_USED_FOR_PATH_EXPERIMENT'
+      |'DATA_GRAPH_DMO_NOT_UNIFIED_INDIVIDUAL'
+      |'DATA_SPACE_REQUIRED_FOR_FLOW_TYPE'
+      |'DATA_SPACE_UNSUPPORTED_FOR_FLOW_TYPE'
       |'DATA_TYPE_NOT_SUPPORTED_FOR_PROCESSTYPE'
+      |'DATA_TYPE_NOT_SUPPORTED_IN_CONDITION'
       |'DECISION_DEFAULT_CONNECTOR_MISSING_LABEL'
       |'DECISION_MISSING_OUTCOME'
       |'DETERMINATION_FLOW_ACTION_TYPE_REQUIRED'
+      |'DUPLICATE_CUSTOM_PROPERTY_NAME'
+      |'DUPLICATE_QUESTION_NOT_ALLOWED'
       |'DYNAMIC_TYPE_MAPPING_MISSING'
+      |'DYNAMIC_TYPE_NOT_SUPPORTED_FOR_METADATA_API_VERSION'
       |'EITHER_CONDITIONS_OR_ACTION_NOT_SUPPORTED'
       |'ELEMENT_CONNECTS_TO_SELF'
       |'ELEMENT_COORDINATES_INVALID'
@@ -6487,8 +8836,11 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'ENVIRONMENT_PERMISSION_REQUIRED'
       |'EXTERNAL_OBJECTS_NOT_SUPPORTED'
       |'EXTERNAL_OBJECT_FIELDS_NOT_SUPPORTED'
+      |'EXTERNAL_SYSTEM_FLOW_INVALID_POLLING_FREQUENCY'
       |'EX_AUTOLAUNCHED_SUBFLOW_INCOMPATIBLE_FLOWTYPE'
+      |'FAULT_CONNECTOR_NOT_SUPPORTED_FOR_PROCESS_TYPE'
       |'FEATURE_DISABLED'
+      |'FEROV_INVALID_INPUT_CONFIGURATOR_MODE'
       |'FIELDASSIGNMENT_FIELD_INCOMPATIBLE_DATATYPE'
       |'FIELDASSIGNMENT_INVALID_DATATYPE'
       |'FIELDASSIGNMENT_INVALID_ELEMENT'
@@ -6503,6 +8855,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FIELD_REQUIRES_PERM'
       |'FIELD_TYPE_NOT_SUPPORTED_AS_CHILD_OF_SCREENFIELD_REGION_OR_REGIONCONTAINER'
       |'FIELD_TYPE_NOT_SUPPORTED_AS_PARENT'
+      |'FIELD_TYPE_UNSUPPORTED'
       |'FIELD_VALUE_REQUIRES_PERM'
       |'FLEXIPAGE_COMPONENT_ATTRIBUTE_EXPRESSION_EXCEPTION'
       |'FLEXIPAGE_COMPONENT_ATTRIBUTE_GENERIC_EXCEPTION'
@@ -6528,16 +8881,31 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLEXIPAGE_RENAMED_COMPONENT_VALIDATION_EXCEPTION'
       |'FLEXIPAGE_TEMPLATE_INVALID_SWITCH'
       |'FLOW_ALREADY_OVERRIDDEN'
+      |'FLOW_APPROVAL_RECALL_INVALID_CONNECTOR'
+      |'FLOW_APPROVAL_RECALL_TOO_MANY_PATHS'
       |'FLOW_CAPABILITY_INPUT_DATA_TYPE_INVALID'
       |'FLOW_CAPABILITY_INPUT_INVALID'
       |'FLOW_CAPABILITY_INPUT_MISSING'
       |'FLOW_CAPABILITY_INVALID'
       |'FLOW_CAPABILITY_MISSING'
+      |'FLOW_COMPLEX_OBJECT_FIELD_DETAILS_INVALID_FEROV'
       |'FLOW_COMPLEX_VALUE_COLLECTION_TYPE_EXPECTED'
+      |'FLOW_COMPLEX_VALUE_INVALID'
       |'FLOW_COMPLEX_VALUE_INVALID_JSON'
       |'FLOW_COMPLEX_VALUE_INVALID_MERGE_FIELD'
       |'FLOW_COMPLEX_VALUE_NOT_SUPPORTED'
       |'FLOW_COMPLEX_VALUE_SCALAR_TYPE_EXPECTED'
+      |'FLOW_COMPLEX_VALUE_TYPE_DATATYPE_INVALID'
+      |'FLOW_COMPLEX_VALUE_TYPE_DATATYPE_MISSING'
+      |'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_INVALID'
+      |'FLOW_COMPLEX_VALUE_TYPE_ELEMENT_REFERENCE_MISSING'
+      |'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_INVALID'
+      |'FLOW_COMPLEX_VALUE_TYPE_FIELD_REFERENCE_MISSING'
+      |'FLOW_COMPLEX_VALUE_TYPE_OBJECTTYPE_INVALID'
+      |'FLOW_COMPLEX_VALUE_TYPE_OBJECTTYPE_MISSING'
+      |'FLOW_CONDITION_INVALID_FIELD'
+      |'FLOW_CONDITION_MISSING_FIELD'
+      |'FLOW_CONDITION_NESTING_LIMIT_EXCEEDED'
       |'FLOW_CONTEXT_RECORD_ASSIGNMENT_VARIABLE_INVALID'
       |'FLOW_CUSTOM_ERROR_COMPOUND_FIELD_NOT_SUPPORTED'
       |'FLOW_CUSTOM_ERROR_EMPTY_MESSAGES_LIST'
@@ -6545,12 +8913,42 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_CUSTOM_ERROR_MULTIPLE_ERRORS_ON_FIELD'
       |'FLOW_CUSTOM_ERROR_MULTIPLE_PAGE_ERRORS_EXCEPTION'
       |'FLOW_CUSTOM_ERROR_NO_FIELD_SELECTION_FOR_FIELD_ERROR'
+      |'FLOW_DATA_PROCESSING_LIMIT_EXCEEDED'
       |'FLOW_ELEMENT_SCALE_LESS_THAN_ZERO'
+      |'FLOW_EXCEEDED_EXITRULE_MAX_COUNT'
+      |'FLOW_EXITRULE_EXECUTION_DELAY_WARNING'
+      |'FLOW_EXITRULE_WITH_NO_CONDITION'
+      |'FLOW_EXPERIMENT_DATA_GRAPH_NAME_NOT_SET'
+      |'FLOW_EXPERIMENT_DURATION_INVALID_VALUE'
+      |'FLOW_EXPERIMENT_DURATION_UNIT_INVALID_VALUE'
+      |'FLOW_EXPERIMENT_EINSTEIN_GUARD_NOT_ENABLED'
+      |'FLOW_EXPERIMENT_GO_TO_NOT_SUPPORTED'
+      |'FLOW_EXPERIMENT_INVALID_PRIMARY_METRIC'
+      |'FLOW_EXPERIMENT_INVALID_TOTAL_PATH_PERCENTAGE'
+      |'FLOW_EXPERIMENT_IS_NOT_ALLOWED_WITH_PENDING_DML'
+      |'FLOW_EXPERIMENT_MISSING_FALLBACK_MODE'
+      |'FLOW_EXPERIMENT_NESTING_IN_SUBFLOW_NOT_SUPPORTED'
+      |'FLOW_EXPERIMENT_NESTING_NOT_SUPPORTED'
+      |'FLOW_EXPERIMENT_OOTB_EMAIL_REQUIRES_SEND_EMAIL'
+      |'FLOW_EXPERIMENT_PATHS_COUNT_ABOVE_MAXIMUM'
+      |'FLOW_EXPERIMENT_PATHS_COUNT_BELOW_MINIMUM'
+      |'FLOW_EXPERIMENT_PATH_PERCENTAGE_INVALID'
+      |'FLOW_EXPERIMENT_PERSONALIZATION_SETUP_INCOMPLETE'
+      |'FLOW_EXPERIMENT_TEST_GROUP_NOT_SUPPORTED'
+      |'FLOW_EXPERIMENT_TEST_GROUP_PERCENTAGE_INVALID_VALUE'
       |'FLOW_FORMULA_FIELD_MISSING'
       |'FLOW_FORMULA_NOT_SUPPORTED'
+      |'FLOW_GET_RECORDS_DUPLICATE_SIBLINGS'
+      |'FLOW_GET_RECORDS_NESTED_LEVELS_MAX_LIMIT'
+      |'FLOW_GET_RECORDS_OBJECTS_MAX_LIMIT'
+      |'FLOW_GET_RECORDS_RELA_FIELD_INVALID'
+      |'FLOW_GET_RECORDS_RELA_OBJ_INVALID'
+      |'FLOW_GET_RECORDS_RELA_REC_UNSUPP'
       |'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_CALLOUTS'
       |'FLOW_IMMEDIATE_PATH_INCOMPATIBLE_WITH_EXTERNAL_OBJECTS'
       |'FLOW_INCLUDES_STEP'
+      |'FLOW_INLINE_TRANSFORM_API_VERSION_NOT_SUPPORTED'
+      |'FLOW_INLINE_TRANSFORM_NOT_SUPPORTED'
       |'FLOW_INPUTPARAM_MISMATCHED_APEX_CLASS'
       |'FLOW_INTERVIEW_BULK_EXECUTION'
       |'FLOW_INTERVIEW_HANDLED_ERROR'
@@ -6564,13 +8962,20 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_INTERVIEW_MISSING_VALUE_FOR_REQUIRED_INPUT_FIELD'
       |'FLOW_INTERVIEW_NAVIGATE'
       |'FLOW_INTERVIEW_RANGE_VALIDATION'
+      |'FLOW_INTERVIEW_RECOVERABLE_ERROR'
       |'FLOW_INTERVIEW_REGEX_VALIDATION'
       |'FLOW_INTERVIEW_RESUME_INTERVIEW'
       |'FLOW_INTERVIEW_SAVE_RESULT'
       |'FLOW_INTERVIEW_SET_CHOICE_SELECTED'
       |'FLOW_INTERVIEW_START_INTERVIEW'
       |'FLOW_INTERVIEW_TYPE_CONVERSION'
+      |'FLOW_INVALID_ACTIVATION'
+      |'FLOW_INVALID_ACTIVATION_TARGET'
+      |'FLOW_INVALID_EVENT_NAME'
+      |'FLOW_INVALID_EVENT_TYPE'
       |'FLOW_INVALID_NAME'
+      |'FLOW_METRICS_NOT_SUPPORTED'
+      |'FLOW_MISMATCHING_DATA_SPACES'
       |'FLOW_NAME_USED_IN_OTHER_CLIENT'
       |'FLOW_ORCHESTRATOR_FREEMIUM_PRODUCT'
       |'FLOW_OVERRIDABLE_CANNOT_BE_OVERRIDE'
@@ -6580,6 +8985,8 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_OVERRIDE_INCOMPATIBLE_PROCESS_TYPE'
       |'FLOW_OVERRIDE_INCOMPATIBLE_TYPE'
       |'FLOW_OVERRIDE_INCOMPATIBLE_VARIABLE'
+      |'FLOW_RECORD_LOOKUP_LIMIT_NOT_SUPPORTED'
+      |'FLOW_RECORD_LOOKUP_LIMIT_OUT_OF_RANGE'
       |'FLOW_RECORD_PRIOR_AUTOLAUNCH_UPDATE_ONLY'
       |'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_CREATE'
       |'FLOW_RECORD_PRIOR_INVALID_IN_RECORD_DELETE'
@@ -6588,6 +8995,8 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_REFERENCES_APEX_CLASS_NOT_IN_SAME_PACKAGE'
       |'FLOW_RESOURCE_NOT_SUPPORTED_FOR_ENVIRONMENT'
       |'FLOW_RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED_FOR_RECORD_PRIOR'
+      |'FLOW_RUN_AS_SYSTEM_MODE_WITHOUT_CONTEXT_WARNING'
+      |'FLOW_RUN_AS_SYSTEM_MODE_WITH_CONTEXT_WARNING'
       |'FLOW_SCHEDULED_PATH_ALLOWED_ONE_ASYNCAFTERCOMMIT_PATH'
       |'FLOW_SCHEDULED_PATH_ASYNCAFTERCOMMIT_REQUIRES_RECORD_CHANGED_OR_ISCHANGED'
       |'FLOW_SCHEDULED_PATH_CANNOT_USE_IS_CHANGED'
@@ -6601,11 +9010,19 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_SCHEDULED_PATH_REQUIRES_DEFAULT_WORKFLOW_USER'
       |'FLOW_SCHEDULED_PATH_REQUIRES_RECORD_CHANGED_TO_MEET_CRITERIA'
       |'FLOW_SCHEDULE_INFORMATION_INCOMPLETE'
+      |'FLOW_SEGMENT_AND_DG_NOT_MATCH_ON_DMO'
       |'FLOW_SOBJECT_VARIABLE_NOT_PERSISTED'
       |'FLOW_SOURCE_TEMPLATE_INVALID_REFERENCE'
       |'FLOW_STAGE_INCLUDES_REFERENCES'
       |'FLOW_STAGE_ORDER_DUPLICATE'
       |'FLOW_STAGE_ORDER_OUT_OF_RANGE'
+      |'FLOW_START_INPUT_INVALID_EXTERNAL_TRIGGER'
+      |'FLOW_START_INPUT_INVALID_INPUT'
+      |'FLOW_START_INPUT_INVALID_TYPE'
+      |'FLOW_START_INPUT_NOT_ALLOWED'
+      |'FLOW_START_INPUT_REQUIRED'
+      |'FLOW_START_MISMATCHING_DATA_SPACES'
+      |'FLOW_STATIC_INDEX_UNSUPPORTED'
       |'FLOW_SYSTEM_VARIABLE_NOT_SUPPORTED_FOR_TRIGGERTYPE'
       |'FLOW_TEST_API_NAME_DUPLICATED'
       |'FLOW_TEST_ASSERTION_MISSING'
@@ -6616,6 +9033,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_TEST_CONDITION_NOT_SUPPORTED'
       |'FLOW_TEST_DATATYPE_INVALID'
       |'FLOW_TEST_FLOW_INVALID'
+      |'FLOW_TEST_HAS_ERROR_ASSERTION_UNAVAILABLE'
       |'FLOW_TEST_IMMEDIATE_PATH_MISSING'
       |'FLOW_TEST_MERGE_FIELD_INVALID'
       |'FLOW_TEST_MERGE_FIELD_NOT_SUPPORTED'
@@ -6639,13 +9057,39 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_TRANSFORM_AGGR_SOURCE_INVALID'
       |'FLOW_TRANSFORM_APEX_CLASS_INCOMPATIBLE'
       |'FLOW_TRANSFORM_API_VERSION_NOT_SUPPORTED'
+      |'FLOW_TRANSFORM_ASSIGN_TO_REFERENCE_UNSUPPORTED'
+      |'FLOW_TRANSFORM_COLL_DEPTH_NOT_SUPPORTED'
+      |'FLOW_TRANSFORM_COLL_DEPTH_UP_TO_TWO'
+      |'FLOW_TRANSFORM_COLL_INVALID'
+      |'FLOW_TRANSFORM_COLL_UNAVAILABLE'
+      |'FLOW_TRANSFORM_COMPOUND_FIELD_UNSUPPORTED'
       |'FLOW_TRANSFORM_ELEMENT_REFERENCE_INVALID'
       |'FLOW_TRANSFORM_ELEMENT_REFERENCE_TYPE_INCOMPATIBLE'
+      |'FLOW_TRANSFORM_FIELD_INVALID'
+      |'FLOW_TRANSFORM_FIELD_MISSING_INPUT_PARAMETER'
       |'FLOW_TRANSFORM_FMLAFOR_COLL_NOT_SUPP'
       |'FLOW_TRANSFORM_FMLA_COLL_MULT_RSRC'
+      |'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_INVALID'
+      |'FLOW_TRANSFORM_GETITEMBYINDEX_INDEX_MISSING'
       |'FLOW_TRANSFORM_INPUT_PARAM_DUPLICATED'
       |'FLOW_TRANSFORM_INPUT_PARAM_INVALID'
       |'FLOW_TRANSFORM_INPUT_PARAM_MISSING'
+      |'FLOW_TRANSFORM_INVALID_COLLECTION_INDEX'
+      |'FLOW_TRANSFORM_INVALID_COLLECTION_MAPPING'
+      |'FLOW_TRANSFORM_INVALID_INPUT_PARAMETER_VALUE'
+      |'FLOW_TRANSFORM_INVALID_JOIN_KEYS'
+      |'FLOW_TRANSFORM_INVALID_MIXED_STATIC_MAPPING'
+      |'FLOW_TRANSFORM_INVALID_MULTIPLE_TRANSFORM_VALUE_ACTIONS'
+      |'FLOW_TRANSFORM_INVALID_TARGET_FIELD'
+      |'FLOW_TRANSFORM_INVOCABLE_ACTION_IDENTIFIER_MISSING'
+      |'FLOW_TRANSFORM_INVOCABLE_ACTION_NOT_ENABLED'
+      |'FLOW_TRANSFORM_INVOCABLE_ACTION_NOT_FOUND'
+      |'FLOW_TRANSFORM_INVOCABLE_ACTION_NOT_VALID'
+      |'FLOW_TRANSFORM_JOIN_DUPLICATE_SELECTED_FIELD'
+      |'FLOW_TRANSFORM_JOIN_INVALID_SELECTED_FIELD'
+      |'FLOW_TRANSFORM_JOIN_KEY_UNSUPPORTED'
+      |'FLOW_TRANSFORM_JOIN_MISSING_SELECTED_FIELDS'
+      |'FLOW_TRANSFORM_JOIN_NOT_SUPPORTED'
       |'FLOW_TRANSFORM_MAP_COLL_MISSING'
       |'FLOW_TRANSFORM_MAP_COLL_MISSING_SOURCE'
       |'FLOW_TRANSFORM_MAP_COLL_MULT_SOURCE'
@@ -6654,22 +9098,51 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'FLOW_TRANSFORM_MAP_COL_PRIMITIVE_INCOMPA'
       |'FLOW_TRANSFORM_MAP_RSRC_TYPE_NOT_SUPPORTED'
       |'FLOW_TRANSFORM_MAP_STATIC_VAL_COLL_MISSING'
+      |'FLOW_TRANSFORM_MISSING_JOIN_FIELD_MAPPING'
       |'FLOW_TRANSFORM_OUTPUT_FIELD_API_NAME_INVALID'
+      |'FLOW_TRANSFORM_REQUIRES_AUTOMATIC_OUTPUT'
+      |'FLOW_TRANSFORM_SPLIT_JOIN_FIELD_MAPPING'
+      |'FLOW_TRANSFORM_STATIC_COLLECTION_DISABLED'
+      |'FLOW_TRANSFORM_STATIC_COLLECTION_UNSUPPORTED'
+      |'FLOW_TRANSFORM_STATIC_ITEM_MISSING_VALUE'
       |'FLOW_TRANSFORM_SUM_SOURCE_TYPE_INVALID'
+      |'FLOW_TRANSFORM_TYPE_NAME_DUPLICATED'
       |'FLOW_TRANSFORM_TYPE_NOT_SUPPORTED'
+      |'FLOW_TRANSFORM_UNEXPECTED_AUTO_PARAMS'
       |'FLOW_TRANSFORM_VALUES_MISSING'
       |'FLOW_TRANSFORM_VALUE_INVALID'
+      |'FLOW_TRANSFORM_VAL_NAME_NOT_SUPPORTED'
+      |'FLOW_TRANSFORM_VAL_REF_NOT_SUPPORTED'
+      |'FLOW_TRANSFORM_VAL_REF_TFRM_TYP_NOT_SUPP'
       |'FLOW_TRIGGER_DERIVED_FIELD_NOT_SUPPORTED'
       |'FLOW_TRIGGER_ORDER_OUT_OF_BOUNDS'
       |'FLOW_TRIGGER_TYPE_INCOMPATIBLE_WITH_RECORD_TRIGGER_TYPE'
+      |'FLOW_UPSERT_EXTERNAL_ID_FIELD_INVALID'
+      |'FLOW_UPSERT_EXTERNAL_ID_FIELD_NOT_UNIQUE'
+      |'FLOW_UPSERT_STANDARD_FIELD_INVALID'
+      |'FLOW_UPSERT_STANDARD_ID_FIELD_IDLOOKUP_FALSE'
+      |'FLOW_UPSERT_UNIQUE_ID_CONFLICT'
       |'FORMULA_CMT_LIMIT_EXCEEDED'
       |'FORMULA_EXPRESSION_INVALID'
       |'FORM_ALREADY_IN_USE_BY_DRAFT_VERSION'
       |'FORM_ALREADY_IN_USE_BY_FLOW'
       |'FTEST_EXTENSION_CODE_FOR_TEST'
       |'GLOBAL_VARIABLE_NOT_SUPPORTED_FOR_PROCESSTYPE'
+      |'GOTO_NOT_SUPPORTED_FOR_PROCESS_TYPE'
+      |'GROUP_ACTION_NOT_ALLOWED_AS_CHILD'
+      |'GROUP_CHILDREN_NOT_CONTIGUOUS'
+      |'GROUP_ENTRY_ACTION_NOT_MATCHING'
+      |'GROUP_EXIT_ACTION_NOT_MATCHING'
+      |'GROUP_GROUP_NOT_ALLOWED_AS_CHILD'
+      |'GROUP_NAME_MISSING'
+      |'GROUP_REQUIRES_CHILDREN'
+      |'GROUP_TYPE_MISSING'
+      |'HAS_ERROR_OPERATOR_UNAVAILABLE'
       |'HELP_TEXT_NOT_SUPPORTED_FOR_SCREEN_FIELD'
       |'HTTP_METHOD_NOT_SUPPORTED'
+      |'INACCESSIBLE_EVENT_TYPE'
+      |'INCOMPATIBLE_DEBUG_CONFIG_OUTPUT_PARAM_DATA_TYPE'
+      |'INCOMPATIBLE_FLOW_PATH'
       |'INCONSISTENT_ACTION_VERSIONS'
       |'INCONSISTENT_DYNAMIC_TYPE_MAPPING'
       |'INCONSISTENT_VALUE_FOR_DYNAMIC_VALUE_FIELD'
@@ -6681,27 +9154,39 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'INPUTPARAM_INCOMPATIBLE_WITH_COLLECTION_VARIABLE'
       |'INPUTPARAM_INCOMPATIBLE_WITH_NONCOLLECTION_VARIABLE'
       |'INPUTPARAM_MISMATCHED_OBJECTTYPE'
+      |'INPUTPARAM_VARIABLE_MISSING'
       |'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_DYNAMIC_ACTION'
       |'INPUTVARIABLE_COLLECTION_NOT_SUPPORTED_FOR_ENVIRONMENT'
       |'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_DYNAMIC_ACTION'
       |'INPUTVARIABLE_DATATYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
+      |'INSUFFICIENT_ACCESS_FOR_UPSERT'
       |'INVALID_ACTION_TYPE_FOR_STEP'
       |'INVALID_ASSIGNEE'
       |'INVALID_CONTENT_TYPE'
+      |'INVALID_ELEMENT_ON_PATH'
       |'INVALID_EMAIL_ADDRESS'
       |'INVALID_ENVIRONMENTS_VALUE'
       |'INVALID_FLOW'
       |'INVALID_FLOW_INTERVIEW'
+      |'INVALID_ID'
+      |'INVALID_INPUT'
+      |'INVALID_OPERATION_TYPE'
+      |'INVALID_ORCH_ASSIGNEE_TYPE_FOR_PACKAGE'
       |'INVALID_PROCESSTYPE_ENVIRONMENT_COMBINATION'
+      |'INVALID_PROCESS_TYPE_FOR_APPROVAL_RECALL_PATH'
       |'INVALID_QUERY_LOCATOR_FORMAT'
       |'INVALID_REGEX_IN_SURVEY_QUESTIONS'
       |'INVALID_RUN_CONTEXT'
       |'INVALID_SEGMENT_STATUS_FOR_ACTIVATION'
       |'INVALID_SENDER_TYPE'
       |'INVALID_SETUP_REFERENCE_TYPE'
+      |'INVALID_STAGE_REFERENCE'
       |'INVALID_STAGE_STEP_ASSIGNEE_TYPE'
+      |'INVALID_STEP_TYPE_FOR_APPROVAL_RECALL_PATH'
       |'INVALID_SURVEY_VARIABLE_NAME_OR_TYPE'
       |'INVALID_TIME_ZONE'
+      |'INVALID_TYPE'
+      |'INVALID_VALUE'
       |'INVOCABLE_ACTION_TYPE_NOT_SUPPORTED_FOR_ENVIRONMENT'
       |'LOCATOR_LOCATION_EXCEEDS_SIZE'
       |'LOOP_ASSIGNNEXTVALUETO_MISMATCHED_APEXCLASSTYPE'
@@ -6714,9 +9199,14 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'LOOP_COLLECTION_NOT_FOUND'
       |'LOOP_COLLECTION_NOT_SUPPORTED_FOR_FIELD'
       |'LOOP_MISSING_COLLECTION'
+      |'MANAGEDCONTENT_STATUS_INVALID'
+      |'MANUALLY_SET_OUTPUT_DATA_TYPE_MISMATCH'
+      |'MANUALLY_SET_OUTPUT_INVALID_PARAM'
+      |'MANUAL_VARIABLE_ASSIGNMENT_NOT_SUPPORTED'
       |'MAX_CHILD_TYPES'
       |'MAX_EXTERNAL_REFERENCES_IN_QUERY'
       |'MAX_STATEMENT_SIZE'
+      |'MERGE_FIELD_NOT_SUPPORTED_IN_ACTION'
       |'MESSAGING_API_ENTITLEMENT_REACHED'
       |'MESSAGING_INACTIVE_CHANNEL'
       |'MISSING_ASSIGNEE'
@@ -6724,9 +9214,11 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'MISSING_EMAIL_RECIPIENTS'
       |'MISSING_FLOW_TRANSFORM_SUM_FIELD'
       |'MISSING_MULESOFT_STEP_ASSIGNEE'
+      |'MISSING_REQUIRED_OUTPUT_VARIABLE'
       |'MULTIPLE_ASSIGNEES_NOT_ALLOWED'
       |'NON_EXPOSED_COMPONENT_IN_FLOW'
       |'NON_GLOBAL_COMPONENT_IN_EXPORTED_FLOW'
+      |'NO_ELEMENTS_IN_RUN_IMMEDIATELY_PATH'
       |'NUMBER_OF_SCREENFIELD_REGIONS_EXCEEDS_LIMIT'
       |'OBJECTTYPE_INVALID'
       |'OBJECT_CANNOT_BE_CREATED'
@@ -6737,8 +9229,10 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'OBJECT_NOT_FOUND'
       |'OBJECT_TYPE_DOES_NOT_EXIST'
       |'OBJECT_TYPE_NOT_CDC_ENABLED'
+      |'ORCHESTRATION_CAN_ASSIGNEE_EDIT_NOT_SUPPORTED'
       |'ORCHESTRATION_REQUIRESASYNCPROCESSING_NOT_SUPPORTED'
       |'ORCHESTRATION_REQUIRESASYNCPROCESSING_REQUIRED'
+      |'ORCHESTRATION_STEP_LOCK_RECORD_NOT_SUPPORTED'
       |'ORG_WIDE_EMAIL_INVALID'
       |'ORG_WIDE_EMAIL_NOT_USED'
       |'OUTPUTPARAM_ASSIGNTOREFERENCE_INVALID'
@@ -6762,9 +9256,12 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'PROCESSTYPE_SCREEN_FIELDTYPE_NOT_SUPPORTED'
       |'PROCESS_TYPE_ELEMENT_ATTRIBUTE_REQUIRED'
       |'PROCESS_TYPE_INCOMPATIBLE'
+      |'PROGRESS_INDICATOR_NOT_SUPPORTED'
       |'PROMPT_FLOW_CONTAINS_INVALID_VARIABLE'
+      |'PROMPT_FLOW_INPUT_TYPE_CONFLICT'
       |'QUERY_LOCATOR_EXPIRED'
       |'QUERY_LOCATOR_NOT_FOUND'
+      |'QUEUE_DOES_NOT_SUPPORT_ORCHESTRATION_WORK_ITEMS'
       |'RECOMMENDATION_STRATEGY_EXCEPTION'
       |'RECORDFILTER_ENCRYPTED_FIELDS_NOT_SUPPORTED'
       |'RECORDFILTER_GEOLOCATION_FIELDS_NOT_SUPPORTED'
@@ -6781,22 +9278,35 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'RECORD_CHANGE_LISTENER_CONDITIONS_NON_RECORD_GLOBAL_VARIABLE'
       |'RECORD_CHANGE_LISTENER_CONDITIONS_NOT_SUPPORTED'
       |'RECORD_CHANGE_LISTENER_CONDITIONS_THRESHOLD_BREACHED'
+      |'RECORD_CREATE_MISSING_FILTERS'
       |'RECORD_PRIOR_VALUE_REMAIN_SAME_BEFORE_TRIGGER'
       |'REFERENCED_ELEMENT_NOT_FOUND'
+      |'REFERENCE_NOT_SUPPORTED'
+      |'RELATED_RECORD_REQUIRED_WORK_ACTION'
       |'REPEATER_API_VERSION_NOT_SUPPORTED'
+      |'REPEATER_API_VERSION_UPGRADE'
       |'REPEATER_COMPONENT_CURRENTLY_NOT_SUPPORTED'
+      |'REPEATER_DATA_SOURCE_INCOMPATIBLE_TYPE'
+      |'REPEATER_REMOVED_FIELD_INVALID'
       |'REQUIRED_VARIABLE_INVALID'
       |'REQUIRED_VARIABLE_MISSING'
+      |'RESOURCE_ANNOTATION_MAP_MISSING_ELEMENT_REFERENCE'
+      |'RESOURCE_DESCRIPTOR_MISSING_ELEMENT_REFERENCE'
       |'RESOURCE_NOT_SUPPORTED'
+      |'RULE_MISSING'
+      |'RULE_MISSING_ATTRIBUTES'
       |'RULE_MISSING_CONDITION'
       |'RULE_REQUIRE_RECORD_CHANGED_NEVER_CHECKED'
       |'RUN_AS_USER_NOT_SUPPORTED'
       |'RUN_AS_USER_REQUIRED_WHEN_SPECIFYING_ASSIGNEE'
       |'SCHEDULE_TRIGGERED_FLOW_REQUIRES_DEFAULT_WORKFLOW_USER'
+      |'SCREENACTION_CALLS_FLOW_WITH_INSECURE_RUN_AS_MODE'
+      |'SCREENACTION_INVALID_INPUT_PARAM'
       |'SCREENACTION_MISSING_REQUIRED_NAME'
       |'SCREENACTION_MISSING_REQUIRED_TYPE'
       |'SCREENACTION_NOT_SUPPORTED_IN_ORG'
       |'SCREENACTION_TRIGGER_EVENT_SOURCE_NOT_ON_SAME_SCREEN'
+      |'SCREENACTION_TRIGGER_HANDLER_EXCEEDS_CONDITION_LIMIT'
       |'SCREENACTION_TRIGGER_HANDLER_NOT_VALID_SCREEN_ACTION'
       |'SCREENACTION_TYPE_NOT_SUPPORTED_IN_ORG'
       |'SCREENCOMPONENT_CONTAINS_VISIBILITY_RULE'
@@ -6825,6 +9335,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'SCREENFIELD_OBJECTPROVIDED_LIGHTNING_RUNTIME_DISABLED'
       |'SCREENFIELD_OBJECTPROVIDED_MISSING_OBJECTFIELDREFERENCE'
       |'SCREENFIELD_OUTPUTS_NOT_SUPPORTED'
+      |'SCREENFIELD_PARAMETER_MIN_API_VERSION_NOT_VALID_FOR_FLOW_VERSION'
       |'SCREENFIELD_REGION_CONTAINS_DUPLICATE_INPUT_PARAMETER_VALUES'
       |'SCREENFIELD_REGION_INPUT_PARAMETER_NOT_SUPPORTED'
       |'SCREENFIELD_REGION_MISSING_REQUIRED_PERMISSIONS'
@@ -6853,6 +9364,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'SCREENRULE_SCREENFIELD_NOT_VISIBLE'
       |'SCREENRULE_VISIBILITY_NOT_SUPPORTED_IN_ORG'
       |'SCREEN_ACTION_NOT_FOUND_WITH_NAME_AND_TYPE'
+      |'SCREEN_ACTION_TRIGGER_CONDITION_RUNTIME_API_VERSION_NOT_SUPPORTED'
       |'SCREEN_ALLOWBACK_ALLOWFINISH_BOTH_FALSE'
       |'SCREEN_CONTAINS_LIGHTNING_COMPONENT'
       |'SCREEN_CONTAINS_REGION_CONTAINER_COMPONENT'
@@ -6864,6 +9376,8 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'SCREEN_MISSING_LABEL'
       |'SCREEN_MULTISELECTFIELD_DOESNT_SUPPORT_CHOICE_WITH_USERINPUT'
       |'SCREEN_PAUSEDTEXT_NOT_SHOWN_WHEN_ALLOWPAUSE_IS_FALSE'
+      |'SCREEN_TRIGGER_HANDLER_INVALID_INIT_BEHAVIOR_VALUE'
+      |'SEND_EMAIL_UNSUPPORTED'
       |'SETTING_FIELD_MAKES_OTHER_FIELD_REQUIRED'
       |'SETTING_FIELD_MAKES_OTHER_FIELD_UNSUPPORTED'
       |'SETTING_FIELD_VALUE_MAKES_OTHER_FIELD_UNSUPPORTED'
@@ -6885,6 +9399,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'STAGE_NAME_NOT_FULLY_QUALIFIED'
       |'STAGE_STEP_ASSIGNEE_NOT_SUPPORTED'
       |'START_ELEMENT_MISSING'
+      |'STYLE_PROPERTIES_UNSUPPORTED_BY_SCREEN_FIELD_TYPE'
       |'SUBFLOW_DESKTOP_DESIGNER_FLOWS_NOT_SUPPORTED'
       |'SUBFLOW_DIFFERENT_RUNMODE'
       |'SUBFLOW_INPUT_MISSING_NAME'
@@ -6938,6 +9453,15 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'SURVEY_VARIABLE_ACCESS_INVALID'
       |'SYSTEM_MODE_NOT_ALLOWED'
       |'SYSTEM_VARIABLE_MISSING_FIELD_REFERENCE'
+      |'TEMPLATED_PRVD_TYPE_INCOMPATIBLE_FLOW_TYPE'
+      |'TEMPLATED_SCREENFIELD_INFO_MISSING'
+      |'TEMPLATED_SCREENFIELD_INVALID'
+      |'TEMPLATED_SCREENFIELD_NOT_SUPPORTED'
+      |'TEMPLATED_SCREENFIELD_PROPERTIES_INVALID'
+      |'TEMPLATED_SCREENFIELD_PROPERTIES_MISSING'
+      |'TEMPLATED_SCREENFIELD_PRVD_TYPE_INVALID'
+      |'TEMPLATED_SCREENFIELD_RNDR_LWC_INVALID'
+      |'TEMPLATED_SCREEN_FIELD_REQUIRES_AUTOMATIC_OUTPUT'
       |'TEMPORARY_QUERY_MORE_FAILURE'
       |'TRIGGERED_FLOW_REDUNDANT_QUERY'
       |'TRIGGERING_RECORD_UPDATE_REQUIRES_INPUTASSIGNMENTS'
@@ -6971,6 +9495,7 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'VISIBILITY_RULE_NOT_SUPPORTED_FOR_PROCESSTYPE'
       |'VISIBILITY_RULE_NO_CONDITIONS'
       |'WAITEVENT_BATCH_SIZE_NOT_SUPPORTED_FOR_EVENTTYPE'
+      |'WAITEVENT_CHANNEL_ACTIONCALL_MISMATCH'
       |'WAITEVENT_DEFAULT_CONNECTOR_MISSING_LABEL'
       |'WAITEVENT_DUPLICATE_INPUT_PARAM'
       |'WAITEVENT_INPUT_NOT_SUPPORTED_FOR_EVENTTYPE'
@@ -6980,8 +9505,11 @@ export type ExtendedErrorCode = 'ACTIONCALL_DUPLICATE_INPUT_PARAM'
       |'WAITEVENT_MISSING'
       |'WAITEVENT_MISSING_CONNECTOR'
       |'WAITEVENT_MISSING_EVENTTYPE'
+      |'WAITEVENT_NOT_SUCCEEDING_ACTIONCALL'
+      |'WAITEVENT_NO_FIELDS_SET_FOR_DATE_WAIT'
       |'WAITEVENT_OBJECT_NOT_SUPPORTED_FOR_EVENTTYPE'
       |'WAITEVENT_OUTPUT_NOT_SUPPORTED_FOR_EVENTTYPE'
+      |'WAITEVENT_PATHS_MISSING_CONNECTOR'
       |'WAITEVENT_RELATIVEALARM_INVALID_DATETIME_FIELD'
       |'WAITEVENT_RELATIVEALARM_INVALID_FIELD'
       |'WAITEVENT_RELATIVEALARM_INVALID_OBJECTTYPE'
@@ -7020,6 +9548,7 @@ export type LogCategory = 'Db'
       |'System'
       |'Wave'
       |'Nba'
+      |'Data_access'
       |'All'
 
 export type LogCategoryLevel = 'None'
@@ -7047,6 +9576,8 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'ALREADY_REDEEMED_VOUCHER'
       |'APEX_DATA_ACCESS_RESTRICTION'
       |'APEX_FAILED'
+      |'API_TASK_INVALID_REQUEST'
+      |'API_TASK_LIMIT_REACHED'
       |'APPLICATION_ALREADY_EXISTS'
       |'ASSIGNEE_TYPE_REQUIRED'
       |'ATTRIBUTE_DEFINITION_LIMIT_EXCEEDED'
@@ -7055,6 +9586,9 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'AUTH_PROVIDER_NOT_FOUND'
       |'B2B_SEARCH_ADMIN_ERROR'
       |'BAD_CUSTOM_ENTITY_PARENT_DOMAIN'
+      |'BAD_GATEWAY'
+      |'BAD_LIST_UNSUBSCRIBE_DATA'
+      |'BAD_REQUEST'
       |'BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED'
       |'BLOCKED_EXCLUSIVE'
       |'CANNOT_CASCADE_PRODUCT_ACTIVE'
@@ -7084,14 +9618,19 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'CANT_DISABLE_CORP_CURRENCY'
       |'CANT_UNSET_CORP_CURRENCY'
       |'CART_DELIVERY_GROUP_NOT_FOUND'
+      |'CART_ITEM_LIMIT_EXCEEDED_FOR_COUPONS'
       |'CART_ITEM_NOT_FOUND'
       |'CART_NOT_FOUND'
+      |'CART_VALIDATION_ERROR'
+      |'CDS_UNCOMMITTED_WORK'
       |'CHECKOUT_CONFLICT'
       |'CHECKOUT_EXPIRED'
       |'CHECKOUT_INVALIDATED'
+      |'CHECKOUT_INVENTORY_RESERVATION'
       |'CHECKOUT_LOCKED'
       |'CHECKOUT_NOT_FOUND'
       |'CHECKOUT_UNAUTHORIZED'
+      |'CHECKOUT_VALIDATION'
       |'CHILD_SHARE_FAILS_PARENT'
       |'CIRCULAR_DEPENDENCY'
       |'CLEAN_SERVICE_ERROR'
@@ -7102,9 +9641,11 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'CMS_FOLDER_ITEM_MOVE_FAILED'
       |'COLLISION_DETECTED'
       |'COMMERCE_SEARCH_INDEXING_SYSTEM_ERROR'
+      |'COMMERCE_SEARCH_INVALID_RESOURCE'
       |'COMMERCE_SEARCH_MQ_ERROR'
       |'COMMERCE_SEARCH_PROVIDER_LIMIT_EXCEEDED'
       |'COMMERCE_SEARCH_RESOURCE_NOT_FOUND'
+      |'COMMERCE_SEARCH_UNSUPPORTED_LANGUAGE_ERROR'
       |'COMMERCIAL_CONTROL_ERROR'
       |'COMMUNITY_NOT_ACCESSIBLE'
       |'CONFLICT'
@@ -7114,7 +9655,22 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'CONTENT_SEARCH_NOT_ENABLED'
       |'CONTENT_TYPE_DISABLED_FOR_API'
       |'CONTENT_TYPE_NOT_FOUND'
+      |'CONTEXT_TAG_MISSING'
+      |'COPILOT_INACTIVE_CONFIG'
+      |'COPILOT_SESSION_ENDED'
       |'COUPON_REDEMPTION_LIMIT_EXCEEDED'
+      |'CT_DEPTH_LIMIT_EXCEEDED'
+      |'CT_DEVELOPER_NAME_NOT_UPDATABLE'
+      |'CT_ENTITY_DELETE_ERROR'
+      |'CT_ENTITY_SAVE_ERROR'
+      |'CT_INVALID_DEPTH'
+      |'CT_INVALID_QUERY_WORD'
+      |'CT_INVALID_TAXONOMY_ID'
+      |'CT_INVALID_TERM_ID'
+      |'CT_INVALID_TERM_LENGTH'
+      |'CT_NONEMPTY_TERM_REFERENCE'
+      |'CT_PARENT_TERM_CYCLE'
+      |'CT_TERM_SEARCH_ERROR'
       |'CUSTOM_APEX_ERROR'
       |'CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED'
       |'CUSTOM_ENTITY_OR_FIELD_LIMIT'
@@ -7132,7 +9688,10 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'DATACLOUDADDRESS_SERVER_ERROR'
       |'DATA_MAPPING_NOT_FOUND'
       |'DATA_MAPPING_SCHEMA_NOT_FOUND'
+      |'DATA_STREAM_INTERACTIVE_RUN_PRECONDITION_FAILED'
+      |'DATA_STREAM_RUN_FAILED'
       |'DATA_TRANSFER_RECORD_LIMIT_EXCEEDED'
+      |'DATA_TRANSLATION_TOGGLED_BEFORE_INCREMENTAL_INDEX'
       |'DATA_TYPE_NOT_SUPPORTED'
       |'DATE_OUT_OF_RANGE'
       |'DELETE_FAILED'
@@ -7140,6 +9699,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'DELETE_OPERATION_TOO_LARGE'
       |'DELETE_REQUIRED_ON_CASCADE'
       |'DEPENDENCY_EXISTS'
+      |'DOCUMENT_VERSION_EXISTS'
       |'DUPLICATES_DETECTED'
       |'DUPLICATE_CASE_SOLUTION'
       |'DUPLICATE_COMM_NICKNAME'
@@ -7153,6 +9713,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'DUPLICATE_VALUE'
       |'EMAIL_ADDRESS_BOUNCED'
       |'EMAIL_EXTERNAL_TRANSPORT_CONNECTION_ERROR'
+      |'EMAIL_EXTERNAL_TRANSPORT_MISSING_REQUIRED_PROPERTY_ERROR'
       |'EMAIL_EXTERNAL_TRANSPORT_PERMISSION_ERROR'
       |'EMAIL_EXTERNAL_TRANSPORT_TOKEN_ERROR'
       |'EMAIL_EXTERNAL_TRANSPORT_TOO_LARGE_ERROR'
@@ -7200,6 +9761,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'FILTERED_LOOKUP_LIMIT_EXCEEDED'
       |'FIND_DUPLICATES_ERROR'
       |'FLOW_EXCEPTION'
+      |'FORBIDDEN_EXCEPTION'
       |'FUNCTIONALITY_NOT_ENABLED'
       |'GET_EINSTEIN_TENANT_ERROR'
       |'GUEST_INSUFFICIENT_ACCESS'
@@ -7213,10 +9775,12 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'IAS_TENANT_NOT_PROVISIONED'
       |'IAS_UNCOMMITTED_WORK'
       |'IMAGE_TOO_LARGE'
+      |'INACTIVE_CONTEXT_DEFINITION'
       |'INACTIVE_OWNER_OR_USER'
       |'INACTIVE_RULE_ERROR'
       |'INDEX_ITEM_LIMIT_EXCEEDED'
       |'INDEX_PAYLOAD_NOT_FOUND'
+      |'INDEX_SINGLE_PAYLOAD_SIZE_LIMIT_EXCEEDED'
       |'INGESTION_JOB_RECORDS_LIMIT_EXCEEDED'
       |'INGESTION_TOTAL_FILE_SIZE_LIMIT_EXCEEDED'
       |'INPUTPARAM_INCOMPATIBLE_DATATYPE'
@@ -7303,6 +9867,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'INVALID_READ_ONLY_USER_DML'
       |'INVALID_RECEIVEDDOCUMENTID_ATTACHMENT'
       |'INVALID_RECORD_ATTRIBUTE_VALUE'
+      |'INVALID_RECORD_STATUS'
       |'INVALID_RECORD_TYPE'
       |'INVALID_REFRESH_TOKEN'
       |'INVALID_REORDER_PORTAL_RECORD_ASSOCIATION'
@@ -7319,6 +9884,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'INVALID_SITE_FILE_IMPORTED_EXCEPTION'
       |'INVALID_SITE_FILE_TYPE_EXCEPTION'
       |'INVALID_SOURCE_OBJECT_ID'
+      |'INVALID_SOURCE_OBJECT_NAME'
       |'INVALID_STATUS'
       |'INVALID_SUBDOMAIN'
       |'INVALID_TARGET_OBJECT_NAME'
@@ -7338,6 +9904,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'LIST_PRICE_NOT_FOUND'
       |'MALFORMED_ID'
       |'MANAGER_NOT_DEFINED'
+      |'MAPPING_TYPE_NOT_SUPPORTED'
       |'MASSMAIL_RETRY_LIMIT_EXCEEDED'
       |'MASS_MAIL_LIMIT_EXCEEDED'
       |'MATCH_DEFINITION_ERROR'
@@ -7376,12 +9943,16 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'MAX_TM_RULES_EXCEEDED'
       |'MAX_TM_RULE_ITEMS_EXCEEDED'
       |'MAX_TRIGGERS_EXCEEDED'
+      |'MCONTENT_TAXONOMY_GET_ERROR'
+      |'MCONTENT_TAXONOMY_PUBLISH_ERROR'
+      |'MCONTENT_TAXONOMY_UPDATE_ERROR'
       |'MERGE_FAILED'
       |'METADATA_FIELD_UPDATE_ERROR'
       |'METHOD_NOT_ALLOWED'
       |'MISMATCHING_TYPES'
       |'MISSING_ARGUMENT'
       |'MISSING_OMNI_PROCESS_ID'
+      |'MISSING_PAYMENTS_DEPENDENCY'
       |'MISSING_PAY_NOW_SITE_URL_ORG_VALUE'
       |'MISSING_RECEIVEDDOCUMENTID_ATTACHMENT'
       |'MISSING_RECORD'
@@ -7398,11 +9969,15 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'NO_ATTACHMENT_PERMISSION'
       |'NO_AUTH_PROVIDER'
       |'NO_BUSINESS_HOURS_FOUND'
+      |'NO_GUEST_PROFILE_ASSOCIATED_WITH_PRICE_ENGINE'
       |'NO_INACTIVE_DIVISION_MEMBERS'
+      |'NO_INDEXABLE_PRODUCTS'
+      |'NO_INDEXABLE_PRODUCTS_IN_PARTIAL_BUILD'
       |'NO_MASS_MAIL_PERMISSION'
       |'NO_MESSAGE_TYPE_MESSAGES'
       |'NO_PARTNER_PERMISSION'
       |'NO_REFRESH_TOKEN'
+      |'NO_SEARCHABLE_PRODUCTS'
       |'NO_SEARCH_ATTRIBUTES'
       |'NO_SINGLE_MAIL_PERMISSION'
       |'NO_SORT_PRICEBOOK_ASSOCIATED_ERROR'
@@ -7411,11 +9986,13 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'NUMBER_OUTSIDE_VALID_RANGE'
       |'NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED'
       |'OCR_INVALID_REQUEST'
+      |'OPERATION_CONFLICT'
       |'OPERATION_ENQUEUED'
       |'OPERATION_WITH_CALLBACK_ENQUEUED'
       |'OPTED_OUT_OF_MASS_MAIL'
       |'OP_WITH_INVALID_USER_TYPE_EXCEPTION'
       |'ORCHESTRATION_INVALID'
+      |'ORDER_ALREADY_SUBMITTED'
       |'ORDER_MANAGEMENT_ACTION_NOT_ALLOWED'
       |'ORDER_MANAGEMENT_INVALID_RECORD'
       |'ORDER_MANAGEMENT_RECORD_EXISTS'
@@ -7436,6 +10013,9 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'PARAMETER_TOO_LARGE'
       |'PARTICIPANT_RELATIONSHIP_EXISTS'
       |'PAYLOAD_SIZE_EXCEEDED'
+      |'PAYMENTS_TOO_MANY_REQUESTS_ERROR'
+      |'PAYMENT_GATEWAY_DEPENDENCY_EXCEPTION'
+      |'PAYMENT_GATEWAY_REQUEST_EXCEPTION'
       |'PA_API_EXCEPTION'
       |'PA_AXIS_FAULT'
       |'PA_INVALID_ID_EXCEPTION'
@@ -7452,6 +10032,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT'
       |'PORTAL_USER_CREATION_RESTRICTED_WITH_ENCRYPTION'
       |'PRICE_NOT_FOUND'
+      |'PRICING_SERVICE_MISCONFIGURATION'
       |'PRIVATE_CONTACT_ON_ASSET'
       |'PROCESSING_HALTED'
       |'PROGRAM_PROGRESS_NOT_ACTIVE'
@@ -7465,7 +10046,9 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'QUICK_ACTION_LIST_NOT_ALLOWED'
       |'RECORD_CREATION_FAILED'
       |'RECORD_IN_USE_BY_WORKFLOW'
+      |'RECORD_LOCKED'
       |'RECORD_MISSING_REQUIRED_FIELD'
+      |'RECORD_NOT_FOUND'
       |'RECORD_TYPE_LIMIT_EXCEEDED'
       |'RECORD_UPDATE_FAILED'
       |'RECOVERABLE_SEARCH_PROVIDER_ERROR'
@@ -7500,6 +10083,12 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'SEGMENT_COUNT_LIMIT_EXCEEDED'
       |'SELF_REFERENCE_FROM_FLOW'
       |'SELF_REFERENCE_FROM_TRIGGER'
+      |'SERVICE_EMAIL_INVALID_INPUT'
+      |'SERVICE_EMAIL_MISSING_RECORD'
+      |'SERVICE_EMAIL_UNKNOWN_EXCEPTION'
+      |'SERVICE_PLAN_INVALID_DATA'
+      |'SERVICE_PLAN_MISSING_DATA'
+      |'SERVICE_PLAN_UNKNOWN_EXCEPTION'
       |'SERVICE_UNAVAILABLE'
       |'SESSION_EXPIRED'
       |'SESSION_INVALIDATED'
@@ -7514,11 +10103,14 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'SPECIFICATION_GENERATION_EXCEPTION'
       |'STANDARD_PRICE_NOT_DEFINED'
       |'STORAGE_LIMIT_EXCEEDED'
+      |'STOREFRONT_PST_NOT_ACCEPTED'
       |'STRING_TOO_LONG'
+      |'STXN_FULFILLMENT_NOT_INFLIGHT'
       |'SUBDOMAIN_IN_USE'
       |'TABSET_LIMIT_EXCEEDED'
       |'TEMPLATE_NOT_ACTIVE'
       |'TEMPLATE_NOT_FOUND'
+      |'TENANT_GROUP_NOT_FOUND'
       |'TERMS_OF_SERVICE_UNREAD'
       |'TERRITORY_REALIGN_IN_PROGRESS'
       |'TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET'
@@ -7529,15 +10121,23 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'TOO_MANY_POSSIBLE_USERS_EXIST'
       |'TRANSFER_REQUIRES_READ'
       |'TXN_SECURITY_NO_ACCESS'
+      |'TYPE_NOT_FOUND'
       |'UISF_ENTITY_QUERY_FAILED'
       |'UISF_NO_MAPPINGS_FOUND'
       |'UISF_TOKEN_NOT_FOUND'
       |'UISF_UNKNOWN_EXCEPTION'
       |'UISF_USER_MAPPING_FAILED'
+      |'UNABLE_RETRIEVE_PRICING_INFO'
+      |'UNABLE_TO_LOCK_RECORD'
       |'UNABLE_TO_LOCK_ROW'
+      |'UNABLE_TO_UNLOCK_RECORD'
+      |'UNABLE_TO_UPDATE_RECORD_LOCK'
+      |'UNAUTHORIZED_EXCEPTION'
       |'UNAUTHORIZED_SEARCH_PROVIDER_REQUEST'
+      |'UNAUTHORIZED_SHARE_ACTION'
       |'UNAVAILABLE_RECORDTYPE_EXCEPTION'
       |'UNAVAILABLE_REF'
+      |'UNCOMMITTED_WORK'
       |'UNDEFINED_MAPPING_DEFINITION'
       |'UNDELETE_FAILED'
       |'UNKNOWN_EXCEPTION'
@@ -7549,6 +10149,7 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'UNSPECIFIED_EMAIL_ADDRESS'
       |'UNSUPPORTED_APEX_TRIGGER_OPERATON'
       |'UNSUPPORTED_MODE'
+      |'UNSUPPORTED_PAYMENT_GATEWAY_EXCEPTION'
       |'UNSUPPORTED_PAYMENT_GATEWAY_TYPE'
       |'UNSUPPORTED_PAYMENT_REQUEST_TYPE'
       |'UNSUPPORTED_SITE'
@@ -7575,6 +10176,15 @@ export type StatusCode = 'ALERT_NOTIFICATION_LIMIT_EXCEEDED'
       |'XCLEAN_DJ_MATCH_RETRIABLE_ERROR'
       |'XCLEAN_DJ_MATCH_UNKNOWN_ERROR'
       |'XCLEAN_UNEXPECTED_ERROR'
+
+export type EmbeddedServiceClientVersion = 'WebV1'
+      |'WebV2'
+
+export type SurfaceType = 'Messaging'
+      |'NextGenChat'
+      |'ServiceEmail'
+      |'Telephony'
+      |'CustomerWebClient'
 
 export type AllOrNoneHeader = string
 
@@ -7685,6 +10295,7 @@ export type DeployResult = {
     numberComponentErrors: number;
     numberComponentsDeployed: number;
     numberComponentsTotal: number;
+    numberFiles?: number;
     numberTestErrors: number;
     numberTestsCompleted: number;
     numberTestsTotal: number;
@@ -7694,6 +10305,7 @@ export type DeployResult = {
     stateDetail?: string;
     status: DeployStatus;
     success: boolean;
+    zipSize?: number;
 }
 
 export type DeployDetails = {
@@ -8000,6 +10612,7 @@ export type AIReplyRecommendationsSettings = Metadata & {
     enableAIReplyRecommendations?: boolean;
     enableGenReplyRecommendations?: boolean;
     enableServiceEinsteinGPTGrounding?: boolean;
+    enableServiceRepliesPause?: boolean;
 }
 
 export type AIScoringModelDefVersion = Metadata & {
@@ -8045,6 +10658,8 @@ export type AIUsecaseDefinition = Metadata & {
 }
 
 export type AIUsecaseFieldMapping = {
+    additionalFieldInformation?: string;
+    customPredictionLabel?: string;
     developerName: string;
     joinFieldInformation?: string;
     mappedFieldName: string;
@@ -8061,12 +10676,13 @@ export type AIUsecaseModel = {
     defaultFeatureExtractor?: AIFeatureExtractor;
     developerName: string;
     masterLabel: string;
-    predictionDefinition: string;
+    predictionDefinition?: string;
     predictionPlatform: PredictionPlatform;
 }
 
 export type AIFeatureExtractor = {
     batchInputSourceIdentifier?: string;
+    batchInputSourceInformation?: string;
     batchInputSourceType?: BatchInputSourceType;
     className?: string;
     developerName: string;
@@ -8123,6 +10739,23 @@ export type AccountIntelligenceSettings = Metadata & {
     enableNewsStories?: boolean;
 }
 
+export type AccountPlanObjMeasCalcDef = Metadata & {
+    conditions: AccountPlanObjMeasCalcCond[];
+    description?: string;
+    developerName: string;
+    masterLabel: string;
+    rollupType: string;
+    status: string;
+    targetField?: string;
+    targetObject: string;
+}
+
+export type AccountPlanObjMeasCalcCond = {
+    fieldName: string;
+    operation: string;
+    value: string;
+}
+
 export type AccountRelationshipShareRule = Metadata & {
     accessLevel: string;
     accountToCriteriaField: string;
@@ -8141,6 +10774,7 @@ export type AccountSettings = Metadata & {
     enableAccountTeams?: boolean;
     enableContactHistoryTracking?: boolean;
     enableRelateContactToMultipleAccounts?: boolean;
+    enableReportsToOnPersonAccount?: boolean;
     showViewHierarchyLink?: boolean;
 }
 
@@ -8207,9 +10841,16 @@ export type ActionLinkTemplate = {
 export type ActionPlanTemplate = Metadata & {
     actionPlanTemplateItem: ActionPlanTemplateItem[];
     actionPlanTemplateItemDependencies: ActionPlanTemplateItemDependency[];
+    actionPlanType?: ActionPlanTemplateType;
+    category?: string;
     description?: string;
+    estimatedCompletionDays?: number;
+    fileBasedTemplatePath?: string;
     isAdHocItemCreationEnabled: boolean;
     name: string;
+    sourceType?: string;
+    status?: string;
+    subcategory?: string;
     targetEntityType: string;
     uniqueName: string;
 }
@@ -8248,6 +10889,7 @@ export type ActionableEventOrchDef = Metadata & {
     executionProcedureAPIName?: string;
     executionProcedureType?: string;
     isActive: boolean;
+    isTemplate: boolean;
     label: string;
 }
 
@@ -8270,8 +10912,10 @@ export type ActionsSettings = Metadata & {
 }
 
 export type ActivationPlatform = Metadata & {
+    activationFlowType?: ActivationFlowType;
     activationPlatformAdditionalMetadata?: string;
     activationPlatformConnectorType?: ActivationPlatformConnectorType;
+    activationPlatformCreationType?: ActivationPlatformCreationType;
     dataConnector?: string;
     description: string;
     enabled: boolean;
@@ -8282,6 +10926,7 @@ export type ActivationPlatform = Metadata & {
     outputFormat: ActivationPlatformFileOutputFormat;
     outputGrouping: ActivationPlatformFileOutputGrouping;
     periodicRefreshFrequecy?: ActivationPlatformPeriodicFullRefresh;
+    platformProcessingType?: ActivationPlatformProcessingType;
     platformType: ActivationPlatformType;
     refreshFrequency: ActivationPlatformRefreshFrequency;
     refreshMode: ActivationPlatformRefreshMode;
@@ -8289,7 +10934,13 @@ export type ActivationPlatform = Metadata & {
 
 export type ActivationPlatformActvAttr = Metadata & {
     activationPlatform: string;
+    actvPlatformAdncIdentifier?: string;
+    applyHash?: boolean;
+    attributeMappingSchemas?: string;
+    destinationName?: string;
     fieldName?: string;
+    isFromSourceObject?: boolean;
+    isIdentifier?: boolean;
     isRequired: boolean;
     masterLabel: string;
     objectName?: string;
@@ -8381,18 +11032,21 @@ export type AddOnDefinition = Metadata & {
     managementServiceProvider?: string;
     managementTenantId?: string;
     name: string;
+    recordVisibility?: string;
 }
 
 export type IncludedPlatformLicenseDefinition = {
     fullName?: string;
     name: string;
     quantity?: number;
+    recordVisibility?: string;
 }
 
 export type IncludedUserLicenseDefinition = {
     fullName?: string;
     name: string;
     quantity?: number;
+    recordVisibility?: string;
 }
 
 export type AddressSettings = Metadata & {
@@ -8527,9 +11181,92 @@ export type AdvancedFieldMapping = {
     targetObject: string;
 }
 
+export type AffinityScoreDefinition = Metadata & {
+    affinityScoreDefinitionDesc?: string;
+    affinityScoreDefinitionName?: string;
+    affinityScoreType?: AffinityScoreType;
+    masterLabel?: string;
+    numberOfMonths?: number;
+    numberOfRanges?: number;
+    scoreRangeList?: string;
+    sourceFieldApiNameList?: string;
+    sourceObjectApiNameList?: string;
+    targetFieldApiNameList?: string;
+    targetObjectApiName?: string;
+}
+
 export type Ai4mSettings = Metadata & {
+    enableEinsteinMCDesiger?: boolean;
+    enableStoEmailPooledModel?: boolean;
+    enableUmaEef?: boolean;
+    enableUmaEefWhatsappSetting?: boolean;
+    enableUmaEes?: boolean;
+    enableUmaEesSmsSetting?: boolean;
+    enableUmaEesWhatsappSetting?: boolean;
     enableUmaGlobalModel?: boolean;
     enableUmaSto?: boolean;
+}
+
+export type AiEvaluationDefinition = Metadata & {
+    description?: string;
+    name?: string;
+    subjectName?: string;
+    subjectType?: string;
+    subjectVersion?: string;
+    testCase: AiEvaluationTestCase[];
+}
+
+export type AiEvaluationTestCase = {
+    expectation: AiEvaluationExpectation[];
+    inputs: AiEvaluationAgentTestCaseInput[];
+    number?: number;
+}
+
+export type AiEvaluationExpectation = {
+    expectedValue?: string;
+    label?: string;
+    name?: string;
+    parameter: AiEvaluationTestCaseCritParam[];
+}
+
+export type AiEvaluationTestCaseCritParam = {
+    isReference: boolean;
+    name: string;
+    value: string;
+}
+
+export type AiEvaluationAgentTestCaseInput = {
+    contextVariable: AiEvalCopilotTestCaseCntxtVar[];
+    conversationHistory: AiEvalCopilotTestCaseConv[];
+    utterance?: string;
+}
+
+export type AiEvalCopilotTestCaseCntxtVar = {
+    variableName?: string;
+    variableValue?: string;
+}
+
+export type AiEvalCopilotTestCaseConv = {
+    index?: number;
+    message?: string;
+    role?: string;
+    topic?: string;
+}
+
+export type AiPlannerVoiceDef = Metadata & {
+    developerName?: string;
+    inboundFillerWordsBool?: boolean;
+    inboundKeywords?: string;
+    inboundModel?: string;
+    label?: string;
+    outboundFillerSentences?: string;
+    pronunciationDict?: string;
+    outboundModel?: string;
+    outboundSimilarity?: number;
+    outboundSpeedNum?: number;
+    outboundStability?: number;
+    outboundStyleExaggeration?: number;
+    outboundVoice?: string;
 }
 
 export type AnalyticSnapshot = Metadata & {
@@ -8549,6 +11286,135 @@ export type AnalyticSnapshotMapping = {
     targetField: string;
 }
 
+export type AnalyticsDashboard = Metadata & {
+    analyticsWorkspace: string;
+    description?: string;
+    lastDraftModifiedDate?: Date;
+    lastPublishedDate?: Date;
+    layouts: AnalyticsDashboardLayout[];
+    masterLabel: string;
+    style?: string;
+    templateAssetSourceName?: string;
+    templateSource?: string;
+    version?: number;
+    widgets: AnalyticsDashboardWidget[];
+    workspaceAssetRelationships: AnalyticsWorkspaceAsset[];
+}
+
+export type AnalyticsDashboardLayout = {
+    analyticsDashboard: string;
+    analyticsDashboardVersion?: string;
+    columnCount?: string;
+    label?: string;
+    layoutName?: string;
+    maxWidth?: string;
+    pages: AnalyticsDashboardPage[];
+    rowHeight?: string;
+    style?: string;
+    version?: number;
+}
+
+export type AnalyticsDashboardPage = {
+    index?: number;
+    label?: string;
+    pageName?: string;
+    pageWidgets: AnalyticsDashPageWidget[];
+}
+
+export type AnalyticsDashPageWidget = {
+    analyticsDashboardWidget: string;
+    colspan?: string;
+    column?: string;
+    row?: string;
+    rowspan?: string;
+}
+
+export type AnalyticsDashboardWidget = {
+    analyticsDashboard: string;
+    analyticsDashboardVersion?: string;
+    buttonWidgetDefs: AnalyticsButtonWidgetDef[];
+    containerWidgetDefs: AnalyticsContainerWidgetDef[];
+    dynamicTokens: AnlytDshbrdWdgtDynamicTkn[];
+    filterWidgetDefs: AnalyticsFilterWidgetDef[];
+    label?: string;
+    metricWidgetDefs: AnalyticsMetricWidgetDef[];
+    parameterWidgetDefs: AnalyticsParamWidgetDef[];
+    textWidgetDefs: AnalyticsTextWidgetDef[];
+    type: AnalyticsWidgetType;
+    vizWidgetDefs: AnalyticsVizWidgetDef[];
+    widgetActions: AnalyticsAssetAction[];
+    widgetName?: string;
+}
+
+export type AnalyticsButtonWidgetDef = {
+    parameters?: string;
+}
+
+export type AnalyticsContainerWidgetDef = {
+    parameters?: string;
+}
+
+export type AnlytDshbrdWdgtDynamicTkn = {
+    description?: string;
+    label?: string;
+    source?: string;
+    tokenName?: string;
+    tokenSpec?: string;
+    type?: AnalyticsDynamicTokenType;
+}
+
+export type AnalyticsFilterWidgetDef = {
+    initialValues?: string;
+    parameters?: string;
+    source?: string;
+}
+
+export type AnalyticsMetricWidgetDef = {
+    parameters?: string;
+    semanticModel?: string;
+    source?: string;
+    sourceDeprecated?: string;
+    version?: number;
+}
+
+export type AnalyticsParamWidgetDef = {
+    initialValues?: string;
+    parameters?: string;
+    source?: string;
+}
+
+export type AnalyticsTextWidgetDef = {
+    parameters?: string;
+}
+
+export type AnalyticsVizWidgetDef = {
+    analyticsVisualization?: string;
+    analyticsVizVersion?: string;
+    parameters?: string;
+}
+
+export type AnalyticsAssetAction = {
+    actionType: AnalyticsActionType;
+    analyticsAssetVersion?: string;
+    eventType: AnalyticsActionEventType;
+    parameters?: string;
+    version?: number;
+}
+
+export type AnalyticsWorkspaceAsset = {
+    asset: string;
+    assetType: AnalyticsWorkspaceAssetType;
+    assetUsageType: AnalyticsWorkspaceAssetUsageType;
+    workspace: string;
+}
+
+export type AnalyticsDatasetDefinition = Metadata & {
+    datasetCategory: string;
+    datasetName: string;
+    masterLabel: string;
+    usageCategory: string;
+}
+
 export type AnalyticsSettings = Metadata & {
     alwaysGenPreviews?: boolean;
     analyticsAdoptionMetadata?: boolean;
@@ -8560,7 +11426,9 @@ export type AnalyticsSettings = Metadata & {
     canExploreDataConversationally?: boolean;
     canShareAppsWithCommunities?: boolean;
     canViewThumbnailAssets?: boolean;
+    cdpQueryCachingOptIn?: boolean;
     concurrencyLimitSharing?: boolean;
+    disableIncrementalDatasetCreation?: boolean;
     enableAmazonRedshiftOutputConnector?: boolean;
     enableAnalyticsEncryption?: boolean;
     enableAnalyticsSharingEnable?: boolean;
@@ -8570,13 +11438,17 @@ export type AnalyticsSettings = Metadata & {
     enableC360GlobalProfileData?: boolean;
     enableCreateLegacyDataflows?: boolean;
     enableCrmaDataCloudIntegration?: boolean;
+    enableCrtSetupLightningUiPref?: boolean;
     enableDashboardComponentSnapshot?: boolean;
     enableDashboardFlexiTable?: boolean;
+    enableDashboardSubOrgEmailPref?: boolean;
     enableDashboardToPDFEnable?: boolean;
     enableDataCloudReportingPref?: boolean;
     enableEmailReportsToPortalUsers?: boolean;
     enableFirebirdEditor?: boolean;
     enableFloatingReportHeaders?: boolean;
+    enableIncludeDisclaimerMessage?: boolean;
+    enableIncrementalUpsert?: boolean;
     enableInsights?: boolean;
     enableInsightsHCMode?: boolean;
     enableLightningReportBuilder?: boolean;
@@ -8589,22 +11461,30 @@ export type AnalyticsSettings = Metadata & {
     enableOrgCanViewThumbnailForOA?: boolean;
     enableOrgHasMobileOfflineEnabled?: boolean;
     enableOrgHasWatchlistEnabled?: boolean;
+    enableOrgWideEmailNotification?: boolean;
+    enablePupparazziForNotifications?: boolean;
     enableQueryLiveConnectors?: boolean;
     enableRemoveFooterForRepDisplay?: boolean;
     enableRemoveFooterFromRepExp?: boolean;
+    enableReportCdnPref?: boolean;
+    enableReportEscapeCharsPref?: boolean;
     enableReportHideXlsExportPref?: boolean;
     enableReportInlineEditPref?: boolean;
     enableReportNotificationsEnable?: boolean;
+    enableReportSubOrgEmailPref?: boolean;
+    enableReportingOnSDMPref?: boolean;
     enableRequestPrioritySchdl?: boolean;
     enableS1AnalyticsEclairEnable?: boolean;
     enableS3OutputConnector?: boolean;
     enableSFXJoinedReportsEnable?: boolean;
     enableSalesforceOutputConnector?: boolean;
     enableSecureImageSharing?: boolean;
+    enableShowHighContrastChart?: boolean;
     enableSnowflakeOutputConnector?: boolean;
     enableSummaryFilterOrgPref?: boolean;
     enableTableauHyperOutputConnector?: boolean;
     enableUseOldChartsLookAndFeel?: boolean;
+    enableUseReportTableSettingPref?: boolean;
     enableWaveAssetsNewDateVersion?: boolean;
     enableWaveCustomFiscal?: boolean;
     enableWaveIndexMVDim?: boolean;
@@ -8617,6 +11497,7 @@ export type AnalyticsSettings = Metadata & {
     enableWaveTrendedDatasetCleanup?: boolean;
     enableWriteToDataCloud?: boolean;
     etlOrchestrationPref?: boolean;
+    incrementalUpsertEnabled?: boolean;
     isDiscoveryOptimizationEnabled?: boolean;
     isHighVolumePushbackEnabled?: boolean;
     maxHoursAppInProgress?: number;
@@ -8629,6 +11510,51 @@ export type AnalyticsSettings = Metadata & {
     setWaveIsYearEndFiscalYear?: boolean;
     sonicEnabled?: boolean;
     turnOnTimeZones?: boolean;
+}
+
+export type AnalyticsVisualization = Metadata & {
+    actions: AnalyticsAssetAction[];
+    analyticsWorkspace: string;
+    dataSource: string;
+    fields: AnalyticsVizField[];
+    lastDraftModifiedDate?: Date;
+    lastPublishedDate?: Date;
+    masterLabel: string;
+    templateAssetSourceName?: string;
+    templateSource?: string;
+    version?: number;
+    views: AnalyticsVizViewDef[];
+    visualSpecification: string;
+    workspaceAssetRelationships: AnalyticsWorkspaceAsset[];
+}
+
+export type AnalyticsVizField = {
+    analyticsVizVersion?: string;
+    computeUsing?: string;
+    displayCategory?: VisualizationFieldDisplayCategoryType;
+    fieldKey: string;
+    fieldName?: string;
+    function?: VisualizationFieldFunctionType;
+    label?: string;
+    objectName?: string;
+    quickTableCalc?: string;
+    role?: VisualizationFieldRoleType;
+    type?: VisualizationFieldType;
+}
+
+export type AnalyticsVizViewDef = {
+    analyticsVizVersion?: string;
+    fullName: string;
+    isOriginal: boolean;
+    masterLabel: string;
+    version?: number;
+    viewSpecification?: string;
+}
+
+export type AnalyticsWorkspace = Metadata & {
+    description?: string;
+    masterLabel: string;
+    workspaceAssetRelationships: AnalyticsWorkspaceAsset[];
 }
 
 export type AndroidPushApplicationSetup = Metadata & {
@@ -8668,20 +11594,48 @@ export type ApexSettings = Metadata & {
     enableAuraApexCtrlAuthUserAccessCheckPref?: boolean;
     enableAuraApexCtrlGuestUserAccessCheckPref?: boolean;
     enableCompileOnDeploy?: boolean;
+    enableDebugLogsDuringDeployment?: boolean;
     enableDisableParallelApexTesting?: boolean;
     enableGaplessTestAutoNum?: boolean;
     enableMngdCtrlActionAccessPref?: boolean;
     enableNonCertifiedApexMdCrud?: boolean;
     enableRestrictCommunityExecAnon?: boolean;
     enableSecureNoArgConstructorPref?: boolean;
+    enableTestSetupSkipTestResults?: boolean;
 }
 
 export type ApexTestSuite = Metadata & {
     testClassName: string[];
 }
 
+export type ApiNamedQuery = Metadata & {
+    apiNamedQueryParameters: ApiNamedQueryParameter[];
+    apiVersion: number;
+    body2: string;
+    description: string;
+    isProtected?: boolean;
+    masterLabel: string;
+}
+
+export type ApiNamedQueryParameter = {
+    description: string;
+    parameterLabel: string;
+    parameterName: string;
+}
+
 export type AppExperienceSettings = Metadata & {
     doesHideAllAppsInAppLauncher?: boolean;
+}
+
+export type AppFrameworkTemplateBundle = Metadata & {
+    assetVersion?: number;
+    description?: string;
+    label: string;
+    maxAppCount?: number;
+    templateBadgeIcon?: string;
+    templateStatus?: string;
+    templateSubtype?: string;
+    templateType: string;
 }
 
 export type AppMenu = Metadata & {
@@ -8865,6 +11819,8 @@ export type AssessmentQuestion = Metadata & {
     assessmentQuestionVersion?: AssessmentQuestionVersion;
     dataType: string;
     developerName: string;
+    disclosureDefinitionVer?: string;
+    displayTextCategory?: string;
     formulaResponseDataType?: string;
     name: string;
     questionCategory: string;
@@ -8873,7 +11829,9 @@ export type AssessmentQuestion = Metadata & {
 
 export type AssessmentQuestionVersion = {
     additionalInformation?: string;
+    assessmentQuestionVersionChoices: AssessmentQuestionVersionChoice[];
     description?: string;
+    guidanceInformation?: string;
     helpText?: string;
     isActive: boolean;
     name: string;
@@ -8882,6 +11840,13 @@ export type AssessmentQuestionVersion = {
     responseValues?: string;
     status: string;
     versionNumber: number;
+}
+
+export type AssessmentQuestionVersionChoice = {
+    displayOrder?: number;
+    icon?: string;
+    key: string;
+    name: string;
 }
 
 export type AssessmentQuestionSet = Metadata & {
@@ -9109,7 +12074,8 @@ export type AuraDefinition = {
 export type PackageVersion = {
     majorNumber: number;
     minorNumber: number;
-    namespace: string;
+    namespace?: string;
+    packageId?: string;
 }
 
 export type AuthProvider = Metadata & {
@@ -9123,6 +12089,9 @@ export type AuthProvider = Metadata & {
     ecKey?: string;
     errorUrl?: string;
     executionUser?: string;
+    flow?: string;
+    flowDefaultAccount?: string;
+    flowDefaultProfile?: string;
     friendlyName: string;
     iconUrl?: string;
     idTokenIssuer?: string;
@@ -9131,6 +12100,7 @@ export type AuthProvider = Metadata & {
     linkKickoffUrl?: string;
     logoutUrl?: string;
     oauthKickoffUrl?: string;
+    paramForwardAllowlist?: AuthProvParamFwdAllowlist[];
     plugin?: string;
     portal?: string;
     providerType: AuthProviderType;
@@ -9142,6 +12112,11 @@ export type AuthProvider = Metadata & {
     ssoKickoffUrl?: string;
     tokenUrl?: string;
     userInfoUrl?: string;
+}
+
+export type AuthProvParamFwdAllowlist = {
+    description?: string;
+    param: string;
 }
 
 export type AutoResponseRule = Metadata & {
@@ -9163,10 +12138,14 @@ export type AutomatedContactsSettings = Metadata & {
 export type BatchCalcJobDefinition = Metadata & {
     aggregates: BatchCalcJobAggregate[];
     appends: BatchCalcJobUnion[];
+    atomicWritebacks: BatchCalcJobAtomicWriteback[];
     customNodes: BatchCalcJobCustomNode[];
     dataSpaceApiName?: string;
     datasources: BatchCalcJobDatasource[];
+    definitionRunMode?: BatchCalcJobDefRunMode;
     description?: string;
+    doesGenAllFailedRecords?: boolean;
+    executionPlatformObjectType?: ExecutionPlatformObjectType;
     executionPlatformType?: ExecutionPlatformType;
     filters: BatchCalcJobFilter[];
     forecasts: BatchCalcJobForecast[];
@@ -9194,6 +12173,23 @@ export type BatchCalcJobAbstractMetadataValue = string
 
 export type DpeToRecipeTranslateAbstractMetadataValue = string
 
+export type BatchCalcJobAtomicWriteback = BatchCalcJobAbstractMetadataValue & {
+    description?: string;
+    label: string;
+    name: string;
+    writebackObjectRelationships: BatchCalcJobAtomicWritebackRelationship[];
+    writebackSequence?: number;
+}
+
+export type BatchCalcJobAtomicWritebackRelationship = {
+    childWritebackObjectField?: string;
+    childWritebackObjectName?: string;
+    parentWritebackObjectField?: string;
+    parentWritebackObjectName: string;
+    relationshipName?: string;
+    sequenceNumber: number;
+}
+
 export type BatchCalcJobCustomNode = BatchCalcJobAbstractMetadataValue & {
     description?: string;
     extensionName: string;
@@ -9210,8 +12206,12 @@ export type BatchCalcJobCustomNodeParameter = {
 }
 
 export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
+    CSVDelimiter?: BatchCalcJobCSVDelimiter;
     description?: string;
     fields: BatchCalcJobDatasourceField[];
+    fileIdentifier?: string;
+    filePath?: string;
+    fileSource?: BatchCalcJobFileSource;
     label: string;
     name: string;
     sourceName: string;
@@ -9220,6 +12220,7 @@ export type BatchCalcJobDatasource = BatchCalcJobAbstractMetadataValue & {
 
 export type BatchCalcJobDatasourceField = {
     alias?: string;
+    dataType?: BatchCalcJobDataType;
     isPrimaryKey?: boolean;
     name: string;
 }
@@ -9351,16 +12352,19 @@ export type BatchCalcJobUnion = BatchCalcJobAbstractMetadataValue & {
 }
 
 export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
+    canWrtbckToNonEditableFields?: boolean;
     description?: string;
     externalIdFieldName?: string;
     fields: BatchCalcJobWritebackMapping[];
     filterCondition?: string;
     folderName?: string;
     isChangedRow?: boolean;
+    isExistingDataset?: boolean;
     label: string;
     name: string;
     operationType?: BatchCalcJobWritebackOpn;
     sharingInheritanceObjectName?: string;
+    shouldCreateTargetObject?: boolean;
     sourceName: string;
     storageType?: BatchCalcJobWritebackType;
     targetObjectName: string;
@@ -9370,6 +12374,8 @@ export type BatchCalcJobWritebackObject = BatchCalcJobAbstractMetadataValue & {
 }
 
 export type BatchCalcJobWritebackMapping = {
+    fieldType?: BatchCalcJobWritebackKeyType;
+    isAutogenerated?: boolean;
     parentName?: string;
     relationshipName?: string;
     runtimeParameter?: boolean;
@@ -9401,18 +12407,28 @@ export type BatchProcessJobDefinition = Metadata & {
 export type BatchDataSource = {
     condition: string;
     criteria?: string;
+    dataSourceType?: DataSourceType;
     filters: BatchDataSrcFilterCriteria[];
+    orderFields: BatchDataSourceOrderField[];
     sourceObject: string;
     sourceObjectField?: string;
 }
 
 export type BatchDataSrcFilterCriteria = {
+    domainObjectName?: string;
     dynamicValue: boolean;
     dynamicValueType?: string;
     fieldName: string;
+    fieldPath?: string;
     fieldValue: string;
     operator: string;
     sequenceNo: number;
+}
+
+export type BatchDataSourceOrderField = {
+    domainObjectName: string;
+    fieldName: string;
+    fieldPath: string;
 }
 
 export type BenefitAction = Metadata & {
@@ -9441,6 +12457,37 @@ export type BenefitActionParameterValue = {
     parameterValue: string;
 }
 
+export type BillingSettings = Metadata & {
+    acctRecGlAccount?: string;
+    billingContextDefinition?: string;
+    billingContextSourceMapping?: string;
+    billingIntraCtxtSrcMapping?: string;
+    defaultAPClosureDPEDefnName?: string;
+    defaultApplyCreditMemoFlow?: string;
+    defaultBillingTreatment?: string;
+    defaultEmailTemplate?: string;
+    defaultInvPreviewTemplate?: string;
+    defaultInvoiceDocTemplate?: string;
+    defaultLegalEntity?: string;
+    defaultTaxTreatment?: string;
+    enableBillingSetup?: boolean;
+    enableCrMemoApplicationToPostedInvoices?: boolean;
+    enableForeignExchangeTrxnJrnlCreation?: boolean;
+    enableInvoiceEmailDelivery?: boolean;
+    enableInvoicePdfGeneration?: boolean;
+    enableInvoiceSequenceService?: boolean;
+    enableNegInvoiceLnConversionToCrMemoLn?: boolean;
+    enablePaymentSchedulesAndItemsCreation?: boolean;
+    enableTransactionJournalCreation?: boolean;
+    enableTransactionsApplicationToInvoices?: boolean;
+    enableTrxnAmountsStorageInCorpCurrency?: boolean;
+    realisedGainGlAccount?: string;
+    realisedLossGlAccount?: string;
+    sendTo?: string;
+    unrealisedGainGlAccount?: string;
+    unrealisedLossGlAccount?: string;
+}
+
 export type BlacklistedConsumer = Metadata & {
     blockedByApiWhitelisting: boolean;
     consumerKey: string;
@@ -9459,7 +12506,11 @@ export type BlockchainSettings = Metadata & {
 }
 
 export type Bot = Metadata & {
+    agentDSLEnabled?: boolean;
+    agentTemplate?: string;
+    agentType?: GenAiAgentType;
     botMlDomain?: LocalMlDomain;
+    botSource?: BotSourceType;
     botUser?: string;
     botVersions: BotVersion[];
     contextVariables: ConversationContextVariable[];
@@ -9525,19 +12576,28 @@ export type BotVersion = Metadata & {
     botDialogGroups: BotDialogGroup[];
     botDialogs: BotDialog[];
     citationsEnabled?: boolean;
+    company?: string;
     conversationDefinitionPlanners: ConversationDefinitionPlanner[];
     conversationGoals: ConversationDefinitionGoal[];
     conversationSystemDialogs: ConversationSystemDialog[];
     conversationVariables: ConversationVariable[];
     copilotPrimaryLanguage?: Language;
+    copilotSecondaryLanguages?: string;
     entryDialog: string;
+    initialIntentDetectionEnabled?: boolean;
     intentDisambiguationEnabled?: boolean;
+    intentThreshold?: number;
     intentV3Enabled?: boolean;
+    knowledgeActionEnabled?: boolean;
     knowledgeFallbackEnabled?: boolean;
-    mainMenuDialog: string;
+    mainMenuDialog?: string;
     nlpProviders: ConversationDefinitionNlpProvider[];
     responseDelayMilliseconds?: number;
+    role?: string;
     smallTalkEnabled?: boolean;
+    stopRecPrompts?: boolean;
+    stopWelcomePrompts?: boolean;
+    surfacesEnabled?: boolean;
     toneType?: GenAiBotToneType;
 }
 
@@ -9622,6 +12682,7 @@ export type BotVariableOperation = {
     botMessages: BotMessage[];
     botQuickReplyOptions: BotQuickReplyOption[];
     botVariableOperands: BotVariableOperand[];
+    ignoreIntentRecognition?: boolean;
     invalidInputBotNavigation?: BotNavigation;
     messageDefinition?: ConversationDefinitionRichMessage;
     optionalCollect?: boolean;
@@ -9715,8 +12776,11 @@ export type ConversationVariable = {
     SObjectType?: string;
     collectionType?: ConversationVariableCollectionType;
     dataType: ConversationDataType;
+    description?: string;
     developerName: string;
+    includeInPrompt?: boolean;
     label: string;
+    visibility?: ConversationVariableVisibilityType;
 }
 
 export type ConversationDefinitionNlpProvider = {
@@ -9729,7 +12793,9 @@ export type ConversationContextVariable = {
     SObjectType?: string;
     contextVariableMappings: ConversationContextVariableMapping[];
     dataType: ConversationDataType;
+    description?: string;
     developerName: string;
+    includeInPrompt?: boolean;
     label: string;
 }
 
@@ -9776,6 +12842,7 @@ export type BotSettings = Metadata & {
 }
 
 export type BotTemplate = Metadata & {
+    agentType?: GenAiAgentType;
     botDialogGroups: BotDialogGroup[];
     botDialogs: BotDialog[];
     contextVariables: ConversationContextVariable[];
@@ -9817,10 +12884,13 @@ export type BriefcaseDefinition = Metadata & {
 export type BriefcaseRule = {
     briefcaseRuleFilters: BriefcaseRuleFilter[];
     filterLogic?: string;
+    fldSvcBriefcaseRuleConfig?: FldSvcBriefcaseRuleConfig;
     isAscendingOrder?: boolean;
+    isRelatedFilesRule?: boolean;
     orderBy?: string;
     queryScope?: FilterScope;
     recordLimit?: number;
+    recordLimitDist?: number;
     relatedRules: BriefcaseRule[];
     relationshipField?: string;
     relationshipType?: BriefcaseRuleRelationshipType;
@@ -9832,6 +12902,13 @@ export type BriefcaseRuleFilter = {
     filterSeqNumber: number;
     filterValue?: string;
     targetEntityField: string;
+}
+
+export type FldSvcBriefcaseRuleConfig = {
+    shouldPrimeActions?: boolean;
+    shouldPrimeForms?: boolean;
+    shouldPrimeLwcsWithContext?: boolean;
+    shouldPrimeServiceDocuments?: boolean;
 }
 
 export type BusinessHoursEntry = Metadata & {
@@ -10005,6 +13082,8 @@ export type CallCenter = Metadata & {
 export type ContactCenterChannel = {
     channel: string;
     contactCenter: string;
+    omniCallbackFallbackQueue?: string;
+    omniCallbackHandler?: string;
     voiceMailFallbackQueue?: string;
     voiceMailHandler?: string;
 }
@@ -10067,6 +13146,7 @@ export type CampaignSettings = Metadata & {
     enableCampaignInfluence2?: boolean;
     enableCampaignMemberTWCF?: boolean;
     enableEKAI?: boolean;
+    enableOpportunityInfluence?: boolean;
     enableSuppressNoValueCI2?: boolean;
 }
 
@@ -10149,6 +13229,7 @@ export type CaseSettings = Metadata & {
     enableSuggestedSolutions?: boolean;
     escalateCaseBefore?: boolean;
     genericMessageEnabled?: boolean;
+    hidePublicInCaseComment?: boolean;
     keepCaseMergeRecords?: boolean;
     keepRecordTypeOnAssignmentRule?: boolean;
     notifyContactOnCaseComment?: boolean;
@@ -10156,6 +13237,8 @@ export type CaseSettings = Metadata & {
     notifyOwnerOnCaseComment?: boolean;
     notifyOwnerOnCaseOwnerChange?: boolean;
     predictiveSupportEnabled?: boolean;
+    rtaCaseComment?: boolean;
+    rtaCaseDescription?: boolean;
     showEmailAttachmentsInCaseAttachmentsRL?: boolean;
     showFewerCloseActions?: boolean;
     systemUserEmail?: string;
@@ -10177,6 +13260,7 @@ export type EmailToCaseSettings = {
     enableE2CExternalServer?: boolean;
     enableE2CSourceTracking?: boolean;
     enableEmailToCase?: boolean;
+    enableEmailTranslation?: boolean;
     enableHtmlEmail?: boolean;
     enableNewToReadTriggers?: boolean;
     enableOnDemandEmailToCase?: boolean;
@@ -10184,12 +13268,15 @@ export type EmailToCaseSettings = {
     enableThreadIDInSubject?: boolean;
     enableThreadTokenInBody?: boolean;
     enableThreadTokenInSubject?: boolean;
+    movingEmailEnabled?: boolean;
     notifyOwnerOnNewCaseEmail?: boolean;
+    notifySenderE2CError?: boolean;
     overEmailLimitAction?: EmailToCaseOnFailureActionType;
     preQuoteSignature?: boolean;
     replyWithNewContentOnly?: boolean;
     routingAddresses: EmailToCaseRoutingAddress[];
-    showGeneratedEmailCheckbox?: boolean;
+    showServiceEmailOpenPrompt?: boolean;
+    showWordCountInComposer?: boolean;
     unauthorizedSenderAction?: EmailToCaseOnFailureActionType;
     useEmailHeadersForThreading?: boolean;
 }
@@ -10205,7 +13292,9 @@ export type EmailToCaseRoutingAddress = {
     emailAddress?: string;
     emailServicesAddress?: string;
     fallbackQueue?: string;
+    isPermsetControlled?: boolean;
     isVerified?: boolean;
+    newEntityRecordType?: string;
     routingFlow?: string;
     routingName?: string;
     saveEmailHeaders?: boolean;
@@ -10222,6 +13311,40 @@ export type CaseSubjectParticle = Metadata & {
     index: number;
     textField?: string;
     type: CaseSubjectParticleType;
+}
+
+export type CatalogedApi = Metadata & {
+    description?: string;
+    descriptor?: string;
+    externalSourceIdentifier?: string;
+    instances: CatalogedApiInstance[];
+    label: string;
+    providerType: ExternalServiceRegistrationProviderType;
+    type: APIType;
+}
+
+export type CatalogedApiInstance = {
+    accessStatus: APIInstanceAccessStatus;
+    apiInstanceDescriptor?: string;
+    approvalType: APIInstanceApprovalType;
+    label: string;
+    serviceRegistration: string;
+    uri: string;
+}
+
+export type CatalogedApiArtifactVersionInfo = Metadata & {
+    releaseNotes?: string;
+    revision?: number;
+    type: string;
+    version: string;
+}
+
+export type CatalogedApiVersion = Metadata & {
+    catalogedApi: string;
+    description?: string;
+    externalSourceIdentifier?: string;
+    label: string;
+    version: string;
 }
 
 export type ChannelLayout = Metadata & {
@@ -10247,6 +13370,11 @@ export type ChannelObjectLinkingRule = Metadata & {
     masterLabel: string;
     objectToLink: ObjectToLink;
     ruleName: string;
+}
+
+export type ChannelRevMgmtSettings = Metadata & {
+    enableDesignRegistration?: boolean;
+    enablePriceProtection?: boolean;
 }
 
 export type ChatterAnswersSettings = Metadata & {
@@ -10306,6 +13434,35 @@ export type ChatterSettings = Metadata & {
     enableRichLinkPreviewsInFeed?: boolean;
     enableTodayRecsInFeed?: boolean;
     unlistedGroupsEnabled?: boolean;
+}
+
+export type ChoiceList = Metadata & {
+    choiceListValue: ChoiceListValue[];
+    description?: string;
+    masterLabel: string;
+}
+
+export type ChoiceListValue = {
+    embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
+    isDefaultValue: boolean;
+    order: number;
+    valueName: string;
+}
+
+export type EmbeddedServiceCustomLabel = {
+    customLabel?: string;
+    feature?: EmbeddedServiceFeature;
+    labelKey?: EmbeddedServiceLabelKey;
+}
+
+export type ClaimCoverageProdtProcDef = Metadata & {
+    active: boolean;
+    calcAdjustmentDef?: string;
+    claimPaymentType: CCRDType;
+    displayFieldSet?: string;
+    limitProcessingDef?: string;
+    masterLabel: string;
+    policyCoverageProdt: string;
 }
 
 export type ClaimFinancialSettings = Metadata & {
@@ -10371,6 +13528,7 @@ export type CloudServiceProvider = Metadata & {
     externalId: string;
     name: string;
     provisioningAutomationType?: ProvisioningAutomationType;
+    recordVisibility?: string;
     sendAggregatedLicenseInfo?: boolean;
     sendAggregatedLicenses?: boolean;
     sendLicenseInfo?: boolean;
@@ -10383,7 +13541,23 @@ export type CloudServiceProvider = Metadata & {
 export type CloudServiceProviderApi = {
     cloudServiceProviderApiType: CloudServiceProviderApiType;
     name: string;
+    recordVisibility?: string;
     version: number;
+}
+
+export type CmsnStmtLineItemConfig = Metadata & {
+    failureStatus: string;
+    insPolicyMatchingCriteria: string;
+    masterLabel: string;
+    reprocessingEligibility: string;
+    successStatus: string;
+}
+
+export type CmsnStmtLineItemTypConfig = Metadata & {
+    brkrRevSpltArngLnItmTyp?: string;
+    commissionStmtLineItemType: string;
+    masterLabel: string;
+    prodSplitArngLineItemType?: string;
 }
 
 export type CommandAction = Metadata & {
@@ -10414,15 +13588,76 @@ export type CommandActionParam = {
 }
 
 export type CommerceSettings = Metadata & {
+    buyerGroupExtensibility?: boolean;
     commerceAnalyticsEnabled?: boolean;
+    commerceAppEnabled?: boolean;
     commerceConciergeEnabled?: boolean;
+    commerceCopilotEcomEnabled?: boolean;
+    commerceDCSegmentEnabled?: boolean;
     commerceDiscoveryExpansion?: boolean;
     commerceEnabled?: boolean;
+    commerceNGPEnabled?: boolean;
+    commerceRLMSubs?: boolean;
+    convCommShopCopilotEnabled?: boolean;
+    generateInvPerSubscription?: boolean;
     lowestUnitPriceTracking?: boolean;
+    messagingEngagementDataKit?: boolean;
+}
+
+export type CommissionStatementConfig = Metadata & {
+    cmsnProcBatchPrcJobDef?: string;
+    failureStatus: string;
+    inProgressStatus: string;
+    invalidProducerCmsnStatus?: string;
+    masterLabel: string;
+    partialSuccessStatus: string;
+    stdCmsnProcBtchPrcJobDef?: string;
+    successStatus: string;
 }
 
 export type CommsServiceConsoleSettings = Metadata & {
     enableCommsServiceConsole?: boolean;
+}
+
+export type CommunicationChannelLine = Metadata & {
+    aggregatorName?: AggregatorName;
+    brandName?: string;
+    campaignName?: string;
+    code?: string;
+    codeFeature?: CodeFeature;
+    codeOrderNumber?: string;
+    codePrefix?: string;
+    codeProvider?: CodeProvider;
+    codeProvisioningStatus?: CodeProvisioningStatus;
+    codeStatus?: CodeStatus;
+    codeSubType?: CodeSubType;
+    communicationChannelLineType?: CommunicationChannelLineType;
+    country?: string;
+    externalCampaignIdentifier?: string;
+    externalCodeIdentifier?: string;
+    id?: string;
+    inboundCallDirection?: boolean;
+    isChannelCreationLaunchPoint?: boolean;
+    isDefaultForOutbound?: boolean;
+    isExternallyProcured?: boolean;
+    masterLabel?: string;
+    notes?: string;
+    outboundCallDirection?: boolean;
+    platform?: string;
+    primarySubTenantIdentifier?: string;
+    primaryTenantIdentifier?: string;
+    pstnVoiceEnabled?: boolean;
+    regulatoryStatus?: RegulatoryStatus;
+    smsEnabled?: boolean;
+    sourceCountryCode?: SourceCountryCode;
+    vendorRetry?: number;
+    whatsappMessagingEnabled?: boolean;
+    whatsappVoiceEnabled?: boolean;
+}
+
+export type CommunicationChannelType = Metadata & {
+    channelName: string;
+    masterLabel: string;
 }
 
 export type CommunitiesSettings = Metadata & {
@@ -10437,7 +13672,6 @@ export type CommunitiesSettings = Metadata & {
     enableEnablePRM?: boolean;
     enableExternalAccHierPref?: boolean;
     enableGuestPermDisOptOutCruc?: boolean;
-    enableGuestRecordReassignOrgPref?: boolean;
     enableGuestSecurityOptOutCruc?: boolean;
     enableGuvSecurityOptOutPref?: boolean;
     enableInviteChatterGuestEnabled?: boolean;
@@ -10756,10 +13990,10 @@ export type ConsentBannerSettings = Metadata & {
     bannerTextColor: string;
     declineButtonColor: string;
     declineButtonTextColor: string;
-    infoText: string;
-    infoUrl: string;
-    privacyPolicyText: string;
-    privacyPolicyUrl: string;
+    infoText?: string;
+    infoUrl?: string;
+    privacyPolicyText?: string;
+    privacyPolicyUrl?: string;
 }
 
 export type ContentSettings = Metadata & {
@@ -10771,12 +14005,17 @@ export type ContentSettings = Metadata & {
     enableContentDistPwOptionsBit1?: boolean;
     enableContentDistPwOptionsBit2?: boolean;
     enableContentDistribution?: boolean;
+    enableContentHubAWSS3Pref?: boolean;
+    enableContentHubUploadAWSS3Pref?: boolean;
     enableContentSupportMultiLanguage?: boolean;
     enableContentWorkspaceAccess?: boolean;
     enableDeleteFileInContentPacks?: boolean;
+    enableFileIngestToDataCloud?: boolean;
     enableFileShareSetByRecord?: boolean;
     enableFilesUsrShareNetRestricted?: boolean;
     enableJPGPreviews?: boolean;
+    enableLWCFileUpload?: boolean;
+    enableLWCFileUploadInFlows?: boolean;
     enableLibraryManagedFiles?: boolean;
     enableShowChatterFilesInContent?: boolean;
     enableSiteGuestUserToUploadFiles?: boolean;
@@ -10786,11 +14025,28 @@ export type ContentSettings = Metadata & {
     skipContentAssetTriggersOnDeploy?: boolean;
 }
 
+export type ContentTypeBundle = Metadata & {
+    description?: string;
+    masterLabel: string;
+    resources: ContentTypeBundleResource[];
+}
+
+export type ContentTypeBundleResource = {
+    fileName: string;
+    filePath: string;
+    fileType: string;
+    source: string;
+}
+
 export type ContextDefinition = Metadata & {
+    canBeReferenceDefinition?: boolean;
     clonedFrom?: string;
+    contextDefinitionReferences: ContextDefinitionReference[];
     contextDefinitionVersions: ContextDefinitionVersion[];
     contextTtl?: number;
     description?: string;
+    displayName?: string;
+    hasSystemTags?: boolean;
     inheritedFrom?: string;
     inheritedFromVersion?: string;
     isProtected?: boolean;
@@ -10798,7 +14054,13 @@ export type ContextDefinition = Metadata & {
     title: string;
 }
 
+export type ContextDefinitionReference = {
+    inheritedFrom?: string;
+    referenceContextDefinition: string;
+}
+
 export type ContextDefinitionVersion = {
+    contextDefinitionFilters: ContextDefinitionFilter[];
     contextMappings: ContextMapping[];
     contextNodes: ContextNode[];
     endDate?: string;
@@ -10807,7 +14069,16 @@ export type ContextDefinitionVersion = {
     versionNumber: number;
 }
 
+export type ContextDefinitionFilter = {
+    description?: string;
+    filterApiName: string;
+    filterName?: string;
+    filtersPerNode: string;
+    inheritedFrom?: string;
+}
+
 export type ContextMapping = {
+    contextMappingIntents: ContextMappingIntent[];
     contextNodeMappings: ContextNodeMapping[];
     default?: boolean;
     description?: string;
@@ -10815,10 +14086,16 @@ export type ContextMapping = {
     title: string;
 }
 
+export type ContextMappingIntent = {
+    mappingIntent: ContextMappingIntentType;
+}
+
 export type ContextNodeMapping = {
     contextAttributeMappings: ContextAttributeMapping[];
     contextNode?: string;
+    contextNodeAttrDictionaries: ContextNodeAttrDictionary[];
     inheritedFrom?: string;
+    mappedContextDefinition?: string;
     object?: string;
 }
 
@@ -10826,6 +14103,7 @@ export type ContextAttributeMapping = {
     contextAttrHydrationDetails: ContextAttrHydrationDetail[];
     contextAttribute?: string;
     contextInputAttributeName: string;
+    ctxAttrHydrationCtxs: CtxAttrHydrationCtx[];
     inheritedFrom?: string;
 }
 
@@ -10836,9 +14114,23 @@ export type ContextAttrHydrationDetail = {
     queryAttribute: string;
 }
 
+export type CtxAttrHydrationCtx = {
+    contextQueryAttribute: string;
+    inheritedFrom?: string;
+}
+
+export type ContextNodeAttrDictionary = {
+    contextAttrDictIdentifier: string;
+    contextNodeTagPrefix: string;
+}
+
 export type ContextNode = {
+    canonicalNode?: string;
     contextAttributes: ContextAttribute[];
+    contextNodeAttrDictionaries: ContextNodeAttrDictionary[];
     contextTags: ContextTag[];
+    customMappingAllowed?: boolean;
+    displayName?: string;
     inheritedFrom?: string;
     title: string;
     transposable?: boolean;
@@ -10846,18 +14138,43 @@ export type ContextNode = {
 
 export type ContextAttribute = {
     contextTags: ContextTag[];
+    customMappingAllowed?: boolean;
     dataType: ContextAttributeDataType;
+    description?: string;
+    displayName?: string;
     domainSet?: string;
     fieldType: ContextAttributeFieldType;
     inheritedFrom?: string;
     key?: boolean;
     title: string;
+    transient?: boolean;
     value?: boolean;
 }
 
 export type ContextTag = {
     inheritedFrom?: string;
     title: string;
+}
+
+export type ContextMappingConfig = Metadata & {
+    active: boolean;
+    contextDefinition?: string;
+    contextMapping?: string;
+    masterLabel: string;
+    usageType?: ContextMappingConfigUsageType;
+}
+
+export type ContextUseCaseMapping = Metadata & {
+    contextDefinitionName: string;
+    mappingName: string;
+    mappingType: ContextMappingType;
+    masterLabel: string;
+    referenceObjectName?: string;
+    referenceObjectRecordType?: string;
+    targetObjectCustomFieldName?: string;
+    targetObjectName?: string;
+    targetObjectRecordType?: string;
+    useCaseType: ContextUseCaseType;
 }
 
 export type ContractSettings = Metadata & {
@@ -10882,38 +14199,73 @@ export type ContractTypeConfig = {
     usageType?: ContractUsageType;
 }
 
+export type ConvIntelligenceSignalRule = Metadata & {
+    actionType: ConvIntelligenceActionType;
+    actionValue?: string;
+    active: boolean;
+    channelAddressIdentifier: string;
+    channelType: string;
+    criteria: string;
+    developerName: string;
+    participantRole?: ConvParticipantRole;
+    ruleName: string;
+    service: ConvIntelligenceService;
+    subrule: ConvIntelligenceSignalSubRule[];
+}
+
+export type ConvIntelligenceSignalSubRule = {
+    operandValue: string;
+    operator: ConvIntelligenceOperator;
+    order: number;
+    type: ConvIntelligenceType;
+}
+
 export type ConvReasonReportDefinition = Metadata & {
     endDate: Date;
     externalModelIdentifier?: string;
     name: string;
     pipelineRunIdentifier?: string;
     refreshFrequency: RefreshFrequency;
+    reportLanguage?: string;
     startDate: Date;
     status: ReportStatus;
 }
 
 export type ConvReasonReportSegmentDef = Metadata & {
     convReasonReportDefinition: string;
+    conversationChannel?: string;
     filterCriteria?: string;
     filterCriteriaAsJson?: string;
     name: string;
     segmentObject?: string;
     segmentType: SegmentationType;
+    targetField?: string;
     targetObject: string;
 }
 
 export type ConversationChannelDefinition = Metadata & {
-    connectedAppOauthLink: string;
+    connectedAppOauthLink?: string;
+    connectedAppType?: CustomChannelConnectedAppType;
     consentOwner?: ConsentOwner;
     conversationVendorInfo?: string;
-    customEventChnlAddrIdField?: string;
     customEventPayloadField: string;
-    customEventRecipientField?: string;
     customEventTypeField?: string;
+    customIcon?: string;
     customPlatformEvent: string;
+    customerConnectedAppOauthLink?: string;
     developerName: string;
+    isConferenceSupported?: boolean;
+    isInboundAcknwOptionExposed?: boolean;
+    isInboundReceiptsEnabled?: boolean;
+    isProgressIndicatorOptExposed?: boolean;
+    isRoutingWorkResultEnabled?: boolean;
+    isRoutingWorkResultSupported?: boolean;
+    isTypingIndicatorDisabled?: boolean;
+    isTypingIndicatorOptionHidden?: boolean;
     masterLabel: string;
+    maxParticipantsForCnfrOverride?: number;
     routingOwner?: RoutingOwner;
+    supportsCustomChannelParameters?: boolean;
     supportsDoubleOptInConsent?: boolean;
     supportsExplicitConsent?: boolean;
     supportsImplicitConsent?: boolean;
@@ -10923,6 +14275,7 @@ export type ConversationChannelDefinition = Metadata & {
 
 export type ConversationMessageDefinition = Metadata & {
     constants: ConversationMessageConstant[];
+    contentCategory?: ConversationMessageContentCategory;
     description?: string;
     label: string;
     language?: string;
@@ -10936,7 +14289,10 @@ export type ConversationMessageDefinition = Metadata & {
 export type ConversationMessageConstant = {
     compositeValues: ConversationMessageConstantCompositeValue[];
     constantType: ConversationMessageConstantType;
+    label?: string;
+    name?: string;
     primitiveValues: ConversationMessageConstantPrimitiveValue[];
+    valueType?: ConversationMessageValueType;
 }
 
 export type ConversationMessageConstantCompositeValue = {
@@ -10967,10 +14323,16 @@ export type ConversationMessageLayout = {
 export type ConvMsgExternalTemplateVersion = {
     accountIdentifier: string;
     accountName: string;
+    errorCode?: ConvMsgExternalErrorCode;
+    errorMessage?: string;
+    externalConfigJson?: string;
     language: string;
+    layoutJson?: string;
+    rejectionReason?: ConvMsgExternalRejectionReason;
     status: ConvMsgExternalTemplateVersionStatus;
     templateName: string;
     templateVersionIdentifier: string;
+    type?: ConvMsgExternalTemplateVersionType;
 }
 
 export type ConversationMessageLayoutItem = {
@@ -11045,6 +14407,7 @@ export type ConversationVendorInfo = Metadata & {
     clientAuthMode?: ClientAuthMode;
     connectorUrl?: string;
     customConfig?: string;
+    customIcon?: string;
     customLoginUrl?: string;
     developerName: string;
     einsteinConversationInsightsSupported?: boolean;
@@ -11054,6 +14417,7 @@ export type ConversationVendorInfo = Metadata & {
     isTaxCompliant?: boolean;
     keyProvisioningSupported?: boolean;
     masterLabel: string;
+    multiVendorConfigSupported?: boolean;
     namedCredential?: string;
     namedCredentialSupported?: boolean;
     partnerContactCenterListSupported?: boolean;
@@ -11062,6 +14426,7 @@ export type ConversationVendorInfo = Metadata & {
     queueManagementSupported?: boolean;
     serverAuthMode?: ServerAuthMode;
     telephonySettingsComponent?: string;
+    unifiedRoutingSupported?: boolean;
     universalCallRecordingAccessSupported?: boolean;
     userSyncingSupported?: boolean;
     vendorType?: ConversationVendorType;
@@ -11072,8 +14437,13 @@ export type ConversationalIntelligenceSettings = Metadata & {
     enableCallCoachingZoom?: boolean;
     enableCallExplorer?: boolean;
     enableCallSummarization?: boolean;
+    enableConversationMining?: boolean;
     enableDiarizationPref?: boolean;
+    enableECIOOTBFlows?: boolean;
+    enableGenerativeConvInsights?: boolean;
+    enableManualUpload?: boolean;
     enableOpptyMatching?: boolean;
+    enableRealtimeInsights?: boolean;
     enableUnifiedActivities?: boolean;
 }
 
@@ -11396,6 +14766,9 @@ export type MktDataModelFieldAttributes = {
     invalidMergeActionType?: InvalidMergeActionType;
     isDynamicLookup?: boolean;
     keyQualifierName?: string;
+    labelOverride?: string;
+    mappingAlertType?: MappingAlertType;
+    masterLabel?: string;
     primaryIndexOrder?: number;
     refAttrDeveloperName?: string;
     usageTag?: MktDataModelFieldUsageTag;
@@ -11461,6 +14834,7 @@ export type CustomHelpMenuItem = {
 
 export type CustomIndex = Metadata & {
     allowNullValues?: boolean;
+    booleanIndexedValue?: boolean;
 }
 
 export type CustomLabel = Metadata & {
@@ -11488,12 +14862,25 @@ export type CustomMetadataValue = {
 }
 
 export type CustomNotificationType = Metadata & {
+    actionGroups: CustomNotificationActionGroup[];
     customNotifTypeName: string;
     description?: string;
     desktop: boolean;
     masterLabel: string;
     mobile: boolean;
     slack?: boolean;
+}
+
+export type CustomNotificationActionGroup = {
+    actions: CustomNotificationActionDefinition[];
+    groupName: string;
+}
+
+export type CustomNotificationActionDefinition = {
+    actionLabel: string;
+    actionName: string;
+    actionTarget?: string;
+    actionType: NotificationActionType;
 }
 
 export type CustomObject = Metadata & {
@@ -11656,6 +15043,8 @@ export type MktDataModelAttributes = {
     isEnabled?: boolean;
     isSegmentable?: boolean;
     isUsedForMetrics?: boolean;
+    labelOverride?: string;
+    masterLabel?: string;
     objectCategory?: string;
     referenceEntityGroup?: string;
     referenceEntityName?: string;
@@ -11735,6 +15124,18 @@ export type WebLink = Metadata & {
     width?: number;
 }
 
+export type CustomObjectBinding = Metadata & {
+    fields: CustomFieldBinding[];
+    implementationObject: string;
+    interfaceObject: string;
+    masterLabel: string;
+}
+
+export type CustomFieldBinding = {
+    implementationField: string;
+    interfaceField: string;
+}
+
 export type CustomObjectTranslation = Metadata & {
     caseValues: ObjectNameCaseValue[];
     fieldSets: FieldSetTranslation[];
@@ -11802,6 +15203,13 @@ export type QuickActionTranslation = {
     aspect?: string;
     label: string;
     name: string;
+    quickActionParametersTranslation: QuickActionParametersTranslation[];
+}
+
+export type QuickActionParametersTranslation = {
+    aspect?: string;
+    name: string;
+    value: string;
 }
 
 export type RecordTypeTranslation = {
@@ -11863,6 +15271,7 @@ export type CustomPageWebLink = Metadata & {
 export type CustomPermission = Metadata & {
     connectedApp?: string;
     description?: string;
+    externalClientApplication?: string;
     isLicensed: boolean;
     label: string;
     requiredPermission: CustomPermissionDependencyRequired[];
@@ -12067,6 +15476,7 @@ export type DashboardComponent = {
     showTotal?: boolean;
     showValues?: boolean;
     sortBy?: DashboardComponentFilter;
+    sortLegendValues?: boolean;
     title?: string;
     useReportChart?: boolean;
 }
@@ -12113,6 +15523,7 @@ export type DashboardFlexTableComponentProperties = {
     flexTableColumn: DashboardComponentColumn[];
     flexTableSortInfo?: DashboardComponentSortInfo;
     hideChatterPhotos?: boolean;
+    useReportTableSetting?: boolean;
 }
 
 export type DashboardComponentColumn = {
@@ -12159,6 +15570,12 @@ export type DataCalcInsightTemplate = Metadata & {
     developerName: string;
     expression: string;
     masterLabel: string;
+    scheduleEndDate?: Date;
+    scheduleInterval?: string;
+    scheduleStartDateTime?: Date;
+    sourceDataGraphName?: string;
+    sourceObjectDevName?: string;
+    templateVersion?: number;
 }
 
 export type DataCategoryGroup = Metadata & {
@@ -12179,9 +15596,84 @@ export type ObjectUsage = {
     object: string[];
 }
 
+export type DataCleanRoomProvider = Metadata & {
+    creatorOrg: string;
+    description: string;
+    domainUrl: string;
+    isInstalled?: boolean;
+    label: string;
+    logoUrl: string;
+    offCoreTenantId: string;
+    templateNames: string;
+}
+
 export type DataConnectionParamTmpl = Metadata & {
     paramName: string;
     value: string;
+}
+
+export type DataConnector = Metadata & {
+    attributes: DataConnectorAttribute[];
+    description: string;
+    errors: DataConnectorError[];
+    features: DataConnectorFeature[];
+    icon?: string;
+    licenseAgreement?: string;
+    masterLabel: string;
+    ownerLocation?: string;
+    ownerLogo?: string;
+    ownerName?: string;
+    parentConnector?: string;
+    releaseLevel: DataConnectorReleaseLevel;
+    supportEmail?: string;
+    supportMessage?: string;
+    supportPhone?: string;
+    translations: LocalizedValue[];
+}
+
+export type DataConnectorAttribute = Metadata & {
+    capabilities: DataConnectorCapability[];
+    command?: string;
+    commandAttributes?: string;
+    dataType: DataConnectorDataType;
+    defaultValue?: string;
+    editable?: boolean;
+    externalName: string;
+    masterLabel: string;
+    max?: string;
+    min?: string;
+    options: DataConnectorAttributeOpt[];
+    order: number;
+    pattern?: string;
+    placeholder?: string;
+    readonly?: boolean;
+    required?: boolean;
+    secure?: boolean;
+    tooltip?: string;
+    translations: LocalizedValue[];
+    validationMessageError?: string;
+}
+
+export type DataConnectorAttributeOpt = Metadata & {
+    capabilities: DataConnectorCapability[];
+    conditionAttributes?: string;
+    externalName: string;
+    masterLabel: string;
+    order: number;
+    translations: LocalizedValue[];
+}
+
+export type LocalizedValue = {
+    aspect?: TranslationAspect;
+    language?: string;
+    outOfDate?: boolean;
+    value?: string;
+}
+
+export type DataConnectorError = Metadata & {
+    externalName: string;
+    masterLabel: string;
+    translations: LocalizedValue[];
 }
 
 export type DataConnectorIngestApi = Metadata & {
@@ -12214,12 +15706,24 @@ export type DataDotComSettings = Metadata & {
     enableDatacloudAPIEnabled?: boolean;
 }
 
+export type DataKitObjectDependency = Metadata & {
+    dataPackageKitDef: string;
+    developerName: string;
+    masterLabel: string;
+    sourceObject: string;
+    sourceObjectType: string;
+    targetObject: string;
+}
+
 export type DataKitObjectTemplate = Metadata & {
     developerName: string;
     entityPayload?: string;
+    entityPayloadTokenMap?: string;
     masterLabel: string;
     parentDataPackageKitDefinitionName: string;
+    sourceObject?: string;
     sourceObjectType: string;
+    templateVersion?: number;
 }
 
 export type DataModelTaxonomy = Metadata & {
@@ -12238,12 +15742,37 @@ export type DataObjectCategory = Metadata & {
     masterLabel: string;
 }
 
+export type DataObjectBuildOrgTemplate = Metadata & {
+    developerName: string;
+    masterLabel: string;
+    objectDevName: string;
+    objectPayload: string;
+    objectType: string;
+    templateObject: string;
+    templateVersion?: number;
+}
+
+export type DataObjectSearchIndexConf = Metadata & {
+    application: string;
+    channel?: string;
+    masterLabel: string;
+    nameFieldReference: string;
+    objectReference: string;
+    retriever?: string;
+    searchIndex: string;
+}
+
 export type DataPackageKitDefinition = Metadata & {
+    dataKitSource?: string;
+    dataKitType?: string;
+    dataSpaceDefinitionDevName?: string;
+    deploymentOrder?: string;
     description?: string;
     developerName: string;
     isDeployed?: boolean;
     isEnabled?: boolean;
     masterLabel: string;
+    useDeterministicNaming?: boolean;
     versionNumber?: number;
 }
 
@@ -12288,6 +15817,7 @@ export type DataSource = Metadata & {
 }
 
 export type DataSourceBundleDefinition = Metadata & {
+    bundleVersion?: number;
     dataPlatform: string;
     description?: string;
     icon?: string;
@@ -12299,10 +15829,13 @@ export type DataSourceField = Metadata & {
     datatype: string;
     dateFormat?: string;
     definitionCreationType?: DefinitionCreationType;
+    externalDataType?: string;
     externalName: string;
     fieldFormula?: string;
     isDataRequired?: boolean;
+    isEventDate?: boolean;
     isFormula?: boolean;
+    isRecordModified?: boolean;
     keyQualifierName?: string;
     length?: number;
     masterLabel: string;
@@ -12316,11 +15849,24 @@ export type DataSourceField = Metadata & {
 }
 
 export type DataSourceObject = Metadata & {
+    accelerationEnabled?: AccelerationEnabled;
+    additionalDLOInfoJson?: string;
+    creationType?: string;
+    dataConnection?: string;
     dataSource: string;
     dataSourceFields: DataSourceField[];
+    dmoDeveloperName?: string;
+    dmoLabel?: string;
+    externalDatabaseName?: string;
+    externalObjectName?: string;
     externalRecordIdentifier?: string;
+    externalSchemaName?: string;
     masterLabel: string;
+    objectCategory?: string;
     objectType?: DataObjectType;
+    sourceObject?: string;
+    storageType?: StorageType;
+    templateVersion?: number;
 }
 
 export type DataSourceTenant = Metadata & {
@@ -12335,6 +15881,7 @@ export type DataSrcDataModelFieldMap = Metadata & {
     masterLabel: string;
     sourceField: string;
     targetField: string;
+    templateVersion?: number;
     versionNumber: number;
 }
 
@@ -12358,17 +15905,31 @@ export type DataStreamDefinition = Metadata & {
     masterLabel: string;
     mktDataLakeObject: string;
     mktDataTranObject?: string;
+    parameters: MktDataConnectionSrcParam[];
+}
+
+export type MktDataConnectionSrcParam = Metadata & {
+    paramName: string;
+    value: string;
 }
 
 export type DataStreamTemplate = Metadata & {
     dataConnectionSourceParameters: DataConnectionParamTmpl[];
     dataSourceBundleDefinition: string;
     dataSourceObject: string;
+    filterCriteria?: string;
     masterLabel: string;
     objectCategory: string;
+    refreshDayOfMonth?: number;
+    refreshDayOfWeek?: number;
     refreshFrequency?: DataImportRefreshFrequency;
     refreshHours?: string;
     refreshMode?: DataImportRefreshMode;
+    refreshStartDate?: Date;
+    sourceObjectName?: string;
+    streamType?: StreamType;
+    streamingAppDataConnectorType?: StreamingAppDataConnectorType;
+    templateVersion?: number;
 }
 
 export type DataspaceScope = Metadata & {
@@ -12398,6 +15959,7 @@ export type DecisionMatrixDefinitionVersion = Metadata & {
     endDate?: Date;
     groupKeyValue?: string;
     label: string;
+    rank?: number;
     startDate: Date;
     status: DecisionMatrixDefStatus;
     subGroupKeyValue?: string;
@@ -12423,7 +15985,12 @@ export type DecisionTable = Metadata & {
     decisionTableSourceCriterias: DecisionTableSourceCriteria[];
     description?: string;
     doesConsiderNullValue?: boolean;
+    downloadStatus?: DecisionTableDownloadStatus;
+    executionType?: DecisionTableExecutionType;
     filterResultBy?: DecisionTableHitPolicy;
+    hasIncrementalSyncFailed?: boolean;
+    isIncrementalSyncEnabled?: boolean;
+    lastIncrementalSyncDate?: string;
     lastSyncDate?: string;
     refreshFailureReason?: string;
     refreshStatus?: DecisionTableRefreshStatus;
@@ -12432,7 +15999,8 @@ export type DecisionTable = Metadata & {
     sourceObject: string;
     status: DecisionTableStatus;
     type?: DecisionTableType;
-    usageType?: DecisionTableUsageType;
+    uploadStatus?: DecisionTableUploadStatus;
+    usageType?: ExpsSetProcessType;
 }
 
 export type DecisionTableParameter = {
@@ -12493,12 +16061,13 @@ export type FtestTopLevelWithDeclMd1 = Metadata & {
     dateTimeField?: Date;
     doubleField?: number;
     emailField?: string;
+    ftestDetailWithDeclMd2: FtestDetailWithDeclMd2[];
     integerField: number;
     isProtected?: boolean;
     masterLabel: string;
+    overriddenFieldName?: string;
     staticEnumField?: FTestTopLevelSelection;
     typeOneItems: FtestDetailWithDeclMd1[];
-    typeTwoItems: FtestDetailWithDeclMd2[];
 }
 
 export type FtestDetailWithDeclMd1 = {
@@ -12571,6 +16140,7 @@ export type FtestTopLevelWithDeclMd2 = Metadata & {
     season?: FTestSeasonSelection;
     someUser?: string;
     staticResourceLookup?: string;
+    stripEnumOrIdSuffix?: string;
     textField?: string;
     urlField?: string;
 }
@@ -12597,13 +16167,6 @@ export type VirtualVisitConfig = Metadata & {
     videoCallApptTypeValue?: string;
     videoControlRegion?: string;
     visitRegion?: VirtualVisitVisitRegion;
-}
-
-export type MobileSecurityAssignment = Metadata & {
-    connectedApplication?: string;
-    isProtected?: boolean;
-    masterLabel: string;
-    profile?: string;
 }
 
 export type MobileSecurityPolicy = Metadata & {
@@ -12651,6 +16214,16 @@ export type RecAlrtDataSrcExpSetDef = Metadata & {
     recordAlertDataSource: string;
 }
 
+export type GenOpPlanEligibilityConfig = Metadata & {
+    eligibilityResultVariableName: string;
+    failureReasonOutputVariableName?: string;
+    flow?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    targetIdInputVariableName: string;
+    targetObjectType: ServicePlanSourceType;
+}
+
 export type EmployeeDataSyncProfile = Metadata & {
     description?: string;
     employeeDataSyncField: EmployeeDataSyncField[];
@@ -12681,6 +16254,22 @@ export type RegisteredExternalService = Metadata & {
     masterLabel: string;
 }
 
+export type CustomFieldDisplay = Metadata & {
+    displayType: CustomFieldDisplayType;
+    fieldApiName: string;
+    isProtected?: boolean;
+    masterLabel: string;
+}
+
+export type UiPreviewMessageTabDef = Metadata & {
+    isActive: boolean;
+    isProtected?: boolean;
+    label: string;
+    lightningComponentDef: string;
+    supportedChannel: SupportedChannel;
+    tabName: string;
+}
+
 export type AccountingFieldMapping = Metadata & {
     accountingModelConfig: string;
     isForAllocationType?: boolean;
@@ -12693,12 +16282,54 @@ export type AccountingFieldMapping = Metadata & {
     targetField: string;
 }
 
+export type ServiceMgmtKnwlgArtclConfig = Metadata & {
+    isProtected?: boolean;
+    knowledgeArticleRecordType: string;
+    masterLabel: string;
+    rootCauseField: string;
+    workAroundField: string;
+}
+
 export type RecordAlertTemplate = Metadata & {
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
     recordAlertCategory?: string;
     subject?: string;
+}
+
+export type RelatedRecordAccessDef = Metadata & {
+    description?: string;
+    isProtected?: boolean;
+    jctObjectCstmFilterExps?: string;
+    jctObjectFilterLogic?: RRADJctObjFilterLogic;
+    junctionObject?: string;
+    masterLabel: string;
+    relatedRecordAccessFltr: RelatedRecordAccessFltr[];
+    relatedRecordAccessMap: RelatedRecordAccessMap[];
+    shareTo?: RelatedRecordAccessDefShareTo;
+    sourceObject: string;
+    sourceObjectCstmFilterExps?: string;
+    sourceObjectFilterLogic?: RRADSourceObjFilterLogic;
+    status: RelatedRecordAccessDefStatus;
+    targetObject: string;
+    targetObjectCstmFilterExps?: string;
+    targetObjectFilterLogic?: RRADTargetObjFilterLogic;
+}
+
+export type RelatedRecordAccessFltr = {
+    field: string;
+    objectType: RRAFObjectType;
+    operator: RRAFOperator;
+    sequenceNumber: number;
+    value: string;
+}
+
+export type RelatedRecordAccessMap = {
+    sourceObjAccessLevel: ObjectAccessLevel;
+    sourceObjParticipantRole?: string;
+    targetObjAccessLevel: ObjectAccessLevel;
+    targetObjParticipantRole?: string;
 }
 
 export type MobSecurityCertPinConfig = Metadata & {
@@ -12714,19 +16345,11 @@ export type MobSecurityCertPinConfig = Metadata & {
     type: MobileSecurityCertPinType;
 }
 
-export type SemanticModel = Metadata & {
-    app?: string;
-    categories?: string;
-    dataSpaceDefinition?: string;
-    description?: string;
+export type LightningOutApp = Metadata & {
+    applicationName: string;
+    isEnabled: boolean;
     isProtected?: boolean;
-    masterLabel: string;
-    semanticModelContent: SemanticModelContent[];
-    unrelatedDataObjectsQueryBehavior?: SemanticModelQueryUnrelatedDataObjectsType;
-}
-
-export type SemanticModelContent = {
-    semanticDefinition?: string;
+    label: string;
 }
 
 export type SlackFeatureSettings = Metadata & {
@@ -12745,6 +16368,7 @@ export type ActionableListDefinition = Metadata & {
     masterLabel: string;
     objectName: string;
     sourceType?: ActionableListSourceType;
+    type?: ActionableListType;
 }
 
 export type ActionableListDatasetColumn = {
@@ -12855,53 +16479,6 @@ export type DocumentCategoryDocumentType = Metadata & {
     masterLabel: string;
 }
 
-export type SemanticDefinition = Metadata & {
-    description?: string;
-    isProtected?: boolean;
-    masterLabel: string;
-    semanticCalcDimension: SemanticCalcDimension[];
-    semanticCalcMeasurement: SemanticCalcMeasurement[];
-    semanticDataObject: SemanticDataObject[];
-    semanticRelationship: SemanticRelationship[];
-    type: SemanticDefinitionType;
-}
-
-export type SemanticCalcDimension = {
-    dataType: SemanticCalculatedDimensionDataType;
-    displayCategory: SemanticDisplayType;
-    expression: string;
-    geoRole: SemanticGeoRoleType;
-    isVisible: boolean;
-    sortOrder: SemanticSortingType;
-}
-
-export type SemanticCalcMeasurement = {
-    aggregationType: SemanticAggregationType;
-    dataType: SemanticCalculatedMeasurementDataType;
-    decimalPlace: number;
-    directionality: SemanticDirectionalityType;
-    expression: string;
-    filterLogic?: string;
-    filters?: string;
-    isVisible: boolean;
-    shouldTreatNullsAsZeros: boolean;
-    sortOrder: SemanticSortingType;
-    total: SemanticAggregationType;
-}
-
-export type SemanticDataObject = {
-    dataObjectDeveloperName: string;
-    dataObjectType: SemanticDataObjectType;
-    shouldIncludeAllFields: boolean;
-}
-
-export type SemanticRelationship = {
-    criteria: string;
-    joinType: SemanticRelationshipJoinType;
-    leftSemanticDefinitionDeveloperName: string;
-    rightSemanticDefinitionDeveloperName: string;
-}
-
 export type ShiftSegmentType = Metadata & {
     adherenceThreshold: number;
     category: ShiftSegmentTypeCategory;
@@ -12912,12 +16489,6 @@ export type ShiftSegmentType = Metadata & {
     servicePresenceStatus?: string;
 }
 
-export type PlatformSlackSettings = Metadata & {
-    enableSlackService?: boolean;
-    enableSlackServiceAlerts?: boolean;
-    slackCapabilitiesEnabled?: boolean;
-}
-
 export type ProductConfiguratorSettings = Metadata & {
     enableProductConfigurator?: boolean;
 }
@@ -12925,10 +16496,6 @@ export type ProductConfiguratorSettings = Metadata & {
 export type DataImportManagementSettings = Metadata & {
     enableDataConnectorHubspot?: boolean;
     enableEasyImport?: boolean;
-}
-
-export type RevenueManagementSettings = Metadata & {
-    enableCoreCPQ?: boolean;
 }
 
 export type WorkforceEngagementSettings = Metadata & {
@@ -12941,32 +16508,21 @@ export type WorkforceEngagementSettings = Metadata & {
     enableWorkforceEngagementConfiguration?: boolean;
 }
 
-export type KnowledgeGenerationSettings = Metadata & {
-    enableKnowledgeGeneration?: boolean;
-}
+export type ServiceMgmtKnwlgArtclConfigSettings = string
 
 export type ClaimMgmtFoundationEnabledSettings = Metadata & {
     enableWarrantyClaimMgmt?: boolean;
 }
 
-export type MailMergeSettings = Metadata & {
-    enableExtendedMailMerge?: boolean;
-    saveMailMergeDocsAsSalesforceDocs?: boolean;
+export type EinsteinCopilotSettings = Metadata & {
+    enableEinsteinGptCopilot?: boolean;
 }
 
-export type AccountingSettings = Metadata & {
-    enableAccountingSubledger?: boolean;
-    enableFinancePeriod?: boolean;
-    enablePaymentMethodAdjust?: boolean;
-    enableScheduledJob?: boolean;
-}
-
-export type CollectionsDashboardSettings = Metadata & {
-    enableCollectionsDashboard?: boolean;
-}
-
-export type InvLatePymntRiskCalcSettings = Metadata & {
-    enableInvLatePymntRiskCalc?: boolean;
+export type ServiceCloudNotificationOrchestratorSettings = Metadata & {
+    enableEmailNotifications?: boolean;
+    enableInAppNotifications?: boolean;
+    enableNotifications?: boolean;
+    enableSlackNotifications?: boolean;
 }
 
 export type FTestSettings = Metadata & {
@@ -12978,7 +16534,12 @@ export type MediaAdSalesSettings = Metadata & {
 }
 
 export type IndustriesPricingSettings = Metadata & {
+    enableDebugPriceLogs?: boolean;
     enableHighAvailability?: boolean;
+    enableHighestPriceCompliance?: boolean;
+    enableLowestPriceCompliance?: boolean;
+    enablePriceGuidanceAccess?: boolean;
+    enablePricingProcParallelization?: boolean;
     enablePricingWaterfall?: boolean;
     enablePricingWaterfallPersistence?: boolean;
     enableSalesforcePricing?: boolean;
@@ -12992,10 +16553,6 @@ export type DynamicFormsSettings = Metadata & {
     enableFormsOnMobile?: boolean;
 }
 
-export type FTestAccessSettings = Metadata & {
-    enableTestPref?: boolean;
-}
-
 export type CodeBuilderSettings = Metadata & {
     enableCodeBuilder?: boolean;
 }
@@ -13004,29 +16561,29 @@ export type IndustriesContextSettings = Metadata & {
     enableContextDefinitions?: boolean;
 }
 
+export type IndustriesLsCommercialSettings = Metadata & {
+    enableLsPtntSuptPgmGenAIPref?: boolean;
+}
+
 export type IncludeEstTaxInQuoteCPQSettings = Metadata & {
     enableQuoteEstimatedTaxCPQ?: boolean;
 }
 
-export type SceGlobalModelOptOutSettings = Metadata & {
-    sceGlobalModelOptOut?: boolean;
-}
-
-export type SandboxSettings = Metadata & {
-    disableSandboxExpirationEmails?: boolean;
-}
-
-export type InterestTaggingSettings = Metadata & {
-    enableInterestTagging?: boolean;
-}
-
 export type ConversationServiceIntegrationSettings = Metadata & {
     enableConvoCatchUpForAgents?: boolean;
+    enableConvoCatchUpForServiceAssistant?: boolean;
     enableConvoCatchUpForSupervisors?: boolean;
+    enableTranslationForAgents?: boolean;
 }
 
 export type EinsteinAISettings = Metadata & {
     enableAIFeedbackWithDC?: boolean;
+    enableAITrustInputToxicityDetection?: boolean;
+    enableAITrustPromptInjectionDetection?: boolean;
+    enableAgentHealthMonitoring?: boolean;
+    enableAgentHealthMonitoringGA?: boolean;
+    enablePBHideScopedNotif?: boolean;
+    enablePBPromptPerformanceMetrics?: boolean;
     enableTrustPIIMasking?: boolean;
 }
 
@@ -13042,8 +16599,18 @@ export type AssociationEngineSettings = Metadata & {
     enableAssociationEngine?: boolean;
 }
 
-export type SourceTrackingSettings = Metadata & {
-    enableSourceTrackingSandboxes?: boolean;
+export type SecurityHubSettings = Metadata & {
+    aiGatewayUsageMetric?: boolean;
+}
+
+export type IndustriesUsageSettings = Metadata & {
+    enableUsage?: boolean;
+    enableUsageReleaseTask258?: boolean;
+}
+
+export type MediaAgentSettings = Metadata & {
+    enableMediaAdOppSummaryEnabled?: boolean;
+    enableMediaProposalAgentEnabled?: boolean;
 }
 
 export type OrgSettings = Metadata & {
@@ -13056,8 +16623,168 @@ export type OrgSettings = Metadata & {
     enableResetDivisionOnLogin?: boolean;
 }
 
+export type AgentforceForDevelopersSettings = Metadata & {
+    agentforceForDevelopersOptOut?: boolean;
+}
+
+export type SalesAccountAgentSettings = Metadata & {
+    enableAccountAgent?: boolean;
+}
+
+export type IncludeEstTaxInQuoteSettings = Metadata & {
+    enableQuoteEstimatedTax?: boolean;
+}
+
+export type SalesDealAgentSettings = Metadata & {
+    enableDealAgent?: boolean;
+    enableDealAgentAutoApproveAllTasks?: boolean;
+}
+
+export type ReferralMarketingSettings = Metadata & {
+    enableMarketingCloudIntegration?: boolean;
+}
+
+export type SequenceServiceSettings = Metadata & {
+    enableSequenceService?: boolean;
+}
+
+export type AccountPlanSettings = Metadata & {
+    enableAccountPlan?: boolean;
+}
+
+export type AgentPlatformSettings = Metadata & {
+    enableAgentPlatform?: boolean;
+}
+
+export type PaymentsManagementEnabledSettings = Metadata & {
+    paymentsManagementEnabled?: boolean;
+}
+
+export type EinsteinGptSettings = Metadata & {
+    disableAIProvAWSBedrock?: boolean;
+    disableAIProvAzureOpenAI?: boolean;
+    disableAIProvOpenAI?: boolean;
+    disableAIProvVertexGemini?: boolean;
+    disableAIProviderRegionFallback?: boolean;
+    enableAIModelBeta?: boolean;
+    enableEinsteinGPTDeployPromptTemplatesAsActive?: boolean;
+    enableEinsteinGptAllowUnsafePTInputChanges?: boolean;
+    enableEinsteinGptGlobalLangSupport?: boolean;
+    enableEinsteinGptPlatform?: boolean;
+    enableEnhancedPromptSecurity?: boolean;
+}
+
+export type ServiceAIRecommendationsSettings = Metadata & {
+    enableServiceRecomForCase?: boolean;
+}
+
+export type PlatformSlackSettings = Metadata & {
+    enableSlackService?: boolean;
+    enableSlackServiceAlerts?: boolean;
+    slackCapabilitiesEnabled?: boolean;
+}
+
+export type RevenueManagementSettings = Metadata & {
+    enableAdvCreateOrdersFromQuote?: boolean;
+    enableAdvancedDetailLinePricing?: boolean;
+    enableAsIsRenewals?: boolean;
+    enableAutoAddDerivedAsset?: boolean;
+    enableCoreCPQ?: boolean;
+    enableDeltaPricing?: boolean;
+    enableGroupRamp?: boolean;
+    enableGroupRampPref?: boolean;
+    enableRampDeal?: boolean;
+    enableRevUnifiedSetup?: boolean;
+    enableTransactionCloning?: boolean;
+    enableTransactionProcessor?: boolean;
+    groupsEnabled?: boolean;
+    hidePriceRefreshNtfcn?: boolean;
+    relaxUniqueCipValidation?: boolean;
+    skipOrgSttPricing?: boolean;
+}
+
+export type KnowledgeGenerationSettings = Metadata & {
+    enableKSUsingHybridSearch?: boolean;
+    enableKnowledgeGeneration?: boolean;
+}
+
+export type DynamicFulfillmentOrchestratorSettings = Metadata & {
+    enableDFOFallout?: boolean;
+    enableDFOJeopardy?: boolean;
+    enableDFOPref?: boolean;
+    enableDROBulkDequeUsingMQ?: boolean;
+    enableDROFutureDatedTasks?: boolean;
+    enableDROInflightRequest?: boolean;
+    enableDROTaskSource?: boolean;
+}
+
+export type MailMergeSettings = Metadata & {
+    enableExtendedMailMerge?: boolean;
+    saveMailMergeDocsAsSalesforceDocs?: boolean;
+}
+
+export type AccountingSettings = Metadata & {
+    enableAccountingSubledger?: boolean;
+    enableFinancePeriod?: boolean;
+    enablePaymentMethodAdjust?: boolean;
+    enableScheduledJob?: boolean;
+    enableSkipReversalLogic?: boolean;
+}
+
+export type CollectionsDashboardSettings = Metadata & {
+    enableCollectionsDashboard?: boolean;
+}
+
+export type InvLatePymntRiskCalcSettings = Metadata & {
+    enableInvLatePymntRiskCalc?: boolean;
+}
+
+export type FTestAccessSettings = Metadata & {
+    enableTestPref?: boolean;
+}
+
+export type SceGlobalModelOptOutSettings = Metadata & {
+    enableConfigurableSceGlobalModelOptOut?: boolean;
+    sceGlobalModelOptOut?: boolean;
+}
+
+export type CommsUpsellSettings = Metadata & {
+    enableCommsUpsell?: boolean;
+}
+
+export type SandboxSettings = Metadata & {
+    disableSandboxExpirationEmails?: boolean;
+}
+
+export type PrmCoreSettings = Metadata & {
+    enableAgentforceForPartners?: boolean;
+}
+
+export type DxGlobalTermsSettings = Metadata & {
+    dxGlobalTermsAccepted?: boolean;
+}
+
+export type InterestTaggingSettings = Metadata & {
+    enableInterestTagging?: boolean;
+}
+
+export type IndustriesRatingSettings = Metadata & {
+    enableRating?: boolean;
+    enableRatingWaterfall?: boolean;
+    enableRatingWaterfallPersistence?: boolean;
+}
+
+export type EvfSettings = Metadata & {
+    enableCopilotAnalytics?: boolean;
+}
+
+export type SourceTrackingSettings = Metadata & {
+    enableSourceTrackingSandboxes?: boolean;
+}
+
 export type DevHubSettings = Metadata & {
-    devOpsCenterBetaMsa?: boolean;
+    enableALMSimpleDeployDataPref?: boolean;
+    enableALMSimpleDeployPref?: boolean;
     enableDevOpsCenter?: boolean;
     enableDevOpsCenterGA?: boolean;
     enablePackaging2?: boolean;
@@ -13066,25 +16793,26 @@ export type DevHubSettings = Metadata & {
     enableShapeExportPref?: boolean;
 }
 
-export type IncludeEstTaxInQuoteSettings = Metadata & {
-    enableQuoteEstimatedTax?: boolean;
-}
-
-export type ReferralMarketingSettings = Metadata & {
-    enableMarketingCloudIntegration?: boolean;
-}
-
 export type IndustriesLoyaltySettings = Metadata & {
     enableAutomaticMemberTierAssessmentSelection?: boolean;
     enableAutomaticVoucherCodeGeneration?: boolean;
+    enableConfigureClubs?: boolean;
     enableFixedTypeNQPAggregation?: boolean;
     enableLoyaltyApiAccessForExternalSiteUsers?: boolean;
+    enableLoyaltyGenerativeAi?: boolean;
     enableLoyaltyRedeemedPointsExpirationInfoPref?: boolean;
     enableLoyaltyRulesVerifyCdpMemberSegment?: boolean;
     enableLoyaltyServiceExcellence?: boolean;
     enableNQPRealTimePointBalance?: boolean;
+    enableNegativePointBalance?: boolean;
     enableNonQualifyingPointsConsolidation?: boolean;
+    enablePointsLifecycleTracking?: boolean;
+    enablePromSetupProcRuleStatusInheritDplymt?: boolean;
     enableQPRealTimePointBalance?: boolean;
+    enableSegmentQueryApiMultipleDataSpace?: boolean;
+    enableSegmentQueryByDataGraph?: boolean;
+    enableTransferPointsToMemberGroupsRealtime?: boolean;
+    enableUsePromPtyUsageForEngmtTrail?: boolean;
 }
 
 export type Web3Settings = Metadata & {
@@ -13092,15 +16820,10 @@ export type Web3Settings = Metadata & {
 }
 
 export type IndustriesUnifiedPromotionsSettings = Metadata & {
+    enableGlobalPromotionsEvaluation?: boolean;
+    enableGlobalPromotionsForRevenueCloud?: boolean;
+    enableGlobalPromotionsProductCatalogManagement?: boolean;
     enableUnifiedPromotions?: boolean;
-}
-
-export type PaymentsManagementEnabledSettings = Metadata & {
-    paymentsManagementEnabled?: boolean;
-}
-
-export type EinsteinGptSettings = Metadata & {
-    enableEinsteinGptPlatform?: boolean;
 }
 
 export type AppAnalyticsSettings = Metadata & {
@@ -13108,9 +16831,17 @@ export type AppAnalyticsSettings = Metadata & {
     enableSimulationMode?: boolean;
 }
 
+export type TmfOutboundNotificationSettings = Metadata & {
+    enableTMFOutboundNotification?: boolean;
+}
+
 export type MapsAndLocationSettings = Metadata & {
     enableAddressAutoComplete?: boolean;
     enableMapsAndLocation?: boolean;
+}
+
+export type LargeQuotesandOrdersForRlmSettings = Metadata & {
+    enableLargeQuotesandOrdersForRlm?: boolean;
 }
 
 export type OnlineSalesSettings = Metadata & {
@@ -13132,10 +16863,47 @@ export type DeploymentSettings = Metadata & {
     doesSkipAsyncApexValidation?: boolean;
 }
 
+export type DgtAssetMgmtProvider = Metadata & {
+    icon: string;
+    label: string;
+    masterLabel: string;
+}
+
+export type DgtAssetMgmtPrvdLghtCpnt = Metadata & {
+    dgtAssetMgmtProvider: string;
+    lightningComponentBundle?: string;
+    masterLabel: string;
+    type: DgtAssetMgmtPrvdLghtCpntType;
+}
+
 export type DigitalExperienceBundle = Metadata & {
     description?: string;
+    digitalExperienceFolderShares?: DigitalExperienceFolderShares;
     label: string;
+    modules?: DigitalExperienceModuleCollection;
     spaceResources: DigitalExperience[];
+}
+
+export type DigitalExperienceFolderShares = {
+    digitalExperienceFolderShare: DigitalExperienceFolderShare[];
+}
+
+export type DigitalExperienceFolderShare = {
+    folderPath: string;
+    sharedWith: SharedWith[];
+}
+
+export type SharedWith = {
+    fullyQualifiedName: string;
+}
+
+export type DigitalExperienceModuleCollection = {
+    module: DigitalExperienceModule[];
+}
+
+export type DigitalExperienceModule = {
+    fullyQualifiedName: string;
+    status: ManagedContentSpaceModuleStatusEnum;
 }
 
 export type DigitalExperience = MetadataWithContent & {
@@ -13305,6 +17073,8 @@ export type Document = MetadataWithContent & {
 }
 
 export type DocumentTemplate = MetadataWithContent & {
+    contextDefinitionName?: string;
+    contextMappingName?: string;
     customClassName?: string;
     defaultFontStyle?: string;
     documentConversionResourceName?: string;
@@ -13635,13 +17405,18 @@ export type DiscoveryGoalOutcome = {
 }
 
 export type DiscoverySettings = Metadata & {
+    einsteinAR4ConvOnDmndRecs?: boolean;
+    einsteinARForConvo?: boolean;
     enableEinsteinAnswersPref?: boolean;
     enableEinsteinArticleRecommendations?: boolean;
+    enableEinsteinArticleRecommendationsOnDC?: boolean;
 }
 
 export type DocumentChecklistSettings = Metadata & {
+    dciCSharingOptimization?: boolean;
     dciCustomSharing?: boolean;
     deleteDCIWithFiles?: boolean;
+    enhancedDocValCmp?: boolean;
 }
 
 export type DocumentGenerationSetting = Metadata & {
@@ -13649,7 +17424,9 @@ export type DocumentGenerationSetting = Metadata & {
     documentTemplateLibraryName: string;
     generationMechanism?: GenerationMechanism;
     guestAccessNamedCredential?: string;
+    inProgDocGenRqstTmot?: number;
     isBatchDocGnrnEnabled?: boolean;
+    isInProgRqstTmotEnab?: boolean;
     isServerSideDocGenEnabled?: boolean;
     masterLabel: string;
     previewType?: PreviewType;
@@ -13657,8 +17434,11 @@ export type DocumentGenerationSetting = Metadata & {
 
 export type DocumentType = Metadata & {
     description?: string;
+    externalIdentifier?: string;
     isActive: boolean;
     masterLabel: string;
+    maximumFileSize?: number;
+    maximumFileUploadCount?: number;
 }
 
 export type DuplicateRule = Metadata & {
@@ -13689,6 +17469,8 @@ export type DuplicateRuleMatchRule = {
 
 export type EACSettings = Metadata & {
     addRcCompToFlexiPages?: boolean;
+    autoContactCreationPref?: boolean;
+    autoContactEnrichmentPref?: boolean;
     autoPopulateGoogleMeetLinks?: boolean;
     automatedEmailFilter?: boolean;
     dSThresholdNotification?: boolean;
@@ -13703,9 +17485,12 @@ export type EACSettings = Metadata & {
     enableInsightsInTimelineEacStd?: boolean;
     enableUnifiedActivitiesPref?: boolean;
     provisionProductivityFeatures?: boolean;
+    relationshipGraphPref?: boolean;
+    s2XSvcAccEmail?: boolean;
     salesforceEventsOnlyPref?: boolean;
     sensitiveEmailFilter?: boolean;
     showEACCalendarPref?: boolean;
+    syncEmailToCoreActivity?: boolean;
     syncInternalEvents?: boolean;
 }
 
@@ -13743,14 +17528,15 @@ export type EditionDefinition = Metadata & {
     managementServiceProvider?: string;
     managementTenantId?: string;
     name: string;
+    recordVisibility?: string;
 }
 
 export type EinsteinAgentSettings = Metadata & {
     einsteinAgentRecommendations?: boolean;
     reRunAttributeBasedRules?: boolean;
     runAssignmentRules?: boolean;
-    summarizationRecs?: boolean;
     summarizationCopilot?: boolean;
+    summarizationRecs?: boolean;
     voiceWrapUpRecs?: boolean;
 }
 
@@ -13805,6 +17591,7 @@ export type EmailIntegrationSettings = Metadata & {
     enableGmailIntegration?: boolean;
     enableInboxInternalEmailTracking?: boolean;
     enableInboxMobileIntune?: boolean;
+    enableInboxUseGraphApi?: boolean;
     enableOutlookIntegration?: boolean;
     enableOutlookMobileIntegration?: boolean;
     enableProductivityFeatures?: boolean;
@@ -13863,6 +17650,7 @@ export type EmbeddedServiceConfig = Metadata & {
     areGuestUsersAllowed?: boolean;
     authMethod?: EmbeddedServiceAuthMethod;
     branding?: string;
+    clientVersion?: EmbeddedServiceClientVersion;
     deploymentFeature: EmbeddedServiceDeploymentFeature;
     deploymentType: EmbeddedServiceDeploymentType;
     embeddedServiceAppointmentSettings?: EmbeddedServiceAppointmentSettings;
@@ -13871,7 +17659,9 @@ export type EmbeddedServiceConfig = Metadata & {
     embeddedServiceCustomizations: EmbeddedServiceCustomization[];
     embeddedServiceFlowConfig?: EmbeddedServiceFlowConfig;
     embeddedServiceFlows: EmbeddedServiceFlow[];
+    embeddedServiceForms: EmbeddedServiceForm[];
     embeddedServiceLayouts: EmbeddedServiceLayout[];
+    embeddedServiceMessagingChannel?: EmbeddedServiceMessagingChannel;
     isEnabled?: boolean;
     isTermsAndConditionsEnabled?: boolean;
     isTermsAndConditionsRequired?: boolean;
@@ -13895,12 +17685,6 @@ export type EmbeddedServiceCustomComponent = {
     customComponentType?: EmbeddedServiceCustomComponentType;
 }
 
-export type EmbeddedServiceCustomLabel = {
-    customLabel?: string;
-    feature?: EmbeddedServiceFeature;
-    labelKey?: EmbeddedServiceLabelKey;
-}
-
 export type EmbeddedServiceCustomization = {
     customizationName: string;
     description?: string;
@@ -13922,6 +17706,23 @@ export type EmbeddedServiceFlow = {
     isAuthenticationRequired: boolean;
 }
 
+export type EmbeddedServiceForm = {
+    displayContext: EmbeddedServiceFormDisplayContext;
+    embeddedServiceFormFields: EmbeddedServiceFormField[];
+    isActive?: boolean;
+}
+
+export type EmbeddedServiceFormField = {
+    choiceList?: string;
+    displayOrder: number;
+    embeddedServiceCustomLabels: EmbeddedServiceCustomLabel[];
+    formField: string;
+    formFieldType: EmbeddedServiceFormFieldType;
+    isHidden?: boolean;
+    isRequired?: boolean;
+    messagingChannelParameterType: MessagingChannelParameterType;
+}
+
 export type EmbeddedServiceLayout = {
     embeddedServiceLayoutRules: EmbeddedServiceLayoutRule[];
     layout: string;
@@ -13930,6 +17731,32 @@ export type EmbeddedServiceLayout = {
 
 export type EmbeddedServiceLayoutRule = {
     appointmentStatus: string;
+}
+
+export type EmbeddedServiceMessagingChannel = {
+    businessHours?: string;
+    embdMsgChannelInvitationConditions: EmbdMsgChannelInvitationCondition[];
+    formula?: string;
+    isChatInvitationCustomizable?: boolean;
+    isEnabled: boolean;
+    isInvitationEnabled?: boolean;
+    isSendInvtAllowedAfterAccept?: boolean;
+    isSendInvtAllowedAfterReject?: boolean;
+    messagingChannel: string;
+    shouldShowDeliveryReceipts: boolean;
+    shouldShowEmojiSelection: boolean;
+    shouldShowReadReceipts: boolean;
+    shouldShowTypingIndicators: boolean;
+    shouldStartNewLineOnEnter: boolean;
+}
+
+export type EmbdMsgChannelInvitationCondition = {
+    conditionType: EswInvitationConditionResource;
+    customVariableName?: string;
+    embeddedServiceMessagingChannel: EmbeddedServiceMessagingChannel;
+    operand: EswInvitationConditionOperator;
+    sequence: number;
+    value: string;
 }
 
 export type EmbeddedServiceFieldService = Metadata & {
@@ -14000,6 +17827,17 @@ export type EmbeddedServiceMenuItem = {
     shouldOpenUrlInSameTab?: boolean;
 }
 
+export type EmpSvcInvocableActionDef = Metadata & {
+    apexInput?: string;
+    apexOutput?: string;
+    description?: string;
+    developerName?: string;
+    masterLabel: string;
+    relativeEndpointUrl?: string;
+    requestMethod?: EmployeeUseCaseMethod;
+    status?: EmployeeUseCaseStatus;
+}
+
 export type EmployeeFieldAccessSettings = Metadata & {
     enableEmployeeFieldMaskDefaults?: boolean;
     enableEmployeeFieldMasking?: boolean;
@@ -14014,10 +17852,126 @@ export type EmployeeUserSettings = Metadata & {
     usernameSuffix?: string;
 }
 
+export type EnablementMeasureDefinition = Metadata & {
+    description?: string;
+    developerName: string;
+    masterLabel: string;
+    sourceMeasureObject: EnablementMeasureSourceObjectDefinition;
+    status: EnblProgramMeasureStatus;
+}
+
+export type EnablementMeasureSourceObjectDefinition = {
+    aggregateFieldApiName?: string;
+    aggregateFunction: EnablementAggregationType;
+    dateFieldApiName: string;
+    displayFieldApiName: string;
+    filterLogic?: string;
+    filters: EnablementMeasureFilterDefinition[];
+    objectApiName: string;
+    relatedMeasureObjects: EnablementMeasureRelatedObjectDefinition[];
+    userFieldApiName: string;
+}
+
+export type EnablementMeasureFilterDefinition = {
+    fieldApiName: string;
+    fieldValue: string;
+    operator: EnablementFilterOperator;
+    sequenceNumber: number;
+}
+
+export type EnablementMeasureRelatedObjectDefinition = {
+    filterLogic?: string;
+    filters: EnablementMeasureFilterDefinition[];
+    idFieldApiName: string;
+    objectApiName: string;
+}
+
+export type EnablementProgramDefinition = Metadata & {
+    description: string;
+    developerName: string;
+    doesAllowSelfEnrollment?: boolean;
+    masterLabel: string;
+    name: string;
+    network?: string;
+    sections: EnablementProgramSection[];
+    tasks: EnablementProgramTask[];
+    type: string;
+}
+
+export type EnablementProgramSection = {
+    developerName: string;
+    name: string;
+    sequenceNumber: number;
+    tasks: EnablementProgramTask[];
+}
+
+export type EnablementProgramTask = {
+    customSubCategoryName?: string;
+    day: number;
+    description: string;
+    developerName: string;
+    exercise?: EnablementProgramTaskExercise;
+    milestone?: EnablementProgramTaskMilestone;
+    name: string;
+    sequenceNumber: number;
+    taskCategory: ProgramTaskDefCategory;
+    taskSubCategory: string;
+}
+
+export type EnablementProgramTaskExercise = {
+    cmsContent?: EnablementProgramTaskCmsContent;
+    customContent?: EnablementProgramTaskCustomContent;
+    externalContent?: EnablementProgramTaskExternalContent;
+    feedbackContent?: EnablementProgramTaskFeedbackContent;
+}
+
+export type EnablementProgramTaskCmsContent = {
+    apiName: string;
+    contentKey?: string;
+}
+
+export type EnablementProgramTaskCustomContent = {
+    content?: string;
+}
+
+export type EnablementProgramTaskExternalContent = {
+    externalId: string;
+    providerType: ProgramExtContentDefProvider;
+}
+
+export type EnablementProgramTaskFeedbackContent = {
+    inviteeCount?: number;
+    promptTemplate?: string;
+    surveyDeveloperName?: string;
+    type: string;
+}
+
+export type EnablementProgramTaskMilestone = {
+    compositeMilestoneType?: EnblCompositeMilestoneType;
+    isMilestoneAnOutcome: boolean;
+    milestoneMeasures: EnablementProgramTaskMilestoneMeasure[];
+    milestoneTarget?: number;
+    minimumSampleSize?: number;
+    startDay?: number;
+}
+
+export type EnablementProgramTaskMilestoneMeasure = {
+    measureDefinitionDeveloperName: string;
+    sequenceNumber?: number;
+}
+
+export type EnblProgramTaskSubCategory = Metadata & {
+    developerName: string;
+    icon: string;
+    learningItemType: string;
+    masterLabel: string;
+}
+
 export type EncryptionKeySettings = Metadata & {
+    canEncryptTransactionalDatabase?: boolean;
+    canExternalKeyManagement?: boolean;
+    canManageDataCloudKeys?: boolean;
     canOptOutOfDerivationWithBYOK?: boolean;
-    dataCloudEncryption?: boolean;
-    enableBringYourOwnkms?: boolean;
     enableCacheOnlyKeys?: boolean;
     enableReplayDetection?: boolean;
 }
@@ -14047,8 +18001,10 @@ export type EntitlementProcess = Metadata & {
 }
 
 export type EntitlementProcessMilestoneItem = {
+    agreementType?: string;
     businessHours?: string;
     criteriaBooleanFilter?: string;
+    milestoneCompletionCriteria?: MilestoneCompletionCriteria;
     milestoneCriteriaFilterItems: FilterItem[];
     milestoneCriteriaFormula?: string;
     milestoneName?: string;
@@ -14057,6 +18013,14 @@ export type EntitlementProcessMilestoneItem = {
     successActions: WorkflowActionReference[];
     timeTriggers: EntitlementProcessMilestoneTimeTrigger[];
     useCriteriaStartTime?: boolean;
+}
+
+export type MilestoneCompletionCriteria = {
+    criteriaBooleanFilter?: string;
+    criteriaObjectName?: string;
+    criteriaObjectType?: string;
+    milestoneCriteriaFilterItems: FilterItem[];
+    milestoneCriteriaFormula?: string;
 }
 
 export type EntitlementProcessMilestoneTimeTrigger = {
@@ -14088,17 +18052,6 @@ export type EntitlementTemplate = Metadata & {
     isPerIncident?: boolean;
     term?: number;
     type?: string;
-}
-
-export type EntityImplements = Metadata & {
-    fieldImplements: FieldImplements[];
-    isDefault?: boolean;
-    isFullyMapped?: boolean;
-}
-
-export type FieldImplements = {
-    field?: string;
-    interfaceField?: string;
 }
 
 export type EscalationRule = Metadata & {
@@ -14151,9 +18104,11 @@ export type EventSettings = Metadata & {
     enableDynamicStreamingChannel?: boolean;
     enableEventLogGeneration?: boolean;
     enableEventLogWaveIntegration?: boolean;
+    enableLightningLoggerEvents?: boolean;
     enableLoginForensics?: boolean;
     enableStreamingApi?: boolean;
     enableTransactionSecurityPolicies?: boolean;
+    eventLogRetentionDuration?: number;
 }
 
 export type EventSubscription = Metadata & {
@@ -14224,9 +18179,9 @@ export type ExplainabilityActionVersion = Metadata & {
 }
 
 export type ExplainabilityMsgTemplate = Metadata & {
-    emtUsageType: EmtUsageType;
     evaluationResult: EvaluationResult;
     expressionSetStepType: ExpressionSetStepType;
+    expsSetProcessType: ExpsSetProcessType;
     isDefault?: boolean;
     masterLabel: string;
     message: string;
@@ -14235,18 +18190,23 @@ export type ExplainabilityMsgTemplate = Metadata & {
 export type ExpressionSetDefinition = Metadata & {
     contextDefinitions: string[];
     description?: string;
+    executionScale?: ExpsSetExecutionScale;
     interfaceSourceType?: ExpsSetInterfaceSourceType;
     label: string;
     processType?: ExpsSetProcessType;
+    resourceInitializationType?: ResourceInitializationType;
     template?: boolean;
+    usageSubtype?: ExpsSetUsageSubtype;
     versions: ExpressionSetDefinitionVersion[];
 }
 
 export type ExpressionSetDefinitionVersion = Metadata & {
+    decimalScale?: number;
     description?: string;
     endDate?: Date;
     expressionSetDefinition?: string;
     label: string;
+    rank?: number;
     shouldShowExplExternally?: boolean;
     startDate: Date;
     status: ExpsSetStatus;
@@ -14342,6 +18302,7 @@ export type ExplainabilityMessageTemplateTokenMapping = {
 
 export type ExpressionSetSubExpression = {
     expressionSet: string;
+    mappings: ExpressionSetElementParameter[];
 }
 
 export type ExpressionSetVariable = {
@@ -14391,12 +18352,38 @@ export type ExpressionSetObjectAliasField = {
     sourceFieldName: string;
 }
 
+export type ExtConvParticipantIntegDef = Metadata & {
+    accountKey?: string;
+    botProvider?: BotProvider;
+    channelMode?: ChannelMode;
+    clientIdentifier?: string;
+    connectedAppOauthLink?: string;
+    conversationVendorInfo?: string;
+    customEventPayloadField: string;
+    customEventTypeField?: string;
+    customPlatformEvent: string;
+    developerName: string;
+    externalConversationBotDefs: ExternalConversationBotDef[];
+    masterLabel: string;
+    projectIdentifier?: string;
+    status?: ExtConvParticipantIntegDefStatus;
+}
+
+export type ExternalConversationBotDef = {
+    additionalInfo?: string;
+    displayName?: string;
+    externalId: string;
+    isActive?: boolean;
+    type?: ExternalBotType;
+}
+
 export type ExtDataTranFieldTemplate = Metadata & {
     dataSourceField: string;
     externalDataTranField?: string;
     externalName?: string;
     isDataRequired?: boolean;
     masterLabel: string;
+    sourceFieldName?: string;
 }
 
 export type ExtDataTranObjectTemplate = Metadata & {
@@ -14405,6 +18392,8 @@ export type ExtDataTranObjectTemplate = Metadata & {
     externalDataTranObject?: string;
     externalName?: string;
     masterLabel: string;
+    sourceObjectName?: string;
+    templateVersion?: number;
 }
 
 export type ExternalAIModel = Metadata & {
@@ -14416,10 +18405,25 @@ export type ExternalAIModel = Metadata & {
     trainingJobName?: string;
 }
 
+export type ExternalAuthIdentityProvider = Metadata & {
+    authenticationFlow: IdentityProviderAuthFlow;
+    authenticationProtocol: IdentityProviderAuthProtocol;
+    description?: string;
+    externalAuthIdentityProviderParameters: ExternalAuthIdentityProviderParameter[];
+    label: string;
+}
+
+export type ExternalAuthIdentityProviderParameter = {
+    description?: string;
+    parameterName: string;
+    parameterType: ExtlIdentityProviderParmType;
+    parameterValue?: string;
+    sequenceNumber?: number;
+}
+
 export type ExternalClientAppSettings = Metadata & {
     enableClientSecretInRestApiAccess?: boolean;
     enableConsumerSecretApiAccess?: boolean;
-    enableExternalClientApps?: boolean;
     enablePackageEcaOauthFromDevOrg?: boolean;
 }
 
@@ -14448,6 +18452,7 @@ export type ExternalCredentialParameter = {
     authProvider?: string;
     certificate?: string;
     description?: string;
+    externalAuthIdentityProvider?: string;
     parameterGroup?: string;
     parameterName: string;
     parameterType: ExternalCredentialParamType;
@@ -14480,6 +18485,7 @@ export type ExternalDataTranField = Metadata & {
     dateFormat?: string;
     extDataTranFieldTemplate?: string;
     externalName?: string;
+    isCurrencyIsoCode?: boolean;
     isDataRequired?: boolean;
     length?: number;
     masterLabel: string;
@@ -14541,12 +18547,14 @@ export type ExternalDocStorageConfig = Metadata & {
 }
 
 export type ExternalServiceRegistration = Metadata & {
+    catalogedApiVersion?: string;
     description?: string;
     label: string;
     namedCredential?: string;
     namedCredentialReference?: string;
     operations: ExternalServiceOperation[];
     providerAssetEndpoint?: string;
+    registrationProvider?: string;
     registrationProviderType?: ExternalServiceRegistrationProviderType;
     schema?: string;
     schemaAbsoluteUrl?: string;
@@ -14565,11 +18573,35 @@ export type ExternalServiceOperation = {
     name: string;
 }
 
+export type ExternalStoragePrvdConfig = Metadata & {
+    customConfiguration?: string;
+    externalDataSource?: string;
+    flowDefinition?: string;
+}
+
+export type ExtlClntAppCanvasStngs = Metadata & {
+    accessMethod?: AccessMethod;
+    canvasLocationOptions: CanvasLocationOptions[];
+    canvasOptions: CanvasOptions[];
+    canvasUrl: string;
+    externalClientApplication: string;
+    label?: string;
+    lifeCycleHandler?: string;
+    samlInitiationMethod?: SamlInitiationMethod;
+}
+
 export type ExtlClntAppConfigurablePolicies = Metadata & {
     externalClientApplication: string;
+    isCanvasPluginEnabled?: boolean;
     isEnabled: boolean;
+    isMobilePluginEnabled?: boolean;
+    isNotificationPluginEnabled?: boolean;
     isOauthPluginEnabled?: boolean;
+    isPushPluginEnabled?: boolean;
+    isSamlPluginEnabled?: boolean;
     label?: string;
+    startPage?: ExtlClntAppStartPage;
+    startUrl?: string;
 }
 
 export type ExtlClntAppGlobalOauthSettings = Metadata & {
@@ -14580,9 +18612,12 @@ export type ExtlClntAppGlobalOauthSettings = Metadata & {
     externalClientApplication: string;
     idTokenConfig?: ExternalAppIdTokenConfig;
     isClientCredentialsFlowEnabled?: boolean;
+    isCodeCredFlowEnabled?: boolean;
+    isCodeCredPostOnly?: boolean;
     isConsumerSecretOptional?: boolean;
     isDeviceFlowEnabled?: boolean;
     isIntrospectAllTokens?: boolean;
+    isNamedUserJwtEnabled?: boolean;
     isPkceRequired?: boolean;
     isRefreshTokenRotationEnabled?: boolean;
     isSecretRequiredForRefreshToken?: boolean;
@@ -14596,6 +18631,7 @@ export type ExtlClntAppGlobalOauthSettings = Metadata & {
 export type ExternalAppIdTokenConfig = {
     idTokenAudience?: string;
     idTokenIncludeAttributes?: boolean;
+    idTokenIncludeCustomPermissions?: boolean;
     idTokenIncludeStandardClaims?: boolean;
     idTokenValidityInMinutes?: number;
 }
@@ -14614,23 +18650,33 @@ export type ExtlClntAppMobileSettings = Metadata & {
 
 export type ExtlClntAppNotificationSettings = Metadata & {
     externalClientApplication: string;
-    label: string;
+    label?: string;
     notificationTypes: ExtlClntAppNotificationType[];
 }
 
 export type ExtlClntAppNotificationType = {
     notificationType: string;
+    pushByDefault?: boolean;
 }
 
 export type ExtlClntAppOauthConfigurablePolicies = Metadata & {
+    apexHandler?: string;
     clientCredentialsFlowUser?: string;
+    commaSeparatedCustomScopes?: string;
     commaSeparatedPermissionSet?: string;
+    commaSeparatedProfile?: string;
     customAttributes: ExtlClntAppOauthPoliciesAttribute[];
+    executeHandlerAs?: string;
     externalClientApplication: string;
+    guestJwtSessionTimeoutType?: JWTSessionTimeoutType;
+    guestJwtTimeout?: number;
     ipRelaxationPolicyType?: string;
     isClientCredentialsFlowEnabled?: boolean;
+    isGuestCodeCredFlowEnabled?: boolean;
     isTokenExchangeFlowEnabled?: boolean;
     label?: string;
+    namedUserJwtSessionTimeoutType?: JWTSessionTimeoutType;
+    namedUserJwtTimeout?: number;
     permittedUsersPolicyType?: PermittedUsersPolicyType;
     policyAction?: PolicyAction;
     refreshTokenPolicyType?: RefreshTokenPolicyType;
@@ -14648,9 +18694,17 @@ export type ExtlClntAppOauthPoliciesAttribute = {
 }
 
 export type ExtlClntAppOauthSettings = Metadata & {
+    areAttributesIncludedInAssetToken?: boolean;
+    areCustomPermsIncludedInAssetToken?: boolean;
+    assetTokenAudiences?: string;
+    assetTokenSigningCertificate?: string;
+    assetTokenValidity?: number;
+    clientAssertionCertificate?: string;
+    commaSeparatedCustomScopes?: string;
     commaSeparatedOauthScopes?: string;
     customAttributes: ExtlClntAppOauthSettingsAttribute[];
     externalClientApplication: string;
+    isFirstPartyAppEnabled?: boolean;
     label?: string;
     oauthLink?: string;
     singleLogoutUrl?: string;
@@ -14666,6 +18720,61 @@ export type ExtlClntAppOauthIpRange = {
     description?: string;
     endIpAddress: string;
     startIpAddress: string;
+}
+
+export type ExtlClntAppPushConfigurablePolicies = Metadata & {
+    externalClientApplication: string;
+    isFullContent: boolean;
+    label?: string;
+}
+
+export type ExtlClntAppPushSettings = Metadata & {
+    androidPushConfig?: ExtlClntAppAndroidPushConfig;
+    applePushConfig?: ExtlClntAppApplePushConfig;
+    externalClientApplication: string;
+    label?: string;
+    pushConfigLink?: string;
+    pushServiceType: PushServiceType;
+}
+
+export type ExtlClntAppAndroidPushConfig = {
+    fcmProject: string;
+    serviceAccount: string;
+}
+
+export type ExtlClntAppApplePushConfig = {
+    applicationBundle?: string;
+    certificate?: string;
+    environment: ApplePushEnvironmentType;
+    keyIdentifier?: string;
+    password?: string;
+    signingKey?: string;
+    teamIdentifier?: string;
+}
+
+export type ExtlClntAppSamlConfigurablePolicies = Metadata & {
+    acsUrl: string;
+    certificate?: string;
+    commaSeparatedPermissionSet?: string;
+    commaSeparatedProfile?: string;
+    customAttributes: ExtlClntAppSamlConfigurablePoliciesAttribute[];
+    encryptionCertificate?: string;
+    encryptionType?: ExtlClntAppSamlEncryptType;
+    entityUrl: string;
+    externalClientApplication: string;
+    issuer?: string;
+    label?: string;
+    nameIdFormat?: ExtlClntAppNameIdFormatType;
+    signingAlgorithmType?: ExtlClntAppSamlSignAlgoType;
+    singleLogoutBindingType?: ExtlClntAppSamlBindingType;
+    singleLogoutUrl?: string;
+    subjectCustomAttribute?: string;
+    subjectType?: ExtlClntAppSamlSubjectType;
+}
+
+export type ExtlClntAppSamlConfigurablePoliciesAttribute = {
+    formula: string;
+    key: string;
 }
 
 export type ExtlClntAppSampleConfigurablePolicies = Metadata & {
@@ -14717,6 +18826,21 @@ export type FeatureParameterInteger = Metadata & {
     value: number;
 }
 
+export type FieldMappingConfig = Metadata & {
+    description?: string;
+    fieldMappingConfigItems: FieldMappingConfigItem[];
+    masterLabel?: string;
+    processType?: FieldMappingConfigProcessType;
+    sourceObjectId?: string;
+}
+
+export type FieldMappingConfigItem = {
+    destinationFieldId?: string;
+    destinationObjectId?: string;
+    sequence?: number;
+    sourceFieldId?: string;
+}
+
 export type FieldRestrictionRule = Metadata & {
     active: boolean;
     classification: string[];
@@ -14730,7 +18854,64 @@ export type FieldRestrictionRule = Metadata & {
     version: number;
 }
 
+export type FieldServiceMobileConfig = Metadata & {
+    ascAutomaticMode?: AscAutomaticMode;
+    ascCancellationTimerInSec?: number;
+    ascCompletedStatus?: string;
+    ascOnSiteStatus?: string;
+    ascRadiusInMeters?: number;
+    ascTimeLimitationInMin?: number;
+    ascTravelStatus?: string;
+    bgGeoLocationAccuracy: BgGeoLocationAccuracy;
+    bgGeoLocationMinUpdateFreqMins: number;
+    brandInvertedColor: string;
+    contrastInvertedColor: string;
+    contrastPrimaryColor: string;
+    contrastQuaternaryColor: string;
+    contrastQuinaryColor: string;
+    contrastSecondaryColor: string;
+    contrastTertiaryColor: string;
+    daysAfterCurrentServiceDate: number;
+    daysBeforeCurrentServiceDate: number;
+    defaultListViewDeveloperName?: string;
+    destinationType?: DestinationTypeForMetadata;
+    feedbackPrimaryColor: string;
+    feedbackSecondaryColor: string;
+    feedbackSelectedColor: string;
+    feedbackTertiaryColor?: string;
+    futureDaysInDatePicker: number;
+    geoLocationAccuracy: GeoLocationAccuracy;
+    geoLocationMinUpdateFreqMins: number;
+    isAscTimeLimitEnabled?: boolean;
+    isAssignmentNotification?: boolean;
+    isDispatchNotification?: boolean;
+    isLimitedLocTrackingEnabled?: boolean;
+    isOptimizedImageUploadEnabled?: boolean;
+    isProtected?: boolean;
+    isScheduleViewResourceAbsences?: boolean;
+    isSendLocationHistory?: boolean;
+    isShowEditFullRecord?: boolean;
+    isTimeSheetEnabled?: boolean;
+    isTimeZoneEnabled?: boolean;
+    isUseSalesforceMobileActions?: boolean;
+    isVirtualMeasurement?: boolean;
+    masterLabel: string;
+    maxNumberOfServiceAppointments: number;
+    metadataCacheTimeDays: number;
+    navbarBackgroundColor: string;
+    navbarInvertedColor: string;
+    optimizeImageSizeInMb?: string;
+    pastDaysInDatePicker: number;
+    primaryBrandColor: string;
+    quickStatusChangeFlowName?: string;
+    recordDataCacheTimeMins: number;
+    secondaryBrandColor: string;
+    timeIntervalSetupMins?: TimeIntervalSetupForMetadata;
+    updateScheduleTimeMins: number;
+}
+
 export type FieldServiceSettings = Metadata & {
+    advancedDataSyncOrgPreference?: boolean;
     apptAssistantExpiration?: number;
     apptAssistantInfoUrl?: string;
     apptAssistantRadiusUnitValue?: ApptAssistantRadiusUnit;
@@ -14739,26 +18920,39 @@ export type FieldServiceSettings = Metadata & {
     canPopulateGoogleAddress?: boolean;
     canSendAppCenterCrashReports?: boolean;
     canStoreMobileAnalytics?: boolean;
+    canceledDefaultStatus?: string;
+    cannotCompleteDefaultStatus?: string;
+    completedDefaultStatus?: string;
     deepLinkPublicSecurityKey?: string;
+    dispatchedDefaultStatus?: string;
     doesAllowEditSaForCrew?: boolean;
     doesAvlCalcInclOvertime?: boolean;
     doesAvlCalcInclPrimOnly?: boolean;
     doesShareSaParentWoWithAr?: boolean;
     doesShareSaWithAr?: boolean;
+    enableAdvancedDataSync?: boolean;
     enableBatchWindow?: boolean;
+    enableDocumentBuilder?: boolean;
     enableFloatingWorkOrder?: boolean;
+    enableLsdkMode?: boolean;
     enablePopulateWorkOrderAddress?: boolean;
+    enableStandbyMode?: boolean;
     enableWorkOrders?: boolean;
     enableWorkPlansAutoGeneration?: boolean;
     enableWorkStepManualStatusUpdate?: boolean;
+    enrouteStatus?: string;
     fieldServiceNotificationsOrgPref?: boolean;
     fieldServiceOrgPref?: boolean;
+    inProgressDefaultStatus?: string;
     isGeoCodeSyncEnabled?: boolean;
     isLocationHistoryEnabled?: boolean;
     mobileFeedbackEmails?: string;
+    noneDefaultStatus?: string;
     o2EngineEnabled?: boolean;
     objectMappingItem: ObjectMappingItem[];
     optimizationServiceAccess?: boolean;
+    overrideDefaultLwcStyling?: boolean;
+    scheduledDefaultStatus?: string;
     serviceAppointmentsDueDateOffsetOrgValue?: number;
     workOrderDurationSource?: WorkOrderDurationSource;
     workOrderLineItemSearchFields: string[];
@@ -14774,8 +18968,10 @@ export type FieldSrcTrgtRelationship = Metadata & {
     definitionCreationType: DefinitionCreationType;
     lookupFieldName?: string;
     masterLabel: string;
+    owner: FieldSrcTrgtRelationshipOwner;
     relationshipCardinality: RelationshipCardinality;
     sourceFieldName: string;
+    targetEntity: string;
     targetFieldName: string;
 }
 
@@ -14892,15 +19088,10 @@ export type UiFormulaCriterion = {
 
 export type FlexipageDataSource = {
     definition?: string;
-    flexipageDataSourceProperties: FlexipageDataSourceProperty[];
     mode?: FlexipageDataSourceModeEnum;
     name: string;
+    properties?: string;
     type: FlexipageDataSourceTypeEnum;
-}
-
-export type FlexipageDataSourceProperty = {
-    name: string;
-    value: string;
 }
 
 export type FieldInstance = {
@@ -14957,16 +19148,22 @@ export type Flow = Metadata & {
     actionCalls: FlowActionCall[];
     apexPluginCalls: FlowApexPluginCall[];
     apiVersion?: number;
+    areMetricsLoggedToDataCloud?: boolean;
     assignments: FlowAssignment[];
     choices: FlowChoice[];
     collectionProcessors: FlowCollectionProcessor[];
     constants: FlowConstant[];
     customErrors: FlowCustomError[];
+    customProperties: FlowCustomProperty[];
+    dataSpace?: string;
     decisions: FlowDecision[];
     description?: string;
     dynamicChoiceSets: FlowDynamicChoiceSet[];
     environments: FlowEnvironment[];
+    exitRules: FlowExitRule[];
+    experiments: FlowExperiment[];
     formulas: FlowFormula[];
+    groups: FlowNodeGroup[];
     interviewLabel?: string;
     isAdditionalPermissionRequiredToRun?: boolean;
     isOverridable?: boolean;
@@ -15001,6 +19198,7 @@ export type Flow = Metadata & {
 }
 
 export type FlowActionCall = FlowNode & {
+    actionCallPaths: FlowActionCallPath[];
     actionName?: string;
     actionType?: InvocableActionType;
     connector?: FlowConnector;
@@ -15008,14 +19206,19 @@ export type FlowActionCall = FlowNode & {
     faultConnector?: FlowConnector;
     flowTransactionModel?: FlowTransactionModel;
     inputParameters: FlowActionCallInputParameter[];
+    isWaitUntilCompleted?: boolean;
     nameSegment?: string;
+    offset?: number;
+    offsetUnit?: FlowScheduledPathOffsetUnit;
     outputParameters: FlowActionCallOutputParameter[];
     storeOutputAutomatically?: boolean;
-    versionSegment?: number;
+    timeoutConnector?: FlowConnector;
+    versionString?: string;
 }
 
 export type FlowNode = FlowElement & {
     elementSubtype?: FlowElementSubtype;
+    group?: string;
     label?: string;
     locationX: number;
     locationY: number;
@@ -15038,16 +19241,55 @@ export type FlowMetadataValue = {
 export type FlowElementReferenceOrValue = {
     apexValue?: string;
     booleanValue?: boolean;
+    collectionElements: FlowElementReferenceOrValue[];
+    complexValue?: string;
+    complexValueType?: FlowComplexValueType;
     dateTimeValue?: Date;
     dateValue?: Date;
     elementReference?: string;
     formulaDataType?: FlowDataType;
     formulaExpression?: string;
+    inputConfiguratorMode?: FlowInputConfiguratorMode;
     numberValue?: number;
     setupReference?: string;
     setupReferenceType?: string;
     sobjectValue?: string;
     stringValue?: string;
+    timeValue?: Date;
+    transform?: FlowInlineTransform;
+    transformValueReference?: string;
+}
+
+export type FlowInlineTransform = FlowBaseElement & {
+    apexClass?: string;
+    dataType?: FlowDataType;
+    isCollection?: boolean;
+    objectType?: string;
+    transformValues: FlowTransformValue[];
+}
+
+export type FlowTransformValue = FlowBaseElement & {
+    transformValueActions: FlowTransformValueAction[];
+    transformValueDescription?: string;
+    transformValueLabel?: string;
+    transformValueName?: string;
+}
+
+export type FlowTransformValueAction = FlowBaseElement & {
+    actionName?: string;
+    actionType?: InvocableActionType;
+    actionVersionString?: string;
+    assignToReference?: string;
+    inputParameters: FlowTransformValueActionInputParameter[];
+    name?: string;
+    outputFieldApiName?: string;
+    transformType: FlowTransformValueActionType;
+    value?: FlowElementReferenceOrValue;
+}
+
+export type FlowTransformValueActionInputParameter = FlowBaseElement & {
+    name: string;
+    value?: FlowElementReferenceOrValue;
 }
 
 export type FlowActionCallInputParameter = FlowBaseElement & {
@@ -15058,6 +19300,16 @@ export type FlowActionCallInputParameter = FlowBaseElement & {
 export type FlowActionCallOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
+}
+
+export type FlowActionCallPath = FlowBaseElement & {
+    connector: FlowConnector;
+    pathName: string;
+}
+
+export type FlowConnector = FlowBaseElement & {
+    isGoTo?: boolean;
+    targetReference: string;
 }
 
 export type FlowApexPluginCallInputParameter = FlowBaseElement & {
@@ -15074,6 +19326,11 @@ export type FlowAssignmentItem = FlowBaseElement & {
     assignToReference?: string;
     operator?: FlowAssignmentOperator;
     value?: FlowElementReferenceOrValue;
+}
+
+export type FlowAttribute = FlowBaseElement & {
+    type: FlowAttributeType;
+    value?: string;
 }
 
 export type FlowChoiceUserInput = FlowBaseElement & {
@@ -15100,15 +19357,13 @@ export type FlowCollectionSortOption = FlowBaseElement & {
 }
 
 export type FlowCondition = FlowBaseElement & {
+    aggregationOperator?: string;
+    conditionLogic?: string;
     conditionType?: string;
+    conditions: FlowCondition[];
     leftValueReference?: string;
     operator: FlowComparisonOperator;
     rightValue?: FlowElementReferenceOrValue;
-}
-
-export type FlowConnector = FlowBaseElement & {
-    isGoTo?: boolean;
-    targetReference: string;
 }
 
 export type FlowCustomErrorMessage = FlowBaseElement & {
@@ -15118,8 +19373,12 @@ export type FlowCustomErrorMessage = FlowBaseElement & {
 }
 
 export type FlowDataTypeMapping = FlowBaseElement & {
-    typeName: string;
-    typeValue: string;
+    apexClass?: string;
+    typeName?: string;
+    typeValue?: string;
+    valueMappingKey?: string;
+    valueMappingTarget?: string;
+    valueMappingTransformType?: FlowValueMappingType;
 }
 
 export type FlowInputFieldAssignment = FlowBaseElement & {
@@ -15136,6 +19395,19 @@ export type FlowRecordFilter = FlowBaseElement & {
     field?: string;
     operator?: FlowRecordFilterOperator;
     value?: FlowElementReferenceOrValue;
+}
+
+export type FlowRelatedRecordLookup = FlowBaseElement & {
+    filterLogic?: string;
+    filters?: FlowRecordFilter[];
+    getFirstRecordOnly?: boolean;
+    limit?: FlowElementReferenceOrValue;
+    queriedFields?: string[];
+    relatedObject?: string;
+    relatedRecords?: FlowRelatedRecordLookup[];
+    relationshipField?: string;
+    sortField?: string;
+    sortOrder?: SortOrder;
 }
 
 export type FlowScreenActionInputParameter = FlowBaseElement & {
@@ -15166,6 +19438,11 @@ export type FlowScreenRuleAction = FlowBaseElement & {
     value?: FlowElementReferenceOrValue;
 }
 
+export type FlowScreenStyleSetting = FlowBaseElement & {
+    propertyName: string;
+    propertyValue: FlowElementReferenceOrValue;
+}
+
 export type FlowScreenTrigger = FlowBaseElement & {
     eventName: string;
     eventSource: string;
@@ -15173,11 +19450,14 @@ export type FlowScreenTrigger = FlowBaseElement & {
 }
 
 export type FlowScreenTriggerHandler = FlowBaseElement & {
+    conditionLogic?: string;
+    conditions: FlowCondition[];
+    initBehavior?: string;
     screenActionName: string;
 }
 
 export type FlowStageStepAssignee = FlowBaseElement & {
-    assignee: FlowElementReferenceOrValue;
+    assignee?: FlowElementReferenceOrValue;
     assigneeType: FlowStageStepAssigneeType;
 }
 
@@ -15206,9 +19486,19 @@ export type FlowStageStepInputParameter = FlowBaseElement & {
     value?: FlowElementReferenceOrValue;
 }
 
+export type FlowStageStepOutputConfigParam = FlowBaseElement & {
+    name: string;
+    value: FlowElementReferenceOrValue;
+}
+
 export type FlowStageStepOutputParameter = FlowBaseElement & {
     assignToReference: string;
     name: string;
+}
+
+export type FlowStartInputParameter = FlowBaseElement & {
+    name: string;
+    value?: FlowElementReferenceOrValue;
 }
 
 export type FlowSubflowInputAssignment = FlowBaseElement & {
@@ -15219,23 +19509,6 @@ export type FlowSubflowInputAssignment = FlowBaseElement & {
 export type FlowSubflowOutputAssignment = FlowBaseElement & {
     assignToReference?: string;
     name: string;
-}
-
-export type FlowTransformValue = FlowBaseElement & {
-    transformValueActions: FlowTransformValueAction[];
-}
-
-export type FlowTransformValueAction = FlowBaseElement & {
-    inputParameters: FlowTransformValueActionInputParameter[];
-    name?: string;
-    outputFieldApiName?: string;
-    transformType: FlowTransformValueActionType;
-    value?: FlowElementReferenceOrValue;
-}
-
-export type FlowTransformValueActionInputParameter = FlowBaseElement & {
-    name: string;
-    value?: FlowElementReferenceOrValue;
 }
 
 export type FlowVisibilityRule = FlowBaseElement & {
@@ -15265,10 +19538,15 @@ export type FlowCapabilityInput = FlowElement & {
 }
 
 export type FlowChoice = FlowElement & {
+    choiceIcon?: FlowIcon;
     choiceText: string;
     dataType: FlowDataType;
     userInput?: FlowChoiceUserInput;
     value?: FlowElementReferenceOrValue;
+}
+
+export type FlowIcon = {
+    iconName?: string;
 }
 
 export type FlowConstant = FlowElement & {
@@ -15292,6 +19570,19 @@ export type FlowDynamicChoiceSet = FlowElement & {
     valueField?: string;
 }
 
+export type FlowExitRule = FlowElement & {
+    conditions: FlowCondition[];
+    label: string;
+    logicalOperator: string;
+    ruleOrder: number;
+}
+
+export type FlowExperimentPath = FlowElement & {
+    connector?: FlowConnector;
+    label: string;
+    percentage: number;
+}
+
 export type FlowFormula = FlowElement & {
     dataType?: FlowDataType;
     expression: string;
@@ -15299,6 +19590,7 @@ export type FlowFormula = FlowElement & {
 }
 
 export type FlowRule = FlowElement & {
+    attributes: FlowAttribute[];
     conditionLogic: string;
     conditions: FlowCondition[];
     connector?: FlowConnector;
@@ -15323,7 +19615,7 @@ export type FlowScreenAction = FlowElement & {
     inputParameters: FlowScreenActionInputParameter[];
     label: string;
     nameSegment?: string;
-    versionSegment?: number;
+    versionString?: string;
 }
 
 export type FlowScreenField = FlowElement & {
@@ -15339,15 +19631,26 @@ export type FlowScreenField = FlowElement & {
     helpText?: string;
     inputParameters: FlowScreenFieldInputParameter[];
     inputsOnNextNavToAssocScrn?: FlowScreenFieldInputsRevisited;
+    isDisabled?: FlowElementReferenceOrValue;
+    isReadOnly?: FlowElementReferenceOrValue;
     isRequired?: boolean;
     isVisible?: boolean;
     objectFieldReference?: string;
     outputParameters: FlowScreenFieldOutputParameter[];
     regionContainerType?: FlowRegionContainerType;
     scale?: number;
+    sourceTemplateApiName?: string;
+    sourceTemplateProviderType?: string;
     storeOutputAutomatically?: boolean;
+    styleProperties?: FlowScreenFieldStyleProperties;
     validationRule?: FlowInputValidationRule;
     visibilityRule?: FlowVisibilityRule;
+}
+
+export type FlowScreenFieldStyleProperties = {
+    styleSettings?: FlowScreenStyleSetting[];
+    verticalAlignment: FlowElementReferenceOrValue;
+    width: FlowElementReferenceOrValue;
 }
 
 export type FlowStage = FlowElement & {
@@ -15360,6 +19663,8 @@ export type FlowStageStep = FlowElement & {
     actionName?: string;
     actionType?: InvocableActionType;
     assignees: FlowStageStepAssignee[];
+    canAssigneeEdit?: boolean;
+    debugSimulateStep?: boolean;
     entryActionInputParameters: FlowStageStepEntryActionInputParameter[];
     entryActionName?: string;
     entryActionOutputParameters: FlowStageStepEntryActionOutputParameter[];
@@ -15374,9 +19679,11 @@ export type FlowStageStep = FlowElement & {
     exitConditions: FlowCondition[];
     inputParameters: FlowStageStepInputParameter[];
     label: string;
+    outputConfigParams: FlowStageStepOutputConfigParam[];
     outputParameters: FlowStageStepOutputParameter[];
     requiresAsyncProcessing?: boolean;
     runAsUser?: boolean;
+    shouldLock?: boolean;
     stepSubtype?: FlowElementSubtype;
 }
 
@@ -15398,6 +19705,8 @@ export type FlowVariable = FlowElement & {
 
 export type FlowWaitEvent = FlowElement & {
     associatedElement?: string;
+    automationEventName?: string;
+    automationEventType?: InvocableActionType;
     conditionLogic?: string;
     conditions: FlowCondition[];
     connector?: FlowConnector;
@@ -15405,6 +19714,7 @@ export type FlowWaitEvent = FlowElement & {
     filterLogic?: string;
     filters: FlowRecordFilter[];
     inputParameters: FlowWaitEventInputParameter[];
+    interactionType?: FlowWaitInteractionType;
     label: string;
     maxBatchSize?: number;
     object?: string;
@@ -15451,9 +19761,20 @@ export type FlowCustomError = FlowNode & {
 }
 
 export type FlowDecision = FlowNode & {
+    attributes: FlowAttribute[];
     defaultConnector?: FlowConnector;
     defaultConnectorLabel?: string;
     rules: FlowRule[];
+}
+
+export type FlowExperiment = FlowNode & {
+    duration?: number;
+    durationUnit?: FlowScheduledPathOffsetUnit;
+    fallbackMode?: FlowExperimentFallbackMode;
+    paths: FlowExperimentPath[];
+    primaryMetric?: string;
+    testGroupPercentage?: number;
+    type: FlowExperimentType;
 }
 
 export type FlowLoop = FlowNode & {
@@ -15462,6 +19783,16 @@ export type FlowLoop = FlowNode & {
     iterationOrder?: IterationOrder;
     nextValueConnector?: FlowConnector;
     noMoreValuesConnector?: FlowConnector;
+}
+
+export type FlowNodeGroup = FlowNode & {
+    entryAction?: FlowActionCall;
+    exitAction?: FlowActionCall;
+    faultConnector?: FlowConnector;
+    groupName: string;
+    groupType: FlowNodeGroupType;
+    groupVersion: string;
+    isCollapsed?: boolean;
 }
 
 export type FlowOrchestratedStage = FlowNode & {
@@ -15479,11 +19810,20 @@ export type FlowOrchestratedStage = FlowNode & {
 export type FlowRecordCreate = FlowNode & {
     assignRecordIdToReference?: string;
     connector?: FlowConnector;
+    doesUpsert?: boolean;
+    doesUpsertAllOrNone?: boolean;
     faultConnector?: FlowConnector;
+    filterLogic?: string;
+    filters: FlowRecordFilter[];
     inputAssignments: FlowInputFieldAssignment[];
     inputReference?: string;
     object?: string;
+    operationMultMatchingRecords?: string;
+    operationOneMatchingRecord?: string;
+    operationZeroMatchingRecords?: string;
     storeOutputAutomatically?: boolean;
+    upsertExternalIdField?: string;
+    upsertStandardIdField?: string;
 }
 
 export type FlowRecordDelete = FlowNode & {
@@ -15502,10 +19842,12 @@ export type FlowRecordLookup = FlowNode & {
     filterLogic?: string;
     filters: FlowRecordFilter[];
     getFirstRecordOnly?: boolean;
+    limit?: FlowElementReferenceOrValue;
     object?: string;
     outputAssignments: FlowOutputFieldAssignment[];
     outputReference?: string;
     queriedFields: string[];
+    relatedRecords?: FlowRelatedRecordLookup[];
     sortField?: string;
     sortOrder?: SortOrder;
     storeOutputAutomatically?: boolean;
@@ -15540,19 +19882,29 @@ export type FlowScreen = FlowNode & {
     rules: FlowScreenRule[];
     showFooter?: boolean;
     showHeader?: boolean;
+    stageReference?: FlowElementReferenceOrValue;
     triggers: FlowScreenTrigger[];
 }
 
 export type FlowStart = FlowNode & {
+    activation?: string;
     capabilityTypes: FlowCapability[];
+    conditionLogic?: string;
+    conditions: FlowCondition[];
     connector?: FlowConnector;
+    dataGraph?: string;
+    dataTypeMappings: FlowDataTypeMapping[];
     doesRequireRecordChangedToMeetCriteria?: boolean;
     entryType?: FlowEntryType;
+    eventName?: string;
+    eventType?: InvocableActionType;
+    fanOutAction?: FlowActionCall;
     filterFormula?: string;
     filterLogic?: string;
     filters: FlowRecordFilter[];
     flowRunAsUser?: FlowRunAsUser;
     form?: string;
+    inputs: FlowStartInputParameter[];
     object?: string;
     objectContainer?: string;
     publishSegment?: boolean;
@@ -15561,6 +19913,9 @@ export type FlowStart = FlowNode & {
     scheduledPaths: FlowScheduledPath[];
     segment?: string;
     triggerType?: FlowTriggerType;
+    triggeringDataGraph?: string;
+    triggeringDataModelObjectPath?: string;
+    versionString?: string;
 }
 
 export type FlowSchedule = {
@@ -15588,6 +19943,7 @@ export type FlowTransform = FlowNode & {
     isCollection?: boolean;
     objectType?: string;
     scale?: number;
+    storeOutputAutomatically?: boolean;
     transformValues: FlowTransformValue[];
 }
 
@@ -15597,6 +19953,11 @@ export type FlowWait = FlowNode & {
     faultConnector?: FlowConnector;
     timeZoneId?: string;
     waitEvents: FlowWaitEvent[];
+}
+
+export type FlowCustomProperty = {
+    name: string;
+    value?: FlowElementReferenceOrValue;
 }
 
 export type FlowCategory = Metadata & {
@@ -15645,8 +20006,14 @@ export type FlowSettings = Metadata & {
 export type FlowTest = Metadata & {
     description?: string;
     flowApiName: string;
+    flowTestFlowVersions: FlowTestFlowVersion[];
     label: string;
     testPoints: FlowTestPoint[];
+}
+
+export type FlowTestFlowVersion = {
+    flowTestActivationStatus: FlowTestActivationStatus;
+    versionNumber: string;
 }
 
 export type FlowTestPoint = {
@@ -15673,6 +20040,7 @@ export type FlowTestReferenceOrValue = {
     numberValue?: number;
     sobjectValue?: string;
     stringValue?: string;
+    timeValue?: Date;
 }
 
 export type FlowTestParameter = {
@@ -15707,8 +20075,10 @@ export type ReportFolder = string
 
 export type ForecastingFilter = Metadata & {
     filterLogic?: string;
+    forecastingCustomCategory?: string;
     forecastingType: string;
     forecastingTypeSource: string;
+    forecastingTypeSourceCategory?: string;
     isProtected?: boolean;
     masterLabel: string;
 }
@@ -15723,6 +20093,19 @@ export type ForecastingFilterCondition = Metadata & {
     operation: FilterOperation;
     sortOrder: number;
     value?: string;
+}
+
+export type ForecastingGroup = Metadata & {
+    developerName: string;
+    forecastingGroupItems: ForecastingGroupItem[];
+    groupField: string;
+    masterLabel: string;
+    sourceObject: string;
+}
+
+export type ForecastingGroupItem = {
+    displayPosition: number;
+    sourceApiValue?: string;
 }
 
 export type ForecastingObjectListSettings = Metadata & {
@@ -15754,6 +20137,7 @@ export type ForecastingSettings = Metadata & {
     enableForecasts?: boolean;
     forecastingCategoryMappings: ForecastingCategoryMapping[];
     forecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings[];
+    forecastingSubmissionSettings: ForecastingSubmissionSettings;
     forecastingTypeSettings: ForecastingTypeSettings[];
     globalAdjustmentsSettings: AdjustmentsSettings;
     globalForecastRangeSettings: ForecastRangeSettings;
@@ -15772,6 +20156,10 @@ export type WeightedSourceCategory = {
 
 export type ForecastingDisplayedFamilySettings = {
     productFamily?: string;
+}
+
+export type ForecastingSubmissionSettings = {
+    allowForecastingSubmissions: boolean;
 }
 
 export type ForecastingTypeSettings = {
@@ -15825,12 +20213,14 @@ export type QuotasSettings = {
 
 export type ForecastingSourceDefinition = Metadata & {
     categoryField?: string;
+    cdpDataspace?: string;
     dateField?: string;
+    externalSourceObject?: string;
     familyField?: string;
     isProtected?: boolean;
     masterLabel: string;
     measureField?: string;
-    sourceObject: string;
+    sourceObject?: string;
     territory2Field?: string;
     userField?: string;
 }
@@ -15840,6 +20230,8 @@ export type ForecastingType = Metadata & {
     amount: boolean;
     dateType: string;
     developerName: string;
+    forecastingGroupDeveloperName?: string;
+    hasCustomGroup?: boolean;
     hasProductFamily: boolean;
     masterLabel: string;
     opportunitySplitType?: string;
@@ -15910,6 +20302,7 @@ export type FunctionReference = Metadata & {
 }
 
 export type FundraisingConfig = Metadata & {
+    donorExternalIdField?: string;
     donorMatchingMethod?: DonorMatchingMethod;
     failedTransactionCount?: number;
     householdSoftCreditRole?: string;
@@ -15917,6 +20310,7 @@ export type FundraisingConfig = Metadata & {
     isHshldSoftCrAutoCrea?: boolean;
     lapsedUnpaidTrxnCount?: number;
     masterLabel?: string;
+    outreachSourceCodeGenFmla?: string;
     shouldClosePaidRcrCmt?: boolean;
     shouldCreateRcrSchdTrxn?: boolean;
     utmCampaignSrcObj?: string;
@@ -15938,50 +20332,188 @@ export type GatewayProviderPaymentMethodType = Metadata & {
 
 export type GenAiFunction = Metadata & {
     description?: string;
+    developerName?: string;
     invocationTarget: string;
     invocationTargetType: PlannerFunctionInvocableTargetType;
     isConfirmationRequired?: boolean;
+    isIncludeInProgressIndicator?: boolean;
+    language?: string;
+    localDeveloperName?: string;
+    mappingAttributes: GenAiPlannerAttr[];
     masterLabel: string;
+    progressIndicatorMessage?: string;
+    source?: string;
 }
 
 export type GenAiPlannerAttr = {
-    allowedValues?: string;
-    dataType: PlannerAttrDataType;
     description?: string;
-    developerName: string;
-    isDisplayable?: boolean;
-    isPersIdentInfo?: boolean;
-    isRequired?: boolean;
-    isUserInput?: boolean;
-    mappingType: PlannerAttrMappingType;
-    masterLabel: string;
-    pattern?: string;
-    value?: string;
+    label: string;
+    name: string;
+    parameterName: string;
+    parameterType: PlannerAttrMappingType;
 }
 
-export type GenAiPlanner = Metadata & {
+export type GenAiPlannerBundle = Metadata & {
+    attributeMappings: GenAiPlannerAttrMapping[];
+    botTemplate?: string;
     capabilities?: string;
     description?: string;
     genAiFunctions: GenAiPlannerFunctionDef[];
     genAiPlugins: GenAiPlannerFunctionDef[];
     masterLabel: string;
+    plannerSurfaces: AiPlannerSurfaceDef[];
     plannerType: PlannerType;
+    ruleExpressionAssignments: GenAiPlannerRuleExprAsgn[];
+    ruleExpressions: GenAiPlannerRuleExprDef[];
+}
+
+export type GenAiPlannerAttrMapping = {
+    attributeName: string;
+    attributeType: AttributeType;
+    constantValue?: string;
+    mappingTargetName?: string;
+    mappingType: AttributeMappingType;
 }
 
 export type GenAiPlannerFunctionDef = {
+    genAiCustomizedPlugin?: GenAiLocalPlugin;
     genAiFunctionName?: string;
     genAiPluginName?: string;
 }
 
-export type GenAiPlugin = Metadata & {
-    description?: string;
-    developerName: string;
+export type GenAiLocalPlugin = {
+    aiPluginUtterances: AiPluginUtteranceDef[];
+    canEscalate?: boolean;
+    description: string;
     genAiFunctions: GenAiPluginFunctionDef[];
+    genAiPluginInstructions: GenAiPluginInstructionDef[];
+    language: string;
+    localDeveloperName?: string;
     masterLabel: string;
+    name: string;
+    pluginType: PluginType;
+    scope?: string;
+}
+
+export type AiPluginUtteranceDef = {
+    developerName: string;
+    language: string;
+    masterLabel: string;
+    utterance: string;
 }
 
 export type GenAiPluginFunctionDef = {
     functionName: string;
+}
+
+export type GenAiPluginInstructionDef = {
+    description: string;
+    developerName: string;
+    language: string;
+    masterLabel: string;
+    sortOrder: number;
+}
+
+export type GenAiPlannerRuleExprAsgn = {
+    ruleExpressionName: string;
+    targetName: string;
+    targetType: string;
+}
+
+export type GenAiPlannerRuleExprDef = {
+    conditions: GenAiPlannerRuleExprCondition[];
+    expression?: string;
+    expressionLabel: string;
+    expressionName: string;
+    expressionType?: ExpressionType;
+}
+
+export type GenAiPlannerRuleExprCondition = {
+    leftOperand: string;
+    leftOperandType: GenAiAgentVariableType;
+    operator: GenAiRuleExpressionOperator;
+    rightOperandValue?: string;
+}
+
+export type GenAiPlugin = Metadata & {
+    aiPluginUtterances: AiPluginUtteranceDef[];
+    canEscalate?: boolean;
+    description?: string;
+    developerName: string;
+    genAiFunctions: GenAiPluginFunctionDef[];
+    genAiPluginInstructions: GenAiPluginInstructionDef[];
+    language: string;
+    localActionLinks: GenAiPluginFunctionDef[];
+    localActions: GenAiFunction[];
+    localDeveloperName?: string;
+    masterLabel: string;
+    pluginType: PluginType;
+    scope?: string;
+    source?: string;
+}
+
+export type GenAiPromptTemplate = Metadata & {
+    activeVersionIdentifier?: string;
+    description?: string;
+    developerName?: string;
+    masterLabel?: string;
+    overrideSource?: string;
+    relatedEntity?: string;
+    relatedField?: string;
+    templateVersions: GenAiPromptTemplateVersion[];
+    type?: string;
+    visibility?: GenAiPromptTemplateVisibilityType;
+}
+
+export type GenAiPromptTemplateVersion = {
+    classification?: string;
+    content?: string;
+    defaultLanguageScope?: string;
+    description?: string;
+    generationTemplateConfigs: GenAiPromptTemplateGenerationConfig[];
+    inputs: GenAiPromptTemplateInput[];
+    keywords?: string;
+    outputSchema?: string;
+    primaryModel?: string;
+    responseFormat?: GenAiPromptTemplateResponseFormat;
+    status?: GenAiPromptTemplateStatus;
+    templateDataProviders: GenAiPromptTemplateDataProvider[];
+    versionIdentifier?: string;
+}
+
+export type GenAiPromptTemplateGenerationConfig = {
+    generationConfigDeveloperName?: string;
+}
+
+export type GenAiPromptTemplateInput = {
+    apiName: string;
+    definition: string;
+    description?: string;
+    masterLabel?: string;
+    referenceName: string;
+    required: boolean;
+}
+
+export type GenAiPromptTemplateDataProvider = {
+    definition: string;
+    description?: string;
+    label?: string;
+    parameters: GenAiPromptTemplateDataProviderParam[];
+    referenceName: string;
+}
+
+export type GenAiPromptTemplateDataProviderParam = {
+    definition: string;
+    isRequired?: boolean;
+    parameterName: string;
+    valueExpression?: string;
+}
+
+export type GenAiPromptTemplateActv = Metadata & {
+    accessLevel: GenAiPromptTemplateActvAccessLevel;
+    developerName: string;
+    masterLabel?: string;
+    templateDeveloperName: string;
 }
 
 export type GlobalPicklist = Metadata & {
@@ -16020,18 +20552,26 @@ export type GoogleAppsSettings = Metadata & {
 }
 
 export type Group = Metadata & {
+    description?: string;
     doesIncludeBosses?: boolean;
     name: string;
+}
+
+export type HerokuAppLinkSettings = Metadata & {
+    enableHerokuAppLink?: boolean;
 }
 
 export type HighVelocitySalesSettings = Metadata & {
     enableACAutoSendEmail?: boolean;
     enableACChangeTargetAssignee?: boolean;
     enableACSkipWeekends?: boolean;
+    enableAutoBdrEmailPref?: boolean;
+    enableAutoBdrVoicePref?: boolean;
     enableBusinessHours?: boolean;
     enableCadenceVariantTestingPref?: boolean;
     enableChgTgtAssigneeUsrPermPref?: boolean;
     enableDispositionCategory?: boolean;
+    enableEinsteinSdrEmailPref?: boolean;
     enableEngagementWaveAnalyticsPref?: boolean;
     enableHighVelocitySales?: boolean;
     enableHighVelocitySalesSetup?: boolean;
@@ -16040,6 +20580,7 @@ export type HighVelocitySalesSettings = Metadata & {
     enableLogTasksForLinkedInPref?: boolean;
     enableMultipleCadencesPref?: boolean;
     enableOpportunityAttributionPermPref?: boolean;
+    enableProspectingCenterPref?: boolean;
     enableQuickCadenceAutoSendEmail?: boolean;
     enableTaskLoggingPref?: boolean;
 }
@@ -16157,17 +20698,55 @@ export type InboundNetworkConnProperty = {
 }
 
 export type IncidentMgmtSettings = Metadata & {
+    enableAiKnowledgeCreation?: boolean;
     enableAlertBroadcastType?: boolean;
+    enableAutoClosureOfChildIncident?: boolean;
+    enableAutoCreationOfProblem?: boolean;
+    enableChangePriorityMatrix?: boolean;
+    enableChangePriorityOverride?: boolean;
+    enableChangeRequestValidations?: boolean;
+    enableChatToIncidentAi?: boolean;
+    enableCnfgItemCopyForRecords?: boolean;
+    enableDedupE2IncidentAttachment?: boolean;
     enableEmailBroadcastType?: boolean;
+    enableEmailToIncident?: boolean;
+    enableEmailToIncidentAi?: boolean;
+    enableITSMChangeMgmt?: boolean;
+    enableITSMIncidentMgmt?: boolean;
+    enableITSMMajorIncParent?: boolean;
+    enableITSMProblemMgmt?: boolean;
+    enableIncPriorityMatrix?: boolean;
+    enableIncPriorityOverride?: boolean;
     enableIncidentMgmt?: boolean;
+    enableIncidentValidations?: boolean;
+    enableProbPriorityMatrix?: boolean;
+    enableProbPriorityOverride?: boolean;
+    enableProblemValidations?: boolean;
+    enableRiskAssessment?: boolean;
+    enableSaveE2IncidentAttachment?: boolean;
     enableSiteBannerBroadcastType?: boolean;
     enableSlackBroadcastType?: boolean;
 }
 
 export type IndustriesAutomotiveSettings = Metadata & {
+    enableAutoAgentsPilot?: boolean;
+    enableAutomotiveAgents?: boolean;
+    enableAutomotiveAppraisals?: boolean;
     enableAutomotiveCloud?: boolean;
     enableAutomotiveScheduler?: boolean;
     enableAutomotiveServiceExcellence?: boolean;
+    enableConnectedVehSrvcsCmpnt?: boolean;
+    enableDealerEssntlsAutomotive?: boolean;
+    enableGenAiForAutoPilot?: boolean;
+}
+
+export type IndustriesChannelPartnerInventorySettings = Metadata & {
+    enableChannelPartnerInventoryTracking?: boolean;
+}
+
+export type IndustriesConnectedServiceSettings = Metadata & {
+    enablePrebuiltCmpntTlmtryMgmt?: boolean;
+    enableTelemetryDefActnMgmt?: boolean;
 }
 
 export type IndustriesEinsteinFeatureSettings = Metadata & {
@@ -16175,15 +20754,16 @@ export type IndustriesEinsteinFeatureSettings = Metadata & {
 }
 
 export type IndustriesEventOrchSettings = Metadata & {
-    enableActionableEventOrch?: boolean;
     enableEventOrchDecisionTable?: boolean;
 }
 
 export type IndustriesFieldServiceSettings = Metadata & {
+    enableAutomotiveServiceCampaignManagement?: boolean;
     enableIndustriesFieldService?: boolean;
 }
 
 export type IndustriesManufacturingSettings = Metadata & {
+    enableConnectedAssetSrvcsCmpnt?: boolean;
     enableFleetManagement?: boolean;
     enableIndManufacturing?: boolean;
     enableIndustriesMfgAccountForecast?: boolean;
@@ -16191,19 +20771,26 @@ export type IndustriesManufacturingSettings = Metadata & {
     enableIndustriesMfgIAS?: boolean;
     enableIndustriesMfgProgram?: boolean;
     enableIndustriesMfgTargets?: boolean;
+    enableMfgAgents?: boolean;
+    enableMfgAgentsPilot?: boolean;
     enablePartnerLeadManagement?: boolean;
     enablePartnerPerformanceManagement?: boolean;
     enablePartnerVisitManagement?: boolean;
     enablePtnrLeadMgmtMappings?: boolean;
     enableRevMgmtForSlsAgr?: boolean;
+    enableVehAndAstLending?: boolean;
     enableVehAssetFinAddtnlCmpnts?: boolean;
     enableVehicleAndAssetFinance?: boolean;
 }
 
 export type IndustriesSettings = Metadata & {
+    allowBenefitAssignmentWithInactiveProgramEnrollment?: boolean;
     allowMultipleProducersToWorkOnSamePolicy?: boolean;
     appointmentDistributionOrgPref?: boolean;
+    brwrCntctFrExtrnlSrcsPref?: boolean;
     captureResourceUtilizationOrgPref?: boolean;
+    clctnAndRecoveryAgntPref?: boolean;
+    collectionAsaAgentPref?: boolean;
     createCustomerPropertyFromLAProperty?: boolean;
     createFSCAssetFromLAAsset?: boolean;
     createFSCAssetFromLAProperty?: boolean;
@@ -16217,35 +20804,72 @@ export type IndustriesSettings = Metadata & {
     enableAWSTextractAnalyzeIDPref?: boolean;
     enableAWSTextractQueriesPref?: boolean;
     enableAWSTextractTablesPref?: boolean;
+    enableAcademicInsightsAI?: boolean;
     enableAcademicOperations?: boolean;
     enableAccessToMasterListOfCoverageTypes?: boolean;
+    enableAccountBasedSharing?: boolean;
     enableAccountScoreEnabled?: boolean;
+    enableActionPlanTaskComment?: boolean;
     enableActionableList?: boolean;
     enableActionableListOrgPref?: boolean;
     enableAdvancedScheduling?: boolean;
+    enableAdvancementGenAI?: boolean;
+    enableAdverseEvents?: boolean;
+    enableAdvisingAgent?: boolean;
+    enableAdvisingSummaryAI?: boolean;
     enableAlumniRelations?: boolean;
     enableAnyResourceTypeOrgPref?: boolean;
+    enableAppAlerts?: boolean;
     enableAppFrmAnywhereOrgPref?: boolean;
     enableAppInviteOrgPref?: boolean;
+    enableApplnDecStdSharing?: boolean;
+    enableAppraisalMgmt?: boolean;
+    enableAutoComplaintSummaryPref?: boolean;
+    enableB2B?: boolean;
+    enableB2BAccountPlan?: boolean;
+    enableB2BEinstein?: boolean;
+    enableB2BRMAgent?: boolean;
+    enableBatchIDExtractAndTransform?: boolean;
+    enableBatchIntelligentDocExtrctPref?: boolean;
     enableBehavioralHealthAppPref?: boolean;
     enableBenefitAndGoalSharingPref?: boolean;
     enableBenefitManagementPreference?: boolean;
     enableBlockResourceAvailabilityOrgPref?: boolean;
+    enableBusinessHierarchyPref?: boolean;
     enableBusinessMessenger?: boolean;
+    enableCBSFAnyWordSearch?: boolean;
+    enableCPBestConTimeSharing?: boolean;
+    enableCPSocialCustomSharing?: boolean;
+    enableCSRDReportingOrgPref?: boolean;
+    enableCalculationDetail?: boolean;
     enableCalculationUsingParentPolicyOnly?: boolean;
     enableCallReportAdminContextPref?: boolean;
+    enableCandidateMatching?: boolean;
+    enableCapacitySchedulingPref?: boolean;
     enableCareGapPrefSetting?: boolean;
     enableCareMgmtSlackAccess?: boolean;
     enableCarePlansPreference?: boolean;
+    enableCareTaskSharingSetting?: boolean;
+    enableCaseProceedingsPref?: boolean;
+    enableCaseReferralPref?: boolean;
     enableCdpSalesExcellence?: boolean;
+    enableCdsAppFormProdSiteUsers?: boolean;
+    enableCdsAppFormSiteUsers?: boolean;
+    enableCdsApplicationForm?: boolean;
+    enableCdsApplicationFormProduct?: boolean;
+    enableCdsAssetDataSharingParticipant?: boolean;
+    enableCdsAssetDataSharingParticipantExprc?: boolean;
+    enableCdsDeleteCOPRecordByParentOwner?: boolean;
+    enableCdsPartyProfile?: boolean;
+    enableCdsPartyProfileSiteUsers?: boolean;
     enableChurnPredictionRT?: boolean;
     enableClaimMgmt?: boolean;
     enableClinicalDataModel?: boolean;
+    enableCollectionFLowOps?: boolean;
+    enableCollectionRiskScoringCFE?: boolean;
+    enableCollectionTimeline?: boolean;
+    enableComparisonViewAI?: boolean;
     enableCompliantDataSharingForAccount?: boolean;
-    enableCompliantDataSharingForAppFormProductSiteUsers?: boolean;
-    enableCompliantDataSharingForAppFormSiteUsers?: boolean;
-    enableCompliantDataSharingForApplicationForm?: boolean;
-    enableCompliantDataSharingForApplicationFormProduct?: boolean;
     enableCompliantDataSharingForBudget?: boolean;
     enableCompliantDataSharingForBudgetSiteUsers?: boolean;
     enableCompliantDataSharingForCustomObjects?: boolean;
@@ -16256,79 +20880,148 @@ export type IndustriesSettings = Metadata & {
     enableCompliantDataSharingForFundingOpportunitySiteUsers?: boolean;
     enableCompliantDataSharingForIndividualApplication?: boolean;
     enableCompliantDataSharingForIndividualApplicationSiteUsers?: boolean;
+    enableCompliantDataSharingForIndividualApplicationTask?: boolean;
+    enableCompliantDataSharingForIndividualApplicationTaskSiteUsers?: boolean;
     enableCompliantDataSharingForInteraction?: boolean;
     enableCompliantDataSharingForInteractionSummary?: boolean;
     enableCompliantDataSharingForOpportunity?: boolean;
-    enableCompliantDataSharingForPartyProfile?: boolean;
-    enableCompliantDataSharingForPartyProfileSiteUsers?: boolean;
     enableCompliantDataSharingForPreliminaryApplicationRef?: boolean;
     enableCompliantDataSharingForPreliminaryApplicationRefSiteUsers?: boolean;
     enableComprehendMedical?: boolean;
     enableContactCenterAccess?: boolean;
     enableContractMgmtPref?: boolean;
+    enableContractSearchPref?: boolean;
     enableContractsAIPref?: boolean;
+    enableCourseSearchAgent?: boolean;
     enableCreateMultiAttendeeEventOrgPref?: boolean;
     enableCrisisCenterAccess?: boolean;
     enableCriteriaBasedSearchAndFilter?: boolean;
     enableCustomFlowsOnCycleCount?: boolean;
     enableCustomFlowsOnExpiryPage?: boolean;
+    enableDCHEnGpt?: boolean;
+    enableDCHEnGptAccuracy?: boolean;
+    enableDCHEnGptFirstDraft?: boolean;
+    enableDCHEnGptIL?: boolean;
+    enableDCHEnGptSearch?: boolean;
+    enableDCHGoogleAddOn?: boolean;
     enableDCHMSO365AddIn?: boolean;
+    enableDFDataCapture?: boolean;
     enableDataCloudEventsOnTimeline?: boolean;
+    enableDataTrueUpPreference?: boolean;
+    enableDeDupeForDSPref?: boolean;
     enableDealManagement?: boolean;
     enableDeleteCustomObjectParticipantRecordCompliantDataSharing?: boolean;
     enableDepriveSoqlAccessGuestUserOrgPref?: boolean;
     enableDepriveSoqlAccessOrgPref?: boolean;
+    enableDigitalInsurancePolicyRnwl?: boolean;
+    enableDigitalLendingPref?: boolean;
+    enableDigitalLendingReadOnlyOrgPref?: boolean;
+    enableDisbursementPreference?: boolean;
     enableDiscoveryFrameworkMetadata?: boolean;
     enableDiscoveryFrwrkSampleTemplate?: boolean;
+    enableDiseaseCaseClassificationPref?: boolean;
+    enableDiseaseSurveillancePref?: boolean;
     enableDisplaySummaryOnTimeline?: boolean;
+    enableDontSharePartyprofWPortalOrgPref?: boolean;
     enableDpeProviderSearchSettingsOrgPref?: boolean;
     enableDropInAppointmentsOrgPref?: boolean;
     enableDropInFallbackMechOrgPref?: boolean;
     enableDropInSkillMatchingOrgPref?: boolean;
-    enableEDCGenerativeAI?: boolean;
+    enableEDCSkillsGenerator?: boolean;
+    enableEGPTInsuranceCmpntPref?: boolean;
+    enableESGReportingOrgPref?: boolean;
+    enableEUCoreAI?: boolean;
+    enableEUCoreServiceAppOn?: boolean;
+    enableEUSales?: boolean;
+    enableEUTariffFeature?: boolean;
+    enableEduAdvncdAcadOper?: boolean;
     enableEducationCloud?: boolean;
+    enableEinsteinAiAutofillPref?: boolean;
     enableEinsteinDocReader?: boolean;
     enableEinsteinVisits?: boolean;
+    enableEngagementVisualsAI?: boolean;
     enableEnhancedQuestionCreation?: boolean;
+    enableEnhancedUIForISPref?: boolean;
     enableEpcDeleteAccess?: boolean;
     enableEventManagementOrgPref?: boolean;
     enableEventWriteOrgPref?: boolean;
+    enableEvidenceManagementPref?: boolean;
     enableExistingHealthCloudOrg?: boolean;
     enableFSCInsuranceReport?: boolean;
     enableFSCInsuranceServiceConsole?: boolean;
+    enableFinSummaryRollupMgmt?: boolean;
     enableFinancialAccountMgmt?: boolean;
     enableFinancialDealCallReportCmpPref?: boolean;
     enableFinancialDealCallReportPref?: boolean;
     enableFinancialDealRoleHierarchy?: boolean;
+    enableFormFramework?: boolean;
     enableFundraising?: boolean;
     enableGenAIAssessmentQuestions?: boolean;
+    enableGiftAgreement?: boolean;
+    enableGiftEntryGrid?: boolean;
+    enableGiftPlanning?: boolean;
     enableGnrcDisclsFrmwrk?: boolean;
+    enableGoalsAgent?: boolean;
     enableGrantmaking?: boolean;
     enableGroupMembershipPref?: boolean;
     enableHCReferralScoring?: boolean;
+    enableHcCorePatientConsole?: boolean;
+    enableHcStdRelationshipJunctions?: boolean;
+    enableHealthCloudGenAIPref?: boolean;
+    enableHighScaleRuleProcessingPref?: boolean;
+    enableHlsClinicalDcsnSuptAccessOrgPreference?: boolean;
+    enableHlsFhirSubscriptionSetting?: boolean;
+    enableHlsUmDtrSetting?: boolean;
     enableHomeHealth?: boolean;
     enableHomeHlthRschdFlowRcntVer?: boolean;
+    enableIAMPatchModifyPref?: boolean;
     enableIESentimentAnalysis?: boolean;
+    enableIndCrossObjChangelog?: boolean;
     enableIndustriesAssessment?: boolean;
     enableIndustriesAssessmentGuestOrgPref?: boolean;
     enableIndustriesAssessmentPrefill?: boolean;
     enableIndustriesCaptchaVerification?: boolean;
     enableIndustriesIntegrationOrchestratorPref?: boolean;
     enableIndustriesKYC?: boolean;
+    enableIndustriesLPIPreference?: boolean;
     enableIndustriesOnboarding?: boolean;
     enableIndustriesRebates?: boolean;
     enableIndustriesShipAndDebit?: boolean;
     enableIndustriesStageManagementPref?: boolean;
+    enableInformationLibrary?: boolean;
     enableIntegratedCareManagementSetting?: boolean;
+    enableIntelligentDocExtractPref?: boolean;
     enableInteractionCstmSharingPref?: boolean;
     enableInteractionRoleHierarchy?: boolean;
     enableInteractionSummaryPref?: boolean;
     enableInteractionSummaryRoleHierarchy?: boolean;
+    enableInvestigativeCaseMgmntPrf?: boolean;
+    enableLSC4CEDocumentManagement?: boolean;
+    enableLSC4CEEDetailing?: boolean;
+    enableLSC4CEEmailAndTemplate?: boolean;
+    enableLSC4CEKeyAccountManagement?: boolean;
+    enableLSC4CEMedInsights?: boolean;
+    enableLSC4CEPackage?: boolean;
+    enableLSC4CERemoteEngagement?: boolean;
+    enableLSC4CEVisits?: boolean;
+    enableLifeSciGenericWorkflow?: boolean;
+    enableLifeSciInquiry?: boolean;
+    enableLifeSciListsAndFilters?: boolean;
+    enableLifeSciencesActivityPlan?: boolean;
     enableLifeSciencesClinialTrailManagement?: boolean;
+    enableLifeSciencesConsent?: boolean;
+    enableLifeSciencesCustomerEngagementBase?: boolean;
+    enableLifeSciencesMergeManagement?: boolean;
+    enableLifeSciencesProviderEngagementCompliance?: boolean;
+    enableLifeSciencesSiteManagement?: boolean;
+    enableLsSiteMgmtSiteSelAgent?: boolean;
+    enableLsSiteMgmtSummarization?: boolean;
     enableManyToManyRelationships?: boolean;
     enableMaterialityAssessment?: boolean;
     enableMcgSetting?: boolean;
     enableMedRecSetting?: boolean;
+    enableMediaAddInvSlotToPlan?: boolean;
+    enableMediaConfigSetupEnabled?: boolean;
     enableMedicalDeviceEnabled?: boolean;
     enableMedicationManagementEnabled?: boolean;
     enableMentoring?: boolean;
@@ -16338,24 +21031,59 @@ export type IndustriesSettings = Metadata & {
     enableMultiResourceOrgPref?: boolean;
     enableMultipleCareProgramEnrolleeOrgPref?: boolean;
     enableMultipleTopicsForShiftsOrgPref?: boolean;
+    enableNZCENCarbonAccounting?: boolean;
+    enableNZCENGPTDCHIL?: boolean;
+    enableNZCENScope3ProcHub?: boolean;
     enableNZCMngEnrgyAttrCr?: boolean;
     enableNZCMngEsgPgm?: boolean;
-    enableNearcoreRuleProcessing?: boolean;
+    enableNZCWithEinstein?: boolean;
+    enableNewTimelineSetupFlow?: boolean;
+    enableNextBestAction?: boolean;
+    enableNextBestCustomer?: boolean;
+    enableNextBestMessage?: boolean;
+    enableNonprofitCloudAgent?: boolean;
+    enableNonprofitGenAI?: boolean;
     enableObjectDetection?: boolean;
+    enableOnDemandRecordRollupPref?: boolean;
     enableOutcomes?: boolean;
     enableOverbookingOrgPref?: boolean;
+    enableOverbookingWithGroupOrgPref?: boolean;
+    enablePATSTerritoryBasedSharing?: boolean;
     enablePCMConfigRules?: boolean;
+    enablePartyProfileParentSharingOrgPref?: boolean;
+    enablePartyprofParentMultiSharingOrgPref?: boolean;
     enablePatientAppointmentSchedulingOrgPref?: boolean;
     enablePatientServicesOrchestration?: boolean;
+    enablePersonAcctAddrSync?: boolean;
+    enablePhilResearchAgent?: boolean;
     enablePolicyAdministration?: boolean;
+    enablePolicyAgentPref?: boolean;
+    enablePositionRecruitmentPref?: boolean;
     enablePreBookedFallbackMechOrgPref?: boolean;
+    enablePrefillMcgAssessmentSetting?: boolean;
+    enablePrimaryProviderRestriction?: boolean;
+    enableProdTerrAlgnPrtHrchyAcc?: boolean;
+    enableProgramCohorts?: boolean;
+    enableProviderManagementPref?: boolean;
+    enableProviderMgmtHealthCarePref?: boolean;
+    enableProviderMgmtSharingPref?: boolean;
     enableProviderSearchForGuestUser?: boolean;
+    enableProviderSearchPreciseMatch?: boolean;
     enableProviderSearchSyncOrgPref?: boolean;
+    enableProviderSummarization?: boolean;
+    enablePssBnftMgmtSklCmtyPref?: boolean;
+    enablePssCmplntMgmtSklCmtyPref?: boolean;
+    enablePubSectrCmplMgmtSklPref?: boolean;
+    enablePubSectrCmplntMgmtSklPref?: boolean;
+    enablePulseChecks?: boolean;
     enableRBLUsingCalcService?: boolean;
     enableRecordRollup?: boolean;
     enableReferralManagementApp?: boolean;
     enableReferralScoring?: boolean;
     enableReminders?: boolean;
+    enableRetailPos?: boolean;
+    enableRosterFileFeatureOrgPreference?: boolean;
+    enableSCAllocScorEmssnSpentAmt?: boolean;
     enableSCAssignFootprint?: boolean;
     enableSCBEIEnabled?: boolean;
     enableSCCarbonAccounting?: boolean;
@@ -16364,6 +21092,7 @@ export type IndustriesSettings = Metadata & {
     enableSCDGF?: boolean;
     enableSCEmssnsForecasting?: boolean;
     enableSCExpansionUseCase?: boolean;
+    enableSCExpansionUseCaseMultiLevel?: boolean;
     enableSCExternalEngMgmt?: boolean;
     enableSCGenrateCnsmpRcd?: boolean;
     enableSCSNGManagement?: boolean;
@@ -16373,30 +21102,102 @@ export type IndustriesSettings = Metadata & {
     enableSCTargetSetting?: boolean;
     enableSCWasteManagement?: boolean;
     enableSCWaterManagement?: boolean;
+    enableSampleLimits?: boolean;
+    enableSaveActionsForInternalAssessmentsSetting?: boolean;
+    enableSaveAssessmentAsDraft?: boolean;
+    enableSchedulerPaymentsPref?: boolean;
     enableScoringFrameworkCRMAPref?: boolean;
     enableScoringFrameworkOrgPref?: boolean;
     enableSentimentAnalysis?: boolean;
     enableShareSaWithArOrgPref?: boolean;
     enableSlackForCib?: boolean;
+    enableSmartAsmtQstnGeneration?: boolean;
     enableSmartTags?: boolean;
+    enableSourceCodeGeneration?: boolean;
+    enableStageAssignmentRulesReEvaluation?: boolean;
+    enableStudentGoals?: boolean;
+    enableStudentManagement?: boolean;
+    enableStudentRecruitmentAgent?: boolean;
     enableStudentSuccess?: boolean;
+    enableSuggestedAssessmentSetting?: boolean;
     enableSustainabilityCloud?: boolean;
     enableSyncInteractionsPref?: boolean;
     enableTearSheetPref?: boolean;
     enableTextExtract?: boolean;
+    enableTimelineCachePref?: boolean;
     enableTimelinePref?: boolean;
+    enableTlntRcrtMgmtRcrutSklPref?: boolean;
+    enableTlntRcrtMgmtSklCmtyPref?: boolean;
     enableTopicOrTemplate?: boolean;
     enableTopicTimeSlot?: boolean;
+    enableTrackApplicationsPref?: boolean;
+    enableTrialManagementRandomization?: boolean;
     enableTurnOffDsclsReprtPbsrName?: boolean;
     enableUMPayerAppAccessOrgPreference?: boolean;
     enableVideoVisitsOrgPref?: boolean;
     enableVisitCalendarSync?: boolean;
     enableVisitInventoryEnabled?: boolean;
+    enableVisitPlanningAndExecutionAction?: boolean;
+    enableVolunteerManagement?: boolean;
+    enableVolunteerManagementAI?: boolean;
+    enableWaitlistManagementPref?: boolean;
+    enableWealthManagementAIPref?: boolean;
+    isCustomDpeTxObsProviderSearchEnabled?: boolean;
     loanApplicantAddressAutoCreation?: boolean;
     loanApplicantAutoCreation?: boolean;
     mortgageSalesforceSharing?: boolean;
+    nonProfitCloudEmbeddedAI?: boolean;
+    partyProfMultiShrPrtnrsOrgPref?: boolean;
     rlaEditIfAccHasEdit?: boolean;
+    showCollectionContactAndAccount?: boolean;
     transformRBLtoDPE?: boolean;
+}
+
+export type IndustriesUnifiedInventorySettings = Metadata & {
+    enableBatchManagement?: boolean;
+    enableInventoryCount?: boolean;
+    enableProductInventoryOperations?: boolean;
+}
+
+export type InsPlcyCoverageSpecConfig = Metadata & {
+    coverageSpecification: string;
+    isNetworkTierApplicable: boolean;
+    masterLabel: string;
+}
+
+export type InsPlcyLineOfBusConfig = Metadata & {
+    lineOfBusiness: string;
+    masterLabel: string;
+    termName: string;
+}
+
+export type InsPolicyLifecycleConfig = Metadata & {
+    customContextDefinition?: string;
+    customContextMapping?: string;
+    displayFields: string;
+    policyProcessType: InsPolicyLifecycleProcess;
+    standardContextDefinition?: string;
+    standardContextMapping?: string;
+}
+
+export type InsPolicyManagementConfig = Metadata & {
+    expectedRevExpsSetDef?: string;
+    label: string;
+    premiumCalcExpsSetDef?: string;
+    stdExpectedRevExpsSetDef?: string;
+    stdPremiumCalcExpsSetDef?: string;
+}
+
+export type InsRatePlanCmsnConfig = Metadata & {
+    calculationType: InsRatePlanCmsnConfigCalcType;
+    displayFields: string;
+    ratePlanCommissionType: string;
+}
+
+export type InsRatePlanTypeConfig = Metadata & {
+    displayFields: string;
+    ratePlanCommissionTypes: string;
+    ratePlanType: string;
 }
 
 export type InstalledPackage = Metadata & {
@@ -16404,6 +21205,10 @@ export type InstalledPackage = Metadata & {
     password?: string;
     securityType?: string;
     versionNumber: string;
+}
+
+export type InsuranceBrokerageSettings = Metadata & {
+    enableBrokerage?: boolean;
 }
 
 export type IntegrationProviderDef = Metadata & {
@@ -16414,6 +21219,10 @@ export type IntegrationProviderDef = Metadata & {
     externalServiceOperationName?: string;
     externalServiceRegistration?: string;
     fileBasedApexClass?: string;
+    fileBasedExternalService?: string;
+    fileBasedInputDataProcessor?: string;
+    fileBasedOmniUiCard?: string;
+    fileBasedOutputDataProcessor?: string;
     inputDataProcessor?: string;
     integrationProviderAttributes: IntegrationProviderAttr[];
     javaClassName?: string;
@@ -16438,11 +21247,14 @@ export type IntegrationProviderAttr = {
 }
 
 export type InternalDataConnector = Metadata & {
+    alias: string;
     dataConnectionStatus: DataConnectionStatus;
     dataConnectorType: DataConnectorType;
     dataPlatform: string;
     dataSourceTenant: string;
+    dataSpace: string;
     externalRecordId: string;
+    isMetadataSync: boolean;
     masterLabel: string;
 }
 
@@ -16452,9 +21264,29 @@ export type InternalOrganization = Metadata & {
     masterLabel: string;
 }
 
+export type InventoryReplenishmentSettings = Metadata & {
+    enableInventoryReplenishment?: boolean;
+}
+
 export type InventorySettings = Metadata & {
     enableOCIB2CIntegration?: boolean;
     enableOmniChannelInventory?: boolean;
+}
+
+export type InvocableActionExtension = Metadata & {
+    targets: InvocableActionExtensionTarget[];
+}
+
+export type InvocableActionExtensionTarget = {
+    attributes: InvocableActionExtensionTargetAttribute[];
+    targetName: string;
+    targetType: InvocableActionExtTargetType;
+}
+
+export type InvocableActionExtensionTargetAttribute = {
+    dataType: InvocableActionExtAttributeDataType;
+    key: string;
+    value: string;
 }
 
 export type InvocableActionSettings = Metadata & {
@@ -16574,6 +21406,14 @@ export type KnowledgeWorkOrderLineItemFieldsSettings = {
 
 export type KnowledgeWorkOrderLineItemField = {
     name?: string;
+}
+
+export type LaborCostOptimizationSettings = Metadata & {
+    canShowVehicle?: boolean;
+    canShowVehicleDefinition?: boolean;
+    enableTimeSheetsAndLaborCostOptimization?: boolean;
+    endTimeOffset?: number;
+    startTimeOffset?: number;
 }
 
 export type LanguageSettings = Metadata & {
@@ -16795,6 +21635,17 @@ export type LeadConvertSettings = Metadata & {
     opportunityCreationOptions?: VisibleOrRequired;
 }
 
+export type LearningItemType = Metadata & {
+    apexEvaluationHandler?: string;
+    apexSerializerDeserializer?: string;
+    customField: string;
+    customObject: string;
+    developerName: string;
+    icon: string;
+    lightningComponentDefinition: string;
+    masterLabel: string;
+}
+
 export type Letterhead = Metadata & {
     available: boolean;
     backgroundColor: string;
@@ -16843,6 +21694,49 @@ export type LicensedCustomPermissions = {
 
 export type LicensingSettings = Metadata & {
     enableAutoCreateLicenseDefinition?: boolean;
+    enableOnDemandProvisioning?: boolean;
+}
+
+export type LifeSciConfigCategory = Metadata & {
+    category: LifeSciConfigCategoryType;
+    categoryLabel?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    type?: LifeSciCategoryType;
+}
+
+export type LifeSciConfigRecord = Metadata & {
+    assignments: LifeSciConfigAssignment[];
+    fieldValues: LifeSciConfigFieldValue[];
+    isActive?: boolean;
+    isOrgLevel?: boolean;
+    isProtected?: boolean;
+    lifeSciConfigCategory: string;
+    masterLabel: string;
+    parentConfigRecord?: string;
+    type?: string;
+}
+
+export type LifeSciConfigAssignment = {
+    assignedTo: string;
+    assignmentLevel: LifeSciAssignmentLevel;
+}
+
+export type LifeSciConfigFieldValue = {
+    dataType: LifeSciConfigFieldDataType;
+    dateTimeValue?: Date;
+    dateValue?: Date;
+    fieldName: string;
+    fieldValue?: string;
+    hasBooleanValue?: boolean;
+    integerValue?: number;
+    longTextValue?: string;
+    numberValue?: number;
+    objectValue?: string;
+    phoneValue?: string;
+    picklistValue?: string;
+    textValue?: string;
+    urlValue?: string;
 }
 
 export type LightningBolt = Metadata & {
@@ -16872,6 +21766,7 @@ export type LightningBoltItems = {
 }
 
 export type LightningComponentBundle = Metadata & {
+    ai?: string;
     apiVersion?: number;
     capabilities?: Capabilities;
     description?: string;
@@ -16905,8 +21800,10 @@ export type LightningExperienceSettings = Metadata & {
     activeThemeName?: string;
     enableAccessCheckCrucPref?: boolean;
     enableApiUserLtngOutAccessPref?: boolean;
+    enableAuraBoxcarReductionPref?: boolean;
     enableAuraCDNPref?: boolean;
     enableAuraSecStaticResCRUCPref?: boolean;
+    enableDeferRenderingWorkspacePage?: boolean;
     enableErrorExperienceEnabled?: boolean;
     enableFeedbackInMobile?: boolean;
     enableGoogleSheetsForSfdcEnabled?: boolean;
@@ -16924,6 +21821,7 @@ export type LightningExperienceSettings = Metadata & {
     enableLEXExtensionTrailhead?: boolean;
     enableLEXOnIpadEnabled?: boolean;
     enableLexEndUsersNoSwitching?: boolean;
+    enableLightningPreviewPref?: boolean;
     enableNavPersonalizationOptOut?: boolean;
     enableNoBackgroundNavigations?: boolean;
     enableQuip?: boolean;
@@ -16937,6 +21835,7 @@ export type LightningExperienceSettings = Metadata & {
     enableSkypeChatEnabled?: boolean;
     enableSparkAllUsers?: boolean;
     enableSparkConversationEnabled?: boolean;
+    enableStackedModalManagerEnabled?: boolean;
     enableTryLightningOptOut?: boolean;
     enableUseS1AlohaDesktop?: boolean;
     enableUsersAreLightningOnly?: boolean;
@@ -16951,6 +21850,8 @@ export type LightningExperienceSettings = Metadata & {
 export type LightningExperienceTheme = Metadata & {
     defaultBrandingSet: string;
     description?: string;
+    designSystemVersion?: LightningDesignSystemVersion;
+    isDarkModeEnabled?: boolean;
     masterLabel: string;
     shouldOverrideLoadingImage?: boolean;
 }
@@ -16975,6 +21876,19 @@ export type LightningOnboardingConfig = Metadata & {
     masterLabel: string;
     promptDelayTime?: number;
     sendFeedbackToSalesforce: boolean;
+}
+
+export type LightningTypeBundle = Metadata & {
+    description?: string;
+    masterLabel: string;
+    resources: LightningTypeBundleResource[];
+}
+
+export type LightningTypeBundleResource = {
+    fileName: string;
+    filePath: string;
+    fileType: string;
+    source: string;
 }
 
 export type LiveAgentSettings = Metadata & {
@@ -17300,6 +22214,7 @@ export type MacroSettings = Metadata & {
 export type ManagedContentType = Metadata & {
     description?: string;
     developerName: string;
+    isMetadataContent?: boolean;
     managedContentNodeTypes: ManagedContentNodeType[];
     masterLabel: string;
 }
@@ -17428,6 +22343,30 @@ export type MatchingRules = Metadata & {
     matchingRules: MatchingRule[];
 }
 
+export type McpServerDefinition = Metadata & {
+    description: string;
+    isActive: boolean;
+    masterLabel: string;
+    prompts: McpServerPromptDefinition[];
+    tools: McpServerToolDefinition[];
+}
+
+export type McpServerPromptDefinition = {
+    promptName: string;
+}
+
+export type McpServerToolDefinition = {
+    apiDefinition?: McpServerToolApiDefinition;
+    descriptionOverride?: string;
+    toolName: string;
+}
+
+export type McpServerToolApiDefinition = {
+    apiIdentifier: string;
+    apiSource: ApiSource;
+    operation: string;
+}
+
 export type MeetingsSettings = Metadata & {
     enableSalesforceMeetings?: boolean;
     enableSalesforceMeetingsSyncCheck?: boolean;
@@ -17436,19 +22375,40 @@ export type MeetingsSettings = Metadata & {
 
 export type MessagingChannel = Metadata & {
     automatedResponses: MessagingAutoResponse[];
+    channelUsages: MessagingChannelUsage[];
+    countryCode?: string;
     customParameters: MessagingChannelCustomParameter[];
     description?: string;
+    embeddedConfig?: EmbeddedMessagingChannel;
+    externalAccountId?: string;
+    isEstimatedWaitTimeEnabled?: boolean;
+    isQueuePositionEnabled?: boolean;
+    isSynchronousChatEnabled?: boolean;
     masterLabel: string;
     messagingChannelType: MessagingChannelType;
+    messagingKeywords: MessagingKeyword[];
+    platformKey?: string;
+    queueRoutingConfig?: string;
+    sessionHandlerAsa?: string;
     sessionHandlerFlow?: string;
-    sessionHandlerQueue: string;
+    sessionHandlerQueue?: string;
     sessionHandlerType: MessagingSessionHandlerType;
+    sessionHandlerUser?: string;
     standardParameters: MessagingChannelStandardParameter[];
 }
 
 export type MessagingAutoResponse = {
-    response: string;
+    autoResponseContentType: AutoResponseContentType;
+    language?: string;
+    messageDefinitionName?: string;
+    response?: string;
+    responseTimeoutInMins?: number;
     type: MessagingAutoResponseType;
+}
+
+export type MessagingChannelUsage = {
+    channelConsentType?: MessagingChannelConsentType;
+    deploymentType: MessagingChannelUsageDeploymentType;
 }
 
 export type MessagingChannelCustomParameter = {
@@ -17471,6 +22431,37 @@ export type MessagingChannelParameterValueMapping = {
     parameterValue: string;
 }
 
+export type EmbeddedMessagingChannel = {
+    allowedFileTypes?: string;
+    anonymousUserJwtExpirationTime?: number;
+    authMode: EmbeddedServiceAuthModeType;
+    connectedApp?: string;
+    isAgentAvlCheckEnabled: boolean;
+    isAttachmentUploadEnabled?: boolean;
+    isEstimatedWaitTimeEnabled?: boolean;
+    isFallbackMessageEnabled?: boolean;
+    isSaveTranscriptEnabled?: boolean;
+    maxFileSize?: number;
+    messagingAuthorizations: MessagingAuthorization[];
+    queueLimitType: EmbeddedMsgQueueLimitType;
+    queueThreshold: number;
+    verifiedUserJwtExpirationTime?: number;
+}
+
+export type MessagingAuthorization = {
+    authIdentifier: string;
+    authProviderName?: string;
+    authorizationType: MessagingAuthorizationType;
+    enabled?: boolean;
+    publicKeyCertificateSetName?: string;
+}
+
+export type MessagingKeyword = {
+    keyword: string[];
+    keywordType: MessagingKeywordType;
+    language: string;
+}
+
 export type MessagingChannelStandardParameter = {
     actionParameterMappings: MessagingChannelActionParameterMapping[];
     parameterType: MessagingChannelStandardParameterType;
@@ -17491,7 +22482,10 @@ export type MfgProgramTemplate = Metadata & {
 
 export type MfgProgramTemplateItem = {
     advAccountForecastSet?: string;
+    contextDefinition?: string;
     description?: string;
+    sourceContextMappingName?: string;
+    targetContextMappingName?: string;
     templateItemName: string;
     transformationDisplayOrder: number;
     transformationType: MfgProgramTransformationType;
@@ -17507,6 +22501,7 @@ export type MilestoneType = Metadata & {
 }
 
 export type MktCalcInsightObjectDef = Metadata & {
+    builderExpression?: string;
     creationType: CalculatedInsightCreationType;
     description?: string;
     expression?: string;
@@ -17519,6 +22514,7 @@ export type MktDataConnection = Metadata & {
     connectorName: string;
     credentials: MktDataConnectionCred[];
     externalRecordIdentifier?: string;
+    isSentosEnabled: boolean;
     masterLabel: string;
     parameters: MktDataConnectionParam[];
 }
@@ -17530,12 +22526,6 @@ export type MktDataConnectionCred = Metadata & {
 
 export type MktDataConnectionParam = Metadata & {
     paramName: string;
-    value: string;
-}
-
-export type MktDataConnectionSrcParam = Metadata & {
-    paramName: string;
-    referenceObject: string;
     value: string;
 }
 
@@ -17577,20 +22567,26 @@ export type MlDomain = Metadata & {
 
 export type MlModelArtifact = Metadata & {
     algorithmType?: MlAIModelAlgorithmType;
+    connectorType?: MlModelConnectorType;
+    deployStatus?: MlModelDeployStatus;
     description?: string;
     generativeModelType?: MlGenerativeModelType;
     inputFeatures: MlModelInput[];
     label: string;
     modelCapabilities: MlGenerativeModelCapability[];
-    modelType: MlModelType;
+    modelCapability?: MlModelCapability;
+    modelType?: MlModelType;
     outputFeatures: MlModelOutput[];
+    parameterOverrides: MlParameterOverride[];
     parameters: MlParameterDefinition[];
+    parentModel?: string;
     predictionType?: MlModelPredictionType;
     runtimeType?: MlRuntimeType;
+    source?: string;
     sourceContainer?: string;
-    sourceType: MlModelSourceType;
-    status: MlModelArtifactStatus;
+    sourceType?: MlModelSourceType;
     trainingMetrics?: string;
+    type: MlAIModelType;
 }
 
 export type MlModelInput = {
@@ -17610,6 +22606,12 @@ export type MlModelOutput = {
     type: string;
 }
 
+export type MlParameterOverride = {
+    continuousValue?: number;
+    discreteValue?: string;
+    parameter: string;
+}
+
 export type MlParameterDefinition = {
     continuousDefault?: number;
     continuousMaximum?: number;
@@ -17627,21 +22629,18 @@ export type MlModelConnection = Metadata & {
     deployStatus?: MlModelDeployStatus;
     endpoints: MlModelEndpoint[];
     externalSystemRegistry?: string;
-    registeredModelApiName?: string;
     foundationalModelName?: string;
     label: string;
-    status?: MlModelConnectorDefinitionStatus;
+    outputFeatures: MlModelOutput[];
+    registeredModelApiName?: string;
     type: MlModelConnectorType;
 }
 
 export type MlModelEndpoint = {
-    authHeader?: string;
-    credential?: string;
-    inputSchema?: MlModelSchema;
+    inputSchema?: string;
     label: string;
     name: string;
-    namedCredential?: string;
-    outputSchema?: MlModelSchema;
+    outputSchema?: string;
     outputs: MlModelOutputEndpoint[];
     type?: MlModelEndpointType;
     url: string;
@@ -17651,37 +22650,8 @@ export type MlModelOutputEndpoint = {
     jsonPath?: string;
     label: string;
     name: string;
-    outputFeature: MlModelOutput;
+    outputFeature: string;
     position: number;
-}
-
-export type MlModelKit = Metadata & {
-    activatedModels: MlActivatedModel[];
-    description?: string;
-    label: string;
-    objectiveType?: MlObjectiveType;
-    outcomeGoal: MlOutcomeGoalType;
-    outputFeatures: MlModelOutput[];
-    predictionType?: MlModelPredictionType;
-    status: MlModelKitStatus;
-}
-
-export type MlActivatedModel = {
-    description?: string;
-    label: string;
-    model: string;
-    modelCapability?: MlGenerativeModelCapability;
-    name: string;
-    parameterOverrides: MlParameterOverride[];
-    position: number;
-    refreshEnabled?: boolean;
-    status: MlActivatedModelStatus;
-}
-
-export type MlParameterOverride = {
-    continuousValue?: number;
-    discreteValue?: string;
-    parameter: string;
 }
 
 export type MlModelSchema = Metadata & {
@@ -17706,6 +22676,13 @@ export type MobileApplicationDetail = Metadata & {
     minimumOsVersion?: string;
     privateApp?: boolean;
     version: string;
+}
+
+export type MobileSecurityAssignment = Metadata & {
+    connectedApplication?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    profile?: string;
 }
 
 export type MobileSettings = Metadata & {
@@ -17767,20 +22744,30 @@ export type MyDomainDiscoverableLogin = Metadata & {
 }
 
 export type MyDomainSettings = Metadata & {
+    areLegacyRedirectsMaintained?: boolean;
+    areLgcyRdirMaintainedWntr26?: boolean;
     canOnlyLoginWithMyDomainUrl?: boolean;
     doesApiLoginRequireOrgDomain?: boolean;
     doesWarnOnForceComRedirect?: boolean;
     doesWarnOnRedirect?: boolean;
     domainPartition?: OrgDomainShard;
+    edgeRoutingMethod?: EdgeRoutingOption;
+    enableCrossDomainPreviewCookies?: boolean;
     enableEdgeDuringRollout?: boolean;
+    enableExtendedRedirections?: boolean;
+    enableLegacyRedirections?: boolean;
     enableNativeBrowserForAuthOnAndroid?: boolean;
     enableNativeBrowserForAuthOnIos?: boolean;
     enableShareBrowserSessionAndroidForAuth?: boolean;
     enableShareBrowserSessionIOSForAuth?: boolean;
     instancedUrlRedirectHandling?: OrgDomainRedirectOption;
+    isFirstPartyCookieUseRequired?: boolean;
+    isIcorInstApiTrafficBlocked?: boolean;
+    isInstancedApiTrafficBlocked?: boolean;
     logRedirections?: boolean;
     myDomainName?: string;
     myDomainSuffix?: OrgDomainProdSuffix;
+    onboardCustomerSpecificSuffix?: boolean;
     redirectForceComSiteUrls?: boolean;
     redirectPriorMyDomain?: boolean;
     use3rdPartyCookieBlockingCompatibleHostnames?: boolean;
@@ -17807,6 +22794,7 @@ export type NamedCredential = Metadata & {
     awsService?: string;
     calloutStatus?: CalloutStatus;
     certificate?: string;
+    description?: string;
     endpoint?: string;
     generateAuthorizationHeader?: boolean;
     jwtAudience?: string;
@@ -17832,11 +22820,15 @@ export type NamedCredentialParameter = {
     certificate?: string;
     description?: string;
     externalCredential?: string;
+    globalNamedPrincipalCredential?: boolean;
+    managedFeatureEnabledCallout?: boolean;
     outboundNetworkConnection?: string;
     parameterName: string;
     parameterType: NamedCredentialParamType;
     parameterValue?: string;
+    readOnlyNamedCredential?: boolean;
     sequenceNumber?: number;
+    systemUserNamedCredential?: boolean;
 }
 
 export type NavigationMenu = Metadata & {
@@ -17863,6 +22855,7 @@ export type Network = Metadata & {
     emailFooterText?: string;
     emailSenderAddress: string;
     emailSenderName: string;
+    embeddedLoginEnabled?: boolean;
     enableApexCDNCaching?: boolean;
     enableCustomVFErrorPageOverrides?: boolean;
     enableDirectMessages?: boolean;
@@ -17899,6 +22892,7 @@ export type Network = Metadata & {
     networkPageOverrides?: NetworkPageOverride;
     newSenderAddress?: string;
     picassoSite?: string;
+    pwdlessRegEmailTemplate?: string;
     recommendationAudience?: RecommendationAudience;
     recommendationDefinition?: RecommendationDefinition;
     reputationLevels?: ReputationLevelDefinitions;
@@ -17940,9 +22934,13 @@ export type CommunityRoles = {
 
 export type NetworkAuthApiSettings = {
     doesForgotPasswordRequireAuth?: boolean;
+    doesPasswordLoginRequireAuth?: boolean;
     doesPwdlessLoginRequireAuth?: boolean;
     doesRegistrationRequireAuth?: boolean;
     emailTmplsAllowlist: NetworkEmailTmplAllowlist[];
+    headlessDiscoveryExecutionUser?: string;
+    headlessDiscoveryHandler?: string;
+    isFirstPartyAppsAllowed?: boolean;
     isForgotPwdAllowed?: boolean;
     isForgotPwdEmailTemplateAllowlistingEnabled?: boolean;
     isHeadlessUserRegistrationAllowed?: boolean;
@@ -17951,6 +22949,8 @@ export type NetworkAuthApiSettings = {
     isRecaptchaRequiredPwdlessLogin?: boolean;
     isRecaptchaRequiredRgstr?: boolean;
     isUniversalClientRgstrAllowed?: boolean;
+    isUserDisambiguationAllowedForgotPwd?: boolean;
+    isUserDisambiguationAllowedUsernamePwd?: boolean;
     maxPasswordResetAttempts?: number;
     recaptchaScoreThreshold?: number;
     recaptchaSecretKey?: string;
@@ -18066,6 +23066,60 @@ export type NotificationsSettings = Metadata & {
     enableNotifications?: boolean;
 }
 
+export type NtfcnDefinition = Metadata & {
+    description?: string;
+    masterLabel: string;
+    notificationCriteria: NtfcnCriteria[];
+    ntfcnChannelDefs: NtfcnChannelDef[];
+    referenceObject: string;
+    status?: string;
+    triggerEventType: string;
+    usageType: string;
+}
+
+export type NtfcnCriteria = {
+    condition: NtfcnCondition[];
+    criteriaName: string;
+    customExpression?: string;
+    expressionType: string;
+}
+
+export type NtfcnCondition = {
+    fieldName: string;
+    operator: string;
+    sequenceNumber: number;
+    value: string;
+}
+
+export type NtfcnChannelDef = {
+    active?: boolean;
+    channelType: string;
+    ntfcnChannelActionDefs: NtfcnChannelActionDef[];
+    ntfcnChannelConts: NtfcnChannelCont[];
+    ntfcnChannelRecs: NtfcnChannelRec[];
+}
+
+export type NtfcnChannelActionDef = {
+    label: string;
+    notificationActionName: string;
+    targetType?: string;
+    targetUrl: string;
+}
+
+export type NtfcnChannelCont = {
+    emailTemplate?: string;
+    messageBody?: string;
+    messageTitle?: string;
+}
+
+export type NtfcnChannelRec = {
+    active?: boolean;
+    recipient: string;
+    recipientType: string;
+    targetIdentifier?: string;
+    teamIdentifier?: string;
+}
+
 export type OauthCustomScope = Metadata & {
     assignedTo: OauthCustomScopeApp[];
     description: string;
@@ -18080,6 +23134,7 @@ export type OauthCustomScopeApp = {
 }
 
 export type OauthOidcSettings = Metadata & {
+    agentAuthLinking?: boolean;
     blockOAuthUnPwFlow?: boolean;
     blockOAuthUsrAgtFlow?: boolean;
     isPkceRequired?: boolean;
@@ -18091,6 +23146,7 @@ export type OauthTokenExchangeHandler = Metadata & {
     developerName: string;
     enablements: OauthTokenExchHandlerApp[];
     isAccessTokenSupported: boolean;
+    isContactCreationAllowed: boolean;
     isEnabled: boolean;
     isIdTokenSupported: boolean;
     isJwtSupported: boolean;
@@ -18107,6 +23163,16 @@ export type OauthTokenExchHandlerApp = {
     connectedApp?: string;
     externalClientApp?: string;
     isDefault: boolean;
+}
+
+export type ObjIntegProviderDefMapping = Metadata & {
+    changeEventType: ChangeEventType;
+    fieldApiName?: string;
+    integrationProviderDef: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    objectApiName: string;
+    relatedFieldName?: string;
 }
 
 export type ObjectHierarchyRelationship = Metadata & {
@@ -18225,6 +23291,7 @@ export type OmniChannelSettings = Metadata & {
     enableOmniChannel?: boolean;
     enableOmniSecondaryRoutingPriority?: boolean;
     enableOmniSkillsRouting?: boolean;
+    enableOmniStatusCapModel?: boolean;
 }
 
 export type OmniDataTransform = Metadata & {
@@ -18242,6 +23309,7 @@ export type OmniDataTransform = Metadata & {
     fieldLevelSecurityEnabled?: boolean;
     inputParsingClass?: string;
     inputType?: OmniDataTransformInputType;
+    isManagedUsingStdDesigner?: boolean;
     name: string;
     namespace?: string;
     nullInputsIncludedInOutput?: boolean;
@@ -18339,8 +23407,12 @@ export type OmniIntegrationProcedure = Metadata & {
     description?: string;
     designerCustomizationType?: string;
     elementTypeComponentMapping?: string;
+    integrationProcedureInput?: string;
+    integrationProcedureOutput?: string;
     isActive?: boolean;
+    isIntegProcdSignatureAvl?: boolean;
     isIntegrationProcedure?: boolean;
+    isManagedUsingStdDesigner?: boolean;
     isMetadataCacheDisabled?: boolean;
     isOmniScriptEmbeddable?: boolean;
     isTestProcedure?: boolean;
@@ -18404,6 +23476,7 @@ export type OmniInteractionConfig = Metadata & {
 }
 
 export type OmniScript = Metadata & {
+    assessmentDefinitionMetadata: AssessmentDefinitionMetadata[];
     customHtmlTemplates?: string;
     customJavaScript?: string;
     description?: string;
@@ -18412,6 +23485,7 @@ export type OmniScript = Metadata & {
     elementTypeComponentMapping?: string;
     isActive?: boolean;
     isIntegrationProcedure?: boolean;
+    isManagedUsingStdDesigner?: boolean;
     isMetadataCacheDisabled?: boolean;
     isOmniScriptEmbeddable?: boolean;
     isTestProcedure?: boolean;
@@ -18420,6 +23494,7 @@ export type OmniScript = Metadata & {
     lastPreviewPage?: string;
     name: string;
     nameSpace?: string;
+    omniAssessmentTasks: OmniAssessmentTaskMetadata[];
     omniProcessElements: OmniProcessElement[];
     omniProcessKey?: string;
     omniProcessType: OmniProcessType;
@@ -18434,16 +23509,50 @@ export type OmniScript = Metadata & {
     webComponentKey?: string;
 }
 
+export type AssessmentDefinitionMetadata = {
+    approvalDateTime?: Date;
+    displayType?: string;
+    effectiveFromDate?: Date;
+    effectiveToDate?: Date;
+    lastRevisedDateTime?: Date;
+    performerType?: string;
+    purpose?: string;
+}
+
+export type OmniAssessmentTaskMetadata = {
+    name: string;
+    status: string;
+    uniqueName: string;
+}
+
+export type OmniStudioSettings = Metadata & {
+    disableRollbackFlagsPref?: boolean;
+    enableOaEventInternalWrites?: boolean;
+    enableOaEventNotifications?: boolean;
+    enableOaForCore?: boolean;
+    enableOmniGlobalAutoNumberPref?: boolean;
+    enableOmniStudioContentTest?: boolean;
+    enableOmniStudioDrVersion?: boolean;
+    enableOmniStudioMetadata?: boolean;
+    enableStandardOmniStudioRuntime?: boolean;
+}
+
 export type OmniSupervisorConfig = Metadata & {
     isTimelineHidden: boolean;
     masterLabel: string;
+    omniSpvsrConfigAIAgent: OmniSpvsrConfigAIAgent[];
     omniSupervisorConfigAction: OmniSupervisorConfigAction[];
     omniSupervisorConfigGroup: OmniSupervisorConfigGroup[];
     omniSupervisorConfigProfile: OmniSupervisorConfigProfile[];
     omniSupervisorConfigQueue: OmniSupervisorConfigQueue[];
     omniSupervisorConfigSkill: OmniSupervisorConfigSkill[];
     omniSupervisorConfigTab: OmniSupervisorConfigTab[];
+    omniSupervisorConfigUser: OmniSupervisorConfigUser[];
     skillVisibility?: OmniSuperSkillVisibilityType;
+}
+
+export type OmniSpvsrConfigAIAgent = {
+    botDefinition: string;
 }
 
 export type OmniSupervisorConfigAction = {
@@ -18475,6 +23584,10 @@ export type OmniSupervisorConfigTab = {
     tabType: OmniSupervisorTabType;
 }
 
+export type OmniSupervisorConfigUser = {
+    user: string;
+}
+
 export type OmniTrackingComponentDef = Metadata & {
     componentType: OmniAnalyticsComponentType;
     componentVersion: number;
@@ -18504,6 +23617,7 @@ export type OmniUiCard = Metadata & {
     dataSourceConfig: string;
     description?: string;
     isActive: boolean;
+    isManagedUsingStdDesigner?: boolean;
     name: string;
     omniUiCardType: OmniUiCardType;
     overrideKey?: string;
@@ -18548,6 +23662,13 @@ export type FindSimilarOppFilter = {
     similarOpportunitiesMatchFields: string[];
 }
 
+export type OpptStageDescription = Metadata & {
+    description: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    opportunityStageApiName: string;
+}
+
 export type OrchestrationContext = Metadata & {
     datasets: OrchestrationContextDataset[];
     description?: string;
@@ -18573,11 +23694,15 @@ export type OrchestrationContextEvent = {
 }
 
 export type OrderManagementSettings = Metadata & {
+    deliveryEstimationEnabled?: boolean;
+    enableActivityFeedPerChangeOrder?: boolean;
     enableB2CHighScaleOrders?: boolean;
     enableB2CIntegration?: boolean;
+    enableBillingTypeOrdSummCreation?: boolean;
     enableDuplicateManagement?: boolean;
     enableHighScaleOrders?: boolean;
     enableIndividualOrderItemTaxAdjustments?: boolean;
+    enableMRURecordCaching?: boolean;
     enableOMAutomation?: boolean;
     enableOrderManagement?: boolean;
     enablePersonAccountsForShoppers?: boolean;
@@ -18631,6 +23756,7 @@ export type ProfileObjectPermissions = {
     deleteSetup?: boolean;
     modifyAllRecords?: boolean;
     object: string;
+    viewAllFields?: boolean;
     viewAllRecords?: boolean;
     viewSetup?: boolean;
 }
@@ -18643,6 +23769,7 @@ export type PardotEinsteinSettings = Metadata & {
 export type PardotSettings = Metadata & {
     enableAIEinsteinEngageFreq?: boolean;
     enableAIOptimizedSendTime?: boolean;
+    enableAeDataConnector?: boolean;
     enableB2bmaAppEnabled?: boolean;
     enableEngagementHistoryDashboards?: boolean;
     enableEnhancedProspectCustomFieldsSync?: boolean;
@@ -18688,6 +23815,7 @@ export type PathAssistantSettings = Metadata & {
 export type PaymentGatewayProvider = Metadata & {
     apexAdapter?: string;
     comments?: string;
+    gatewayType?: GatewayType;
     idempotencySupported: IdempotencySupportStatus;
     masterLabel: string;
 }
@@ -18696,7 +23824,12 @@ export type PaymentsSettings = Metadata & {
     enablePayments?: boolean;
 }
 
+export type PaymentsSharingSettings = Metadata & {
+    delegatePaymentSharingToAccount?: boolean;
+}
+
 export type PermissionSet = Metadata & {
+    agentAccesses: PermissionSetAgentAccess[];
     applicationVisibilities: PermissionSetApplicationVisibility[];
     classAccesses: PermissionSetApexClassAccess[];
     customMetadataTypeAccesses: PermissionSetCustomMetadataTypeAccess[];
@@ -18704,6 +23837,7 @@ export type PermissionSet = Metadata & {
     customSettingAccesses: PermissionSetCustomSettingAccess[];
     dataspaceScopes: DataspaceScopeAccess[];
     description?: string;
+    emailRoutingAddressAccesses: PermissionSetEmailRoutingAddressAccess[];
     externalCredentialPrincipalAccesses: PermissionSetExternalCredentialPrincipalAccess[];
     externalDataSourceAccesses: PermissionSetExternalDataSourceAccess[];
     fieldPermissions: PermissionSetFieldPermissions[];
@@ -18714,8 +23848,14 @@ export type PermissionSet = Metadata & {
     objectPermissions: PermissionSetObjectPermissions[];
     pageAccesses: PermissionSetApexPageAccess[];
     recordTypeVisibilities: PermissionSetRecordTypeVisibility[];
+    servicePresenceStatusAccesses: PermissionSetServicePresenceStatusAccess[];
     tabSettings: PermissionSetTabSetting[];
     userPermissions: PermissionSetUserPermission[];
+}
+
+export type PermissionSetAgentAccess = {
+    agentName: string;
+    enabled: boolean;
 }
 
 export type PermissionSetApplicationVisibility = {
@@ -18748,15 +23888,32 @@ export type DataspaceScopeAccess = {
     customizeAllDefinitions?: boolean;
     customizeCalculatedInsightDefinitions?: boolean;
     customizeDataActionDefinitions?: boolean;
+    customizeDataApplicationDefinitions: boolean;
+    customizeDataObjSecondaryIndexDefinitions: boolean;
+    customizeDataShareDefinitions: boolean;
+    customizeFTestDataspaceScopedDefinition: boolean;
     customizeIdentityResolutionDefinitions?: boolean;
+    customizeMLPredictionDefinitions: boolean;
     customizeSegmentationDefinitions?: boolean;
+    customizeSemanticSearchDefinitions: boolean;
     dataAccessLevel?: string;
     dataspaceScope: string;
     viewActivationDefinitions?: boolean;
     viewCalculatedInsightDefinitions?: boolean;
     viewDataActionDefinitions?: boolean;
+    viewDataApplicationDefinitions: boolean;
+    viewDataObjSecondaryIndexDefinitions: boolean;
+    viewDataShareDefinitions: boolean;
+    viewFTestDataspaceScopedDefinition: boolean;
     viewIdentityResolutionDefinitions?: boolean;
+    viewMLPredictionDefinitions: boolean;
     viewSegmentationDefinitions?: boolean;
+    viewSemanticSearchDefinitions: boolean;
+}
+
+export type PermissionSetEmailRoutingAddressAccess = {
+    enabled: boolean;
+    name: string;
 }
 
 export type PermissionSetExternalCredentialPrincipalAccess = {
@@ -18789,6 +23946,7 @@ export type PermissionSetObjectPermissions = {
     deleteSetup?: boolean;
     modifyAllRecords: boolean;
     object: string;
+    viewAllFields?: boolean;
     viewAllRecords: boolean;
     viewSetup?: boolean;
 }
@@ -18801,6 +23959,11 @@ export type PermissionSetApexPageAccess = {
 export type PermissionSetRecordTypeVisibility = {
     recordType: string;
     visible: boolean;
+}
+
+export type PermissionSetServicePresenceStatusAccess = {
+    enabled: boolean;
+    servicePresenceStatus: string;
 }
 
 export type PermissionSetTabSetting = {
@@ -18876,6 +24039,7 @@ export type PlatformEncryptionSettings = Metadata & {
 
 export type PlatformEventChannel = Metadata & {
     channelType: PlatformEventChannelType;
+    eventType?: PlatformEventChannelEventType;
     label: string;
 }
 
@@ -18902,6 +24066,7 @@ export type PlatformLicenseDefinition = Metadata & {
     managementTenantId?: string;
     minPlatformVersion?: number;
     name: string;
+    recordVisibility?: string;
     settingItems: SettingItem[];
     settingUsageDefinitions: SettingUsageDefinition[];
 }
@@ -18929,7 +24094,65 @@ export type SettingUsageDefinition = {
     hasRolloverDefault?: boolean;
     isPersistentResource: boolean;
     overageGraceDefault?: number;
+    recordVisibility?: string;
     setting: string;
+}
+
+export type PolicyRuleDefinition = Metadata & {
+    action: string[];
+    category: Category;
+    effect: EnforcementRuleEffect;
+    label: string;
+    policyRuleDefinitionSetName: string;
+    policyRuleResourceDomains: PolicyRuleResourceDomain[];
+    principalAuthenticationLevel?: PrincipalAuthenticationLevel;
+    principalDomain: string[];
+    principalScopeType: RulePrincipalScopeType;
+    resourceDomain: string[];
+    resourceExpression?: string;
+    resourceScopeType: RuleResourceScopeType;
+    resourceTransform?: ResourceTransform;
+    ruleConsumer?: RuleConsumer;
+    transformPrecedence?: number;
+    unlessPolicyRuleDefinitionClauseConjunction?: PolicyRuleDefinitionClauseConjunction;
+    whenPolicyRuleDefinitionClauseConjunction?: PolicyRuleDefinitionClauseConjunction;
+}
+
+export type PolicyRuleResourceDomain = {
+    resourceDomain: string;
+}
+
+export type PolicyRuleDefinitionClauseConjunction = {
+    conditions: PolicyRuleDefinitionCondition[];
+    conjunctionExpression: string;
+}
+
+export type PolicyRuleDefinitionCondition = {
+    clause?: RuleDefinitionClause;
+    contextPath?: RuleContextPath;
+    operator?: RuleDefinitionOperator;
+    policyRuleDefinitionCondition: PolicyRuleDefinitionCondition[];
+    policyRuleValueSet: PolicyRuleValueSet[];
+    principalPath?: RulePrincipalPath;
+    resourceAlias?: string;
+    resourceExpression?: string;
+    resourcePath?: RuleResourcePath;
+    valueBit: string[];
+    valueContextPath?: RuleContextPath;
+    valueDomain?: string;
+    valuePrincipalPath?: RulePrincipalPath;
+    valueResourcePath?: RuleResourcePath;
+    whereClauseConjunction?: string;
+}
+
+export type PolicyRuleValueSet = {
+    valueReference?: string;
+    valueString?: string;
+}
+
+export type PolicyRuleDefinitionSet = Metadata & {
+    description?: string;
+    label: string;
 }
 
 export type Portal = Metadata & {
@@ -18982,6 +24205,8 @@ export type PresenceDeclineReason = Metadata & {
 }
 
 export type PresenceUserConfig = Metadata & {
+    acwExtensionDuration?: number;
+    afterConvoWorkMaxTime?: number;
     assignments?: PresenceConfigAssignments;
     capacity: number;
     declineReasons: string[];
@@ -18990,8 +24215,11 @@ export type PresenceUserConfig = Metadata & {
     enableDeclineReason?: boolean;
     enableDisconnectSound?: boolean;
     enableRequestSound?: boolean;
+    hasAcwExtensionEnabled?: boolean;
+    hasAfterConvoWorkTimer?: boolean;
     interruptibleCapacity?: number;
     label: string;
+    maxExtensions?: string;
     presenceStatusOnDecline?: string;
     presenceStatusOnPushTimeout?: string;
     userDisplayName?: string;
@@ -19086,18 +24314,19 @@ export type PricingActionParameters = Metadata & {
     developerName: string;
     effectiveFrom: Date;
     effectiveTo?: Date;
-    isProtected?: boolean;
     masterLabel: string;
     objectName?: string;
     pricingProcedure?: string;
 }
 
 export type PricingRecipe = Metadata & {
+    businessVertical?: BusinessVertical;
+    defaultPricingProcedure?: ExpressionSetDefinition;
+    defaultPricingProcedureDeveloperName?: string;
     defaultPricingProcedureId?: string;
     developerName?: string;
     isActive?: boolean;
     isInternal?: boolean;
-    isProtected?: boolean;
     masterLabel: string;
     pricingRecipeTableMapping: PricingRecipeTableMapping[];
 }
@@ -19105,8 +24334,20 @@ export type PricingRecipe = Metadata & {
 export type PricingRecipeTableMapping = {
     fileBasedDecisionTableName?: string;
     isInternal?: boolean;
+    lookupTable?: Metadata;
+    lookupTableDeveloperName?: string;
     pricingComponentType?: string;
+    pricingProcedureOutputMapList: PricingProcedureOutputMap[];
     pricingRecipe: string;
+}
+
+export type PricingProcedureOutputMap = {
+    fieldName?: string;
+    isPricingRecipeActive?: boolean;
+    outputFieldName?: string;
+    outputFieldNameString?: string;
+    outputType?: string;
+    pricingElementType?: PricingElementType;
 }
 
 export type PrivacySettings = Metadata & {
@@ -19115,12 +24356,23 @@ export type PrivacySettings = Metadata & {
     authorizationCaptureIp?: boolean;
     authorizationCaptureLocation?: boolean;
     authorizationCustomSharing?: boolean;
+    authorizationCustomSharingPCU?: boolean;
     authorizationLockingAndVersioning?: boolean;
     enableConfigurableUserPIIActive?: boolean;
     enableConsentAuditTrail?: boolean;
     enableConsentEventStream?: boolean;
     enableDefaultMetadataValues?: boolean;
+    enableSalesforceArchive?: boolean;
     useUmaDefaultConsentRecs?: boolean;
+}
+
+export type ProcedureOutputResolution = Metadata & {
+    developerName: string;
+    formula: string;
+    isActive: boolean;
+    isInternal?: boolean;
+    masterLabel: string;
+    pricingElement: string;
 }
 
 export type ProcessFlowMigration = Metadata & {
@@ -19149,7 +24401,24 @@ export type ProductAttributeSet = Metadata & {
 
 export type ProductAttributeSetItem = {
     field: string;
+    isGroupedBy?: boolean;
     sequence: number;
+}
+
+export type ProductCatalogManagementSettings = Metadata & {
+    productDeepCloneContextDefOrgValue?: string;
+    productDeepCloneExpressionSetOrgValue?: string;
+}
+
+export type ProductDiscoverySettings = Metadata & {
+    discoverProductsFlowNameOrgValue?: string;
+    enableGuidedSelling?: boolean;
+    prodDiscBrowseContextDefOrgValue?: string;
+    prodDiscDefaultCatalogOrgValue?: string;
+    prodDiscPricingEnabledOrgValue?: string;
+    prodDiscProcedureOrgValue?: string;
+    prodDiscQualEnabledOrgValue?: string;
+    prodDiscQualificationOrgValue?: string;
 }
 
 export type ProductFamilyUsage = Metadata & {
@@ -19171,11 +24440,12 @@ export type ProductSpecificationRecType = Metadata & {
 }
 
 export type ProductSpecificationType = Metadata & {
-    description: string;
+    description?: string;
     masterLabel: string;
 }
 
 export type Profile = Metadata & {
+    agentAccesses: ProfileAgentAccess[];
     applicationVisibilities: ProfileApplicationVisibility[];
     categoryGroupVisibilities: ProfileCategoryGroupVisibility[];
     classAccesses: ProfileApexClassAccess[];
@@ -19195,9 +24465,15 @@ export type Profile = Metadata & {
     pageAccesses: ProfileApexPageAccess[];
     profileActionOverrides: ProfileActionOverride[];
     recordTypeVisibilities: ProfileRecordTypeVisibility[];
+    servicePresenceStatusAccesses: ProfileServicePresenceStatusAccess[];
     tabVisibilities: ProfileTabVisibility[];
     userLicense?: string;
     userPermissions: ProfileUserPermission[];
+}
+
+export type ProfileAgentAccess = {
+    agentName: string;
+    enabled: boolean;
 }
 
 export type ProfileApplicationVisibility = {
@@ -19298,6 +24574,11 @@ export type ProfileRecordTypeVisibility = {
     visible: boolean;
 }
 
+export type ProfileServicePresenceStatusAccess = {
+    enabled: boolean;
+    servicePresenceStatus: string;
+}
+
 export type ProfileTabVisibility = {
     tab: string;
     visibility: TabVisibility;
@@ -19387,7 +24668,28 @@ export type PromptVersion = {
     videoLink?: string;
 }
 
+export type PublicKeyCertificate = Metadata & {
+    description?: string;
+    isActive?: boolean;
+    jsonWebKey?: string;
+    masterLabel: string;
+}
+
+export type PublicKeyCertificateSet = Metadata & {
+    description?: string;
+    jwksEndPoint?: string;
+    jwtIssuer?: string;
+    masterLabel: string;
+    publicKeyCertificateSetKeys: PublicKeyCertificateSetKey[];
+    type: PublicKeyCertificateSetType;
+}
+
+export type PublicKeyCertificateSetKey = {
+    publicKeyCertificate: string;
+}
+
 export type Queue = Metadata & {
+    description?: string;
     doesSendEmailToMembers?: boolean;
     email?: string;
     name: string;
@@ -19435,6 +24737,8 @@ export type QueueRoutingConfig = Metadata & {
     dropAdditionalSkillsTimeout?: number;
     isAttributeBased?: boolean;
     label: string;
+    pausedCapacityPercentage?: number;
+    pausedCapacityWeight?: number;
     pushTimeout?: number;
     queueOverflowAssignee?: string;
     routingModel: RoutingModel;
@@ -19462,6 +24766,7 @@ export type QuickAction = Metadata & {
     optionsCreateFeedItem: boolean;
     page?: string;
     quickActionLayout?: QuickActionLayout;
+    quickActionParameters: QuickActionParameters[];
     quickActionSendEmailOptions?: QuickActionSendEmailOptions;
     standardLabel?: QuickActionLabel;
     successMessage?: string;
@@ -19491,6 +24796,12 @@ export type QuickActionLayoutItem = {
     emptySpace?: boolean;
     field?: string;
     uiBehavior?: UiBehavior;
+}
+
+export type QuickActionParameters = {
+    name: string;
+    type: QuickActionParameterType;
+    value?: string;
 }
 
 export type QuickActionSendEmailOptions = {
@@ -19657,6 +24968,7 @@ export type RecordActionDeployment = Metadata & {
     channelConfigurations: RecordActionDeploymentChannel[];
     componentName?: ComponentName;
     deploymentContexts: RecordActionDeploymentContext[];
+    hasComponents?: boolean;
     hasGuidedActions?: boolean;
     hasOmniscripts?: boolean;
     hasRecommendations?: boolean;
@@ -19710,6 +25022,7 @@ export type RecordAggregationDefinition = Metadata & {
     batchProcessingDefinition?: string;
     description?: string;
     displayName: string;
+    onDemandProcDefinition?: string;
     recordAggregationObject: RecordAggregationObject[];
     status: RecordAggregationDefinitionStatus;
 }
@@ -19762,6 +25075,11 @@ export type ReferencedDashboard = Metadata & {
     visibility: string;
 }
 
+export type ReferralMarketingConfig = Metadata & {
+    integrationSystemType: string;
+    masterLabel: string;
+}
+
 export type RelationshipGraphDefinition = Metadata & {
     isActive: boolean;
     isTemplate: boolean;
@@ -19774,6 +25092,11 @@ export type RelationshipGraphDefVersion = {
     graphType: string;
 }
 
+export type ReleaseMgmtSettings = Metadata & {
+    enableITSMReleaseMgmt?: boolean;
+    enableReleaseEventCreation?: boolean;
+}
+
 export type RemoteSiteSetting = Metadata & {
     description?: string;
     disableProtocolSecurity: boolean;
@@ -19782,6 +25105,7 @@ export type RemoteSiteSetting = Metadata & {
 }
 
 export type Report = Metadata & {
+    aggregateFilters: ReportAggregateFilter[];
     aggregates: ReportAggregate[];
     block: Report[];
     blockInfo?: ReportBlockInfo;
@@ -19802,6 +25126,7 @@ export type Report = Metadata & {
     groupingsAcross: ReportGrouping[];
     groupingsDown: ReportGrouping[];
     historicalSelector?: ReportHistoricalSelector;
+    isSmartTotalDisabled?: boolean;
     name: string;
     numSubscriptions?: number;
     params: ReportParam[];
@@ -19819,6 +25144,12 @@ export type Report = Metadata & {
     territoryHierarchyFilter?: string;
     timeFrameFilter?: ReportTimeFrameFilter;
     userFilter?: string;
+}
+
+export type ReportAggregateFilter = {
+    aggregate: string;
+    operator: string;
+    value: string;
 }
 
 export type ReportAggregate = {
@@ -19907,6 +25238,7 @@ export type ReportColorRange = {
 export type ReportColumn = {
     aggregateTypes: ReportSummaryType[];
     field: string;
+    isExtendedColumn?: boolean;
     reverseColors?: boolean;
     showChanges?: boolean;
 }
@@ -19988,7 +25320,7 @@ export type ReportTimeFrameFilter = {
 export type ReportType = Metadata & {
     autogenerated?: boolean;
     baseObject: string;
-    category: ReportTypeCategory;
+    category?: ReportTypeCategory;
     deployed: boolean;
     description?: string;
     join?: ObjectRelationship;
@@ -20032,6 +25364,24 @@ export type RetailExecutionSettings = Metadata & {
     enableVisitSharing?: boolean;
 }
 
+export type RetrievalSummaryDefinition = Metadata & {
+    masterLabel: string;
+    retrievalSummaryDefFields: RetrievalSummaryDefField[];
+    retrievalSummaryDefObjects: RetrievalSummaryDefObject[];
+    rootObject: string;
+}
+
+export type RetrievalSummaryDefField = {
+    field: string;
+    sequenceNumber: number;
+}
+
+export type RetrievalSummaryDefObject = {
+    recordAggregationDefinition: string;
+    retrievalSummaryDefFields: RetrievalSummaryDefField[];
+    sequenceNumber: number;
+}
+
 export type RoleOrTerritory = Metadata & {
     caseAccessLevel?: string;
     contactAccessLevel?: string;
@@ -20055,15 +25405,8 @@ export type RuleLibraryDefinition = Metadata & {
     contextRuleStatus: ContextRuleStatus;
     description?: string;
     label: string;
-    ruleLibraryContextTags: RuleLibraryContextTag[];
     rulesetDefinitions: RulesetDefinition[];
     usageType: ContextRuleUsageType;
-}
-
-export type RuleLibraryContextTag = {
-    hashableContextTag: string;
-    mappingName: string;
-    usageSubType: string;
 }
 
 export type RulesetDefinition = {
@@ -20078,72 +25421,25 @@ export type RulesetDefinition = {
 }
 
 export type RuleDefinition = {
-    actions: RuleAction[];
     apiName: string;
-    criteria: RuleFilterCriteria[];
     description?: string;
     endDate?: Date;
     label: string;
+    rulePayload: string;
     ruleStatus: ContextRuleStatus;
     sequenceNumber?: number;
     startDate: Date;
     usageSubType?: string;
     usageType: string;
-    variables: RuleReferenceVariable[];
-}
-
-export type RuleAction = {
-    actionParameters: RuleActionParameter[];
-    actionType: RuleActionType;
-    name: string;
-    sequenceNumber: number;
-}
-
-export type RuleActionParameter = {
-    name: string;
-    sequenceNumber: number;
-    sourceCriteriName?: string;
-    value: string;
-    valueType: VariableValueType;
-}
-
-export type RuleFilterCriteria = {
-    actions: RuleAction[];
-    conditionLogic: string;
-    conditions: RuleCondition[];
-    executionSequence: number;
-    name: string;
-    parentFilterCriteria?: string;
-    type: RuleFilterCriteriaType;
-}
-
-export type RuleCondition = {
-    matchType?: ConditionMatchType;
-    name?: string;
-    operator: RuleConditionOperator;
-    sequenceNumber: number;
-    value: string[];
-    valueType: VariableValueType;
-    variable: string;
-}
-
-export type RuleReferenceVariable = {
-    aggregateFunction?: RuleCondAggregateFunction;
-    attributeId?: string;
-    contextTag?: string;
-    dataType: RuleRefVariableDataType;
-    decimalPlaces?: number;
-    filterCriteriaName?: string;
-    groupByTag?: string;
-    name: string;
-    type: RuleRefVariableType;
-    value?: string;
 }
 
 export type SalesAgreementSettings = Metadata & {
     actualsCalculationMode: ActualsCalculationMode;
+    arePredfndStatusValOveride?: boolean;
+    decimalScale?: number;
     displayGroups: AdvAcctFrcstDisplayGroup[];
     displayedAgreementTermsMetrics: string;
+    futureActCalcSchedules?: number;
     isOnlyApprovalProcessUsed: boolean;
     measureDefinitions: AdvAcctForecastMeasureDef[];
     objectMapping?: ObjectMapping;
@@ -20226,11 +25522,14 @@ export type ScoreRangeClassification = {
 
 export type SearchCriteriaConfiguration = Metadata & {
     actionList?: string;
+    additionalSearchCriteria?: string;
     aggrCriteriaFieldset?: FieldSet;
+    configurationType?: SearchCriteriaConfigurationConfigurationType;
     description?: string;
     distanceCriteria?: string;
     filterType?: SearchCriteriaConfigurationFilterType;
     isActive?: boolean;
+    isSingleFieldSort?: boolean;
     masterLabel: string;
     resultDisplayFormat?: SearchCriteriaConfigurationResultDisplayFormat;
     resultFieldset?: FieldSet;
@@ -20243,15 +25542,61 @@ export type SearchCriteriaConfiguration = Metadata & {
 
 export type SearchCustomization = Metadata & {
     channel: string;
-    isProtected?: boolean;
     masterLabel: string;
+    objectOverride: SearchCustomizationObjectOverride[];
+    objectToAlwaysSearch: string[];
+    selectedObject: string[];
+    selectedProfile: string[];
+}
+
+export type SearchCustomizationObjectOverride = {
+    explicitFilter: SearchCustomizationExplicitFilter[];
+    fieldOverride: SearchCustomizationFieldOverride[];
+    objectApiName: string;
+    rule: SearchCustomizationRule[];
+    searchable?: boolean;
+}
+
+export type SearchCustomizationExplicitFilter = {
+    fieldPath?: string;
+    type: string;
+}
+
+export type SearchCustomizationFieldOverride = {
+    fieldApiName: string;
+    searchable: boolean;
+}
+
+export type SearchCustomizationRule = {
+    fieldApiName: string;
+    operator: string;
+    ruleValue: SearchCustomizationRuleValue[];
+}
+
+export type SearchCustomizationRuleValue = {
+    targetObjectApiName?: string;
+    value: string;
+}
+
+export type SearchOrgWideObjectConfig = Metadata & {
+    masterLabel: string;
+    objectReference: string;
+    searchOrgWideFieldConfig: SearchOrgWideFieldConfig[];
+}
+
+export type SearchOrgWideFieldConfig = {
+    fieldReference: string;
+    isSearchable?: boolean;
+    isSecure?: boolean;
 }
 
 export type SearchResultActionConfig = Metadata & {
     actionReference: string;
     actionScope: SearchResultActionScope;
     actionType: SearchResultActionType;
+    agentConfirmationMessage?: string;
     description?: string;
+    isAiAction?: boolean;
     masterLabel: string;
 }
 
@@ -20259,6 +25604,7 @@ export type SearchSettings = Metadata & {
     documentContentSearchEnabled: boolean;
     enableAdvancedSearchInAlohaSidebar?: boolean;
     enableEinsteinSearchAnswersGPT?: boolean;
+    enableEinsteinSearchAnswersOnDMO?: boolean;
     enableEinsteinSearchAssistantDialog?: boolean;
     enableEinsteinSearchEs4kPilot?: boolean;
     enableEinsteinSearchNLSFilters?: boolean;
@@ -20306,6 +25652,7 @@ export type SearchableObjDataSyncInfo = Metadata & {
     picklistMappings: ObjectMapping[];
     scheduleFrequencyInHours?: string;
     searchableObject: string;
+    typeAheadMappings: ObjectMapping[];
 }
 
 export type SecuritySettings = Metadata & {
@@ -20354,6 +25701,7 @@ export type PasswordPolicies = {
 export type SessionSettings = {
     allowUserAuthenticationByCertificate?: boolean;
     allowUserCertBasedAuthenticationWithOcspValidation?: boolean;
+    auraBoxcarReductionPref?: boolean;
     canConfirmEmailChangeInLightningCommunities?: boolean;
     canConfirmIdentityBySmsOnly?: boolean;
     disableTimeoutWarning?: boolean;
@@ -20377,8 +25725,6 @@ export type SessionSettings = {
     enablePostForSessions?: boolean;
     enableSMSIdentity?: boolean;
     enableU2F?: boolean;
-    enableUpgradeInsecureRequests?: boolean;
-    enableXssProtection?: boolean;
     enforceIpRangesEveryRequest?: boolean;
     enforceUserDeviceRevoked?: boolean;
     forceLogoutOnSessionTimeout?: boolean;
@@ -20396,20 +25742,23 @@ export type SessionSettings = {
     lockerServiceCSP?: boolean;
     lockerServiceNext?: boolean;
     lockerServiceNextControl?: boolean;
+    lockerTrustedMode?: boolean;
+    lockerTrustedResources?: string;
     logoutURL?: string;
     redirectBlockModeEnabled?: boolean;
     redirectionWarning?: boolean;
     referrerPolicy?: boolean;
     referrerPolicyDirective?: string;
     requireHttpOnly?: boolean;
-    requireHttps?: boolean;
     sendCspForUncommonClients?: boolean;
     sessionTimeout?: SessionTimeout;
     sidToken3rdPartyAuraApp?: boolean;
     skipSFAWhenMFADirectUILogin?: boolean;
     terminateUserSessionsWhenAdminResetsPassword?: boolean;
+    untrustedRedirect?: UntrustedRedirectEnum;
     useEAPIRateLimitForConnectAPI?: boolean;
     useLocalStorageForLogoutUrl?: boolean;
+    welcomeEmailTemplateId?: string;
 }
 
 export type SingleSignOnSettings = {
@@ -20440,6 +25789,9 @@ export type ServiceAISetupField = Metadata & {
 export type ServiceChannel = Metadata & {
     acwExtensionDuration?: number;
     afterConvoWorkMaxTime?: number;
+    capacityModel?: CapacityModel;
+    doesCheckCapOnOwnerChange?: boolean;
+    doesCheckCapOnStatusChange?: boolean;
     doesMinimizeWidgetOnAccept?: boolean;
     hasAcwExtensionEnabled?: boolean;
     hasAfterConvoWorkTimer?: boolean;
@@ -20451,6 +25803,8 @@ export type ServiceChannel = Metadata & {
     relatedEntityType: string;
     secondaryRoutingPriorityField?: string;
     serviceChannelFieldPriorities: ServiceChannelFieldPriority[];
+    serviceChannelStatusFieldMappings: ServiceChannelStatusFieldMapping[];
+    statusField?: string;
 }
 
 export type ServiceChannelFieldPriority = {
@@ -20458,17 +25812,42 @@ export type ServiceChannelFieldPriority = {
     value: string;
 }
 
+export type ServiceChannelStatusFieldMapping = {
+    type: StatusFieldMappingType;
+    value: string;
+}
+
 export type ServiceCloudVoiceSettings = Metadata & {
+    disableSCVTaskCreationForHVS?: boolean;
     enableAmazonQueueManagement?: boolean;
     enableDefaultChannelForSCV?: boolean;
+    enableDigitalVoiceWhatsapp?: boolean;
     enableEndUserForSCV?: boolean;
     enableOmniCapacityForSCV?: boolean;
     enablePTQueueManagement?: boolean;
+    enablePhoneNumberMaskingForSCV?: boolean;
     enableRZoneCloudVoiceOptIn?: boolean;
+    enableSCVASAContextLinkingEnabled?: boolean;
     enableSCVBYOT?: boolean;
     enableSCVExternalTelephony?: boolean;
+    enableSCVOpenVCAsNewTabHVS?: boolean;
     enableSCVSupportBannerDisplayed?: boolean;
     enableServiceCloudVoice?: boolean;
+}
+
+export type ServiceItsmIntelligenceUddSettings = Metadata & {
+    enableCheckIncAttrProactvAsst?: boolean;
+    enableEinsteinAssignGrpInc?: boolean;
+    enableEinsteinProbmCreationInc?: boolean;
+    enableIncAsgntProactvAsst?: boolean;
+    enableIncPrpsRsolSumProactvAsst?: boolean;
+    enableIncRootCseSumProactvAsst?: boolean;
+    enableIncSmlrRecProactvAsst?: boolean;
+    enableIncSrvcPlanProactvAsst?: boolean;
+    enableIncSummaryProactvAsst?: boolean;
+    enableItSrvcsEmployeeAgent?: boolean;
+    enableItSrvcsFulfillerAgent?: boolean;
+    enableProactvAsstforItSrvcs?: boolean;
 }
 
 export type ServicePresenceStatus = Metadata & {
@@ -20487,6 +25866,7 @@ export type ServiceProcess = Metadata & {
     serviceProcessDependencies: ServiceProcessDependency[];
     serviceProcessItemGroups: ServiceProcessItemGroup[];
     shortDescription?: string;
+    shouldHideEmptyAttributes?: boolean;
     usageType: SvcCatalogItemUsageType;
 }
 
@@ -20509,6 +25889,7 @@ export type ServiceProcessAttribute = {
 
 export type ServiceProcessDependency = {
     dependencyReference: string;
+    processStepName?: SvcCtlgItemDpndProcType;
     type: SvcCatalogItemDependencyType;
 }
 
@@ -20516,6 +25897,19 @@ export type ServiceProcessItemGroup = {
     apiName: string;
     groupName: string;
     sortOrder: number;
+}
+
+export type ServiceScheduleConfig = Metadata & {
+    areOnlyApprovedAbsnConsidered?: boolean;
+    defaultAerialTravelSpeed?: number;
+    distanceMeasurementUnit: DistanceMeasurementUnit;
+    isCmplxWrkSldngByTerrEnabled?: boolean;
+    isIndvRsrcCrewSchdConsidered?: boolean;
+    isSvcRsrcCrewsSkillAgg?: boolean;
+    masterLabel: string;
+    maxDaysForSchedulingHorizon?: number;
+    schedulingMode?: SchedulingMode;
+    travelTimeBuffer?: number;
 }
 
 export type ServiceSetupAssistantSettings = Metadata & {
@@ -20596,9 +25990,8 @@ export type SharingSettings = Metadata & {
 }
 
 export type SiteSettings = Metadata & {
-    enableEnhancedSitesAndContentPlatform?: boolean;
+    enableExpBuilderCopilot?: boolean;
     enableProxyLoginICHeader?: boolean;
-    enableSitesRecordReassignOrgPref?: boolean;
     enableTopicsInSites?: boolean;
 }
 
@@ -20645,6 +26038,112 @@ export type SocialCustomerServiceSettings = Metadata & {
     enableSocialReceiveParentPost?: boolean;
 }
 
+export type SrvcMgmtObjCollabAppCnfg = Metadata & {
+    collabApplication: SrvcMgmtCollabAppChannelType;
+    isActive: boolean;
+    isProtected?: boolean;
+    masterLabel: string;
+    refObjRecPageLayout?: string;
+    refObjRecordType?: string;
+    referenceObject: SrvcMgmtCollabAppRefObjType;
+    targetApplication: string;
+}
+
+export type StageAssignment = Metadata & {
+    active: boolean;
+    description?: string;
+    masterLabel: string;
+    referenceObject: string;
+    referenceObjectRecordType?: string;
+    ruleCriteria: StgAssignmentRuleCriteria[];
+    stageDefinition?: string;
+}
+
+export type StgAssignmentRuleCriteria = {
+    condition: StgAssignmentRuleCond[];
+    criteriaType: StageCriteriaType;
+    logicalExpression?: string;
+    name: string;
+    priority: number;
+    stageDefinition: string;
+}
+
+export type StgAssignmentRuleCond = {
+    fieldName: string;
+    operator: StageConditionOperator;
+    sequenceNumber: number;
+    value: string;
+}
+
+export type StageDefinition = Metadata & {
+    active: boolean;
+    description?: string;
+    masterLabel: string;
+    referenceObject: string;
+    referenceObjectField: string;
+    referenceObjectRecordType?: string;
+    stageTransition: StageTransition[];
+    stageValue: StageValue[];
+}
+
+export type StageTransition = {
+    criteria: StageCriteria[];
+    customPermission?: string;
+    fromStageValue: string;
+    stepGroup: StgFulfillmentStepDefGrp[];
+    toStageValue: string;
+    userPermission?: StageUserPermission;
+}
+
+export type StageCriteria = {
+    condition: StageCondition[];
+    criteriaType?: StageCriteriaType;
+    errorMessage?: string;
+    executionType: StageCriteriaExecType;
+    flowDefinitionName?: string;
+    isChildObject?: boolean;
+    logicalExpression?: string;
+    targetFieldName?: string;
+    targetObject?: string;
+}
+
+export type StageCondition = {
+    operator: StageConditionOperator;
+    sequenceNumber: number;
+    sourceField: string;
+    value: string;
+}
+
+export type StgFulfillmentStepDefGrp = {
+    name: string;
+    step: StgFulfillmentStepDef[];
+}
+
+export type StgFulfillmentStepDef = {
+    apiName: string;
+    assignedToQueue?: string;
+    assignedToUser?: string;
+    dependency: StgFulfillmentStepDpndDef[];
+    executeOnRule?: string;
+    flowDefinitionName?: string;
+    integrationDefinitionName?: string;
+    isVisibleByExternalUsers?: boolean;
+    name: string;
+    omniscriptName?: string;
+    runAsUser?: string;
+    stepType: string;
+}
+
+export type StgFulfillmentStepDpndDef = {
+    step: string;
+}
+
+export type StageValue = {
+    criteria: StageCriteria[];
+    stepGroup: StgFulfillmentStepDefGrp[];
+    value: string;
+}
+
 export type StandardValueSet = Metadata & {
     groupingStringEnum?: string;
     sorted: boolean;
@@ -20653,6 +26152,18 @@ export type StandardValueSet = Metadata & {
 
 export type StandardValueSetTranslation = Metadata & {
     valueTranslation: ValueTranslation[];
+}
+
+export type StaticDynamicValMapping = Metadata & {
+    attribute: string;
+    dynamicValue: string;
+    dynamicValueObject: string;
+    dynamicValueObjectField: string;
+    masterLabel: string;
+    staticValue: string;
+    staticValueObject: string;
+    staticValueObjectField: string;
+    uniqueConstraintFormula?: string;
 }
 
 export type StnryAssetEnvSrcCnfg = Metadata & {
@@ -20677,9 +26188,11 @@ export type SubscriptionManagementSettings = Metadata & {
 }
 
 export type SurveySettings = Metadata & {
+    enableConversationalSurveys?: boolean;
     enableGenerativeAISurveys?: boolean;
     enableIndustriesCxmEnabled?: boolean;
     enableSurvey?: boolean;
+    enableSurveyInvLinkWithoutAppExtension?: boolean;
     enableSurveyOwnerCanManageResponse?: boolean;
 }
 
@@ -20689,6 +26202,7 @@ export type SustainabilityUom = Metadata & {
     isProtected?: boolean;
     isStationaryAssetUom?: boolean;
     isVehicleAssetUom?: boolean;
+    isWasteUom?: boolean;
     masterLabel: string;
     unitType: UnitType;
 }
@@ -20758,7 +26272,9 @@ export type SvcCatalogItemDef = Metadata & {
     image?: string;
     inputs: SvcCatalogItemAttribute[];
     internalNotes?: string;
+    isAvailableToAllCustomers: boolean;
     isFeatured?: boolean;
+    isGuestAccessible: boolean;
     isProtected?: boolean;
     masterLabel: string;
     sharedTo?: SharedTo;
@@ -20812,6 +26328,87 @@ export type SystemNotificationSettings = Metadata & {
     disableMaintenanceNotifications?: boolean;
 }
 
+export type Tag = Metadata & {
+    description?: string;
+    label: string;
+    name: string;
+    options: TagOption[];
+    properties: TagProperty[];
+}
+
+export type TagOption = {
+    name: string;
+    value: boolean;
+}
+
+export type TagProperty = {
+    name: string;
+    value: string;
+}
+
+export type TagSet = Metadata & {
+    description?: string;
+    label: string;
+    name: string;
+    options: TagOption[];
+    properties: TagProperty[];
+    tags: Tag[];
+}
+
+export type TelemetryActionDefStep = Metadata & {
+    delayInSeconds?: number;
+    groupName: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    operationType: TelemetryActnDefStepOpType;
+    remoteEndPointUrl?: string;
+    sequenceNumber: number;
+    targetComponentPath: string;
+    telemetryActionDefinition: string;
+    telemetryDefVersion?: string;
+}
+
+export type TelemetryActionDefinition = Metadata & {
+    actionName: string;
+    description?: string;
+    executionProcedure?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    telemetryDefinitionVersion: string;
+}
+
+export type TelemetryActnDefStepAttr = Metadata & {
+    allowedValues?: string;
+    attributeName: string;
+    dataType: TelActnDefStepAttrDataType;
+    description?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    maximumValue?: number;
+    minimumValue?: number;
+    telemetryActnDefStep: string;
+    type: TelemetryActnDefStepAttrType;
+    unitOfMeasure?: string;
+}
+
+export type TelemetryDefinition = Metadata & {
+    description?: string;
+    isProtected?: boolean;
+    isTemplate: boolean;
+    masterLabel: string;
+    usageType: TelemetryDefinitionUsageType;
+}
+
+export type TelemetryDefinitionVersion = Metadata & {
+    description?: string;
+    isActive: boolean;
+    isProtected?: boolean;
+    masterLabel: string;
+    telemetryComponentStructure?: string;
+    telemetryDefinition: string;
+    versionNumber?: number;
+}
+
 export type Territory2 = Metadata & {
     accountAccessLevel?: string;
     caseAccessLevel?: string;
@@ -20845,6 +26442,7 @@ export type Territory2Model = Metadata & {
     customFields: FieldValue[];
     description?: string;
     name: string;
+    recordVisibility?: string;
 }
 
 export type Territory2Rule = Metadata & {
@@ -20878,6 +26476,7 @@ export type Territory2Settings = Metadata & {
 export type Territory2SettingsOpportunityFilter = {
     apexClassName?: string;
     enableFilter: boolean;
+    runMultiThreaded: boolean;
     runOnCreate: boolean;
 }
 
@@ -20897,6 +26496,7 @@ export type TimeSheetTemplate = Metadata & {
     active: boolean;
     description?: string;
     frequency: TimeSheetFrequency;
+    isDuplicatePreventionEnabled?: boolean;
     masterLabel: string;
     startDate: Date;
     timeSheetTemplateAssignments: TimeSheetTemplateAssignment[];
@@ -20915,6 +26515,39 @@ export type TimelineObjectDefinition = Metadata & {
     masterLabel: string;
 }
 
+export type TopLevelFTestMd1 = Metadata & {
+    booleanField?: boolean;
+    dateField?: Date;
+    dateTimeField?: Date;
+    doubleField?: number;
+    emailField?: string;
+    integerField: number;
+    label: string;
+    staticEnumField?: FTestTopLevelSelection;
+    unnamedChildFTestMd1: UnnamedChildFTestMd1[];
+    unnamedChildFTestMd2?: UnnamedChildFTestMd2;
+}
+
+export type UnnamedChildFTestMd1 = {
+    booleanField?: boolean;
+    emailField?: string;
+    enumOrIdField?: string;
+    integerField: number;
+    subUnnamedChildFTestMd1: SubUnnamedChildFTestMd1[];
+}
+
+export type SubUnnamedChildFTestMd1 = {
+    dateField?: Date;
+    doubleField?: number;
+    integerField: number;
+    staticEnumField?: FTestTopLevelSelection;
+}
+
+export type UnnamedChildFTestMd2 = {
+    booleanField?: boolean;
+    integerField: number;
+}
+
 export type TopicsForObjects = Metadata & {
     enableTopics: boolean;
     entityApiName: string;
@@ -20924,6 +26557,16 @@ export type TrailheadSettings = Metadata & {
     enableConfettiEffect?: boolean;
     enableMyTrailheadPref?: boolean;
     enableTrailheadInLexTerms?: boolean;
+}
+
+export type TransactionProcessingType = Metadata & {
+    description?: string;
+    isProtected?: boolean;
+    masterLabel: string;
+    ruleEngine?: RuleEngine;
+    saveType: SaveType;
+    tptPricingPreference?: TPTPricingPreference;
+    tptTaxPreference?: TPTTaxPreference;
 }
 
 export type TransactionSecurityPolicy = Metadata & {
@@ -20958,13 +26601,16 @@ export type TransactionSecurityNotification = {
 }
 
 export type Translations = Metadata & {
+    aiCoachAgentScnrDefs: AiCoachAgentScnrDefTranslation[];
     botBlocks: BotBlockTranslation[];
     botTemplates: BotTemplateTranslation[];
     bots: BotTranslation[];
+    conversationMessageDefinitions: ConversationMessageDefinitionTranslation[];
     customApplications: CustomApplicationTranslation[];
     customLabels: CustomLabelTranslation[];
     customPageWebLinks: CustomPageWebLinkTranslation[];
     customTabs: CustomTabTranslation[];
+    dataConnectors: DataConnectorTranslation[];
     desFieldTemplateMessages: ExplainabilityMsgTemplateFieldTranslation[];
     flowDefinitions: FlowDefinitionTranslation[];
     identityVerificationCustomFieldLabels: IdentityVerificationFieldTranslation[];
@@ -20973,6 +26619,15 @@ export type Translations = Metadata & {
     quickActions: GlobalQuickActionTranslation[];
     reportTypes: ReportTypeTranslation[];
     scontrols: ScontrolTranslation[];
+    svcCatalogItemAttributes: ServiceProcessAttributeTranslation[];
+    svcCatalogItemGroups: ServiceProcessItemGroupTranslation[];
+}
+
+export type AiCoachAgentScnrDefTranslation = {
+    description?: string;
+    label?: string;
+    name: string;
+    userGuidance?: string;
 }
 
 export type BotBlockTranslation = {
@@ -21034,9 +26689,20 @@ export type BotVersionTranslation = {
     fullName: string;
 }
 
-export type CustomApplicationTranslation = {
-    description: string;
+export type ConversationMessageDefinitionTranslation = {
+    constantValueTranslations: ConversationMessageConstantValueTranslation[];
     label: string;
+    name: string;
+}
+
+export type ConversationMessageConstantValueTranslation = {
+    name: string;
+    value: string;
+}
+
+export type CustomApplicationTranslation = {
+    description?: string;
+    label?: string;
     name: string;
 }
 
@@ -21051,6 +26717,35 @@ export type CustomPageWebLinkTranslation = {
 }
 
 export type CustomTabTranslation = {
+    label: string;
+    name: string;
+}
+
+export type DataConnectorTranslation = {
+    attributes: DataConnectorAttributeTranslation[];
+    description?: string;
+    errors: DataConnectorErrorTranslation[];
+    help?: string;
+    label?: string;
+    language?: string;
+    name?: string;
+}
+
+export type DataConnectorAttributeTranslation = {
+    errorMessage?: string;
+    infoMessage?: string;
+    inputLabel?: string;
+    label: string;
+    name: string;
+    options: DataConnectorAttributeOptTranslation[];
+}
+
+export type DataConnectorAttributeOptTranslation = {
+    label: string;
+    name: string;
+}
+
+export type DataConnectorErrorTranslation = {
     label: string;
     name: string;
 }
@@ -21073,6 +26768,8 @@ export type FlowTranslation = {
     customErrorMessages: FlowCustomErrorMessageTranslation[];
     fullName?: string;
     label?: string;
+    orchestrationStages: FlowOrchestrationStageTranslation[];
+    orchestrationSteps: FlowOrchestrationStepTranslation[];
     screens: FlowScreenTranslation[];
     stages: FlowStageTranslation[];
     textTemplates: FlowTextTemplateTranslation[];
@@ -21097,6 +26794,16 @@ export type FlowCustomErrorMessageTranslation = {
     developerName: string;
     errorMessage?: string;
     field?: string;
+}
+
+export type FlowOrchestrationStageTranslation = {
+    name: string;
+    stageLabel?: string;
+}
+
+export type FlowOrchestrationStepTranslation = {
+    name: string;
+    stepLabel?: string;
 }
 
 export type FlowScreenTranslation = {
@@ -21206,6 +26913,18 @@ export type ScontrolTranslation = {
     name: string;
 }
 
+export type ServiceProcessAttributeTranslation = {
+    label: string;
+    name: string;
+    serviceProcessName: string;
+}
+
+export type ServiceProcessItemGroupTranslation = {
+    groupName: string;
+    name: string;
+    serviceProcessName: string;
+}
+
 export type TrialOrgSettings = Metadata & {
     enableSampleDataDeleted?: boolean;
 }
@@ -21231,11 +26950,27 @@ export type UIObjectRelationFieldConfig = {
     rowOrder: number;
 }
 
+export type UiFormatSpecificationSet = Metadata & {
+    field: string;
+    formatType: FormatType;
+    masterLabel: string;
+    sobjectType: string;
+    uiFormatSpecifications: UiFormatSpecification[];
+}
+
+export type UiFormatSpecification = {
+    formatProperties: string;
+    formatType: FormatType;
+    order: number;
+    visibilityRule?: UiFormulaRule;
+}
+
 export type UserAccessPolicy = Metadata & {
     booleanFilter: string;
     description?: string;
     isProtected?: boolean;
     masterLabel: string;
+    order?: number;
     status: UserAccessPolicyStatus;
     triggerType?: UserAccessPolicyTriggerType;
     userAccessPolicyActions: UserAccessPolicyAction[];
@@ -21267,7 +27002,7 @@ export type UserCriteria = Metadata & {
 }
 
 export type UserEngagementSettings = Metadata & {
-    canGovCloudUseAdoptionApps?: boolean;
+    canUseAdoptionApps?: boolean;
     doesScheduledSwitcherRunDaily?: boolean;
     enableCustomHelpGlobalSection?: boolean;
     enableHelpMenuShowFeedback?: boolean;
@@ -21296,6 +27031,7 @@ export type UserEngagementSettings = Metadata & {
     isMeetTheAssistantDisabledInLightning?: boolean;
     isSmartNudgesDisabled?: boolean;
     optimizerAppEnabled?: boolean;
+    suggestedForYou?: boolean;
 }
 
 export type UserInterfaceSettings = Metadata & {
@@ -21317,9 +27053,17 @@ export type UserInterfaceSettings = Metadata & {
     enablePrintableListViews?: boolean;
     enableProfileCustomTabsets?: boolean;
     enableQuickCreate?: boolean;
+    enableQuickSetupPanel?: boolean;
     enableRelatedListHovers?: boolean;
+    enableSldsV2?: boolean;
+    enableSldsV2DarkModeInCosmos?: boolean;
+    enableSpotlight?: boolean;
     enableTabOrganizer?: boolean;
+    enableVertNavThemedIconsEnabled?: boolean;
     enableVerticalNavSeamlessSwitching?: boolean;
+    multiColumnSort?: boolean;
+    multiColumnSortLv?: boolean;
+    multiColumnSortRl?: boolean;
 }
 
 export type UserLicenseDefinition = Metadata & {
@@ -21337,6 +27081,7 @@ export type UserLicenseDefinition = Metadata & {
     managementTenantId?: string;
     minPlatformVersion?: number;
     name: string;
+    recordVisibility?: string;
     settingItems: SettingItem[];
     settingUsageDefinitions: SettingUsageDefinition[];
     standardPermissionSets: StandardPermissionSet[];
@@ -21347,6 +27092,7 @@ export type StandardPermissionSet = {
     isSessionBased?: boolean;
     namespace?: string;
     profileKey?: string;
+    recordVisibility?: string;
     requiredAccessCheck?: string;
     settingValues: SettingValue[];
 }
@@ -21369,15 +27115,15 @@ export type UserManagementSettings = Metadata & {
     enableRestrictEmailDomains?: boolean;
     enableScrambleUserData?: boolean;
     enableUserSelfDeactivate?: boolean;
+    enhancedPermSetList?: boolean;
+    enhancedUserListView?: boolean;
+    enhancedUserRoleListView?: boolean;
+    groupSummaryUIEnhancement?: boolean;
     permsetsInFieldCreation?: boolean;
     psaExpirationUIEnabled?: boolean;
     restrictedProfileCloning?: boolean;
     userAccessPoliciesEnabled?: boolean;
-}
-
-export type UserProfileSearchScope = Metadata & {
-    entityApiNames: string[];
-    profile?: string;
+    userFieldHistoryTracking?: boolean;
 }
 
 export type UserProvisioningConfig = Metadata & {
@@ -21421,6 +27167,33 @@ export type VisualizationType = {
     icon: string;
     masterLabel: string;
     scriptBootstrapMethod?: string;
+}
+
+export type VoiceEngagementMediaFile = Metadata & {
+    contentDocId?: string;
+    fileName?: string;
+    fileUrl?: string;
+    id?: string;
+    isCustom?: boolean;
+    masterLabel?: string;
+    message?: string;
+    uploadStatus?: UploadStatus;
+}
+
+export type VoiceEngagementMediaUsage = Metadata & {
+    id?: string;
+    masterLabel?: string;
+    mediaName?: string;
+}
+
+export type VoiceEngmtMediaFileAsgnt = Metadata & {
+    assignmentType?: AssignmentType;
+    id?: string;
+    isActive?: boolean;
+    isDefault?: boolean;
+    masterLabel?: string;
+    voiceEngagementMediaFile?: string;
+    voiceEngagementMediaUsage?: string;
 }
 
 export type VoiceSettings = Metadata & {
@@ -21711,6 +27484,7 @@ export type WebStoreTemplate = Metadata & {
 }
 
 export type WebToXSettings = Metadata & {
+    optOutEmailForInactiveWebToCase?: boolean;
     shouldHideRecordInfoInEmail?: boolean;
     webToCaseSpamFilter?: boolean;
     webToLeadSpamFilter?: boolean;
@@ -21758,6 +27532,7 @@ export type Workflow = Metadata & {
     alerts: WorkflowAlert[];
     fieldUpdates: WorkflowFieldUpdate[];
     flowActions: WorkflowFlowAction[];
+    flowAutomation: WorkflowFlowAutomation[];
     knowledgePublishes: WorkflowKnowledgePublish[];
     outboundMessages: WorkflowOutboundMessage[];
     rules: WorkflowRule[];
@@ -21804,6 +27579,18 @@ export type WorkflowFlowAction = WorkflowAction & {
 export type WorkflowFlowActionParameter = {
     name: string;
     value?: string;
+}
+
+export type WorkflowFlowAutomation = WorkflowAction & {
+    activeOrLastInactiveVersion?: string;
+    activeOrLatestVersion?: string;
+    activeVersion?: string;
+    fireflyGuid?: string;
+    isFlowAccessEnabled?: boolean;
+    latestVersion?: string;
+    masterLabel?: string;
+    migratedFrom?: string;
+    objectType?: string;
 }
 
 export type WorkflowKnowledgePublish = WorkflowAction & {
@@ -21965,6 +27752,7 @@ export type ReadResult = {
 export type RetrieveRequest = {
     apiVersion: number;
     packageNames: string[];
+    rootTypesWithDependencies: string[];
     singlePackage: boolean;
     specificFiles: string[];
     unpackaged?: Package;
@@ -21985,6 +27773,30 @@ export type UpsertResult = {
 export type LogInfo = {
     category: LogCategory;
     level: LogCategoryLevel;
+}
+
+export type AiPlannerSurfaceDef = {
+    adaptiveResponseAllowed?: boolean;
+    callRecordingAllowed?: boolean;
+    surface: string;
+    surfaceType: SurfaceType;
+}
+
+export type RpaRobotPoolMetadata = Metadata & {
+    name: string;
+}
+
+export type GenAiPlanner = Metadata & {
+    attributeMappings: GenAiPlannerAttrMapping[];
+    botTemplate?: string;
+    capabilities?: string;
+    description?: string;
+    genAiFunctions: GenAiPlannerFunctionDef[];
+    genAiPlugins: GenAiPlannerFunctionDef[];
+    masterLabel: string;
+    plannerType: PlannerType;
+    ruleExpressionAssignments: GenAiPlannerRuleExprAsgn[];
+    ruleExpressions: GenAiPlannerRuleExprDef[];
 }
 
 export type ApiSchemaTypes = {
@@ -22041,10 +27853,14 @@ export type ApiSchemaTypes = {
 	ActionLinkUserVisibility: ActionLinkUserVisibility;
 	PlatformActionGroupCategory: PlatformActionGroupCategory;
 	ActionLinkExecutionsAllowed: ActionLinkExecutionsAllowed;
+	ActionPlanTemplateType: ActionPlanTemplateType;
+	ActivationFlowType: ActivationFlowType;
 	ActivationPlatformConnectorType: ActivationPlatformConnectorType;
+	ActivationPlatformCreationType: ActivationPlatformCreationType;
 	ActivationPlatformFileOutputFormat: ActivationPlatformFileOutputFormat;
 	ActivationPlatformFileOutputGrouping: ActivationPlatformFileOutputGrouping;
 	ActivationPlatformPeriodicFullRefresh: ActivationPlatformPeriodicFullRefresh;
+	ActivationPlatformProcessingType: ActivationPlatformProcessingType;
 	ActivationPlatformType: ActivationPlatformType;
 	ActivationPlatformRefreshFrequency: ActivationPlatformRefreshFrequency;
 	ActivationPlatformRefreshMode: ActivationPlatformRefreshMode;
@@ -22064,8 +27880,19 @@ export type ApiSchemaTypes = {
 	AdvAccForecastSetStatus: AdvAccForecastSetStatus;
 	ForecastPeriodGroupStatus: ForecastPeriodGroupStatus;
 	FieldMappingClient: FieldMappingClient;
+	AffinityScoreType: AffinityScoreType;
 	ReportSummaryType: ReportSummaryType;
 	ReportJobSourceTypes: ReportJobSourceTypes;
+	AnalyticsDynamicTokenType: AnalyticsDynamicTokenType;
+	AnalyticsWidgetType: AnalyticsWidgetType;
+	AnalyticsActionType: AnalyticsActionType;
+	AnalyticsActionEventType: AnalyticsActionEventType;
+	AnalyticsWorkspaceAssetType: AnalyticsWorkspaceAssetType;
+	AnalyticsWorkspaceAssetUsageType: AnalyticsWorkspaceAssetUsageType;
+	VisualizationFieldDisplayCategoryType: VisualizationFieldDisplayCategoryType;
+	VisualizationFieldFunctionType: VisualizationFieldFunctionType;
+	VisualizationFieldRoleType: VisualizationFieldRoleType;
+	VisualizationFieldType: VisualizationFieldType;
 	ApplicationObjectName: ApplicationObjectName;
 	ApplicationUsageType: ApplicationUsageType;
 	AppDomainUsageType: AppDomainUsageType;
@@ -22092,6 +27919,9 @@ export type ApiSchemaTypes = {
 	AuraBundleType: AuraBundleType;
 	MuleSoftControlPlane: MuleSoftControlPlane;
 	AuthProviderType: AuthProviderType;
+	BatchCalcJobCSVDelimiter: BatchCalcJobCSVDelimiter;
+	BatchCalcJobDataType: BatchCalcJobDataType;
+	BatchCalcJobFileSource: BatchCalcJobFileSource;
 	BatchCalcJobDatasourceType: BatchCalcJobDatasourceType;
 	BatchCalcJobFilterOperator: BatchCalcJobFilterOperator;
 	BatchCalcJobFrcstAccuracy: BatchCalcJobFrcstAccuracy;
@@ -22101,19 +27931,24 @@ export type ApiSchemaTypes = {
 	BatchCalcJobFrcstSeasonality: BatchCalcJobFrcstSeasonality;
 	BatchCalcJobParameterDataType: BatchCalcJobParameterDataType;
 	BatchCalcJobSourceJoinType: BatchCalcJobSourceJoinType;
-	BatchCalcJobDataType: BatchCalcJobDataType;
 	BatchCalcJobOrderType: BatchCalcJobOrderType;
 	BatchCalcJobTransformType: BatchCalcJobTransformType;
+	BatchCalcJobWritebackKeyType: BatchCalcJobWritebackKeyType;
 	BatchCalcJobWritebackOpn: BatchCalcJobWritebackOpn;
 	BatchCalcJobWritebackType: BatchCalcJobWritebackType;
+	BatchCalcJobDefRunMode: BatchCalcJobDefRunMode;
+	ExecutionPlatformObjectType: ExecutionPlatformObjectType;
 	ExecutionPlatformType: ExecutionPlatformType;
 	BatchCalcProcessType: BatchCalcProcessType;
 	BatchJobDefinitionStatus: BatchJobDefinitionStatus;
+	DataSourceType: DataSourceType;
 	BenefitActionDataType: BenefitActionDataType;
 	BuildingEnergyIntensityType: BuildingEnergyIntensityType;
+	GenAiAgentType: GenAiAgentType;
 	Language: Language;
 	MlSlotClassDataType: MlSlotClassDataType;
 	MlSlotClassExtractionType: MlSlotClassExtractionType;
+	BotSourceType: BotSourceType;
 	ConversationInvocableTargetType: ConversationInvocableTargetType;
 	BotInvocationMappingType: BotInvocationMappingType;
 	ConversationVariableType: ConversationVariableType;
@@ -22133,6 +27968,7 @@ export type ApiSchemaTypes = {
 	ConversationSystemDialogType: ConversationSystemDialogType;
 	ConversationVariableCollectionType: ConversationVariableCollectionType;
 	ConversationDataType: ConversationDataType;
+	ConversationVariableVisibilityType: ConversationVariableVisibilityType;
 	ConversationDefinitionNlpProviderType: ConversationDefinitionNlpProviderType;
 	GenAiBotToneType: GenAiBotToneType;
 	MessageType: MessageType;
@@ -22153,17 +27989,33 @@ export type ApiSchemaTypes = {
 	EmailToCaseOnFailureActionType: EmailToCaseOnFailureActionType;
 	EmailToCaseRoutingAddressType: EmailToCaseRoutingAddressType;
 	CaseSubjectParticleType: CaseSubjectParticleType;
+	APIInstanceAccessStatus: APIInstanceAccessStatus;
+	APIInstanceApprovalType: APIInstanceApprovalType;
+	ExternalServiceRegistrationProviderType: ExternalServiceRegistrationProviderType;
+	APIType: APIType;
 	ActionForNoRecordFound: ActionForNoRecordFound;
 	ActionForSingleRecordFound: ActionForSingleRecordFound;
 	ChannelType: ChannelType;
 	ObjectToLink: ObjectToLink;
 	ChatterExtensionType: ChatterExtensionType;
+	EmbeddedServiceFeature: EmbeddedServiceFeature;
+	EmbeddedServiceLabelKey: EmbeddedServiceLabelKey;
+	CCRDType: CCRDType;
 	ClmCategoryUsageType: ClmCategoryUsageType;
 	MappingOperation: MappingOperation;
 	CleanRuleStatus: CleanRuleStatus;
 	AuthType: AuthType;
 	CloudServiceProviderApiType: CloudServiceProviderApiType;
 	ProvisioningAutomationType: ProvisioningAutomationType;
+	AggregatorName: AggregatorName;
+	CodeFeature: CodeFeature;
+	CodeProvider: CodeProvider;
+	CodeProvisioningStatus: CodeProvisioningStatus;
+	CodeStatus: CodeStatus;
+	CodeSubType: CodeSubType;
+	CommunicationChannelLineType: CommunicationChannelLineType;
+	RegulatoryStatus: RegulatoryStatus;
+	SourceCountryCode: SourceCountryCode;
 	ModelEntityType: ModelEntityType;
 	ModelStatus: ModelStatus;
 	CommunityBaseTemplate: CommunityBaseTemplate;
@@ -22184,25 +28036,39 @@ export type ApiSchemaTypes = {
 	SamlSubjectType: SamlSubjectType;
 	BannerFontFamily: BannerFontFamily;
 	BannerPosition: BannerPosition;
+	ContextMappingIntentType: ContextMappingIntentType;
 	ContextAttributeDataType: ContextAttributeDataType;
 	ContextAttributeFieldType: ContextAttributeFieldType;
+	ContextMappingConfigUsageType: ContextMappingConfigUsageType;
+	ContextMappingType: ContextMappingType;
+	ContextUseCaseType: ContextUseCaseType;
 	ContractConfigType: ContractConfigType;
 	ContractUsageType: ContractUsageType;
+	ConvIntelligenceActionType: ConvIntelligenceActionType;
+	ConvParticipantRole: ConvParticipantRole;
+	ConvIntelligenceService: ConvIntelligenceService;
+	ConvIntelligenceOperator: ConvIntelligenceOperator;
+	ConvIntelligenceType: ConvIntelligenceType;
 	RefreshFrequency: RefreshFrequency;
 	ReportStatus: ReportStatus;
 	SegmentationType: SegmentationType;
+	CustomChannelConnectedAppType: CustomChannelConnectedAppType;
 	ConsentOwner: ConsentOwner;
 	RoutingOwner: RoutingOwner;
 	ConversationMessageConstantType: ConversationMessageConstantType;
 	ConversationMessageConstantValueType: ConversationMessageConstantValueType;
+	ConversationMessageValueType: ConversationMessageValueType;
+	ConversationMessageContentCategory: ConversationMessageContentCategory;
 	ConversationMessageHandlerType: ConversationMessageHandlerType;
+	ConvMsgExternalErrorCode: ConvMsgExternalErrorCode;
+	ConvMsgExternalRejectionReason: ConvMsgExternalRejectionReason;
 	ConvMsgExternalTemplateVersionStatus: ConvMsgExternalTemplateVersionStatus;
+	ConvMsgExternalTemplateVersionType: ConvMsgExternalTemplateVersionType;
 	ConversationMessageFormatType: ConversationMessageFormatType;
 	ConversationMessageCollectionType: ConversationMessageCollectionType;
 	ConversationMessageMergeFieldType: ConversationMessageMergeFieldType;
 	ConversationMessageLayoutValueType: ConversationMessageLayoutValueType;
 	ConversationMessageType: ConversationMessageType;
-	ConversationMessageValueType: ConversationMessageValueType;
 	ConversationMessageOptionsParameterType: ConversationMessageOptionsParameterType;
 	ConversationMessageParameterType: ConversationMessageParameterType;
 	ConversationMessageDefinitionType: ConversationMessageDefinitionType;
@@ -22226,8 +28092,10 @@ export type ApiSchemaTypes = {
 	DefinitionCreationType: DefinitionCreationType;
 	UsageTag: UsageTag;
 	InvalidMergeActionType: InvalidMergeActionType;
+	MappingAlertType: MappingAlertType;
 	MktDataModelFieldUsageTag: MktDataModelFieldUsageTag;
 	SummaryOperations: SummaryOperations;
+	NotificationActionType: NotificationActionType;
 	Channel: Channel;
 	Template: Template;
 	CustomSettingsType: CustomSettingsType;
@@ -22268,11 +28136,20 @@ export type ApiSchemaTypes = {
 	DashboardComponentSize: DashboardComponentSize;
 	CalculatedInsightCreationType: CalculatedInsightCreationType;
 	CalculatedInsightDefinitionType: CalculatedInsightDefinitionType;
+	DataConnectorCapability: DataConnectorCapability;
+	DataConnectorDataType: DataConnectorDataType;
+	TranslationAspect: TranslationAspect;
+	DataConnectorFeature: DataConnectorFeature;
+	DataConnectorReleaseLevel: DataConnectorReleaseLevel;
 	DataModelType: DataModelType;
+	AccelerationEnabled: AccelerationEnabled;
 	DataObjectType: DataObjectType;
+	StorageType: StorageType;
 	DataImportDataExtractMethods: DataImportDataExtractMethods;
 	DataImportRefreshFrequency: DataImportRefreshFrequency;
 	DataImportRefreshMode: DataImportRefreshMode;
+	StreamType: StreamType;
+	StreamingAppDataConnectorType: StreamingAppDataConnectorType;
 	ExpsSetProcessType: ExpsSetProcessType;
 	DecisionMatrixType: DecisionMatrixType;
 	DecisionMatrixColumnType: DecisionMatrixColumnType;
@@ -22287,11 +28164,13 @@ export type ApiSchemaTypes = {
 	DecisionTableParameterType: DecisionTableParameterType;
 	DTSourceCriteriaOperator: DTSourceCriteriaOperator;
 	DTSourceCriteriaValueType: DTSourceCriteriaValueType;
+	DecisionTableDownloadStatus: DecisionTableDownloadStatus;
+	DecisionTableExecutionType: DecisionTableExecutionType;
 	DecisionTableHitPolicy: DecisionTableHitPolicy;
 	DecisionTableRefreshStatus: DecisionTableRefreshStatus;
 	DecisionTableStatus: DecisionTableStatus;
 	DecisionTableType: DecisionTableType;
-	DecisionTableUsageType: DecisionTableUsageType;
+	DecisionTableUploadStatus: DecisionTableUploadStatus;
 	FTestTopLevelSelection: FTestTopLevelSelection;
 	SchedulingCategory: SchedulingCategory;
 	SchedulingObjectiveType: SchedulingObjectiveType;
@@ -22308,12 +28187,23 @@ export type ApiSchemaTypes = {
 	MobileSecurityPolicyType: MobileSecurityPolicyType;
 	LearningAchievementType: LearningAchievementType;
 	RecordAlertDataSourceType: RecordAlertDataSourceType;
+	ServicePlanSourceType: ServicePlanSourceType;
 	ExtensionPointName: ExtensionPointName;
 	RegistryProviderType: RegistryProviderType;
+	CustomFieldDisplayType: CustomFieldDisplayType;
+	SupportedChannel: SupportedChannel;
 	MappingBehaviorType: MappingBehaviorType;
+	RRADJctObjFilterLogic: RRADJctObjFilterLogic;
+	RelatedRecordAccessDefShareTo: RelatedRecordAccessDefShareTo;
+	RRADSourceObjFilterLogic: RRADSourceObjFilterLogic;
+	RelatedRecordAccessDefStatus: RelatedRecordAccessDefStatus;
+	RRADTargetObjFilterLogic: RRADTargetObjFilterLogic;
+	RRAFObjectType: RRAFObjectType;
+	RRAFOperator: RRAFOperator;
+	ObjectAccessLevel: ObjectAccessLevel;
 	MobileSecurityCertPinType: MobileSecurityCertPinType;
-	SemanticModelQueryUnrelatedDataObjectsType: SemanticModelQueryUnrelatedDataObjectsType;
 	ActionableListSourceType: ActionableListSourceType;
+	ActionableListType: ActionableListType;
 	DatasetColumnDataType: DatasetColumnDataType;
 	DatatableDataType: DatatableDataType;
 	ProviderSearchObjectMapping: ProviderSearchObjectMapping;
@@ -22327,17 +28217,9 @@ export type ApiSchemaTypes = {
 	AssociationType: AssociationType;
 	AssociationEventType: AssociationEventType;
 	AssociationStatusType: AssociationStatusType;
-	SemanticDefinitionType: SemanticDefinitionType;
-	SemanticCalculatedDimensionDataType: SemanticCalculatedDimensionDataType;
-	SemanticDisplayType: SemanticDisplayType;
-	SemanticGeoRoleType: SemanticGeoRoleType;
-	SemanticSortingType: SemanticSortingType;
-	SemanticAggregationType: SemanticAggregationType;
-	SemanticCalculatedMeasurementDataType: SemanticCalculatedMeasurementDataType;
-	SemanticDirectionalityType: SemanticDirectionalityType;
-	SemanticDataObjectType: SemanticDataObjectType;
-	SemanticRelationshipJoinType: SemanticRelationshipJoinType;
 	ShiftSegmentTypeCategory: ShiftSegmentTypeCategory;
+	DgtAssetMgmtPrvdLghtCpntType: DgtAssetMgmtPrvdLghtCpntType;
+	ManagedContentSpaceModuleStatusEnum: ManagedContentSpaceModuleStatusEnum;
 	ACPStatus: ACPStatus;
 	ApexCodeUnitStatus: ApexCodeUnitStatus;
 	ContentAssetFormat: ContentAssetFormat;
@@ -22391,15 +28273,26 @@ export type ApiSchemaTypes = {
 	EmbeddedServiceDeploymentType: EmbeddedServiceDeploymentType;
 	EmbeddedServiceComponentBundleType: EmbeddedServiceComponentBundleType;
 	EmbeddedServiceCustomComponentType: EmbeddedServiceCustomComponentType;
-	EmbeddedServiceFeature: EmbeddedServiceFeature;
-	EmbeddedServiceLabelKey: EmbeddedServiceLabelKey;
 	EmbeddedServiceResourceType: EmbeddedServiceResourceType;
 	EmbeddedServiceFlowType: EmbeddedServiceFlowType;
+	EmbeddedServiceFormDisplayContext: EmbeddedServiceFormDisplayContext;
+	EmbeddedServiceFormFieldType: EmbeddedServiceFormFieldType;
+	MessagingChannelParameterType: MessagingChannelParameterType;
 	EmbeddedServiceLayoutType: EmbeddedServiceLayoutType;
+	EswInvitationConditionResource: EswInvitationConditionResource;
+	EswInvitationConditionOperator: EswInvitationConditionOperator;
 	EmbeddedServiceQuickActionType: EmbeddedServiceQuickActionType;
 	EmbeddedServiceFontSize: EmbeddedServiceFontSize;
 	EmbeddedServiceScenario: EmbeddedServiceScenario;
 	EmbeddedServiceChannelType: EmbeddedServiceChannelType;
+	EmployeeUseCaseMethod: EmployeeUseCaseMethod;
+	EmployeeUseCaseStatus: EmployeeUseCaseStatus;
+	EnablementAggregationType: EnablementAggregationType;
+	EnablementFilterOperator: EnablementFilterOperator;
+	EnblProgramMeasureStatus: EnblProgramMeasureStatus;
+	ProgramExtContentDefProvider: ProgramExtContentDefProvider;
+	EnblCompositeMilestoneType: EnblCompositeMilestoneType;
+	ProgramTaskDefCategory: ProgramTaskDefCategory;
 	MilestoneTimeUnits: MilestoneTimeUnits;
 	EventDeliveryType: EventDeliveryType;
 	EventRelayAdminState: EventRelayAdminState;
@@ -22407,10 +28300,12 @@ export type ApiSchemaTypes = {
 	ExperienceContainerType: ExperienceContainerType;
 	ActionLogSchemaType: ActionLogSchemaType;
 	EASAppType: EASAppType;
-	EmtUsageType: EmtUsageType;
 	EvaluationResult: EvaluationResult;
 	ExpressionSetStepType: ExpressionSetStepType;
+	ExpsSetExecutionScale: ExpsSetExecutionScale;
 	ExpsSetInterfaceSourceType: ExpsSetInterfaceSourceType;
+	ResourceInitializationType: ResourceInitializationType;
+	ExpsSetUsageSubtype: ExpsSetUsageSubtype;
 	ExpsSetStatus: ExpsSetStatus;
 	BusinessKnowledgeModel: BusinessKnowledgeModel;
 	ExpsSetConditionOperator: ExpsSetConditionOperator;
@@ -22421,8 +28316,15 @@ export type ApiSchemaTypes = {
 	ExpsSetVariableLookupType: ExpsSetVariableLookupType;
 	ExpsSetVariableType: ExpsSetVariableType;
 	ExpsSetObjectDataType: ExpsSetObjectDataType;
+	BotProvider: BotProvider;
+	ChannelMode: ChannelMode;
+	ExternalBotType: ExternalBotType;
+	ExtConvParticipantIntegDefStatus: ExtConvParticipantIntegDefStatus;
 	ApplicationSourceType: ApplicationSourceType;
 	ExternalModelStatus: ExternalModelStatus;
+	IdentityProviderAuthFlow: IdentityProviderAuthFlow;
+	IdentityProviderAuthProtocol: IdentityProviderAuthProtocol;
+	ExtlIdentityProviderParmType: ExtlIdentityProviderParmType;
 	ExtlClntAppDistState: ExtlClntAppDistState;
 	ExtlClntAppManagedType: ExtlClntAppManagedType;
 	AuthenticationProtocol: AuthenticationProtocol;
@@ -22436,18 +28338,33 @@ export type ApiSchemaTypes = {
 	ExternalDataSourceType: ExternalDataSourceType;
 	StorageDriveType: StorageDriveType;
 	TargetObject: TargetObject;
-	ExternalServiceRegistrationProviderType: ExternalServiceRegistrationProviderType;
+	ExtlClntAppStartPage: ExtlClntAppStartPage;
 	ScreenLockTimeout: ScreenLockTimeout;
+	JWTSessionTimeoutType: JWTSessionTimeoutType;
 	PermittedUsersPolicyType: PermittedUsersPolicyType;
 	PolicyAction: PolicyAction;
 	RefreshTokenPolicyType: RefreshTokenPolicyType;
 	SessionSecurityLevel: SessionSecurityLevel;
+	ApplePushEnvironmentType: ApplePushEnvironmentType;
+	PushServiceType: PushServiceType;
+	ExtlClntAppSamlEncryptType: ExtlClntAppSamlEncryptType;
+	ExtlClntAppNameIdFormatType: ExtlClntAppNameIdFormatType;
+	ExtlClntAppSamlSignAlgoType: ExtlClntAppSamlSignAlgoType;
+	ExtlClntAppSamlBindingType: ExtlClntAppSamlBindingType;
+	ExtlClntAppSamlSubjectType: ExtlClntAppSamlSubjectType;
 	FeatureParameterDataflowDirection: FeatureParameterDataflowDirection;
+	FieldMappingConfigProcessType: FieldMappingConfigProcessType;
 	ClassificationType: ClassificationType;
 	EnforcementType: EnforcementType;
+	AscAutomaticMode: AscAutomaticMode;
+	BgGeoLocationAccuracy: BgGeoLocationAccuracy;
+	DestinationTypeForMetadata: DestinationTypeForMetadata;
+	GeoLocationAccuracy: GeoLocationAccuracy;
+	TimeIntervalSetupForMetadata: TimeIntervalSetupForMetadata;
 	ApptAssistantRadiusUnit: ApptAssistantRadiusUnit;
 	MappingType: MappingType;
 	WorkOrderDurationSource: WorkOrderDurationSource;
+	FieldSrcTrgtRelationshipOwner: FieldSrcTrgtRelationshipOwner;
 	RelationshipCardinality: RelationshipCardinality;
 	FileDownloadBehavior: FileDownloadBehavior;
 	FileType: FileType;
@@ -22463,23 +28380,31 @@ export type ApiSchemaTypes = {
 	PlatformActionListContext: PlatformActionListContext;
 	PlatformActionType: PlatformActionType;
 	FlexipageSchemaPropType: FlexipageSchemaPropType;
+	FlowComplexValueType: FlowComplexValueType;
 	FlowDataType: FlowDataType;
+	FlowInputConfiguratorMode: FlowInputConfiguratorMode;
+	InvocableActionType: InvocableActionType;
+	FlowTransformValueActionType: FlowTransformValueActionType;
 	FlowAssignmentOperator: FlowAssignmentOperator;
+	FlowAttributeType: FlowAttributeType;
 	FlowComparisonOperator: FlowComparisonOperator;
+	FlowValueMappingType: FlowValueMappingType;
 	FlowRecordFilterOperator: FlowRecordFilterOperator;
 	FlowStageStepAssigneeType: FlowStageStepAssigneeType;
-	FlowTransformValueActionType: FlowTransformValueActionType;
 	FlowScheduledPathOffsetUnit: FlowScheduledPathOffsetUnit;
 	FlowScheduledPathType: FlowScheduledPathType;
 	FlowScheduledPathTimeSource: FlowScheduledPathTimeSource;
-	InvocableActionType: InvocableActionType;
 	FlowScreenFieldType: FlowScreenFieldType;
 	FlowScreenFieldInputsRevisited: FlowScreenFieldInputsRevisited;
 	FlowRegionContainerType: FlowRegionContainerType;
 	FlowElementSubtype: FlowElementSubtype;
+	FlowWaitInteractionType: FlowWaitInteractionType;
 	RecordTriggerType: RecordTriggerType;
 	FlowCollectionProcessorType: FlowCollectionProcessorType;
+	FlowExperimentFallbackMode: FlowExperimentFallbackMode;
+	FlowExperimentType: FlowExperimentType;
 	IterationOrder: IterationOrder;
+	FlowNodeGroupType: FlowNodeGroupType;
 	FlowEntryType: FlowEntryType;
 	FlowRunAsUser: FlowRunAsUser;
 	FlowStartFrequency: FlowStartFrequency;
@@ -22488,6 +28413,7 @@ export type ApiSchemaTypes = {
 	FlowEnvironment: FlowEnvironment;
 	FlowRunInMode: FlowRunInMode;
 	FlowVersionStatus: FlowVersionStatus;
+	FlowTestActivationStatus: FlowTestActivationStatus;
 	FlowTestParameterType: FlowTestParameterType;
 	FolderAccessTypes: FolderAccessTypes;
 	FolderShareAccessLevel: FolderShareAccessLevel;
@@ -22495,10 +28421,19 @@ export type ApiSchemaTypes = {
 	PublicFolderAccess: PublicFolderAccess;
 	ForecastingDateType: ForecastingDateType;
 	DonorMatchingMethod: DonorMatchingMethod;
-	PlannerAttrDataType: PlannerAttrDataType;
-	PlannerAttrMappingType: PlannerAttrMappingType;
 	PlannerFunctionInvocableTargetType: PlannerFunctionInvocableTargetType;
+	PlannerAttrMappingType: PlannerAttrMappingType;
+	AttributeType: AttributeType;
+	AttributeMappingType: AttributeMappingType;
+	PluginType: PluginType;
 	PlannerType: PlannerType;
+	GenAiAgentVariableType: GenAiAgentVariableType;
+	GenAiRuleExpressionOperator: GenAiRuleExpressionOperator;
+	ExpressionType: ExpressionType;
+	GenAiPromptTemplateResponseFormat: GenAiPromptTemplateResponseFormat;
+	GenAiPromptTemplateStatus: GenAiPromptTemplateStatus;
+	GenAiPromptTemplateVisibilityType: GenAiPromptTemplateVisibilityType;
+	GenAiPromptTemplateActvAccessLevel: GenAiPromptTemplateActvAccessLevel;
 	PageComponentType: PageComponentType;
 	PageComponentWidth: PageComponentWidth;
 	IPAddressFeature: IPAddressFeature;
@@ -22514,8 +28449,12 @@ export type ApiSchemaTypes = {
 	ExternalConnectionType: ExternalConnectionType;
 	InboundConnPropertyName: InboundConnPropertyName;
 	ExternalConnectionStatus: ExternalConnectionStatus;
+	InsPolicyLifecycleProcess: InsPolicyLifecycleProcess;
+	InsRatePlanCmsnConfigCalcType: InsRatePlanCmsnConfigCalcType;
 	AttrDataType: AttrDataType;
 	DefinitionType: DefinitionType;
+	InvocableActionExtAttributeDataType: InvocableActionExtAttributeDataType;
+	InvocableActionExtTargetType: InvocableActionExtTargetType;
 	KnowledgeCaseEditor: KnowledgeCaseEditor;
 	KnowledgeLanguageLookupValueType: KnowledgeLanguageLookupValueType;
 	FeedLayoutFilterPosition: FeedLayoutFilterPosition;
@@ -22529,7 +28468,12 @@ export type ApiSchemaTypes = {
 	VisibleOrRequired: VisibleOrRequired;
 	LetterheadHorizontalAlignment: LetterheadHorizontalAlignment;
 	LetterheadVerticalAlignment: LetterheadVerticalAlignment;
+	LifeSciConfigCategoryType: LifeSciConfigCategoryType;
+	LifeSciCategoryType: LifeSciCategoryType;
+	LifeSciAssignmentLevel: LifeSciAssignmentLevel;
+	LifeSciConfigFieldDataType: LifeSciConfigFieldDataType;
 	LightningBoltCategory: LightningBoltCategory;
+	LightningDesignSystemVersion: LightningDesignSystemVersion;
 	SupervisorAgentStatusFilter: SupervisorAgentStatusFilter;
 	LiveChatButtonPresentation: LiveChatButtonPresentation;
 	LiveChatButtonInviteEndPosition: LiveChatButtonInviteEndPosition;
@@ -22568,9 +28512,17 @@ export type ApiSchemaTypes = {
 	BlankValueBehavior: BlankValueBehavior;
 	MatchingMethod: MatchingMethod;
 	MatchingRuleStatus: MatchingRuleStatus;
+	ApiSource: ApiSource;
+	AutoResponseContentType: AutoResponseContentType;
 	MessagingAutoResponseType: MessagingAutoResponseType;
+	MessagingChannelConsentType: MessagingChannelConsentType;
+	MessagingChannelUsageDeploymentType: MessagingChannelUsageDeploymentType;
 	MessagingChannelTargetLookupValueType: MessagingChannelTargetLookupValueType;
+	EmbeddedServiceAuthModeType: EmbeddedServiceAuthModeType;
+	MessagingAuthorizationType: MessagingAuthorizationType;
+	EmbeddedMsgQueueLimitType: EmbeddedMsgQueueLimitType;
 	MessagingChannelType: MessagingChannelType;
+	MessagingKeywordType: MessagingKeywordType;
 	MessagingSessionHandlerType: MessagingSessionHandlerType;
 	MessagingChannelStandardParameterType: MessagingChannelStandardParameterType;
 	MfgProgramTransformationType: MfgProgramTransformationType;
@@ -22579,28 +28531,25 @@ export type ApiSchemaTypes = {
 	MktDataConnectionMethod: MktDataConnectionMethod;
 	MktDataConnectionStatus: MktDataConnectionStatus;
 	MlAIModelAlgorithmType: MlAIModelAlgorithmType;
+	MlModelConnectorType: MlModelConnectorType;
+	MlModelDeployStatus: MlModelDeployStatus;
 	MlGenerativeModelType: MlGenerativeModelType;
 	MlGenerativeModelCapability: MlGenerativeModelCapability;
+	MlModelCapability: MlModelCapability;
 	MlModelType: MlModelType;
 	MlParameterSubtype: MlParameterSubtype;
 	MlParameterType: MlParameterType;
 	MlModelPredictionType: MlModelPredictionType;
 	MlRuntimeType: MlRuntimeType;
 	MlModelSourceType: MlModelSourceType;
-	MlModelArtifactStatus: MlModelArtifactStatus;
-	MlModelDeployStatus: MlModelDeployStatus;
+	MlAIModelType: MlAIModelType;
 	MlModelEndpointType: MlModelEndpointType;
-	MlModelConnectorDefinitionStatus: MlModelConnectorDefinitionStatus;
-	MlModelConnectorType: MlModelConnectorType;
-	MlActivatedModelStatus: MlActivatedModelStatus;
-	MlObjectiveType: MlObjectiveType;
-	MlOutcomeGoalType: MlOutcomeGoalType;
-	MlModelKitStatus: MlModelKitStatus;
 	MlInferenceFormat: MlInferenceFormat;
 	ModerationRuleAction: ModerationRuleAction;
 	RateLimitTimePeriod: RateLimitTimePeriod;
 	ModerationRuleType: ModerationRuleType;
 	OrgDomainShard: OrgDomainShard;
+	EdgeRoutingOption: EdgeRoutingOption;
 	OrgDomainRedirectOption: OrgDomainRedirectOption;
 	OrgDomainProdSuffix: OrgDomainProdSuffix;
 	CalloutStatus: CalloutStatus;
@@ -22611,6 +28560,7 @@ export type ApiSchemaTypes = {
 	RecommendationChannel: RecommendationChannel;
 	SitesArchiveStatus: SitesArchiveStatus;
 	NetworkStatus: NetworkStatus;
+	ChangeEventType: ChangeEventType;
 	ObjHierarchyMappingType: ObjHierarchyMappingType;
 	MappingUsageType: MappingUsageType;
 	OcrApplicationType: OcrApplicationType;
@@ -22630,12 +28580,26 @@ export type ApiSchemaTypes = {
 	OutboundConnPropertyName: OutboundConnPropertyName;
 	APIAccessLevel: APIAccessLevel;
 	ParticipantRoleAccessLevel: ParticipantRoleAccessLevel;
+	GatewayType: GatewayType;
 	IdempotencySupportStatus: IdempotencySupportStatus;
 	PermissionSetTabVisibility: PermissionSetTabVisibility;
 	LicenseExpirationPolicy: LicenseExpirationPolicy;
 	PlatformCacheType: PlatformCacheType;
 	PlatformEventChannelType: PlatformEventChannelType;
+	PlatformEventChannelEventType: PlatformEventChannelEventType;
 	Frequency: Frequency;
+	Category: Category;
+	EnforcementRuleEffect: EnforcementRuleEffect;
+	RulePrincipalScopeType: RulePrincipalScopeType;
+	PrincipalAuthenticationLevel: PrincipalAuthenticationLevel;
+	RuleResourceScopeType: RuleResourceScopeType;
+	ResourceTransform: ResourceTransform;
+	RuleConsumer: RuleConsumer;
+	RuleDefinitionClause: RuleDefinitionClause;
+	RuleContextPath: RuleContextPath;
+	RuleDefinitionOperator: RuleDefinitionOperator;
+	RulePrincipalPath: RulePrincipalPath;
+	RuleResourcePath: RuleResourcePath;
 	PortalRoles: PortalRoles;
 	PortalType: PortalType;
 	ConditionLogic: ConditionLogic;
@@ -22651,6 +28615,8 @@ export type ApiSchemaTypes = {
 	ExecutionStageOfPriceRule: ExecutionStageOfPriceRule;
 	RuleStatus: RuleStatus;
 	PriceSheetColumnType: PriceSheetColumnType;
+	BusinessVertical: BusinessVertical;
+	PricingElementType: PricingElementType;
 	ProductFamilyUsageType: ProductFamilyUsageType;
 	CategoryGroupVisibility: CategoryGroupVisibility;
 	LoginFlowType: LoginFlowType;
@@ -22665,9 +28631,11 @@ export type ApiSchemaTypes = {
 	PromptThemeSaturation: PromptThemeSaturation;
 	PromptUserAccess: PromptUserAccess;
 	PromptUserProfileAccess: PromptUserProfileAccess;
+	PublicKeyCertificateSetType: PublicKeyCertificateSetType;
 	CapacityType: CapacityType;
 	RoutingModel: RoutingModel;
 	ActionSubtype: ActionSubtype;
+	QuickActionParameterType: QuickActionParameterType;
 	QuickActionLabel: QuickActionLabel;
 	QuickActionType: QuickActionType;
 	StrategyReactionType: StrategyReactionType;
@@ -22698,14 +28666,6 @@ export type ApiSchemaTypes = {
 	ReportTypeCategory: ReportTypeCategory;
 	ContextRuleStatus: ContextRuleStatus;
 	ExecutionType: ExecutionType;
-	VariableValueType: VariableValueType;
-	RuleActionType: RuleActionType;
-	ConditionMatchType: ConditionMatchType;
-	RuleConditionOperator: RuleConditionOperator;
-	RuleFilterCriteriaType: RuleFilterCriteriaType;
-	RuleCondAggregateFunction: RuleCondAggregateFunction;
-	RuleRefVariableDataType: RuleRefVariableDataType;
-	RuleRefVariableType: RuleRefVariableType;
 	ContextRuleUsageType: ContextRuleUsageType;
 	ActualsCalculationMode: ActualsCalculationMode;
 	SamlIdentityLocationType: SamlIdentityLocationType;
@@ -22713,6 +28673,7 @@ export type ApiSchemaTypes = {
 	SamlType: SamlType;
 	SamlSpSLOBinding: SamlSpSLOBinding;
 	DomainType: DomainType;
+	SearchCriteriaConfigurationConfigurationType: SearchCriteriaConfigurationConfigurationType;
 	SearchCriteriaConfigurationFilterType: SearchCriteriaConfigurationFilterType;
 	SearchCriteriaConfigurationResultDisplayFormat: SearchCriteriaConfigurationResultDisplayFormat;
 	SearchResultActionScope: SearchResultActionScope;
@@ -22723,28 +28684,48 @@ export type ApiSchemaTypes = {
 	MaxLoginAttempts: MaxLoginAttempts;
 	QuestionRestriction: QuestionRestriction;
 	SessionTimeout: SessionTimeout;
+	UntrustedRedirectEnum: UntrustedRedirectEnum;
 	ServiceAISetupDefStatus: ServiceAISetupDefStatus;
 	ServiceAISetupFieldType: ServiceAISetupFieldType;
+	CapacityModel: CapacityModel;
+	StatusFieldMappingType: StatusFieldMappingType;
 	SvcCtlgItemAttrAttributeType: SvcCtlgItemAttrAttributeType;
 	SvcCatalogItemAttrDataType: SvcCatalogItemAttrDataType;
+	SvcCtlgItemDpndProcType: SvcCtlgItemDpndProcType;
 	SvcCatalogItemDependencyType: SvcCatalogItemDependencyType;
 	SvcCatalogItemUsageType: SvcCatalogItemUsageType;
+	DistanceMeasurementUnit: DistanceMeasurementUnit;
+	SchedulingMode: SchedulingMode;
 	SlackRecordLayoutViewMode: SlackRecordLayoutViewMode;
 	CaseSubjectOption: CaseSubjectOption;
+	SrvcMgmtCollabAppChannelType: SrvcMgmtCollabAppChannelType;
+	SrvcMgmtCollabAppRefObjType: SrvcMgmtCollabAppRefObjType;
+	StageConditionOperator: StageConditionOperator;
+	StageCriteriaType: StageCriteriaType;
+	StageCriteriaExecType: StageCriteriaExecType;
+	StageUserPermission: StageUserPermission;
 	StationaryAssetType: StationaryAssetType;
-	StreamingAppDataConnectorType: StreamingAppDataConnectorType;
 	UnitType: UnitType;
 	CriterionOperator: CriterionOperator;
 	CriteriaRelationshipType: CriteriaRelationshipType;
 	PropertyDisplayType: PropertyDisplayType;
 	SvcCatalogItemAttrType: SvcCatalogItemAttrType;
 	PublishStatusType: PublishStatusType;
+	TelemetryActnDefStepOpType: TelemetryActnDefStepOpType;
+	TelActnDefStepAttrDataType: TelActnDefStepAttrDataType;
+	TelemetryActnDefStepAttrType: TelemetryActnDefStepAttrType;
+	TelemetryDefinitionUsageType: TelemetryDefinitionUsageType;
 	TimeSheetFrequency: TimeSheetFrequency;
 	DaysOfWeek: DaysOfWeek;
+	RuleEngine: RuleEngine;
+	SaveType: SaveType;
+	TPTPricingPreference: TPTPricingPreference;
+	TPTTaxPreference: TPTTaxPreference;
 	TransactionSecurityEventName: TransactionSecurityEventName;
 	MonitoredEvents: MonitoredEvents;
 	TxnSecurityPolicyType: TxnSecurityPolicyType;
 	ObjectRelationshipType: ObjectRelationshipType;
+	FormatType: FormatType;
 	UserAccessPolicyStatus: UserAccessPolicyStatus;
 	UserAccessPolicyTriggerType: UserAccessPolicyTriggerType;
 	UserAccessPolicyActionType: UserAccessPolicyActionType;
@@ -22754,6 +28735,8 @@ export type ApiSchemaTypes = {
 	NetworkUserType: NetworkUserType;
 	VehicleAssetType: VehicleAssetType;
 	VisualizationResourceType: VisualizationResourceType;
+	UploadStatus: UploadStatus;
+	AssignmentType: AssignmentType;
 	CountryIsoCode: CountryIsoCode;
 	TaxLocaleType: TaxLocaleType;
 	OrderLifeCycleType: OrderLifeCycleType;
@@ -22777,6 +28760,8 @@ export type ApiSchemaTypes = {
 	LogType: LogType;
 	ID: ID;
 	StatusCode: StatusCode;
+	EmbeddedServiceClientVersion: EmbeddedServiceClientVersion;
+	SurfaceType: SurfaceType;
 	AllOrNoneHeader: AllOrNoneHeader;
 	CallOptions: CallOptions;
 	DebuggingHeader: DebuggingHeader;
@@ -22868,6 +28853,8 @@ export type ApiSchemaTypes = {
 	ObjectMapping: ObjectMapping;
 	ObjectMappingField: ObjectMappingField;
 	AccountIntelligenceSettings: AccountIntelligenceSettings;
+	AccountPlanObjMeasCalcDef: AccountPlanObjMeasCalcDef;
+	AccountPlanObjMeasCalcCond: AccountPlanObjMeasCalcCond;
 	AccountRelationshipShareRule: AccountRelationshipShareRule;
 	AccountSettings: AccountSettings;
 	AccountingModelConfig: AccountingModelConfig;
@@ -22911,17 +28898,49 @@ export type ApiSchemaTypes = {
 	AdvAccountForecastPeriod: AdvAccountForecastPeriod;
 	AdvancedObjectMapping: AdvancedObjectMapping;
 	AdvancedFieldMapping: AdvancedFieldMapping;
+	AffinityScoreDefinition: AffinityScoreDefinition;
 	Ai4mSettings: Ai4mSettings;
+	AiEvaluationDefinition: AiEvaluationDefinition;
+	AiEvaluationTestCase: AiEvaluationTestCase;
+	AiEvaluationExpectation: AiEvaluationExpectation;
+	AiEvaluationTestCaseCritParam: AiEvaluationTestCaseCritParam;
+	AiEvaluationAgentTestCaseInput: AiEvaluationAgentTestCaseInput;
+	AiEvalCopilotTestCaseCntxtVar: AiEvalCopilotTestCaseCntxtVar;
+	AiEvalCopilotTestCaseConv: AiEvalCopilotTestCaseConv;
+	AiPlannerVoiceDef: AiPlannerVoiceDef;
 	AnalyticSnapshot: AnalyticSnapshot;
 	AnalyticSnapshotMapping: AnalyticSnapshotMapping;
+	AnalyticsDashboard: AnalyticsDashboard;
+	AnalyticsDashboardLayout: AnalyticsDashboardLayout;
+	AnalyticsDashboardPage: AnalyticsDashboardPage;
+	AnalyticsDashPageWidget: AnalyticsDashPageWidget;
+	AnalyticsDashboardWidget: AnalyticsDashboardWidget;
+	AnalyticsButtonWidgetDef: AnalyticsButtonWidgetDef;
+	AnalyticsContainerWidgetDef: AnalyticsContainerWidgetDef;
+	AnlytDshbrdWdgtDynamicTkn: AnlytDshbrdWdgtDynamicTkn;
+	AnalyticsFilterWidgetDef: AnalyticsFilterWidgetDef;
+	AnalyticsMetricWidgetDef: AnalyticsMetricWidgetDef;
+	AnalyticsParamWidgetDef: AnalyticsParamWidgetDef;
+	AnalyticsTextWidgetDef: AnalyticsTextWidgetDef;
+	AnalyticsVizWidgetDef: AnalyticsVizWidgetDef;
+	AnalyticsAssetAction: AnalyticsAssetAction;
+	AnalyticsWorkspaceAsset: AnalyticsWorkspaceAsset;
+	AnalyticsDatasetDefinition: AnalyticsDatasetDefinition;
 	AnalyticsSettings: AnalyticsSettings;
+	AnalyticsVisualization: AnalyticsVisualization;
+	AnalyticsVizField: AnalyticsVizField;
+	AnalyticsVizViewDef: AnalyticsVizViewDef;
+	AnalyticsWorkspace: AnalyticsWorkspace;
 	AndroidPushApplicationSetup: AndroidPushApplicationSetup;
 	AnimationRule: AnimationRule;
 	ApexEmailNotifications: ApexEmailNotifications;
 	ApexEmailNotification: ApexEmailNotification;
 	ApexSettings: ApexSettings;
 	ApexTestSuite: ApexTestSuite;
+	ApiNamedQuery: ApiNamedQuery;
+	ApiNamedQueryParameter: ApiNamedQueryParameter;
 	AppExperienceSettings: AppExperienceSettings;
+	AppFrameworkTemplateBundle: AppFrameworkTemplateBundle;
 	AppMenu: AppMenu;
 	AppMenuItem: AppMenuItem;
 	AppNotificationType: AppNotificationType;
@@ -22948,6 +28967,7 @@ export type ApiSchemaTypes = {
 	NextAutomatedApprover: NextAutomatedApprover;
 	AssessmentQuestion: AssessmentQuestion;
 	AssessmentQuestionVersion: AssessmentQuestionVersion;
+	AssessmentQuestionVersionChoice: AssessmentQuestionVersionChoice;
 	AssessmentQuestionSet: AssessmentQuestionSet;
 	AssignmentRule: AssignmentRule;
 	RuleEntry: RuleEntry;
@@ -22975,6 +28995,7 @@ export type ApiSchemaTypes = {
 	AuraDefinition: AuraDefinition;
 	PackageVersion: PackageVersion;
 	AuthProvider: AuthProvider;
+	AuthProvParamFwdAllowlist: AuthProvParamFwdAllowlist;
 	AutoResponseRule: AutoResponseRule;
 	AutoResponseRules: AutoResponseRules;
 	AutomatedContactsSettings: AutomatedContactsSettings;
@@ -22982,6 +29003,8 @@ export type ApiSchemaTypes = {
 	BatchCalcJobAggregate: BatchCalcJobAggregate;
 	BatchCalcJobAbstractMetadataValue: BatchCalcJobAbstractMetadataValue;
 	DpeToRecipeTranslateAbstractMetadataValue: DpeToRecipeTranslateAbstractMetadataValue;
+	BatchCalcJobAtomicWriteback: BatchCalcJobAtomicWriteback;
+	BatchCalcJobAtomicWritebackRelationship: BatchCalcJobAtomicWritebackRelationship;
 	BatchCalcJobCustomNode: BatchCalcJobCustomNode;
 	BatchCalcJobCustomNodeParameter: BatchCalcJobCustomNodeParameter;
 	BatchCalcJobDatasource: BatchCalcJobDatasource;
@@ -23007,9 +29030,11 @@ export type ApiSchemaTypes = {
 	BatchProcessJobDefinition: BatchProcessJobDefinition;
 	BatchDataSource: BatchDataSource;
 	BatchDataSrcFilterCriteria: BatchDataSrcFilterCriteria;
+	BatchDataSourceOrderField: BatchDataSourceOrderField;
 	BenefitAction: BenefitAction;
 	BenefitActionParameter: BenefitActionParameter;
 	BenefitActionParameterValue: BenefitActionParameterValue;
+	BillingSettings: BillingSettings;
 	BlacklistedConsumer: BlacklistedConsumer;
 	BldgEnrgyIntensityCnfg: BldgEnrgyIntensityCnfg;
 	BlockchainSettings: BlockchainSettings;
@@ -23059,6 +29084,7 @@ export type ApiSchemaTypes = {
 	BriefcaseDefinition: BriefcaseDefinition;
 	BriefcaseRule: BriefcaseRule;
 	BriefcaseRuleFilter: BriefcaseRuleFilter;
+	FldSvcBriefcaseRuleConfig: FldSvcBriefcaseRuleConfig;
 	BusinessHoursEntry: BusinessHoursEntry;
 	BusinessHoursSettings: BusinessHoursSettings;
 	Holiday: Holiday;
@@ -23096,13 +29122,22 @@ export type ApiSchemaTypes = {
 	EmailToCaseRoutingAddress: EmailToCaseRoutingAddress;
 	WebToCaseSettings: WebToCaseSettings;
 	CaseSubjectParticle: CaseSubjectParticle;
+	CatalogedApi: CatalogedApi;
+	CatalogedApiInstance: CatalogedApiInstance;
+	CatalogedApiArtifactVersionInfo: CatalogedApiArtifactVersionInfo;
+	CatalogedApiVersion: CatalogedApiVersion;
 	ChannelLayout: ChannelLayout;
 	ChannelLayoutItem: ChannelLayoutItem;
 	ChannelObjectLinkingRule: ChannelObjectLinkingRule;
+	ChannelRevMgmtSettings: ChannelRevMgmtSettings;
 	ChatterAnswersSettings: ChatterAnswersSettings;
 	ChatterEmailsMDSettings: ChatterEmailsMDSettings;
 	ChatterExtension: ChatterExtension;
 	ChatterSettings: ChatterSettings;
+	ChoiceList: ChoiceList;
+	ChoiceListValue: ChoiceListValue;
+	EmbeddedServiceCustomLabel: EmbeddedServiceCustomLabel;
+	ClaimCoverageProdtProcDef: ClaimCoverageProdtProcDef;
 	ClaimFinancialSettings: ClaimFinancialSettings;
 	ClauseCatgConfiguration: ClauseCatgConfiguration;
 	CleanDataService: CleanDataService;
@@ -23112,12 +29147,17 @@ export type ApiSchemaTypes = {
 	FieldMappingField: FieldMappingField;
 	CloudServiceProvider: CloudServiceProvider;
 	CloudServiceProviderApi: CloudServiceProviderApi;
+	CmsnStmtLineItemConfig: CmsnStmtLineItemConfig;
+	CmsnStmtLineItemTypConfig: CmsnStmtLineItemTypConfig;
 	CommandAction: CommandAction;
 	CommandActionIntent: CommandActionIntent;
 	CommandActionResponse: CommandActionResponse;
 	CommandActionParam: CommandActionParam;
 	CommerceSettings: CommerceSettings;
+	CommissionStatementConfig: CommissionStatementConfig;
 	CommsServiceConsoleSettings: CommsServiceConsoleSettings;
+	CommunicationChannelLine: CommunicationChannelLine;
+	CommunicationChannelType: CommunicationChannelType;
 	CommunitiesSettings: CommunitiesSettings;
 	Community: Community;
 	ReputationLevels: ReputationLevels;
@@ -23154,18 +29194,29 @@ export type ApiSchemaTypes = {
 	ConnectivityDevConfigMetadata: ConnectivityDevConfigMetadata;
 	ConsentBannerSettings: ConsentBannerSettings;
 	ContentSettings: ContentSettings;
+	ContentTypeBundle: ContentTypeBundle;
+	ContentTypeBundleResource: ContentTypeBundleResource;
 	ContextDefinition: ContextDefinition;
+	ContextDefinitionReference: ContextDefinitionReference;
 	ContextDefinitionVersion: ContextDefinitionVersion;
+	ContextDefinitionFilter: ContextDefinitionFilter;
 	ContextMapping: ContextMapping;
+	ContextMappingIntent: ContextMappingIntent;
 	ContextNodeMapping: ContextNodeMapping;
 	ContextAttributeMapping: ContextAttributeMapping;
 	ContextAttrHydrationDetail: ContextAttrHydrationDetail;
+	CtxAttrHydrationCtx: CtxAttrHydrationCtx;
+	ContextNodeAttrDictionary: ContextNodeAttrDictionary;
 	ContextNode: ContextNode;
 	ContextAttribute: ContextAttribute;
 	ContextTag: ContextTag;
+	ContextMappingConfig: ContextMappingConfig;
+	ContextUseCaseMapping: ContextUseCaseMapping;
 	ContractSettings: ContractSettings;
 	ContractType: ContractType;
 	ContractTypeConfig: ContractTypeConfig;
+	ConvIntelligenceSignalRule: ConvIntelligenceSignalRule;
+	ConvIntelligenceSignalSubRule: ConvIntelligenceSignalSubRule;
 	ConvReasonReportDefinition: ConvReasonReportDefinition;
 	ConvReasonReportSegmentDef: ConvReasonReportSegmentDef;
 	ConversationChannelDefinition: ConversationChannelDefinition;
@@ -23231,6 +29282,8 @@ export type ApiSchemaTypes = {
 	CustomMetadata: CustomMetadata;
 	CustomMetadataValue: CustomMetadataValue;
 	CustomNotificationType: CustomNotificationType;
+	CustomNotificationActionGroup: CustomNotificationActionGroup;
+	CustomNotificationActionDefinition: CustomNotificationActionDefinition;
 	CustomObject: CustomObject;
 	ArticleTypeChannelDisplay: ArticleTypeChannelDisplay;
 	ArticleTypeTemplate: ArticleTypeTemplate;
@@ -23252,6 +29305,8 @@ export type ApiSchemaTypes = {
 	SharingRecalculation: SharingRecalculation;
 	ValidationRule: ValidationRule;
 	WebLink: WebLink;
+	CustomObjectBinding: CustomObjectBinding;
+	CustomFieldBinding: CustomFieldBinding;
 	CustomObjectTranslation: CustomObjectTranslation;
 	ObjectNameCaseValue: ObjectNameCaseValue;
 	FieldSetTranslation: FieldSetTranslation;
@@ -23261,6 +29316,7 @@ export type ApiSchemaTypes = {
 	LayoutTranslation: LayoutTranslation;
 	LayoutSectionTranslation: LayoutSectionTranslation;
 	QuickActionTranslation: QuickActionTranslation;
+	QuickActionParametersTranslation: QuickActionParametersTranslation;
 	RecordTypeTranslation: RecordTypeTranslation;
 	SharingReasonTranslation: SharingReasonTranslation;
 	StandardFieldTranslation: StandardFieldTranslation;
@@ -23298,13 +29354,22 @@ export type ApiSchemaTypes = {
 	DataCategoryGroup: DataCategoryGroup;
 	DataCategory: DataCategory;
 	ObjectUsage: ObjectUsage;
+	DataCleanRoomProvider: DataCleanRoomProvider;
 	DataConnectionParamTmpl: DataConnectionParamTmpl;
+	DataConnector: DataConnector;
+	DataConnectorAttribute: DataConnectorAttribute;
+	DataConnectorAttributeOpt: DataConnectorAttributeOpt;
+	LocalizedValue: LocalizedValue;
+	DataConnectorError: DataConnectorError;
 	DataConnectorIngestApi: DataConnectorIngestApi;
 	DataConnectorS3: DataConnectorS3;
 	DataDotComSettings: DataDotComSettings;
+	DataKitObjectDependency: DataKitObjectDependency;
 	DataKitObjectTemplate: DataKitObjectTemplate;
 	DataModelTaxonomy: DataModelTaxonomy;
 	DataObjectCategory: DataObjectCategory;
+	DataObjectBuildOrgTemplate: DataObjectBuildOrgTemplate;
+	DataObjectSearchIndexConf: DataObjectSearchIndexConf;
 	DataPackageKitDefinition: DataPackageKitDefinition;
 	DataPackageKitObject: DataPackageKitObject;
 	DataPlatform: DataPlatform;
@@ -23317,6 +29382,7 @@ export type ApiSchemaTypes = {
 	DataSourceTenant: DataSourceTenant;
 	DataSrcDataModelFieldMap: DataSrcDataModelFieldMap;
 	DataStreamDefinition: DataStreamDefinition;
+	MktDataConnectionSrcParam: MktDataConnectionSrcParam;
 	DataStreamTemplate: DataStreamTemplate;
 	DataspaceScope: DataspaceScope;
 	DataspaceScopeSchemaAccess: DataspaceScopeSchemaAccess;
@@ -23340,20 +29406,25 @@ export type ApiSchemaTypes = {
 	FtestTopLevelWithDeclMd2: FtestTopLevelWithDeclMd2;
 	PipelineInspMetricConfig: PipelineInspMetricConfig;
 	VirtualVisitConfig: VirtualVisitConfig;
-	MobileSecurityAssignment: MobileSecurityAssignment;
 	MobileSecurityPolicy: MobileSecurityPolicy;
 	LearningAchievementConfig: LearningAchievementConfig;
 	RecordAlertDataSource: RecordAlertDataSource;
 	DocumentCategory: DocumentCategory;
 	RecAlrtDataSrcExpSetDef: RecAlrtDataSrcExpSetDef;
+	GenOpPlanEligibilityConfig: GenOpPlanEligibilityConfig;
 	EmployeeDataSyncProfile: EmployeeDataSyncProfile;
 	EmployeeDataSyncField: EmployeeDataSyncField;
 	RegisteredExternalService: RegisteredExternalService;
+	CustomFieldDisplay: CustomFieldDisplay;
+	UiPreviewMessageTabDef: UiPreviewMessageTabDef;
 	AccountingFieldMapping: AccountingFieldMapping;
+	ServiceMgmtKnwlgArtclConfig: ServiceMgmtKnwlgArtclConfig;
 	RecordAlertTemplate: RecordAlertTemplate;
+	RelatedRecordAccessDef: RelatedRecordAccessDef;
+	RelatedRecordAccessFltr: RelatedRecordAccessFltr;
+	RelatedRecordAccessMap: RelatedRecordAccessMap;
 	MobSecurityCertPinConfig: MobSecurityCertPinConfig;
-	SemanticModel: SemanticModel;
-	SemanticModelContent: SemanticModelContent;
+	LightningOutApp: LightningOutApp;
 	SlackFeatureSettings: SlackFeatureSettings;
 	ActionableListDefinition: ActionableListDefinition;
 	ActionableListDatasetColumn: ActionableListDatasetColumn;
@@ -23369,56 +29440,80 @@ export type ApiSchemaTypes = {
 	PortalDelegablePermissionSet: PortalDelegablePermissionSet;
 	RelatedRecordAssocCriteria: RelatedRecordAssocCriteria;
 	DocumentCategoryDocumentType: DocumentCategoryDocumentType;
-	SemanticDefinition: SemanticDefinition;
-	SemanticCalcDimension: SemanticCalcDimension;
-	SemanticCalcMeasurement: SemanticCalcMeasurement;
-	SemanticDataObject: SemanticDataObject;
-	SemanticRelationship: SemanticRelationship;
 	ShiftSegmentType: ShiftSegmentType;
-	PlatformSlackSettings: PlatformSlackSettings;
 	ProductConfiguratorSettings: ProductConfiguratorSettings;
 	DataImportManagementSettings: DataImportManagementSettings;
-	RevenueManagementSettings: RevenueManagementSettings;
 	WorkforceEngagementSettings: WorkforceEngagementSettings;
-	KnowledgeGenerationSettings: KnowledgeGenerationSettings;
+	ServiceMgmtKnwlgArtclConfigSettings: ServiceMgmtKnwlgArtclConfigSettings;
 	ClaimMgmtFoundationEnabledSettings: ClaimMgmtFoundationEnabledSettings;
-	MailMergeSettings: MailMergeSettings;
-	AccountingSettings: AccountingSettings;
-	CollectionsDashboardSettings: CollectionsDashboardSettings;
-	InvLatePymntRiskCalcSettings: InvLatePymntRiskCalcSettings;
+	EinsteinCopilotSettings: EinsteinCopilotSettings;
+	ServiceCloudNotificationOrchestratorSettings: ServiceCloudNotificationOrchestratorSettings;
 	FTestSettings: FTestSettings;
 	MediaAdSalesSettings: MediaAdSalesSettings;
 	IndustriesPricingSettings: IndustriesPricingSettings;
 	BranchManagementSettings: BranchManagementSettings;
 	DynamicFormsSettings: DynamicFormsSettings;
-	FTestAccessSettings: FTestAccessSettings;
 	CodeBuilderSettings: CodeBuilderSettings;
 	IndustriesContextSettings: IndustriesContextSettings;
+	IndustriesLsCommercialSettings: IndustriesLsCommercialSettings;
 	IncludeEstTaxInQuoteCPQSettings: IncludeEstTaxInQuoteCPQSettings;
-	SceGlobalModelOptOutSettings: SceGlobalModelOptOutSettings;
-	SandboxSettings: SandboxSettings;
-	InterestTaggingSettings: InterestTaggingSettings;
 	ConversationServiceIntegrationSettings: ConversationServiceIntegrationSettings;
 	EinsteinAISettings: EinsteinAISettings;
 	IndustriesGamificationSettings: IndustriesGamificationSettings;
 	PlatformEventSettings: PlatformEventSettings;
 	AssociationEngineSettings: AssociationEngineSettings;
-	SourceTrackingSettings: SourceTrackingSettings;
+	SecurityHubSettings: SecurityHubSettings;
+	IndustriesUsageSettings: IndustriesUsageSettings;
+	MediaAgentSettings: MediaAgentSettings;
 	OrgSettings: OrgSettings;
-	DevHubSettings: DevHubSettings;
+	AgentforceForDevelopersSettings: AgentforceForDevelopersSettings;
+	SalesAccountAgentSettings: SalesAccountAgentSettings;
 	IncludeEstTaxInQuoteSettings: IncludeEstTaxInQuoteSettings;
+	SalesDealAgentSettings: SalesDealAgentSettings;
 	ReferralMarketingSettings: ReferralMarketingSettings;
+	SequenceServiceSettings: SequenceServiceSettings;
+	AccountPlanSettings: AccountPlanSettings;
+	AgentPlatformSettings: AgentPlatformSettings;
+	PaymentsManagementEnabledSettings: PaymentsManagementEnabledSettings;
+	EinsteinGptSettings: EinsteinGptSettings;
+	ServiceAIRecommendationsSettings: ServiceAIRecommendationsSettings;
+	PlatformSlackSettings: PlatformSlackSettings;
+	RevenueManagementSettings: RevenueManagementSettings;
+	KnowledgeGenerationSettings: KnowledgeGenerationSettings;
+	DynamicFulfillmentOrchestratorSettings: DynamicFulfillmentOrchestratorSettings;
+	MailMergeSettings: MailMergeSettings;
+	AccountingSettings: AccountingSettings;
+	CollectionsDashboardSettings: CollectionsDashboardSettings;
+	InvLatePymntRiskCalcSettings: InvLatePymntRiskCalcSettings;
+	FTestAccessSettings: FTestAccessSettings;
+	SceGlobalModelOptOutSettings: SceGlobalModelOptOutSettings;
+	CommsUpsellSettings: CommsUpsellSettings;
+	SandboxSettings: SandboxSettings;
+	PrmCoreSettings: PrmCoreSettings;
+	DxGlobalTermsSettings: DxGlobalTermsSettings;
+	InterestTaggingSettings: InterestTaggingSettings;
+	IndustriesRatingSettings: IndustriesRatingSettings;
+	EvfSettings: EvfSettings;
+	SourceTrackingSettings: SourceTrackingSettings;
+	DevHubSettings: DevHubSettings;
 	IndustriesLoyaltySettings: IndustriesLoyaltySettings;
 	Web3Settings: Web3Settings;
 	IndustriesUnifiedPromotionsSettings: IndustriesUnifiedPromotionsSettings;
-	PaymentsManagementEnabledSettings: PaymentsManagementEnabledSettings;
-	EinsteinGptSettings: EinsteinGptSettings;
 	AppAnalyticsSettings: AppAnalyticsSettings;
+	TmfOutboundNotificationSettings: TmfOutboundNotificationSettings;
 	MapsAndLocationSettings: MapsAndLocationSettings;
+	LargeQuotesandOrdersForRlmSettings: LargeQuotesandOrdersForRlmSettings;
 	OnlineSalesSettings: OnlineSalesSettings;
 	DelegateGroup: DelegateGroup;
 	DeploymentSettings: DeploymentSettings;
+	DgtAssetMgmtProvider: DgtAssetMgmtProvider;
+	DgtAssetMgmtPrvdLghtCpnt: DgtAssetMgmtPrvdLghtCpnt;
 	DigitalExperienceBundle: DigitalExperienceBundle;
+	DigitalExperienceFolderShares: DigitalExperienceFolderShares;
+	DigitalExperienceFolderShare: DigitalExperienceFolderShare;
+	SharedWith: SharedWith;
+	DigitalExperienceModuleCollection: DigitalExperienceModuleCollection;
+	DigitalExperienceModule: DigitalExperienceModule;
 	DigitalExperience: DigitalExperience;
 	MetadataWithContent: MetadataWithContent;
 	AccessControlPolicy: AccessControlPolicy;
@@ -23502,29 +29597,47 @@ export type ApiSchemaTypes = {
 	EmbeddedServiceConfig: EmbeddedServiceConfig;
 	EmbeddedServiceAppointmentSettings: EmbeddedServiceAppointmentSettings;
 	EmbeddedServiceCustomComponent: EmbeddedServiceCustomComponent;
-	EmbeddedServiceCustomLabel: EmbeddedServiceCustomLabel;
 	EmbeddedServiceCustomization: EmbeddedServiceCustomization;
 	EmbeddedServiceResource: EmbeddedServiceResource;
 	EmbeddedServiceFlowConfig: EmbeddedServiceFlowConfig;
 	EmbeddedServiceFlow: EmbeddedServiceFlow;
+	EmbeddedServiceForm: EmbeddedServiceForm;
+	EmbeddedServiceFormField: EmbeddedServiceFormField;
 	EmbeddedServiceLayout: EmbeddedServiceLayout;
 	EmbeddedServiceLayoutRule: EmbeddedServiceLayoutRule;
+	EmbeddedServiceMessagingChannel: EmbeddedServiceMessagingChannel;
+	EmbdMsgChannelInvitationCondition: EmbdMsgChannelInvitationCondition;
 	EmbeddedServiceFieldService: EmbeddedServiceFieldService;
 	EmbeddedServiceLiveAgent: EmbeddedServiceLiveAgent;
 	EmbeddedServiceQuickAction: EmbeddedServiceQuickAction;
 	EmbeddedServiceMenuSettings: EmbeddedServiceMenuSettings;
 	EmbeddedServiceMenuItem: EmbeddedServiceMenuItem;
+	EmpSvcInvocableActionDef: EmpSvcInvocableActionDef;
 	EmployeeFieldAccessSettings: EmployeeFieldAccessSettings;
 	EmployeeUserSettings: EmployeeUserSettings;
+	EnablementMeasureDefinition: EnablementMeasureDefinition;
+	EnablementMeasureSourceObjectDefinition: EnablementMeasureSourceObjectDefinition;
+	EnablementMeasureFilterDefinition: EnablementMeasureFilterDefinition;
+	EnablementMeasureRelatedObjectDefinition: EnablementMeasureRelatedObjectDefinition;
+	EnablementProgramDefinition: EnablementProgramDefinition;
+	EnablementProgramSection: EnablementProgramSection;
+	EnablementProgramTask: EnablementProgramTask;
+	EnablementProgramTaskExercise: EnablementProgramTaskExercise;
+	EnablementProgramTaskCmsContent: EnablementProgramTaskCmsContent;
+	EnablementProgramTaskCustomContent: EnablementProgramTaskCustomContent;
+	EnablementProgramTaskExternalContent: EnablementProgramTaskExternalContent;
+	EnablementProgramTaskFeedbackContent: EnablementProgramTaskFeedbackContent;
+	EnablementProgramTaskMilestone: EnablementProgramTaskMilestone;
+	EnablementProgramTaskMilestoneMeasure: EnablementProgramTaskMilestoneMeasure;
+	EnblProgramTaskSubCategory: EnblProgramTaskSubCategory;
 	EncryptionKeySettings: EncryptionKeySettings;
 	EnhancedNotesSettings: EnhancedNotesSettings;
 	EntitlementProcess: EntitlementProcess;
 	EntitlementProcessMilestoneItem: EntitlementProcessMilestoneItem;
+	MilestoneCompletionCriteria: MilestoneCompletionCriteria;
 	EntitlementProcessMilestoneTimeTrigger: EntitlementProcessMilestoneTimeTrigger;
 	EntitlementSettings: EntitlementSettings;
 	EntitlementTemplate: EntitlementTemplate;
-	EntityImplements: EntityImplements;
-	FieldImplements: FieldImplements;
 	EscalationRule: EscalationRule;
 	EscalationRules: EscalationRules;
 	EssentialsSettings: EssentialsSettings;
@@ -23563,9 +29676,13 @@ export type ApiSchemaTypes = {
 	ExpressionSetMessageToken: ExpressionSetMessageToken;
 	ExpressionSetObjectAlias: ExpressionSetObjectAlias;
 	ExpressionSetObjectAliasField: ExpressionSetObjectAliasField;
+	ExtConvParticipantIntegDef: ExtConvParticipantIntegDef;
+	ExternalConversationBotDef: ExternalConversationBotDef;
 	ExtDataTranFieldTemplate: ExtDataTranFieldTemplate;
 	ExtDataTranObjectTemplate: ExtDataTranObjectTemplate;
 	ExternalAIModel: ExternalAIModel;
+	ExternalAuthIdentityProvider: ExternalAuthIdentityProvider;
+	ExternalAuthIdentityProviderParameter: ExternalAuthIdentityProviderParameter;
 	ExternalClientAppSettings: ExternalClientAppSettings;
 	ExternalClientApplication: ExternalClientApplication;
 	ExternalCredential: ExternalCredential;
@@ -23579,6 +29696,8 @@ export type ApiSchemaTypes = {
 	ExternalDocStorageConfig: ExternalDocStorageConfig;
 	ExternalServiceRegistration: ExternalServiceRegistration;
 	ExternalServiceOperation: ExternalServiceOperation;
+	ExternalStoragePrvdConfig: ExternalStoragePrvdConfig;
+	ExtlClntAppCanvasStngs: ExtlClntAppCanvasStngs;
 	ExtlClntAppConfigurablePolicies: ExtlClntAppConfigurablePolicies;
 	ExtlClntAppGlobalOauthSettings: ExtlClntAppGlobalOauthSettings;
 	ExternalAppIdTokenConfig: ExternalAppIdTokenConfig;
@@ -23591,6 +29710,12 @@ export type ApiSchemaTypes = {
 	ExtlClntAppOauthSettings: ExtlClntAppOauthSettings;
 	ExtlClntAppOauthSettingsAttribute: ExtlClntAppOauthSettingsAttribute;
 	ExtlClntAppOauthIpRange: ExtlClntAppOauthIpRange;
+	ExtlClntAppPushConfigurablePolicies: ExtlClntAppPushConfigurablePolicies;
+	ExtlClntAppPushSettings: ExtlClntAppPushSettings;
+	ExtlClntAppAndroidPushConfig: ExtlClntAppAndroidPushConfig;
+	ExtlClntAppApplePushConfig: ExtlClntAppApplePushConfig;
+	ExtlClntAppSamlConfigurablePolicies: ExtlClntAppSamlConfigurablePolicies;
+	ExtlClntAppSamlConfigurablePoliciesAttribute: ExtlClntAppSamlConfigurablePoliciesAttribute;
 	ExtlClntAppSampleConfigurablePolicies: ExtlClntAppSampleConfigurablePolicies;
 	ExtlClntAppSampleSettings: ExtlClntAppSampleSettings;
 	FTestFieldMappingMd: FTestFieldMappingMd;
@@ -23598,7 +29723,10 @@ export type ApiSchemaTypes = {
 	FeatureParameterBoolean: FeatureParameterBoolean;
 	FeatureParameterDate: FeatureParameterDate;
 	FeatureParameterInteger: FeatureParameterInteger;
+	FieldMappingConfig: FieldMappingConfig;
+	FieldMappingConfigItem: FieldMappingConfigItem;
 	FieldRestrictionRule: FieldRestrictionRule;
+	FieldServiceMobileConfig: FieldServiceMobileConfig;
 	FieldServiceSettings: FieldServiceSettings;
 	ObjectMappingItem: ObjectMappingItem;
 	FieldSrcTrgtRelationship: FieldSrcTrgtRelationship;
@@ -23620,7 +29748,6 @@ export type ApiSchemaTypes = {
 	UiFormulaRule: UiFormulaRule;
 	UiFormulaCriterion: UiFormulaCriterion;
 	FlexipageDataSource: FlexipageDataSource;
-	FlexipageDataSourceProperty: FlexipageDataSourceProperty;
 	FieldInstance: FieldInstance;
 	FieldInstanceProperty: FieldInstanceProperty;
 	PlatformActionList: PlatformActionList;
@@ -23636,27 +29763,35 @@ export type ApiSchemaTypes = {
 	FlowBaseElement: FlowBaseElement;
 	FlowMetadataValue: FlowMetadataValue;
 	FlowElementReferenceOrValue: FlowElementReferenceOrValue;
+	FlowInlineTransform: FlowInlineTransform;
+	FlowTransformValue: FlowTransformValue;
+	FlowTransformValueAction: FlowTransformValueAction;
+	FlowTransformValueActionInputParameter: FlowTransformValueActionInputParameter;
 	FlowActionCallInputParameter: FlowActionCallInputParameter;
 	FlowActionCallOutputParameter: FlowActionCallOutputParameter;
+	FlowActionCallPath: FlowActionCallPath;
+	FlowConnector: FlowConnector;
 	FlowApexPluginCallInputParameter: FlowApexPluginCallInputParameter;
 	FlowApexPluginCallOutputParameter: FlowApexPluginCallOutputParameter;
 	FlowAssignmentItem: FlowAssignmentItem;
+	FlowAttribute: FlowAttribute;
 	FlowChoiceUserInput: FlowChoiceUserInput;
 	FlowInputValidationRule: FlowInputValidationRule;
 	FlowCollectionMapItem: FlowCollectionMapItem;
 	FlowCollectionSortOption: FlowCollectionSortOption;
 	FlowCondition: FlowCondition;
-	FlowConnector: FlowConnector;
 	FlowCustomErrorMessage: FlowCustomErrorMessage;
 	FlowDataTypeMapping: FlowDataTypeMapping;
 	FlowInputFieldAssignment: FlowInputFieldAssignment;
 	FlowOutputFieldAssignment: FlowOutputFieldAssignment;
 	FlowRecordFilter: FlowRecordFilter;
+	FlowRelatedRecordLookup: FlowRelatedRecordLookup;
 	FlowScreenActionInputParameter: FlowScreenActionInputParameter;
 	FlowScreenFieldInputParameter: FlowScreenFieldInputParameter;
 	FlowScreenFieldOutputParameter: FlowScreenFieldOutputParameter;
 	FlowScreenRule: FlowScreenRule;
 	FlowScreenRuleAction: FlowScreenRuleAction;
+	FlowScreenStyleSetting: FlowScreenStyleSetting;
 	FlowScreenTrigger: FlowScreenTrigger;
 	FlowScreenTriggerHandler: FlowScreenTriggerHandler;
 	FlowStageStepAssignee: FlowStageStepAssignee;
@@ -23665,25 +29800,28 @@ export type ApiSchemaTypes = {
 	FlowStageStepExitActionInputParameter: FlowStageStepExitActionInputParameter;
 	FlowStageStepExitActionOutputParameter: FlowStageStepExitActionOutputParameter;
 	FlowStageStepInputParameter: FlowStageStepInputParameter;
+	FlowStageStepOutputConfigParam: FlowStageStepOutputConfigParam;
 	FlowStageStepOutputParameter: FlowStageStepOutputParameter;
+	FlowStartInputParameter: FlowStartInputParameter;
 	FlowSubflowInputAssignment: FlowSubflowInputAssignment;
 	FlowSubflowOutputAssignment: FlowSubflowOutputAssignment;
-	FlowTransformValue: FlowTransformValue;
-	FlowTransformValueAction: FlowTransformValueAction;
-	FlowTransformValueActionInputParameter: FlowTransformValueActionInputParameter;
 	FlowVisibilityRule: FlowVisibilityRule;
 	FlowWaitEventInputParameter: FlowWaitEventInputParameter;
 	FlowWaitEventOutputParameter: FlowWaitEventOutputParameter;
 	FlowCapability: FlowCapability;
 	FlowCapabilityInput: FlowCapabilityInput;
 	FlowChoice: FlowChoice;
+	FlowIcon: FlowIcon;
 	FlowConstant: FlowConstant;
 	FlowDynamicChoiceSet: FlowDynamicChoiceSet;
+	FlowExitRule: FlowExitRule;
+	FlowExperimentPath: FlowExperimentPath;
 	FlowFormula: FlowFormula;
 	FlowRule: FlowRule;
 	FlowScheduledPath: FlowScheduledPath;
 	FlowScreenAction: FlowScreenAction;
 	FlowScreenField: FlowScreenField;
+	FlowScreenFieldStyleProperties: FlowScreenFieldStyleProperties;
 	FlowStage: FlowStage;
 	FlowStageStep: FlowStageStep;
 	FlowTextTemplate: FlowTextTemplate;
@@ -23694,7 +29832,9 @@ export type ApiSchemaTypes = {
 	FlowCollectionProcessor: FlowCollectionProcessor;
 	FlowCustomError: FlowCustomError;
 	FlowDecision: FlowDecision;
+	FlowExperiment: FlowExperiment;
 	FlowLoop: FlowLoop;
+	FlowNodeGroup: FlowNodeGroup;
 	FlowOrchestratedStage: FlowOrchestratedStage;
 	FlowRecordCreate: FlowRecordCreate;
 	FlowRecordDelete: FlowRecordDelete;
@@ -23708,11 +29848,13 @@ export type ApiSchemaTypes = {
 	FlowSubflow: FlowSubflow;
 	FlowTransform: FlowTransform;
 	FlowWait: FlowWait;
+	FlowCustomProperty: FlowCustomProperty;
 	FlowCategory: FlowCategory;
 	FlowCategoryItems: FlowCategoryItems;
 	FlowDefinition: FlowDefinition;
 	FlowSettings: FlowSettings;
 	FlowTest: FlowTest;
+	FlowTestFlowVersion: FlowTestFlowVersion;
 	FlowTestPoint: FlowTestPoint;
 	FlowTestAssertion: FlowTestAssertion;
 	FlowTestCondition: FlowTestCondition;
@@ -23727,6 +29869,8 @@ export type ApiSchemaTypes = {
 	ReportFolder: ReportFolder;
 	ForecastingFilter: ForecastingFilter;
 	ForecastingFilterCondition: ForecastingFilterCondition;
+	ForecastingGroup: ForecastingGroup;
+	ForecastingGroupItem: ForecastingGroupItem;
 	ForecastingObjectListSettings: ForecastingObjectListSettings;
 	ForecastingTypeObjectListSettings: ForecastingTypeObjectListSettings;
 	ForecastingObjectListLabelMapping: ForecastingObjectListLabelMapping;
@@ -23736,6 +29880,7 @@ export type ApiSchemaTypes = {
 	ForecastingCategoryMapping: ForecastingCategoryMapping;
 	WeightedSourceCategory: WeightedSourceCategory;
 	ForecastingDisplayedFamilySettings: ForecastingDisplayedFamilySettings;
+	ForecastingSubmissionSettings: ForecastingSubmissionSettings;
 	ForecastingTypeSettings: ForecastingTypeSettings;
 	OpportunityListFieldsLabelMapping: OpportunityListFieldsLabelMapping;
 	OpportunityListFieldsSelectedSettings: OpportunityListFieldsSelectedSettings;
@@ -23757,16 +29902,31 @@ export type ApiSchemaTypes = {
 	GatewayProviderPaymentMethodType: GatewayProviderPaymentMethodType;
 	GenAiFunction: GenAiFunction;
 	GenAiPlannerAttr: GenAiPlannerAttr;
-	GenAiPlanner: GenAiPlanner;
+	GenAiPlannerBundle: GenAiPlannerBundle;
+	GenAiPlannerAttrMapping: GenAiPlannerAttrMapping;
 	GenAiPlannerFunctionDef: GenAiPlannerFunctionDef;
-	GenAiPlugin: GenAiPlugin;
+	GenAiLocalPlugin: GenAiLocalPlugin;
+	AiPluginUtteranceDef: AiPluginUtteranceDef;
 	GenAiPluginFunctionDef: GenAiPluginFunctionDef;
+	GenAiPluginInstructionDef: GenAiPluginInstructionDef;
+	GenAiPlannerRuleExprAsgn: GenAiPlannerRuleExprAsgn;
+	GenAiPlannerRuleExprDef: GenAiPlannerRuleExprDef;
+	GenAiPlannerRuleExprCondition: GenAiPlannerRuleExprCondition;
+	GenAiPlugin: GenAiPlugin;
+	GenAiPromptTemplate: GenAiPromptTemplate;
+	GenAiPromptTemplateVersion: GenAiPromptTemplateVersion;
+	GenAiPromptTemplateGenerationConfig: GenAiPromptTemplateGenerationConfig;
+	GenAiPromptTemplateInput: GenAiPromptTemplateInput;
+	GenAiPromptTemplateDataProvider: GenAiPromptTemplateDataProvider;
+	GenAiPromptTemplateDataProviderParam: GenAiPromptTemplateDataProviderParam;
+	GenAiPromptTemplateActv: GenAiPromptTemplateActv;
 	GlobalPicklist: GlobalPicklist;
 	GlobalValueSet: GlobalValueSet;
 	GlobalValueSetTranslation: GlobalValueSetTranslation;
 	ValueTranslation: ValueTranslation;
 	GoogleAppsSettings: GoogleAppsSettings;
 	Group: Group;
+	HerokuAppLinkSettings: HerokuAppLinkSettings;
 	HighVelocitySalesSettings: HighVelocitySalesSettings;
 	HomePageComponent: HomePageComponent;
 	HomePageLayout: HomePageLayout;
@@ -23783,17 +29943,31 @@ export type ApiSchemaTypes = {
 	InboundNetworkConnProperty: InboundNetworkConnProperty;
 	IncidentMgmtSettings: IncidentMgmtSettings;
 	IndustriesAutomotiveSettings: IndustriesAutomotiveSettings;
+	IndustriesChannelPartnerInventorySettings: IndustriesChannelPartnerInventorySettings;
+	IndustriesConnectedServiceSettings: IndustriesConnectedServiceSettings;
 	IndustriesEinsteinFeatureSettings: IndustriesEinsteinFeatureSettings;
 	IndustriesEventOrchSettings: IndustriesEventOrchSettings;
 	IndustriesFieldServiceSettings: IndustriesFieldServiceSettings;
 	IndustriesManufacturingSettings: IndustriesManufacturingSettings;
 	IndustriesSettings: IndustriesSettings;
+	IndustriesUnifiedInventorySettings: IndustriesUnifiedInventorySettings;
+	InsPlcyCoverageSpecConfig: InsPlcyCoverageSpecConfig;
+	InsPlcyLineOfBusConfig: InsPlcyLineOfBusConfig;
+	InsPolicyLifecycleConfig: InsPolicyLifecycleConfig;
+	InsPolicyManagementConfig: InsPolicyManagementConfig;
+	InsRatePlanCmsnConfig: InsRatePlanCmsnConfig;
+	InsRatePlanTypeConfig: InsRatePlanTypeConfig;
 	InstalledPackage: InstalledPackage;
+	InsuranceBrokerageSettings: InsuranceBrokerageSettings;
 	IntegrationProviderDef: IntegrationProviderDef;
 	IntegrationProviderAttr: IntegrationProviderAttr;
 	InternalDataConnector: InternalDataConnector;
 	InternalOrganization: InternalOrganization;
+	InventoryReplenishmentSettings: InventoryReplenishmentSettings;
 	InventorySettings: InventorySettings;
+	InvocableActionExtension: InvocableActionExtension;
+	InvocableActionExtensionTarget: InvocableActionExtensionTarget;
+	InvocableActionExtensionTargetAttribute: InvocableActionExtensionTargetAttribute;
 	InvocableActionSettings: InvocableActionSettings;
 	IoTSettings: IoTSettings;
 	KeywordList: KeywordList;
@@ -23812,6 +29986,7 @@ export type ApiSchemaTypes = {
 	KnowledgeWorkOrderField: KnowledgeWorkOrderField;
 	KnowledgeWorkOrderLineItemFieldsSettings: KnowledgeWorkOrderLineItemFieldsSettings;
 	KnowledgeWorkOrderLineItemField: KnowledgeWorkOrderLineItemField;
+	LaborCostOptimizationSettings: LaborCostOptimizationSettings;
 	LanguageSettings: LanguageSettings;
 	Layout: Layout;
 	CustomConsoleComponents: CustomConsoleComponents;
@@ -23836,12 +30011,17 @@ export type ApiSchemaTypes = {
 	SummaryLayoutItem: SummaryLayoutItem;
 	LeadConfigSettings: LeadConfigSettings;
 	LeadConvertSettings: LeadConvertSettings;
+	LearningItemType: LearningItemType;
 	Letterhead: Letterhead;
 	LetterheadLine: LetterheadLine;
 	LetterheadHeaderFooter: LetterheadHeaderFooter;
 	LicenseDefinition: LicenseDefinition;
 	LicensedCustomPermissions: LicensedCustomPermissions;
 	LicensingSettings: LicensingSettings;
+	LifeSciConfigCategory: LifeSciConfigCategory;
+	LifeSciConfigRecord: LifeSciConfigRecord;
+	LifeSciConfigAssignment: LifeSciConfigAssignment;
+	LifeSciConfigFieldValue: LifeSciConfigFieldValue;
 	LightningBolt: LightningBolt;
 	LightningBoltFeatures: LightningBoltFeatures;
 	LightningBoltImages: LightningBoltImages;
@@ -23856,6 +30036,8 @@ export type ApiSchemaTypes = {
 	LightningMessageChannel: LightningMessageChannel;
 	LightningMessageField: LightningMessageField;
 	LightningOnboardingConfig: LightningOnboardingConfig;
+	LightningTypeBundle: LightningTypeBundle;
+	LightningTypeBundleResource: LightningTypeBundleResource;
 	LiveAgentSettings: LiveAgentSettings;
 	LiveChatAgentConfig: LiveChatAgentConfig;
 	AgentConfigAssignments: AgentConfigAssignments;
@@ -23904,12 +30086,20 @@ export type ApiSchemaTypes = {
 	MatchingRule: MatchingRule;
 	MatchingRuleItem: MatchingRuleItem;
 	MatchingRules: MatchingRules;
+	McpServerDefinition: McpServerDefinition;
+	McpServerPromptDefinition: McpServerPromptDefinition;
+	McpServerToolDefinition: McpServerToolDefinition;
+	McpServerToolApiDefinition: McpServerToolApiDefinition;
 	MeetingsSettings: MeetingsSettings;
 	MessagingChannel: MessagingChannel;
 	MessagingAutoResponse: MessagingAutoResponse;
+	MessagingChannelUsage: MessagingChannelUsage;
 	MessagingChannelCustomParameter: MessagingChannelCustomParameter;
 	MessagingChannelActionParameterMapping: MessagingChannelActionParameterMapping;
 	MessagingChannelParameterValueMapping: MessagingChannelParameterValueMapping;
+	EmbeddedMessagingChannel: EmbeddedMessagingChannel;
+	MessagingAuthorization: MessagingAuthorization;
+	MessagingKeyword: MessagingKeyword;
 	MessagingChannelStandardParameter: MessagingChannelStandardParameter;
 	MetadataGroup: MetadataGroup;
 	MfgProgramTemplate: MfgProgramTemplate;
@@ -23920,7 +30110,6 @@ export type ApiSchemaTypes = {
 	MktDataConnection: MktDataConnection;
 	MktDataConnectionCred: MktDataConnectionCred;
 	MktDataConnectionParam: MktDataConnectionParam;
-	MktDataConnectionSrcParam: MktDataConnectionSrcParam;
 	MktDataTranField: MktDataTranField;
 	MktDataTranObject: MktDataTranObject;
 	MktDatalakeSrcKeyQualifier: MktDatalakeSrcKeyQualifier;
@@ -23928,15 +30117,14 @@ export type ApiSchemaTypes = {
 	MlModelArtifact: MlModelArtifact;
 	MlModelInput: MlModelInput;
 	MlModelOutput: MlModelOutput;
+	MlParameterOverride: MlParameterOverride;
 	MlParameterDefinition: MlParameterDefinition;
 	MlModelConnection: MlModelConnection;
 	MlModelEndpoint: MlModelEndpoint;
 	MlModelOutputEndpoint: MlModelOutputEndpoint;
-	MlModelKit: MlModelKit;
-	MlActivatedModel: MlActivatedModel;
-	MlParameterOverride: MlParameterOverride;
 	MlModelSchema: MlModelSchema;
 	MobileApplicationDetail: MobileApplicationDetail;
+	MobileSecurityAssignment: MobileSecurityAssignment;
 	MobileSettings: MobileSettings;
 	DashboardMobileSettings: DashboardMobileSettings;
 	ModerationRule: ModerationRule;
@@ -23974,11 +30162,19 @@ export type ApiSchemaTypes = {
 	AppSettings: AppSettings;
 	NotificationChannels: NotificationChannels;
 	NotificationsSettings: NotificationsSettings;
+	NtfcnDefinition: NtfcnDefinition;
+	NtfcnCriteria: NtfcnCriteria;
+	NtfcnCondition: NtfcnCondition;
+	NtfcnChannelDef: NtfcnChannelDef;
+	NtfcnChannelActionDef: NtfcnChannelActionDef;
+	NtfcnChannelCont: NtfcnChannelCont;
+	NtfcnChannelRec: NtfcnChannelRec;
 	OauthCustomScope: OauthCustomScope;
 	OauthCustomScopeApp: OauthCustomScopeApp;
 	OauthOidcSettings: OauthOidcSettings;
 	OauthTokenExchangeHandler: OauthTokenExchangeHandler;
 	OauthTokenExchHandlerApp: OauthTokenExchHandlerApp;
+	ObjIntegProviderDefMapping: ObjIntegProviderDefMapping;
 	ObjectHierarchyRelationship: ObjectHierarchyRelationship;
 	ObjectLinkingSettings: ObjectLinkingSettings;
 	ObjectSourceTargetMap: ObjectSourceTargetMap;
@@ -24002,19 +30198,25 @@ export type ApiSchemaTypes = {
 	OmniInteractionAccessConfig: OmniInteractionAccessConfig;
 	OmniInteractionConfig: OmniInteractionConfig;
 	OmniScript: OmniScript;
+	AssessmentDefinitionMetadata: AssessmentDefinitionMetadata;
+	OmniAssessmentTaskMetadata: OmniAssessmentTaskMetadata;
+	OmniStudioSettings: OmniStudioSettings;
 	OmniSupervisorConfig: OmniSupervisorConfig;
+	OmniSpvsrConfigAIAgent: OmniSpvsrConfigAIAgent;
 	OmniSupervisorConfigAction: OmniSupervisorConfigAction;
 	OmniSupervisorConfigGroup: OmniSupervisorConfigGroup;
 	OmniSupervisorConfigProfile: OmniSupervisorConfigProfile;
 	OmniSupervisorConfigQueue: OmniSupervisorConfigQueue;
 	OmniSupervisorConfigSkill: OmniSupervisorConfigSkill;
 	OmniSupervisorConfigTab: OmniSupervisorConfigTab;
+	OmniSupervisorConfigUser: OmniSupervisorConfigUser;
 	OmniTrackingComponentDef: OmniTrackingComponentDef;
 	OmniTrackingGroup: OmniTrackingGroup;
 	OmniUiCard: OmniUiCard;
 	OpportunityScoreSettings: OpportunityScoreSettings;
 	OpportunitySettings: OpportunitySettings;
 	FindSimilarOppFilter: FindSimilarOppFilter;
+	OpptStageDescription: OpptStageDescription;
 	OrchestrationContext: OrchestrationContext;
 	OrchestrationContextDataset: OrchestrationContextDataset;
 	OrchestrationContextEvent: OrchestrationContextEvent;
@@ -24033,13 +30235,16 @@ export type ApiSchemaTypes = {
 	PathAssistantSettings: PathAssistantSettings;
 	PaymentGatewayProvider: PaymentGatewayProvider;
 	PaymentsSettings: PaymentsSettings;
+	PaymentsSharingSettings: PaymentsSharingSettings;
 	PermissionSet: PermissionSet;
+	PermissionSetAgentAccess: PermissionSetAgentAccess;
 	PermissionSetApplicationVisibility: PermissionSetApplicationVisibility;
 	PermissionSetApexClassAccess: PermissionSetApexClassAccess;
 	PermissionSetCustomMetadataTypeAccess: PermissionSetCustomMetadataTypeAccess;
 	PermissionSetCustomPermissions: PermissionSetCustomPermissions;
 	PermissionSetCustomSettingAccess: PermissionSetCustomSettingAccess;
 	DataspaceScopeAccess: DataspaceScopeAccess;
+	PermissionSetEmailRoutingAddressAccess: PermissionSetEmailRoutingAddressAccess;
 	PermissionSetExternalCredentialPrincipalAccess: PermissionSetExternalCredentialPrincipalAccess;
 	PermissionSetExternalDataSourceAccess: PermissionSetExternalDataSourceAccess;
 	PermissionSetFieldPermissions: PermissionSetFieldPermissions;
@@ -24047,6 +30252,7 @@ export type ApiSchemaTypes = {
 	PermissionSetObjectPermissions: PermissionSetObjectPermissions;
 	PermissionSetApexPageAccess: PermissionSetApexPageAccess;
 	PermissionSetRecordTypeVisibility: PermissionSetRecordTypeVisibility;
+	PermissionSetServicePresenceStatusAccess: PermissionSetServicePresenceStatusAccess;
 	PermissionSetTabSetting: PermissionSetTabSetting;
 	PermissionSetUserPermission: PermissionSetUserPermission;
 	MutingPermissionSet: MutingPermissionSet;
@@ -24066,6 +30272,12 @@ export type ApiSchemaTypes = {
 	SettingOverride: SettingOverride;
 	SettingItem: SettingItem;
 	SettingUsageDefinition: SettingUsageDefinition;
+	PolicyRuleDefinition: PolicyRuleDefinition;
+	PolicyRuleResourceDomain: PolicyRuleResourceDomain;
+	PolicyRuleDefinitionClauseConjunction: PolicyRuleDefinitionClauseConjunction;
+	PolicyRuleDefinitionCondition: PolicyRuleDefinitionCondition;
+	PolicyRuleValueSet: PolicyRuleValueSet;
+	PolicyRuleDefinitionSet: PolicyRuleDefinitionSet;
 	Portal: Portal;
 	PortalsSettings: PortalsSettings;
 	PostTemplate: PostTemplate;
@@ -24086,16 +30298,21 @@ export type ApiSchemaTypes = {
 	PricingActionParameters: PricingActionParameters;
 	PricingRecipe: PricingRecipe;
 	PricingRecipeTableMapping: PricingRecipeTableMapping;
+	PricingProcedureOutputMap: PricingProcedureOutputMap;
 	PrivacySettings: PrivacySettings;
+	ProcedureOutputResolution: ProcedureOutputResolution;
 	ProcessFlowMigration: ProcessFlowMigration;
 	ProductAttrDisplayConfig: ProductAttrDisplayConfig;
 	ProductAttributeSet: ProductAttributeSet;
 	ProductAttributeSetItem: ProductAttributeSetItem;
+	ProductCatalogManagementSettings: ProductCatalogManagementSettings;
+	ProductDiscoverySettings: ProductDiscoverySettings;
 	ProductFamilyUsage: ProductFamilyUsage;
 	ProductSettings: ProductSettings;
 	ProductSpecificationRecType: ProductSpecificationRecType;
 	ProductSpecificationType: ProductSpecificationType;
 	Profile: Profile;
+	ProfileAgentAccess: ProfileAgentAccess;
 	ProfileApplicationVisibility: ProfileApplicationVisibility;
 	ProfileCategoryGroupVisibility: ProfileCategoryGroupVisibility;
 	ProfileApexClassAccess: ProfileApexClassAccess;
@@ -24111,12 +30328,16 @@ export type ApiSchemaTypes = {
 	ProfileLoginIpRange: ProfileLoginIpRange;
 	ProfileApexPageAccess: ProfileApexPageAccess;
 	ProfileRecordTypeVisibility: ProfileRecordTypeVisibility;
+	ProfileServicePresenceStatusAccess: ProfileServicePresenceStatusAccess;
 	ProfileTabVisibility: ProfileTabVisibility;
 	ProfileUserPermission: ProfileUserPermission;
 	ProfilePasswordPolicy: ProfilePasswordPolicy;
 	ProfileSessionSetting: ProfileSessionSetting;
 	Prompt: Prompt;
 	PromptVersion: PromptVersion;
+	PublicKeyCertificate: PublicKeyCertificate;
+	PublicKeyCertificateSet: PublicKeyCertificateSet;
+	PublicKeyCertificateSetKey: PublicKeyCertificateSetKey;
 	Queue: Queue;
 	QueueMembers: QueueMembers;
 	PublicGroups: PublicGroups;
@@ -24132,6 +30353,7 @@ export type ApiSchemaTypes = {
 	QuickActionLayout: QuickActionLayout;
 	QuickActionLayoutColumn: QuickActionLayoutColumn;
 	QuickActionLayoutItem: QuickActionLayoutItem;
+	QuickActionParameters: QuickActionParameters;
 	QuickActionSendEmailOptions: QuickActionSendEmailOptions;
 	QuickTextSettings: QuickTextSettings;
 	QuoteSettings: QuoteSettings;
@@ -24174,10 +30396,13 @@ export type ApiSchemaTypes = {
 	RecordPageSettings: RecordPageSettings;
 	RedirectWhitelistUrl: RedirectWhitelistUrl;
 	ReferencedDashboard: ReferencedDashboard;
+	ReferralMarketingConfig: ReferralMarketingConfig;
 	RelationshipGraphDefinition: RelationshipGraphDefinition;
 	RelationshipGraphDefVersion: RelationshipGraphDefVersion;
+	ReleaseMgmtSettings: ReleaseMgmtSettings;
 	RemoteSiteSetting: RemoteSiteSetting;
 	Report: Report;
+	ReportAggregateFilter: ReportAggregateFilter;
 	ReportAggregate: ReportAggregate;
 	ReportBlockInfo: ReportBlockInfo;
 	ReportAggregateReference: ReportAggregateReference;
@@ -24204,18 +30429,15 @@ export type ApiSchemaTypes = {
 	ReportTypeColumn: ReportTypeColumn;
 	RestrictionRule: RestrictionRule;
 	RetailExecutionSettings: RetailExecutionSettings;
+	RetrievalSummaryDefinition: RetrievalSummaryDefinition;
+	RetrievalSummaryDefField: RetrievalSummaryDefField;
+	RetrievalSummaryDefObject: RetrievalSummaryDefObject;
 	RoleOrTerritory: RoleOrTerritory;
 	Role: Role;
 	Territory: Territory;
 	RuleLibraryDefinition: RuleLibraryDefinition;
-	RuleLibraryContextTag: RuleLibraryContextTag;
 	RulesetDefinition: RulesetDefinition;
 	RuleDefinition: RuleDefinition;
-	RuleAction: RuleAction;
-	RuleActionParameter: RuleActionParameter;
-	RuleFilterCriteria: RuleFilterCriteria;
-	RuleCondition: RuleCondition;
-	RuleReferenceVariable: RuleReferenceVariable;
 	SalesAgreementSettings: SalesAgreementSettings;
 	SalesWorkQueueSettings: SalesWorkQueueSettings;
 	SamlSsoConfig: SamlSsoConfig;
@@ -24226,6 +30448,13 @@ export type ApiSchemaTypes = {
 	ScoreRangeClassification: ScoreRangeClassification;
 	SearchCriteriaConfiguration: SearchCriteriaConfiguration;
 	SearchCustomization: SearchCustomization;
+	SearchCustomizationObjectOverride: SearchCustomizationObjectOverride;
+	SearchCustomizationExplicitFilter: SearchCustomizationExplicitFilter;
+	SearchCustomizationFieldOverride: SearchCustomizationFieldOverride;
+	SearchCustomizationRule: SearchCustomizationRule;
+	SearchCustomizationRuleValue: SearchCustomizationRuleValue;
+	SearchOrgWideObjectConfig: SearchOrgWideObjectConfig;
+	SearchOrgWideFieldConfig: SearchOrgWideFieldConfig;
 	SearchResultActionConfig: SearchResultActionConfig;
 	SearchSettings: SearchSettings;
 	SearchSettingsByObject: SearchSettingsByObject;
@@ -24241,13 +30470,16 @@ export type ApiSchemaTypes = {
 	ServiceAISetupField: ServiceAISetupField;
 	ServiceChannel: ServiceChannel;
 	ServiceChannelFieldPriority: ServiceChannelFieldPriority;
+	ServiceChannelStatusFieldMapping: ServiceChannelStatusFieldMapping;
 	ServiceCloudVoiceSettings: ServiceCloudVoiceSettings;
+	ServiceItsmIntelligenceUddSettings: ServiceItsmIntelligenceUddSettings;
 	ServicePresenceStatus: ServicePresenceStatus;
 	ServiceChannelStatus: ServiceChannelStatus;
 	ServiceProcess: ServiceProcess;
 	ServiceProcessAttribute: ServiceProcessAttribute;
 	ServiceProcessDependency: ServiceProcessDependency;
 	ServiceProcessItemGroup: ServiceProcessItemGroup;
+	ServiceScheduleConfig: ServiceScheduleConfig;
 	ServiceSetupAssistantSettings: ServiceSetupAssistantSettings;
 	SharingBaseRule: SharingBaseRule;
 	AccountSharingRuleSettings: AccountSharingRuleSettings;
@@ -24267,8 +30499,21 @@ export type ApiSchemaTypes = {
 	SkillType: SkillType;
 	SlackRecordLayout: SlackRecordLayout;
 	SocialCustomerServiceSettings: SocialCustomerServiceSettings;
+	SrvcMgmtObjCollabAppCnfg: SrvcMgmtObjCollabAppCnfg;
+	StageAssignment: StageAssignment;
+	StgAssignmentRuleCriteria: StgAssignmentRuleCriteria;
+	StgAssignmentRuleCond: StgAssignmentRuleCond;
+	StageDefinition: StageDefinition;
+	StageTransition: StageTransition;
+	StageCriteria: StageCriteria;
+	StageCondition: StageCondition;
+	StgFulfillmentStepDefGrp: StgFulfillmentStepDefGrp;
+	StgFulfillmentStepDef: StgFulfillmentStepDef;
+	StgFulfillmentStepDpndDef: StgFulfillmentStepDpndDef;
+	StageValue: StageValue;
 	StandardValueSet: StandardValueSet;
 	StandardValueSetTranslation: StandardValueSetTranslation;
+	StaticDynamicValMapping: StaticDynamicValMapping;
 	StnryAssetEnvSrcCnfg: StnryAssetEnvSrcCnfg;
 	StreamingAppDataConnector: StreamingAppDataConnector;
 	SubscriptionManagementSettings: SubscriptionManagementSettings;
@@ -24288,6 +30533,15 @@ export type ApiSchemaTypes = {
 	SvcCatalogItemAttrDetail: SvcCatalogItemAttrDetail;
 	SynonymDictionary: SynonymDictionary;
 	SystemNotificationSettings: SystemNotificationSettings;
+	Tag: Tag;
+	TagOption: TagOption;
+	TagProperty: TagProperty;
+	TagSet: TagSet;
+	TelemetryActionDefStep: TelemetryActionDefStep;
+	TelemetryActionDefinition: TelemetryActionDefinition;
+	TelemetryActnDefStepAttr: TelemetryActnDefStepAttr;
+	TelemetryDefinition: TelemetryDefinition;
+	TelemetryDefinitionVersion: TelemetryDefinitionVersion;
 	Territory2: Territory2;
 	FieldValue: FieldValue;
 	Territory2AccessLevel: Territory2AccessLevel;
@@ -24302,12 +30556,18 @@ export type ApiSchemaTypes = {
 	TimeSheetTemplate: TimeSheetTemplate;
 	TimeSheetTemplateAssignment: TimeSheetTemplateAssignment;
 	TimelineObjectDefinition: TimelineObjectDefinition;
+	TopLevelFTestMd1: TopLevelFTestMd1;
+	UnnamedChildFTestMd1: UnnamedChildFTestMd1;
+	SubUnnamedChildFTestMd1: SubUnnamedChildFTestMd1;
+	UnnamedChildFTestMd2: UnnamedChildFTestMd2;
 	TopicsForObjects: TopicsForObjects;
 	TrailheadSettings: TrailheadSettings;
+	TransactionProcessingType: TransactionProcessingType;
 	TransactionSecurityPolicy: TransactionSecurityPolicy;
 	TransactionSecurityAction: TransactionSecurityAction;
 	TransactionSecurityNotification: TransactionSecurityNotification;
 	Translations: Translations;
+	AiCoachAgentScnrDefTranslation: AiCoachAgentScnrDefTranslation;
 	BotBlockTranslation: BotBlockTranslation;
 	BotBlockVersionTranslation: BotBlockVersionTranslation;
 	BotDialogTranslation: BotDialogTranslation;
@@ -24318,10 +30578,16 @@ export type ApiSchemaTypes = {
 	BotTemplateTranslation: BotTemplateTranslation;
 	BotTranslation: BotTranslation;
 	BotVersionTranslation: BotVersionTranslation;
+	ConversationMessageDefinitionTranslation: ConversationMessageDefinitionTranslation;
+	ConversationMessageConstantValueTranslation: ConversationMessageConstantValueTranslation;
 	CustomApplicationTranslation: CustomApplicationTranslation;
 	CustomLabelTranslation: CustomLabelTranslation;
 	CustomPageWebLinkTranslation: CustomPageWebLinkTranslation;
 	CustomTabTranslation: CustomTabTranslation;
+	DataConnectorTranslation: DataConnectorTranslation;
+	DataConnectorAttributeTranslation: DataConnectorAttributeTranslation;
+	DataConnectorAttributeOptTranslation: DataConnectorAttributeOptTranslation;
+	DataConnectorErrorTranslation: DataConnectorErrorTranslation;
 	ExplainabilityMsgTemplateFieldTranslation: ExplainabilityMsgTemplateFieldTranslation;
 	FlowDefinitionTranslation: FlowDefinitionTranslation;
 	FlowTranslation: FlowTranslation;
@@ -24329,6 +30595,8 @@ export type ApiSchemaTypes = {
 	FlowChoiceUserInputTranslation: FlowChoiceUserInputTranslation;
 	FlowInputValidationRuleTranslation: FlowInputValidationRuleTranslation;
 	FlowCustomErrorMessageTranslation: FlowCustomErrorMessageTranslation;
+	FlowOrchestrationStageTranslation: FlowOrchestrationStageTranslation;
+	FlowOrchestrationStepTranslation: FlowOrchestrationStepTranslation;
 	FlowScreenTranslation: FlowScreenTranslation;
 	FlowScreenFieldTranslation: FlowScreenFieldTranslation;
 	FlowInputParameterTranslation: FlowInputParameterTranslation;
@@ -24345,9 +30613,13 @@ export type ApiSchemaTypes = {
 	ReportTypeSectionTranslation: ReportTypeSectionTranslation;
 	ReportTypeColumnTranslation: ReportTypeColumnTranslation;
 	ScontrolTranslation: ScontrolTranslation;
+	ServiceProcessAttributeTranslation: ServiceProcessAttributeTranslation;
+	ServiceProcessItemGroupTranslation: ServiceProcessItemGroupTranslation;
 	TrialOrgSettings: TrialOrgSettings;
 	UIObjectRelationConfig: UIObjectRelationConfig;
 	UIObjectRelationFieldConfig: UIObjectRelationFieldConfig;
+	UiFormatSpecificationSet: UiFormatSpecificationSet;
+	UiFormatSpecification: UiFormatSpecification;
 	UserAccessPolicy: UserAccessPolicy;
 	UserAccessPolicyAction: UserAccessPolicyAction;
 	UserAccessPolicyFilter: UserAccessPolicyFilter;
@@ -24358,12 +30630,14 @@ export type ApiSchemaTypes = {
 	StandardPermissionSet: StandardPermissionSet;
 	SettingValue: SettingValue;
 	UserManagementSettings: UserManagementSettings;
-	UserProfileSearchScope: UserProfileSearchScope;
 	UserProvisioningConfig: UserProvisioningConfig;
 	VehicleAssetEmssnSrcCnfg: VehicleAssetEmssnSrcCnfg;
 	VisualizationPlugin: VisualizationPlugin;
 	VisualizationResource: VisualizationResource;
 	VisualizationType: VisualizationType;
+	VoiceEngagementMediaFile: VoiceEngagementMediaFile;
+	VoiceEngagementMediaUsage: VoiceEngagementMediaUsage;
+	VoiceEngmtMediaFileAsgnt: VoiceEngmtMediaFileAsgnt;
 	VoiceSettings: VoiceSettings;
 	WarrantyLifecycleMgmtSettings: WarrantyLifecycleMgmtSettings;
 	WaveAnalyticAssetCollection: WaveAnalyticAssetCollection;
@@ -24399,6 +30673,7 @@ export type ApiSchemaTypes = {
 	WorkflowFieldUpdate: WorkflowFieldUpdate;
 	WorkflowFlowAction: WorkflowFlowAction;
 	WorkflowFlowActionParameter: WorkflowFlowActionParameter;
+	WorkflowFlowAutomation: WorkflowFlowAutomation;
 	WorkflowKnowledgePublish: WorkflowKnowledgePublish;
 	WorkflowOutboundMessage: WorkflowOutboundMessage;
 	WorkflowSend: WorkflowSend;
@@ -24422,4 +30697,7 @@ export type ApiSchemaTypes = {
 	UpdateMetadata: UpdateMetadata;
 	UpsertResult: UpsertResult;
 	LogInfo: LogInfo;
+	AiPlannerSurfaceDef: AiPlannerSurfaceDef;
+	RpaRobotPoolMetadata: RpaRobotPoolMetadata;
+	GenAiPlanner: GenAiPlanner;
 }

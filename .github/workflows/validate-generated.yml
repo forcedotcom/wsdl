@@ -1,0 +1,39 @@
+name: validate-generated
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate TypeScript from WSDL
+        run: yarn generate
+
+      - name: Check for uncommitted changes
+        run: |
+          if [[ -n $(git status --porcelain src/) ]]; then
+            echo "❌ Generated files are out of sync with WSDL files"
+            echo "The following files have changes:"
+            git status --porcelain src/
+            echo ""
+            echo "Run 'yarn generate' locally and commit the changes"
+            exit 1
+          else
+            echo "✅ Generated files are in sync with WSDL files"
+          fi

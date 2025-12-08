@@ -16,6 +16,7 @@
   "scripts": {
     "generate": "ts-node scripts/generate.ts",
     "lint": "eslint src --color --cache --cache-location .eslintcache --fix",
+    "prepare": "husky install",
     "prepack": "sf-prepack",
     "build": "tsc -p . --pretty",
     "test": "mocha test/**/*.test.ts"
@@ -44,8 +45,9 @@
   ],
   "devDependencies": {
     "@salesforce/dev-scripts": "^9.0.0",
-    "eslint-plugin-sf-plugin": "^1.18.3",
     "@types/xml2js": "^0.4.14",
+    "eslint-plugin-sf-plugin": "^1.18.3",
+    "husky": "^8.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "xml2js": "^0.6.2"
