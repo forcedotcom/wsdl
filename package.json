@@ -14,7 +14,6 @@
     "node": ">=18"
   },
   "scripts": {
-    "generate": "wireit",
     "prepare": "husky install",
     "prepack": "sf-prepack",
     "build": "wireit",
@@ -33,31 +32,74 @@
         ".tsbuildinfo"
       ],
       "dependencies": [
-        "lint"
+        "lint:apex",
+        "lint:metadata",
+        "lint:partner",
+        "lint:tooling"
       ]
     },
-    "lint": {
-      "command": "eslint src --color --cache --cache-location .eslintcache --fix && prettier --write src/ ",
+    "lint:apex": {
+      "command": "eslint src/apex.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/apex.ts",
       "clean": false,
       "files": [
-        "src/**/*.ts",
+        "src/apex.ts",
         "tsconfig.json",
         ".eslintrc.cjs",
         ".prettierrc.json"
       ],
       "dependencies": [
-        "generate"
+        "generate:apex"
       ],
       "output": [
-        "src/**/*.ts"
+        "src/apex.ts"
       ]
     },
-    "generate": {
+    "lint:metadata": {
+      "command": "eslint src/metadata.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/metadata.ts",
+      "clean": false,
+      "files": [
+        "src/metadata.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
       "dependencies": [
-        "generate:apex",
-        "generate:metadata",
-        "generate:partner",
+        "generate:metadata"
+      ],
+      "output": [
+        "src/metadata.ts"
+      ]
+    },
+    "lint:partner": {
+      "command": "eslint src/partner.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/partner.ts",
+      "clean": false,
+      "files": [
+        "src/partner.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
+        "generate:partner"
+      ],
+      "output": [
+        "src/partner.ts"
+      ]
+    },
+    "lint:tooling": {
+      "command": "eslint src/tooling.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/tooling.ts",
+      "clean": false,
+      "files": [
+        "src/tooling.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
         "generate:tooling"
+      ],
+      "output": [
+        "src/tooling.ts"
       ]
     },
     "generate:apex": {
