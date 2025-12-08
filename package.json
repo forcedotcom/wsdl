@@ -33,19 +33,24 @@
         ".tsbuildinfo"
       ],
       "dependencies": [
-        "format"
+        "lint"
       ]
     },
     "lint": {
-      "command": "eslint src --color --cache --cache-location .eslintcache --fix",
+      "command": "eslint src --color --cache --cache-location .eslintcache --fix && prettier --write src/ ",
+      "clean": false,
       "files": [
         "src/**/*.ts",
-        "tsconfig.json"
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
       ],
       "dependencies": [
         "generate"
       ],
-      "output": []
+      "output": [
+        "src/**/*.ts"
+      ]
     },
     "generate": {
       "dependencies": [
@@ -94,16 +99,6 @@
       "output": [
         "src/tooling.ts"
       ]
-    },
-    "format": {
-      "command": "prettier --write src/ ",
-      "dependencies": [
-        "lint"
-      ],
-      "files": [
-        "src/**/*.ts"
-      ],
-      "output": []
     }
   },
   "keywords": [
