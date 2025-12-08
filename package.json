@@ -19,7 +19,7 @@
     "prepare": "husky install",
     "prepack": "sf-prepack",
     "build": "tsc -p . --pretty",
-    "test": "mocha test/**/*.test.ts"
+    "test": "mocha"
   },
   "keywords": [
     "salesforce",
