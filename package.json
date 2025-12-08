@@ -1,7 +1,7 @@
 {
   "name": "@salesforce/types",
   "version": "1.5.0",
-  "description": "contains typescript types for salesforce objets",
+  "description": "contains typescript types for salesforce objects",
   "repository": "forcedotcom/wsdl",
   "exports": {
     "./apex": "./lib/apex.js",
@@ -15,11 +15,33 @@
   },
   "scripts": {
     "generate": "ts-node scripts/generate.ts",
-    "lint": "eslint src --color --cache --cache-location .eslintcache --fix",
+    "lint": "wireit",
     "prepare": "husky install",
     "prepack": "sf-prepack",
-    "build": "tsc -p . --pretty",
+    "build": "wireit",
     "test": "mocha"
+  },
+  "wireit": {
+    "build": {
+      "command": "tsc -p . --pretty --pretty",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**/*.ts",
+        "tsconfig.json"
+      ],
+      "output": [
+        "lib/**",
+        ".tsbuildinfo"
+      ]
+    },
+    "lint": {
+      "command": "eslint src --color --cache --cache-location .eslintcache --fix",
+      "files": [
+        "src/**/*.ts",
+        "tsconfig.json"
+      ],
+      "output": []
+    }
   },
   "keywords": [
     "salesforce",
@@ -50,7 +72,7 @@
     "husky": "^8.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
+    "wireit": "^0.14.12",
     "xml2js": "^0.6.2"
-  },
-  "dependencies": {}
+  }
 }
