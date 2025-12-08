@@ -10,4 +10,3 @@ import { convertWsdlToTypescript } from './parse';
 const wsdl = fs.readFileSync('./resources/partner.wsdl', 'utf-8');
 const ts = convertWsdlToTypescript(wsdl);
 fs.writeFileSync('./src/partner.ts', ts);
-

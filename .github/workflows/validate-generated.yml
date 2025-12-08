@@ -32,7 +32,7 @@ jobs:
             echo "The following files have semantic changes:"
             git diff src/
             echo ""
-            echo "Run 'yarn generate' locally and commit the changes"
+            echo "Run 'yarn build' locally and commit the changes"
             exit 1
           else
             echo "✅ Generated files are in sync with WSDL files"
