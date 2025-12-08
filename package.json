@@ -14,7 +14,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "generate": "ts-node scripts/generate.ts",
+    "generate": "wireit",
     "lint": "wireit",
     "prepare": "husky install",
     "prepack": "sf-prepack",
@@ -32,6 +32,9 @@
       "output": [
         "lib/**",
         ".tsbuildinfo"
+      ],
+      "dependencies": [
+        "generate"
       ]
     },
     "lint": {
@@ -41,6 +44,15 @@
         "tsconfig.json"
       ],
       "output": []
+    },
+    "generate": {
+      "command": "ts-node scripts/generate.ts",
+      "files": [
+        "resources/**/*.wsdl"
+      ],
+      "output": [
+        "src/**/*.ts"
+      ]
     }
   },
   "keywords": [
