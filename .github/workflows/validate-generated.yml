@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: yarn
 
       - name: Install dependencies
@@ -25,12 +25,15 @@ jobs:
       - name: Generate TypeScript from WSDL
         run: yarn generate
 
+      - name: Format generated files
+        run: yarn format
+
       - name: Check for uncommitted changes
         run: |
           if [[ -n $(git status --porcelain src/) ]]; then
             echo "❌ Generated files are out of sync with WSDL files"
-            echo "The following files have changes:"
-            git status --porcelain src/
+            echo "The following files have semantic changes:"
+            git diff src/
             echo ""
             echo "Run 'yarn generate' locally and commit the changes"
             exit 1

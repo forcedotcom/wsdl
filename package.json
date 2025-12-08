@@ -16,6 +16,7 @@
   "scripts": {
     "generate": "wireit",
     "lint": "wireit",
+    "format": "wireit",
     "prepare": "husky install",
     "prepack": "sf-prepack",
     "build": "wireit",
@@ -34,7 +35,8 @@
         ".tsbuildinfo"
       ],
       "dependencies": [
-        "generate"
+        "generate",
+        "format"
       ]
     },
     "lint": {
@@ -43,16 +45,31 @@
         "src/**/*.ts",
         "tsconfig.json"
       ],
+      "dependencies": [
+        "generate"
+      ],
       "output": []
     },
     "generate": {
       "command": "ts-node scripts/generate.ts",
+      "clean": "if-file-deleted",
       "files": [
         "resources/**/*.wsdl"
       ],
       "output": [
         "src/**/*.ts"
       ]
+    },
+    "format": {
+      "command": "prettier --write src/ && eslint src --fix",
+      "dependencies": [
+        "lint",
+        "generate"
+      ],
+      "files": [
+        "src/**/*.ts"
+      ],
+      "output": []
     }
   },
   "keywords": [
