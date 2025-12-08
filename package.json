@@ -22,7 +22,7 @@
   },
   "wireit": {
     "build": {
-      "command": "tsc -p . --pretty --pretty",
+      "command": "tsc -p . --pretty",
       "clean": "if-file-deleted",
       "files": [
         "src/**/*.ts",
