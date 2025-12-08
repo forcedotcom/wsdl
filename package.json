@@ -15,8 +15,6 @@
   },
   "scripts": {
     "generate": "wireit",
-    "lint": "wireit",
-    "format": "wireit",
     "prepare": "husky install",
     "prepack": "sf-prepack",
     "build": "wireit",
@@ -50,20 +48,57 @@
       "output": []
     },
     "generate": {
-      "command": "ts-node scripts/generate.ts",
+      "dependencies": [
+        "generate:apex",
+        "generate:metadata",
+        "generate:partner",
+        "generate:tooling"
+      ]
+    },
+    "generate:apex": {
+      "command": "ts-node scripts/generate-apex.ts",
       "clean": "if-file-deleted",
       "files": [
-        "resources/**/*.wsdl"
+        "resources/apex.wsdl"
       ],
       "output": [
-        "src/**/*.ts"
+        "src/apex.ts"
+      ]
+    },
+    "generate:metadata": {
+      "command": "ts-node scripts/generate-metadata.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/metadata.wsdl"
+      ],
+      "output": [
+        "src/metadata.ts"
+      ]
+    },
+    "generate:partner": {
+      "command": "ts-node scripts/generate-partner.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/partner.wsdl"
+      ],
+      "output": [
+        "src/partner.ts"
+      ]
+    },
+    "generate:tooling": {
+      "command": "ts-node scripts/generate-tooling.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/tooling.wsdl"
+      ],
+      "output": [
+        "src/tooling.ts"
       ]
     },
     "format": {
       "command": "prettier --write src/ ",
       "dependencies": [
-        "lint",
-        "generate"
+        "lint"
       ],
       "files": [
         "src/**/*.ts"

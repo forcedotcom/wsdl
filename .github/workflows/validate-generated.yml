@@ -23,10 +23,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Generate TypeScript from WSDL
-        run: yarn generate
-
-      - name: Format generated files
-        run: yarn format
+        run: yarn build
 
       - name: Check for uncommitted changes
         run: |
