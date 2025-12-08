@@ -35,7 +35,6 @@
         ".tsbuildinfo"
       ],
       "dependencies": [
-        "generate",
         "format"
       ]
     },
@@ -61,7 +60,7 @@
       ]
     },
     "format": {
-      "command": "prettier --write src/ && eslint src --fix",
+      "command": "prettier --write src/ ",
       "dependencies": [
         "lint",
         "generate"
