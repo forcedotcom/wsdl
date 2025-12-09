@@ -1,7 +1,7 @@
 {
   "name": "@salesforce/types",
   "version": "1.5.0",
-  "description": "contains typescript types for salesforce objets",
+  "description": "contains typescript types for salesforce objects",
   "repository": "forcedotcom/wsdl",
   "exports": {
     "./apex": "./lib/apex.js",
@@ -14,11 +14,134 @@
     "node": ">=18"
   },
   "scripts": {
-    "generate": "ts-node scripts/generate.ts",
-    "lint": "eslint src --color --cache --cache-location .eslintcache --fix",
+    "prepare": "husky install",
     "prepack": "sf-prepack",
-    "build": "tsc -p . --pretty",
-    "test": "mocha test/**/*.test.ts"
+    "build": "wireit",
+    "test": "mocha"
+  },
+  "wireit": {
+    "build": {
+      "command": "tsc -p . --pretty",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**/*.ts",
+        "tsconfig.json"
+      ],
+      "output": [
+        "lib/**",
+        ".tsbuildinfo"
+      ],
+      "dependencies": [
+        "lint:apex",
+        "lint:metadata",
+        "lint:partner",
+        "lint:tooling"
+      ]
+    },
+    "lint:apex": {
+      "command": "eslint src/apex.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/apex.ts",
+      "clean": false,
+      "files": [
+        "src/apex.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
+        "generate:apex"
+      ],
+      "output": [
+        "src/apex.ts"
+      ]
+    },
+    "lint:metadata": {
+      "command": "eslint src/metadata.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/metadata.ts",
+      "clean": false,
+      "files": [
+        "src/metadata.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
+        "generate:metadata"
+      ],
+      "output": [
+        "src/metadata.ts"
+      ]
+    },
+    "lint:partner": {
+      "command": "eslint src/partner.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/partner.ts",
+      "clean": false,
+      "files": [
+        "src/partner.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
+        "generate:partner"
+      ],
+      "output": [
+        "src/partner.ts"
+      ]
+    },
+    "lint:tooling": {
+      "command": "eslint src/tooling.ts --color --cache --cache-location .eslintcache --fix && prettier --write src/tooling.ts",
+      "clean": false,
+      "files": [
+        "src/tooling.ts",
+        "tsconfig.json",
+        ".eslintrc.cjs",
+        ".prettierrc.json"
+      ],
+      "dependencies": [
+        "generate:tooling"
+      ],
+      "output": [
+        "src/tooling.ts"
+      ]
+    },
+    "generate:apex": {
+      "command": "ts-node scripts/generate-apex.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/apex.wsdl"
+      ],
+      "output": [
+        "src/apex.ts"
+      ]
+    },
+    "generate:metadata": {
+      "command": "ts-node scripts/generate-metadata.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/metadata.wsdl"
+      ],
+      "output": [
+        "src/metadata.ts"
+      ]
+    },
+    "generate:partner": {
+      "command": "ts-node scripts/generate-partner.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/partner.wsdl"
+      ],
+      "output": [
+        "src/partner.ts"
+      ]
+    },
+    "generate:tooling": {
+      "command": "ts-node scripts/generate-tooling.ts",
+      "clean": "if-file-deleted",
+      "files": [
+        "resources/tooling.wsdl"
+      ],
+      "output": [
+        "src/tooling.ts"
+      ]
+    }
   },
   "keywords": [
     "salesforce",
@@ -44,11 +167,12 @@
   ],
   "devDependencies": {
     "@salesforce/dev-scripts": "^9.0.0",
-    "eslint-plugin-sf-plugin": "^1.18.3",
     "@types/xml2js": "^0.4.14",
+    "eslint-plugin-sf-plugin": "^1.18.3",
+    "husky": "^8.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
+    "wireit": "^0.14.12",
     "xml2js": "^0.6.2"
-  },
-  "dependencies": {}
+  }
 }
