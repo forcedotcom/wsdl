@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/forcedotcom/wsdl/compare/1.5.0...1.6.0) (2025-12-09)
+
+
+### Features
+
+* types updates from 258 wsdl changes W-20474756 ([#23](https://github.com/forcedotcom/wsdl/issues/23)) ([d8eea1d](https://github.com/forcedotcom/wsdl/commit/d8eea1ddafecce01e4b46c32c6535f8c05fe7a5f))
+
+
+
 # [1.5.0](https://github.com/forcedotcom/wsdl/compare/1.4.0...1.5.0) (2025-10-17)
 
 
