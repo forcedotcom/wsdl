@@ -1,3 +1,12 @@
+## [1.7.1](https://github.com/forcedotcom/wsdl/compare/1.7.0...1.7.1) (2026-02-19)
+
+
+### Bug Fixes
+
+* fix partner.wsdl ([#25](https://github.com/forcedotcom/wsdl/issues/25)) ([b3c7ce6](https://github.com/forcedotcom/wsdl/commit/b3c7ce651324065b67191f36af43ecac82709ad1))
+
+
+
 # [1.7.0](https://github.com/forcedotcom/wsdl/compare/1.6.0...1.7.0) (2026-02-19)
 
 
