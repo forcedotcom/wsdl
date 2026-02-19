@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/forcedotcom/wsdl/compare/1.6.0...1.7.0) (2026-02-19)
+
+
+### Features
+
+* update wsdl files for 260 release ([bace92d](https://github.com/forcedotcom/wsdl/commit/bace92d35acfc34027bb8b74d3948dc82cf40d20))
+
+
+
 # [1.6.0](https://github.com/forcedotcom/wsdl/compare/1.5.0...1.6.0) (2025-12-09)
 
 
